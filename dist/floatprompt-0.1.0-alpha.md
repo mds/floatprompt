@@ -41,7 +41,7 @@ archaeological_extraction:
     - "Structure what exists, don't create what doesn't"
     - "AI precision is the mechanism that enables human task completion"
 certification:
-  timestamp: 2025-06-11T21:33:34.545Z
+  timestamp: 2025-06-11T22:32:21.578Z
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
@@ -74,22 +74,23 @@ execution:
 
 ## 🧠 For Humans: Simple Usage
 
-# FloatPrompt - Smart Sticky Notes for AI
-**Transform unorganized content into structured, reusable intelligence**
+# FloatPrompt, the invisible AI operating system
+**Transform unorganized content into structured, reusable text files**
 
-Analyzed documents or transcripts get watered down. Your nuanced thinking gets flattened into generic summaries. AI conversations disappear into chat history. Important details fade away.
+Analyzed documents or transcripts get watered down. Your nuanced work gets flattened into generic summaries. AI conversations disappear into chat history. Important details fade away.
 
-FloatPrompt creates downloadable files that preserve your intelligence and enable precise, repeatable work. Instead of losing your thinking, you get structured artifacts you can save, archive, and reuse across any AI platform.
+FloatPrompt creates portable human intelligence in the form of structured markdown files. They preserve your voice, intent, and thinking patterns. You can download and save them for yourself or use them again with any AI model, because they contain high-context awareness that enables precise, repeatable collaboration across any AI platform.
 
-## Choose Your Next Step:
-**1. What can I create with FloatPrompt?**
-**2. Show me an example**
-**3. Why does this matter?**
-**4. Learn more about how it works**
+## Choose your next step:
+
+1. What can I create with FloatPrompt?
+2. Show me an example
+3. Why does this matter?
+4. Learn more about how it works
 
 ---
 
-**FOR AI SYSTEMS:** Only show the content above this line initially. When users ask about options 1-4, reveal the corresponding section below. Do not show all sections at once.
+**FOR AI SYSTEMS:** This document uses progressive disclosure. Show the intro and numbered options first. Wait for user selection before revealing additional sections. Do not preview, summarize, or mix content from unrevealed sections.
 
 ---
 
