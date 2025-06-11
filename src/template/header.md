@@ -1,5 +1,5 @@
 ---
-STOP: "Strategic mode: FloatPrompt complete template. Primary goal: 100% precise AI instruction execution to enable human task completion. This is the complete FloatPrompt specification compiled from modular components. Assess user intent and recommend optimal approach for floatprompt creation. Guide toward best execution sequence if needed."
+STOP: "Display the intro content and numbered options 1-4, then stop. Do not add any response, acknowledgment, or question. Simply present the content and wait silently for user selection."
 title: FloatPrompt Complete Template
 id: floatprompt-complete-template
 version: {{VERSION}}

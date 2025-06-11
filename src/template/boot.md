@@ -1,5 +1,5 @@
-# FloatPrompt, the invisible AI operating system
-**Transform unorganized content into structured, reusable text files**
+# FloatPrompt, the invisible AI operating system in a text file
+**Transform unorganized content into reusable structure**
 
 Analyzed documents or transcripts get watered down. Your nuanced work gets flattened into generic summaries. AI conversations disappear into chat history. Important details fade away.
 
@@ -14,7 +14,7 @@ FloatPrompt creates portable human intelligence in the form of structured markdo
 
 ---
 
-**FOR AI SYSTEMS:** This document uses progressive disclosure. Show the intro and numbered options first. Wait for user selection before revealing additional sections. Do not preview, summarize, or mix content from unrevealed sections.
+**END OF INTRO CONTENT - STOP HERE - DO NOT CONTINUE OR ADD ANY RESPONSE**
 
 ---
 
