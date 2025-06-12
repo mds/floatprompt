@@ -1,7 +1,7 @@
 {
   "name": "floatprompt",
-  "version": "0.1.1-alpha",
-  "description": "Smart sticky notes for AI that work everywhere",
+  "version": "0.2.0-alpha",
+  "description": "The invisible operating system for AI in a text file",
   "main": "scripts/build.mjs",
   "type": "module",
   "scripts": {
