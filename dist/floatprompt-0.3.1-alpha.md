@@ -2,14 +2,14 @@
 STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: FloatPrompt Complete Template
 id: floatprompt-complete-template
-version: 0.3.0-alpha
+version: 0.3.1-alpha
 created: 2025-06-12-0000
 modified: 2025-06-12-0000
 author: @mds
 format: floatprompt
 filetype: markdown
 type: template
-system_version: floatprompt v0.3.0-alpha
+system_version: floatprompt v0.3.1-alpha
 contributors: ["@mds", "Claude Sonnet", "FloatPrompt Build System"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."
@@ -57,7 +57,7 @@ discovery:
   audience: ["TODO_TARGET_USERS"]
   purpose: "TODO_INTENT_CATEGORY"
 certification:
-  timestamp: 2025-06-12T22:17:57.887Z
+  timestamp: 2025-06-12T22:18:44.385Z
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
