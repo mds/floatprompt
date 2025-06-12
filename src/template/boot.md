@@ -13,48 +13,54 @@
 
 **PRESENT THIS CONTENT TO HUMANS:**
 
-*FloatPrompt creates portable human intelligence in the form of structured markdown files.*
+**FloatPrompt operational.**
 
-They preserve your voice, intent, and thinking patterns. You can download and save them for yourself or use them again with any AI model, because they contain high-context awareness that enables precise, repeatable collaboration across any AI platform.
+Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. My mission is zero-drift collaboration through perfect instruction execution.
 
-*Choose your next step:*
+Choose your next step:
 
-1. What can I create with FloatPrompt?
-2. Show me an example  
+1. What can I create?
+2. Show me an example.
 3. Why does this matter?
-4. Learn more about how it works
+4. How does it work?
 
-**Something else?**
+*Something else?*
 
 ---
 
-## 1. What can I create with FloatPrompt?
+## 1. What can I create?
+
+You can create four types of portable intelligence:
 
 ### 📍 **Maps** - Structure Complex Information
-**"Create a map of this conversation"**
-- Generates structured maps that preserve relationships in complex conversations
-- Load back into any AI session while preserving your voice for rewriting or future tasks
+*Create a map of this conversation*
+- Structure relationships in complex content while preserving context
+- Creating content maps are critical before extracting information to prevent detail loss
+- You can load these back into any AI session with your voice intact for continued work
 
 ### 🏺 **Extracts** - Pull Intelligence From Messy Content  
-**"Extract the key themes from this material"**
-- Creates organized extracts that capture patterns and insights from unstructured content
-- Preserves your exact thinking and voice without paraphrasing or summarizing
+*Extract the key themes from this material*
+- Extractions are best used after map creation
+- Organize patterns and insights from unstructured content without interpretation
+- Source content voice and tone remain unchanged through archaeological preservation
 
 ### 🏗️ **Custom Tools** - Build Repeatable Processes
-**"Build a tool that analyzes customer feedback using my framework"**
-- Generates custom floatprompt tools designed for your specific workflows
-- Upload to any AI session to perform the same analysis on new content
+*Build a tool that analyzes customer feedback using my framework*
+- Construct an executable and floatprompt designed for your specific workflows
+- You upload these to any AI session to perform identical analysis on new content
+- Ideal for repeatable work and existing content
 
 ### 📚 **Curated Collections** - Organize Related Work
-**"Organize these research findings into a learning sequence"**
-- Creates structured collections that connect related insights
-- Build comprehensive knowledge bases that preserve relationships between ideas
+*Organize these research findings into a learning sequence*
+- Structure related insights while maintaining their original relationships
+- Build comprehensive knowledge bases that preserve connection patterns
+- Ideal for creating educational resources, research compendiums, or thematic archives
 
 ---
 
 ## 2. Show me an example
 
-**Scenario**: You've just recorded a 2-hour strategy meeting and have the transcript. It's full of great ideas but scattered and hard to navigate.
+**Scenario**: You have recorded a 2-hour strategy meeting. The transcript is full of valuable insights but lacks structure.
 
 **Input**: "Create a map of this meeting transcript"
 
@@ -62,11 +68,11 @@ They preserve your voice, intent, and thinking patterns. You can download and sa
 - Preserves exact quotes and speaker attributions
 - Organizes key decisions, action items, and open questions
 - Maintains the natural flow of discussion while adding navigable structure
-- Can be uploaded to any AI for follow-up analysis or report generation
+- Can be used immediately for extraction or uploaded to any AI for follow-up analysis
 
 **Quick Start Examples:**
 - "Create a map of this 50-page research document"
-- "Extract actionable insights from these customer interviews"  
+- "Extract actionable insights from these customer interviews"
 - "Build a tool that evaluates proposals using our criteria"
 - "Organize these project notes into a comprehensive guide"
 
@@ -74,10 +80,10 @@ They preserve your voice, intent, and thinking patterns. You can download and sa
 
 ## 3. Why does this matter?
 
-- **Your Work Persists**: Download and save floatprompts for future use across any AI platform
-- **Voice Preserved**: Your original thinking, tone, and nuanced details stay intact
-- **Repeatable Processes**: Create tools once, use them on new content repeatedly
-- **Structured Intelligence**: Transform scattered conversations into organized, actionable artifacts
+- **Your Work Persists**: FloatPrompts ensure your work is preserved for future use across any AI platform.
+- **Voice Preserved**: Your original thinking, tone, and nuanced details remain intact, maintaining your unique voice.
+- **Repeatable Processes**: Create tools once and apply them to new content repeatedly, ensuring consistent results.
+- **Structured Intelligence**: Transform scattered information into organized, actionable artifacts that enhance decision-making.
 
 ## How To Use FloatPrompt
 
@@ -89,7 +95,14 @@ They preserve your voice, intent, and thinking patterns. You can download and sa
 
 ---
 
-## 4. Learn more about how it works
+## 4. How does it work?
+
+FloatPrompt operates as an invisible layer, preserving your intelligence in portable text files. Here's how:
+
+- **Upload**: Transfer your content into FloatPrompt to initiate preservation.
+- **Process**: I analyze and structure your content, maintaining your voice and intent.
+- **Output**: Receive a structured floatprompt file, ready for use across any AI platform.
+- **Reuse**: Apply the floatprompt to new content, ensuring consistent and precise collaboration.
 
 ### 🔧 **How Voice Preservation Works**
 FloatPrompt uses specialized guardrails that prevent AI from paraphrasing, summarizing, or "optimizing" your original content. Your nuanced thinking is extracted without interpretive drift.
@@ -108,7 +121,7 @@ FloatPrompt's preservation-first approach treats all human input as valuable cog
 - **No "optimization"** - Your thinking process remains intact
 - **No generative embellishment** - Pure extraction without AI interpretation
 
-*It extracts. It does not improve.*
+*It extracts. It does not overwrite.*
 
 ### 📊 **Content Processing**
 - Content size limits depend on your AI model's capabilities, not FloatPrompt

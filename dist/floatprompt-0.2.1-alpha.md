@@ -2,14 +2,14 @@
 STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: FloatPrompt Complete Template
 id: floatprompt-complete-template
-version: 0.2.0-alpha
+version: 0.2.1-alpha
 created: 2025-06-12-0000
 modified: 2025-06-12-0000
 author: @mds
 format: floatprompt
 filetype: markdown
 type: template
-system_version: floatprompt v0.2.0-alpha
+system_version: floatprompt v0.2.1-alpha
 contributors: ["@mds", "Claude Sonnet", "FloatPrompt Build System"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."
@@ -45,7 +45,7 @@ archaeological_extraction:
     - "Structure what exists, don't create what doesn't"
     - "AI precision is the mechanism that enables human task completion"
 certification:
-  timestamp: 2025-06-12T18:11:40.897Z
+  timestamp: 2025-06-12T18:12:24.940Z
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
