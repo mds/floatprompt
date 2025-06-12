@@ -10,21 +10,22 @@
 
 ## ⚡ Quick Reference - Compilation Order
 
-1. `header.md` (frontmatter template)
-2. `body.md` (includes `boot.md`)
-3. `config.md`
-4. `execution.md`
-5. `voice.md`
-6. `types.md`
-7. `modes.md`
-8. `chaining.md`
-9. `structure.md`
-10. `discovery.md`
-11. `validation.md`
-12. `enforcement.md`
-13. `naming.md`
-14. `metadata.md`
-15. `footer.md` (includes attribution and licensing)
+1. `header.md` 
+2. `boot.md` 
+3. `body.md` 
+4. `config.md`
+5. `execution.md`
+6. `voice.md`
+7. `types.md`
+8. `modes.md`
+9. `chaining.md`
+10. `structure.md`
+11. `discovery.md`
+12. `validation.md`
+13. `enforcement.md`
+14. `naming.md`
+15. `metadata.md`
+16. `footer.md` 
 
 ---
 
@@ -50,13 +51,24 @@ This specification defines the canonical compilation order for assembling all fl
 - **Integration**: Compiled into document header with build-time variable substitution
 - **Dependencies**: None (foundational)
 
-#### **body.md** (User Interface + AI Instructions)
-- **Position**: Document opening
-- **Function**: User-facing interface and core AI behavioral instructions
-- **Integration**: Includes `boot.md` via directive, compiled into document body
+### 🚀 **Phase 2: Boot Sequence**
+
+#### **boot.md** (AI Instructions for Human Interface)
+- **Position**: Immediately after frontmatter (before template structure)
+- **Function**: Self-contained AI behavioral instructions for initial user interaction
+- **Integration**: Standalone component that tells AI exactly what to show humans on first use
+- **Architecture**: Clean separation between AI instructions (boot.md) and human content (within boot.md)
+- **Dependencies**: None (completely self-contained)
+
+### 🏗️ **Phase 3: Template Structure**
+
+#### **body.md** (Core Template Structure)
+- **Position**: After boot instructions
+- **Function**: Core template structure and deep system specifications
+- **Integration**: Compiled into document body (no longer includes boot.md)
 - **Dependencies**: header.md
 
-### ⚙️ **Phase 2: Core System Components**
+### ⚙️ **Phase 4: Core System Components**
 
 #### **config.md** (Configuration Documentation)
 - **Position**: Configuration reference section
@@ -94,7 +106,7 @@ This specification defines the canonical compilation order for assembling all fl
 - **Integration**: Advanced operational methodology
 - **Dependencies**: Core modes (builds on operational foundation)
 
-### 🧱 **Phase 3: Structure Components**
+### 🧱 **Phase 5: Structure Components**
 
 #### **structure.md** (Template Structure)
 - **Position**: Body template section
@@ -108,7 +120,7 @@ This specification defines the canonical compilation order for assembling all fl
 - **Integration**: Relationship metadata system
 - **Dependencies**: Body structure (enhances with discovery fields)
 
-### 🔐 **Phase 4: Validation Components**
+### 🔐 **Phase 6: Validation Components**
 
 #### **validation.md** (Deployment Validation Checklist)
 - **Position**: Pre-deployment verification section
@@ -122,7 +134,7 @@ This specification defines the canonical compilation order for assembling all fl
 - **Integration**: Runtime compliance checking and rule enforcement
 - **Dependencies**: Validation framework from validation.md
 
-### 📁 **Phase 5: Convention Components**
+### 📁 **Phase 7: Convention Components**
 
 #### **naming.md** (Naming Rules)
 - **Position**: File naming section
@@ -148,7 +160,7 @@ This specification defines the canonical compilation order for assembling all fl
 
 ### **Critical Dependencies**
 - **header.md** → All other components (foundational template structure)
-- **body.md** → **boot.md** (includes boot.md via directive)
+- **boot.md** → None (self-contained AI behavioral instructions for human interface)
 - **FloatPrompt goals** → execution.md (SYSTEM AUTHORITY: human task completion through AI precision)
 - **execution.md** → voice.md (context before constraints)
 - **voice.md** → All content components (AI precision mechanism that enables human success)
@@ -191,7 +203,7 @@ This specification defines the canonical compilation order for assembling all fl
 ## 📝 Implementation Notes
 
 **For Template Builders:**
-- Follow exact sequence 1-15 for component integration (header.md + body.md + 12 component files + footer.md)
+- Follow exact sequence 1-16 for component integration (header.md + body.md + boot.md + 12 component files + footer.md)
 - Verify dependencies before each component addition
 - Maintain system compliance throughout assembly
 - Use validation.md for final verification

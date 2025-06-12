@@ -1,5 +1,5 @@
 ---
-STOP: "Display the intro content and numbered options 1-4, then stop. Do not add any response, acknowledgment, or question. Simply present the content and wait silently for user selection."
+STOP: "Execute the boot sequence instructions exactly as specified in the AI Systems Boot Sequence section below. Present the numbered options, then stop completely with no additional response."
 title: FloatPrompt Complete Template
 id: floatprompt-complete-template
 version: {{VERSION}}

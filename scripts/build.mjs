@@ -145,10 +145,20 @@ async function buildFloatPrompt() {
     throw new Error('Failed to read footer.md - archaeological extraction requires source template');
   }
   
+  // Add boot.md right after body.md
+  const bootPath = path.join('./src/template', 'boot.md');
+  const bootContent = await readComponent(bootPath);
+  
+  if (!bootContent) {
+    throw new Error('Failed to read boot.md - archaeological extraction requires source template');
+  }
+
   // Compile final template with AI Precision Optimized structure
   const finalTemplate = [
     await extractFloatPromptFrontmatter(),
     await extractFloatPromptBody(),
+    bootContent,
+    '',
     ...compiledSections,
     footerContent
   ].join('\n');

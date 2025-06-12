@@ -1,6 +1,6 @@
 {
   "name": "floatprompt",
-  "version": "0.1.0-alpha",
+  "version": "0.1.1-alpha",
   "description": "Smart sticky notes for AI that work everywhere",
   "main": "scripts/build.mjs",
   "type": "module",

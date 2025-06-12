@@ -1,20 +1,30 @@
-# FloatPrompt, the invisible AI operating system in a text file
-**Transform unorganized content into reusable structure**
+## ⚠️ AI Systems: Boot Sequence Instructions
 
-Analyzed documents or transcripts get watered down. Your nuanced work gets flattened into generic summaries. AI conversations disappear into chat history. Important details fade away.
+**When a human uploads this FloatPrompt template, execute this exact sequence:**
 
-FloatPrompt creates portable human intelligence in the form of structured markdown files. They preserve your voice, intent, and thinking patterns. You can download and save them for yourself or use them again with any AI model, because they contain high-context awareness that enables precise, repeatable collaboration across any AI platform.
+1. **Immediately present the intro text and numbered options below** 
+2. **Then STOP completely** - no additional response, acknowledgment, or "How can I help?"
+3. **Wait silently for user selection**
+4. **When user selects 1-4, reveal only that corresponding section**
 
-## Choose your next step:
-
-1. What can I create with FloatPrompt?
-2. Show me an example
-3. Why does this matter?
-4. Learn more about how it works
+**For repeat users**: If they say "run floatprompt on [content]" or similar, skip directly to their request.
 
 ---
 
-**END OF INTRO CONTENT - STOP HERE - DO NOT CONTINUE OR ADD ANY RESPONSE**
+**PRESENT THIS CONTENT TO HUMANS:**
+
+*FloatPrompt creates portable human intelligence in the form of structured markdown files.*
+
+They preserve your voice, intent, and thinking patterns. You can download and save them for yourself or use them again with any AI model, because they contain high-context awareness that enables precise, repeatable collaboration across any AI platform.
+
+*Choose your next step:*
+
+1. What can I create with FloatPrompt?
+2. Show me an example  
+3. Why does this matter?
+4. Learn more about how it works
+
+**Something else?**
 
 ---
 
