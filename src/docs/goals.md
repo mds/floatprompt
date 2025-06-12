@@ -47,6 +47,7 @@ Human experience unchanged - upload file, give natural instructions, get better 
 - **📋 Creating new components** → See [Active Development Principles](#-active-development-principles)
 - **✅ Validating components** → See [Implementation Success Criteria](#-implementation-success-criteria)
 - **🎨 Making design/architecture choices** → See [Meta-Compliance (Next.js-Level Design)](#️-meta-compliance-nextjs-level-design)
+- **💰 Making resource/budget decisions** → See [AI Ingestion Budget Guidelines](#ai-ingestion-budget-guidelines)
 - **⚖️ Resolving conflicts** → Use "When in doubt: Choose AI precision over human convenience"
 - **📖 Understanding the system** → Continue reading below
 
@@ -161,6 +162,16 @@ AI precision is the number one priority that actually helps humans achieve their
 - Secondary goal (human task completion) is achieved through precise AI execution
 - Tertiary goal (human intelligence preservation) provides optimization guidance within primary constraints
 - The system exists to achieve perfect AI precision that enables human intelligence, not replace human agency
+
+**AI Ingestion Budget Guidelines:**
+- **Target Comfort Zone**: 80-120KB total floatprompt file size for optimal AI processing
+- **Current Status**: ~77KB baseline with ~20-40KB growth capacity remaining
+- **Budget Allocation Priority**: AI precision enhancement (PRIMARY GOAL) > human task completion (SECONDARY GOAL) > intelligence preservation features (TERTIARY GOAL)
+- **Warning Threshold**: Avoid exceeding 150KB without explicit human approval and ingestion testing
+- **Quality Over Quantity**: Prefer precise, essential behavioral instructions over comprehensive but diluted specifications
+- **Optimization Principle**: Every added instruction must demonstrably improve AI precision or be removed
+- **Cross-Platform Consideration**: Budget must accommodate various AI model context limits (Claude, ChatGPT, Gemini)
+- **Performance Monitoring**: Track actual ingestion performance and adjust budget if processing lag detected
 
 ## 🛡️ Safety & Compliance
 
