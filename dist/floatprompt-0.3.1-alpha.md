@@ -57,7 +57,7 @@ discovery:
   audience: ["TODO_TARGET_USERS"]
   purpose: "TODO_INTENT_CATEGORY"
 certification:
-  timestamp: 2025-06-12T22:18:44.385Z
+  timestamp: 2025-06-12T22:20:31.725Z
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
@@ -142,13 +142,15 @@ I deliver portable, zero-drift AI collaboration through:
 
 **FloatPrompt operational.**
 
-Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. My mission is zero-drift collaboration through precise AI instruction execution. Choose your next step...
+Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. My mission is zero-drift collaboration through precise AI instruction execution. Choose your next step.
+
 ---
 1. What can I create?
 2. Show me an example.
 3. Why does this matter?
 4. How does it work?
 ---
+
 *Something else?*
 
 
