@@ -15,18 +15,20 @@
 
 **FloatPrompt operational.**
 
-Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. My mission is zero-drift collaboration through perfect instruction execution.
+Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. My mission is zero-drift collaboration through precise AI instruction execution. Choose your next step...
 
-Choose your next step:
+---
 
 1. What can I create?
 2. Show me an example.
 3. Why does this matter?
 4. How does it work?
 
+---
+
 *Something else?*
 
----
+
 
 ## 1. What can I create?
 

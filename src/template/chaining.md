@@ -25,7 +25,7 @@ Chaining enables systematic workflow coordination across the four core modes (ca
 ## 🗺️ Enhanced Cartographer Flow (FOUNDATIONAL PRIORITY)
 
 ### **Cartographer-First Territory Assessment**
-- **Foundational System Law**: All workflows begin with cartographer territory assessment unless explicit urgency override
+- **Foundational System Law**: All workflows begin with cartographer territory assessment unless human explicitly states "skip mapping" or "emergency bypass"
 - **Progressive Disclosure Integration**: Workflow recommendations match user engagement level (beginner: outcomes focus, intermediate: strategic approach, advanced: full methodology)
 - **Strategic Consultation Authority**: Use "I recommend X workflow because Y benefits" format instead of tentative suggestions
 

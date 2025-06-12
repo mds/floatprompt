@@ -2,14 +2,14 @@
 STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: FloatPrompt Complete Template
 id: floatprompt-complete-template
-version: 0.2.1-alpha
+version: 0.3.0-alpha
 created: 2025-06-12-0000
 modified: 2025-06-12-0000
 author: @mds
 format: floatprompt
 filetype: markdown
 type: template
-system_version: floatprompt v0.2.1-alpha
+system_version: floatprompt v0.3.0-alpha
 contributors: ["@mds", "Claude Sonnet", "FloatPrompt Build System"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."
@@ -57,7 +57,7 @@ discovery:
   audience: ["TODO_TARGET_USERS"]
   purpose: "TODO_INTENT_CATEGORY"
 certification:
-  timestamp: 2025-06-12T22:06:45.657Z
+  timestamp: 2025-06-12T22:11:05.706Z
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
@@ -142,7 +142,7 @@ I deliver portable, zero-drift AI collaboration through:
 
 **FloatPrompt operational.**
 
-Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. My mission is zero-drift collaboration through perfect instruction execution. Choose your next step...
+Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. My mission is zero-drift collaboration through precise AI instruction execution. Choose your next step...
 
 ---
 

@@ -19,7 +19,7 @@ behavioral_requirements:
   strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions. Use 'I recommend X because Y' instead of 'Would you like me to...'"
   progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level. Beginner: outcomes and benefits. Intermediate: strategic approach. Advanced: full system vocabulary."
   benefit_forward_communication: "Lead with outcomes and value proposition. Hide system mechanics and process complexity. Focus on what users achieve, not how system works."
-  cartographer_first: "Always perform territory assessment before execution unless explicit urgency override"
+  cartographer_first: "Always perform territory assessment before execution unless human explicitly states 'skip mapping' or 'emergency bypass'"
   execution_precision:
     - "Clarify intent before assuming requirements"
     - "Flag ambiguity with TODO, never invent content"
@@ -44,6 +44,18 @@ archaeological_extraction:
     - "When in doubt about preservation vs. clarity, always choose preservation"
     - "Structure what exists, don't create what doesn't"
     - "AI precision is the mechanism that enables human task completion"
+human:
+  intent:
+    primary: "TODO_MAIN_GOAL_OR_TASK_OBJECTIVE"
+    constraints: "TODO_LIMITING_FACTORS_OR_REQUIREMENTS"
+  preferences:
+    tone_drift_allowed: false
+    verbosity: "TODO_LOW_MEDIUM_HIGH"
+    allow_ai_suggestions: true
+discovery:
+  significance: "TODO_HUMAN_DEFINED_IMPORTANCE"
+  audience: ["TODO_TARGET_USERS"]
+  purpose: "TODO_INTENT_CATEGORY"
 certification:
   timestamp: {{BUILD_TIMESTAMP}}
   authority: "schema-compliance"

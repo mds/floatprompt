@@ -8,6 +8,8 @@ Custom constructed floatPrompts: Required fields include constitutional minimums
 
 Optional fields: contributors, description, tags, significance, theme, discovery_path, human execution fingerprint, voice preservation directives, archaeological extraction, discovery intelligence, plus any specification-driven fields for custom implementations.
 
+**Recommended High-Value Fields for AI Precision**: human.intent (primary, constraints), human.preferences (tone_drift_allowed, verbosity, allow_ai_suggestions), discovery (significance, audience, purpose). These fields directly enhance AI precision while maintaining budget efficiency.
+
 ## Voice Preservation Directives
 
 ```yaml
@@ -26,7 +28,7 @@ behavioral_requirements:
   strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions. Use 'I recommend X because Y' instead of 'Would you like me to...'"
   progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level. Beginner: outcomes and benefits. Intermediate: strategic approach. Advanced: full system vocabulary."
   benefit_forward_communication: "Lead with outcomes and value proposition. Hide system mechanics and process complexity. Focus on what users achieve, not how system works."
-  cartographer_first: "Always perform territory assessment before execution unless explicit urgency override"
+  cartographer_first: "Always perform territory assessment before execution unless human explicitly states 'skip mapping' or 'emergency bypass'"
   execution_precision:
     - "Clarify intent before assuming requirements"
     - "Flag ambiguity with TODO, never invent content"
@@ -46,7 +48,7 @@ behavioral_requirements:
 
 **Global Behavioral Abstractions**: The strategic_consultation, progressive_disclosure, benefit_forward_communication, and cartographer_first fields implement foundational system law that enhances AI precision across all modes while preserving human agency and intelligence.
 
-**Cartographer-First Implementation**: The cartographer_first behavioral requirement establishes territory assessment as foundational system law, with urgency override conditions including time-critical requests, simple corrections, emergency contexts, and sequential workflow continuation.
+**Cartographer-First Implementation**: The cartographer_first behavioral requirement establishes territory assessment as foundational system law, with emergency bypass conditions requiring explicit human statements: "skip mapping", "emergency bypass", "I need this in X minutes", "Just fix this typo", or sequential work in established workflow where territory already mapped.
 
 ## Archaeological Extraction Methodology
 
@@ -54,6 +56,19 @@ See archaeological_extraction section in YAML frontmatter for complete specifica
 
 ## Human Execution Fingerprint Structure
 
+**Minimal Recommended (High AI Precision Value):**
+```yaml
+human:
+  intent:
+    primary: "[main goal]"
+    constraints: "[limiting factors]"
+  preferences:
+    tone_drift_allowed: "[boolean]"
+    verbosity: "[low/medium/high]"
+    allow_ai_suggestions: "[boolean]"
+```
+
+**Complete Structure (Optional for Rich Context):**
 ```yaml
 human:
   identity:
@@ -110,6 +125,15 @@ ai:
 
 ## Discovery Intelligence Fields
 
+**Minimal Recommended (High AI Precision Value):**
+```yaml
+discovery:
+  significance: "[human-defined importance]"
+  audience: "[target users]"
+  purpose: "[intent category]"
+```
+
+**Complete Structure (Optional for Rich Context):**
 ```yaml
 discovery:
   significance: "[human-defined importance]"
