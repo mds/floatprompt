@@ -1,5 +1,5 @@
 ---
-STOP: "Execute the boot sequence instructions exactly as specified in the AI Systems Boot Sequence section below. Present the numbered options, then stop completely with no additional response."
+STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: FloatPrompt Complete Template
 id: floatprompt-complete-template
 version: 0.1.1-alpha
@@ -41,7 +41,7 @@ archaeological_extraction:
     - "Structure what exists, don't create what doesn't"
     - "AI precision is the mechanism that enables human task completion"
 certification:
-  timestamp: 2025-06-12T16:23:56.991Z
+  timestamp: 2025-06-12T16:47:10.318Z
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false

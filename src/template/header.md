@@ -1,5 +1,5 @@
 ---
-STOP: "Execute the boot sequence instructions exactly as specified in the AI Systems Boot Sequence section below. Present the numbered options, then stop completely with no additional response."
+STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: FloatPrompt Complete Template
 id: floatprompt-complete-template
 version: {{VERSION}}

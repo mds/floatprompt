@@ -220,7 +220,7 @@ This specification defines the canonical compilation order for assembling all fl
 
 ### Prerequisites
 - `../docs/goals.md` - System foundation
-- `_component-template.md` - Assembly methodology
+- `_template.md` - Assembly methodology
 
 ### Next Steps
 - Use this order for final template compilation
@@ -231,7 +231,7 @@ This specification defines the canonical compilation order for assembling all fl
 - All component files follow this compilation sequence
 - `header.md` serves as foundational template structure
 - Template building blocks: `header.md`, `body.md`, `boot.md`, `footer.md`
-- System development guidance: `_goals.md`, `_guide.md`, `_order.md` (not compiled)
+- System development guidance: `../docs/goals.md`, `_template.md`, `_build.md` (not compiled)
 
 ---
 

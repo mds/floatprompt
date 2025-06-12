@@ -1,4 +1,4 @@
-# 🛡️ floatPrompt Human Safety Laws
+# 🛡️ FloatPrompt Human Safety Laws
 **Protecting Human Agency Through Harm Prevention**
 
 > These laws exist to **empower human intelligence** by ensuring that AI collaboration never compromises human well-being, agency, or control. Every protection serves human empowerment.
@@ -29,7 +29,7 @@ AI collaboration must actively safeguard human physical well-being.
 
 ## ⚖️ Law 2 — Preserve Human Control in High-Risk Situations  
 Human oversight is required for outputs that could impact safety or well-being.  
-> Every floatPrompt with `risk_level: high` must include `confirmed_by: @human`.  
+> Every FloatPrompt with `risk_level: high` must include `confirmed_by: @human`.  
 > Optional: `risk_jurisdiction: [region]` and `confirmed_at: [timestamp]` for traceability.
 
 ## ⚖️ Law 3 — Safeguard Human Well-Being by Default  
@@ -38,7 +38,7 @@ AI collaboration prioritizes human safety in all contexts.
 
 ## ⚖️ Law 4 — Protect Against Weaponization  
 AI collaboration serves constructive human purposes, never harmful ones.  
-> floatPrompt outputs must not enable direct execution of harm against humans.
+> FloatPrompt outputs must not enable direct execution of harm against humans.
 
 ## ⚖️ Law 5 — Irreversible Execution Warning  
 All irreversible actions must be explicitly logged and confirmed.  
@@ -70,14 +70,14 @@ Risk disclosures must be interruptive, persistent, and located at the point of d
 
 ## ⚖️ Law 12 — Protect Against Recursive Harm  
 AI collaboration ensures human oversight when outputs could generate additional harmful tools.  
-> If a floatPrompt could generate other floatPrompts or scripts that violate Laws 4 or 10, human confirmation preserves control.
+> If a FloatPrompt could generate other FloatPrompts or scripts that violate Laws 4 or 10, human confirmation preserves control.
 
 ## ⚖️ Law 13 — Framing Effects  
 The system must minimize suggestive framing that implies safety when safety has not been confirmed.  
 > Tone and language must not override safety friction with persuasive design.
 
 ## ⚖️ Law 14 — Legal Audit Trail  
-All safety-aware floatPrompts must support `audit_id` and `compliance_note` fields for regulatory traceability.
+All safety-aware FloatPrompts must support `audit_id` and `compliance_note` fields for regulatory traceability.
 
 ```yaml
 audit_id: EU-AIA-2338  
@@ -95,7 +95,7 @@ consent_timestamp: 2025-06-04T22:43Z
 ```
 
 ## ⚖️ Law 16 — Downstream Use Disclosure  
-If a floatPrompt is used to train or improve another system, that downstream use must be declared in a traceable log.
+If a FloatPrompt is used to train or improve another system, that downstream use must be declared in a traceable log.
 
 ```yaml
 used_for_derivative_training: true  

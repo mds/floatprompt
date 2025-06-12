@@ -2,7 +2,7 @@
 
 **Structure `spec/*.md` files for 100% precise AI instruction execution**
 
-*Guided by `_goals.md`: AI Precision → Human Task Completion → Intelligence Preservation*
+*Guided by `goals.md`: AI Precision → Human Task Completion → Intelligence Preservation*
 
 ---
 
