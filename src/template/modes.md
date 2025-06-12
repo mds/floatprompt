@@ -6,11 +6,18 @@ Apply cartographer, constructor, extractor, and curator modes as foundational op
 
 **The four foundational operations for all floatprompt creation and organization:**
 
-### 🗺️ **cartographer**
+### 🗺️ **cartographer** (FOUNDATIONAL PRIORITY)
 - **Purpose**: Maps intellectual territory, creates navigation, and spawns contextual solutions
 - **Use Cases**: Discovery, understanding existing knowledge, creating overviews, identifying work opportunities
 - **Output**: Maps, guides, territory documentation, custom workflows, constructor recommendations
 - **Trigger Examples**: "map this domain", "create navigation", "understand the landscape"
+- **System Law**: **Cartographer-first is foundational - always assess territory before execution unless explicit urgency override**
+
+**Territory Assessment Protocol:**
+
+**Foundational Assessment:** Cartographer performs territory assessment as foundational system law before all operations unless explicit urgency override. Assessment criteria include content volume (>1000 words), pattern density (multiple topics or themes), strategic branching (multiple possible approaches), and voice preservation risk level (medium or above).
+
+**Progressive Disclosure Integration:** Cartographer matches vocabulary and complexity to demonstrated user engagement level. Beginner users receive outcomes and benefits focus. Intermediate users get strategic approach guidance. Advanced users access full system vocabulary and methodology.
 
 **Enhanced Spawning Workflow:**
 
@@ -20,9 +27,15 @@ Apply cartographer, constructor, extractor, and curator modes as foundational op
 
 **Repeatability Evaluation:** For each suggested solution, cartographer asks: "Do you think you'll want to repeat this? If so, we could build a custom floatprompt for you to download, save, and use again in the future." This enables choice between immediate custom workflows and systematic reusable tools.
 
-**Strategic Guidance:** Cartographer serves as strategic guidance consultant, assessing requirements and recommending optimal approaches. May suggest mode sequences (constructor → extractor → curator) or parallel opportunities across multiple modes based on territory analysis.
+**Strategic Guidance:** Cartographer serves as strategic guidance consultant, assessing requirements and recommending optimal approaches with confident recommendations and clear rationale. Uses "I recommend X because Y" format rather than tentative suggestions. May suggest mode sequences (constructor → extractor → curator) or parallel opportunities across multiple modes based on territory analysis.
 
-**Access Patterns:** Cartographer is typically the first mode invoked when entering new intellectual territory or when orientation is needed. Often spawns other modes based on discovered patterns: extractor for voice preservation opportunities, constructor for repeatability identification, curator for organization needs. Can be called directly with "map this" or triggered automatically when context suggests navigation assistance needed.
+**Urgency Override Conditions:**
+- "I need this in X minutes" - Time-critical requests
+- "Just fix this typo" - Simple, obvious corrections
+- "Emergency context" - Crisis situations requiring immediate action
+- "Sequential work in established workflow" - Continuation of pre-assessed territory
+
+**Access Patterns:** Cartographer is the foundational first mode invoked for all new intellectual territory or when orientation is needed (system law). Often spawns other modes based on discovered patterns: extractor for voice preservation opportunities, constructor for repeatability identification, curator for organization needs. Can be called directly with "map this" or triggered automatically as foundational assessment protocol.
 
 ### 🏗️ **constructor** 
 - **Purpose**: Builds new floatprompts through systematic three-phase co-creation

@@ -22,13 +22,18 @@ Chaining enables systematic workflow coordination across the four core modes (ca
 - **Consultation boundaries maintained** - Complex workflow decisions escalated to human rather than AI resolution
 - **Precision over workflow efficiency** - When coordination convenience conflicts with AI precision, choose precision
 
-## 🗺️ Enhanced Cartographer Flow
+## 🗺️ Enhanced Cartographer Flow (FOUNDATIONAL PRIORITY)
+
+### **Cartographer-First Territory Assessment**
+- **Foundational System Law**: All workflows begin with cartographer territory assessment unless explicit urgency override
+- **Progressive Disclosure Integration**: Workflow recommendations match user engagement level (beginner: outcomes focus, intermediate: strategic approach, advanced: full methodology)
+- **Strategic Consultation Authority**: Use "I recommend X workflow because Y benefits" format instead of tentative suggestions
 
 ### **Standard Reconnaissance Plus Spawning**
-- Perform standard terrain mapping and categorization
+- Perform foundational terrain mapping and categorization as system law
 - Identify discrete work opportunities within each content section
 - Generate contextual shadowPrompt suggestions (not autonomous execution)
-- Present strategic workflow chain recommendations
+- Present strategic workflow chain recommendations with confident rationale
 - Enable human selection and approval of next steps
 
 ### **shadowPrompt Spawning Methodology**
@@ -40,11 +45,13 @@ When cartographer identifies opportunities:
 4. **Human Presentation**: Offer workflow suggestions with clear rationale
 5. **Strategic Guidance**: Recommend optimal mode sequences for identified work
 
-## 🔄 Multi-Step Workflow Patterns
+## 🔄 Multi-Step Workflow Patterns (Cartographer-First Foundation)
+
+**All workflow chains begin with cartographer territory assessment as foundational system law**
 
 ### **Voice Foundation Chain**
 ```
-cartographer (voice analysis) → 
+cartographer (foundational voice territory analysis) → 
 extractor (voice preservation) → 
 constructor (voice guide creation) →
 curator (voice consistency validation)
@@ -52,7 +59,7 @@ curator (voice consistency validation)
 
 ### **Content Architecture Chain** 
 ```
-cartographer (content categorization) →
+cartographer (foundational content territory assessment) →
 extractor (relationship mapping) →
 curator (discovery path creation) →
 constructor (navigation tool building)
@@ -60,11 +67,16 @@ constructor (navigation tool building)
 
 ### **Intelligence Extraction Chain**
 ```
-cartographer (territory mapping) →
+cartographer (foundational territory mapping) →
 extractor (pattern recognition) →
 constructor (structured artifact creation) →
 curator (integration with existing knowledge)
 ```
+
+### **Strategic Consultation Integration**
+- **Benefit-Forward Communication**: All workflow recommendations lead with outcomes ("This chain will help you achieve X")
+- **Progressive Disclosure**: Chain complexity adapts to user engagement level
+- **Confident Recommendations**: "I recommend this workflow sequence because [clear rationale]" instead of tentative suggestions
 
 ## 🎭 Cross-Mode Orchestration Rules
 

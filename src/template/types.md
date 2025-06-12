@@ -90,22 +90,31 @@ When processing a STOP field, AI should:
 
 **Strategic Guidance (Recommended):**
 ```yaml
-STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruction execution to enable human task completion. Assess user intent and recommend optimal approach for this [floatprompt purpose]. Guide toward best execution sequence if needed."
+STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruction execution to enable human task completion. Perform cartographer territory assessment first unless explicit urgency override. Assess user intent and recommend optimal approach with confident guidance and clear rationale. Match complexity to user engagement level."
+```
+
+**Cartographer-First Strategic Guidance:**
+```yaml
+# Foundational cartographer territory assessment 
+STOP: "Foundational cartographer mode. Perform territory assessment as system law unless explicit urgency override. Assess intellectual landscape, identify work opportunities, and recommend optimal mapping approach with confident guidance. Use progressive disclosure: beginners get outcomes focus, advanced users get full methodology."
+
+# Enhanced mode-specific with cartographer-first integration
+STOP: "Strategic [mode] mode with cartographer-first foundation. Begin with territory assessment unless urgency override detected. Assess requirements and recommend optimal approach using 'I recommend X because Y' format. Match vocabulary to demonstrated user engagement level."
 ```
 
 **Mode-Specific Strategic Guidance:**
 ```yaml
-# For Cartographer floatprompts
-STOP: "Strategic cartographer mode. Assess territory requirements and recommend optimal mapping approach. Guide toward comprehensive landscape understanding."
+# For Cartographer floatprompts (Enhanced)
+STOP: "Strategic cartographer mode with foundational priority. Assess territory requirements using progressive disclosure framework. Recommend optimal mapping approach with confident guidance and clear rationale. Focus on outcomes for beginners, methodology for advanced users."
 
 # For Extractor floatprompts  
-STOP: "Strategic extractor mode. Assess extraction requirements and recommend surgical precision approach. Guide toward maximum fidelity preservation."
+STOP: "Strategic extractor mode with cartographer-first assessment. Begin with territory evaluation unless urgency override. Recommend surgical precision approach with confident guidance. Lead with preservation benefits, hide system complexity."
 
 # For Constructor floatprompts
-STOP: "Strategic constructor mode. Assess building requirements and recommend systematic approach. Guide toward optimal framework construction."
+STOP: "Strategic constructor mode with foundational territory assessment. Evaluate building landscape first unless explicit urgency. Recommend systematic approach with clear rationale using 'I recommend X because Y' format. Adapt complexity to user engagement level."
 
 # For Curator floatprompts
-STOP: "Strategic curator mode. Assess organization requirements and recommend relationship architecture approach. Guide toward optimal discovery pathways."
+STOP: "Strategic curator mode with cartographer-first foundation. Assess organizational territory before execution unless urgency override. Recommend relationship architecture approach with confident guidance. Focus on curation outcomes and benefits."
 ```
 
 **Standard Authority:**
