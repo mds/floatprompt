@@ -1,3 +1,4 @@
+<!-- structure.md -->
 ## Structure FloatPrompt Bodies Through Standard Markdown Template
 
 Apply standardized markdown template ensuring 100% precise AI instruction execution with complete human readability and voice preservation.

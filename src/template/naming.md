@@ -1,3 +1,4 @@
+<!-- naming.md -->
 ## Apply Archival Naming Rules and Casing Integrity
 
 Execute file naming conventions and canonical term preservation ensuring archaeological integrity and discovery optimization.

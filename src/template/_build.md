@@ -1,4 +1,5 @@
-# FloatPrompt Compilation Order
+<!-- _build.md -->
+## Execute FloatPrompt Creation with 100% Precision
 
 **Definitive assembly sequence for all floatprompt modular components**
 
@@ -96,7 +97,7 @@ This specification defines the canonical compilation order for assembling all fl
 
 #### **modes.md** (Operational Foundation)
 - **Position**: Core operations section
-- **Function**: Four foundational operations (cartographer, constructor, extractor, curator)
+- **Function**: Three foundational operations (map, build, extract)
 - **Integration**: Operational methodology
 - **Dependencies**: Voice preservation principles
 

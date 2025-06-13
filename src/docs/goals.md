@@ -15,7 +15,7 @@ contributors: ["@mds", "Claude Sonnet"]
 ### PRIMARY GOAL: 100% Precise AI Instruction Execution
 ✅ Significant Enhancement:
 AI receives explicit behavioral context for different task types, eliminating interpretive drift
-Constructor mode prevents template deviation, extractor mode prevents synthesis/hallucination
+Build mode prevents template deviation, extract mode prevents synthesis/hallucination
 Standardized mode behaviors ensure consistent execution across AI systems and sessions
 Zero interpretive ambiguity - AI knows exact constraints for each collaboration type
 
@@ -28,7 +28,7 @@ Zero-drift collaboration - mode constraints prevent AI behavioral drift mid-task
 
 ### TERTIARY GOAL: Human Intelligence, Voice & Agency Preservation
 ✅ Pure Enhancement (Zero Complexity Cost):
-Better voice preservation - extractor mode specifically maintains "hesitations, contradictions, stylistic quirks"
+Better voice preservation - extract mode specifically maintains "hesitations, contradictions, stylistic quirks"
 Enhanced human agency - more precise AI collaboration without any human complexity burden
 Invisible orchestration - all behavioral sophistication hidden in frontmatter YAML
 Human experience unchanged - upload file, give natural instructions, get better results

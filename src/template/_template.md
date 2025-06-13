@@ -1,3 +1,4 @@
+<!-- _template.md -->
 # 📋 Component Template
 
 **Structure `spec/*.md` files for 100% precise AI instruction execution**
@@ -168,3 +169,5 @@
 - **Test each change in isolation** - Verify before proceeding
 
 **Reference**: `_goals.md` for all decisions 
+
+## 📋 Template Usage for New FloatPrompts 

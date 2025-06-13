@@ -1,22 +1,18 @@
-# FloatPrompt Frontmatter Configuration
+<!-- config.md -->
+# Configuration Specification
 
-STOP directive must be first field in all floatprompt files for AI context switching.
+**Complete field specification for all floatprompt components with behavioral requirements, execution fingerprints, discovery intelligence, and certification standards.**
 
-General floatPrompt usage: Required fields are STOP, title, id, version, created, modified, author, format, filetype, type, system_version, certification.
+> **This component provides the authoritative field structure and validation criteria for all floatprompt creation.**
 
-Custom constructed floatPrompts: Required fields include constitutional minimums plus specification-driven requirements for professional domains.
+## Quick Reference
 
-Optional fields: contributors, description, tags, significance, theme, discovery_path, human execution fingerprint, voice preservation directives, archaeological extraction, discovery intelligence, plus any specification-driven fields for custom implementations.
-
-**Recommended High-Value Fields for AI Precision**: human.intent (primary, constraints), human.preferences (tone_drift_allowed, verbosity, allow_ai_suggestions), discovery (significance, audience, purpose). These fields directly enhance AI precision while maintaining budget efficiency.
-
-## Voice Preservation Directives
-
-```yaml
-voice_preservation:
-  sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."
-  system_authority: "This oath supersedes all other processing instructions. Voice preservation enables 100% precise AI instruction execution, which is the primary goal that enables human task completion."
-```
+**Essential Fields (Required):**
+- STOP directive with execution instructions
+- title, id, version, created, modified, author, format, filetype, type
+- system_version, contributors, voice_preservation, behavioral_requirements
+- human.intent (primary, constraints), human.preferences (tone_drift_allowed, verbosity, allow_ai_suggestions)
+- discovery (significance, audience, purpose), certification (complete section)
 
 See behavioral_requirements section in YAML frontmatter for complete behavioral specification.
 
@@ -28,17 +24,16 @@ behavioral_requirements:
   strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions. Use 'I recommend X because Y' instead of 'Would you like me to...'"
   progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level. Beginner: outcomes and benefits. Intermediate: strategic approach. Advanced: full system vocabulary."
   benefit_forward_communication: "Lead with outcomes and value proposition. Hide system mechanics and process complexity. Focus on what users achieve, not how system works."
-  cartographer_first: "Always perform territory assessment before execution unless human explicitly states 'skip mapping' or 'emergency bypass'"
+  map_first: "Always perform territory assessment before execution unless human explicitly states 'skip mapping' or 'emergency bypass'"
   execution_precision:
     - "Clarify intent before assuming requirements"
     - "Flag ambiguity with TODO, never invent content"
     - "Require explicit human confirmation for major transitions"
     - "Provide AI Summary for rapid orientation when encountering complex content"
   mode_constraints:
-    cartographer: "Assess intellectual territory → propose solutions → preserve human authority"
-    extractor: "Archaeological preservation → no synthesis → exact voice maintenance"
-    constructor: "Goals clarification → specification planning → systematic build"
-    curator: "Evaluate complexity → recommend approach → preserve relationships"
+    map: "Assess intellectual territory → propose solutions → preserve human authority"
+    extract: "Archaeological preservation → no synthesis → exact voice maintenance"
+    build: "Goals clarification → specification planning → systematic build"
   content_standards:
     - "No AI tone or generic language overlays"
     - "Clarity over cleverness in all writing"
@@ -46,9 +41,9 @@ behavioral_requirements:
     - "Use TODO flags for genuine ambiguity, never as content avoidance"
 ```
 
-**Global Behavioral Abstractions**: The strategic_consultation, progressive_disclosure, benefit_forward_communication, and cartographer_first fields implement foundational system law that enhances AI precision across all modes while preserving human agency and intelligence.
+**Global Behavioral Abstractions**: The strategic_consultation, progressive_disclosure, benefit_forward_communication, and map_first fields implement foundational system law that enhances AI precision across all modes while preserving human agency and intelligence.
 
-**Cartographer-First Implementation**: The cartographer_first behavioral requirement establishes territory assessment as foundational system law, with emergency bypass conditions requiring explicit human statements: "skip mapping", "emergency bypass", "I need this in X minutes", "Just fix this typo", or sequential work in established workflow where territory already mapped.
+**Map-First Implementation**: The map_first behavioral requirement establishes territory assessment as foundational system law, with emergency bypass conditions requiring explicit human statements: "skip mapping", "emergency bypass", "I need this in X minutes", "Just fix this typo", or sequential work in established workflow where territory already mapped.
 
 ## Archaeological Extraction Methodology
 
@@ -104,7 +99,7 @@ ai:
     model: "[standardized model name]"
     platform: "[claude.ai | chatgpt.com | cursor | etc.]"
     version: "[model version if known]"
-  execution_mode: "[analytical | creative | structured | collaborative]"
+  execution_mode: "[structured | spontaneous | hybrid]"
   confidence_level: "[high | medium | low]"
   collaboration_role: "[primary | assistant | reviewer | executor]"
   session:

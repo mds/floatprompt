@@ -1,3 +1,4 @@
+<!-- footer.md -->
 ## Apply Universal Footer and Licensing Requirements
 
 Execute standard attribution template ensuring Creative Commons compliance, creator recognition, and intellectual property protection across all floatprompt documents.

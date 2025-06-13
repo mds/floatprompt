@@ -1,3 +1,4 @@
+<!-- enforcement.md -->
 ## Enforce System Authority Through Runtime Compliance Rules
 
 Apply automated validation logic and enforcement rules ensuring goal hierarchy compliance, contributor integrity, and strategic guidance authority.

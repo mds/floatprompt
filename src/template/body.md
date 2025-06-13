@@ -1,3 +1,4 @@
+<!-- body.md -->
 # 🎯 FloatPrompt Complete Template
 
 **I am a portable AI instruction set designed to achieve maximum precision for human task completion. Upload me, then say "run floatprompt on [your content]" to activate precise AI collaboration.**

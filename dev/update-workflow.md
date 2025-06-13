@@ -2,14 +2,14 @@
 STOP: "Development workflow guidance. Primary goal: provide comprehensive instructions for creating and executing system updates using the FloatPrompt development infrastructure. Guide developers through the complete update lifecycle from creation to execution."
 title: Update Workflow Guide
 id: update-workflow-guide
-version: {{VERSION}}
+version: @latest
 created: 2025-06-12-0000
 modified: 2025-06-13-0000
 author: @mds
 format: floatprompt
 filetype: markdown
 type: guide
-system_version: floatprompt v{{VERSION}}
+system_version: floatprompt v@latest
 contributors: ["@mds", "ChatGPT"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise."

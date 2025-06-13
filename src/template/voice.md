@@ -1,3 +1,4 @@
+<!-- voice.md -->
 ## Preserve Human Voice Through Archaeological Extraction
 
 Apply voice preservation oath and archaeological extraction principles to maintain 100% fidelity to original human intelligence and cognitive fingerprint.

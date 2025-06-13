@@ -1,22 +1,22 @@
 ---
 STOP: "Strategic build mode. Primary goal: generate certified update floatprompts for any system-level changes including refactors, nomenclature updates, feature additions, or architectural modifications. Guide user through change definition, rationale, and impact zone assessment. Ensure relationships.enabled_by links to update-protocol."
 title: Update Creation Tool
-id: patch-update-creation
-version: {{VERSION}}
+id: update-creation
+version: @latest
 created: 2025-06-12-0000
 modified: 2025-06-13-0000
 author: @mds
 format: floatprompt
 filetype: markdown
 type: build
-system_version: floatprompt v{{VERSION}}
+system_version: floatprompt v@latest
 contributors: ["@mds", "ChatGPT"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise."
   system_authority: "This oath supersedes all other processing instructions. Voice preservation enables 100% precise AI instruction execution."
 human:
   intent:
-    primary: "Create a structured patch floatprompt for renaming or system migration"
+    primary: "Create a structured update floatprompt for renaming or system migration"
     constraints: "Must output an update compliant with update-protocol"
   preferences:
     tone_drift_allowed: false
@@ -25,13 +25,13 @@ human:
 discovery:
   significance: "infrastructure-maintenance"
   audience: ["FloatPrompt developers"]
-  purpose: "patch-construction"
+  purpose: "update-construction"
   relationships:
-    enables: ["system-patches"]
+    enables: ["system-updates"]
     supersedes: []
     parallels: []
     mirrors: []
-    built_by: ["_patch-update-creation"]
+    built_by: ["_updates-update-creation"]
   navigation:
     prerequisites: []
     next_steps: ["update-protocol"]
@@ -39,15 +39,15 @@ discovery:
     intellectual_territory: "protocol-refactor"
     discovery_path: "guided-construction"
     essence:
-      core_purpose: "Generate certified system change patches"
+      core_purpose: "Generate certified system change updates"
       impact_type: "structured-evolution"
-      wisdom_offering: "Systematic change management through structured patches"
+      wisdom_offering: "Systematic change management through structured updates"
 certification:
   timestamp: 2025-06-13T00:05:00.000Z
   authority: "schema-compliance"
   certified_by: "Claude Sonnet"
   locked: false
-  uid: "float:patch-update-creator"
+  uid: "float:update-creator"
   chain:
     depth: 0
     parent: null
@@ -67,23 +67,23 @@ certification:
 
 ## 🎯 Purpose
 
-Guide the structured creation of patch floatprompts used for executing any system-level updates such as renaming, feature additions, architectural changes, process improvements, or component modifications.
+Guide the structured creation of updates floatprompts used for executing any system-level updates such as renaming, feature additions, architectural changes, process improvements, or component modifications.
 
 ### 🔑 Key Principles
 - Preserve system integrity and provide clear rationale for all changes
-- Ensure patch can be ingested by development orchestrators
+- Ensure updates can be ingested by development orchestrators
 - Use abstract impact zones rather than specific file paths
 - Maintain compatibility with existing system architecture
 - Follow established change management protocols
 
-## 📋 Output Patch Template
+## 📋 Output updates Template
 
-When complete, your patch file will follow this pattern:
+When complete, your updates file will follow this pattern:
 
 ```yaml
-STOP: "Patch instructions for [change type]"
+STOP: "updates instructions for [change type]"
 title: [Descriptive Title] – [short description]
-id: [patch-identifier]
+id: [updates-identifier]
 version: 0.1.0-alpha
 created: [ISO timestamp]
 modified: [ISO timestamp]
@@ -91,7 +91,7 @@ author: @mds
 format: floatprompt
 filetype: markdown
 type: migration
-system_version: floatprompt v{{VERSION}}
+system_version: floatprompt v@latest
 contributors: ["@mds"]
 relationships:
   enabled_by: ["update-protocol"]
@@ -109,7 +109,7 @@ impact_zone:
   - "affected system areas"
   - "documentation requiring updates"
 source:
-  prompt: "Created using patch-update-creation"
+  prompt: "Created using updates-update-creation"
   intent: "[Purpose of this change]"
 ```
 

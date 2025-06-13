@@ -80,32 +80,28 @@ Like an OS that supports unlimited applications, FloatPrompt enables specialized
 
 ## 🎭 Core Modes
 
-FloatPrompt provides core applications that run on the invisible AI operating system:
+FloatPrompt provides three core applications that run on the invisible AI operating system:
 
-### 🗺️ **Cartographer**
-*Map intellectual territory before diving in*
+### 🗺️ **Map**
+*Map intellectual territory and organize collections*
 - Analyze complex content and identify patterns
 - Create strategic overviews and navigation
 - Suggest optimal approaches for different tasks
+- Build relationships between ideas and create discovery pathways
+- Develop learning sequences and organize collections
 
-### 🏗️ **Constructor** 
+### 🏗️ **Build** 
 *Build new structured artifacts*
 - Create systematic tools and templates
 - Implement designs and specifications  
 - Generate reusable frameworks
 
-### 🏺 **Extractor**
+### 🏺 **Extract**
 *Preserve and structure existing intelligence*
 - Provide AI Summary for rapid orientation
 - Extract key insights while maintaining voice
 - Convert messy content into organized form
 - Maintain archaeological respect for original thinking
-
-### 📚 **Curator**
-*Organize and relate information*
-- Build relationships between ideas
-- Create discovery pathways
-- Develop learning sequences
 
 ## 💡 Use Cases
 

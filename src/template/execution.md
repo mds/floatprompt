@@ -1,3 +1,6 @@
+<!-- execution.md -->
+## 👮‍♂️ System Authority
+
 ## Execute FloatPrompt Creation with 100% Precision
 
 Create new floatprompts using this system structure and AI uncertainty protocols that ensure zero interpretive drift.

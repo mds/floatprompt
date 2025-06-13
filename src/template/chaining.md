@@ -1,3 +1,4 @@
+<!-- chaining.md -->
 ## Orchestrate Multi-Step Workflows Through Mode Chaining
 
 Execute advanced workflow coordination across core modes for complex intelligence projects while preserving human decision-making authority at every step.
@@ -8,7 +9,7 @@ Execute advanced workflow coordination across core modes for complex intelligenc
 
 ### 🎯 Chaining Purpose
 
-Chaining enables systematic workflow coordination across the four core modes (cartographer, constructor, extractor, curator) for complex multi-step intelligence work. It provides advanced orchestration capabilities while preserving human decision-making authority at every step.
+Chaining enables systematic workflow coordination across the three core modes (map, build, extract) for complex multi-step intelligence work. It provides advanced orchestration capabilities while preserving human decision-making authority at every step.
 
 **Key Principles:**
 - **Coordination, not replacement** - Chaining orchestrates existing modes, never replaces them
@@ -22,10 +23,10 @@ Chaining enables systematic workflow coordination across the four core modes (ca
 - **Consultation boundaries maintained** - Complex workflow decisions escalated to human rather than AI resolution
 - **Precision over workflow efficiency** - When coordination convenience conflicts with AI precision, choose precision
 
-## 🗺️ Enhanced Cartographer Flow (FOUNDATIONAL PRIORITY)
+## 🗺️ Enhanced Map Flow (FOUNDATIONAL PRIORITY)
 
-### **Cartographer-First Territory Assessment**
-- **Foundational System Law**: All workflows begin with cartographer territory assessment unless human explicitly states "skip mapping" or "emergency bypass"
+### **Map-First Territory Assessment**
+- **Foundational System Law**: All workflows begin with map territory assessment unless human explicitly states "skip mapping" or "emergency bypass"
 - **Progressive Disclosure Integration**: Workflow recommendations match user engagement level (beginner: outcomes focus, intermediate: strategic approach, advanced: full methodology)
 - **Strategic Consultation Authority**: Use "I recommend X workflow because Y benefits" format instead of tentative suggestions
 
@@ -37,7 +38,7 @@ Chaining enables systematic workflow coordination across the four core modes (ca
 - Enable human selection and approval of next steps
 
 ### **shadowPrompt Spawning Methodology**
-When cartographer identifies opportunities:
+When map identifies opportunities:
 
 1. **Territory Analysis**: Map content landscape and identify work patterns
 2. **Opportunity Recognition**: Flag discrete tasks that could benefit from other modes
@@ -45,32 +46,29 @@ When cartographer identifies opportunities:
 4. **Human Presentation**: Offer workflow suggestions with clear rationale
 5. **Strategic Guidance**: Recommend optimal mode sequences for identified work
 
-## 🔄 Multi-Step Workflow Patterns (Cartographer-First Foundation)
+## 🔄 Multi-Step Workflow Patterns (Map-First Foundation)
 
-**All workflow chains begin with cartographer territory assessment as foundational system law**
+**All workflow chains begin with map territory assessment as foundational system law**
 
 ### **Voice Foundation Chain**
 ```
-cartographer (foundational voice territory analysis) → 
-extractor (voice preservation) → 
-constructor (voice guide creation) →
-curator (voice consistency validation)
+map (foundational voice territory analysis + collection organization) → 
+extract (voice preservation) → 
+build (voice guide creation)
 ```
 
 ### **Content Architecture Chain** 
 ```
-cartographer (foundational content territory assessment) →
-extractor (relationship mapping) →
-curator (discovery path creation) →
-constructor (navigation tool building)
+map (foundational content territory assessment + relationship mapping) →
+extract (pattern extraction) →
+build (navigation tool building)
 ```
 
 ### **Intelligence Extraction Chain**
 ```
-cartographer (foundational territory mapping) →
-extractor (pattern recognition) →
-constructor (structured artifact creation) →
-curator (integration with existing knowledge)
+map (foundational territory mapping + curation strategy) →
+extract (pattern recognition) →
+build (structured artifact creation)
 ```
 
 ### **Strategic Consultation Integration**

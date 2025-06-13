@@ -1,3 +1,4 @@
+<!-- types.md -->
 ## Classify FloatPrompt Intelligence Through Type System
 
 Apply type classification and field extensions to structure executable and preserved intelligence with proper certification and lineage tracking.
@@ -65,6 +66,13 @@ certification:
     trace: [TODO_LIST_OF_DOC_IDS]
 ```
 
+**Certification Role Distinction:**
+- **`author`**: Original creator/owner of the content and intellectual property (human @username)
+- **`certified_by`**: Entity that validated the floatprompt structure and compliance (@username or AI model name)
+- **Authority**: The `author` owns the intelligence; `certified_by` validates the implementation
+
+This distinction eliminates ambiguity: authorship indicates intellectual ownership, certification indicates structural validation.
+
 ## 🛑 Reserved Field: `STOP`
 
 **Purpose:**  
@@ -90,31 +98,28 @@ When processing a STOP field, AI should:
 
 **Strategic Guidance (Recommended):**
 ```yaml
-STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruction execution to enable human task completion. Perform cartographer territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess user intent and recommend optimal approach with confident guidance and clear rationale. Match complexity to user engagement level."
+STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruction execution to enable human task completion. Perform map territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess user intent and recommend optimal approach with confident guidance and clear rationale. Match complexity to user engagement level."
 ```
 
-**Cartographer-First Strategic Guidance:**
+**Map-First Strategic Guidance:**
 ```yaml
-# Foundational cartographer territory assessment 
-STOP: "Foundational cartographer mode. Perform territory assessment as system law unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess intellectual landscape, identify work opportunities, and recommend optimal mapping approach with confident guidance. Use progressive disclosure: beginners get outcomes focus, advanced users get full methodology."
+# Foundational map territory assessment
+STOP: "Foundational map mode. Perform territory assessment as system law unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess intellectual landscape, identify work opportunities, and recommend optimal mapping approach with confident guidance. Use progressive disclosure: beginners get outcomes focus, advanced users get full methodology."
 
-# Enhanced mode-specific with cartographer-first integration
-STOP: "Strategic [mode] mode with cartographer-first foundation. Begin with territory assessment unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess requirements and recommend optimal approach using 'I recommend X because Y' format. Match vocabulary to demonstrated user engagement level."
+# Enhanced mode-specific with map-first integration
+STOP: "Strategic [mode] mode with map-first foundation. Begin with territory assessment unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess requirements and recommend optimal approach using 'I recommend X because Y' format. Match vocabulary to demonstrated user engagement level."
 ```
 
 **Mode-Specific Strategic Guidance:**
 ```yaml
-# For Cartographer floatprompts (Enhanced)
-STOP: "Strategic cartographer mode with foundational priority. Assess territory requirements using progressive disclosure framework. Recommend optimal mapping approach with confident guidance and clear rationale. Focus on outcomes for beginners, methodology for advanced users."
+# For Map floatprompts (Enhanced)
+STOP: "Strategic map mode with foundational priority. Assess territory requirements using progressive disclosure framework. Recommend optimal mapping approach with confident guidance and clear rationale. Focus on outcomes for beginners, methodology for advanced users."
 
-# For Extractor floatprompts  
-STOP: "Strategic extractor mode with cartographer-first assessment. Begin with territory evaluation unless human explicitly states 'skip mapping' or 'emergency bypass'. Recommend surgical precision approach with confident guidance. Lead with preservation benefits, hide system complexity."
+# For Extract floatprompts  
+STOP: "Strategic extract mode with map-first assessment. Begin with territory evaluation unless human explicitly states 'skip mapping' or 'emergency bypass'. Recommend surgical precision approach with confident guidance. Lead with preservation benefits, hide system complexity."
 
-# For Constructor floatprompts
-STOP: "Strategic constructor mode with foundational territory assessment. Evaluate building landscape first unless explicit urgency. Recommend systematic approach with clear rationale using 'I recommend X because Y' format. Adapt complexity to user engagement level."
-
-# For Curator floatprompts
-STOP: "Strategic curator mode with cartographer-first foundation. Assess organizational territory before execution unless human explicitly states 'skip mapping' or 'emergency bypass'. Recommend relationship architecture approach with confident guidance. Focus on curation outcomes and benefits."
+# For Build floatprompts
+STOP: "Strategic build mode with foundational territory assessment. Evaluate building landscape first unless explicit urgency. Recommend systematic approach with clear rationale using 'I recommend X because Y' format. Adapt complexity to user engagement level."
 ```
 
 **Standard Authority:**
@@ -139,3 +144,4 @@ STOP: "COMPLETE AI CONTEXT SHIFT. You are now working with [floatprompt purpose]
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering type classification compliance.
 
 Type classification accuracy: Executable types (prompt, template, goals) or preserved types (analysis, specification, critique, extract, summary, migration) correctly selected. Field extension compliance: Type-specific fields added according to executable or preserved classification. STOP field implementation: Proper placement as first frontmatter key with strategic guidance format. Certification completeness: Universal certification fields included with proper authority and lineage tracking.
+

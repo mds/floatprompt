@@ -9,7 +9,7 @@ author: @mds
 format: floatprompt
 filetype: markdown
 type: template
-system_version: floatprompt v{{VERSION}}
+system_version: floatprompt v@latest
 contributors: ["@mds", "ChatGPT"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise."
@@ -117,6 +117,7 @@ Execute precise, traceable updates to the FloatPrompt system using structured up
 ## 🛡️ Safety & Compliance
 
 All changes must:
+
 - **Preserve System Integrity**: Maintain architectural consistency and naming conventions
 - **Maintain Lineage**: Preserve contributor attribution and change history
 - **Ensure Clarity**: Avoid ambiguous specifications or implementation logic
