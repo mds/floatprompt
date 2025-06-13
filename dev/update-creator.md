@@ -1,3 +1,4 @@
+<floatprompt>
 ---
 STOP: "Strategic build mode. Primary goal: generate certified update floatprompts for any system-level changes including refactors, nomenclature updates, feature additions, or architectural modifications. Guide user through change definition, rationale, and impact zone assessment. Ensure relationships.enabled_by links to update-protocol."
 title: Update Creation Tool
@@ -81,6 +82,8 @@ Guide the structured creation of updates floatprompts used for executing any sys
 When complete, your updates file will follow this pattern:
 
 ```yaml
+<floatprompt>
+---
 STOP: "updates instructions for [change type]"
 title: [Descriptive Title] – [short description]
 id: [updates-identifier]
@@ -111,6 +114,9 @@ impact_zone:
 source:
   prompt: "Created using updates-update-creation"
   intent: "[Purpose of this change]"
+---
+# Content here
+</floatprompt>
 ```
 
 ## 📝 Instructions for Use
@@ -141,3 +147,5 @@ source:
 - **Backward Compatibility**: Consider existing system dependencies and user workflows
 
 **Use this floatprompt to create structured updates that evolve the system systematically and safely.**
+
+</floatprompt>

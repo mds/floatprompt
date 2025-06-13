@@ -39,7 +39,11 @@ Apply file format requirements ensuring dual-readability, portability, and 100-y
 - No characters before YAML frontmatter opening `---`
 - No characters before any YAML fields (no `/`, `#`, or other prefixes)
 - Clean YAML structure without formatting corruption
-- When creating floatprompts in chat interfaces, always use canvas documents with strict markdown single blocks when available
+
+**Environment-Specific Requirements:**
+- **Canvas environments**: Always use canvas documents with fenced markdown blocks for proper rendering
+- **Non-canvas environments**: Ensure clean YAML structure without formatting corruption
+- **Universal requirement**: Maintain `<floatprompt>...</floatprompt>` wrapping for cross-platform portability
 
 **Use Cases:**
 - Embedding floatprompts in markdown canvases or textdocs

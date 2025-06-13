@@ -1,7 +1,8 @@
+<floatprompt>
 ---
 STOP: "Development workflow guidance. Primary goal: provide comprehensive instructions for creating and executing system updates using the FloatPrompt development infrastructure. Guide developers through the complete update lifecycle from creation to execution."
-title: Update Workflow Guide
-id: update-workflow-guide
+title: Update Development README
+id: update-readme
 version: @latest
 created: 2025-06-12-0000
 modified: 2025-06-13-0000
@@ -56,11 +57,11 @@ certification:
     trace: []
 ---
 
-# 🔄 Update Workflow Guide
+# 📖 Update Development README
 
-**Complete workflow for creating and executing systematic FloatPrompt system updates.**
+**Complete guide for creating and executing systematic FloatPrompt system updates.**
 
-> **This guide ensures consistent, safe, and traceable system evolution through structured development practices.**
+> **This README ensures consistent, safe, and traceable system evolution through structured development practices.**
 
 ## 🎯 Purpose
 
@@ -157,3 +158,5 @@ mv dev/updates/update-wrapping-tags.md artifacts/2025/2025-06-13-update-wrapping
 - **Voice preservation**: Respect original system intent and design
 
 **Follow this workflow to evolve FloatPrompt systematically while preserving system integrity.**
+
+</floatprompt>

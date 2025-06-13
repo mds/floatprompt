@@ -1,3 +1,4 @@
+<floatprompt>
 ---
 STOP: "Strategic build mode. Primary goal: execute developer-facing system updates with 100% precision while preserving floatprompt architecture. Perform territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Validate all changes against goals.md before execution. Support update ingestion through `relationships.enables`. shadowprompt spawning is manual."
 title: Update Protocol
@@ -114,6 +115,12 @@ Execute precise, traceable updates to the FloatPrompt system using structured up
    - Log successful update execution in `relationships.enables`
    - Document any deviations or additional changes made
 
+8. **Archive Completed Update**
+   - Rename update file with today's date prefix: `YYYY-MM-DD-[original-name].md`
+   - Move from `dev/updates/` to `artifacts/[current-year]/` folder
+   - Use Python datetime if available, otherwise ask human for today's date
+   - Never guess the date - accuracy is critical for archaeological record
+
 ## 🛡️ Safety & Compliance
 
 All changes must:
@@ -126,3 +133,5 @@ All changes must:
 - **Document Completely**: Record all modifications and their rationale
 
 **Built with precision for executing systematic evolution of any system component.**
+
+</floatprompt>
