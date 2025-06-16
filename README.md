@@ -66,3 +66,11 @@ Features, file structure, and instructions may change frequently.
 ---
 
 **Built with 🤖 by [@mds](https://twitter.com/mds)**
+
+## Key Features
+
+- **Zero-drift AI collaboration** through structured behavioral preservation
+- **Voice preservation** that maintains your exact thinking patterns
+- **Portable intelligence** that works across any AI platform
+- **Archaeological extraction** that preserves rather than paraphrases
+- **Built-in safety system** through automatic friction classification and response selection

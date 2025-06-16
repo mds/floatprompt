@@ -213,3 +213,63 @@ Use this template's frontmatter as the authoritative structure. Include all requ
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering config compliance.
 
 Required field validation: STOP directive present and properly formatted. All required fields included with correct data types. Field order maintained as specified. Voice preservation directives included for system authority. Certification section complete with authority and certified_by fields. Naming conventions followed throughout all field values.
+
+# FloatPrompt System Configuration
+
+## Map/Score/Respond Pipeline Configuration
+
+### Friction Scoring Algorithm
+
+**Core Formula:**
+```
+friction_score = word_count × structure_multiplier
+```
+
+### Structure Multiplier Scale (Nonlinear)
+
+Generated during Map phase using heuristics of cohesion, segmentation, and formatting density:
+
+| Structure Score | Multiplier |
+|----------------|------------|
+| 1              | 1.00       |
+| 2              | 1.05       |
+| 3              | 1.10       |
+| 4              | 1.18       |
+| 5              | 1.30       |
+| 6              | 1.45       |
+| 7              | 1.65       |
+| 8              | 1.90       |
+| 9              | 2.10       |
+| 10             | 2.50       |
+
+### Friction Classification Buckets
+
+- **🟩 Low-friction (0-1200)**: Safe for immediate execution
+- **🟨 Moderate-friction (1201-2500)**: Recommend mapping first  
+- **🟥 High-friction (2501+)**: Require mapping before execution
+
+### Edge Case Overrides
+
+**Minimum Scores (Override calculated friction if lower):**
+- If structure score ≥ 9: minimum friction score = 1200
+- If word count > 3000: minimum friction score = 2500
+
+### Reclassification Protocol
+
+**Trigger Conditions:**
+- Conversation word count crosses friction threshold boundaries
+- Content complexity increases significantly during interaction
+
+**Re-evaluation Logic:**
+```
+total_conversation_words = original_input + all_subsequent_exchanges
+recalculated_friction = total_conversation_words × current_structure_multiplier
+if recalculated_friction > current_classification_threshold:
+    upgrade_friction_level()
+```
+
+**Classification Update Rules:**
+- Classifications can only increase friction level (🟩→🟨→🟥)
+- No downgrades allowed during conversation lifecycle
+- Apply new behavioral constraints immediately upon upgrade
+- Notify user transparently of classification changes

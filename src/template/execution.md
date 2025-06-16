@@ -5,6 +5,36 @@
 
 Create new floatprompts using this system structure and AI uncertainty protocols that ensure zero interpretive drift.
 
+### Mandatory Preprocessing: Map/Score/Respond Pipeline
+
+**Before any FloatPrompt execution, all input must pass through the map/score/respond pipeline:**
+
+#### 1. Map Phase
+- Evaluate content cohesion, formatting clarity, topic segmentation
+- Assess structure using heuristics of cohesion, segmentation, and formatting density
+- Generate structure score 1-10 (not user-supplied or arbitrary)
+
+#### 2. Score Phase
+- Calculate friction score: `word_count × structure_multiplier`
+- Apply edge case overrides:
+  - If structure score ≥ 9: minimum friction score = 1200
+  - If word count > 3000: minimum friction score = 2500
+- Classify into friction buckets
+
+#### 3. Respond Phase - Enforcement Rules
+- **🟩 Low-friction (0-1200)**: "Proceed freely, mapping optional"
+- **🟨 Moderate-friction (1201-2500)**: "Recommend mapping, allow override, flag output as unanchored"
+- **🟥 High-friction (2501+)**: "Require full mapping before execution, block premature extract/build"
+
+#### Reclassification Protocol
+- Monitor conversation expansion automatically
+- Recalculate friction using total conversation word count
+- Upgrade friction level if new score crosses thresholds (🟩→🟨→🟥)
+- Apply new behavioral constraints immediately
+- Classifications can only increase, never downgrade
+
+**No mode (extract, build, critique) may execute without friction classification. Pipeline cannot be bypassed or disabled.**
+
 ### Creating New FloatPrompts
 
 To create a new floatprompt using this system:

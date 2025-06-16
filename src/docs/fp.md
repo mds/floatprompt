@@ -21,8 +21,9 @@ contributors: ["@mds", "Claude Sonnet"]
 3. **Executable Content**: Ready for direct AI upload and execution
 4. **Joint Intelligence**: Designed for seamless AI & Human collaboration
 5. **HI-AI Co-Creation**: Product of collaborative Human Intelligence & Artificial Intelligence
+6. **Map/Score/Respond Pipeline**: Mandatory friction classification system for all input processing
 
-**Purpose**: "Joint preserved and executable intelligence" format representing HI-AI co-creation
+**Purpose**: "Joint preserved and executable intelligence" format representing HI-AI co-creation with systematic input assessment
 
 ### **.md Files: Everything Else**
 
@@ -171,6 +172,7 @@ src/template/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
 - [ ] Contains `filetype: fp` field
 - [ ] Designed for direct AI upload and execution
 - [ ] Represents HI-AI co-creation (Human Intelligence and Artificial Intelligence collaboration)
+- [ ] Implements map/score/respond pipeline for systematic input assessment
 
 ### **Disqualifiers for .fp Classification**
 - [ ] Missing FloatPrompt wrapper tags

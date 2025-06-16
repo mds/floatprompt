@@ -51,6 +51,8 @@ This contract preserves human agency while enabling systematic execution. The hu
 
 To protect this contract at scale, all systems honor constitutional principles that ensure the system never forgets who it's serving and where the line is drawn.
 
+The foundational behavioral principles detailed in `principles.md` govern all system interactions to prevent drift and preserve human agency.
+
 
 ## 🧍 The Human Protocol
 

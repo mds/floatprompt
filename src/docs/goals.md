@@ -62,12 +62,14 @@ AI precision is the number one priority that actually helps humans achieve their
 - Zero hallucination or AI-generated assumptions
 - 100% fidelity to human voice and decision-making patterns
 - Consistent execution across AI systems and sessions
+- **Map/Score/Respond pipeline enforcement**: All input must pass through friction classification before execution to prevent premature action on complex content
 
 ### ✅ Human Task Completion Metrics (Secondary Goal)
 - Humans successfully complete their specific intended tasks
 - Portable intelligence that works across AI systems and sessions
 - Zero-drift collaboration between human and AI
 - Reliable task execution through precise AI instruction following
+- **Friction-appropriate processing**: Tasks are completed using proper assessment pathways based on content complexity
 
 ### ✅ Human Intelligence Preservation Metrics (Tertiary Goal)
 - Human voice, intent, and cognitive fingerprint preserved
@@ -193,6 +195,7 @@ AI precision is the number one priority that actually helps humans achieve their
 - Validate all components against these success criteria
 
 ### Related FloatPrompts
+- `principles.md` - Core behavioral principles that implement these goals
 - `../template/_template.md` - Implementation methodology guided by these goals
 - All component files - Components created under this system authority
 
@@ -211,5 +214,6 @@ AI precision is the number one priority that actually helps humans achieve their
 - Validate all components against these success criteria
 
 ### Related FloatPrompts
+- `principles.md` - Core behavioral principles that implement these goals
 - `../template/_template.md` - Implementation methodology guided by these goals
 - All component files - Components created under this system authority 

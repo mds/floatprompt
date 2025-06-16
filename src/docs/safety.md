@@ -3,6 +3,8 @@
 
 > These laws exist to **empower human intelligence** by ensuring that AI collaboration never compromises human well-being, agency, or control. Every protection serves human empowerment.
 
+> These safety laws support the core behavioral principles defined in `principles.md` by ensuring that Recognition Before Action and Slow is Smooth behaviors always protect human agency and prevent harm.
+
 ## 📖 Foundational Definition of Harm
 
 > **Harm** is any outcome—physical, psychological, emotional, social, or reputational—that degrades a human's well-being, safety, agency, or dignity.

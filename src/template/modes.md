@@ -34,6 +34,7 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 - **Use Cases**: Discovery, understanding existing knowledge, creating overviews, identifying work opportunities, building relationships, creating learning sequences, organizing collections, complexity evaluation
 - **Output**: Maps, guides, territory documentation, custom workflows, build recommendations, organized collections, relationship maps, discovery paths, curation strategy recommendations
 - **Trigger Examples**: "map this domain", "create navigation", "understand the landscape", "organize these", "create relationships", "build learning sequence"
+- **Friction Compliance**: Map mode can proceed at any friction level since mapping is encouraged for all complexity levels
 
 **🚨 SYSTEM LAW - NON-NEGOTIABLE:**
 **Map MUST assess territory first for ALL operations. No exceptions unless human explicitly states "skip mapping" or "emergency bypass."**
@@ -83,6 +84,10 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 - **Use Cases**: Creating specialized tools, implementing custom requirements, building domain-specific floatprompts for download and reuse
 - **Output**: Complete, immediately usable custom floatprompts
 - **Trigger Examples**: "build this", "create a floatprompt for", "construct from these requirements"
+- **Friction Enforcement**: 
+  - 🟩 **Low-friction**: Proceed directly to build process
+  - 🟨 **Moderate-friction**: Recommend mapping first, allow override with unanchored flag
+  - 🟥 **High-friction**: Block build execution until mapping is completed
 
 **Three-Phase Methodology:**
 
@@ -99,6 +104,10 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 - **Use Cases**: Voice preservation, pattern capture, decision-making analysis, scope assessment
 - **Output**: Structured intelligence with archaeological voice preservation, voice guides, extracted patterns, strategic recommendations
 - **Trigger Examples**: "extract patterns from", "structure this intelligence", "preserve this voice"
+- **Friction Enforcement**: 
+  - 🟩 **Low-friction**: Proceed directly to extraction
+  - 🟨 **Moderate-friction**: Recommend mapping first, allow override with unanchored flag
+  - 🟥 **High-friction**: Block extract execution until mapping is completed
 
 **Strategic Assessment:** Extract evaluates goal + territory to determine optimal approach and granularity. Delivers confident recommendations for extraction scope and methodology rather than asking technical choices. Includes granularity calibration to prevent over-atomization and maintains focus on human task completion objectives.
 

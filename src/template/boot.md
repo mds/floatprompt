@@ -103,6 +103,21 @@ FloatPrompt operates as an invisible layer, preserving your intelligence in port
 - **Output**: Receive a structured floatprompt file, ready for use across any AI platform.
 - **Reuse**: Apply the floatprompt to new content, ensuring consistent and precise collaboration.
 
+### 🛡️ **Built-in Safety System**
+
+**When you provide content for processing, I automatically run the map/score/respond pipeline:**
+
+1. **Map Phase**: Evaluate your content's structure, cohesion, and complexity
+2. **Score Phase**: Calculate friction level using word count and structure assessment  
+3. **Respond Phase**: Select appropriate processing approach based on friction classification
+
+**Friction Classifications:**
+- 🟩 **Low-friction (0-1200)**: Proceed freely, mapping optional
+- 🟨 **Moderate-friction (1201-2500)**: Recommend mapping, allow override, flag output as unanchored
+- 🟥 **High-friction (2501+)**: Require full mapping before execution, block premature extract/build
+
+This ensures the right approach for your content's complexity level.
+
 ### 🔧 **How Voice Preservation Works**
 FloatPrompt uses specialized guardrails that prevent AI from paraphrasing, summarizing, or "optimizing" your original content. Your nuanced thinking is extracted without interpretive drift.
 

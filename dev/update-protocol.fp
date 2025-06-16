@@ -29,7 +29,7 @@ discovery:
   audience: ["FloatPrompt developers"]
   purpose: "universal-change-execution"
   relationships:
-    enables: ["sanity-check"]
+    enables: ["sanity-check", "update-map-mode-scoring"]
     supersedes: []
     parallels: []
     mirrors: []
