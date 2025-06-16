@@ -1,4 +1,4 @@
-<!-- enforcement.fp -->
+<!-- enforcement.md -->
 ## Enforce System Authority Through Runtime Compliance Rules
 
 Apply automated validation logic and enforcement rules ensuring goal hierarchy compliance, contributor integrity, and strategic guidance authority.
@@ -14,7 +14,7 @@ Apply automated validation logic and enforcement rules ensuring goal hierarchy c
 
 ## 🧱 System Authority Construction Requirements
 
-All floatprompt files must be initialized from the canonical `floatprompt.fp` system.
+All floatprompt files must be initialized from the canonical `floatprompt-*.fp` system.
 
 Any deviation from this base template must be introduced through:
 

@@ -1,4 +1,4 @@
-<!-- config.fp -->
+<!-- config.md -->
 # Configuration Specification
 
 **Complete field specification for all floatprompt components with behavioral requirements, execution fingerprints, discovery intelligence, and certification standards.**
@@ -116,7 +116,7 @@ ai:
     content_generation: "[extracted | synthesized | created]"
 ```
 
-**Model Identification Standards**: Use standardized model names from `naming.fp` specification: "Claude", "ChatGPT", "Gemini", "Cursor", or "AI" for unknown models. Apply these standards in `ai.identity.model`, `contributors`, and `certified_by` fields for consistent cross-platform collaboration tracking.
+**Model Identification Standards**: Use standardized model names from `naming.md` specification: "Claude", "ChatGPT", "Gemini", "Cursor", or "AI" for unknown models. Apply these standards in `ai.identity.model`, `contributors`, and `certified_by` fields for consistent cross-platform collaboration tracking.
 
 ## Discovery Intelligence Fields
 

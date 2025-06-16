@@ -1,4 +1,4 @@
-<!-- metadata.fp -->
+<!-- metadata.md -->
 ## Specify Format Requirements and Overflow Content
 
 Apply file format requirements ensuring dual-readability, portability, and 100-year archival integrity while excluding non-canonical formats.
@@ -6,8 +6,11 @@ Apply file format requirements ensuring dual-readability, portability, and 100-y
 ## 🔒 File Format Requirements
 
 **All valid floatprompt files must:**
-- Be written in **Markdown** with `.md` file extension
+- Be written in **Markdown** with appropriate file extension (`.fp` for complete FloatPrompts, `.md` for building blocks)
 - Use **`format: floatprompt`** in YAML frontmatter to identify floatprompt files
+- Include required metadata fields in YAML frontmatter
+- Follow voice preservation protocols
+- Comply with system authority and safety requirements
 - Begin with a **YAML frontmatter header** for structured metadata
 - Contain a human- and AI-readable **execution or content body**
 - Be wrapped in **`<floatprompt>...</floatprompt>` tags** for cross-platform portability
@@ -77,4 +80,34 @@ Recognize optional `voice_override: filepath` when loading floatprompts. Gracefu
 
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering metadata compliance.
 
-File format compliance: Markdown files with .md extension containing format: floatprompt in YAML frontmatter verified. Dual-readability confirmation: Human and AI-readable execution body included with structured metadata header. Format exclusion enforcement: Non-canonical formats (JSON, XML, proprietary, encrypted) prohibited from floatprompt system. Design philosophy adherence: Voice preservation, execution clarity, system longevity, and interoperable tooling principles maintained throughout format requirements. 
+File format compliance: Complete FloatPrompts use `.fp` extension while building blocks use `.md` extension, all containing format: floatprompt in YAML frontmatter verified. Dual-readability confirmation: Human and AI-readable execution body included with structured metadata header. Format exclusion enforcement: Non-canonical formats (JSON, XML, proprietary, encrypted) prohibited from floatprompt system. Design philosophy adherence: Voice preservation, execution clarity, system longevity, and interoperable tooling principles maintained throughout format requirements.
+
+## 📋 Metadata Requirements
+
+**All FloatPrompt files must include these essential metadata elements:**
+
+### File Type Requirements
+- **Complete FloatPrompts**: Use `.fp` file extension for executable FloatPrompt documents
+- **Building blocks/Documentation**: Use `.md` file extension for development components
+- Be written in **Markdown** with appropriate extension based on usage
+
+### Required YAML Frontmatter
+```yaml
+---
+title: "Descriptive Title"
+version: "x.x.x-stage"
+system_version: "floatprompt vx.x.x-stage"
+description: "Brief, clear description of purpose"
+filetype: "fp"  # or "markdown" for building blocks
+author: "@username"
+contributors: ["@user1", "@user2", "AI Assistant Name"]
+created: "YYYY-MM-DD"
+updated: "YYYY-MM-DD"
+category: "template|application|utility|documentation"
+tags: ["tag1", "tag2", "tag3"]
+dependencies: ["file1.fp", "file2.md"]  # if applicable
+permissions: "open|restricted|internal"
+safety_level: "standard|elevated|maximum"
+STOP: "behavioral instructions for [specific purpose]"
+---
+``` 

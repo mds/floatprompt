@@ -1,4 +1,4 @@
-<!-- types.fp -->
+<!-- types.md -->
 ## Classify FloatPrompt Intelligence Through Type System
 
 Apply type classification and field extensions to structure executable and preserved intelligence with proper certification and lineage tracking.

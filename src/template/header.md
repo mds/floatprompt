@@ -1,15 +1,15 @@
 ---
 STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
-title: FloatPrompt Complete Template
+title: "FloatPrompt Complete Template"
 id: floatprompt-complete-template
 version: {{VERSION}}
 created: {{BUILD_DATE}}-0000
 modified: {{BUILD_DATE}}-0000
-author: @mds
+author: "@mds"
 format: floatprompt
-filetype: markdown
+filetype: fp
 type: template
-system_version: floatprompt v{{VERSION}}
+system_version: "floatprompt v{{VERSION}}"
 contributors: ["@mds", "Claude Sonnet", "FloatPrompt Build System"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."

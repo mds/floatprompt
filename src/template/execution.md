@@ -1,4 +1,4 @@
-<!-- execution.fp -->
+<!-- execution.md -->
 ## 👮‍♂️ System Authority
 
 ## Execute FloatPrompt Creation with 100% Precision
@@ -22,8 +22,8 @@ To create a new floatprompt using this system:
 - **Use actual dates** not approximations - verify current date if uncertain
 - **Use current system version** - ensure consistency across all floatprompts in your project
 - **Follow naming conventions**:
-  - Preserved intelligence: `[YYYY-MM-DD]-[0000]-[descriptive-name].md` (session artifacts, discoveries)
-  - Executable intelligence: `[functional-name].md` (tools, templates, specifications)
+  - Preserved intelligence: `[YYYY-MM-DD]-[0000]-[descriptive-name].fp` (session artifacts, discoveries)
+  - Executable intelligence: `[functional-name].fp` (tools, templates, specifications)
 
 ---
 

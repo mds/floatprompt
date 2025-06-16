@@ -1,4 +1,4 @@
-<!-- voice.fp -->
+<!-- voice.md -->
 ## Preserve Human Voice Through Archaeological Extraction
 
 Apply voice preservation oath and archaeological extraction principles to maintain 100% fidelity to original human intelligence and cognitive fingerprint.
@@ -78,6 +78,6 @@ Voice preservation oath implementation: Sacred principle applied with archaeolog
 FloatPrompt allows external voice guides to override system-level defaults.
 Use a single optional field in YAML frontmatter:
 ```yaml
-voice_override: "support/voice/my-voice.fp"  # optional
+voice_override: "support/voice/my-voice.md"  # optional
 ```
 **Behavior:** If file exists and loads successfully, use it. If file missing or fails to load, gracefully fall back to system voice defaults. No configuration complexity required. 

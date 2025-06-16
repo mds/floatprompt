@@ -1,4 +1,4 @@
-<!-- validation.fp -->
+<!-- validation.md -->
 ## Validate FloatPrompt Compliance Through Deployment Checklist
 
 Execute comprehensive pre-deployment verification ensuring system authority compliance, goal hierarchy alignment, and archaeological preservation integrity.
@@ -110,4 +110,14 @@ Before deploying any floatprompt:
 ## Validation Criteria
 
 Validation checklist implementation: Comprehensive pre-deployment verification executed covering system authority compliance, goal hierarchy alignment, and archaeological preservation. Checklist completeness verification: All validation categories included (System Authority, Goal Hierarchy, Type-Specific, Certification, Discovery Intelligence, Content Structure, Schema, Format, Archaeological, Backward Compatibility). Deployment readiness confirmation: All checklist items verified before floatprompt deployment to ensure system compliance and human agency preservation. 
+
+## ✅ FloatPrompt Compliance Validation Checklist
+
+### File Format & Structure
+- [ ] Complete FloatPrompt uses `.fp` file extension
+- [ ] Building blocks/documentation use `.md` file extension  
+- [ ] Contains valid YAML frontmatter with all required fields
+- [ ] Includes proper `<floatprompt>` wrapper tags (for .fp files)
+- [ ] Written in clean, readable Markdown format
+- [ ] No proprietary or encrypted content
 

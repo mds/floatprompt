@@ -1,4 +1,4 @@
-<!-- modes.fp -->
+<!-- modes.md -->
 ## Execute Three Core System Modes for FloatPrompt Operations
 
 Apply map, build, and extract modes as foundational operations for all floatprompt creation and organization.

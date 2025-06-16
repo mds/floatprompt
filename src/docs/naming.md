@@ -17,8 +17,18 @@ contributors: ["@mds", "Claude Sonnet"]
 | **Document titles & headers** | `FloatPrompt` | "# FloatPrompt Complete Template" |
 | **Sentence beginnings** | `FloatPrompt` | "FloatPrompt enables joint execution..." |
 | **Mid-sentence technical refs** | `floatprompt` | "Upload the floatprompt file..." |
-| **Filenames** | `floatprompt` | `floatprompt-template.md` |
+| **Filenames** | `floatprompt` | `floatprompt-0.5.0-alpha.fp`, `floatprompt-goals.md` |
 | **Brand references** | `FloatPrompt` | "The FloatPrompt system serves humans" |
+
+## 📁 File Extension Rules
+
+| **File Type** | **Extension** | **Example** |
+|---------------|---------------|-------------|
+| **Complete FloatPrompts** | `.fp` | `floatprompt-0.5.0-alpha.fp` |
+| **Building blocks** | `.md` | `header.md`, `voice.md` |
+| **Documentation** | `.md` | `README.md`, `goals.md` |
+
+_For complete extension specifications, see `src/docs/fp.md`._
 
 ## ✅ Quick Examples
 
@@ -26,7 +36,8 @@ contributors: ["@mds", "Claude Sonnet"]
 - "FloatPrompt is a portable AI instruction set."
 - "Upload the floatprompt file to activate collaboration."
 - "The FloatPrompt system enables zero-drift workflows."
-- File: `floatprompt-goals.md`
+- File: `floatprompt-0.5.0-alpha.fp` (complete FloatPrompt)
+- File: `floatprompt-goals.md` (documentation)
 
 **❌ Incorrect:**
 - "Float Prompt is a portable AI instruction set." (two words)
@@ -39,6 +50,7 @@ contributors: ["@mds", "Claude Sonnet"]
 - **Developer familiarity** - Uses established programming language patterns
 - **Brand consistency** - Clear distinction between title case and lowercase usage
 - **Flexible application** - Works across different contexts without confusion
+- **Architectural clarity** - File extensions signal complete FloatPrompts vs building blocks
 
 ---
 

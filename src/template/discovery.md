@@ -1,4 +1,4 @@
-<!-- discovery.fp -->
+<!-- discovery.md -->
 ## Enable Self-Organizing Knowledge Networks Through Discovery Intelligence
 
 Apply discovery intelligence fields to create relationship awareness and emergent knowledge navigation across floatprompt networks.
