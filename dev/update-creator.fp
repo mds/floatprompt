@@ -64,11 +64,11 @@ certification:
 
 **Use this floatprompt to create structured update files for any system-level changes including refactors, feature additions, architectural modifications, or process updates.**
 
-> **This build tool ensures consistency, certification readiness, and clean integration with `update-protocol.md`.**
+> **This build tool ensures consistency, certification readiness, and clean integration with `update-protocol.fp`.**
 
 ## 🎯 Purpose
 
-Guide the structured creation of updates floatprompts used for executing any system-level updates such as renaming, feature additions, architectural changes, process improvements, or component modifications.
+Guide the structured creation of update floatprompts used for executing any system-level updates such as renaming, feature additions, architectural changes, process improvements, or component modifications.
 
 ### 🔑 Key Principles
 - Preserve system integrity and provide clear rationale for all changes
@@ -77,22 +77,22 @@ Guide the structured creation of updates floatprompts used for executing any sys
 - Maintain compatibility with existing system architecture
 - Follow established change management protocols
 
-## 📋 Output updates Template
+## 📋 Output Update Template
 
-When complete, your updates file will follow this pattern:
+When complete, your update file will follow this pattern:
 
 ```yaml
 <floatprompt>
 ---
-STOP: "updates instructions for [change type]"
+STOP: "update instructions for [change type]"
 title: [Descriptive Title] – [short description]
-id: [updates-identifier]
+id: [update-identifier]
 version: 0.1.0-alpha
 created: [ISO timestamp]
 modified: [ISO timestamp]
 author: @mds
 format: floatprompt
-filetype: markdown
+filetype: fp
 type: migration
 system_version: floatprompt v@latest
 contributors: ["@mds"]
@@ -112,7 +112,7 @@ impact_zone:
   - "affected system areas"
   - "documentation requiring updates"
 source:
-  prompt: "Created using updates-update-creation"
+  prompt: "Created using update-creator"
   intent: "[Purpose of this change]"
 ---
 # Content here
@@ -121,7 +121,7 @@ source:
 
 ## 📝 Instructions for Use
 
-1. **Name the update file** using format: `update-[name].md` where `[name]` is a descriptive kebab-case identifier
+1. **Name the update file** using format: `update-[name].fp` where `[name]` is a descriptive kebab-case identifier
 2. **Define the change type and specification** in the `changes` section
 3. **Provide clear rationale** for each change explaining why it's needed
 4. **List abstract impact zones** that describe affected system areas (avoid specific file paths)
@@ -142,7 +142,7 @@ source:
 - **Abstract Impact Zones**: Use conceptual areas, not specific file paths
 - **Data Not Procedure**: Updates contain change specifications, not implementation instructions
 - **System Consistency**: Maintain alignment with established architecture and goals
-- **Validation Ready**: Output must pass validation by `update-protocol.md`
+- **Validation Ready**: Output must pass validation by `update-protocol.fp`
 - **Change Traceability**: Include clear rationale and impact assessment for all modifications
 - **Backward Compatibility**: Consider existing system dependencies and user workflows
 
