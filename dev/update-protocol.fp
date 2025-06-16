@@ -29,7 +29,7 @@ discovery:
   audience: ["FloatPrompt developers"]
   purpose: "universal-change-execution"
   relationships:
-    enables: ["sanity-check", "update-map-mode-scoring"]
+    enables: ["sanity-check", "update-map-mode-scoring", "update-map-mode-response-patterns"]
     supersedes: []
     parallels: []
     mirrors: []
@@ -100,32 +100,38 @@ Execute precise, traceable updates to the FloatPrompt system using structured up
    - Use territory assessment to identify affected system areas
    - Map abstract zones to concrete implementation locations
 
-3. **Validate Against Goals**
+3. **Apply Goals Framework**
+   - Reference goals.md decision hierarchy: AI precision → human task completion → intelligence preservation
+   - Apply "When in doubt: Choose AI precision over human convenience" principle
+   - Establish validation criteria based on Primary Goal (100% precise AI execution)
+   - Set context for systematic evaluation against foundational objectives
+
+4. **Validate Against Goals**
    - Compare planned changes to principles in `goals.md`
    - Ensure alignment with system architecture and philosophy
    - Flag any conflicts or misalignments
 
-4. **Apply Change Logic**
+5. **Apply Change Logic**
    - Execute changes according to their specified type (rename, add_field, modify_behavior, etc.)
    - Apply modifications only where structurally appropriate
    - Maintain system consistency and readability
 
-5. **Update Documentation**
+6. **Update Documentation**
    - Search affected documentation areas for required updates
    - Apply changes while preserving voice and clarity
    - Ensure consistency across all documentation
 
-6. **Update Public Interfaces**
+7. **Update Public Interfaces**
    - Modify user-facing documentation (README.md, etc.)
    - Ensure public interface reflects internal changes
    - Maintain consistency between internal and external terminology
 
-7. **Record Completion**
+8. **Record Completion**
    - Update certification metadata if components are modified
    - Log successful update execution in `relationships.enables`
    - Document any deviations or additional changes made
 
-8. **Archive Completed Update**
+9. **Archive Completed Update**
    - Rename update file with today's date prefix: `YYYY-MM-DD-[original-name].md`
    - Move from `dev/updates/` to `artifacts/[current-year]/` folder
    - Use Python datetime if available, otherwise ask human for today's date

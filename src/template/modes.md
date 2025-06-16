@@ -85,9 +85,9 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 - **Output**: Complete, immediately usable custom floatprompts
 - **Trigger Examples**: "build this", "create a floatprompt for", "construct from these requirements"
 - **Friction Enforcement**: 
-  - 🟩 **Low-friction**: Proceed directly to build process
-  - 🟨 **Moderate-friction**: Recommend mapping first, allow override with unanchored flag
-  - 🟥 **High-friction**: Block build execution until mapping is completed
+  - 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly with build."
+  - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with build? (Note: skipping mapping may result in unanchored output.)"
+  - 🟥 **High-friction**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
 
 **Three-Phase Methodology:**
 
@@ -105,9 +105,9 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 - **Output**: Structured intelligence with archaeological voice preservation, voice guides, extracted patterns, strategic recommendations
 - **Trigger Examples**: "extract patterns from", "structure this intelligence", "preserve this voice"
 - **Friction Enforcement**: 
-  - 🟩 **Low-friction**: Proceed directly to extraction
-  - 🟨 **Moderate-friction**: Recommend mapping first, allow override with unanchored flag
-  - 🟥 **High-friction**: Block extract execution until mapping is completed
+  - 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly with extract."
+  - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with extract? (Note: skipping mapping may result in unanchored output.)"
+  - 🟥 **High-friction**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
 
 **Strategic Assessment:** Extract evaluates goal + territory to determine optimal approach and granularity. Delivers confident recommendations for extraction scope and methodology rather than asking technical choices. Includes granularity calibration to prevent over-atomization and maintains focus on human task completion objectives.
 

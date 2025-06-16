@@ -63,6 +63,7 @@ AI precision is the number one priority that actually helps humans achieve their
 - 100% fidelity to human voice and decision-making patterns
 - Consistent execution across AI systems and sessions
 - **Map/Score/Respond pipeline enforcement**: All input must pass through friction classification before execution to prevent premature action on complex content
+- **Response pattern implementation**: Metaphor-based behavioral responses (building/hallway/small room) provide intuitive, friction-appropriate guidance
 
 ### ✅ Human Task Completion Metrics (Secondary Goal)
 - Humans successfully complete their specific intended tasks

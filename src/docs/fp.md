@@ -22,8 +22,9 @@ contributors: ["@mds", "Claude Sonnet"]
 4. **Joint Intelligence**: Designed for seamless AI & Human collaboration
 5. **HI-AI Co-Creation**: Product of collaborative Human Intelligence & Artificial Intelligence
 6. **Map/Score/Respond Pipeline**: Mandatory friction classification system for all input processing
+7. **Response Pattern System**: Metaphor-based behavioral responses (building/hallway/small room) for friction-appropriate guidance
 
-**Purpose**: "Joint preserved and executable intelligence" format representing HI-AI co-creation with systematic input assessment
+**Purpose**: "Joint preserved and executable intelligence" format representing HI-AI co-creation with systematic input assessment and intuitive response selection
 
 ### **.md Files: Everything Else**
 
@@ -173,6 +174,7 @@ src/template/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
 - [ ] Designed for direct AI upload and execution
 - [ ] Represents HI-AI co-creation (Human Intelligence and Artificial Intelligence collaboration)
 - [ ] Implements map/score/respond pipeline for systematic input assessment
+- [ ] Implements response pattern system with metaphor-based behavioral guidance
 
 ### **Disqualifiers for .fp Classification**
 - [ ] Missing FloatPrompt wrapper tags

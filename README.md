@@ -74,3 +74,4 @@ Features, file structure, and instructions may change frequently.
 - **Portable intelligence** that works across any AI platform
 - **Archaeological extraction** that preserves rather than paraphrases
 - **Built-in safety system** through automatic friction classification and response selection
+- **Intuitive metaphor guidance** using building/hallway/small room spatial concepts for friction-appropriate responses
