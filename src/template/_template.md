@@ -1,4 +1,4 @@
-<!-- _template.md -->
+<!-- _template.fp -->
 # 📋 Component Template
 
 **Structure `spec/*.md` files for 100% precise AI instruction execution**

@@ -1,4 +1,4 @@
-<!-- chaining.md -->
+<!-- chaining.fp -->
 ## Orchestrate Multi-Step Workflows Through Mode Chaining
 
 Execute advanced workflow coordination across core modes for complex intelligence projects while preserving human decision-making authority at every step.

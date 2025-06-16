@@ -1,4 +1,4 @@
-<!-- naming.md -->
+<!-- naming.fp -->
 ## Apply Archival Naming Rules and Casing Integrity
 
 Execute file naming conventions and canonical term preservation ensuring archaeological integrity and discovery optimization.
@@ -12,7 +12,7 @@ Execute file naming conventions and canonical term preservation ensuring archaeo
 | **Document titles & headers** | `FloatPrompt` | "# FloatPrompt Complete Template" |
 | **Sentence beginnings** | `FloatPrompt` | "FloatPrompt enables joint execution..." |
 | **Mid-sentence technical refs** | `floatprompt` | "Upload the floatprompt file..." |
-| **Filenames** | `floatprompt` | `floatprompt-template.md` |
+| **Filenames** | `floatprompt` | `floatprompt-template.fp` |
 | **Brand references** | `FloatPrompt` | "The FloatPrompt system serves humans" |
 
 **Related system terms:**
@@ -20,6 +20,14 @@ Execute file naming conventions and canonical term preservation ensuring archaeo
 - `shadowVoice` (camelCase)
 
 > The system is called FloatPrompt — following JavaScript naming convention patterns.
+
+## 📁 File Extension Rules
+
+**Canonical FloatPrompt Extension**: `.fp`
+- **Template System**: All FloatPrompt template components use `.fp` extension
+- **Internal Documents**: System documentation and components use `.fp` 
+- **External Interfaces**: Public files (README.md, LICENSE) remain `.md` for ecosystem compatibility
+- **Historical Artifacts**: Preserved documents in `artifacts/` remain `.md` for archaeological integrity
 
 ## 📁 File Naming Convention
 
@@ -38,14 +46,14 @@ FloatPrompt follows the manifesto's "Two Forms of Floating" principle in naming:
 
 ### ⚙️ Executable Intelligence (Reusable Tools)
 ```
-[functional-name].md
+[functional-name].fp
 ```
 - **Purpose**: Specifications, templates, tools, system components designed for reuse
 
 ### 🎯 Naming Rules
 - **Preserved**: Use creation date + model name + 2-digit sequence + descriptive name
 - **Executable**: Use clear, functional names that aid discovery and reuse
-- **All files**: Lowercase, hyphen-separated, `.md` extension
+- **All files**: Lowercase, hyphen-separated, `.fp` extension for FloatPrompts (`.md` for historical artifacts)
 - **No exceptions**: Every floatprompt follows one of these two patterns
 
 ### 🤖 Smart Date Resolution Protocol
@@ -79,4 +87,4 @@ model_identification:
 
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering naming convention compliance.
 
-Casing integrity compliance: Canonical system terms (FloatPrompt, shadowPrompt, shadowVoice) retain exact casing and form throughout all content. File naming convention adherence: Two forms principle applied with Preserved Intelligence using date-sequence-description format and Executable Intelligence using functional names. Naming rules verification: All files use lowercase, hyphen-separated format with .md extension following established patterns. Archaeological integrity maintenance: Naming conventions support discovery optimization and temporal preservation. 
+Casing integrity compliance: Canonical system terms (FloatPrompt, shadowPrompt, shadowVoice) retain exact casing and form throughout all content. File naming convention adherence: Two forms principle applied with Preserved Intelligence using date-sequence-description format and Executable Intelligence using functional names. Extension rules verification: FloatPrompt system files use .fp extension, external interfaces use .md, historical artifacts preserve .md for archaeological integrity. Archaeological integrity maintenance: Naming conventions support discovery optimization and temporal preservation. 

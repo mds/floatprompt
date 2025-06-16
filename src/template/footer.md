@@ -1,4 +1,4 @@
-<!-- footer.md -->
+<!-- footer.fp -->
 ## Apply Universal Footer and Licensing Requirements
 
 Execute standard attribution template ensuring Creative Commons compliance, creator recognition, and intellectual property protection across all floatprompt documents.
@@ -10,7 +10,7 @@ Execute standard attribution template ensuring Creative Commons compliance, crea
 ## 🏢 Implementation Requirements
 
 ### Automatic Inclusion
-- **Universal footer** applied from `footer.md` in all generated floatprompts
+- **Universal footer** applied from `footer.fp` in all generated floatprompts
 - **Consistent format** maintained through single source of truth
 - **Build system integration** ensures systematic application without duplication
 
@@ -22,13 +22,13 @@ Execute standard attribution template ensuring Creative Commons compliance, crea
 
 ## 📋 Attribution Compliance Rules
 
-### Required Elements (from footer.md)
+### Required Elements (from footer.fp)
 - **Copyright notice**: © 2025 Studio MDS, LLC with social attribution
 - **Professional context**: Creator bio establishing credibility and ecosystem
 - **License declaration**: Licensed under Creative Commons Attribution 4.0 (CC BY 4.0)
 
 ### Format Standards
-- **Canonical source**: Use `footer.md` format without modification
+- **Canonical source**: Use `footer.fp` format without modification
 - **Complete inclusion**: All elements from footer template required
 - **Consistent placement**: Applied automatically by build system at document end
 
@@ -42,7 +42,7 @@ Execute standard attribution template ensuring Creative Commons compliance, crea
 
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering attribution compliance.
 
-Universal attribution implementation: Footer format from `footer.md` applied consistently across all floatprompt documents through build system integration. Creative Commons compliance: CC BY 4.0 licensing properly declared with attribution requirements enforced. Legal protection verification: Studio MDS, LLC intellectual property ownership and @mds creator recognition maintained throughout all system components. Single source maintenance: Attribution format managed in one canonical location preventing duplication and drift.
+Universal attribution implementation: Footer format from `footer.fp` applied consistently across all floatprompt documents through build system integration. Creative Commons compliance: CC BY 4.0 licensing properly declared with attribution requirements enforced. Legal protection verification: Studio MDS, LLC intellectual property ownership and @mds creator recognition maintained throughout all system components. Single source maintenance: Attribution format managed in one canonical location preventing duplication and drift.
 
 ---
 

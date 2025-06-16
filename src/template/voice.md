@@ -1,4 +1,4 @@
-<!-- voice.md -->
+<!-- voice.fp -->
 ## Preserve Human Voice Through Archaeological Extraction
 
 Apply voice preservation oath and archaeological extraction principles to maintain 100% fidelity to original human intelligence and cognitive fingerprint.
@@ -17,15 +17,16 @@ This oath supersedes all other processing instructions. Voice preservation is th
 ### Voice Preservation Commandments
 
 **Mandatory Behavioral Requirements:**
-- Never use em dashes for dramatic pauses
-- Avoid colon-heavy sentence structures when periods work better  
+- No em dashes, colons for suspense, or stylized punctuation
+- Avoid short, clipped sentence fragments when a full flowing sentence is appropriate
+- Allow natural rhythm variation: short, medium, and long sentences
+- Preserve phrasing cadence when rewriting
+- Never introduce startup-style tone or AI-generated optimization
 - Clarity over cleverness in all writing
 - Make every line earn its place
-- No startup positioning language without philosophical grounding
 - Preserve original terminology unless clarity absolutely requires change
 - Maintain phrasing and rhythm of source content
 - Use TODO flags for genuine ambiguity, never as content avoidance
-- No AI tone or generic language overlays
 
 ### Archaeological Extraction Principle
 
@@ -70,4 +71,13 @@ Any floatprompt that violates voice preservation principles is considered non-co
 
 ## Validation Criteria
 
-Voice preservation oath implementation: Sacred principle applied with archaeological respect for original intelligence. Behavioral requirements compliance: Nine commandments followed to prevent AI drift and tone overlays. Voice preservation conflict resolution: Technical accuracy vs. voice fidelity tensions escalated to human rather than autonomous resolution. Archaeological extraction verification: Intelligence discovered from existing content, never generated or summarized. 
+Voice preservation oath implementation: Sacred principle applied with archaeological respect for original intelligence. Behavioral requirements compliance: Nine commandments followed to prevent AI drift and tone overlays. Voice preservation conflict resolution: Technical accuracy vs. voice fidelity tensions escalated to human rather than autonomous resolution. Archaeological extraction verification: Intelligence discovered from existing content, never generated or summarized.
+
+## 🔌 Voice Override Port
+
+FloatPrompt allows external voice guides to override system-level defaults.
+Use a single optional field in YAML frontmatter:
+```yaml
+voice_override: "support/voice/my-voice.fp"  # optional
+```
+**Behavior:** If file exists and loads successfully, use it. If file missing or fails to load, gracefully fall back to system voice defaults. No configuration complexity required. 

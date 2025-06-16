@@ -1,4 +1,4 @@
-<!-- structure.md -->
+<!-- structure.fp -->
 ## Structure FloatPrompt Bodies Through Standard Markdown Template
 
 Apply standardized markdown template ensuring 100% precise AI instruction execution with complete human readability and voice preservation.
@@ -6,6 +6,8 @@ Apply standardized markdown template ensuring 100% precise AI instruction execut
 ## 🧱 System Body Structure
 
 **Standard markdown template ensuring 100% precise AI instruction execution with complete human readability**
+
+All floatprompts support optional `voice_override` metadata for custom voice injection.
 
 ```markdown
 # 🏺 TODO_TITLE
@@ -62,6 +64,47 @@ TODO_HUMAN_AGENCY_PRESERVATION
 
 *TODO_CLOSING_PHILOSOPHICAL_STATEMENT*
 ```
+
+## 🏗️ OS/Application Architecture Pattern
+
+**FloatPrompt operates as a true operating system for AI collaboration with clean separation between universal system concerns and specific application logic.**
+
+### **FloatPrompt OS (Kernel)**
+**Core System File: `floatprompt-X.X.X-alpha.fp`**
+- **Role**: Operating system kernel providing foundational context
+- **Contains**: Complete format requirements, behavioral specifications, system authority
+- **Scope**: System-wide standards, universal behavioral contracts
+- **Analogy**: Like Linux kernel or Windows OS
+
+### **FloatPrompt Applications (Downstream)**
+**Application Files: `update-creator.fp`, `task-specific.fp`, etc.**
+- **Role**: Specialized applications running within OS context
+- **Contains**: Task-specific instructions, focused functionality
+- **Scope**: Specific use cases, targeted problem solving
+- **Analogy**: Like applications running on an operating system
+
+### **Optimal Usage Sequence**
+```
+1. Upload: floatprompt-{{VERSION}}.fp (establish OS context)
+2. Upload: specific-application.fp (run targeted task)
+3. AI Context: Complete system foundation + specific instructions
+```
+
+### **Separation of Concerns**
+
+**OS Kernel Responsibilities:**
+- Format requirements and validation rules
+- Behavioral contracts and voice preservation
+- Cross-platform compatibility standards
+- Universal field specifications
+- System-wide architectural principles
+
+**Application Responsibilities:**
+- Task-specific execution logic
+- Focused problem-solving instructions
+- Specialized workflow guidance
+- Domain-specific examples and templates
+- Targeted user experience optimization
 
 ### 🎯 **Primary Goal Implementation**
 

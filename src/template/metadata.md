@@ -1,4 +1,4 @@
-<!-- metadata.md -->
+<!-- metadata.fp -->
 ## Specify Format Requirements and Overflow Content
 
 Apply file format requirements ensuring dual-readability, portability, and 100-year archival integrity while excluding non-canonical formats.
@@ -67,6 +67,11 @@ This format honors:
 - System longevity
 - Interoperable tooling
 - Intelligence as protocol, not product 
+
+## 🎯 Behavioral Fields
+
+### Voice Override Support
+Recognize optional `voice_override: filepath` when loading floatprompts. Graceful fallback to system defaults if voice guide unavailable.
 
 ## Validation Criteria
 

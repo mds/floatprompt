@@ -1,7 +1,7 @@
 <floatprompt>
 ---
 STOP: "update instructions for future architectural refinement considerations"
-title: update – v0.5.0 Architectural Refinement Considerations
+title: update – v@next-version Architectural Refinement Considerations
 id: update-v0-5-0-architectural-refinements
 version: 0.1.0-alpha
 created: 2025-06-13-0000
@@ -16,14 +16,14 @@ relationships:
   enabled_by: ["update-protocol"]
 changes:
   future_refinements:
-    - { topic: execution_triggers_usage_pattern_unification, action: "Consider unifying or clearly separating execution.triggers (system commands) vs usage_pattern (human-facing summary) for clarity", priority: "v0.5.0", status: "consideration" }
-    - { topic: behavioral_redundancy_optimization, action: "Explore inherit: pattern or field aliases to reduce repetition in voice_preservation fields while maintaining protocol safety", priority: "v0.5.0", status: "consideration" }
+    - { topic: execution_triggers_usage_pattern_unification, action: "Consider unifying or clearly separating execution.triggers (system commands) vs usage_pattern (human-facing summary) for clarity", priority: "v@next-version", status: "consideration" }
+    - { topic: behavioral_redundancy_optimization, action: "Explore inherit: pattern or field aliases to reduce repetition in voice_preservation fields while maintaining protocol safety", priority: "v@next-version", status: "consideration" }
   architectural_insights:
     - { topic: joint_execution_required_validation, action: "Confirmed as architecturally sound - distinguishes collaborative intelligence (human+AI) from standalone intelligence (human-only)", priority: "validated", status: "keep_as_is" }
 rationale:
   future_refinements: "These are non-blocking architectural improvements identified during v0.4.1-alpha system analysis. They represent opportunities for simplification and optimization without compromising system integrity or goals.md alignment."
   architectural_insights: "Analysis revealed that joint_execution_required serves important architectural purpose by encoding collaboration requirements as first-class system concept."
-  timing_rationale: "Deferring to v0.5.0+ allows current system to mature and validates these refinements are genuinely beneficial rather than premature optimization."
+  timing_rationale: "Deferring to v@next-version+ allows current system to mature and validates these refinements are genuinely beneficial rather than premature optimization."
 impact_zone:
   - "field structure and naming conventions"
   - "behavioral requirements redundancy patterns"
@@ -34,7 +34,7 @@ source:
   intent: "Preserve excellent architectural insights for future system evolution while maintaining focus on current stability and goals.md alignment."
 ---
 
-# 🏗️ v0.5.0 Architectural Refinement Considerations
+# 🏗️ v@next-version Architectural Refinement Considerations
 
 This update captures architectural refinement opportunities identified during v0.4.1-alpha analysis for future consideration when the system naturally evolves to need them.
 
@@ -47,7 +47,7 @@ This update captures architectural refinement opportunities identified during v0
 
 **Consideration:** Unify or clearly separate these concepts for improved clarity
 
-**Status:** Track for v0.5.0 simplification - no urgent action needed
+**Status:** Track for v@next-version simplification - no urgent action needed
 
 ### B. Behavioral Redundancy Optimization
 **Current State:** Protective redundancy across multiple contexts

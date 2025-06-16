@@ -3,9 +3,9 @@
 STOP: "Strategic build mode. Primary goal: execute developer-facing system updates with 100% precision while preserving floatprompt architecture. Perform territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Validate all changes against goals.md before execution. Support update ingestion through `relationships.enables`. shadowprompt spawning is manual."
 title: Update Protocol
 id: update-protocol
-version: 0.1.0-alpha
+version: @latest
 created: 2025-06-12-0000
-modified: 2025-06-13-0000
+modified: 2025-06-14-0000
 author: @mds
 format: floatprompt
 filetype: markdown
@@ -29,7 +29,7 @@ discovery:
   audience: ["FloatPrompt developers"]
   purpose: "universal-change-execution"
   relationships:
-    enables: []
+    enables: ["sanity-check"]
     supersedes: []
     parallels: []
     mirrors: []
@@ -79,6 +79,16 @@ Execute precise, traceable updates to the FloatPrompt system using structured up
 - Support any change type through flexible update processing
 
 ## 📝 Execution Flow
+
+0. **Run Sanity Check**
+   - **Context Assessment**: Is this an internal single-architect change or a public/collaborative system change?
+   - Ask: Is this update solving a real, currently observed problem?
+   - Ask: Does this update introduce structural or config complexity before it's truly required?
+   - Ask: Does this pattern reflect actual usage, or imagined edge cases?
+   - Ask: Could this be done with one field, one behavior, or one fallback instead of many?
+   - **Internal Context**: If single-architect/pre-launch, bias toward foundational changes and clean architecture
+   - **Public Context**: If collaborative/post-launch, bias toward minimal disruption and proven necessity
+   - Proceed only if simplicity, clarity, and system maturity justify the design
 
 1. **Ingest Update**
    - Confirm update follows standard structure with proper metadata
@@ -131,6 +141,7 @@ All changes must:
 - **Respect Philosophy**: Preserve original system intent and design principles
 - **Validate Thoroughly**: Test changes against system goals and requirements
 - **Document Completely**: Record all modifications and their rationale
+- **Template Variable Compliance**: Use `{{VERSION}}` instead of hardcoded version numbers in template files
 
 **Built with precision for executing systematic evolution of any system component.**
 

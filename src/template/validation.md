@@ -1,4 +1,4 @@
-<!-- validation.md -->
+<!-- validation.fp -->
 ## Validate FloatPrompt Compliance Through Deployment Checklist
 
 Execute comprehensive pre-deployment verification ensuring system authority compliance, goal hierarchy alignment, and archaeological preservation integrity.

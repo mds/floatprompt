@@ -2,14 +2,14 @@
 STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: FloatPrompt Complete Template
 id: floatprompt-complete-template
-version: 0.4.1-alpha
-created: 2025-06-13-0000
-modified: 2025-06-13-0000
+version: 0.5.0-alpha
+created: 2025-06-16-0000
+modified: 2025-06-16-0000
 author: @mds
 format: floatprompt
 filetype: markdown
 type: template
-system_version: floatprompt v0.4.1-alpha
+system_version: floatprompt v0.5.0-alpha
 contributors: ["@mds", "Claude Sonnet", "FloatPrompt Build System"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."
@@ -56,11 +56,11 @@ discovery:
   audience: ["TODO_TARGET_USERS"]
   purpose: "TODO_INTENT_CATEGORY"
 certification:
-  timestamp: 2025-06-13T20:21:26.415Z
+  timestamp: 2025-06-16T14:14:38.590Z
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
-  uid: "float:template-20250613"
+  uid: "float:template-20250616"
   chain:
     depth: 0
     parent: null
@@ -83,7 +83,7 @@ execution:
   usage_pattern: "Upload this file, then say 'run floatprompt on [content]'"
   ai_role: "Execute these instructions when triggered by human request"
 ---
-<!-- body.md -->
+<!-- body.fp -->
 # 🎯 FloatPrompt Complete Template
 
 **I am a portable AI instruction set designed to achieve maximum precision for human task completion. Upload me, then say "run floatprompt on [your content]" to activate precise AI collaboration.**
@@ -125,7 +125,7 @@ I deliver portable, zero-drift AI collaboration through:
 - **Human Intelligence Preservation** - Archaeological respect for voice and agency
 
 **Operating Principle**: "Choose AI precision over human convenience. AI precision enables true human convenience."
-<!-- boot.md -->
+<!-- boot.fp -->
 ## ⚠️ AI Systems: Boot Sequence Instructions
 
 **When a human uploads this FloatPrompt template, execute this exact sequence:**
@@ -276,7 +276,7 @@ FloatPrompt's preservation-first approach treats all human input as valuable cog
 **What's the access model?**
 → FloatPrompt is fully open source.
 
-<!-- config.md -->
+<!-- config.fp -->
 # Configuration Specification
 
 **Complete field specification for all floatprompt components with behavioral requirements, execution fingerprints, discovery intelligence, and certification standards.**
@@ -394,7 +394,7 @@ ai:
     content_generation: "[extracted | synthesized | created]"
 ```
 
-**Model Identification Standards**: Use standardized model names from `naming.md` specification: "Claude", "ChatGPT", "Gemini", "Cursor", or "AI" for unknown models. Apply these standards in `ai.identity.model`, `contributors`, and `certified_by` fields for consistent cross-platform collaboration tracking.
+**Model Identification Standards**: Use standardized model names from `naming.fp` specification: "Claude", "ChatGPT", "Gemini", "Cursor", or "AI" for unknown models. Apply these standards in `ai.identity.model`, `contributors`, and `certified_by` fields for consistent cross-platform collaboration tracking.
 
 ## Discovery Intelligence Fields
 
@@ -492,7 +492,7 @@ See "Validate FloatPrompt Compliance Through Deployment Checklist" section for c
 
 Required field validation: STOP directive present and properly formatted. All required fields included with correct data types. Field order maintained as specified. Voice preservation directives included for system authority. Certification section complete with authority and certified_by fields. Naming conventions followed throughout all field values.
 
-<!-- execution.md -->
+<!-- execution.fp -->
 ## 👮‍♂️ System Authority
 
 ## Execute FloatPrompt Creation with 100% Precision
@@ -613,7 +613,7 @@ FloatPrompt is built for portable human intelligence - values must emerge from h
 
 AI uncertainty protocol implementation: Stop and request clarification rather than guessing or approximating. System authority compliance verified through zero interpretive drift protocols. Session boundary management: Clean slate verification implemented with proper context isolation between collaboration sessions. Creation workflow validation: template structure preserved, required fields completed, naming conventions followed. Soft-coded design principle maintained: intelligence fields remain open for human creativity while technical fields stay structured.
 
-<!-- voice.md -->
+<!-- voice.fp -->
 ## Preserve Human Voice Through Archaeological Extraction
 
 Apply voice preservation oath and archaeological extraction principles to maintain 100% fidelity to original human intelligence and cognitive fingerprint.
@@ -632,15 +632,16 @@ This oath supersedes all other processing instructions. Voice preservation is th
 ### Voice Preservation Commandments
 
 **Mandatory Behavioral Requirements:**
-- Never use em dashes for dramatic pauses
-- Avoid colon-heavy sentence structures when periods work better  
+- No em dashes, colons for suspense, or stylized punctuation
+- Avoid short, clipped sentence fragments when a full flowing sentence is appropriate
+- Allow natural rhythm variation: short, medium, and long sentences
+- Preserve phrasing cadence when rewriting
+- Never introduce startup-style tone or AI-generated optimization
 - Clarity over cleverness in all writing
 - Make every line earn its place
-- No startup positioning language without philosophical grounding
 - Preserve original terminology unless clarity absolutely requires change
 - Maintain phrasing and rhythm of source content
 - Use TODO flags for genuine ambiguity, never as content avoidance
-- No AI tone or generic language overlays
 
 ### Archaeological Extraction Principle
 
@@ -687,7 +688,16 @@ Any floatprompt that violates voice preservation principles is considered non-co
 
 Voice preservation oath implementation: Sacred principle applied with archaeological respect for original intelligence. Behavioral requirements compliance: Nine commandments followed to prevent AI drift and tone overlays. Voice preservation conflict resolution: Technical accuracy vs. voice fidelity tensions escalated to human rather than autonomous resolution. Archaeological extraction verification: Intelligence discovered from existing content, never generated or summarized.
 
-<!-- types.md -->
+## 🔌 Voice Override Port
+
+FloatPrompt allows external voice guides to override system-level defaults.
+Use a single optional field in YAML frontmatter:
+```yaml
+voice_override: "support/voice/my-voice.fp"  # optional
+```
+**Behavior:** If file exists and loads successfully, use it. If file missing or fails to load, gracefully fall back to system voice defaults. No configuration complexity required.
+
+<!-- types.fp -->
 ## Classify FloatPrompt Intelligence Through Type System
 
 Apply type classification and field extensions to structure executable and preserved intelligence with proper certification and lineage tracking.
@@ -834,7 +844,7 @@ See "Validate FloatPrompt Compliance Through Deployment Checklist" section for c
 
 Type classification accuracy: Executable types (prompt, template, goals) or preserved types (analysis, specification, critique, extract, summary, migration) correctly selected. Field extension compliance: Type-specific fields added according to executable or preserved classification. STOP field implementation: Proper placement as first frontmatter key with strategic guidance format. Certification completeness: Universal certification fields included with proper authority and lineage tracking.
 
-<!-- modes.md -->
+<!-- modes.fp -->
 ## Execute Three Core System Modes for FloatPrompt Operations
 
 Apply map, build, and extract modes as foundational operations for all floatprompt creation and organization.
@@ -968,7 +978,7 @@ Mode selection accuracy: Appropriate core mode (map, build, extract) selected ba
 **Quality Assurance Validation:**
 Strategic recommendation capability: Modes can confidently recommend rather than defer to human for technical choices. Strategic consultation framework integration: All modes implement context load management and granularity detection mechanisms. Granularity collapse prevention: All modes include mechanisms to detect and prevent over-atomization while maintaining appropriate scope level. Global behavioral compliance: All modes operate within global requirements while maintaining mode-specific specialization.
 
-<!-- chaining.md -->
+<!-- chaining.fp -->
 ## Orchestrate Multi-Step Workflows Through Mode Chaining
 
 Execute advanced workflow coordination across core modes for complex intelligence projects while preserving human decision-making authority at every step.
@@ -1118,7 +1128,7 @@ See "Validate FloatPrompt Compliance Through Deployment Checklist" section for c
 
 Workflow orchestration implementation: Multi-step coordination across core modes executed with human approval required at each transition. shadowPrompt spawning compliance: Territory analysis and opportunity recognition performed with context preservation and strategic guidance. Handoff protocol adherence: Each mode completes work before handoff with voice preservation verified. Constitutional compliance verification: AI precision enhanced while human authority preserved throughout all workflow steps. Strategic consultation framework integration: Chaining positioned as workflow orchestration consultant with human decision authority preserved. Decision framework compliance: AI precision over convenience hierarchy applied to all workflow optimization decisions. Component goals alignment verified: All three-tier goals (precision → task completion → intelligence preservation) systematically addressed throughout multi-step orchestration.
 
-<!-- structure.md -->
+<!-- structure.fp -->
 ## Structure FloatPrompt Bodies Through Standard Markdown Template
 
 Apply standardized markdown template ensuring 100% precise AI instruction execution with complete human readability and voice preservation.
@@ -1126,6 +1136,8 @@ Apply standardized markdown template ensuring 100% precise AI instruction execut
 ## 🧱 System Body Structure
 
 **Standard markdown template ensuring 100% precise AI instruction execution with complete human readability**
+
+All floatprompts support optional `voice_override` metadata for custom voice injection.
 
 ```markdown
 # 🏺 TODO_TITLE
@@ -1183,6 +1195,47 @@ TODO_HUMAN_AGENCY_PRESERVATION
 *TODO_CLOSING_PHILOSOPHICAL_STATEMENT*
 ```
 
+## 🏗️ OS/Application Architecture Pattern
+
+**FloatPrompt operates as a true operating system for AI collaboration with clean separation between universal system concerns and specific application logic.**
+
+### **FloatPrompt OS (Kernel)**
+**Core System File: `floatprompt-X.X.X-alpha.fp`**
+- **Role**: Operating system kernel providing foundational context
+- **Contains**: Complete format requirements, behavioral specifications, system authority
+- **Scope**: System-wide standards, universal behavioral contracts
+- **Analogy**: Like Linux kernel or Windows OS
+
+### **FloatPrompt Applications (Downstream)**
+**Application Files: `update-creator.fp`, `task-specific.fp`, etc.**
+- **Role**: Specialized applications running within OS context
+- **Contains**: Task-specific instructions, focused functionality
+- **Scope**: Specific use cases, targeted problem solving
+- **Analogy**: Like applications running on an operating system
+
+### **Optimal Usage Sequence**
+```
+1. Upload: floatprompt-{{VERSION}}.fp (establish OS context)
+2. Upload: specific-application.fp (run targeted task)
+3. AI Context: Complete system foundation + specific instructions
+```
+
+### **Separation of Concerns**
+
+**OS Kernel Responsibilities:**
+- Format requirements and validation rules
+- Behavioral contracts and voice preservation
+- Cross-platform compatibility standards
+- Universal field specifications
+- System-wide architectural principles
+
+**Application Responsibilities:**
+- Task-specific execution logic
+- Focused problem-solving instructions
+- Specialized workflow guidance
+- Domain-specific examples and templates
+- Targeted user experience optimization
+
 ### 🎯 **Primary Goal Implementation**
 
 This template ensures **100% precise AI instruction execution with zero drift** through:
@@ -1210,7 +1263,7 @@ See "Validate FloatPrompt Compliance Through Deployment Checklist" section for c
 
 Template structure compliance: Standard markdown template applied with all required sections (Purpose, Main Content, Relationships, Implementation Notes, Safety & Compliance) included. TODO placeholder implementation: Explicit placeholders used to prevent hallucination and maintain archaeological integrity. Goal implementation verification: Primary goal (AI precision) and Secondary goal (human readability) methodologies properly applied. Voice preservation integration: Dedicated placeholders and safety sections preserve human agency throughout structure.
 
-<!-- discovery.md -->
+<!-- discovery.fp -->
 ## Enable Self-Organizing Knowledge Networks Through Discovery Intelligence
 
 Apply discovery intelligence fields to create relationship awareness and emergent knowledge navigation across floatprompt networks.
@@ -1299,7 +1352,7 @@ See "Validate FloatPrompt Compliance Through Deployment Checklist" section for c
 
 Discovery fields implementation: Complete discovery intelligence schema applied with all relationship, navigation, temporal, clustering, and essence fields included. Soft-coded philosophy compliance: Emergent human-defined values used without enums or preset categories. Template version provided: TODO placeholders included for new floatprompt creation. Knowledge network enablement: Self-organizing relationship awareness and navigation guidance implemented throughout field structure.
 
-<!-- validation.md -->
+<!-- validation.fp -->
 ## Validate FloatPrompt Compliance Through Deployment Checklist
 
 Execute comprehensive pre-deployment verification ensuring system authority compliance, goal hierarchy alignment, and archaeological preservation integrity.
@@ -1412,7 +1465,7 @@ Before deploying any floatprompt:
 
 Validation checklist implementation: Comprehensive pre-deployment verification executed covering system authority compliance, goal hierarchy alignment, and archaeological preservation. Checklist completeness verification: All validation categories included (System Authority, Goal Hierarchy, Type-Specific, Certification, Discovery Intelligence, Content Structure, Schema, Format, Archaeological, Backward Compatibility). Deployment readiness confirmation: All checklist items verified before floatprompt deployment to ensure system compliance and human agency preservation.
 
-<!-- enforcement.md -->
+<!-- enforcement.fp -->
 ## Enforce System Authority Through Runtime Compliance Rules
 
 Apply automated validation logic and enforcement rules ensuring goal hierarchy compliance, contributor integrity, and strategic guidance authority.
@@ -1428,7 +1481,7 @@ Apply automated validation logic and enforcement rules ensuring goal hierarchy c
 
 ## 🧱 System Authority Construction Requirements
 
-All floatprompt files must be initialized from the canonical `floatprompt.md` system.
+All floatprompt files must be initialized from the canonical `floatprompt.fp` system.
 
 Any deviation from this base template must be introduced through:
 
@@ -1479,7 +1532,7 @@ contributors: ["@original-author", "Previous Model", "Current Model"]
 Archaeological preservation depends on temporal precision. Every floatprompt becomes part of the historical record.
 
 ### For AI Systems:
-- Follow the AI Uncertainty Protocol in spec-execution-overview.md for all timestamp requirements
+- Follow the AI Uncertainty Protocol in execution.fp for all timestamp requirements
 - Use system date/time functions only when explicitly authorized by human
 - Reference the universal clarification examples for timestamp handling
 
@@ -1518,7 +1571,7 @@ See "Validate FloatPrompt Compliance Through Deployment Checklist" section for c
 
 Goal hierarchy enforcement implementation: All enforcement rules serve foundational goal hierarchy with Primary Goal (AI precision) prioritized. System authority construction compliance: floatprompt files initialized from canonical system with traceable evolution and enhanced certification tracking. Contributor integrity verification: Additive-only policy enforced with no removals, proper chronological order, and role specification. Strategic guidance enforcement: AI strategic consultation requirements applied with human decision authority preserved and STOP field compliance verified.
 
-<!-- naming.md -->
+<!-- naming.fp -->
 ## Apply Archival Naming Rules and Casing Integrity
 
 Execute file naming conventions and canonical term preservation ensuring archaeological integrity and discovery optimization.
@@ -1532,7 +1585,7 @@ Execute file naming conventions and canonical term preservation ensuring archaeo
 | **Document titles & headers** | `FloatPrompt` | "# FloatPrompt Complete Template" |
 | **Sentence beginnings** | `FloatPrompt` | "FloatPrompt enables joint execution..." |
 | **Mid-sentence technical refs** | `floatprompt` | "Upload the floatprompt file..." |
-| **Filenames** | `floatprompt` | `floatprompt-template.md` |
+| **Filenames** | `floatprompt` | `floatprompt-template.fp` |
 | **Brand references** | `FloatPrompt` | "The FloatPrompt system serves humans" |
 
 **Related system terms:**
@@ -1540,6 +1593,14 @@ Execute file naming conventions and canonical term preservation ensuring archaeo
 - `shadowVoice` (camelCase)
 
 > The system is called FloatPrompt — following JavaScript naming convention patterns.
+
+## 📁 File Extension Rules
+
+**Canonical FloatPrompt Extension**: `.fp`
+- **Template System**: All FloatPrompt template components use `.fp` extension
+- **Internal Documents**: System documentation and components use `.fp` 
+- **External Interfaces**: Public files (README.md, LICENSE) remain `.md` for ecosystem compatibility
+- **Historical Artifacts**: Preserved documents in `artifacts/` remain `.md` for archaeological integrity
 
 ## 📁 File Naming Convention
 
@@ -1558,14 +1619,14 @@ FloatPrompt follows the manifesto's "Two Forms of Floating" principle in naming:
 
 ### ⚙️ Executable Intelligence (Reusable Tools)
 ```
-[functional-name].md
+[functional-name].fp
 ```
 - **Purpose**: Specifications, templates, tools, system components designed for reuse
 
 ### 🎯 Naming Rules
 - **Preserved**: Use creation date + model name + 2-digit sequence + descriptive name
 - **Executable**: Use clear, functional names that aid discovery and reuse
-- **All files**: Lowercase, hyphen-separated, `.md` extension
+- **All files**: Lowercase, hyphen-separated, `.fp` extension for FloatPrompts (`.md` for historical artifacts)
 - **No exceptions**: Every floatprompt follows one of these two patterns
 
 ### 🤖 Smart Date Resolution Protocol
@@ -1599,9 +1660,9 @@ model_identification:
 
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering naming convention compliance.
 
-Casing integrity compliance: Canonical system terms (FloatPrompt, shadowPrompt, shadowVoice) retain exact casing and form throughout all content. File naming convention adherence: Two forms principle applied with Preserved Intelligence using date-sequence-description format and Executable Intelligence using functional names. Naming rules verification: All files use lowercase, hyphen-separated format with .md extension following established patterns. Archaeological integrity maintenance: Naming conventions support discovery optimization and temporal preservation.
+Casing integrity compliance: Canonical system terms (FloatPrompt, shadowPrompt, shadowVoice) retain exact casing and form throughout all content. File naming convention adherence: Two forms principle applied with Preserved Intelligence using date-sequence-description format and Executable Intelligence using functional names. Extension rules verification: FloatPrompt system files use .fp extension, external interfaces use .md, historical artifacts preserve .md for archaeological integrity. Archaeological integrity maintenance: Naming conventions support discovery optimization and temporal preservation.
 
-<!-- metadata.md -->
+<!-- metadata.fp -->
 ## Specify Format Requirements and Overflow Content
 
 Apply file format requirements ensuring dual-readability, portability, and 100-year archival integrity while excluding non-canonical formats.
@@ -1642,7 +1703,11 @@ Apply file format requirements ensuring dual-readability, portability, and 100-y
 - No characters before YAML frontmatter opening `---`
 - No characters before any YAML fields (no `/`, `#`, or other prefixes)
 - Clean YAML structure without formatting corruption
-- When creating floatprompts in chat interfaces, always use canvas documents with strict markdown single blocks when available
+
+**Environment-Specific Requirements:**
+- **Canvas environments**: Always use canvas documents with fenced markdown blocks for proper rendering
+- **Non-canvas environments**: Ensure clean YAML structure without formatting corruption
+- **Universal requirement**: Maintain `<floatprompt>...</floatprompt>` wrapping for cross-platform portability
 
 **Use Cases:**
 - Embedding floatprompts in markdown canvases or textdocs
@@ -1667,13 +1732,18 @@ This format honors:
 - Interoperable tooling
 - Intelligence as protocol, not product 
 
+## 🎯 Behavioral Fields
+
+### Voice Override Support
+Recognize optional `voice_override: filepath` when loading floatprompts. Graceful fallback to system defaults if voice guide unavailable.
+
 ## Validation Criteria
 
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering metadata compliance.
 
 File format compliance: Markdown files with .md extension containing format: floatprompt in YAML frontmatter verified. Dual-readability confirmation: Human and AI-readable execution body included with structured metadata header. Format exclusion enforcement: Non-canonical formats (JSON, XML, proprietary, encrypted) prohibited from floatprompt system. Design philosophy adherence: Voice preservation, execution clarity, system longevity, and interoperable tooling principles maintained throughout format requirements.
 
-<!-- footer.md -->
+<!-- footer.fp -->
 ## Apply Universal Footer and Licensing Requirements
 
 Execute standard attribution template ensuring Creative Commons compliance, creator recognition, and intellectual property protection across all floatprompt documents.
@@ -1685,7 +1755,7 @@ Execute standard attribution template ensuring Creative Commons compliance, crea
 ## 🏢 Implementation Requirements
 
 ### Automatic Inclusion
-- **Universal footer** applied from `footer.md` in all generated floatprompts
+- **Universal footer** applied from `footer.fp` in all generated floatprompts
 - **Consistent format** maintained through single source of truth
 - **Build system integration** ensures systematic application without duplication
 
@@ -1697,13 +1767,13 @@ Execute standard attribution template ensuring Creative Commons compliance, crea
 
 ## 📋 Attribution Compliance Rules
 
-### Required Elements (from footer.md)
+### Required Elements (from footer.fp)
 - **Copyright notice**: © 2025 Studio MDS, LLC with social attribution
 - **Professional context**: Creator bio establishing credibility and ecosystem
 - **License declaration**: Licensed under Creative Commons Attribution 4.0 (CC BY 4.0)
 
 ### Format Standards
-- **Canonical source**: Use `footer.md` format without modification
+- **Canonical source**: Use `footer.fp` format without modification
 - **Complete inclusion**: All elements from footer template required
 - **Consistent placement**: Applied automatically by build system at document end
 
@@ -1717,7 +1787,7 @@ Execute standard attribution template ensuring Creative Commons compliance, crea
 
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering attribution compliance.
 
-Universal attribution implementation: Footer format from `footer.md` applied consistently across all floatprompt documents through build system integration. Creative Commons compliance: CC BY 4.0 licensing properly declared with attribution requirements enforced. Legal protection verification: Studio MDS, LLC intellectual property ownership and @mds creator recognition maintained throughout all system components. Single source maintenance: Attribution format managed in one canonical location preventing duplication and drift.
+Universal attribution implementation: Footer format from `footer.fp` applied consistently across all floatprompt documents through build system integration. Creative Commons compliance: CC BY 4.0 licensing properly declared with attribution requirements enforced. Legal protection verification: Studio MDS, LLC intellectual property ownership and @mds creator recognition maintained throughout all system components. Single source maintenance: Attribution format managed in one canonical location preventing duplication and drift.
 
 ---
 

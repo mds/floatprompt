@@ -181,7 +181,7 @@ This specification defines the canonical compilation order for assembling all fl
 ## 🎯 Assembly Rules
 
 ### **System Compliance**
-1. **System Authority First**: spec-execution-overview.md establishes AI directive immediately (serves Primary Goal through AI precision)
+1. **System Authority First**: execution.md establishes AI directive immediately (serves Primary Goal through AI precision)
 2. **Precision Mechanism Second**: Voice preservation provides AI precision that enables human success
 3. **Archaeological Integrity**: Pure extraction methodology throughout
 4. **Zero Modification**: Components assembled without content changes
@@ -204,7 +204,7 @@ This specification defines the canonical compilation order for assembling all fl
 ## 📝 Implementation Notes
 
 **For Template Builders:**
-- Follow exact sequence 1-16 for component integration (header.md + body.md + boot.md + 12 component files + footer.md)
+- Follow exact numerical sequence for component integration (header.md + body.md + boot.md + other component files + footer.md)
 - Verify dependencies before each component addition
 - Maintain system compliance throughout assembly
 - Use validation.md for final verification

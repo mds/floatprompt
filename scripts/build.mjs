@@ -11,7 +11,7 @@ const VERSION = packageJson.version;
 const BUILD_CONFIG = {
   sourceDir: './src/template',
   outputDir: './dist',
-  outputFile: `floatprompt-${VERSION}.md`,
+  outputFile: `floatprompt-${VERSION}.fp`,
   
   // Compilation order from _order.md (updated to actual filenames)
   components: [
@@ -116,6 +116,20 @@ async function buildFloatPrompt() {
   
   // Ensure output directory exists
   await ensureDirectory(BUILD_CONFIG.outputDir);
+  
+  // Archive previous .fp version if it exists
+  const archiveDir = path.join(BUILD_CONFIG.outputDir, 'archive');
+  await ensureDirectory(archiveDir);
+  
+  // Find previous .fp file (not current version)
+  const files = await fs.readdir(BUILD_CONFIG.outputDir);
+  const previousFpFiles = files.filter(f => f.endsWith('.fp') && f !== BUILD_CONFIG.outputFile);
+  for (const prevFile of previousFpFiles) {
+    const prevPath = path.join(BUILD_CONFIG.outputDir, prevFile);
+    const archivePath = path.join(archiveDir, prevFile);
+    await fs.rename(prevPath, archivePath);
+    console.log(`📦 Archived previous version: ${archivePath}`);
+  }
   
   const compiledSections = [];
   

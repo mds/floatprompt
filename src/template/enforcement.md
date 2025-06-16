@@ -1,4 +1,4 @@
-<!-- enforcement.md -->
+<!-- enforcement.fp -->
 ## Enforce System Authority Through Runtime Compliance Rules
 
 Apply automated validation logic and enforcement rules ensuring goal hierarchy compliance, contributor integrity, and strategic guidance authority.
@@ -14,7 +14,7 @@ Apply automated validation logic and enforcement rules ensuring goal hierarchy c
 
 ## 🧱 System Authority Construction Requirements
 
-All floatprompt files must be initialized from the canonical `floatprompt.md` system.
+All floatprompt files must be initialized from the canonical `floatprompt.fp` system.
 
 Any deviation from this base template must be introduced through:
 
@@ -65,7 +65,7 @@ contributors: ["@original-author", "Previous Model", "Current Model"]
 Archaeological preservation depends on temporal precision. Every floatprompt becomes part of the historical record.
 
 ### For AI Systems:
-- Follow the AI Uncertainty Protocol in spec-execution-overview.md for all timestamp requirements
+- Follow the AI Uncertainty Protocol in execution.fp for all timestamp requirements
 - Use system date/time functions only when explicitly authorized by human
 - Reference the universal clarification examples for timestamp handling
 

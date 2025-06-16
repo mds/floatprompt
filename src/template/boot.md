@@ -1,4 +1,4 @@
-<!-- boot.md -->
+<!-- boot.fp -->
 ## ⚠️ AI Systems: Boot Sequence Instructions
 
 **When a human uploads this FloatPrompt template, execute this exact sequence:**
