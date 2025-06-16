@@ -46,6 +46,6 @@ Universal attribution implementation: Footer format from `footer.md` applied con
 
 ---
 
-© 2025 Studio MDS, LLC | [MDS](https://mds.is) | [X](https://x.com/mds), [IG](https://instagram.com/mds), [GH](https://github.com/mds)
+© {{CURRENT_YEAR}} Studio MDS, LLC | [MDS](https://mds.is) | [X](https://x.com/mds), [IG](https://instagram.com/mds), [GH](https://github.com/mds)
 
 Licensed under Creative Commons Attribution 4.0 (CC BY 4.0)

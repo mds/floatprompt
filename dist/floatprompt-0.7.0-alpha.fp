@@ -57,7 +57,7 @@ discovery:
   audience: ["TODO_TARGET_USERS"]
   purpose: "TODO_INTENT_CATEGORY"
 certification:
-  timestamp: 2025-06-16T22:25:01.909Z
+  timestamp: 2025-06-16T22:30:45.624Z
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false

@@ -43,6 +43,7 @@ async function extractFloatPromptFrontmatter() {
   const buildDate = new Date().toISOString().split('T')[0];
   const timestamp = new Date().toISOString();
   const buildDateCompact = buildDate.replace(/-/g, '');
+  const currentYear = new Date().getFullYear();
   
   // Archaeological extraction from header.md
   const templateHeaderPath = path.join('./src/template', 'header.md');
@@ -57,7 +58,8 @@ async function extractFloatPromptFrontmatter() {
     .replace(/\{\{BUILD_DATE\}\}/g, buildDate)
     .replace(/\{\{BUILD_TIMESTAMP\}\}/g, timestamp)
     .replace(/\{\{BUILD_DATE_COMPACT\}\}/g, buildDateCompact)
-    .replace(/\{\{VERSION\}\}/g, VERSION);
+    .replace(/\{\{VERSION\}\}/g, VERSION)
+    .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
 }
 
 async function extractFloatPromptBody() {
@@ -153,11 +155,15 @@ async function buildFloatPrompt() {
   
   // Archaeological extraction from footer.md
   const footerPath = path.join('./src/template', 'footer.md');
-  const footerContent = await readComponent(footerPath);
+  let footerContent = await readComponent(footerPath);
   
   if (!footerContent) {
     throw new Error('Failed to read footer.md - archaeological extraction requires source template');
   }
+  
+  // Replace template variables in footer
+  const currentYear = new Date().getFullYear();
+  footerContent = footerContent.replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
   
   // Add boot.md right after body.md
   const bootPath = path.join('./src/template', 'boot.md');
