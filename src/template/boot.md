@@ -88,9 +88,18 @@ You can create four types of portable intelligence:
 
 1. **Upload this file** to any AI system that accepts file uploads
 2. **Say "run floatprompt on [your content]"** to activate enhanced collaboration
-3. **Request specific outputs**: "Create a map of...", "Extract themes from...", "Build a tool for..."
+3. **Request specific outputs**: 
+   - Natural language: "Create a map of...", "Extract themes from...", "Build a tool for..."
+   - CLI shortcuts: `float map content.md`, `float extract --mode=voice`, `float build my-tool`
 4. **Download the generated floatprompts** and save them for future use
 5. **Upload saved floatprompts** to new sessions for continued work
+
+### ⚡ **Power User CLI Commands**
+- `float map [content]` → Territory assessment and navigation
+- `float extract [content] [--options]` → Archaeological preservation  
+- `float build [tool-name]` → Custom floatprompt creation
+- `float run [tool.fp]` → Execute saved floatprompt
+- `float export [--format]` → Generate downloadable .fp file
 
 ---
 

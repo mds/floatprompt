@@ -12,12 +12,17 @@
    - Use the file in `dist/floatprompt-{version}.fp` after building from source.
    - Or ask a project maintainer for the latest `.fp` file.
 
-2. **Upload to any AI system and say:**
+2. **Upload to any AI system and use:**
    ```
-   "Run floatprompt on [my content]"
+   Natural language: "Run floatprompt on [my content]"
+   CLI shortcuts:    float map content
+                     float extract --mode=voice  
+                     float build my-tool
    ```
 
 3. **Get better, more precise AI collaboration.**
+
+4. **Organize your work** using the [workspace structure](./workspace/) with examples and best practices.
 
 ---
 

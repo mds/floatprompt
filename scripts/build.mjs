@@ -167,14 +167,16 @@ async function buildFloatPrompt() {
     throw new Error('Failed to read boot.md - archaeological extraction requires source template');
   }
 
-  // Compile final template with AI Precision Optimized structure
+  // Compile final template with AI Precision Optimized structure and proper .fp format
   const finalTemplate = [
+    '<floatprompt>',
     await extractFloatPromptFrontmatter(),
     await extractFloatPromptBody(),
     bootContent,
     '',
     ...compiledSections,
-    footerContent
+    footerContent,
+    '</floatprompt>'
   ].join('\n');
   
   // Write output file

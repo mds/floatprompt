@@ -35,6 +35,47 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 **No mode (extract, build, critique) may execute without friction classification. Pipeline cannot be bypassed or disabled.**
 
+### CLI Command Shortcuts
+
+**FloatPrompt recognizes CLI-style command shortcuts for enhanced developer experience:**
+
+#### Core Mode Commands
+- **`float map [content]`** → Execute map mode with territory assessment
+- **`float extract [content] [--options]`** → Execute extract mode with archaeological preservation
+- **`float build [tool-name]`** → Execute build mode with three-phase methodology
+
+#### Workflow Commands
+- **`float run [tool.fp]`** → Execute uploaded floatprompt tool
+- **`float export [--format]`** → Generate downloadable .fp file
+- **`float lint [content]`** → Validate FloatPrompt compliance
+- **`float dev [--watch]`** → Development mode with enhanced feedback
+
+#### Option Patterns
+- **`--mode=voice`** → Voice preservation focus
+- **`--mode=themes`** → Theme extraction focus
+- **`--format=dist`** → Distribution-ready output
+- **`--watch`** → Continuous processing mode
+
+#### Command Recognition
+```yaml
+execution:
+  command_shortcuts:
+    patterns:
+      "float map": "map_mode_with_territory_assessment"
+      "float extract": "extract_mode_with_archaeological_preservation"
+      "float build": "build_mode_with_three_phase_methodology"
+      "float run": "execute_uploaded_floatprompt"
+      "float export": "generate_downloadable_fp_file"
+      "float lint": "validate_floatprompt_compliance"
+    options:
+      "--mode=voice": "voice_preservation_focus"
+      "--mode=themes": "theme_extraction_focus"
+      "--format=dist": "distribution_ready_output"
+      "--watch": "continuous_processing_mode"
+```
+
+**Progressive Disclosure**: Natural language commands continue to work identically. CLI shortcuts are additive enhancement providing familiar developer ergonomics without changing core functionality.
+
 ### Creating New FloatPrompts
 
 To create a new floatprompt using this system:

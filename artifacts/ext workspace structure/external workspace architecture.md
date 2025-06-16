@@ -1,15 +1,15 @@
 ---
-title: floatPrompt Workspace Architecture
+title: FloatPrompt Workspace Architecture
 id: floatprompt-workspace-architecture
 type: specification
-version: 1.0.0
+version: @latest
 created: 2025-06-10-0000
 modified: 2025-06-10-0000
 author: @mds
 contributors: ["@mds", "Claude Sonnet"]
 format: floatprompt
 filetype: markdown
-system_version: floatPrompt v1.0.0
+system_version: FloatPrompt v@latest
 certification:
   timestamp: 2025-06-10T22:15:00.000Z
   authority: "schema-compliance"
@@ -26,33 +26,33 @@ certification:
     tracked: true
     trace: ["workspace-design-session"]
 source:
-  prompt: "Folder structure design session for floatPrompt workspace organization"
+  prompt: "Folder structure design session for FloatPrompt workspace organization"
   intent: "Define scalable workspace architecture for personal and team use"
 discovery:
   significance: "foundational"
   theme: "architectural"
   scope: "comprehensive workspace design"
-  audience: "floatPrompt users and teams"
+  audience: "FloatPrompt users and teams"
   purpose: "implementation"
   relationships:
     builds_on: ["floatprompt-system-goals"]
     enables: ["team-collaboration", "workspace-management"]
   navigation:
-    prerequisites: ["understanding of floatPrompt principles"]
+    prerequisites: ["understanding of FloatPrompt principles"]
     next_steps: ["implement workspace structure", "create _USAGE.md"]
   essence:
-    core_purpose: "scalable folder architecture for floatPrompt workspaces"
+    core_purpose: "scalable folder architecture for FloatPrompt workspaces"
     impact_type: "foundational"
     wisdom_offering: "proven file organization that scales from personal to team use"
 ---
 
-# 📁 floatPrompt Workspace Architecture
+# 📁 FloatPrompt Workspace Architecture
 
-**Scalable folder structure for personal and team floatPrompt development that embodies Next.js-level design principles**
+**Scalable folder structure for personal and team FloatPrompt development that embodies framework-quality design principles**
 
 > **Primary Goal: Convention over configuration - make correct usage the path of least resistance**
 
-*This architecture supports the complete floatPrompt lifecycle from experimentation to production deployment, with archaeological preservation of development intelligence.*
+*This architecture supports the complete FloatPrompt lifecycle from experimentation to production deployment, with archaeological preservation of development intelligence.*
 
 ---
 
@@ -60,30 +60,55 @@ discovery:
 
 ```
 workspace/
-├── _USAGE.md             # Floats to top - single source of truth ⭐
-├── artifacts/            # Historical documentation & development record
-├── deploy/               # Production-ready prompts
-│   └── usage.md         # Deploy-specific instructions
-├── lab/                  # Active development & experimentation
-├── support/              # Supporting materials for prompts
-│   ├── voice/           # Voice extraction models, tone guides
-│   ├── style/           # Design decision frameworks
-│   ├── vocabulary/      # Language dictionaries, terminology
-│   └── frameworks/      # Personal methodologies
-└── vendor/               # 3rd party frameworks
+│
+├── _USAGE.md                                       # source of truth
+│
+├── artifacts/                                      # documentation
+│   ├── 2025-01-15-client-discovery-session.fp      # doc example
+│   ├── 2025-01-18-voice-extraction.fp              # doc example
+│   └── 2025-01-20-team-workflow-decisions.fp       # doc example
+│
+├── deploy/                                         # production floatprompts
+│   ├── client-analyzer.fp                          # exe example
+│   ├── meeting-summarizer.fp                       # exe example
+│   ├── voice-extractor.fp                          # exe example
+│   ├── discovery-process.fp                        # method example
+│   ├── quality-checklist.fp                        # method example
+│   └── usage.md                                    # instructions
+│
+├── lab/                                            # in development
+│   ├── 2025-01-15-feedback-tool-experiment.fp      # exe example
+│   ├── content-strategy-draft.fp                   # exe example
+│   └── voice-testing-v2.fp                         # exe example
+│
+├── support/                                        # supporting materials
+│   ├── voice/                                      # voice guides
+│   │   ├── client-voice-guide.fp                   # voice example
+│   │   └── technical-writing-tone.fp               # voice example
+│   ├── style/                                      # design frameworks
+│   │   ├── brand-guidelines.fp                     # style example
+│   │   └── content-hierarchy.fp                    # style example
+│   └── vocabulary/                                 # terminology
+│       ├── industry-terms.fp                       # vocab example
+│       └── company-glossary.fp                     # vocab example
+│
+└── vendor/                                         # 3rd party frameworks
+    ├── legal-framework.fp                          # method example
+    ├── design-system-analyzer.fp                   # method example
+    └── industry-templates/                         # method example
 ```
 
 ---
 
 ## 🎯 Design Principles Applied
 
-### Next.js-Level Conventions
+### Framework-Quality Conventions
 - **Zero config by default** - Folder names immediately indicate purpose
 - **Convention over configuration** - No explanation needed beyond folder name
 - **File-based relationships** - Structure determinable from filesystem alone
 - **Path of least resistance** - Obvious where things belong
 
-### floatPrompt System Goals Compliance
+### FloatPrompt System Goals Compliance
 - **AI Precision** - Clear naming supports 100% precise instruction execution
 - **Human Task Completion** - Intuitive organization enables efficient workflow
 - **Intelligence Preservation** - Archaeological tracking through artifacts/
@@ -175,8 +200,8 @@ fallback_message: "This prompt works best with supporting materials. Continue wi
 ## 🔗 Relationships
 
 ### Prerequisites
-- Understanding of floatPrompt system goals
-- Familiarity with Next.js-level design principles
+- Understanding of FloatPrompt system goals
+- Familiarity with framework-quality design principles
 - Agreement on team collaboration transparency
 
 ### Next Steps
@@ -185,7 +210,7 @@ fallback_message: "This prompt works best with supporting materials. Continue wi
 - Begin archaeological capture in `artifacts/`
 - Start lab experimentation workflow
 
-### Related floatPrompts
+### Related FloatPrompts
 - `floatprompt-system-goals.md` - Foundational decision framework
 - Future workspace management tools and templates
 

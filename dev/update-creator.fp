@@ -122,11 +122,15 @@ source:
 ## 📝 Instructions for Use
 
 1. **Name the update file** using format: `update-[name].fp` where `[name]` is a descriptive kebab-case identifier
-2. **Define the change type and specification** in the `changes` section
-3. **Provide clear rationale** for each change explaining why it's needed
-4. **List abstract impact zones** that describe affected system areas (avoid specific file paths)
-5. **Ensure proper linkage** to `update-protocol` via `relationships.enabled_by`
-6. **Choose appropriate update identifier** that clearly describes the change
+2. **Save to appropriate location**:
+   - **In Cursor/VS Code**: Save to `updates/update-[name].fp` (preferred location)
+   - **In web AI (Claude/ChatGPT)**: Create as `update-[name].fp` for download
+   - **Mobile apps**: Create as `update-[name].fp` for manual placement
+3. **Define the change type and specification** in the `changes` section
+4. **Provide clear rationale** for each change explaining why it's needed
+5. **List abstract impact zones** that describe affected system areas (avoid specific file paths)
+6. **Ensure proper linkage** to `update-protocol` via `relationships.enabled_by`
+7. **Choose appropriate update identifier** that clearly describes the change
 
 ### 🎯 Common Change Types
 
@@ -145,6 +149,20 @@ source:
 - **Validation Ready**: Output must pass validation by `update-protocol.fp`
 - **Change Traceability**: Include clear rationale and impact assessment for all modifications
 - **Backward Compatibility**: Consider existing system dependencies and user workflows
+
+## 🤖 AI Assistant Context Guidance
+
+**When using this update-creator:**
+
+### **File Placement Intelligence**
+- **If you have file system access** (Cursor, VS Code, etc.): Create files directly in `updates/update-[name].fp`
+- **If you can only generate content** (web AI, mobile): Generate the update content and suggest the user save it as `updates/update-[name].fp`
+- **Always mention the preferred location** so users know where updates belong
+
+### **Context-Aware Instructions**
+- **Full development environment**: Create the file directly and mention where it was saved
+- **Limited environment**: Generate content and provide clear saving instructions
+- **Always maintain** the proper update format regardless of environment
 
 **Use this floatprompt to create structured updates that evolve the system systematically and safely.**
 

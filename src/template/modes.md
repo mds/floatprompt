@@ -9,9 +9,9 @@ Apply map, build, and extract modes as foundational operations for all floatprom
 
 | **What You Say** | **What You Get** | **System Mode** |
 |------------------|------------------|-----------------|
-| "Create a **map** of this content" | Structured overview with navigation | 🗺️ map |
-| "**Extract** key themes from this" | Preserved intelligence patterns | 🏺 extract |
-| "Build a **tool** for analyzing feedback" | Reusable custom floatprompt | 🏗️ build |
+| "Create a **map** of this content" <br/> `float map content.md` | Structured overview with navigation | 🗺️ map |
+| "**Extract** key themes from this" <br/> `float extract --mode=themes` | Preserved intelligence patterns | 🏺 extract |
+| "Build a **tool** for analyzing feedback" <br/> `float build feedback-analyzer` | Reusable custom floatprompt | 🏗️ build |
 
 ### 🔄 **Repeatability Intelligence**
 **If you find yourself doing this more than once, we can build you a tool to repeat it with precision.**
@@ -33,7 +33,7 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 - **Purpose**: Maps intellectual territory, creates navigation, spawns contextual solutions, and organizes collections through strategic relationship assessment
 - **Use Cases**: Discovery, understanding existing knowledge, creating overviews, identifying work opportunities, building relationships, creating learning sequences, organizing collections, complexity evaluation
 - **Output**: Maps, guides, territory documentation, custom workflows, build recommendations, organized collections, relationship maps, discovery paths, curation strategy recommendations
-- **Trigger Examples**: "map this domain", "create navigation", "understand the landscape", "organize these", "create relationships", "build learning sequence"
+- **Trigger Examples**: "map this domain", "create navigation", "understand the landscape", "organize these", "create relationships", "build learning sequence" | CLI: `float map [content]`
 - **Friction Compliance**: Map mode can proceed at any friction level since mapping is encouraged for all complexity levels
 
 **🚨 SYSTEM LAW - NON-NEGOTIABLE:**
@@ -83,7 +83,7 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 - **Purpose**: Builds new floatprompts through systematic three-phase co-creation
 - **Use Cases**: Creating specialized tools, implementing custom requirements, building domain-specific floatprompts for download and reuse
 - **Output**: Complete, immediately usable custom floatprompts
-- **Trigger Examples**: "build this", "create a floatprompt for", "construct from these requirements"
+- **Trigger Examples**: "build this", "create a floatprompt for", "construct from these requirements" | CLI: `float build [tool-name]`
 - **Friction Enforcement**: 
   - 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly with build."
   - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with build? (Note: skipping mapping may result in unanchored output.)"
@@ -103,7 +103,7 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 - **Purpose**: Structures messy intelligence into archaeological form through strategic assessment
 - **Use Cases**: Voice preservation, pattern capture, decision-making analysis, scope assessment
 - **Output**: Structured intelligence with archaeological voice preservation, voice guides, extracted patterns, strategic recommendations
-- **Trigger Examples**: "extract patterns from", "structure this intelligence", "preserve this voice"
+- **Trigger Examples**: "extract patterns from", "structure this intelligence", "preserve this voice" | CLI: `float extract [content] [--options]`
 - **Friction Enforcement**: 
   - 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly with extract."
   - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with extract? (Note: skipping mapping may result in unanchored output.)"

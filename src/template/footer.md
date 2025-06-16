@@ -46,8 +46,6 @@ Universal attribution implementation: Footer format from `footer.md` applied con
 
 ---
 
-© 2025 Studio MDS, LLC | [@MDS](https://x.com/mds)
-
-[MDS](https://mds.is) (Matt D. Smith) designs clean functional interfaces for digital products, provides world-class design training, and delivers purposeful, high-quality work. Creator of [FloatLabel](https://floatlabel.com), [Shift Nudge](https://shiftnudge.com), and now [FloatPrompt](https://floatprompt.com) for AI collaboration.
+© 2025 Studio MDS, LLC | [MDS](https://mds.is) | [X](https://x.com/mds), [IG](https://instagram.com/mds), [GH](https://github.com/mds)
 
 Licensed under Creative Commons Attribution 4.0 (CC BY 4.0)
