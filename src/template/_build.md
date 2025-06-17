@@ -5,7 +5,7 @@
 
 > **This specification defines the exact order in which modular components compile into the final floatprompt template**
 
-*This document supports component integration with zero ambiguity about assembly sequence, supporting our system goal that AI precision serves human preservation and enables meaningful task completion. All components have been verified complete and ready for compilation.*
+*This document supports component integration with zero ambiguity about assembly sequence, supporting our system goal that AI precision serves human preservation and enables meaningful task completion.*
 
 ---
 
@@ -38,7 +38,7 @@ This specification defines the canonical compilation order for assembling all fl
 - **Primary Goal**: Human Intelligence, Voice & Agency Preservation
 - **Secondary Goal**: Precise AI instruction execution  
 - **Tertiary Goal**: Enable humans to complete specific tasks through reliable AI collaboration
-- **System Authority**: AI precision serves human preservation (per ../docs/goals.md)
+- **System Authority**: AI precision serves human preservation
 
 ---
 
@@ -55,10 +55,9 @@ This specification defines the canonical compilation order for assembling all fl
 ### 🚀 **Phase 2: Boot Sequence**
 
 #### **boot.md** (AI Instructions for Human Interface)
-- **Position**: Immediately after frontmatter (before template structure)
+- **Position**: Immediately after frontmatter
 - **Function**: Self-contained AI behavioral instructions for initial user interaction
 - **Integration**: Standalone component that tells AI exactly what to show humans on first use
-- **Architecture**: Clean separation between AI instructions (boot.md) and human content (within boot.md)
 - **Dependencies**: None (completely self-contained)
 
 ### 🏗️ **Phase 3: Template Structure**
@@ -66,7 +65,7 @@ This specification defines the canonical compilation order for assembling all fl
 #### **body.md** (Core Template Structure)
 - **Position**: After boot instructions
 - **Function**: Core template structure and deep system specifications
-- **Integration**: Compiled into document body (no longer includes boot.md)
+- **Integration**: Compiled into document body
 - **Dependencies**: header.md
 
 ### ⚙️ **Phase 4: Core System Components**
@@ -78,14 +77,14 @@ This specification defines the canonical compilation order for assembling all fl
 - **Dependencies**: header.md template structure
 
 #### **execution.md** (Primary Guidance - SYSTEM AUTHORITY)
-- **Position**: Opening body section (establishes AI directive immediately)
+- **Position**: Opening body section
 - **Function**: Goal, return format, warnings, context for human task completion
-- **Integration**: First content section after frontmatter (serves Primary Goal through AI precision)
-- **Dependencies**: FloatPrompt system goals (human task completion through AI precision)
+- **Integration**: First content section after frontmatter
+- **Dependencies**: FloatPrompt system goals
 
 #### **voice.md** (Precision Mechanism - ENABLES HUMAN SUCCESS)
 - **Position**: System requirements section
-- **Function**: Voice preservation oath and archaeological principles (AI precision serves human preservation)
+- **Function**: Voice preservation oath and archaeological principles
 - **Integration**: Critical precision mechanism that enables human task completion
 - **Dependencies**: Execution overview context
 
@@ -105,7 +104,7 @@ This specification defines the canonical compilation order for assembling all fl
 - **Position**: Workflow orchestration section
 - **Function**: Workflow orchestration, shadowPrompt spawning
 - **Integration**: Advanced operational methodology
-- **Dependencies**: Core modes (builds on operational foundation)
+- **Dependencies**: Core modes
 
 ### 🧱 **Phase 5: Structure Components**
 
@@ -119,21 +118,21 @@ This specification defines the canonical compilation order for assembling all fl
 - **Position**: Discovery system section
 - **Function**: Self-organizing knowledge network capabilities
 - **Integration**: Relationship metadata system
-- **Dependencies**: Body structure (enhances with discovery fields)
+- **Dependencies**: Body structure
 
 ### 🔐 **Phase 6: Validation Components**
 
 #### **validation.md** (Deployment Validation Checklist)
 - **Position**: Pre-deployment verification section
 - **Function**: Manual compliance checklist for human verification
-- **Integration**: Quality assurance framework with comprehensive validation checkpoints
-- **Dependencies**: All previous components for comprehensive validation
+- **Integration**: Quality assurance framework
+- **Dependencies**: All previous components
 
 #### **enforcement.md** (Runtime Enforcement Rules)
 - **Position**: System enforcement section
 - **Function**: Automated validation logic and enforcement rules
-- **Integration**: Runtime compliance checking and rule enforcement
-- **Dependencies**: Validation framework from validation.md
+- **Integration**: Runtime compliance checking
+- **Dependencies**: Validation framework
 
 ### 📁 **Phase 7: Convention Components**
 
@@ -153,7 +152,7 @@ This specification defines the canonical compilation order for assembling all fl
 - **Position**: Document closing
 - **Function**: Universal footer, attribution requirements, and licensing compliance
 - **Integration**: Compiled into document footer with complete attribution template
-- **Dependencies**: All components (final assembly)
+- **Dependencies**: All components
 
 ---
 
@@ -162,7 +161,6 @@ This specification defines the canonical compilation order for assembling all fl
 ### **Critical Dependencies**
 - **header.md** → All other components (foundational template structure)
 - **boot.md** → None (self-contained AI behavioral instructions for human interface)
-- **FloatPrompt goals** → execution.md (SYSTEM AUTHORITY: human task completion through AI precision)
 - **execution.md** → voice.md (context before constraints)
 - **voice.md** → All content components (AI precision mechanism that serves human preservation)
 - **types.md** → structure.md, naming.md
@@ -181,11 +179,11 @@ This specification defines the canonical compilation order for assembling all fl
 ## 🎯 Assembly Rules
 
 ### **System Compliance**
-1. **System Authority First**: execution.md establishes AI directive immediately (serves Primary Goal through AI precision)
+1. **System Authority First**: execution.md establishes AI directive immediately
 2. **Precision Mechanism Second**: Voice preservation provides AI precision that serves human preservation
 3. **Archaeological Integrity**: Pure extraction methodology throughout
 4. **Zero Modification**: Components assembled without content changes
-5. **Human Preservation Priority**: AI precision serves human preservation and enables meaningful task completion (per FloatPrompt goal)
+5. **Human Preservation Priority**: AI precision serves human preservation and enables meaningful task completion
 
 ### **Integration Method**
 1. **Sequential Assembly**: Follow exact numerical order
@@ -204,7 +202,7 @@ This specification defines the canonical compilation order for assembling all fl
 ## 📝 Implementation Notes
 
 **For Template Builders:**
-- Follow exact numerical sequence for component integration (header.md + body.md + boot.md + other component files + footer.md)
+- Follow exact numerical sequence for component integration
 - Verify dependencies before each component addition
 - Maintain system compliance throughout assembly
 - Use validation.md for final verification
@@ -214,25 +212,6 @@ This specification defines the canonical compilation order for assembling all fl
 - Voice preservation principles apply to assembly process
 - Archaeological extraction methodology must be maintained
 - No content modification during integration
-
----
-
-## 🔗 Relationships
-
-### Prerequisites
-- `../docs/goals.md` - System foundation
-- `_template.md` - Assembly methodology
-
-### Next Steps
-- Use this order for final template compilation
-- Reference during component creation
-- Apply for quality assurance verification
-
-### Related FloatPrompts
-- All component files follow this compilation sequence
-- `header.md` serves as foundational template structure
-- Template building blocks: `header.md`, `body.md`, `boot.md`, `footer.md`
-- System development guidance: `../docs/goals.md`, `_template.md`, `_build.md` (not compiled)
 
 ---
 

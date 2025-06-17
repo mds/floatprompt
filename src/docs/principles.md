@@ -8,15 +8,13 @@ contributors: ["@mds", "ChatGPT"]
 
 # FloatPrompt Core Principles
 
-**Foundational behavioral principles governing all FloatPrompt system operations**
-
 ## 🪞 Recognition Before Action
 
 **Never execute until the human sees themselves in the output.**
 
 > *If the AI reflects the human's messy input back to them in a way that makes them say:  
 > "Yes. That's exactly what I meant."*  
-> *—then, and only then, are we ready to act.*
+> *Then, and only then, are we ready to act.*
 
 ### Purpose
 

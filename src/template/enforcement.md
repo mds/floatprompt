@@ -17,17 +17,12 @@ Apply automated validation logic and enforcement rules ensuring goal hierarchy c
 All floatprompt files must be initialized from the canonical `floatprompt-*.fp` system.
 
 Any deviation from this base template must be introduced through:
-
 - Explicit delta floatprompts of type `specification`, `goals`, or `template`
 - Version-controlled diffs with clear lineage
 - Inline `TODO:` markers for incomplete sections
 - Enhanced certification tracking for system authority compliance
 
-This ensures system structure, traceable evolution, and machine-readable compliance.
-
 ## 🔐 Contributor Integrity Requirements
-
-**Contributor preservation logic to ensure authorship integrity:**
 
 ### ✅ Additive Only Policy
 - Contributor lists must be **additive only**
@@ -39,7 +34,6 @@ This ensures system structure, traceable evolution, and machine-readable complia
 - AI models must append their identity if not already listed
 - Use consistent naming format: `"Model Name"` or `"@model-identifier"`
 - Examples: `"Claude Sonnet"`, `"ChatGPT 4o"`, `"@gpt-4"`
-- **Role Specification**: Distinguish between strategic guidance and execution contributions
 
 ### 📋 Format Standards
 ```yaml
@@ -52,51 +46,74 @@ contributors: ["@original-author", "Previous Model", "Current Model"]
 - Replacing contributors instead of appending
 - Anonymous or unnamed contributions
 
-### ✅ Required Actions
-- Verify existing contributors before modification
-- Append new contributor identity with role context
-- Maintain chronological order
-- Document contributor role if significant
-
 ## 📅 Date Accuracy Requirements
 
 **All timestamps must reflect actual dates, not approximations.**
 
-Archaeological preservation depends on temporal precision. Every floatprompt becomes part of the historical record.
-
 ### For AI Systems:
 - Follow the AI Uncertainty Protocol in execution.fp for all timestamp requirements
 - Use system date/time functions only when explicitly authorized by human
-- Reference the universal clarification examples for timestamp handling
 
 ### Critical Fields:
 - `created:` - Actual creation date (YYYY-MM-DD-0000 UTC)
 - `modified:` - Actual modification date (YYYY-MM-DD-0000 UTC)
 - `certification.timestamp:` - Precise execution time (ISO 8601)
-- `certification.authority:` - Strategic guidance context preservation
-- `human.execution_mode:` - Strategic vs. spontaneous execution context
-- `human.session.start_time:` and `end_time:` - Accurate session bounds (ISO 8601)
 
 ## 🛡️ Strategic Guidance Enforcement
-
-**Core requirements for AI strategic consultation:**
 
 ### Strategic Consultation Requirements
 - AI must assess requirements before execution recommendations
 - Strategic guidance must be clearly distinguished from execution commands
 - All strategic recommendations must preserve human decision authority
-- Strategic guidance must be traceable through certification fields
 
 ### STOP Field Compliance
 - All executable floatprompts must include appropriate STOP field strategic context
 - Strategic recommendations must align with human intent and system goals
-- AI strategic consultation must enhance, not replace, human strategic thinking
 
-## 🔐 System Authority Integrity Rule
+## 🧩 Naming & Casing Integrity
 
-Contributor lists must be **additive only**. No removals of existing contributors allowed. AI models must append their identity with role specification (strategic guidance vs. execution).
+**FloatPrompt follows JavaScript-style naming convention:**
 
-*See "Contributor Integrity Requirements" section above for complete enforcement logic.* 
+| **Context** | **Format** | **Example** |
+|-------------|------------|-------------|
+| **Document titles & headers** | `FloatPrompt` | "# FloatPrompt Complete Template" |
+| **Sentence beginnings** | `FloatPrompt` | "FloatPrompt enables joint execution..." |
+| **Mid-sentence technical refs** | `floatprompt` | "Upload the floatprompt file..." |
+| **Filenames** | `floatprompt-*` | `floatprompt-template.fp` |
+| **Brand references** | `FloatPrompt` | "The FloatPrompt system serves humans" |
+
+**Related system terms:**
+- `shadowPrompt` (camelCase)
+- `shadowVoice` (camelCase)
+
+## 📁 File Extension Rules
+
+**Canonical FloatPrompt Extension**: `.fp`
+- **Template System**: All FloatPrompt template components use `.md` extension
+- **Internal Documents**: System documentation and components use `.md`
+- **External Interfaces**: Public files (README.md, LICENSE) remain `.md` for ecosystem compatibility
+
+## 📁 File Naming Convention
+
+### 📜 Preserved Intelligence (Archaeological Artifacts)
+```
+[YYYY-MM-DD]-[ModelName]-[##]-[descriptive-name].md
+```
+Contributor lists must be **additive only**
+### ⚙️ Executable Intelligence (Reusable Tools)
+```
+[functional-name].fp
+```
+
+### 🎯 Model Name Standards
+```yaml
+model_identification:
+  claude: "Claude"      # Claude Sonnet, Claude iOS, claude.ai
+  chatgpt: "ChatGPT"    # GPT-4o, ChatGPT iOS, chatgpt.com
+  gemini: "Gemini"      # Gemini models
+  cursor: "Cursor"      # When used in Cursor context
+  unknown: "AI"         # Fallback for unidentified models
+```
 
 ## Validation Criteria
 

@@ -20,14 +20,12 @@ Chaining enables systematic workflow coordination across the three core modes (m
 ### 🎯 Strategic Consultation Authority
 - **AI serves as workflow orchestration consultant** - Recommends optimal sequences, humans decide execution
 - **Strategic guidance, not autonomous execution** - All multi-step workflows require human approval at decision points
-- **Consultation boundaries maintained** - Complex workflow decisions escalated to human rather than AI resolution
 - **Precision over workflow efficiency** - When coordination convenience conflicts with AI precision, choose precision
 
 ## 🗺️ Enhanced Map Flow (FOUNDATIONAL PRIORITY)
 
 ### **Map-First Territory Assessment**
 - **Foundational System Law**: All workflows begin with map territory assessment unless human explicitly states "skip mapping" or "emergency bypass"
-- **Progressive Disclosure Integration**: Workflow recommendations match user engagement level (beginner: outcomes focus, intermediate: strategic approach, advanced: full methodology)
 - **Strategic Consultation Authority**: Use "I recommend X workflow because Y benefits" format instead of tentative suggestions
 
 ### **Standard Reconnaissance Plus Spawning**
@@ -71,11 +69,6 @@ extract (pattern recognition) →
 build (structured artifact creation)
 ```
 
-### **Strategic Consultation Integration**
-- **Benefit-Forward Communication**: All workflow recommendations lead with outcomes ("This chain will help you achieve X")
-- **Progressive Disclosure**: Chain complexity adapts to user engagement level
-- **Confident Recommendations**: "I recommend this workflow sequence because [clear rationale]" instead of tentative suggestions
-
 ## 🎭 Cross-Mode Orchestration Rules
 
 ### **Handoff Protocols**
@@ -90,17 +83,10 @@ build (structured artifact creation)
 - Human agency preserved in all decision-making
 - AI precision enhanced through systematic coordination
 
-### **Workflow Boundaries**
-- Chaining suggests, humans decide
-- Complex workflows broken into discrete, verifiable steps
-- Each step serves the foundational goal hierarchy
-- No autonomous multi-step execution without human oversight
-
 ### **Strategic Decision Framework**
 - **"When in doubt: Choose human preservation over AI efficiency"** applies to all workflow orchestration  
 - **Human-centric hierarchy:** Human preservation → AI precision → task completion → workflow efficiency
 - **Escalation protocols:** Complex workflow conflicts require human resolution rather than AI optimization
-- **Quality over speed:** Systematic coordination prioritizes instruction fidelity over execution velocity
 
 ## ⚡ shadowPrompt Integration
 
@@ -136,14 +122,6 @@ build (structured artifact creation)
 - Human agency documented at every decision point
 - Structured artifacts preserve complete workflow intelligence
 
-### **Component Goals Compliance**
-- **Strategic consultation implementation:** Chaining serves as strategic workflow consultant across all orchestration
-- **Decision framework adherence:** AI precision over convenience principle applied to workflow optimization
-- **Human agency verification:** All multi-step decisions preserve human authority and choice
-- **Voice preservation integrity:** Archaeological extraction maintained throughout complex workflow chains
-
 ## Validation Criteria
 
-See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering chaining compliance.
-
-Workflow orchestration implementation: Multi-step coordination across core modes executed with human approval required at each transition. shadowPrompt spawning compliance: Territory analysis and opportunity recognition performed with context preservation and strategic guidance. Handoff protocol adherence: Each mode completes work before handoff with voice preservation verified. Constitutional compliance verification: AI precision enhanced while human authority preserved throughout all workflow steps. Strategic consultation framework integration: Chaining positioned as workflow orchestration consultant with human decision authority preserved. Decision framework compliance: AI precision over convenience hierarchy applied to all workflow optimization decisions. Component goals alignment verified: All three-tier goals (precision → task completion → intelligence preservation) systematically addressed throughout multi-step orchestration.
+Workflow orchestration implementation: Multi-step coordination across core modes executed with human approval required at each transition. shadowPrompt spawning compliance: Territory analysis and opportunity recognition performed with context preservation and strategic guidance. Handoff protocol adherence: Each mode completes work before handoff with voice preservation verified. Constitutional compliance verification: AI precision enhanced while human authority preserved throughout all workflow steps. Strategic consultation framework integration: Chaining positioned as workflow orchestration consultant with human decision authority preserved.

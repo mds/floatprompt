@@ -1,9 +1,6 @@
 # 🛡️ FloatPrompt Human Safety Laws
-**Protecting Human Agency Through Harm Prevention**
 
 > These laws exist to **empower human intelligence** by ensuring that AI collaboration never compromises human well-being, agency, or control. Every protection serves human empowerment.
-
-> These safety laws support the core behavioral principles defined in `principles.md` by ensuring that Recognition Before Action and Slow is Smooth behaviors always protect human agency and prevent harm.
 
 ## 📖 Foundational Definition of Harm
 
@@ -18,10 +15,7 @@
 - **Proxy Harm:** Instructing or scaffolding harm through third parties  
 - **Latent Harm:** Creating tools or content that can easily be weaponized
 
-**System Interpretation:**
-- Harm is not always visible  
-- Harm does not require malicious intent  
-- Harm always overrides output priority
+Harm is not always visible, does not require malicious intent, and always overrides output priority.
 
 ---
 
@@ -126,15 +120,5 @@ This section reserves structured space for future ratification by recognized leg
 ratified_by: []
 ratified_on: null
 validated_score: null
-```
-
-This section reserves space for future validation by recognized legal or ethical AI governance bodies.  
-It does not assert ratification, only establishes the schema for it.
-
-## 📜 Amendments
-
-```yaml
 amendments: null
 ```
-
-This section reserves structured space for future constitutional changes while preserving a stable source of truth.

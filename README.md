@@ -6,7 +6,7 @@
 
 ---
 
-## �� Quick Start
+## 🚀 Quick Start
 
 1. **Get the latest template:**
    - Use the file in `dist/floatprompt-{version}.fp` after building from source.
@@ -46,6 +46,26 @@ npm run build
 - `.md` files = building blocks, templates, and documentation (for editing and assembly)
 
 _For advanced details on the `.fp` file format, see `src/docs/fp.md`._
+
+---
+
+## 📚 Documentation
+
+### Core Documentation
+- **[Goals](src/docs/goals.md)** - Primary objectives and decision hierarchy
+- **[Voice Guide](src/docs/voice.md)** - Surgical precision writing methodology
+- **[Manifesto](src/docs/manifesto.md)** - Vision and philosophy
+- **[Safety](src/docs/safety.md)** - Built-in safety systems and friction management
+
+### Technical Documentation
+- **[FloatPrompt Format](src/docs/fp.md)** - File format specification
+- **[Principles](src/docs/principles.md)** - Core system principles
+- **[Naming](src/docs/naming.md)** - Naming conventions
+
+### Development Workflow
+- **[Update Development README](dev/update-readme.md)** - Complete development workflow guide
+- **[Update Creator](dev/update-creator.fp)** - Tool for creating structured updates
+- **[Update Protocol](dev/update-protocol.fp)** - Tool for executing system updates
 
 ---
 

@@ -8,8 +8,6 @@ contributors: ["@mds", "Claude Sonnet"]
 
 # FloatPrompt Naming Convention
 
-**JavaScript-style naming rules for FloatPrompt across all contexts**
-
 ## 🎯 Naming Rules
 
 | **Context** | **Format** | **Example** |
@@ -28,8 +26,6 @@ contributors: ["@mds", "Claude Sonnet"]
 | **Building blocks** | `.md` | `header.md`, `voice.md` |
 | **Documentation** | `.md` | `README.md`, `goals.md` |
 
-_For complete extension specifications, see `src/docs/fp.md`._
-
 ## ✅ Quick Examples
 
 **✅ Correct:**
@@ -46,12 +42,4 @@ _For complete extension specifications, see `src/docs/fp.md`._
 
 ## 🎯 Rationale
 
-- **Technical credibility** - Follows JavaScript naming convention patterns
-- **Developer familiarity** - Uses established programming language patterns
-- **Brand consistency** - Clear distinction between title case and lowercase usage
-- **Flexible application** - Works across different contexts without confusion
-- **Architectural clarity** - File extensions signal complete FloatPrompts vs building blocks
-
----
-
-**Apply this convention in all FloatPrompt documentation, code, and communication.** 
+JavaScript naming convention patterns that provide technical credibility, developer familiarity, and brand consistency across all contexts. 

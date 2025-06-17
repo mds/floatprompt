@@ -1,6 +1,6 @@
 # FloatPrompt Manifesto
 
-> **FloatPrompt is a markdown-native protocol for joint execution between human and artificial intelligence.**  
+> **FloatPrompt is a protocol for joint execution between human and artificial intelligence.**  
 > It transforms messy input into structured, reusable artifacts, while preserving the human voice, intent, and cognitive fingerprint at every step.
 
 
@@ -10,7 +10,7 @@ In the age of AI collaboration, human intelligence gets lost in translation. Com
 
 Meanwhile, AI systems excel at structure and execution but lack the contextual wisdom, voice, and strategic thinking that humans bring. The result is collaboration that diminishes both parties. Humans become prompt engineers and AI becomes pattern matching.
 
-**We need a new form of collaboration that preserves and amplifies human intelligence while enabling systematic AI execution.**
+**We need collaboration that preserves and amplifies human intelligence while enabling systematic AI execution.**
 
 ## ⚙️ What FloatPrompt Is
 
@@ -21,11 +21,11 @@ FloatPrompt is portable human intelligence protocol that captures complex human 
 - Proof of thinking rather than just memory
 - A bridge between human insight and AI execution
 
-floatprompt files are everything that floats in the system. Intelligence is in structured, reusable form that serves as both preservation and instruction.
+floatprompt files are everything that floats in the system. Intelligence is in structured, reusable form.
 
 ## 🚀 Universal AI System Upgrade
 
-FloatPrompt functions as a **complete behavioral operating system upgrade** for any AI system capable of processing structured instructions.
+FloatPrompt functions as a **complete behavioral operating system upgrade** for any AI system.
 
 **Immediate Transformation:**
 - Upload the floatprompt file → activate strategic consultation mode
@@ -56,7 +56,7 @@ The foundational behavioral principles detailed in `principles.md` govern all sy
 
 ## 🧍 The Human Protocol
 
-FloatPrompt is not just a protocol for prompting—it is a system of structured human execution where the human is always at the center.
+FloatPrompt is a system of structured human execution where the human is always at the center.
 
 Whether working in structured contexts or dynamic collaboration, the human always:
 
@@ -158,14 +158,14 @@ To any observer, floatprompts look like ordinary markdown:
 - **Contains universes of structured intelligence** beneath the surface
 - Enables systematic execution through constitutional discipline
 
-floatprompts use standard markdown as their outer format while following strict constitutional structure inside—combining the portability of markdown with the precision of disciplined metadata.
+floatprompts use standard markdown as their outer format—combining the portability of markdown with the precision of disciplined metadata.
 
 ### The Strategic Reality
 **Most powerful = Most humble**
 
 FloatPrompt spreads because it doesn't look threatening. It works because it doesn't require adoption of new tools. It scales because it leverages the most portable format ever created: disciplined text.
 
-**This is an operating system that doesn't exist—until you need it.**
+**This is an operating system that doesn't exist, until you need it.**
 
 
 ## 🔗 The Protocol Loop
@@ -174,13 +174,12 @@ FloatPrompt creates a system for structured joint execution:
 
 1. **Human thinking initiates** - Complex intent, voice, and context enter the system
 2. **AI structures and responds** - Systematic organization while preserving human cognitive fingerprint  
-3. **floatprompt emerges** - Portable human intelligence in a simple text file that can be traced, reused, and scaled across any system
+3. **floatprompt emerges** - Portable human intelligence in a simple text file that can be traced, reused, and scaled
 
 > This is not memory.  
 > This is **proof of intelligence.**
 
-What emerges is portable human intelligence, preserved in structured form that maintains archaeological respect for the original thinking while enabling systematic execution across platforms and sessions.
-
+What emerges is portable human intelligence, preserved in structured form that maintains archaeological respect for the original thinking.
 
 ## 🛡️ Philosophy of Safety
 
@@ -199,7 +198,7 @@ These principles defend human agency by ensuring that AI collaboration amplifies
 
 ## 🌐 The Network Effect
 
-FloatPrompt creates the foundation for a new kind of organizational intelligence:
+FloatPrompt creates the foundation for organizational intelligence:
 
 - **Standards-based collaboration** across teams and platforms
 - **Cross-organizational intelligence sharing** without vendor lock-in
@@ -237,7 +236,3 @@ We are building more than a protocol. We are creating a new form of civilization
 - The archaeological record of human thinking becomes a foundation for future innovation
 
 FloatPrompt doesn't just enable better AI collaboration. It enables human intelligence to become the operating system for an AI-powered world. As AI systems become more powerful, the quality and preservation of human intelligence becomes the scarce resource that determines competitive advantage. FloatPrompt ensures human expertise becomes more valuable, not less, creating a fundamental inversion where human intelligence serves as the kernel that AI systems execute around.
-
-> You don't prompt the AI.  
-> You preserve the intelligence.  
-> And humanity floats forward.

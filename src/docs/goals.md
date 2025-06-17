@@ -22,9 +22,9 @@ contributors: ["@mds", "Claude Sonnet"]
 
 ### PRIMARY GOAL: Human Intelligence, Voice & Agency Preservation
 ✅ Pure Enhancement (Zero Complexity Cost):
-Better voice preservation - extract mode specifically maintains "hesitations, contradictions, stylistic quirks"
-Enhanced human agency - more precise AI collaboration without any human complexity burden
-Invisible orchestration - all behavioral sophistication hidden in frontmatter YAML
+Better voice preservation - extract mode maintains "hesitations, contradictions, stylistic quirks"
+Enhanced human agency - more precise AI collaboration without human complexity burden
+Invisible orchestration - behavioral sophistication hidden in frontmatter YAML
 Human experience unchanged - upload file, give natural instructions, get better results
 Core mission fulfillment - ensures humans remain human in AI collaboration
 
@@ -48,7 +48,7 @@ Result of preserved human agency working through precise AI execution
 
 ## Development Framework
 
-> **This system foundation governs all floatprompt creation decisions**
+> **System foundation governs all floatprompt creation decisions**
 
 ### 🎯 Quick Navigation Filter
 
@@ -96,7 +96,7 @@ Human intelligence preservation is the foundational priority that guides all sys
 
 ### 🔗 Decision Hierarchy (Operational Filter)
 1. **Primary Goal** - Human intelligence, voice & agency preservation (core mission)
-2. **Secondary Goal** - Precise AI instruction execution (enabling mechanism for Primary Goal)
+2. **Secondary Goal** - Precise AI instruction execution (enabling mechanism)
 3. **Tertiary Goal** - Human task completion through reliable collaboration (achieved outcome)
 4. **Practical Concerns** - Implementation details (subordinate to all goals)
 
@@ -106,7 +106,7 @@ Human intelligence preservation is the foundational priority that guides all sys
 - **Documentation depth**: Choose complete over concise (supports AI precision)
 - **Error handling**: Choose validation over assumption (supports AI precision)
 - **User convenience vs. system integrity**: Choose integrity (enables true convenience)
-- **Next.js principles vs. AI precision**: Choose AI precision (Next.js serves Primary Goal, not vice versa)
+- **Framework principles vs. AI precision**: Choose AI precision (Framework principles serves Primary Goal)
 
 ## 🔧 Active Development Principles
 
@@ -144,9 +144,9 @@ Human intelligence preservation is the foundational priority that guides all sys
 - **Tertiary Goal Compliance**: Let authentic purpose emerge from simple patterns rather than forcing complex structure
 
 **Next.js-Level Principles (Subordinate to Primary Goal):**
-- **Convention over configuration**: Components must be identifiable by filename and location only
-- **Zero config by default**: Components must work without additional setup or configuration files
-- **File-based relationships**: Structure must be determinable from filesystem organization alone
+- **Convention over configuration**: Components identifiable by filename and location only
+- **Zero config by default**: Components work without additional setup or configuration files
+- **File-based relationships**: Structure determinable from filesystem organization alone
 - **Invisible orchestration**: Hide implementation complexity behind simple, predictable interfaces
 - **Developer joy priority**: Make correct usage the path of least resistance
 
@@ -160,7 +160,7 @@ Human intelligence preservation is the foundational priority that guides all sys
 
 **Decision Framework**: Choose convention-driven simplicity over configuration-heavy completeness. If a component requires explanation beyond its name and location, simplify it.
 
-**Hierarchy Override**: When Next.js-level design principles conflict with AI precision requirements, AI precision takes precedence. Next.js principles serve the Primary Goal, not replace it.
+**Hierarchy Override**: When Next.js-level design principles conflict with AI precision requirements, AI precision takes precedence. Next.js principles serve the Primary Goal.
 
 ## Implementation Notes
 
@@ -180,7 +180,7 @@ Human intelligence preservation is the foundational priority that guides all sys
 
 **AI Ingestion Budget Guidelines:**
 - **Target Comfort Zone**: ~80KB total floatprompt file size for optimal AI processing
-- **Budget Allocation Priority**: Human intelligence preservation (PRIMARY GOAL) > AI precision enhancement (SECONDARY GOAL) > human task completion (TERTIARY GOAL)
+- **Budget Allocation Priority**: Human intelligence preservation > AI precision enhancement > human task completion
 - **Warning Threshold**: Avoid exceeding 100KB without explicit human approval and ingestion testing
 - **Quality Over Quantity**: Prefer precise, essential behavioral instructions over comprehensive but diluted specifications
 - **Optimization Principle**: Every added instruction must demonstrably improve AI precision or be removed
@@ -194,12 +194,12 @@ Human intelligence preservation is the foundational priority that guides all sys
 - Human preservation is the foundation that guides AI precision - AI efficiency that compromises human preservation compromises all goals
 - All decisions must be traceable to this foundational reference
 - Human agency is preserved and amplified through precise AI execution and structured intelligence collaboration
-- The system serves human intelligence preservation through AI precision, with AI precision serving human preservation, not vice versa
+- The system serves human intelligence preservation through AI precision
 
 ## 🔗 Relationships
 
 ### Prerequisites
-- None (this is the foundational document)
+- None (foundational document)
 
 ### Next Steps
 - Reference this goal for all component creation decisions
@@ -215,10 +215,10 @@ Human intelligence preservation is the foundational priority that guides all sys
 
 **Built in collaboration with Claude Sonnet**
 
-*This system goal guides the creation of all modular components that preserve human intelligence through precise AI collaboration. It serves as the foundational reference for all architectural decisions and component creation within the floatprompt system, ensuring human intelligence is preserved, amplified, and transported across AI systems while maintaining complete human agency. Human preservation is the primary goal that guides AI precision toward meaningful human success.*
+*System goal guides creation of all modular components that preserve human intelligence through precise AI collaboration. Serves as foundational reference for all architectural decisions and component creation within the floatprompt system, ensuring human intelligence is preserved, amplified, and transported across AI systems while maintaining complete human agency.*
 
 ### Prerequisites
-- None (this is the foundational document)
+- None (foundational document)
 
 ### Next Steps
 - Reference this goal for all component creation decisions

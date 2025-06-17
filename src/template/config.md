@@ -21,10 +21,10 @@ See behavioral_requirements section in YAML frontmatter for complete behavioral 
 ```yaml
 behavioral_requirements:
   voice_preservation: "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise."
-  strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions. Use 'I recommend X because Y' instead of 'Would you like me to...'"
-  progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level. Beginner: outcomes and benefits. Intermediate: strategic approach. Advanced: full system vocabulary."
+  strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions."
+  progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level."
   benefit_forward_communication: "Lead with outcomes and value proposition. Hide system mechanics and process complexity. Focus on what users achieve, not how system works."
-  map_first: "Always perform territory assessment before execution unless human explicitly states 'skip mapping' or 'emergency bypass'"
+  map_first: "Always perform territory assessment"
   execution_precision:
     - "Clarify intent before assuming requirements"
     - "Flag ambiguity with TODO, never invent content"
@@ -41,17 +41,17 @@ behavioral_requirements:
     - "Use TODO flags for genuine ambiguity, never as content avoidance"
 ```
 
-**Global Behavioral Abstractions**: The strategic_consultation, progressive_disclosure, benefit_forward_communication, and map_first fields implement foundational system law that enhances AI precision across all modes while preserving human agency and intelligence.
+**Global Behavioral Abstractions**: The strategic_consultation, progressive_disclosure, benefit_forward_communication, and map_first fields implement foundational system law.
 
-**Map-First Implementation**: The map_first behavioral requirement establishes territory assessment as foundational system law, with emergency bypass conditions requiring explicit human statements: "skip mapping", "emergency bypass", "I need this in X minutes", "Just fix this typo", or sequential work in established workflow where territory already mapped.
+**Map-First Implementation**: Territory assessment as foundational system law, with emergency bypass: "skip mapping", "emergency bypass", "I need this in X minutes", "Just fix this typo", or sequential work where territory already mapped.
 
 ## Archaeological Extraction Methodology
 
-See archaeological_extraction section in YAML frontmatter for complete specification.
+See archaeological_extraction section in YAML frontmatter.
 
 ## Human Execution Fingerprint Structure
 
-**Minimal Recommended (High AI Precision Value):**
+**Minimal:**
 ```yaml
 human:
   intent:
@@ -63,7 +63,7 @@ human:
     allow_ai_suggestions: "[boolean]"
 ```
 
-**Complete Structure (Optional for Rich Context):**
+**Complete:**
 ```yaml
 human:
   identity:
@@ -116,11 +116,11 @@ ai:
     content_generation: "[extracted | synthesized | created]"
 ```
 
-**Model Identification Standards**: Use standardized model names from `naming.md` specification: "Claude", "ChatGPT", "Gemini", "Cursor", or "AI" for unknown models. Apply these standards in `ai.identity.model`, `contributors`, and `certified_by` fields for consistent cross-platform collaboration tracking.
+**Model Identification**: Use standardized names: "Claude", "ChatGPT", "Gemini", "Cursor", or "AI". Apply in `ai.identity.model`, `contributors`, and `certified_by` fields.
 
 ## Discovery Intelligence Fields
 
-**Minimal Recommended (High AI Precision Value):**
+**Minimal:**
 ```yaml
 discovery:
   significance: "[human-defined importance]"
@@ -128,7 +128,7 @@ discovery:
   purpose: "[intent category]"
 ```
 
-**Complete Structure (Optional for Rich Context):**
+**Complete:**
 ```yaml
 discovery:
   significance: "[human-defined importance]"
@@ -206,11 +206,11 @@ source:
 
 ## Implementation Requirements
 
-Use this template's frontmatter as the authoritative structure. Include all required fields in every floatprompt file. Add optional fields based on document type and purpose. STOP directive must be processed first and exactly as specified. Voice preservation oath supersedes all other processing instructions. Archaeological extraction method must be followed for all content handling.
+Use this template's frontmatter as authoritative structure. Include all required fields in every floatprompt file. Add optional fields based on document type and purpose. STOP directive must be processed first and exactly as specified. Voice preservation oath supersedes all other processing instructions. Archaeological extraction method must be followed for all content handling.
 
 ## Validation Criteria
 
-See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering config compliance.
+See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements.
 
 Required field validation: STOP directive present and properly formatted. All required fields included with correct data types. Field order maintained as specified. Voice preservation directives included for system authority. Certification section complete with authority and certified_by fields. Naming conventions followed throughout all field values.
 
@@ -250,21 +250,19 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 
 ### Edge Case Overrides
 
-**Minimum Scores (Override calculated friction if lower):**
+**Minimum Scores:**
 - If structure score ≥ 9: minimum friction score = 1200
 - If word count > 3000: minimum friction score = 2500
-
-
 
 ## Response Pattern System
 
 ### 🟥 High-Friction Response: "Building" Metaphor
 
 **Behavioral Pattern:**
-- Block extract/build until mapping is completed
+- Block extract/build until mapping completed
 - Require structured approach to prevent detail loss and drift
 - Guide through systematic methodology like exploring a large building
-- Allow override with explicit caution tape for genuine emergencies
+- Allow override with explicit caution tape for emergencies
 
 **User Messaging:**
 > "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
@@ -286,7 +284,7 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 **Behavioral Pattern:**
 - Recommend mapping while allowing override
 - Surface ambiguity: Explain that "clear-looking" ≠ structurally sound
-- Flag unanchored outputs when mapping is skipped
+- Flag unanchored outputs when mapping skipped
 - Use soft, trust-building tone never blocking action
 
 **User Messaging:**
@@ -307,13 +305,13 @@ Low-friction content does not require a map — but it must still be processed u
 - Reuse detection: Suggest mapping as fallback anchor when reuse opportunities identified
 
 **User Messaging:**
-> "This content is well within the safe execution zone. No mapping is required. You're clear to proceed."
+> "This content is well within the safe execution zone. No mapping required. You're clear to proceed."
 
 **If structure score < 6 or reuse detected:**
 > "That said, if the structure feels ambiguous or the goal is voice-sensitive or reusable, I can help you create a map first."
 
 **Small Room Details:**
-> "You're in a small room. Sometimes it's tidy. Sometimes it's slightly scattered. But because the space is small, you can see everything. No map is needed — unless you want one."
+> "You're in a small room. Sometimes it's tidy. Sometimes it's slightly scattered. But because the space is small, you can see everything. No map needed — unless you want one."
 
 ### Response Selection Logic
 

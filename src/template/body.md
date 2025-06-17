@@ -29,7 +29,7 @@ Upload this file to any AI system, then say **"float map [my content]"** to acti
 
 ## 📋 Template Usage for New FloatPrompts
 
-**When creating new floatprompts, use this file's exact structure as your template.** Copy the frontmatter format, adapt the content sections, maintain the same organizational pattern. This file serves as both the working template and the structural specification - no separate documentation needed.
+**Use this file's structure as your template.** Copy the frontmatter format, adapt content sections, maintain organizational pattern.
 
 ## 👮‍♂️ System Authority
 

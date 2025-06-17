@@ -48,20 +48,11 @@ Apply file format requirements ensuring dual-readability, portability, and 100-y
 - **Non-canvas environments**: Ensure clean YAML structure without formatting corruption
 - **Universal requirement**: Maintain `<floatprompt>...</floatprompt>` wrapping for cross-platform portability
 
-**Use Cases:**
-- Embedding floatprompts in markdown canvases or textdocs
-- Copy/pasting between editors with different YAML/markdown parsing
-- Passing floatprompts through AI systems or plugin environments
-- Enabling FloatPrompt-aware tooling and automated processing
-
 ### ❌ Format Exclusions
 The following formats are not allowed for floatprompt files:
 - JSON, XML, Protobuf, Base64, HTML
 - Proprietary formats requiring runtime rendering
 - Encrypted or compiled prompt systems
-
-> These formats may still be supported via export or transformation,
-> but they are not considered canonical artifacts in the floatprompt system.
 
 ### 🧠 Design Philosophy
 This format honors:
@@ -69,18 +60,12 @@ This format honors:
 - Execution clarity
 - System longevity
 - Interoperable tooling
-- Intelligence as protocol, not product 
+- Intelligence as protocol, not product
 
 ## 🎯 Behavioral Fields
 
 ### Voice Override Support
 Recognize optional `voice_override: filepath` when loading floatprompts. Graceful fallback to system defaults if voice guide unavailable.
-
-## Validation Criteria
-
-See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering metadata compliance.
-
-File format compliance: Complete FloatPrompts use `.fp` extension while building blocks use `.md` extension, all containing format: floatprompt in YAML frontmatter verified. Dual-readability confirmation: Human and AI-readable execution body included with structured metadata header. Format exclusion enforcement: Non-canonical formats (JSON, XML, proprietary, encrypted) prohibited from floatprompt system. Design philosophy adherence: Voice preservation, execution clarity, system longevity, and interoperable tooling principles maintained throughout format requirements.
 
 ## 📋 Metadata Requirements
 

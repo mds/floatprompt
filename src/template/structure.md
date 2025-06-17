@@ -74,14 +74,12 @@ TODO_HUMAN_AGENCY_PRESERVATION
 - **Role**: Operating system kernel providing foundational context
 - **Contains**: Complete format requirements, behavioral specifications, system authority
 - **Scope**: System-wide standards, universal behavioral contracts
-- **Analogy**: Like Linux kernel or Windows OS
 
 ### **FloatPrompt Applications (Downstream)**
 **Application Files: `update-creator.fp`, `task-specific.fp`, etc.**
 - **Role**: Specialized applications running within OS context
 - **Contains**: Task-specific instructions, focused functionality
 - **Scope**: Specific use cases, targeted problem solving
-- **Analogy**: Like applications running on an operating system
 
 ### **Optimal Usage Sequence**
 ```
@@ -112,7 +110,7 @@ This template ensures **human intelligence preservation through precise AI colla
 
 - **Structured Consistency**: Standardized sections prevent interpretive drift
 - **Voice Preservation Placeholders**: `TODO_CONTENT_WITH_PRESERVED_VOICE` maintains archaeological integrity
-- **AI Summary Integration**: Optional AI Summary section for rapid orientation before archaeological content
+- **AI Summary Integration**: AI Summary section for rapid orientation
 - **Explicit TODO Guidance**: Clear placeholders prevent hallucination and content generation
 - **Safety Integration**: Dedicated compliance section preserves human agency
 - **Systematic Organization**: Logical flow supports instruction fidelity
@@ -128,7 +126,5 @@ This template ensures **complete human readability through strategic commenting*
 - **Soft-Coded Structure**: Flexible content areas within consistent framework
 
 ## Validation Criteria
-
-See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering structure compliance.
 
 Template structure compliance: Standard markdown template applied with all required sections (Purpose, Main Content, Relationships, Implementation Notes, Safety & Compliance) included. TODO placeholder implementation: Explicit placeholders used to prevent hallucination and maintain archaeological integrity. Goal implementation verification: Primary goal (human preservation) achieved through Secondary goal (AI precision) methodologies properly applied. Voice preservation integration: Dedicated placeholders and safety sections preserve human agency throughout structure. 

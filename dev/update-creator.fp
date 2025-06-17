@@ -1,6 +1,6 @@
 <floatprompt>
 ---
-STOP: "Strategic build mode. Primary goal: generate certified update floatprompts for any system-level changes including refactors, nomenclature updates, feature additions, or architectural modifications. Guide user through change definition, rationale, and impact zone assessment. Ensure relationships.enabled_by links to update-protocol."
+STOP: "Strategic build mode. Primary goal: generate certified update floatprompts for system-level changes including refactors, nomenclature updates, feature additions, or architectural modifications. Guide user through change definition, rationale, and impact zone assessment. Ensure relationships.enabled_by links to update-protocol."
 title: Update Creation Tool
 id: update-creation
 version: @latest
@@ -34,7 +34,7 @@ discovery:
     mirrors: []
     built_by: ["_updates-update-creation"]
   navigation:
-    prerequisites: []
+    prerequisites: ["voice.md"]
     next_steps: ["update-protocol"]
   clustering:
     intellectual_territory: "protocol-refactor"
@@ -62,24 +62,25 @@ certification:
 
 # 🧱 Update Creation Tool
 
-**Use this floatprompt to create structured update files for any system-level changes including refactors, feature additions, architectural modifications, or process updates.**
+**Create structured update files for system-level changes: refactors, features, architecture, processes.**
 
-> **This build tool ensures consistency, certification readiness, and clean integration with `update-protocol.fp`.**
+> **Build tool ensures consistency, certification readiness, and clean integration with `update-protocol.fp`.**
 
 ## 🎯 Purpose
 
-Guide the structured creation of update floatprompts used for executing any system-level updates such as renaming, feature additions, architectural changes, process improvements, or component modifications.
+Guide structured creation of update floatprompts for executing system-level updates: renaming, feature additions, architectural changes, process improvements, component modifications.
 
 ### 🔑 Key Principles
-- Preserve system integrity and provide clear rationale for all changes
+- Preserve system integrity and provide clear rationale for changes
 - Ensure updates can be ingested by development orchestrators
 - Use abstract impact zones rather than specific file paths
 - Maintain compatibility with existing system architecture
 - Follow established change management protocols
+- Apply voice guide surgical precision to all generated content
 
 ## 📋 Output Update Template
 
-When complete, your update file will follow this pattern:
+Complete update file follows this pattern:
 
 ```yaml
 <floatprompt>
@@ -213,37 +214,37 @@ execution:
 </floatprompt>
 ```
 
-## 📝 Instructions for Use
+## 📝 Instructions
 
-### 🎯 **CRITICAL: Target Development Template Files Only**
+### 🎯 **Target Development Template Files Only**
 
-**Updates must ALWAYS target core development template files in `src/template/*.md`, NEVER the compiled floatprompt file.**
+**Updates must target core development template files in `src/template/*.md`, NEVER compiled floatprompt.**
 
-- ✅ **Correct**: Target `src/template/execution.md`, `src/template/modes.md`, etc.
-- ❌ **WRONG**: Target `dist/floatprompt-0.7.0-alpha.fp` (this is compiled output)
-- 📖 **Reference OK**: You may reference the compiled file for context understanding, but changes go to source templates
+- ✅ **Correct**: Target `src/template/execution.md`, `src/template/modes.md`
+- ❌ **WRONG**: Target `dist/floatprompt-0.7.0-alpha.fp` (compiled output)
+- 📖 **Reference OK**: Read compiled file for context, but changes go to source templates
 
-**Why**: Template files are the authoritative source. The compiled file is generated from templates via build process.
+**Why**: Template files are authoritative source. Compiled file is generated from templates via build process.
 
 ### 📋 **File Creation Process**
 
-1. **Name the update file** using format: `update-[name].fp` where `[name]` is a descriptive kebab-case identifier
-2. **Save to appropriate location**:
-   - **In Cursor/VS Code**: Save to `dev/updates/update-[name].fp` (preferred location)
-   - **In web AI (Claude/ChatGPT)**: Create as `update-[name].fp` for download (user should place in `dev/updates/`)
-   - **Mobile apps**: Create as `update-[name].fp` for manual placement in `dev/updates/`
-3. **Fill in all TODO fields** with actual values (never leave TODO placeholders in final output)
-4. **Choose appropriate type** from the approved type system (migration, specification, etc.)
+1. **Name**: `update-[name].fp` using descriptive kebab-case identifier
+2. **Save location**:
+   - **Cursor/VS Code**: `dev/updates/update-[name].fp` (preferred)
+   - **Web AI**: Create as `update-[name].fp` for download (user places in `dev/updates/`)
+   - **Mobile**: Create as `update-[name].fp` for manual placement in `dev/updates/`
+3. **Replace all TODO fields** with actual values (never leave TODO placeholders)
+4. **Choose appropriate type** from approved type system (migration, specification, etc.)
 5. **Include type-specific fields**:
-   - **For preserved types** (migration, analysis, specification): Keep `source` section
-   - **For executable types** (prompt, template, goals): Include `output` and `execution` sections
-6. **Define the change type and specification** in the `changes` section
-7. **Provide clear rationale** for each change explaining why it's needed
-8. **List abstract impact zones** that describe affected system areas (avoid specific file paths)
-9. **Complete discovery intelligence** with relationships, navigation, and essence fields
+   - **Preserved types** (migration, analysis, specification): Keep `source` section
+   - **Executable types** (prompt, template, goals): Include `output` and `execution` sections
+6. **Define change type and specification** in `changes` section
+7. **Provide clear rationale** explaining why each change is needed
+8. **List abstract impact zones** describing affected system areas (avoid specific file paths)
+9. **Complete discovery intelligence** with relationships, navigation, essence fields
 10. **Ensure proper linkage** to `update-protocol` via `relationships.enabled_by`
-11. **Choose appropriate update identifier** that clearly describes the change
-12. **Validate against requirements** using the validation checklist in validation.md
+11. **Choose appropriate update identifier** clearly describing the change
+12. **Validate against requirements** using validation checklist in validation.md
 
 ### 🎯 Common Change Types
 
@@ -256,7 +257,7 @@ execution:
 
 ## 🛡️ Safety & Compliance
 
-- **Complete Metadata Required**: All TODO fields must be replaced with actual values for system compliance
+- **Complete Metadata**: Replace all TODO fields with actual values for system compliance
 - **Voice Preservation**: Include behavioral_requirements and archaeological_extraction sections for AI precision
 - **Discovery Intelligence**: Complete all discovery subsections (relationships, navigation, essence) for knowledge networking
 - **Type-Specific Fields**: Include appropriate output/execution or source sections based on floatprompt type
@@ -266,29 +267,29 @@ execution:
 - **Data Not Procedure**: Updates contain change specifications, not implementation instructions
 - **System Consistency**: Maintain alignment with established architecture and goals
 - **Validation Ready**: Output must pass validation by `update-protocol.fp` and validation.md checklist
-- **Change Traceability**: Include clear rationale and impact assessment for all modifications
+- **Change Traceability**: Include clear rationale and impact assessment for modifications
 - **Backward Compatibility**: Consider existing system dependencies and user workflows
+- **Voice Guide Compliance**: Apply surgical precision principles to eliminate verbose violations
 
 ## 🤖 AI Assistant Context Guidance
 
-**When using this update-creator:**
-
-### **⚡ CRITICAL: Always Target Template Source Files**
-- **Target**: `src/template/*.md` files (execution.md, modes.md, config.md, etc.)
+### **Target Template Source Files**
+- **Target**: `src/template/*.md` files (execution.md, modes.md, config.md)
 - **NEVER target**: `dist/floatprompt-0.7.0-alpha.fp` (compiled output)
-- **Context Reference OK**: You may read the compiled file to understand current state, but specify changes for template files
+- **Context Reference OK**: Read compiled file for understanding, but specify changes for template files
 - **Example**: "Update src/template/execution.md section X" not "Update dist/floatprompt-0.7.0-alpha.fp line Y"
 
 ### **File Placement Intelligence**
-- **If you have file system access** (Cursor, VS Code, etc.): Create files directly in `dev/updates/update-[name].fp`
-- **If you can only generate content** (web AI, mobile): Generate the update content and suggest the user save it as `dev/updates/update-[name].fp`
-- **Always mention the preferred location** so users know where updates belong
+- **File system access** (Cursor, VS Code): Create files directly in `dev/updates/update-[name].fp`
+- **Content generation only** (web AI, mobile): Generate update content and suggest user save as `dev/updates/update-[name].fp`
+- **Always mention preferred location** so users know where updates belong
 
 ### **Context-Aware Instructions**
-- **Full development environment**: Create the file directly in `dev/updates/` and mention where it was saved
+- **Full development environment**: Create file directly in `dev/updates/` and mention save location
 - **Limited environment**: Generate content and provide clear saving instructions for `dev/updates/`
-- **Always maintain** the proper update format regardless of environment
+- **Always maintain** proper update format regardless of environment
+- **Apply voice guide principles**: Use surgical precision to eliminate verbose violations in generated updates
 
-**Use this floatprompt to create structured updates that evolve the system systematically and safely.**
+**Create structured updates that evolve the system systematically and safely.**
 
 </floatprompt>

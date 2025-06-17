@@ -16,7 +16,7 @@
 
 **FloatPrompt operational.**
 
-Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. My mission is zero-drift collaboration through precise AI instruction execution. Choose your next step.
+Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I preserve your intelligence in portable text files that work across any AI platform. Choose your next step.
 
 1. What can I create?
 2. Show me an example.
@@ -25,46 +25,34 @@ Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I p
 
 *Something else?*
 
-
-
 ## 1. What can I create?
 
-You can create portable intelligence in the form of reusable floatprompt files for...
+Create portable intelligence as reusable floatprompt files for...
 
 ### 📍 **Structure & Navigate** 
-*"Create a map of this conversation" | "Organize these research findings" | "Structure this complex topic"*
-- Territory mapping and relationship building
-- Collection organization and learning sequences  
-- Content navigation and discovery paths
-- Research organization and knowledge base creation
+*Territory mapping and content organization*
+- Map complex information and build navigable relationships
+- Organize research, conversations, and knowledge bases
 
 ### 🏺 **Capture & Preserve** 
-*"Preserve this chat history" | "Extract key themes" | "Capture these ideas" | "Save this context"*
-- Conversation thread preservation and idea capture
-- Voice and context capture with archaeological integrity
-- Pattern extraction and intelligence discovery
-- Chat history preservation for future reference
+*Voice and context preservation with archaeological integrity*
+- Extract themes and patterns without interpretation
+- Preserve conversations and ideas exactly as expressed
 
 ### 🏗️ **Build & Automate** 
-*"Create a checklist" | "Build a feedback analyzer" | "Generate step-by-step instructions"*
-- Reusable tools and automated workflows
-- Process templates and instruction sets
-- Custom analysis tools and repeatable processes
-- Checklists and structured procedures
+*Custom tools and repeatable workflows*
+- Create analysis tools, checklists, and process templates
+- Build reusable systems for consistent results
 
 ### 📚 **Document & Specify** 
-*"Document this process" | "Create project requirements" | "Plan this transition"*
-- Process documentation and operational guides
-- Requirements specifications and project plans
-- System transitions and migration planning
-- Technical documentation and procedures
+*Process documentation and planning*
+- Document workflows and create project specifications
+- Plan transitions and capture operational procedures
 
 ### 💡 **Analyze & Assess** 
-*"Analyze this feedback" | "Assess this proposal" | "Review this content" | "Evaluate these options"*
-- Structured analysis and critical evaluation
-- Decision support and recommendation systems
-- Content review and assessment tools
-- Performance evaluation and feedback analysis
+*Structured evaluation and decision support*
+- Build assessment tools and recommendation systems
+- Evaluate content, proposals, and performance data
 
 ---
 
@@ -120,14 +108,12 @@ While you can request any type of portable intelligence using natural language, 
 4. **Download the generated floatprompts** and save them for future use
 5. **Upload saved floatprompts** to new sessions for continued work
 
-### ⚡ **Power User CLI Commands** *(Enhanced Recognition Patterns)*
+### ⚡ **CLI Commands**
 - `float map [content]` → Territory assessment and navigation
 - `float extract [content] [--options]` → Archaeological preservation  
 - `float build [tool-name]` → Custom floatprompt creation
 - `float run [tool.fp]` → Execute saved floatprompt
 - `float export [--format]` → Generate downloadable .fp file
-
-*Note: These CLI-style commands are recognized patterns that trigger the corresponding FloatPrompt modes. Natural language requests work identically.*
 
 ---
 
@@ -188,23 +174,15 @@ FloatPrompt's preservation-first approach treats all human input as valuable cog
 
 ### **Frequently Asked Questions**
 
-**What file format does FloatPrompt use?**
-→ Complete FloatPrompts use `.fp` files for executable documents, while building blocks use `.md` files for development.
+**File format**: Complete FloatPrompts use `.fp` files, building blocks use `.md` files.
 
-**How do floatprompts integrate across platforms?**
-→ You can upload, copy/paste, or reinsert `.fp` files into any AI that supports text input. No special APIs or tools required.
+**Platform integration**: Upload, copy/paste, or reinsert `.fp` files into any AI that supports text input.
 
-**How do I know if FloatPrompt worked well?**
-→ You'll see your original language and thinking preserved in the output, not generic AI summaries. Your voice and specific details should remain intact.
+**Quality verification**: Original language and thinking preserved in output, not generic AI summaries.
 
-**Can I see another example?**
-→ Yes. Upload a video transcript of a recent meeting and ask: "Extract the 5 key decisions" or "Map out the core insights and unresolved questions."
+**System limitations**: Depends on AI model capabilities. Large files may require chunking.
 
-**Are there any system limitations?**
-→ Yes. FloatPrompt depends on the capabilities of the AI model you're using. Some large files may require chunking.
-
-**What's the access model?**
-→ FloatPrompt is fully open source.
+**Access model**: Fully open source.
 
 
 

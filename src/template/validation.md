@@ -15,13 +15,13 @@ Before deploying any floatprompt:
 - [ ] Contributors added (never removed)
 - [ ] Actual dates used (verified, not approximated)
 - [ ] ID follows naming pattern
-- [ ] Voice preservation verified (see Voice Preservation Oath section for complete requirements)
+- [ ] Voice preservation verified
 - [ ] Human safety laws considered
 - [ ] Soft-coded fields use emergent, human-defined values
 
 **Goal Hierarchy Compliance:**
 - [ ] Primary Goal: Preserves human intelligence, voice, and agency
-- [ ] Secondary Goal: Supports precise AI instruction execution  
+- [ ] Secondary Goal: Supports precise AI instruction execution
 - [ ] Tertiary Goal: Enables human task completion through reliable collaboration
 - [ ] System Principle: Chooses human preservation over AI efficiency where applicable
 
@@ -36,20 +36,20 @@ Before deploying any floatprompt:
 - [ ] Certification block completed with accurate data
 - [ ] Timestamp uses precise ISO 8601 format with timezone
 - [ ] Authority field specifies certification type (schema-compliance | execution-verified | voice-preserved)
-- [ ] Certified_by field declares certifier identity (human @username or AI model name)
-- [ ] Locked field set appropriately (true for immutable, false for modifiable)
-- [ ] UID field provides unique identifier (format: "float:hash" or symbolic)
+- [ ] Certified_by field declares certifier identity
+- [ ] Locked field set appropriately
+- [ ] UID field provides unique identifier
 - [ ] Chain depth accurately reflects position in document hierarchy
-- [ ] Chain parent correctly references upstream document (null for root documents)
+- [ ] Chain parent correctly references upstream document
 - [ ] Voice linking status accurately reflects voice guide usage
 - [ ] Voice fidelity verification completed and documented
 - [ ] Lineage tracking enabled and populated with trace array
 - [ ] Lineage trace includes all upstream document IDs in chronological order
 
-**Human Execution Fingerprint (Enhanced Schema):**
+**Human Execution Fingerprint:**
 - [ ] Execution mode specified (structured | spontaneous | hybrid)
 - [ ] Signed_by field includes @username for final authorship acknowledgment (optional)
-- [ ] Inferred_fields array lists AI-inferred metadata (e.g., ["clarity", "energy"])
+- [ ] Inferred_fields array lists AI-inferred metadata
 - [ ] Human identity fields completed (if included)
 - [ ] Session timestamps use ISO 8601 format (if included)
 - [ ] Session duration calculated correctly (if included)
@@ -82,10 +82,9 @@ Before deploying any floatprompt:
 **YAML Encoding & Escaping Compliance:**
 - [ ] Frontmatter must not include escaped characters such as `\\[`, `\\:`, `\\@`, or `\\]`
 - [ ] All values must be valid YAML scalars, arrays, or objects
-- [ ] Values must be parseable by standard Markdown-aware YAML parsers (e.g. js-yaml, PyYAML, Ruby YAML)
+- [ ] Values must be parseable by standard Markdown-aware YAML parsers
 - [ ] Backslashes should never be manually inserted unless representing a true character in a string literal
-- [ ] Escaped sequences introduced by text renderers (not authors) must be stripped before execution or deployment
-
+- [ ] Escaped sequences introduced by text renderers must be stripped before execution or deployment
 
 **Format Compliance:**
 - [ ] File uses `.md` extension

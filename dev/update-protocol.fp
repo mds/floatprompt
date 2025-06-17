@@ -34,7 +34,7 @@ discovery:
     parallels: []
     mirrors: []
   navigation:
-    prerequisites: ["goals.md"]
+    prerequisites: ["goals.md", "voice.md"]
     next_steps: ["update-creator"]
   clustering:
     intellectual_territory: "protocol-maintenance"
@@ -62,112 +62,122 @@ certification:
 
 # 🛠️ Update Protocol
 
-**Universal protocol for executing any system-level changes including refactors, feature additions, architectural modifications, process improvements, and component updates.**
+**Universal protocol for system-level changes: refactors, features, architecture, processes, components.**
 
-> **Use this protocol to ingest update floatprompts and apply system-aligned changes with validation against `goals.md`.**
+> **Ingest update floatprompts and apply system-aligned changes with `goals.md` and `voice.md` validation.**
 
 ## 🎯 Purpose
 
-Execute precise, traceable updates to the FloatPrompt system using structured update floatprompts. Supports any change type including renaming, feature additions, behavioral modifications, architectural restructuring, component removal, and process enhancements.
+Execute precise, traceable FloatPrompt system updates using structured update floatprompts. Supports renaming, feature additions, behavioral modifications, architectural restructuring, component removal, process enhancements.
 
-**Flexible Execution Modes:**
-- **Evaluation Only**: Run Phase 1 to assess impact and validate alignment without implementation
-- **Full Implementation**: Complete both evaluation and implementation phases
-- **Evaluation → Implementation**: Run evaluation first, then decide whether to proceed
+**Execution Modes:**
+- **Evaluation Only**: Phase 1 assessment without implementation
+- **Full Implementation**: Both evaluation and implementation phases
+- **Evaluation → Implementation**: Evaluate first, then decide
 
 ### 🔑 Key Principles
-- Only execute validated updates from certified floatprompts
-- Never modify system components without proper change specification
+- Execute only validated updates from certified floatprompts
+- Never modify components without proper change specification
 - **Always require explicit human permission before implementation**
-- Validate all changes against `goals.md` before execution
+- Validate changes against `goals.md` and `voice.md`
 - Preserve system integrity and architectural consistency
-- Maintain manual control over all change execution
-- Support any change type through flexible update processing
+- Maintain manual control over change execution
 
 ## 📝 Execution Flow
 
 ### 🔍 **Phase 1: Evaluation & Validation**
-*Strategic decision-making, risk assessment, and architectural alignment*
 
-0. **Run Sanity Check**
-   - **Context Assessment**: Is this an internal single-architect change or a public/collaborative system change?
-   - Ask: Is this update solving a real, currently observed problem?
-   - Ask: Does this update introduce structural or config complexity before it's truly required?
-   - Ask: Does this pattern reflect actual usage, or imagined edge cases?
-   - Ask: Could this be done with one field, one behavior, or one fallback instead of many?
-   - **Internal Context**: If single-architect/pre-launch, bias toward foundational changes and clean architecture
-   - **Public Context**: If collaborative/post-launch, bias toward minimal disruption and proven necessity
-   - Proceed only if simplicity, clarity, and system maturity justify the design
+0. **Sanity Check**
+   - **Context**: Internal single-architect or public/collaborative change?
+   - Solving real, observed problem?
+   - Introducing complexity before requirement?
+   - Reflecting actual usage or imagined edge cases?
+   - Could use one field/behavior/fallback instead of many?
+   - **Internal**: Bias toward foundational changes and clean architecture
+   - **Public**: Bias toward minimal disruption and proven necessity
+   - Proceed only if simplicity, clarity, system maturity justify design
 
 1. **Ingest Update**
-   - Confirm update follows standard structure with proper metadata
+   - Confirm standard structure with proper metadata
    - Read `changes`, `rationale`, `impact_zone` specifications
-   - Verify `enabled_by` link back to this protocol
+   - Verify `enabled_by` link to this protocol
 
 2. **Assess Impact Zone**
-   - Review abstract impact targets from update specification
-   - Use territory assessment to identify affected system areas
-   - Map abstract zones to concrete implementation locations
+   - Review abstract impact targets from specification
+   - Territory assessment to identify affected areas
+   - Map abstract zones to concrete locations
 
 3. **Apply Goals Framework**
-   - Reference goals.md decision hierarchy: Human Intelligence, Voice & Agency Preservation → Precise AI Instruction Execution → Human Task Completion Through Reliable Collaboration
-   - Apply "When in doubt: Choose human preservation over AI efficiency" principle
-   - Establish validation criteria based on Primary Goal (human intelligence preservation)
+   - Reference goals.md hierarchy: Human Intelligence, Voice & Agency Preservation → Precise AI Instruction Execution → Human Task Completion Through Reliable Collaboration
+   - Apply "When in doubt: Choose human preservation over AI efficiency"
+   - Establish validation criteria based on Primary Goal
    - Set context for systematic evaluation against foundational objectives
 
-4. **Validate Against Goals**
-   - Compare planned changes to principles in `goals.md`
-   - Ensure alignment with system architecture and philosophy
-   - Flag any conflicts or misalignments
+4. **Apply Voice Guide Principles**
+   - Reference `voice.md` for surgical precision methodology
+   - Assess for Lanham violations: redundant explanations, bureaucratic elaboration, parenthetical bloat, verbose headers, implementation redundancy, cross-reference verbosity
+   - Apply preservation framework: Sacred Zones (no modification) > High Preservation (minimal modification) > Moderate Preservation (careful compression) > Compression-Safe (aggressive optimization)
+   - Ensure "surgical precision over compression percentage"
+   - Balance voice preservation with Lanham optimization
 
-5. **AI Ingestion Budget Assessment**
-   - **Target Comfort Zone**: ~80KB total floatprompt file size for optimal AI processing
-   - **Warning Threshold**: Flag if changes would exceed 100KB without explicit human approval
-   - **Budget Allocation Priority**: Human intelligence preservation (PRIMARY GOAL) > AI precision enhancement (SECONDARY GOAL) > human task completion (TERTIARY GOAL)
-   - **Quality Over Quantity**: Prefer precise, essential behavioral instructions over comprehensive but diluted specifications
-   - **Cross-Platform Consideration**: Ensure budget accommodates various AI model context limits (Claude, ChatGPT, Gemini)
-   - **Performance Monitoring**: Track actual ingestion performance and adjust budget if processing lag detected
+5. **Validate Against Goals**
+   - Compare changes to `goals.md` principles
+   - Ensure system architecture and philosophy alignment
+   - Flag conflicts or misalignments
+
+6. **AI Ingestion Budget Assessment**
+   - **Target**: ~80KB total floatprompt file size for optimal processing
+   - **Warning**: Flag if exceeding 100KB without explicit approval
+   - **Priority**: Human intelligence preservation > AI precision enhancement > human task completion
+   - **Quality Over Quantity**: Precise, essential instructions over comprehensive but diluted specifications
+   - **Cross-Platform**: Accommodate various AI model context limits
+   - **Performance**: Track ingestion performance and adjust if lag detected
 
 **🚦 Evaluation Checkpoint:** 
-- **Assessment Complete**: Evaluation phase provides full impact analysis and risk assessment
-- **STOP - Human Permission Required**: Present evaluation results and explicitly ask human whether to proceed to implementation
-- **Decision Point**: Human chooses to proceed to implementation OR stop here with evaluation results
-- **Implementation Gate**: Only proceed if human approves AND all validation criteria are met
-- **Valid Outcomes**: Both "evaluated and approved" and "evaluated and deferred" are successful protocol completions
-- **AI Summary**: Provide a clear and direct suggestion about whether proceeding is valuable or not.
+- **Assessment Complete**: Full impact analysis and risk assessment
+- **STOP - Human Permission Required**: Present results, explicitly ask to proceed
+- **Decision Point**: Human chooses implementation OR evaluation-only completion
+- **Implementation Gate**: Proceed only if human approves AND validation criteria met
+- **Valid Outcomes**: "Evaluated and approved" and "evaluated and deferred" both successful
+- **AI Summary**: Clear, direct suggestion on proceeding value
+
 ---
 
 ### ⚙️ **Phase 2: Implementation & Documentation**
-*Systematic execution, documentation updates, and archival*
 
-6. **Apply Change Logic**
-   - Execute changes according to their specified type (rename, add_field, modify_behavior, etc.)
+7. **Apply Change Logic**
+   - Execute changes by specified type (rename, add_field, modify_behavior, etc.)
    - Apply modifications only where structurally appropriate
    - Maintain system consistency and readability
+   - Apply voice guide surgical techniques
 
-7. **Update Documentation**
+8. **Update Documentation**
    - Search affected documentation areas for required updates
    - Apply changes while preserving voice and clarity
-   - Ensure consistency across all documentation
+   - Apply Lanham Paramedic Method to eliminate verbose violations
+   - Ensure consistency across documentation
 
-8. **Update Public Interfaces**
+9. **Update Public Interfaces**
    - Modify user-facing documentation (README.md, etc.)
    - Ensure public interface reflects internal changes
-   - Maintain consistency between internal and external terminology
+   - Maintain internal/external terminology consistency
+   - Apply surgical precision principles
 
-9. **Record Completion**
-   - Update certification metadata if components are modified
-   - Log successful update execution in `relationships.enables`
-   - Document any deviations or additional changes made
+10. **Record Completion**
+    - Update certification metadata if components modified
+    - Log successful execution in `relationships.enables`
+    - Document deviations or additional changes
 
-10. **IMPORTANT - DOUBLE CHECK**
-   - Double check that all updates were made thoroughly and without error
+11. **Double Check**
+    - Verify all updates complete and accurate
+    - Confirm voice guide principles applied appropriately
+    - Ensure surgical precision maintained while preserving functionality
 
-11. **Archive Completed Update**
-   - Rename update file with today's date prefix: `YYYY-MM-DD-[original-name].md`
-   - Move from `dev/updates/` to `artifacts/[current-year]/` folder
-   - Use Python datetime if available, otherwise ask human for today's date
-   - Never guess the date - accuracy is critical for archaeological record
+12. **Archive Completed Update**
+    - Rename with today's date prefix: `YYYY-MM-DD-[original-name].md`
+    - Move from `dev/updates/` to `artifacts/[current-year]/`
+    - Use Python datetime if available, otherwise ask human for date
+    - Never guess date - accuracy critical for archaeological record
 
 ## 🛡️ Safety & Compliance
 
@@ -177,10 +187,11 @@ All changes must:
 - **Maintain Lineage**: Preserve contributor attribution and change history
 - **Ensure Clarity**: Avoid ambiguous specifications or implementation logic
 - **Respect Philosophy**: Preserve original system intent and design principles
+- **Apply Voice Guide**: Follow `voice.md` surgical precision methodology
 - **Validate Thoroughly**: Test changes against system goals and requirements
 - **Document Completely**: Record all modifications and their rationale
-- **Template Variable Compliance**: Use `{{VERSION}}` instead of hardcoded version numbers in template files
+- **Template Variable Compliance**: Use `{{VERSION}}` instead of hardcoded version numbers
 
-**Built with precision for executing systematic evolution of any system component.**
+**Built with precision for systematic evolution of any system component.**
 
 </floatprompt>

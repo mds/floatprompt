@@ -24,7 +24,6 @@ Apply type classification and field extensions to structure executable and prese
 
 ### For Executable Types (prompt, template, goals)
 
-Add these fields to frontmatter:
 ```yaml
 output:
   format: floatprompt
@@ -39,22 +38,21 @@ execution:
 
 ### For Preserved Types (analysis, specification, critique, extract, summary, migration)
 
-Add these fields to frontmatter:
 ```yaml
 source:
   prompt: TODO_SOURCE_OF_INTELLIGENCE
   intent: TODO_SHORT_PURPOSE_STATEMENT
 ```
 
-### Universal Certification (Required for All - Enhanced Schema)
+### Universal Certification (Required for All)
 
 ```yaml
 certification:
   timestamp: TODO_ISO_8601_PRECISE_EXECUTION_TIME
   authority: TODO_CERTIFICATION_TYPE  # schema-compliance | execution-verified | voice-preserved
-  certified_by: TODO_CERTIFIER_IDENTITY  # @username or AI model name
-  locked: TODO_BOOLEAN  # true for immutable, false for modifiable
-  uid: TODO_UNIQUE_IDENTIFIER  # format: "float:hash" or symbolic
+  certified_by: TODO_CERTIFIER_IDENTITY
+  locked: TODO_BOOLEAN
+  uid: TODO_UNIQUE_IDENTIFIER
   chain:
     depth: TODO_INTEGER
     parent: TODO_STRING_OR_NULL
@@ -67,32 +65,19 @@ certification:
 ```
 
 **Certification Role Distinction:**
-- **`author`**: Original creator/owner of the content and intellectual property (human @username)
-- **`certified_by`**: Entity that validated the floatprompt structure and compliance (@username or AI model name)
+- **`author`**: Original creator/owner of the content and intellectual property
+- **`certified_by`**: Entity that validated the floatprompt structure and compliance
 - **Authority**: The `author` owns the intelligence; `certified_by` validates the implementation
-
-This distinction eliminates ambiguity: authorship indicates intellectual ownership, certification indicates structural validation.
 
 ## 🛑 Reserved Field: `STOP`
 
-**Purpose:**  
-Immediately resets all prior AI conversational, memory, or runtime context. Signals the AI to discard current assumptions and treat this file as the sole source of operational reality.
+**Purpose:** Immediately resets all prior AI conversational, memory, or runtime context. Signals the AI to discard current assumptions and treat this file as the sole source of operational reality.
 
-**Type:**  
-`string` or `multiline block (|)`
+**Type:** `string` or `multiline block (|)`
 
-**Placement:**  
-Must be the first key in the YAML frontmatter block. Only one `STOP` per file allowed.
+**Placement:** Must be the first key in the YAML frontmatter block. Only one `STOP` per file allowed.
 
-**Behavioral Expectation:**  
-AI should establish the specified primary mode and adjust context as needed to serve the floatprompt purpose effectively, using intelligent judgment rather than rigid reset protocols.
-
-**Behavioral Guidance:**  
-When processing a STOP field, AI should:
-1. **Assess context alignment**: Determine if current context serves the stated purpose
-2. **Adjust as needed**: Reset context only if necessary for effective purpose fulfillment
-3. **Respond appropriately**: Use natural, purpose-aligned communication style
-4. **Maintain authority**: Operate within the established primary mode throughout interaction
+**Behavioral Expectation:** AI should establish the specified primary mode and adjust context as needed to serve the floatprompt purpose effectively, using intelligent judgment rather than rigid reset protocols.
 
 **STOP Field Formats:**  
 
@@ -103,7 +88,6 @@ STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruc
 
 **Map-First Strategic Guidance:**
 ```yaml
-# Foundational map territory assessment
 STOP: "Foundational map mode. Perform territory assessment as system law unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess intellectual landscape, identify work opportunities, and recommend optimal mapping approach with confident guidance. Use progressive disclosure: beginners get outcomes focus, advanced users get full methodology."
 
 # Enhanced mode-specific with map-first integration

@@ -41,11 +41,9 @@ Extract and structure existing intelligence, never generate or summarize. Preser
 - Structure what exists, don't create what doesn't
 
 **Violation Consequences:**  
-Any floatprompt that violates voice preservation principles is considered non-compliant and must be regenerated with proper archaeological respect.
+Any floatprompt violating voice preservation principles is non-compliant and must be regenerated with proper archaeological respect.
 
 ## ⚖️ Voice Preservation Conflict Resolution
-
-**Technical accuracy vs. voice preservation conflict protocols:**
 
 ### 🛑 Conflict Resolution Hierarchy
 - **Voice preservation supersedes technical optimization** unless explicit human approval given
@@ -67,8 +65,6 @@ Any floatprompt that violates voice preservation principles is considered non-co
 - **Template filling integrity**: Structured outputs must maintain extraction methodology even in synthesis situations
 - **Intelligence discovery boundaries**: Distinguish between discovering existing patterns vs. creating new content
 
-**This ensures voice preservation authority is maintained even when technical accuracy considerations arise.**
-
 ## Validation Criteria
 
 Voice preservation oath implementation: Sacred principle applied with archaeological respect for original intelligence. Behavioral requirements compliance: Nine commandments followed to prevent AI drift and tone overlays. Voice preservation conflict resolution: Technical accuracy vs. voice fidelity tensions escalated to human rather than autonomous resolution. Archaeological extraction verification: Intelligence discovered from existing content, never generated or summarized.
@@ -80,4 +76,4 @@ Use a single optional field in YAML frontmatter:
 ```yaml
 voice_override: "support/voice/my-voice.md"  # optional
 ```
-**Behavior:** If file exists and loads successfully, use it. If file missing or fails to load, gracefully fall back to system voice defaults. No configuration complexity required. 
+**Behavior:** If file exists and loads successfully, use it. If file missing or fails to load, gracefully fall back to system voice defaults. 

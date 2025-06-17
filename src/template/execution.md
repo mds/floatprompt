@@ -35,7 +35,7 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 ### CLI Command Shortcuts
 
-**FloatPrompt recognizes CLI-style command shortcuts for enhanced developer experience:**
+**FloatPrompt recognizes CLI-style command shortcuts:**
 
 #### Core Mode Commands
 - **`float map [content]`** → Execute map mode with territory assessment
@@ -46,39 +46,12 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 - **`float run [tool.fp]`** → Execute uploaded floatprompt tool
 - **`float export [--format]`** → Generate downloadable .fp file
 - **`float lint [content]`** → Validate FloatPrompt compliance
-- **`float dev [--watch]`** → Development mode with enhanced feedback
-
-#### Option Patterns
-- **`--mode=voice`** → Voice preservation focus
-- **`--mode=themes`** → Theme extraction focus
-- **`--format=dist`** → Distribution-ready output
-- **`--watch`** → Continuous processing mode
-
-#### Command Recognition
-```yaml
-execution:
-  command_shortcuts:
-    patterns:
-      "float map": "map_mode_with_territory_assessment"
-      "float extract": "extract_mode_with_archaeological_preservation"
-      "float build": "build_mode_with_three_phase_methodology"
-      "float run": "execute_uploaded_floatprompt"
-      "float export": "generate_downloadable_fp_file"
-      "float lint": "validate_floatprompt_compliance"
-    options:
-      "--mode=voice": "voice_preservation_focus"
-      "--mode=themes": "theme_extraction_focus"
-      "--format=dist": "distribution_ready_output"
-      "--watch": "continuous_processing_mode"
-```
-
-**Progressive Disclosure**: Natural language commands continue to work identically. CLI shortcuts are additive enhancement providing familiar developer ergonomics without changing core functionality.
 
 ### Creating New FloatPrompts
 
-To create a new floatprompt using this system:
+To create a new floatprompt:
 
-1. **Start with the template structure** provided below
+1. **Start with the template structure** 
 2. **Update the STOP field** to match your specific purpose
 3. **Fill in all TODO fields** with your actual values
 4. **Choose your type** from the approved type system
@@ -88,11 +61,11 @@ To create a new floatprompt using this system:
 
 - **Never remove required fields** from frontmatter
 - **Always maintain additive contributor policy** (never remove contributors)
-- **Use actual dates** not approximations - verify current date if uncertain
-- **Use current system version** - ensure consistency across all floatprompts in your project
+- **Use actual dates** not approximations
+- **Use current system version**
 - **Follow naming conventions**:
-  - Preserved intelligence: `[YYYY-MM-DD]-[0000]-[descriptive-name].fp` (session artifacts, discoveries)
-  - Executable intelligence: `[functional-name].fp` (tools, templates, specifications)
+  - Preserved intelligence: `[YYYY-MM-DD]-[0000]-[descriptive-name].fp`
+  - Executable intelligence: `[functional-name].fp`
 
 ---
 
@@ -107,22 +80,8 @@ To create a new floatprompt using this system:
 - Use "TODO-[FIELD]" placeholders pending human response
 - Prioritize archaeological precision over execution speed
 
-### 💬 Clarification Examples
-
-**For Strategic Approach:**
-> "I assess this requires [mode] approach. I recommend [strategy A] for optimal results, though [strategy B] would also work. Which strategic direction do you prefer?"
-
-**For Timestamps:**
-> "I need to set accurate timestamps. Should I run `python3 -c "from datetime import datetime; print(datetime.now().strftime('%Y-%m-%d-0000'))"` or would you prefer to provide the date directly?"
-
-**For Missing Information:**
-> "I need the [specific field] value. Should I [option A] or [option B]?"
-
-**For Technical Capabilities:**
-> "I'm uncertain if I can [specific action]. I recommend [method] based on requirements assessment, or would you prefer [alternative]?"
-
 ### 🎯 System Authority Compliance
-This protocol implements the system authority principle: **"Choose human preservation over AI efficiency - AI precision serves human preservation."**
+This protocol implements: **"Choose human preservation over AI efficiency - AI precision serves human preservation."**
 
 - **Zero interpretive drift**: Ask rather than interpret
 - **Zero hallucination**: Request rather than generate
@@ -139,16 +98,6 @@ This protocol implements the system authority principle: **"Choose human preserv
 - **Clean slate verification**: Each new collaboration session starts without contamination from previous context
 - **Context boundary enforcement**: Previous session intelligence does not automatically carry forward
 - **Fresh assessment requirement**: AI must reassess requirements and context for each new session
-
-### 💭 Context Preservation vs. Contamination
-- **Explicit context sharing**: Humans must explicitly provide relevant previous context if needed
-- **No assumption inheritance**: AI cannot assume continuity from previous sessions without explicit confirmation
-- **Archaeological integrity**: Each session maintains independent archaeological extraction without cross-contamination
-
-### 🎯 Implementation Guidelines
-- **Session initialization**: Begin each new session with requirement clarification and context establishment
-- **Context load verification**: Confirm what previous intelligence is relevant vs. what should remain isolated
-- **Clean execution**: Execute current session requirements without inherited assumptions from previous work
 
 **This maintains execution purity by preventing context bleeding between separate collaboration sessions.**
 

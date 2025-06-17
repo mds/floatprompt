@@ -21,19 +21,19 @@ contributors: ["@mds", "Claude Sonnet"]
 3. **Executable Content**: Ready for direct AI upload and execution
 4. **Joint Intelligence**: Designed for seamless AI & Human collaboration
 5. **HI-AI Co-Creation**: Product of collaborative Human Intelligence & Artificial Intelligence
-6. **Map/Score/Respond Pipeline**: Mandatory friction classification system for all input processing
+6. **Map/Score/Respond Pipeline**: Mandatory friction classification system for input processing
 7. **Response Pattern System**: Metaphor-based behavioral responses (building/hallway/small room) for friction-appropriate guidance
 
 **Purpose**: "Joint preserved and executable intelligence" format representing HI-AI co-creation with systematic input assessment and intuitive response selection
 
 ### **.md Files: Everything Else**
 
-**A `.md` file is any content that does not meet the complete FloatPrompt criteria:**
+**A `.md` file is content that does not meet the complete FloatPrompt criteria:**
 
-1. **Building Blocks**: Template components that assemble into complete FloatPrompts
+1. **Building Blocks**: Template components that assemble into FloatPrompts
 2. **Documentation**: Informational content and specifications
 3. **Specifications**: Change descriptions, requirements, rationale
-4. **Standard Markdown**: No FloatPrompt wrapper or complete behavioral system
+4. **Standard Markdown**: No FloatPrompt wrapper or behavioral system
 
 **Purpose**: Building components, documentation, and informational content
 
@@ -86,10 +86,10 @@ Documentation, specifications, or building block content without FloatPrompt wra
 
 **Complete FloatPrompt Documents:**
 - `floatprompt-0.4.1-alpha.fp` (complete system distribution)
-- `update-protocol.fp` (complete AI behavioral instructions)
-- `update-creator.fp` (complete AI behavioral instructions)
-- `task-analyzer.fp` (complete AI behavioral instructions)
-- Any file with `<floatprompt>` wrapper and complete behavioral specs
+- `update-protocol.fp` (AI behavioral instructions)
+- `update-creator.fp` (AI behavioral instructions)
+- `task-analyzer.fp` (AI behavioral instructions)
+- Any file with `<floatprompt>` wrapper and behavioral specs
 
 ### **✅ Files That Should Be .md**
 
@@ -133,16 +133,16 @@ Documentation, specifications, or building block content without FloatPrompt wra
 src/template/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
 ```
 
-**The canonical `.fp` creation pathway:**
+**Canonical `.fp` creation pathway:**
 - Template components assembled through build system
-- Output to `dist/` folder as complete FloatPrompt distributions
+- Output to `dist/` folder as FloatPrompt distributions
 - Versioned, tested, and ready for ecosystem distribution
 
 ### **Secondary Origination: Downstream Creation**
 **FloatPrompts created WITH the main FloatPrompt system:**
 
 1. **Protocol Development**: `dev/update-protocol.fp`, `dev/update-creator.fp`
-   - Complete behavioral instructions for system operations
+   - Behavioral instructions for system operations
    - Created using FloatPrompt methodology, become part of development toolkit
 
 2. **Specialized Applications**: Custom domain-specific FloatPrompts
@@ -161,7 +161,7 @@ src/template/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
 4. Session Intelligence → Extracted collaborative outputs as .fp
 ```
 
-**Key Principle**: `.fp` files either emerge from the build system OR are created downstream using FloatPrompt methodology. They represent complete, executable intelligence that can flow between AI systems while preserving human intent and context. Every `.fp` file embodies HI-AI co-creation, where Human Intelligence provides intent, voice, and strategic direction while Artificial Intelligence contributes structure, organization, and systematic execution.
+**Key Principle**: `.fp` files either emerge from the build system OR are created downstream using FloatPrompt methodology. They represent executable intelligence that can flow between AI systems while preserving human intent and context. Every `.fp` file embodies HI-AI co-creation, where Human Intelligence provides intent, voice, and strategic direction while Artificial Intelligence contributes structure, organization, and systematic execution.
 
 ## 🛡️ Validation Criteria
 
@@ -186,7 +186,7 @@ src/template/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
 ## 🎯 Format Recognition
 
 ### **Distinguishing Features**
-- **`.fp` files**: Contain `<floatprompt>` wrapper and complete behavioral specifications
+- **`.fp` files**: Contain `<floatprompt>` wrapper and behavioral specifications
 - **`.md` files**: Standard markdown without FloatPrompt wrapper or incomplete specifications
 - **Purpose**: Ecosystem signaling for proper tooling and AI recognition
 
@@ -203,4 +203,4 @@ src/template/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
 
 ---
 
-**This specification establishes the canonical architectural boundary between complete FloatPrompt documents (.fp) and all other content (.md), ensuring clear semantic distinction for AI precision, tooling recognition, and ecosystem clarity.** 
+**Specification establishes canonical architectural boundary between FloatPrompt documents (.fp) and all other content (.md), ensuring clear semantic distinction for AI precision, tooling recognition, and ecosystem clarity.** 
