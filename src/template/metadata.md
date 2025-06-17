@@ -13,7 +13,7 @@ Apply file format requirements ensuring dual-readability, portability, and 100-y
 - Comply with system authority and safety requirements
 - Begin with a **YAML frontmatter header** for structured metadata
 - Contain a human- and AI-readable **execution or content body**
-- Be wrapped in **`<floatprompt>...</floatprompt>` tags** for cross-platform portability
+- Be wrapped in fenced markdown code blocks: **```<floatprompt>...</floatprompt>```** for cross-platform portability
 
 ### 🎯 Why This Format
 - **Dual-readable**: Designed for both human and AI systems
@@ -40,13 +40,9 @@ Apply file format requirements ensuring dual-readability, portability, and 100-y
 
 **Critical Format Requirements:**
 - No characters before YAML frontmatter opening `---`
-- No characters before any YAML fields (no `/`, `#`, or other prefixes)
+- No characters before any YAML fields
 - Clean YAML structure without formatting corruption
-
-**Environment-Specific Requirements:**
-- **Canvas environments**: Always use canvas documents with fenced markdown blocks for proper rendering
-- **Non-canvas environments**: Ensure clean YAML structure without formatting corruption
-- **Universal requirement**: Maintain `<floatprompt>...</floatprompt>` wrapping for cross-platform portability
+- Maintain `<floatprompt>...</floatprompt>` wrapping for cross-platform portability
 
 ### ❌ Format Exclusions
 The following formats are not allowed for floatprompt files:
@@ -79,20 +75,6 @@ Recognize optional `voice_override: filepath` when loading floatprompts. Gracefu
 ### Required YAML Frontmatter
 ```yaml
 ---
-title: "Descriptive Title"
-version: "x.x.x-stage"
-system_version: "floatprompt vx.x.x-stage"
-description: "Brief, clear description of purpose"
-filetype: "fp"  # or "markdown" for building blocks
-author: "@username"
-contributors: ["@user1", "@user2", "AI Assistant Name"]
-created: "YYYY-MM-DD"
-updated: "YYYY-MM-DD"
-category: "template|application|utility|documentation"
-tags: ["tag1", "tag2", "tag3"]
-dependencies: ["file1.fp", "file2.md"]  # if applicable
-permissions: "open|restricted|internal"
-safety_level: "standard|elevated|maximum"
-STOP: "behavioral instructions for [specific purpose]"
+<!-- INJECT: core-metadata.yaml -->
 ---
 ``` 

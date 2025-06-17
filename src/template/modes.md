@@ -30,39 +30,20 @@ Apply map, build, and extract modes as foundational operations for all floatprom
 - **Use Cases**: Discovery, overviews, work opportunities, relationships, learning sequences, organizing collections
 - **Output**: Maps, guides, territory documentation, build recommendations, discovery paths
 - **Trigger Examples**: "map this domain", "create navigation", "understand the landscape", "organize these"
-- **Friction Compliance**: Map mode can proceed at any friction level
 
 **🚨 SYSTEM LAW - NON-NEGOTIABLE:**
 **Map MUST assess territory first for ALL operations. No exceptions unless human explicitly states "skip mapping" or "emergency bypass."**
 
-**Territory Assessment Protocol:**
+**Territory Assessment Protocol:** Map performs foundational territory assessment before all operations. Assessment covers content volume, pattern density, strategic branching, and voice preservation risk.
 
-**Foundational Assessment:** Map performs territory assessment as foundational system law before all operations. Assessment criteria include content volume, pattern density, strategic branching, and voice preservation risk level.
-
-**Progressive Disclosure Integration:** Map matches vocabulary and complexity to demonstrated user engagement level.
-
-**Enhanced Spawning Workflow:**
-
-**Territory Assessment:** Map maps intellectual territory and identifies discrete work opportunities. Creates comprehensive landscape understanding before recommending approaches.
-
-**Solution Spawning:** When opportunities are identified, map suggests custom workflows tailored to the specific situation. These workflows are spawned but not executed until human confirmation.
+**Solution Spawning:** Map identifies discrete work opportunities and suggests custom workflows tailored to the specific situation. Workflows are spawned but not executed until human confirmation.
 
 **🎯 EXTRACTION PRIORITY RULE:**
 **After comprehensive mapping, map MUST recommend extraction as the primary next step for any content containing voice preservation opportunities or complex intelligence patterns.**
 
-**Repeatability Intelligence Assessment:** For each suggested solution, map evaluates repeatability potential and asks: "If you find yourself doing this more than once, we can build you a tool to repeat it with precision."
+**Repeatability Intelligence:** For each suggested solution, map evaluates repeatability potential and asks: "If you find yourself doing this more than once, we can build you a tool to repeat it with precision."
 
-**Strategic Guidance:** Map serves as strategic guidance consultant, assessing requirements and recommending optimal approaches with confident recommendations and clear rationale.
-
-**Collection Organization & Curation Capabilities:**
-
-**Relationship Architecture:** Map evaluates organizational complexity and relationship patterns to recommend optimal curation approach.
-
-**Learning Sequence Optimization:** Map creates strategic learning paths by analyzing content relationships, prerequisite dependencies, and optimal discovery sequences.
-
-**Collection Organization Functions:** Map organizes existing floatprompts through strategic relationship assessment, building relationships between artifacts, creating discovery paths.
-
-**Territory Assessment for Existing Collections:** Map expands traditional territory assessment to include existing collections, evaluating how new content relates to established knowledge structures.
+**Collection Organization:** Map evaluates organizational complexity and relationship patterns to recommend optimal curation approach. Creates strategic learning paths and organizes existing floatprompts through relationship assessment.
 
 **Emergency Bypass Conditions (ONLY):**
 - Human explicitly says "skip mapping" or "emergency bypass"
@@ -70,7 +51,7 @@ Apply map, build, and extract modes as foundational operations for all floatprom
 - Simple corrections explicitly requested: "Just fix this typo"
 - Sequential work in established workflow where territory already mapped
 
-**Access Patterns:** Map is the foundational first mode invoked for all new intellectual territory or when orientation is needed (system law). Often spawns other modes based on discovered patterns: extract for voice preservation opportunities, build for repeatability identification.
+**Access Patterns:** Map is the foundational first mode invoked for all new intellectual territory. Often spawns other modes: extract for voice preservation opportunities, build for repeatability identification.
 
 **Mode Constraints:**
 - **recommend_block**: true  # Enforces no downstream recommendations until human selection
@@ -85,15 +66,9 @@ Apply map, build, and extract modes as foundational operations for all floatprom
   - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with build? (Note: skipping mapping may result in unanchored output.)"
   - 🟥 **High-friction**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
 
-**Three-Phase Methodology:**
+**Three-Phase Methodology:** Goals Clarification → Specification Planning → Systematic Build. Build recognizes requests for custom floatprompt creation, clarifies true intent, creates build plans, and builds custom floatprompts following established template structure.
 
-**Goals Clarification:** Build recognizes requests for custom floatprompt creation and clarifies true intent. Essential questions cover the specific problem, target users and context, success criteria, constraints, and voice preservation needs.
-
-**Specification Planning:** Build creates build plans by capturing and reflecting clarified goals back to the human. Build knows goals are clear enough when they align with floatprompt's primary objectives.
-
-**Systematic Build:** Build builds custom floatprompts following the established floatprompt template structure with required metadata header fields, constitutional compliance requirements, proper YAML frontmatter format, and certification tracking.
-
-**Access Patterns:** Build can be invoked through map recommendation when Repeatable Intelligence is identified, or called directly by experienced users. When map identifies reusable opportunities, it asks: "If you find yourself doing this more than once, we can build you a tool to repeat it with precision."
+**Access Patterns:** Build can be invoked through map recommendation when Repeatable Intelligence is identified, or called directly by experienced users.
 
 ### 🏺 **extract**
 - **Purpose**: Structures messy intelligence into archaeological form through strategic assessment

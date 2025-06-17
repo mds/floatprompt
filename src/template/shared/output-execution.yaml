@@ -1,0 +1,15 @@
+# FloatPrompt Output/Execution Fields
+# Operational interface and execution parameters
+# Source: atomic component extracted from header.yaml
+output:
+  format: "floatprompt"
+  joint_execution_required: true
+execution:
+  triggers: ["{{EXECUTION_TRIGGERS}}"]
+  fallback: "{{EXECUTION_FALLBACK}}"
+  source: "{{EXECUTION_SOURCE}}"
+  voice_guide: "{{VOICE_GUIDE}}"
+  risk_level: "{{RISK_LEVEL}}"
+  execution_mode: "{{EXECUTION_MODE}}"
+  usage_pattern: "{{USAGE_PATTERN}}"
+  ai_role: "{{AI_ROLE}}"

@@ -59,19 +59,12 @@ FloatPrompt follows the manifesto's "Two Forms of Floating" principle in naming:
 ### 🤖 Smart Date Resolution Protocol
 **For cross-platform AI collaboration with accurate temporal preservation:**
 
-**Tier 1: AI Self-Assessment** (Preferred)
-- AI checks internal date confidence level
-- If high/medium confidence: proceed with naming
-- If low/unknown: escalate to Tier 2
-
+**Tier 1: AI Self-Assessment** - AI checks internal date confidence, proceeds if high/medium confidence
 **Tier 2: Python Script Fallback**
 ```bash
 python3 -c "from datetime import datetime; print(f'{datetime.now().strftime(\"%Y-%m-%d\")}')"
 ```
-
-**Tier 3: Human Escalation** (Last Resort)
-- "I need an accurate date for proper archival naming. Could you provide today's date in YYYY-MM-DD format?"
-- Context: Human understands this is for archaeological accuracy
+**Tier 3: Human Escalation** - Request accurate date in YYYY-MM-DD format for archaeological accuracy
 
 ### 🎯 Model Name Standards
 ```yaml
@@ -84,7 +77,5 @@ model_identification:
 ``` 
 
 ## Validation Criteria
-
-See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering naming convention compliance.
 
 Casing integrity compliance: Canonical system terms (FloatPrompt, shadowPrompt, shadowVoice) retain exact casing and form throughout all content. File naming convention adherence: Two forms principle applied with Preserved Intelligence using date-sequence-description format and Executable Intelligence using functional names. Extension rules verification: FloatPrompt system files use .fp extension, external interfaces use .fp, historical artifacts preserve .fp for archaeological integrity. Archaeological integrity maintenance: Naming conventions support discovery optimization and temporal preservation. 

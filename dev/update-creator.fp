@@ -293,3 +293,8 @@ execution:
 **Create structured updates that evolve the system systematically and safely.**
 
 </floatprompt>
+
+
+DEVELOPMENT UPDATE:
+Latest update ticket showed this error:
+❌ Missing: enabled_by link to update-protocol (not critical for execution)

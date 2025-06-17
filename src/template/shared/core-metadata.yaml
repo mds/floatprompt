@@ -1,0 +1,15 @@
+# FloatPrompt Core Metadata Fields
+# Essential document identity and execution control
+# Source: atomic component extracted from header.yaml
+
+STOP: "{{STOP_DIRECTIVE}}"
+title: "{{TITLE}}"
+id: "{{ID}}"
+version: "{{VERSION}}"
+created: "{{BUILD_DATE}}-0000"
+modified: "{{BUILD_DATE}}-0000"
+author: "{{AUTHOR}}"
+format: "floatprompt"
+type: "{{TYPE}}"
+system_version: "floatprompt v{{VERSION}}"
+contributors: ["{{CONTRIBUTORS}}"] 

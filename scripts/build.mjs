@@ -53,13 +53,41 @@ async function extractFloatPromptFrontmatter() {
     throw new Error('Failed to read header.md - archaeological extraction requires source template');
   }
   
+  // Build variables for complete field mapping
+  const buildVariables = {
+    VERSION: VERSION,
+    BUILD_DATE: buildDate,
+    BUILD_TIMESTAMP: timestamp,
+    BUILD_DATE_COMPACT: buildDateCompact,
+    CURRENT_YEAR: currentYear,
+    STOP_DIRECTIVE: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response.",
+    TITLE: "FloatPrompt Complete Template",
+    ID: "floatprompt-complete-template",
+    AUTHOR: "@mds",
+    TYPE: "template",
+    CONTRIBUTORS: '"@mds", "Claude Sonnet", "FloatPrompt Build System"',
+    CERTIFIED_BY: "FloatPrompt Build System",
+    UNIQUE_ID: `float:template-${buildDateCompact}`,
+    LINEAGE_TRACE: '"modular-component-compilation"',
+    EXECUTION_TRIGGERS: '"create floatprompt", "FloatPrompt template", "complete specification"',
+    EXECUTION_FALLBACK: "This is the complete FloatPrompt template. How can I help you create a floatprompt?",
+    EXECUTION_SOURCE: "modular-component-compilation",
+    VOICE_GUIDE: "float:voice-preservation-template",
+    RISK_LEVEL: "foundational-system-template",
+    EXECUTION_MODE: "portable_ai_instruction_set",
+    USAGE_PATTERN: "Upload this file, then say 'run floatprompt on [content]'",
+    AI_ROLE: "Execute these instructions when triggered by human request"
+  };
+
   // Replace template variables with actual build values
-  return templateHeaderContent
-    .replace(/\{\{BUILD_DATE\}\}/g, buildDate)
-    .replace(/\{\{BUILD_TIMESTAMP\}\}/g, timestamp)
-    .replace(/\{\{BUILD_DATE_COMPACT\}\}/g, buildDateCompact)
-    .replace(/\{\{VERSION\}\}/g, VERSION)
-    .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
+  let processedContent = templateHeaderContent;
+  
+  for (const [varName, value] of Object.entries(buildVariables)) {
+    const regex = new RegExp(`\\{\\{${varName}\\}\\}`, 'g');
+    processedContent = processedContent.replace(regex, value);
+  }
+  
+  return processedContent;
 }
 
 async function extractFloatPromptBody() {
@@ -105,12 +133,55 @@ async function ensureDirectory(dirPath) {
 
 async function readComponent(componentPath) {
   try {
-    const content = await fs.readFile(componentPath, 'utf-8');
+    let content = await fs.readFile(componentPath, 'utf-8');
+    
+    // Process shared YAML injections
+    content = await injectSharedYAML(content);
+    
     return content.trim();
   } catch (error) {
     console.warn(`⚠️  Warning: Could not read ${componentPath} - ${error.message}`);
     return null;
   }
+}
+
+async function injectSharedYAML(content) {
+  // Process INJECT markers: <!-- INJECT: filename.yaml -->
+  const injectRegex = /<!-- INJECT: (.+?)\.yaml -->/g;
+  let processed = content;
+  let match;
+  
+  // Reset regex for global replacement
+  injectRegex.lastIndex = 0;
+  
+  while ((match = injectRegex.exec(content)) !== null) {
+    const filename = match[1];
+    const sharedPath = path.join('./src/template/shared', `${filename}.yaml`);
+    
+    console.log(`🔗 Injecting shared YAML: ${filename}.yaml...`);
+    
+    try {
+      let sharedContent = await fs.readFile(sharedPath, 'utf-8');
+      
+      // Remove comments and empty lines for clean injection
+      const cleanContent = sharedContent
+        .replace(/^#.*$/gm, '')  // Remove comment lines
+        .trim();
+      
+      if (!cleanContent) {
+        console.warn(`⚠️  Warning: ${filename}.yaml is empty or contains only comments`);
+        processed = processed.replace(match[0], `# ${filename}.yaml is empty`);
+      } else {
+        // Replace the injection marker with actual YAML content
+        processed = processed.replace(match[0], cleanContent);
+      }
+    } catch (error) {
+      console.warn(`⚠️  Warning: INJECT FAILURE - ${filename}.yaml not found: ${error.message}`);
+      processed = processed.replace(match[0], `# ERROR: Could not inject ${filename}.yaml - ${error.message}`);
+    }
+  }
+  
+  return processed;
 }
 
 async function buildFloatPrompt() {

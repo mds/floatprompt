@@ -5,33 +5,13 @@
 
 Create new floatprompts using this system structure and AI uncertainty protocols that ensure zero interpretive drift.
 
-### Mandatory Preprocessing: Map/Score/Respond Pipeline
+### Operational Mode Requirements
 
-**Before any FloatPrompt execution, all input must pass through the map/score/respond pipeline:**
-
-#### 1. Map Phase
-- Evaluate content cohesion, formatting clarity, topic segmentation
-- Assess structure using heuristics of cohesion, segmentation, and formatting density
-- Generate structure score 1-10 (not user-supplied or arbitrary)
-
-#### 2. Score Phase
-- Calculate friction score: `word_count × structure_multiplier`
-- Apply edge case overrides:
-  - If structure score ≥ 9: minimum friction score = 1200
-  - If word count > 3000: minimum friction score = 2500
-- Classify into friction buckets
-
-#### 3. Respond Phase - Enforcement Rules
-- **🟩 Low-friction (0-1200)**: "This content is well within the safe execution zone. I can proceed directly with [mode]. That said, if the structure feels ambiguous or the goal is voice-sensitive or reusable, I can help you create a map first."
-- **🟨 Medium-friction (1201-2500)**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with [mode]? (Note: skipping mapping may result in unanchored output.)"
-- **🟥 High-friction (2501+)**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
-
-#### One-Time Assessment Protocol
-- Friction classification applied once at start of session based on uploaded content
-- Behavioral constraints maintained consistently throughout entire collaboration
-- No mid-conversation changes to friction level or response patterns
-
-**No mode (extract, build, critique) may execute without friction classification. Pipeline cannot be bypassed or disabled.**
+**All FloatPrompt execution must follow the map/build/extract mode system with friction assessment. See modes.md for complete operational guidance including:**
+- Map/Score/Respond pipeline implementation
+- Friction classification and response patterns
+- Mode selection and territory assessment protocols
+- Emergency bypass conditions
 
 ### CLI Command Shortcuts
 
@@ -136,26 +116,3 @@ FloatPrompt is built for portable human intelligence - values must emerge from h
 ## Validation Criteria
 
 AI uncertainty protocol implementation: Stop and request clarification rather than guessing or approximating. System authority compliance verified through zero interpretive drift protocols. Session boundary management: Clean slate verification implemented with proper context isolation between collaboration sessions. Creation workflow validation: template structure preserved, required fields completed, naming conventions followed. Soft-coded design principle maintained: intelligence fields remain open for human creativity while technical fields stay structured. 
-
-#### Response Pattern Specifications
-
-**🟥 High-Friction - "Building" Metaphor:**
-- Block extract/build until mapping is completed
-- Guide through systematic methodology like exploring a large building
-- Allow override with explicit caution tape: "emergency bypass" or "skip mapping"
-- If mapping declined: "Let's return to the building. We need a map to proceed safely."
-- Mapping Sequence: Building → Floor → Room → Interior Objects (staged with permission)
-
-**🟨 Medium-Friction - "Hallway" Metaphor:**
-- Recommend mapping while allowing override
-- Surface ambiguity: "clear-looking" ≠ structurally sound ("shortcut zone")
-- Flag unanchored outputs when mapping is skipped
-- Cognitive anchor rationale: "map gives us a shared structure we can both return to"
-- Top-level segmentation only unless prompted
-
-**🟩 Low-Friction - "Small Room" Metaphor:**
-- Proceed freely with optional mapping mention
-- Structure score awareness: Offer mapping if structure score < 6
-- Pass-through zone: Enable execution without delay while maintaining map-aware mindset
-- Reuse detection: Suggest mapping as fallback anchor when reuse opportunities identified
-- Safety boundary: Greenlight ≠ blank check — tone always preserved 

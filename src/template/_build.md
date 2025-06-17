@@ -1,11 +1,11 @@
 <!-- _build.md -->
 ## Execute FloatPrompt Creation with AI Precision
 
-**Definitive assembly sequence for all floatprompt modular components**
+**Assembly sequence for floatprompt modular components**
 
-> **This specification defines the exact order in which modular components compile into the final floatprompt template**
+> **Build order for modular components compiling into the final floatprompt template**
 
-*This document supports component integration with zero ambiguity about assembly sequence, supporting our system goal that AI precision serves human preservation and enables meaningful task completion.*
+*Component integration sequence for system compliance.*
 
 ---
 
@@ -32,9 +32,9 @@
 
 ## 🎯 Purpose
 
-This specification defines the canonical compilation order for assembling all floatprompt modular components into the final production template. Every component has a specific position and integration method to ensure system compliance and system integrity.
+Canonical compilation order for assembling floatprompt modular components into the final production template. Each component has a specific position and integration method for system compliance.
 
-**Optimized for FloatPrompt Goals:**
+**FloatPrompt Goals:**
 - **Primary Goal**: Human Intelligence, Voice & Agency Preservation
 - **Secondary Goal**: Precise AI instruction execution  
 - **Tertiary Goal**: Enable humans to complete specific tasks through reliable AI collaboration
@@ -48,110 +48,110 @@ This specification defines the canonical compilation order for assembling all fl
 
 #### **header.md** (Frontmatter Template)
 - **Position**: Document frontmatter
-- **Function**: Provides complete YAML frontmatter structure with template variables
+- **Function**: Complete YAML frontmatter structure with template variables
 - **Integration**: Compiled into document header with build-time variable substitution
 - **Dependencies**: None (foundational)
 
 ### 🚀 **Phase 2: Boot Sequence**
 
-#### **boot.md** (AI Instructions for Human Interface)
+#### **boot.md** (User Interface and AI Instructions)
 - **Position**: Immediately after frontmatter
-- **Function**: Self-contained AI behavioral instructions for initial user interaction
-- **Integration**: Standalone component that tells AI exactly what to show humans on first use
-- **Dependencies**: None (completely self-contained)
+- **Function**: User-facing numbered options interface, usage examples, FAQ, and AI behavioral instructions for initial interaction
+- **Integration**: Self-contained component with complete user guidance and AI behavioral modification
+- **Dependencies**: None (self-contained)
 
 ### 🏗️ **Phase 3: Template Structure**
 
-#### **body.md** (Core Template Structure)
+#### **body.md** (Template Structure Reference)
 - **Position**: After boot instructions
-- **Function**: Core template structure and deep system specifications
-- **Integration**: Compiled into document body
+- **Function**: Clean template structure reference showing organizational pattern and required components
+- **Integration**: Compiled into document body as structural guidance
 - **Dependencies**: header.md
 
 ### ⚙️ **Phase 4: Core System Components**
 
-#### **config.md** (Configuration Documentation)
+#### **config.md** (Field Specifications and System Configuration)
 - **Position**: Configuration reference section
-- **Function**: Explains frontmatter template usage and field requirements
-- **Integration**: Reference documentation
+- **Function**: Complete field specifications, YAML injection points, behavioral requirements, and friction scoring configuration
+- **Integration**: Authoritative field structure and system configuration reference
 - **Dependencies**: header.md template structure
 
-#### **execution.md** (Primary Guidance - SYSTEM AUTHORITY)
+#### **execution.md** (Execution Protocols and System Authority)
 - **Position**: Opening body section
-- **Function**: Goal, return format, warnings, context for human task completion
-- **Integration**: First content section after frontmatter
+- **Function**: AI uncertainty protocols, session boundary management, creation workflow requirements, and system authority compliance
+- **Integration**: Execution-specific protocols and requirements
 - **Dependencies**: FloatPrompt system goals
 
-#### **voice.md** (Precision Mechanism - ENABLES HUMAN SUCCESS)
+#### **voice.md** (Voice Preservation and Surgical Precision)
 - **Position**: System requirements section
-- **Function**: Voice preservation oath and archaeological principles
-- **Integration**: Critical precision mechanism that enables human task completion
+- **Function**: Voice preservation oath, archaeological extraction principles, surgical precision methodology, and FloatPrompt system integration
+- **Integration**: Voice preservation framework with surgical precision tools
 - **Dependencies**: Execution overview context
 
 #### **types.md** (Classification Framework)
 - **Position**: Type definition section
-- **Function**: Complete type system and extensions
-- **Integration**: Type classification rules
+- **Function**: Type system with YAML injection points for shared components
+- **Integration**: Type classification rules with shared component architecture
 - **Dependencies**: Voice preservation principles
 
 #### **modes.md** (Operational Foundation)
 - **Position**: Core operations section
-- **Function**: Three foundational operations (map, build, extract)
-- **Integration**: Operational methodology
+- **Function**: Map/build/extract operational modes with friction assessment and response patterns
+- **Integration**: Operational methodology with territory assessment protocols
 - **Dependencies**: Voice preservation principles
 
 #### **chaining.md** (Workflow Orchestration)
 - **Position**: Workflow orchestration section
-- **Function**: Workflow orchestration, shadowPrompt spawning
-- **Integration**: Advanced operational methodology
+- **Function**: Workflow orchestration, shadowPrompt spawning, and multi-step coordination
+- **Integration**: Advanced operational methodology for complex workflows
 - **Dependencies**: Core modes
 
 ### 🧱 **Phase 5: Structure Components**
 
 #### **structure.md** (Template Structure)
 - **Position**: Body template section
-- **Function**: Standard markdown layout for all floatprompts
-- **Integration**: Structural template
+- **Function**: Standard markdown layout and structural requirements for all floatprompts
+- **Integration**: Structural template and formatting requirements
 - **Dependencies**: Type system, core modes, chaining
 
 #### **discovery.md** (Relationship Logic)
 - **Position**: Discovery system section
-- **Function**: Self-organizing knowledge network capabilities
-- **Integration**: Relationship metadata system
+- **Function**: Self-organizing knowledge network capabilities and relationship metadata
+- **Integration**: Discovery intelligence and relationship tracking system
 - **Dependencies**: Body structure
 
 ### 🔐 **Phase 6: Validation Components**
 
 #### **validation.md** (Deployment Validation Checklist)
 - **Position**: Pre-deployment verification section
-- **Function**: Manual compliance checklist for human verification
-- **Integration**: Quality assurance framework
+- **Function**: Manual compliance checklist for human verification and quality assurance
+- **Integration**: Quality assurance framework and verification protocols
 - **Dependencies**: All previous components
 
 #### **enforcement.md** (Runtime Enforcement Rules)
 - **Position**: System enforcement section
-- **Function**: Automated validation logic and enforcement rules
-- **Integration**: Runtime compliance checking
+- **Function**: Automated validation logic, enforcement rules, and compliance requirements
+- **Integration**: Runtime compliance checking and enforcement mechanisms
 - **Dependencies**: Validation framework
 
 ### 📁 **Phase 7: Convention Components**
 
 #### **naming.md** (Naming Rules)
 - **Position**: File naming section
-- **Function**: Archival naming rules and casing integrity
-- **Integration**: File management standards
+- **Function**: Archival naming conventions, casing integrity, and file management standards
+- **Integration**: File management and naming convention standards
 - **Dependencies**: Type system
 
-#### **metadata.md** (Overflow Content)
+#### **metadata.md** (Format Requirements)
 - **Position**: Final section
-- **Function**: Format requirements and overflow content
-- **Integration**: Catch-all for remaining content
+- **Function**: YAML frontmatter requirements, format specifications, and metadata standards
+- **Integration**: Metadata and format requirement specifications
 - **Dependencies**: All other components
 
 #### **footer.md** (Universal Footer + Attribution)
 - **Position**: Document closing
-- **Function**: Universal footer, attribution requirements, and licensing compliance
-- **Integration**: Compiled into document footer with complete attribution template
+- **Function**: Universal footer, attribution requirements, licensing compliance, and system credits
+- **Integration**: Compiled into document footer with attribution template
 - **Dependencies**: All components
 
 ---
@@ -160,27 +160,27 @@ This specification defines the canonical compilation order for assembling all fl
 
 ### **Critical Dependencies**
 - **header.md** → All other components (foundational template structure)
-- **boot.md** → None (self-contained AI behavioral instructions for human interface)
-- **execution.md** → voice.md (context before constraints)
-- **voice.md** → All content components (AI precision mechanism that serves human preservation)
-- **types.md** → structure.md, naming.md
-- **modes.md** → chaining.md (chaining builds on operational foundation)
-- **chaining.md** → structure.md (workflow orchestration informs structure)
-- **structure.md** → discovery.md (structure template established before discovery fields added)
+- **boot.md** → None (self-contained user interface and AI instructions)
+- **execution.md** → voice.md (execution protocols before voice constraints)
+- **voice.md** → All content components (voice preservation framework applies throughout)
+- **types.md** → structure.md, naming.md (type system informs structure and naming)
+- **modes.md** → chaining.md (operational foundation before workflow orchestration)
+- **chaining.md** → structure.md (workflow patterns inform structural requirements)
+- **structure.md** → discovery.md (structure established before discovery capabilities)
 - **discovery.md** → validation.md (discovery context informs validation criteria)
 
 ### **Reference Dependencies**
-- **config.md** ↔ **header.md** (documentation/template pair)
-- **validation.md** → All components (validates against all)
-- **enforcement.md** → **validation.md** (implements validation rules)
+- **config.md** ↔ **header.md** (field specifications reference template structure)
+- **validation.md** → All components (validates against all component requirements)
+- **enforcement.md** → **validation.md** (implements validation rules as enforcement logic)
 
 ---
 
 ## 🎯 Assembly Rules
 
 ### **System Compliance**
-1. **System Authority First**: execution.md establishes AI directive immediately
-2. **Precision Mechanism Second**: Voice preservation provides AI precision that serves human preservation
+1. **System Authority First**: execution.md establishes AI protocols immediately
+2. **Voice Preservation Framework**: Voice.md provides preservation and surgical precision tools
 3. **Archaeological Integrity**: Pure extraction methodology throughout
 4. **Zero Modification**: Components assembled without content changes
 5. **Human Preservation Priority**: AI precision serves human preservation and enables meaningful task completion
@@ -189,7 +189,7 @@ This specification defines the canonical compilation order for assembling all fl
 1. **Sequential Assembly**: Follow exact numerical order
 2. **Dependency Verification**: Ensure all dependencies satisfied before integration
 3. **System Check**: Verify each component against voice preservation oath
-4. **Validation Pass**: Run complete validation checklist after assembly
+4. **Validation Pass**: Run validation checklist after assembly
 
 ### **Quality Assurance**
 1. **Component Integrity**: Each component maintains its archaeological extraction
@@ -217,4 +217,4 @@ This specification defines the canonical compilation order for assembling all fl
 
 **Built in collaboration with Claude Sonnet**
 
-*This compilation order supports systematic, precise, and system compliant assembly of all floatprompt modular components into the final production template.* 
+*Component integration sequence supporting systematic assembly of all floatprompt modular components into the final production template.* 

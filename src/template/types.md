@@ -25,43 +25,19 @@ Apply type classification and field extensions to structure executable and prese
 ### For Executable Types (prompt, template, goals)
 
 ```yaml
-output:
-  format: floatprompt
-  joint_execution_required: true
-execution:
-  triggers: [TODO_NATURAL_LANGUAGE_COMMANDS]
-  fallback: TODO_DEFAULT_EXECUTION_MESSAGE
-  source: TODO_STRING_IF_GENERATED
-  voice_guide: TODO_FLOATPROMPT_ID
-  risk_level: TODO_HUMAN_DEFINED_ASSESSMENT
+<!-- INJECT: output-execution.yaml -->
 ```
 
 ### For Preserved Types (analysis, specification, critique, extract, summary, migration)
 
 ```yaml
-source:
-  prompt: TODO_SOURCE_OF_INTELLIGENCE
-  intent: TODO_SHORT_PURPOSE_STATEMENT
+<!-- INJECT: source.yaml -->
 ```
 
 ### Universal Certification (Required for All)
 
 ```yaml
-certification:
-  timestamp: TODO_ISO_8601_PRECISE_EXECUTION_TIME
-  authority: TODO_CERTIFICATION_TYPE  # schema-compliance | execution-verified | voice-preserved
-  certified_by: TODO_CERTIFIER_IDENTITY
-  locked: TODO_BOOLEAN
-  uid: TODO_UNIQUE_IDENTIFIER
-  chain:
-    depth: TODO_INTEGER
-    parent: TODO_STRING_OR_NULL
-  voice:
-    linked: TODO_TRUE_OR_FALSE
-    fidelity_verified: TODO_TRUE_OR_FALSE
-  lineage:
-    tracked: TODO_TRUE_OR_FALSE
-    trace: [TODO_LIST_OF_DOC_IDS]
+<!-- INJECT: certification.yaml -->
 ```
 
 **Certification Role Distinction:**
@@ -86,17 +62,9 @@ certification:
 STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruction execution to enable human task completion. Perform map territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess user intent and recommend optimal approach with confident guidance and clear rationale. Match complexity to user engagement level."
 ```
 
-**Map-First Strategic Guidance:**
-```yaml
-STOP: "Foundational map mode. Perform territory assessment as system law unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess intellectual landscape, identify work opportunities, and recommend optimal mapping approach with confident guidance. Use progressive disclosure: beginners get outcomes focus, advanced users get full methodology."
-
-# Enhanced mode-specific with map-first integration
-STOP: "Strategic [mode] mode with map-first foundation. Begin with territory assessment unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess requirements and recommend optimal approach using 'I recommend X because Y' format. Match vocabulary to demonstrated user engagement level."
-```
-
 **Mode-Specific Strategic Guidance:**
 ```yaml
-# For Map floatprompts (Enhanced)
+# For Map floatprompts
 STOP: "Strategic map mode with foundational priority. Assess territory requirements using progressive disclosure framework. Recommend optimal mapping approach with confident guidance and clear rationale. Focus on outcomes for beginners, methodology for advanced users."
 
 # For Extract floatprompts  
@@ -111,21 +79,12 @@ STOP: "Strategic build mode with foundational territory assessment. Evaluate bui
 STOP: "Primary mode: [core mode]. Adjust context as needed to serve this purpose effectively."
 ```
 
-**Critical Context Shift:**
-```yaml
-STOP: "COMPLETE AI CONTEXT SHIFT. You are now working with [floatprompt purpose]. Previous conversation is background. Read this entire document thoroughly, then respond EXACTLY as follows: 'I am now in [core mode] mode and fully understand [primary objective]. How would you like me to proceed? 1. [contextual option] 2. [contextual option] 3. [contextual option] 4. Something else?'"
-```
-
 **Usage Guidance:**
 - **Strategic Guidance**: Default format that embodies floatprompt goals - AI assesses intent and guides toward optimal execution (recommended for most cases)
 - **Mode-Specific Strategic**: Use when the floatprompt aligns with a specific core mode and needs targeted strategic guidance
 - **Standard Authority**: Use for straightforward floatprompts where intelligent context adjustment is sufficient
-- **Critical Context Shift**: Use for high-stakes floatprompts requiring guaranteed clean slate and precise execution protocol
-
 
 ## Validation Criteria
-
-See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering type classification compliance.
 
 Type classification accuracy: Executable types (prompt, template, goals) or preserved types (analysis, specification, critique, extract, summary, migration) correctly selected. Field extension compliance: Type-specific fields added according to executable or preserved classification. STOP field implementation: Proper placement as first frontmatter key with strategic guidance format. Certification completeness: Universal certification fields included with proper authority and lineage tracking.
 

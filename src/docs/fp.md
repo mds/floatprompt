@@ -37,6 +37,18 @@ contributors: ["@mds", "Claude Sonnet"]
 
 **Purpose**: Building components, documentation, and informational content
 
+## 🏷️ Why Wrapper Tags Are Required
+
+**`<floatprompt>...</floatprompt>` wrapper solves cross-platform compatibility:**
+
+- **Portability**: Different AI platforms handle uploads differently—wrapper preserves structural integrity
+- **Boundary Detection**: AI systems distinguish FloatPrompt instructions from regular markdown  
+- **Tooling Integration**: Enables FloatPrompt-aware tools while remaining invisible to standard renderers
+- **Execution Isolation**: Prevents accidental behavioral modification when viewing documentation
+- **Future-Proofing**: Stable container for evolving internal structures
+
+**Maximum portability with zero dependencies—wrapper tags work everywhere.**
+
 ## 📋 File Format Structure
 
 ### **Valid .fp File Structure**

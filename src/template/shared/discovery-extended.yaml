@@ -1,0 +1,31 @@
+# FloatPrompt Discovery Extended Fields
+# Rich knowledge navigation and relationship mapping
+# Source: atomic component extracted from config.yaml
+
+discovery:
+  theme: "{{THEME}}" # descriptive category
+  scope: "{{SCOPE}}" # effort/depth indicator
+  relationships:
+    builds_on: ["{{BUILDS_ON}}"] # list of doc IDs
+    enables: ["{{ENABLES}}"] # list of doc IDs
+    parallels: ["{{PARALLELS}}"] # list of doc IDs
+    mirrors: ["{{MIRRORS}}"] # list of doc IDs
+    supersedes: ["{{SUPERSEDES}}"] # list of doc IDs
+  navigation:
+    prerequisites: ["{{PREREQUISITES}}"] # what to read first
+    next_steps: ["{{NEXT_STEPS}}"] # where to go after
+    learning_sequence: ["{{LEARNING_SEQUENCE}}"] # ordered progression
+  temporal:
+    journey: "{{JOURNEY}}" # chronological context
+    phase: "{{PHASE}}" # evolutionary stage
+    progression: "{{PROGRESSION}}" # development sequence
+  clustering:
+    intellectual_territory: "{{TERRITORY}}" # domain area
+    discovery_path: "{{DISCOVERY_PATH}}" # navigation guidance
+  essence:
+    core_purpose: "{{CORE_PURPOSE}}" # soul of the document
+    metaphor: "{{METAPHOR}}" # symbolic representation
+    impact_type: "{{IMPACT_TYPE}}" # kind of change created
+    ceremonial_significance: "{{CEREMONIAL_SIGNIFICANCE}}" # ritual importance
+    wisdom_offering: "{{WISDOM_OFFERING}}" # guidance provided
+    universe_contained: "{{UNIVERSE_CONTAINED}}" # scope of intelligence 

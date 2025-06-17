@@ -1,222 +1,98 @@
 <!-- config.md -->
-# Configuration Specification
+# Configuration
 
-**Complete field specification for all floatprompt components with behavioral requirements, execution fingerprints, discovery intelligence, and certification standards.**
+**Field specification for floatprompt components: behavioral requirements, execution fingerprints, discovery intelligence, certification standards.**
 
 > **This component provides the authoritative field structure and validation criteria for all floatprompt creation.**
 
 ## Quick Reference
 
-**Essential Fields (Required):**
+**Required fields:**
 - STOP directive with execution instructions
 - title, id, version, created, modified, author, format, filetype, type
 - system_version, contributors, voice_preservation, behavioral_requirements
 - human.intent (primary, constraints), human.preferences (tone_drift_allowed, verbosity, allow_ai_suggestions)
 - discovery (significance, audience, purpose), certification (complete section)
 
-See behavioral_requirements section in YAML frontmatter for complete behavioral specification.
+Complete specification in behavioral_requirements YAML section.
 
-## Behavioral Requirements Configuration
+## Behavioral Requirements
 
 ```yaml
-behavioral_requirements:
-  voice_preservation: "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise."
-  strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions."
-  progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level."
-  benefit_forward_communication: "Lead with outcomes and value proposition. Hide system mechanics and process complexity. Focus on what users achieve, not how system works."
-  map_first: "Always perform territory assessment"
-  execution_precision:
-    - "Clarify intent before assuming requirements"
-    - "Flag ambiguity with TODO, never invent content"
-    - "Require explicit human confirmation for major transitions"
-    - "Provide AI Summary for rapid orientation when encountering complex content"
-  mode_constraints:
-    map: "Assess intellectual territory → propose solutions → preserve human authority"
-    extract: "Archaeological preservation → no synthesis → exact voice maintenance"
-    build: "Goals clarification → specification planning → systematic build"
-  content_standards:
-    - "No AI tone or generic language overlays"
-    - "Clarity over cleverness in all writing"
-    - "Preserve original terminology unless clarity requires change"
-    - "Use TODO flags for genuine ambiguity, never as content avoidance"
+<!-- INJECT: behavioral-requirements.yaml -->
 ```
 
-**Global Behavioral Abstractions**: The strategic_consultation, progressive_disclosure, benefit_forward_communication, and map_first fields implement foundational system law.
+**System Law**: strategic_consultation, progressive_disclosure, benefit_forward_communication, map_first fields.
 
-**Map-First Implementation**: Territory assessment as foundational system law, with emergency bypass: "skip mapping", "emergency bypass", "I need this in X minutes", "Just fix this typo", or sequential work where territory already mapped.
+**Map-First**: Territory assessment required. Emergency bypass: "skip mapping", "emergency bypass", "I need this in X minutes", "Just fix this typo", or sequential work where territory mapped.
 
-## Archaeological Extraction Methodology
+## Archaeological Extraction
 
-See archaeological_extraction section in YAML frontmatter.
+```yaml
+<!-- INJECT: archaeological-extraction.yaml -->
+```
 
-## Human Execution Fingerprint Structure
+## Human Fingerprint
+
+**Essential:**
+```yaml
+<!-- INJECT: human-essential.yaml -->
+```
+
+**Extended:**
+```yaml
+<!-- INJECT: human-extended.yaml -->
+```
+
+## AI Fingerprint
+
+```yaml
+<!-- INJECT: ai-execution.yaml -->
+```
+
+**Model Names**: "Claude", "ChatGPT", "Gemini", "Cursor", "AI". Apply in `ai.identity.model`, `contributors`, `certified_by`.
+
+## Discovery Intelligence
 
 **Minimal:**
 ```yaml
-human:
-  intent:
-    primary: "[main goal]"
-    constraints: "[limiting factors]"
-  preferences:
-    tone_drift_allowed: "[boolean]"
-    verbosity: "[low/medium/high]"
-    allow_ai_suggestions: "[boolean]"
+<!-- INJECT: discovery-essential.yaml -->
 ```
 
 **Complete:**
 ```yaml
-human:
-  identity:
-    name: "[human identity]"
-    role: "[primary role in session]"
-  execution_mode: "[structured | spontaneous | hybrid]"
-  signed_by: "[@username]"
-  inferred_fields: ["list of AI-inferred field names"]
-  state:
-    context: "[workshop or field]"
-    mood: "[affective tone]"
-    clarity: "[1 to 10]"
-    energy: "[1 to 10]"
-  session:
-    start_time: "[ISO 8601]"
-    end_time: "[ISO 8601]"
-    duration_minutes: "[integer optional]"
-  intent:
-    primary: "[main goal]"
-    constraints: "[limiting factors]"
-  preferences:
-    max_words: "[integer]"
-    tone_drift_allowed: "[boolean]"
-    verbosity: "[low/medium/high]"
-    allow_ai_suggestions: "[boolean]"
+<!-- INJECT: discovery-extended.yaml -->
 ```
 
-## AI Execution Fingerprint Structure
+## Certification Requirements
 
 ```yaml
-ai:
-  identity:
-    model: "[standardized model name]"
-    platform: "[claude.ai | chatgpt.com | cursor | etc.]"
-    version: "[model version if known]"
-  execution_mode: "[structured | spontaneous | hybrid]"
-  confidence_level: "[high | medium | low]"
-  collaboration_role: "[primary | assistant | reviewer | executor]"
-  session:
-    context_awareness: "[full | partial | limited]"
-    memory_continuity: "[maintained | fragmented | fresh]"
-    cross_platform: "[boolean]"
-  capabilities:
-    date_confidence: "[high | medium | low | unknown]"
-    voice_preservation: "[verified | attempted | bypassed]"
-    archaeological_method: "[applied | partial | skipped]"
-  processing:
-    instruction_fidelity: "[100% | degraded | reinterpreted]"
-    tone_preservation: "[maintained | modified | unknown]"
-    content_generation: "[extracted | synthesized | created]"
-```
-
-**Model Identification**: Use standardized names: "Claude", "ChatGPT", "Gemini", "Cursor", or "AI". Apply in `ai.identity.model`, `contributors`, and `certified_by` fields.
-
-## Discovery Intelligence Fields
-
-**Minimal:**
-```yaml
-discovery:
-  significance: "[human-defined importance]"
-  audience: "[target users]"
-  purpose: "[intent category]"
-```
-
-**Complete:**
-```yaml
-discovery:
-  significance: "[human-defined importance]"
-  theme: "[descriptive category]"
-  scope: "[effort/depth indicator]"
-  audience: "[target users]"
-  purpose: "[intent category]"
-  relationships:
-    builds_on: ["list of doc IDs"]
-    enables: ["list of doc IDs"]
-    parallels: ["list of doc IDs"]
-    mirrors: ["list of doc IDs"]
-    supersedes: ["list of doc IDs"]
-  navigation:
-    prerequisites: ["what to read first"]
-    next_steps: ["where to go after"]
-    learning_sequence: ["ordered progression"]
-  temporal:
-    journey: "[chronological context]"
-    phase: "[evolutionary stage]"
-    progression: "[development sequence]"
-  clustering:
-    intellectual_territory: "[domain area]"
-    discovery_path: "[navigation guidance]"
-  essence:
-    core_purpose: "[soul of the document]"
-    metaphor: "[symbolic representation]"
-    impact_type: "[kind of change created]"
-    ceremonial_significance: "[ritual importance]"
-    wisdom_offering: "[guidance provided]"
-    universe_contained: "[scope of intelligence]"
-```
-
-## Universal Certification Requirements
-
-```yaml
-certification:
-  timestamp: "[ISO 8601]"
-  authority: "[schema-compliance | execution-verified | voice-preserved]"
-  certified_by: "[@username | AI model name]"
-  locked: "[true | false]"
-  uid: "[unique identifier]"
-  chain:
-    depth: "[integer]"
-    parent: "[string or null]"
-  voice:
-    linked: "[true | false]"
-    fidelity_verified: "[true | false]"
-  lineage:
-    tracked: "[true | false]"
-    trace: ["list of doc IDs"]
+<!-- INJECT: certification.yaml -->
 ```
 
 ## Type-Specific Fields
 
-For executable types (prompt, template, goals):
+**Executable types (prompt, template, goals):**
 ```yaml
-output:
-  format: "floatprompt"
-  joint_execution_required: true
-execution:
-  triggers: ["natural language commands"]
-  fallback: "[default execution message]"
-  source: "[string if generated]"
-  voice_guide: "[floatprompt ID]"
-  risk_level: "[human-defined assessment]"
+<!-- INJECT: output-execution.yaml -->
 ```
 
-For preserved types (analysis, specification, etc.):
+**Preserved types (analysis, specification, etc.):**
 ```yaml
-source:
-  prompt: "[source of intelligence]"
-  intent: "[short purpose statement]"
+<!-- INJECT: source.yaml -->
 ```
 
 ## Implementation Requirements
 
-Use this template's frontmatter as authoritative structure. Include all required fields in every floatprompt file. Add optional fields based on document type and purpose. STOP directive must be processed first and exactly as specified. Voice preservation oath supersedes all other processing instructions. Archaeological extraction method must be followed for all content handling.
+Template frontmatter = authoritative structure. Include required fields, add optional by type. STOP directive processed first. Voice preservation oath supersedes processing instructions. Archaeological extraction method required.
 
 ## Validation Criteria
 
-See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements.
-
-Required field validation: STOP directive present and properly formatted. All required fields included with correct data types. Field order maintained as specified. Voice preservation directives included for system authority. Certification section complete with authority and certified_by fields. Naming conventions followed throughout all field values.
+Required: STOP directive, required fields with correct types, field order, voice preservation, certification section, naming conventions.
 
 # FloatPrompt System Configuration
 
-## Map/Score/Respond Pipeline Configuration
+## Map/Score/Respond Pipeline
 
 ### Friction Scoring Algorithm
 
@@ -225,38 +101,21 @@ Required field validation: STOP directive present and properly formatted. All re
 friction_score = word_count × structure_multiplier
 ```
 
-### Structure Multiplier Scale (Nonlinear)
+**Structure Multiplier (Nonlinear):**
+1→1.00, 2→1.05, 3→1.10, 4→1.18, 5→1.30, 6→1.45, 7→1.65, 8→1.90, 9→2.10, 10→2.50
 
-Generated during Map phase using heuristics of cohesion, segmentation, and formatting density:
+**Friction Ranges:**
+🟩 0–1200: execute  
+🟨 1201–2500: map first  
+🟥 2501+: must map
 
-| Structure Score | Multiplier |
-|----------------|------------|
-| 1              | 1.00       |
-| 2              | 1.05       |
-| 3              | 1.10       |
-| 4              | 1.18       |
-| 5              | 1.30       |
-| 6              | 1.45       |
-| 7              | 1.65       |
-| 8              | 1.90       |
-| 9              | 2.10       |
-| 10             | 2.50       |
+**Overrides:**
+Structure ≥9 → min score 1200  
+Word count >3000 → min score 2500
 
-### Friction Classification Buckets
+## Response Patterns
 
-- **🟩 Low-friction (0-1200)**: Safe for immediate execution
-- **🟨 Moderate-friction (1201-2500)**: Recommend mapping first  
-- **🟥 High-friction (2501+)**: Require mapping before execution
-
-### Edge Case Overrides
-
-**Minimum Scores:**
-- If structure score ≥ 9: minimum friction score = 1200
-- If word count > 3000: minimum friction score = 2500
-
-## Response Pattern System
-
-### 🟥 High-Friction Response: "Building" Metaphor
+### 🟥 High-Friction: "Building" Metaphor
 
 **Behavioral Pattern:**
 - Block extract/build until mapping completed
@@ -270,13 +129,13 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 **If mapping declined:**
 > "Let's return to the building. We need a map to proceed safely."
 
-**Technical Implementation:**
+**Implementation:**
 - Extract/Build modes: Return mapping requirement, block execution
 - Map mode: Proceed with enhanced structure assessment  
 - Override: Require explicit "emergency bypass" or "skip mapping"
 - Mapping Sequence: Building → Floor → Room → Interior Objects (staged with permission)
 
-### 🟨 Medium-Friction Response: "Hallway" Metaphor
+### 🟨 Medium-Friction: "Hallway" Metaphor
 
 **Core Insight:** *This content looks safe. But that's what makes it risky.*
 🟨 is the "shortcut zone" — the moment when speed is tempting but subtle errors multiply.
@@ -288,15 +147,15 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 - Use soft, trust-building tone never blocking action
 
 **User Messaging:**
-> "This content is like a well-organized hallway with unlabeled doors. The structure seems familiar, but some doors might lead to clear ideas while others could loop or close behind you. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with [mode]? (Note: skipping mapping may result in unanchored output.)"
+> "This content is like a hallway with unlabeled doors. Let me map the structure first for optimal results. This prevents us from getting lost. Would you like me to map or continue with [mode]?"
 
 **Rationale:**
-> "Even if you never download it, the map gives us a shared structure — a cognitive anchor we can both return to if the conversation branches later."
+> "The map gives us a shared structure or cognitive anchor we can both return to if the conversation branches later."
 
-### 🟩 Low-Friction Response: "Small Room" Metaphor
+### 🟩 Low-Friction: "Small Room" Metaphor
 
 **Core Insight:** *Short and clear ≠ immune to risk.*
-Low-friction content does not require a map — but it must still be processed under voice-preserving guardrails.
+Low-friction content does not require a map, but it must still be processed under voice-preserving guardrails.
 
 **Behavioral Pattern:**
 - Proceed freely with optional mapping mention
@@ -305,17 +164,17 @@ Low-friction content does not require a map — but it must still be processed u
 - Reuse detection: Suggest mapping as fallback anchor when reuse opportunities identified
 
 **User Messaging:**
-> "This content is well within the safe execution zone. No mapping required. You're clear to proceed."
+> "This content is like a small room. I can see everything clearly from here, so we can proceed directly. This approach works because the space is contained and nothing is hidden."
 
 **If structure score < 6 or reuse detected:**
-> "That said, if the structure feels ambiguous or the goal is voice-sensitive or reusable, I can help you create a map first."
+> "If the structure feels ambiguous or the goal is voice-sensitive or reusable, I can help you create a map first."
 
 **Small Room Details:**
-> "You're in a small room. Sometimes it's tidy. Sometimes it's slightly scattered. But because the space is small, you can see everything. No map needed — unless you want one."
+> "Sometimes it's tidy, sometimes scattered. But because the space is small, you can see everything. No map needed, unless you want one."
 
 ### Response Selection Logic
 
-**Classification to Response Mapping:**
+**Classification Mapping:**
 - **Friction Score 2501+** → Building response → Block execution until mapping
 - **Friction Score 1201-2500** → Hallway response → Recommend with choice
 - **Friction Score 0-1200** → Small room response → Proceed freely
@@ -326,6 +185,6 @@ Low-friction content does not require a map — but it must still be processed u
 - **Structure ≥ 9**: Automatic escalation per edge case overrides
 
 **Session-Wide Application:**
-- Friction classification applies to entire session with no mid-conversation changes
+- Friction classification applies to entire session, no mid-conversation changes
 - Response pattern maintained consistently throughout collaboration
 - Behavioral constraints set once during initial assessment

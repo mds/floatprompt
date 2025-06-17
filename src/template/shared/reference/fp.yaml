@@ -1,0 +1,138 @@
+# FloatPrompt Master YAML Field List
+# Complete inventory of all 105 unique YAML fields
+# Source: combined-reference.yaml analysis
+# Purpose: Foundation for creating atomic shared/ snippets
+
+## Core Metadata Fields (11)
+STOP
+title
+id
+version
+created
+modified
+author
+format
+type
+system_version
+contributors
+
+## Voice Preservation Fields (2)
+voice_preservation.sacred_principle
+voice_preservation.system_authority
+
+## Behavioral Requirements Fields (10)
+behavioral_requirements.voice_preservation
+behavioral_requirements.strategic_consultation
+behavioral_requirements.progressive_disclosure
+behavioral_requirements.benefit_forward_communication
+behavioral_requirements.map_first
+behavioral_requirements.execution_precision
+behavioral_requirements.mode_constraints.map
+behavioral_requirements.mode_constraints.extract
+behavioral_requirements.mode_constraints.build
+behavioral_requirements.content_standards
+
+## Archaeological Extraction Fields (2)
+archaeological_extraction.core_method
+archaeological_extraction.implementation
+
+## Human Execution Fingerprint Fields (18 total)
+### In actual header (5):
+human.intent.primary
+human.intent.constraints
+human.preferences.tone_drift_allowed
+human.preferences.verbosity
+human.preferences.allow_ai_suggestions
+
+### Additional documented (13):
+human.identity.name
+human.identity.role
+human.execution_mode
+human.signed_by
+human.inferred_fields
+human.state.context
+human.state.mood
+human.state.clarity
+human.state.energy
+human.session.start_time
+human.session.end_time
+human.session.duration_minutes
+human.preferences.max_words
+
+## Discovery Intelligence Fields (24 total)
+### In actual header (3):
+discovery.significance
+discovery.audience
+discovery.purpose
+
+### Additional documented (21):
+discovery.theme
+discovery.scope
+discovery.relationships.builds_on
+discovery.relationships.enables
+discovery.relationships.parallels
+discovery.relationships.mirrors
+discovery.relationships.supersedes
+discovery.navigation.prerequisites
+discovery.navigation.next_steps
+discovery.navigation.learning_sequence
+discovery.temporal.journey
+discovery.temporal.phase
+discovery.temporal.progression
+discovery.clustering.intellectual_territory
+discovery.clustering.discovery_path
+discovery.essence.core_purpose
+discovery.essence.metaphor
+discovery.essence.impact_type
+discovery.essence.ceremonial_significance
+discovery.essence.wisdom_offering
+discovery.essence.universe_contained
+
+## Certification Fields (11)
+certification.timestamp
+certification.authority
+certification.certified_by
+certification.locked
+certification.uid
+certification.chain.depth
+certification.chain.parent
+certification.voice.linked
+certification.voice.fidelity_verified
+certification.lineage.tracked
+certification.lineage.trace
+
+## Output/Execution Fields (10)
+output.format
+output.joint_execution_required
+execution.triggers
+execution.fallback
+execution.source
+execution.voice_guide
+execution.risk_level
+execution.execution_mode
+execution.usage_pattern
+execution.ai_role
+
+## AI Execution Fingerprint Fields (15 documented only)
+ai.identity.model
+ai.identity.platform
+ai.identity.version
+ai.execution_mode
+ai.confidence_level
+ai.collaboration_role
+ai.session.context_awareness
+ai.session.memory_continuity
+ai.session.cross_platform
+ai.capabilities.date_confidence
+ai.capabilities.voice_preservation
+ai.capabilities.archaeological_method
+ai.processing.instruction_fidelity
+ai.processing.tone_preservation
+ai.processing.content_generation
+
+## Source Fields (2 documented only)
+source.prompt
+source.intent
+
+# Total: 105 unique YAML fields
+# Next step: Group into atomic shared/ snippets for DRY compliance

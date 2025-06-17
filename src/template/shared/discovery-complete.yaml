@@ -1,0 +1,34 @@
+# FloatPrompt Discovery Complete Schema
+# Full discovery intelligence fields with examples and descriptions
+# Source: discovery.md complete schema
+
+discovery:
+  significance: "[human-defined importance]"         # soft-coded, emergent values like "keystone", "foundational", "reference"
+  theme: "[descriptive category]"                    # soft-coded, emergent themes like "constitutional", "philosophical", "technical", "implementation"
+  scope: "[effort/depth indicator]"                  # soft-coded, e.g., "comprehensive", "strategic", "detailed roadmap", "quick reference"
+  audience: "[target users]"                         # soft-coded, who should discover this - emergent role categories
+  purpose: "[intent category]"                       # soft-coded, "exploration", "implementation", "research", "understanding"
+  relationships:
+    builds_on: "[list of doc IDs]"                   # technical, intellectual foundations
+    enables: "[list of doc IDs]"                     # technical, what this makes possible
+    parallels: "[list of doc IDs]"                   # technical, related concepts
+    mirrors: "[list of doc IDs]"                     # technical, identical/duplicate content
+    supersedes: "[list of doc IDs]"                  # technical, documents this replaces
+  navigation:
+    prerequisites: "[what to read first]"            # soft-coded, discovery sequence
+    next_steps: "[where to go after]"                # soft-coded, continued exploration
+    learning_sequence: "[ordered progression]"       # soft-coded, structured educational path
+  temporal:
+    journey: "[chronological context]"               # soft-coded, e.g., "2025-06-05: The Great Unification"
+    phase: "[evolutionary stage]"                    # soft-coded, e.g., "foundation", "breakthrough", "victory"
+    progression: "[development sequence]"            # soft-coded, intellectual evolution tracking
+  clustering:
+    intellectual_territory: "[domain area]"          # soft-coded, broader knowledge domain
+    discovery_path: "[navigation guidance]"          # soft-coded, how humans find and use this
+  essence:
+    core_purpose: "[soul of the document]"           # soft-coded, what this fundamentally achieves
+    metaphor: "[symbolic representation]"            # soft-coded, how this can be understood metaphorically  
+    impact_type: "[kind of change created]"          # soft-coded, e.g., "paradigm-shift", "precedent-setting", "concept-proving", "foundational"
+    ceremonial_significance: "[ritual importance]"   # soft-coded, e.g., "commemorative", "foundational", "transformative", "milestone"
+    wisdom_offering: "[guidance provided]"           # soft-coded, what wisdom this offers to future discoverers
+    universe_contained: "[scope of intelligence]"    # soft-coded, "universes of structured intelligence" this preserves 

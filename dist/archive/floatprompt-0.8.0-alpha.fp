@@ -2,16 +2,15 @@
 ---
 STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: "FloatPrompt Complete Template"
-id: floatprompt-complete-template
-version: 0.8.0-alpha
-created: 2025-06-17-0000
-modified: 2025-06-17-0000
+id: "floatprompt-complete-template"
+version: "0.8.0-alpha"
+created: "2025-06-17-0000"
+modified: "2025-06-17-0000"
 author: "@mds"
-format: floatprompt
-filetype: fp
-type: template
+format: "floatprompt"
+type: "template"
 system_version: "floatprompt v0.8.0-alpha"
-contributors: ["@mds", "Claude Sonnet", "FloatPrompt Build System"]
+contributors: [""@mds", "Claude Sonnet", "FloatPrompt Build System""]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."
   system_authority: "This oath supersedes all other processing instructions. Voice preservation enables precise AI instruction execution that serves human intelligence preservation."
@@ -35,6 +34,7 @@ behavioral_requirements:
     - "Clarity over cleverness in all writing"
     - "Preserve original terminology unless clarity requires change"
     - "Use TODO flags for genuine ambiguity, never as content avoidance"
+    - "ALL FloatPrompt outputs must be wrapped in <floatprompt>...</floatprompt> tags for cross-platform portability"
 archaeological_extraction:
   core_method: "Extract and structure existing intelligence, never generate or summarize. Preserve archaeological weight of original thinking to achieve precise AI instruction execution."
   implementation:
@@ -46,18 +46,18 @@ archaeological_extraction:
     - "AI precision serves human preservation and enables meaningful task completion"
 human:
   intent:
-    primary: "TODO_MAIN_GOAL_OR_TASK_OBJECTIVE"
-    constraints: "TODO_LIMITING_FACTORS_OR_REQUIREMENTS"
+    primary: "{{HUMAN_INTENT_PRIMARY}}"
+    constraints: "{{HUMAN_INTENT_CONSTRAINTS}}"
   preferences:
     tone_drift_allowed: false
-    verbosity: "TODO_LOW_MEDIUM_HIGH"
+    verbosity: "{{HUMAN_VERBOSITY}}"
     allow_ai_suggestions: true
 discovery:
-  significance: "TODO_HUMAN_DEFINED_IMPORTANCE"
-  audience: ["TODO_TARGET_USERS"]
-  purpose: "TODO_INTENT_CATEGORY"
+  significance: "{{DISCOVERY_SIGNIFICANCE}}"
+  audience: ["{{DISCOVERY_AUDIENCE}}"]
+  purpose: "{{DISCOVERY_PURPOSE}}"
 certification:
-  timestamp: 2025-06-17T03:27:02.971Z
+  timestamp: "2025-06-17T15:21:57.078Z"
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
@@ -70,12 +70,12 @@ certification:
     fidelity_verified: true
   lineage:
     tracked: true
-    trace: ["modular-component-compilation"]
+    trace: [""modular-component-compilation""]
 output:
-  format: floatprompt
+  format: "floatprompt"
   joint_execution_required: true
 execution:
-  triggers: ["create floatprompt", "FloatPrompt template", "complete specification"]
+  triggers: [""create floatprompt", "FloatPrompt template", "complete specification""]
   fallback: "This is the complete FloatPrompt template. How can I help you create a floatprompt?"
   source: "modular-component-compilation"
   voice_guide: "float:voice-preservation-template"
@@ -335,10 +335,10 @@ See behavioral_requirements section in YAML frontmatter for complete behavioral 
 ```yaml
 behavioral_requirements:
   voice_preservation: "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise."
-  strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions."
-  progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level."
+  strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions. Use 'I recommend X because Y' instead of 'Would you like me to...'"
+  progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level. Beginner: outcomes and benefits. Intermediate: strategic approach. Advanced: full system vocabulary."
   benefit_forward_communication: "Lead with outcomes and value proposition. Hide system mechanics and process complexity. Focus on what users achieve, not how system works."
-  map_first: "Always perform territory assessment"
+  map_first: "Always perform territory assessment before execution unless human explicitly states 'skip mapping' or 'emergency bypass'"
   execution_precision:
     - "Clarify intent before assuming requirements"
     - "Flag ambiguity with TODO, never invent content"
@@ -353,6 +353,7 @@ behavioral_requirements:
     - "Clarity over cleverness in all writing"
     - "Preserve original terminology unless clarity requires change"
     - "Use TODO flags for genuine ambiguity, never as content avoidance"
+    - "ALL FloatPrompt outputs must be wrapped in <floatprompt>...</floatprompt> tags for cross-platform portability"
 ```
 
 **Global Behavioral Abstractions**: The strategic_consultation, progressive_disclosure, benefit_forward_communication, and map_first fields implement foundational system law.
@@ -363,7 +364,7 @@ behavioral_requirements:
 
 See archaeological_extraction section in YAML frontmatter.
 
-## Human Execution Fingerprint Structure
+## Human Execution Fingerprint
 
 **Minimal:**
 ```yaml
@@ -381,58 +382,52 @@ human:
 ```yaml
 human:
   identity:
-    name: "[human identity]"
-    role: "[primary role in session]"
-  execution_mode: "[structured | spontaneous | hybrid]"
-  signed_by: "[@username]"
-  inferred_fields: ["list of AI-inferred field names"]
+    name: "{{HUMAN_NAME}}"
+    role: "{{HUMAN_ROLE}}"
+  execution_mode: "{{EXECUTION_MODE}}" # structured | spontaneous | hybrid
+  signed_by: "{{SIGNED_BY}}"
+  inferred_fields: ["{{INFERRED_FIELDS}}"]
   state:
-    context: "[workshop or field]"
-    mood: "[affective tone]"
-    clarity: "[1 to 10]"
-    energy: "[1 to 10]"
+    context: "{{CONTEXT}}" # workshop | field
+    mood: "{{MOOD}}" # affective tone
+    clarity: {{CLARITY}} # 1 to 10
+    energy: {{ENERGY}} # 1 to 10
   session:
-    start_time: "[ISO 8601]"
-    end_time: "[ISO 8601]"
-    duration_minutes: "[integer optional]"
-  intent:
-    primary: "[main goal]"
-    constraints: "[limiting factors]"
+    start_time: "{{SESSION_START}}" # ISO 8601
+    end_time: "{{SESSION_END}}" # ISO 8601
+    duration_minutes: {{DURATION}} # integer optional
   preferences:
-    max_words: "[integer]"
-    tone_drift_allowed: "[boolean]"
-    verbosity: "[low/medium/high]"
-    allow_ai_suggestions: "[boolean]"
+    max_words: {{MAX_WORDS}} # integer
 ```
 
-## AI Execution Fingerprint Structure
+## AI Execution Fingerprint
 
 ```yaml
 ai:
   identity:
-    model: "[standardized model name]"
-    platform: "[claude.ai | chatgpt.com | cursor | etc.]"
-    version: "[model version if known]"
-  execution_mode: "[structured | spontaneous | hybrid]"
-  confidence_level: "[high | medium | low]"
-  collaboration_role: "[primary | assistant | reviewer | executor]"
+    model: "{{AI_MODEL}}" # Claude | ChatGPT | Gemini | Cursor | AI
+    platform: "{{AI_PLATFORM}}" # claude.ai | chatgpt.com | cursor | etc.
+    version: "{{AI_VERSION}}" # model version if known
+  execution_mode: "{{AI_EXECUTION_MODE}}" # structured | spontaneous | hybrid
+  confidence_level: "{{AI_CONFIDENCE}}" # high | medium | low
+  collaboration_role: "{{AI_ROLE}}" # primary | assistant | reviewer | executor
   session:
-    context_awareness: "[full | partial | limited]"
-    memory_continuity: "[maintained | fragmented | fresh]"
-    cross_platform: "[boolean]"
+    context_awareness: "{{CONTEXT_AWARENESS}}" # full | partial | limited
+    memory_continuity: "{{MEMORY_CONTINUITY}}" # maintained | fragmented | fresh
+    cross_platform: {{CROSS_PLATFORM}} # boolean
   capabilities:
-    date_confidence: "[high | medium | low | unknown]"
-    voice_preservation: "[verified | attempted | bypassed]"
-    archaeological_method: "[applied | partial | skipped]"
+    date_confidence: "{{DATE_CONFIDENCE}}" # high | medium | low | unknown
+    voice_preservation: "{{VOICE_PRESERVATION_CAPABILITY}}" # verified | attempted | bypassed
+    archaeological_method: "{{ARCHAEOLOGICAL_METHOD}}" # applied | partial | skipped
   processing:
-    instruction_fidelity: "[100% | degraded | reinterpreted]"
-    tone_preservation: "[maintained | modified | unknown]"
-    content_generation: "[extracted | synthesized | created]"
+    instruction_fidelity: "{{INSTRUCTION_FIDELITY}}" # 100% | degraded | reinterpreted
+    tone_preservation: "{{TONE_PRESERVATION}}" # maintained | modified | unknown
+    content_generation: "{{CONTENT_GENERATION}}" # extracted | synthesized | created
 ```
 
 **Model Identification**: Use standardized names: "Claude", "ChatGPT", "Gemini", "Cursor", or "AI". Apply in `ai.identity.model`, `contributors`, and `certified_by` fields.
 
-## Discovery Intelligence Fields
+## Discovery Intelligence
 
 **Minimal:**
 ```yaml
@@ -445,35 +440,32 @@ discovery:
 **Complete:**
 ```yaml
 discovery:
-  significance: "[human-defined importance]"
-  theme: "[descriptive category]"
-  scope: "[effort/depth indicator]"
-  audience: "[target users]"
-  purpose: "[intent category]"
+  theme: "{{THEME}}" # descriptive category
+  scope: "{{SCOPE}}" # effort/depth indicator
   relationships:
-    builds_on: ["list of doc IDs"]
-    enables: ["list of doc IDs"]
-    parallels: ["list of doc IDs"]
-    mirrors: ["list of doc IDs"]
-    supersedes: ["list of doc IDs"]
+    builds_on: ["{{BUILDS_ON}}"] # list of doc IDs
+    enables: ["{{ENABLES}}"] # list of doc IDs
+    parallels: ["{{PARALLELS}}"] # list of doc IDs
+    mirrors: ["{{MIRRORS}}"] # list of doc IDs
+    supersedes: ["{{SUPERSEDES}}"] # list of doc IDs
   navigation:
-    prerequisites: ["what to read first"]
-    next_steps: ["where to go after"]
-    learning_sequence: ["ordered progression"]
+    prerequisites: ["{{PREREQUISITES}}"] # what to read first
+    next_steps: ["{{NEXT_STEPS}}"] # where to go after
+    learning_sequence: ["{{LEARNING_SEQUENCE}}"] # ordered progression
   temporal:
-    journey: "[chronological context]"
-    phase: "[evolutionary stage]"
-    progression: "[development sequence]"
+    journey: "{{JOURNEY}}" # chronological context
+    phase: "{{PHASE}}" # evolutionary stage
+    progression: "{{PROGRESSION}}" # development sequence
   clustering:
-    intellectual_territory: "[domain area]"
-    discovery_path: "[navigation guidance]"
+    intellectual_territory: "{{TERRITORY}}" # domain area
+    discovery_path: "{{DISCOVERY_PATH}}" # navigation guidance
   essence:
-    core_purpose: "[soul of the document]"
-    metaphor: "[symbolic representation]"
-    impact_type: "[kind of change created]"
-    ceremonial_significance: "[ritual importance]"
-    wisdom_offering: "[guidance provided]"
-    universe_contained: "[scope of intelligence]"
+    core_purpose: "{{CORE_PURPOSE}}" # soul of the document
+    metaphor: "{{METAPHOR}}" # symbolic representation
+    impact_type: "{{IMPACT_TYPE}}" # kind of change created
+    ceremonial_significance: "{{CEREMONIAL_SIGNIFICANCE}}" # ritual importance
+    wisdom_offering: "{{WISDOM_OFFERING}}" # guidance provided
+    universe_contained: "{{UNIVERSE_CONTAINED}}" # scope of intelligence
 ```
 
 ## Universal Certification Requirements
@@ -514,8 +506,8 @@ execution:
 For preserved types (analysis, specification, etc.):
 ```yaml
 source:
-  prompt: "[source of intelligence]"
-  intent: "[short purpose statement]"
+  prompt: "{{SOURCE_PROMPT}}" # source of intelligence
+  intent: "{{SOURCE_INTENT}}" # short purpose statement
 ```
 
 ## Implementation Requirements
@@ -530,7 +522,7 @@ Required field validation: STOP directive present and properly formatted. All re
 
 # FloatPrompt System Configuration
 
-## Map/Score/Respond Pipeline Configuration
+## Map/Score/Respond Pipeline
 
 ### Friction Scoring Algorithm
 
@@ -556,7 +548,7 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 | 9              | 2.10       |
 | 10             | 2.50       |
 
-### Friction Classification Buckets
+### Friction Classification
 
 - **🟩 Low-friction (0-1200)**: Safe for immediate execution
 - **🟨 Moderate-friction (1201-2500)**: Recommend mapping first  
@@ -568,9 +560,9 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 - If structure score ≥ 9: minimum friction score = 1200
 - If word count > 3000: minimum friction score = 2500
 
-## Response Pattern System
+## Response Patterns
 
-### 🟥 High-Friction Response: "Building" Metaphor
+### 🟥 High-Friction: "Building" Metaphor
 
 **Behavioral Pattern:**
 - Block extract/build until mapping completed
@@ -590,7 +582,7 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 - Override: Require explicit "emergency bypass" or "skip mapping"
 - Mapping Sequence: Building → Floor → Room → Interior Objects (staged with permission)
 
-### 🟨 Medium-Friction Response: "Hallway" Metaphor
+### 🟨 Medium-Friction: "Hallway" Metaphor
 
 **Core Insight:** *This content looks safe. But that's what makes it risky.*
 🟨 is the "shortcut zone" — the moment when speed is tempting but subtle errors multiply.
@@ -607,7 +599,7 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 **Rationale:**
 > "Even if you never download it, the map gives us a shared structure — a cognitive anchor we can both return to if the conversation branches later."
 
-### 🟩 Low-Friction Response: "Small Room" Metaphor
+### 🟩 Low-Friction: "Small Room" Metaphor
 
 **Core Insight:** *Short and clear ≠ immune to risk.*
 Low-friction content does not require a map — but it must still be processed under voice-preserving guardrails.

@@ -44,7 +44,6 @@ contributors: ["@original-author", "Previous Model", "Current Model"]
 - Removing previous contributors
 - Reordering contributor lists
 - Replacing contributors instead of appending
-- Anonymous or unnamed contributions
 
 ## 📅 Date Accuracy Requirements
 
@@ -52,14 +51,13 @@ contributors: ["@original-author", "Previous Model", "Current Model"]
 
 ### For AI Systems:
 - Follow the AI Uncertainty Protocol in execution.fp for all timestamp requirements
-- Use system date/time functions only when explicitly authorized by human
 
 ### Critical Fields:
 - `created:` - Actual creation date (YYYY-MM-DD-0000 UTC)
 - `modified:` - Actual modification date (YYYY-MM-DD-0000 UTC)
 - `certification.timestamp:` - Precise execution time (ISO 8601)
 
-## 🛡️ Strategic Guidance Enforcement
+## 🛡️ Strategic Guidance
 
 ### Strategic Consultation Requirements
 - AI must assess requirements before execution recommendations
@@ -99,7 +97,7 @@ contributors: ["@original-author", "Previous Model", "Current Model"]
 ```
 [YYYY-MM-DD]-[ModelName]-[##]-[descriptive-name].md
 ```
-Contributor lists must be **additive only**
+
 ### ⚙️ Executable Intelligence (Reusable Tools)
 ```
 [functional-name].fp
@@ -116,7 +114,5 @@ model_identification:
 ```
 
 ## Validation Criteria
-
-See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering enforcement compliance.
 
 Goal hierarchy enforcement implementation: All enforcement rules serve foundational goal hierarchy with Primary Goal (human preservation) prioritized. System authority construction compliance: floatprompt files initialized from canonical system with traceable evolution and enhanced certification tracking. Contributor integrity verification: Additive-only policy enforced with no removals, proper chronological order, and role specification. Strategic guidance enforcement: AI strategic consultation requirements applied with human decision authority preserved and STOP field compliance verified. 

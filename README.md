@@ -33,8 +33,13 @@ npm install
 npm run build
 ```
 
-- The build outputs `dist/floatprompt-{version}.fp`
-- Previous versions are automatically archived in `dist/archive/`
+**Build Features:**
+- **YAML Injection System**: Eliminates duplication using shared components as single source of truth
+- **Template Variable Processing**: Dynamic values like `{{VERSION}}` and `{{BUILD_DATE}}`
+- **Automatic Archiving**: Previous versions stored in `dist/archive/`
+- **Compliance Validation**: Ensures 100% header.yaml (52 fields) and config.yaml (51 fields) specification compliance
+
+**Output**: `dist/floatprompt-{version}.fp`
 
 ---
 

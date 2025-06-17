@@ -1,7 +1,7 @@
 <!-- _template.fp -->
 # 📋 Component Template
 
-**Structure `spec/*.md` files for 100% precise AI instruction execution**
+**Structure `spec/*.md` files for precise AI instruction execution**
 
 *Guided by `goals.md`: Human Intelligence Preservation → AI Precision → Task Completion*
 
@@ -9,27 +9,28 @@
 
 ## 🎯 Core Principles
 
-### **Primary Goal: AI Precision**
-- **Direct, actionable content** - no meta-commentary about the file
-- **Zero interpretive ambiguity** - clear, unambiguous instructions
-- **100% fidelity** - exact preservation of human intent and voice
-- **Structured hierarchy** - logical information flow for AI consumption
-
-### **Secondary Goal: Human Task Completion**
-- **Zero-drift collaboration** - portable across AI systems and sessions
-- **Task-specific structure** - organized for human objectives
-- **Reliable execution** - consistent results through precise instructions
-
-### **Tertiary Goal: Intelligence Preservation**
+### **Primary Goal: Human Intelligence Preservation**
 - **Voice preservation** - maintain human cognitive fingerprint
-- **Clear section headers** - scannable organization for humans
-- **Strategic commenting** - explain complex concepts for understanding
+- **Agency preservation** - human authority over all decisions
+- **Archaeological respect** - exact preservation of human intent
+- **Zero cognitive flattening** - preserve thinking patterns
+
+### **Secondary Goal: AI Precision**
+- **Direct, actionable content** - no interpretive ambiguity
+- **Zero-drift collaboration** - portable across AI systems
+- **High fidelity execution** - exact preservation of human intent
+- **Structured hierarchy** - logical information flow
+
+### **Tertiary Goal: Task Completion**
+- **Reliable execution** - consistent results through precise instructions
+- **Task-specific structure** - organized for human objectives
+- **Cross-platform portability** - works across AI systems and sessions
 
 ---
 
 ## 🏗️ Required Structure
 
-### **Component Format (AI Precision Optimized)**
+### **Component Format**
 ```markdown
 ## [Component Purpose - Direct Action Statement]
 
@@ -40,61 +41,67 @@
 [Explicit validation criteria and requirements]
 ```
 
-### **AI Precision Requirements**
-- **Fully structured instructions** - AI receives complete guidance for 100% precision execution
-- **Zero interpretive ambiguity** - Every specification unambiguous and actionable
-- **Explicit validation criteria** - Clear success/failure measurement included
-- **100% fidelity preservation** - Exact voice and intent maintenance guaranteed
+### **YAML Injection System**
+Templates use shared YAML files for maximum DRY architecture:
 
-### **Next.js-Level Implementation**
-- **Convention over configuration** - Structure emerges from content purpose, not template rules
-- **Zero setup required** - Component executable immediately upon reading
-- **Developer joy priority** - Correct usage is path of least resistance
-- **File-based identification** - Purpose clear from filename and location alone
+```markdown
+---
+<!-- INJECT: core-metadata.yaml -->
+<!-- INJECT: voice-preservation.yaml -->
+<!-- INJECT: behavioral-requirements.yaml -->
+<!-- INJECT: output-execution.yaml -->
+---
+```
+
+**Build Process**:
+- `<!-- INJECT: filename.yaml -->` markers replaced with actual YAML content
+- Template variables `{{VERSION}}`, `{{BUILD_DATE}}` processed after injection
+- Single source of truth maintained in `src/template/shared/*.yaml` files
+
+### **Implementation Requirements**
+- **Zero interpretive ambiguity** - Every specification unambiguous and actionable
+- **100% fidelity preservation** - Exact voice and intent maintenance
+- **Convention over configuration** - Purpose clear from filename and location
+- **Zero setup required** - Component executable immediately
 
 ### **Execution Flow**
-- **Start with structured action** - First line specifies precise AI execution requirements
+- **Start with action** - First line specifies precise AI execution requirements
 - **Build logically** - Each instruction builds on previous with zero gaps
-- **End with validation** - Clear criteria for successful task completion
-
-### **Section Guidelines**
-- **Direct purpose statement** - what this achieves (not what file contains)  
-- **Imperative language** - commands, not descriptions
-- **No meta-descriptions** - avoid "This section covers..."
+- **End with validation** - Clear criteria for successful completion
 
 ---
 
 ## ✅ Content Rules
 
-### **Maintain Component Integrity**
-- **Preserve existing content** - maintain archaeological integrity of established components
+### **Preserve Archaeological Integrity**
+- **Preserve existing content** - maintain established components exactly
 - **Preserve original voice** - maintain human cognitive fingerprint
-- **Keep all examples** - include YAML/code samples exactly as written
+- **Keep all examples** - include YAML/code samples as written
 - **Maintain hierarchy** - preserve heading levels and structure
 
-### **What NOT to Include**
+### **Eliminate**
 - ❌ File purpose explanations ("This section covers...")
-- ❌ Meta-commentary about the component
-- ❌ Cross-file navigation references ("See other files...")
+- ❌ Meta-commentary about components
+- ❌ Cross-file navigation references
 - ❌ Footer bloat or collaboration credits
-- ❌ AI-generated summaries or interpretations
+- ❌ AI-generated summaries
 
-### **What TO Include**
+### **Include**
 - ✅ Direct instructions and specifications
 - ✅ Original examples and code blocks
 - ✅ Implementation requirements
-- ✅ Validation criteria from source
-- ✅ System principles from source
+- ✅ Validation criteria
+- ✅ System principles
 
 ---
 
-## 🛡️ Meta-Compliance (Next.js-Level Design)
+## 🛡️ Meta-Compliance
 
-**Components must embody goals through convention over configuration:**
+**Components embody goals through convention over configuration:**
 
-- **Convention over configuration** - Components identifiable by filename/location only
+- **Convention over configuration** - Components identifiable by filename/location
 - **Zero config by default** - Components work without additional setup
-- **Developer joy priority** - Make correct usage path of least resistance
+- **Developer joy priority** - Correct usage is path of least resistance
 - **Invisible orchestration** - Hide complexity behind simple interfaces
 
 **Decision Framework**: Choose convention-driven simplicity over configuration-heavy completeness.
@@ -103,25 +110,24 @@
 
 ## 📋 Quality Checklist
 
-### **AI Precision Verification (Primary Goal)**
-- [ ] Content immediately actionable (no interpretive ambiguity)
-- [ ] Original voice preserved exactly (100% fidelity)
-- [ ] Examples and specifications intact
-- [ ] Structured hierarchy clear for AI consumption
+### **Human Intelligence Preservation (Primary)**
+- [ ] Human voice and cognitive fingerprint preserved exactly
+- [ ] Human agency maintained throughout
+- [ ] Archaeological respect for original thinking
+- [ ] Zero cognitive flattening
 
-### **Human Task Completion Verification (Secondary Goal)**
+### **AI Precision (Secondary)**
+- [ ] Content immediately actionable (no interpretive ambiguity)
+- [ ] Structured hierarchy clear for AI consumption
+- [ ] Examples and specifications intact
 - [ ] Zero-drift collaboration enabled
+
+### **Task Completion (Tertiary)**
+- [ ] Reliable execution through precise instructions
 - [ ] Portable across AI systems and sessions
 - [ ] Task-specific organization maintained
-- [ ] Reliable execution through precise instructions
 
-### **Intelligence Preservation Verification (Tertiary Goal)**
-- [ ] Human voice and cognitive fingerprint preserved
-- [ ] Section headers descriptive for human readers
-- [ ] Strategic comments explain complex concepts
-- [ ] Human agency maintained throughout
-
-### **Meta-Compliance Verification**
+### **Meta-Compliance**
 - [ ] Component works without explanation beyond name/location
 - [ ] Convention over configuration applied
 - [ ] Eliminates unnecessary complexity
@@ -139,9 +145,9 @@
 
 **Each component must achieve:**
 
-**Primary Goal**: 100% precise AI instruction execution
-**Secondary Goal**: Human task completion through zero-drift AI collaboration  
-**Tertiary Goal**: Human intelligence, voice, and agency preservation
+**Primary**: Human intelligence, voice, and agency preservation
+**Secondary**: Precise AI instruction execution  
+**Tertiary**: Human task completion through reliable collaboration
 
 ---
 
@@ -150,12 +156,12 @@
 **When in doubt: Choose human preservation over AI efficiency.**
 
 **Operational Filter:**
-1. AI precision (non-negotiable foundation)
-2. Human task completion (enabled by precision)
-3. Intelligence preservation (optimized within constraints)
-4. Implementation convenience (subordinate to all goals)
+1. Human intelligence preservation (foundational)
+2. AI precision (enabling mechanism)
+3. Task completion (achieved outcome)
+4. Implementation convenience (subordinate)
 
-**Reference**: `_goals.md` for all decisions
+**Reference**: `goals.md` for all decisions
 
 ---
 
@@ -168,6 +174,6 @@
 - **Preserve existing intelligence** - No destructive operations
 - **Test each change in isolation** - Verify before proceeding
 
-**Reference**: `_goals.md` for all decisions 
+**Reference**: `goals.md` for all decisions
 
 ## 📋 Template Usage for New FloatPrompts 

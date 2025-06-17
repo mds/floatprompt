@@ -31,8 +31,8 @@ Create portable intelligence as reusable floatprompt files for...
 
 ### 📍 **Structure & Navigate** 
 *Territory mapping and content organization*
-- Map complex information and build navigable relationships
-- Organize research, conversations, and knowledge bases
+- Map content and build relationships
+- Organize research, conversations, knowledge bases
 
 ### 🏺 **Capture & Preserve** 
 *Voice and context preservation with archaeological integrity*
@@ -41,7 +41,7 @@ Create portable intelligence as reusable floatprompt files for...
 
 ### 🏗️ **Build & Automate** 
 *Custom tools and repeatable workflows*
-- Create analysis tools, checklists, and process templates
+- Create analysis tools, checklists, process templates
 - Build reusable systems for consistent results
 
 ### 📚 **Document & Specify** 
@@ -52,7 +52,7 @@ Create portable intelligence as reusable floatprompt files for...
 ### 💡 **Analyze & Assess** 
 *Structured evaluation and decision support*
 - Build assessment tools and recommendation systems
-- Evaluate content, proposals, and performance data
+- Evaluate content, proposals, performance data
 
 ---
 
@@ -96,7 +96,7 @@ While you can request any type of portable intelligence using natural language, 
 - **Your Work Persists**: FloatPrompts ensure your work is preserved for future use across any AI platform.
 - **Voice Preserved**: Your original thinking, tone, and nuanced details remain intact, maintaining your unique voice.
 - **Repeatable Processes**: Create tools once and apply them to new content repeatedly, ensuring consistent results.
-- **Structured Intelligence**: Transform scattered information into organized, actionable artifacts that enhance decision-making.
+- **Structured Intelligence**: Turn scattered information into organized, reusable files.
 
 ## How To Use FloatPrompt
 
@@ -119,11 +119,11 @@ While you can request any type of portable intelligence using natural language, 
 
 ## 4. How does it work?
 
-FloatPrompt operates as an invisible layer, preserving your intelligence in portable text files. Here's how:
+FloatPrompt operates as an invisible layer, preserving your intelligence in portable text files.
 
 - **Upload**: Transfer your content into FloatPrompt to initiate preservation.
-- **Process**: I analyze and structure your content, maintaining your voice and intent.
-- **Output**: Receive a structured floatprompt file, ready for use across any AI platform.
+- **Process**: Structure your content while preserving your voice and intent.
+- **Output**: Get a structured floatprompt file for any AI platform.
 - **Reuse**: Apply the floatprompt to new content, ensuring consistent and precise collaboration.
 
 ### 🛡️ **Built-in Safety System**
@@ -139,7 +139,7 @@ FloatPrompt operates as an invisible layer, preserving your intelligence in port
 - 🟨 **Moderate-friction (1201-2500)**: Recommend mapping, allow override, flag output as unanchored
 - 🟥 **High-friction (2501+)**: Require full mapping before execution, block premature extract/build
 
-This ensures the right approach for your content's complexity level.
+This matches the approach to your content complexity.
 
 ### 🔧 **How Voice Preservation Works**
 FloatPrompt uses specialized guardrails that prevent AI from paraphrasing, summarizing, or "optimizing" your original content. Your nuanced thinking is extracted without interpretive drift.
@@ -159,7 +159,7 @@ All floatprompt files can be:
 - Shared with teams while maintaining structure
 
 ### 🏺 **Archaeological Extraction Methodology**
-FloatPrompt's preservation-first approach treats all human input as valuable cognitive artifacts:
+FloatPrompt preserves all human input as cognitive artifacts:
 - **No paraphrasing** - Your words stay your words
 - **No summarization** - Important details aren't lost
 - **No "optimization"** - Your thinking process remains intact
@@ -169,7 +169,7 @@ FloatPrompt's preservation-first approach treats all human input as valuable cog
 
 ### 📊 **Content Processing**
 - Content size limits depend on your AI model's capabilities, not FloatPrompt
-- FloatPrompt intelligently determines if large content should be processed whole or broken into manageable pieces
+- FloatPrompt determines if large content should be processed whole or broken into pieces
 - Quality validation is handled by you - FloatPrompt preserves, you decide what works
 
 ### **Frequently Asked Questions**

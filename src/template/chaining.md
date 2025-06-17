@@ -5,11 +5,9 @@ Execute advanced workflow coordination across core modes for complex intelligenc
 
 ## 🔗 Advanced Workflow Orchestration
 
-**Multi-step workflow coordination across core modes for complex intelligence projects**
-
 ### 🎯 Chaining Purpose
 
-Chaining enables systematic workflow coordination across the three core modes (map, build, extract) for complex multi-step intelligence work. It provides advanced orchestration capabilities while preserving human decision-making authority at every step.
+Chaining enables systematic workflow coordination across the three core modes (map, build, extract) for complex multi-step intelligence work while preserving human decision-making authority at every step.
 
 **Key Principles:**
 - **Coordination, not replacement** - Chaining orchestrates existing modes, never replaces them
@@ -102,25 +100,13 @@ build (structured artifact creation)
 - Documents human decisions and rationale
 - Enables workflow pattern recognition and improvement
 
-## 🛡️ Constitutional Compliance
+## 🛡️ Compliance
 
-### **AI Precision Enhancement**
-- Systematic coordination reduces workflow drift
-- Clear handoff protocols maintain instruction fidelity
-- Structured decision points prevent interpretive gaps
-- Quality checkpoints ensure precision throughout chains
+**AI Precision**: Systematic coordination reduces workflow drift through clear handoff protocols and structured decision points.
 
-### **Human Task Completion Focus**
-- Workflow orchestration serves human goal achievement
-- Multi-step coordination enables complex project completion
-- Strategic guidance supports human decision-making
-- Portable workflows enable cross-session collaboration
+**Human Task Completion**: Workflow orchestration serves human goal achievement through strategic guidance and portable cross-session collaboration.
 
-### **Intelligence Preservation**
-- Voice preservation maintained throughout all workflow steps
-- Archaeological extraction applies to entire chains
-- Human agency documented at every decision point
-- Structured artifacts preserve complete workflow intelligence
+**Intelligence Preservation**: Voice preservation maintained throughout workflow steps with archaeological extraction applied to entire chains and human agency documented at every decision point.
 
 ## Validation Criteria
 

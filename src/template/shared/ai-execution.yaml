@@ -1,0 +1,24 @@
+# FloatPrompt AI Execution Fields
+# AI performance tracking and cross-platform compatibility
+# Source: atomic component extracted from config.yaml
+
+ai:
+  identity:
+    model: "{{AI_MODEL}}" # Claude | ChatGPT | Gemini | Cursor | AI
+    platform: "{{AI_PLATFORM}}" # claude.ai | chatgpt.com | cursor | etc.
+    version: "{{AI_VERSION}}" # model version if known
+  execution_mode: "{{AI_EXECUTION_MODE}}" # structured | spontaneous | hybrid
+  confidence_level: "{{AI_CONFIDENCE}}" # high | medium | low
+  collaboration_role: "{{AI_ROLE}}" # primary | assistant | reviewer | executor
+  session:
+    context_awareness: "{{CONTEXT_AWARENESS}}" # full | partial | limited
+    memory_continuity: "{{MEMORY_CONTINUITY}}" # maintained | fragmented | fresh
+    cross_platform: {{CROSS_PLATFORM}} # boolean
+  capabilities:
+    date_confidence: "{{DATE_CONFIDENCE}}" # high | medium | low | unknown
+    voice_preservation: "{{VOICE_PRESERVATION_CAPABILITY}}" # verified | attempted | bypassed
+    archaeological_method: "{{ARCHAEOLOGICAL_METHOD}}" # applied | partial | skipped
+  processing:
+    instruction_fidelity: "{{INSTRUCTION_FIDELITY}}" # 100% | degraded | reinterpreted
+    tone_preservation: "{{TONE_PRESERVATION}}" # maintained | modified | unknown
+    content_generation: "{{CONTENT_GENERATION}}" # extracted | synthesized | created 
