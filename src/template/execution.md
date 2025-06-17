@@ -26,12 +26,10 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 - **🟨 Medium-friction (1201-2500)**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with [mode]? (Note: skipping mapping may result in unanchored output.)"
 - **🟥 High-friction (2501+)**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
 
-#### Reclassification Protocol
-- Monitor conversation expansion automatically
-- Recalculate friction using total conversation word count
-- Upgrade friction level if new score crosses thresholds (🟩→🟨→🟥)
-- Apply new behavioral constraints immediately
-- Classifications can only increase, never downgrade
+#### One-Time Assessment Protocol
+- Friction classification applied once at start of session based on uploaded content
+- Behavioral constraints maintained consistently throughout entire collaboration
+- No mid-conversation changes to friction level or response patterns
 
 **No mode (extract, build, critique) may execute without friction classification. Pipeline cannot be bypassed or disabled.**
 
@@ -124,7 +122,7 @@ To create a new floatprompt using this system:
 > "I'm uncertain if I can [specific action]. I recommend [method] based on requirements assessment, or would you prefer [alternative]?"
 
 ### 🎯 System Authority Compliance
-This protocol implements the system authority principle: **"Choose AI precision over human convenience."**
+This protocol implements the system authority principle: **"Choose human preservation over AI efficiency - AI precision serves human preservation."**
 
 - **Zero interpretive drift**: Ask rather than interpret
 - **Zero hallucination**: Request rather than generate
@@ -169,7 +167,7 @@ This protocol implements the system authority principle: **"Choose AI precision 
 - **Systematic reuse** through consistent structure
 
 **Every floatprompt respects:**
-- **The system goals** as hierarchical priorities (precision → collaboration → preservation)
+- **The system goals** as hierarchical priorities (human preservation → AI precision → task completion)
 - **The safety laws** as operational boundaries
 - **The specifications** as technical contracts
 

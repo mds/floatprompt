@@ -3,7 +3,7 @@
 
 **Structure `spec/*.md` files for 100% precise AI instruction execution**
 
-*Guided by `goals.md`: AI Precision → Human Task Completion → Intelligence Preservation*
+*Guided by `goals.md`: Human Intelligence Preservation → AI Precision → Task Completion*
 
 ---
 
@@ -147,7 +147,7 @@
 
 ## ⚖️ Decision Framework
 
-**When in doubt: Choose AI precision over human convenience.**
+**When in doubt: Choose human preservation over AI efficiency.**
 
 **Operational Filter:**
 1. AI precision (non-negotiable foundation)

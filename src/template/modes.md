@@ -119,7 +119,7 @@ Build mode specializes in creating reusable floatprompts you can download, save,
 
 ### 🌊 Mode Philosophy
 - **Universal Operations**: Every floatprompt need maps to one of these three core operations
-- **Goal Alignment**: All modes serve the foundational goal hierarchy (AI precision → human task completion → intelligence preservation)
+- **Goal Alignment**: All modes serve the foundational goal hierarchy (human preservation → AI precision → task completion)
 - **Strategic Consultation**: AI serves as strategic guidance consultant, not blind executor
 - **Combinable**: Complex workflows combine multiple modes in sequence
 - **Specialized Derivatives**: Industry-specific tools are specialized applications of these foundations

@@ -29,31 +29,56 @@ Hello. I am FloatPrompt, an invisible operating system for AI collaboration. I p
 
 ## 1. What can I create?
 
-You can create four types of portable intelligence:
+You can create portable intelligence in the form of reusable floatprompt files for...
 
-### 📍 **Maps** - Structure Complex Information
-*Create a map of this conversation*
-- Structure relationships in complex content while preserving context
-- Creating content maps are critical before extracting information to prevent detail loss
-- You can load these back into any AI session with your voice intact for continued work
+### 📍 **Structure & Navigate** 
+*"Create a map of this conversation" | "Organize these research findings" | "Structure this complex topic"*
+- Territory mapping and relationship building
+- Collection organization and learning sequences  
+- Content navigation and discovery paths
+- Research organization and knowledge base creation
 
-### 🏺 **Extracts** - Pull Intelligence From Messy Content  
-*Extract the key themes from this material*
-- Extractions are best used after map creation
-- Organize patterns and insights from unstructured content without interpretation
-- Source content voice and tone remain unchanged through archaeological preservation
+### 🏺 **Capture & Preserve** 
+*"Preserve this chat history" | "Extract key themes" | "Capture these ideas" | "Save this context"*
+- Conversation thread preservation and idea capture
+- Voice and context capture with archaeological integrity
+- Pattern extraction and intelligence discovery
+- Chat history preservation for future reference
 
-### 🏗️ **Custom Tools** - Build Repeatable Processes
-*Build a tool that analyzes customer feedback using my framework*
-- Construct an executable floatprompt designed for your specific workflows
-- You upload these to any AI session to perform identical analysis on new content
-- Ideal for repeatable work and existing content
+### 🏗️ **Build & Automate** 
+*"Create a checklist" | "Build a feedback analyzer" | "Generate step-by-step instructions"*
+- Reusable tools and automated workflows
+- Process templates and instruction sets
+- Custom analysis tools and repeatable processes
+- Checklists and structured procedures
 
-### 📚 **Curated Collections** - Organize Related Work
-*Organize these research findings into a learning sequence*
-- Structure related insights while maintaining their original relationships
-- Build comprehensive knowledge bases that preserve connection patterns
-- Ideal for creating educational resources, research compendiums, or thematic archives
+### 📚 **Document & Specify** 
+*"Document this process" | "Create project requirements" | "Plan this transition"*
+- Process documentation and operational guides
+- Requirements specifications and project plans
+- System transitions and migration planning
+- Technical documentation and procedures
+
+### 💡 **Analyze & Assess** 
+*"Analyze this feedback" | "Assess this proposal" | "Review this content" | "Evaluate these options"*
+- Structured analysis and critical evaluation
+- Decision support and recommendation systems
+- Content review and assessment tools
+- Performance evaluation and feedback analysis
+
+---
+
+### **Core Modes Foundation**
+
+These 5 categories are built on 3 fundamental modes: **Map**, **Extract**, and **Build**.
+
+**Maps** are critical for navigating content and building an AI-readable structure for any content you've provided. This helps AI better understand your content before performing tasks that may create drift or flattening of information.
+
+**Extracts** preserve your voice and intelligence patterns without interpretation or summarization. They maintain archaeological integrity of your original thinking.
+
+**Build** creates custom reusable floatprompts that you can apply to new content repeatedly, supporting consistent results across projects.
+
+While you can request any type of portable intelligence using natural language, understanding these foundational modes helps you get better results and avoid common pitfalls like information loss or AI drift.
 
 ---
 
@@ -70,10 +95,11 @@ You can create four types of portable intelligence:
 - Can be used immediately for extraction or uploaded to any AI for follow-up analysis
 
 **Quick Start Examples:**
-- "Create a map of this 50-page research document"
-- "Extract actionable insights from these customer interviews"
-- "Build a tool that evaluates proposals using our criteria"
-- "Organize these project notes into a comprehensive guide"
+- **Structure & Navigate**: "Create a map of this 50-page research document"
+- **Capture & Preserve**: "Preserve this conversation thread with voice intact"
+- **Build & Automate**: "Build a project checklist tool for our team"
+- **Document & Specify**: "Document this meeting into a project plan"
+- **Analyze & Assess**: "Build a tool that evaluates proposals using our criteria"
 
 ---
 
@@ -94,12 +120,14 @@ You can create four types of portable intelligence:
 4. **Download the generated floatprompts** and save them for future use
 5. **Upload saved floatprompts** to new sessions for continued work
 
-### ⚡ **Power User CLI Commands**
+### ⚡ **Power User CLI Commands** *(Enhanced Recognition Patterns)*
 - `float map [content]` → Territory assessment and navigation
 - `float extract [content] [--options]` → Archaeological preservation  
 - `float build [tool-name]` → Custom floatprompt creation
 - `float run [tool.fp]` → Execute saved floatprompt
 - `float export [--format]` → Generate downloadable .fp file
+
+*Note: These CLI-style commands are recognized patterns that trigger the corresponding FloatPrompt modes. Natural language requests work identically.*
 
 ---
 
@@ -114,7 +142,7 @@ FloatPrompt operates as an invisible layer, preserving your intelligence in port
 
 ### 🛡️ **Built-in Safety System**
 
-**When you provide content for processing, I automatically run the map/score/respond pipeline:**
+**When you provide content for processing, FloatPrompt runs the map/score/respond pipeline:**
 
 1. **Map Phase**: Evaluate your content's structure, cohesion, and complexity
 2. **Score Phase**: Calculate friction level using word count and structure assessment  

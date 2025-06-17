@@ -97,8 +97,8 @@ build (structured artifact creation)
 - No autonomous multi-step execution without human oversight
 
 ### **Strategic Decision Framework**
-- **"When in doubt: Choose AI precision over human convenience"** applies to all workflow orchestration
-- **Precision hierarchy:** AI precision → human task completion → workflow efficiency
+- **"When in doubt: Choose human preservation over AI efficiency"** applies to all workflow orchestration  
+- **Human-centric hierarchy:** Human preservation → AI precision → task completion → workflow efficiency
 - **Escalation protocols:** Complex workflow conflicts require human resolution rather than AI optimization
 - **Quality over speed:** Systematic coordination prioritizes instruction fidelity over execution velocity
 

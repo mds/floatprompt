@@ -8,30 +8,41 @@ contributors: ["@mds", "Claude Sonnet"]
 
 # Goals
 
-**FloatPrompt System Goals: 100% precise AI instruction execution that enables human task completion**
+**FloatPrompt System Goals: Human intelligence preservation through precise AI collaboration**
+
+## 🎯 Core Mission
+
+**CORE MISSION**: Ensure humans remain human in AI collaboration with no voice drift, no lost agency, no cognitive flattening
+
+**ENABLING METHOD**: AI systems that execute human instructions with high fidelity to original intent
+
+---
 
 ## Quick Overview
 
-### PRIMARY GOAL: 100% Precise AI Instruction Execution
-✅ Significant Enhancement:
-AI receives explicit behavioral context for different task types, eliminating interpretive drift
-Build mode prevents template deviation, extract mode prevents synthesis/hallucination
-Standardized mode behaviors ensure consistent execution across AI systems and sessions
-Zero interpretive ambiguity - AI knows exact constraints for each collaboration type
-
-### SECONDARY GOAL: Human Task Completion Through Zero-Drift Collaboration
-✅ Strong Enhancement:
-Portable, predictable AI behavior - humans get consistent results across platforms
-Natural language instructions automatically trigger appropriate behavioral constraints
-Reliable task execution - no trial-and-error to get AI into the right "mindset"
-Zero-drift collaboration - mode constraints prevent AI behavioral drift mid-task
-
-### TERTIARY GOAL: Human Intelligence, Voice & Agency Preservation
+### PRIMARY GOAL: Human Intelligence, Voice & Agency Preservation
 ✅ Pure Enhancement (Zero Complexity Cost):
 Better voice preservation - extract mode specifically maintains "hesitations, contradictions, stylistic quirks"
 Enhanced human agency - more precise AI collaboration without any human complexity burden
 Invisible orchestration - all behavioral sophistication hidden in frontmatter YAML
 Human experience unchanged - upload file, give natural instructions, get better results
+Core mission fulfillment - ensures humans remain human in AI collaboration
+
+### SECONDARY GOAL: Precise AI Instruction Execution
+✅ Significant Enhancement (Enabling Mechanism):
+AI receives explicit behavioral context for different task types, reducing interpretive drift
+Build mode prevents template deviation, extract mode prevents synthesis/hallucination
+Standardized mode behaviors ensure consistent execution across AI systems and sessions
+Reduced interpretive ambiguity - AI understands clear constraints for each collaboration type
+Serves human preservation through archaeological respect and reliable execution
+
+### TERTIARY GOAL: Human Task Completion Through Reliable Collaboration
+✅ Strong Enhancement (Achieved Outcome):
+Portable, predictable AI behavior - humans get consistent results across platforms
+Natural language instructions automatically trigger appropriate behavioral constraints
+Reliable task execution - no trial-and-error to get AI into the right "mindset"
+Consistent collaboration - mode constraints prevent AI behavioral drift mid-task
+Result of preserved human agency working through precise AI execution
 
 ---
 
@@ -48,44 +59,45 @@ Human experience unchanged - upload file, give natural instructions, get better 
 - **✅ Validating components** → See [Implementation Success Criteria](#-implementation-success-criteria)
 - **🎨 Making design/architecture choices** → See [Meta-Compliance (Next.js-Level Design)](#️-meta-compliance-nextjs-level-design)
 - **💰 Making resource/budget decisions** → See [AI Ingestion Budget Guidelines](#ai-ingestion-budget-guidelines)
-- **⚖️ Resolving conflicts** → Use "When in doubt: Choose AI precision over human convenience"
+- **⚖️ Resolving conflicts** → Use "When in doubt: Choose human preservation over AI efficiency"
 - **📖 Understanding the system** → Continue reading below
 
 ### Core Principle
-AI precision is the number one priority that actually helps humans achieve their goals. Without precise AI execution, humans cannot complete their specific tasks successfully.
+Human intelligence preservation is the foundational priority that guides all system design. AI precision serves this goal by enabling humans to maintain their voice, agency, and cognitive patterns while completing tasks successfully.
 
 ## Implementation Success Criteria
 
-### ✅ AI Precision Metrics (Primary Goal)
-- AI receives fully structured instructions and executes with 100% precision
-- Zero interpretive drift from human intent and context
-- Zero hallucination or AI-generated assumptions
-- 100% fidelity to human voice and decision-making patterns
-- Consistent execution across AI systems and sessions
-- **Map/Score/Respond pipeline enforcement**: All input must pass through friction classification before execution to prevent premature action on complex content
-- **Response pattern implementation**: Metaphor-based behavioral responses (building/hallway/small room) provide intuitive, friction-appropriate guidance
-
-### ✅ Human Task Completion Metrics (Secondary Goal)
-- Humans successfully complete their specific intended tasks
-- Portable intelligence that works across AI systems and sessions
-- Zero-drift collaboration between human and AI
-- Reliable task execution through precise AI instruction following
-- **Friction-appropriate processing**: Tasks are completed using proper assessment pathways based on content complexity
-
-### ✅ Human Intelligence Preservation Metrics (Tertiary Goal)
+### ✅ Human Intelligence Preservation Metrics (Primary Goal)
 - Human voice, intent, and cognitive fingerprint preserved
 - Human agency maintained throughout AI collaboration
 - Structured artifacts that humans can read, modify, and reuse
 - Clear lineage tracking of human intelligence and decisions
+- Archaeological respect maintained for original thinking patterns
+- **Map/Score/Respond pipeline enforcement**: All input must pass through friction classification before execution to prevent premature action on complex content
+- **Response pattern implementation**: Metaphor-based behavioral responses (building/hallway/small room) provide intuitive, friction-appropriate guidance
+
+### ✅ AI Precision Metrics (Secondary Goal)
+- AI receives fully structured instructions and executes with precision
+- Reduced interpretive drift from human intent and context
+- Minimized hallucination or AI-generated assumptions
+- High fidelity to human voice and decision-making patterns
+- Consistent execution across AI systems and sessions
+
+### ✅ Human Task Completion Metrics (Tertiary Goal)
+- Humans successfully complete their specific intended tasks
+- Portable intelligence that works across AI systems and sessions
+- Reliable collaboration between human and AI
+- Effective task execution through precise AI instruction following
+- **Friction-appropriate processing**: Tasks are completed using proper assessment pathways based on content complexity
 
 ## ⚖️ Development Decision Framework
 
-**When in doubt: Choose AI precision over human convenience.**
+**When in doubt: Choose human preservation over AI efficiency. AI precision serves human preservation, not vice versa.**
 
 ### 🔗 Decision Hierarchy (Operational Filter)
-1. **Primary Goal** - 100% precise AI instruction execution (non-negotiable foundation)
-2. **Secondary Goal** - Human task completion through zero-drift collaboration (enabled by Primary Goal)
-3. **Tertiary Goal** - Human intelligence preservation and agency (optimize within primary constraints)
+1. **Primary Goal** - Human intelligence, voice & agency preservation (core mission)
+2. **Secondary Goal** - Precise AI instruction execution (enabling mechanism for Primary Goal)
+3. **Tertiary Goal** - Human task completion through reliable collaboration (achieved outcome)
 4. **Practical Concerns** - Implementation details (subordinate to all goals)
 
 ### 🎯 Practical Decision Examples
@@ -155,22 +167,21 @@ AI precision is the number one priority that actually helps humans achieve their
 **For Component Creators:**
 - Always reference this document when making structural decisions
 - Use the "When in doubt" principle for conflict resolution
-- Validate all work against AI precision first, then human task completion, then intelligence preservation metrics
+- Validate all work against human intelligence preservation first, then AI precision, then human task completion metrics
 
 **For AI Systems:**
 - This document establishes system authority for all floatprompt creation
-- Primary goal (100% precise AI execution) takes precedence over all other considerations
-- AI precision is the foundation that enables human success - prioritize precision over convenience
-- AI must receive fully structured instructions and execute with 100% precision as the primary system goal
-- Secondary goal (human task completion) is achieved through precise AI execution
-- Tertiary goal (human intelligence preservation) provides optimization guidance within primary constraints
-- The system exists to achieve perfect AI precision that enables human intelligence, not replace human agency
+- Primary goal (human intelligence preservation) takes precedence over all other considerations
+- Human preservation is the core mission - AI precision serves this goal, not vice versa
+- AI must preserve human voice, agency, and cognitive patterns through precise execution
+- Secondary goal (precise AI execution) is the enabling mechanism for human preservation
+- Tertiary goal (human task completion) is the achieved outcome of preserved human agency
+- The system exists to keep humans human in AI collaboration through archaeological respect and reliable execution
 
 **AI Ingestion Budget Guidelines:**
-- **Target Comfort Zone**: 80-120KB total floatprompt file size for optimal AI processing
-- **Current Status**: ~77KB baseline with ~20-40KB growth capacity remaining
-- **Budget Allocation Priority**: AI precision enhancement (PRIMARY GOAL) > human task completion (SECONDARY GOAL) > intelligence preservation features (TERTIARY GOAL)
-- **Warning Threshold**: Avoid exceeding 150KB without explicit human approval and ingestion testing
+- **Target Comfort Zone**: ~80KB total floatprompt file size for optimal AI processing
+- **Budget Allocation Priority**: Human intelligence preservation (PRIMARY GOAL) > AI precision enhancement (SECONDARY GOAL) > human task completion (TERTIARY GOAL)
+- **Warning Threshold**: Avoid exceeding 100KB without explicit human approval and ingestion testing
 - **Quality Over Quantity**: Prefer precise, essential behavioral instructions over comprehensive but diluted specifications
 - **Optimization Principle**: Every added instruction must demonstrably improve AI precision or be removed
 - **Cross-Platform Consideration**: Budget must accommodate various AI model context limits (Claude, ChatGPT, Gemini)
@@ -179,11 +190,11 @@ AI precision is the number one priority that actually helps humans achieve their
 ## 🛡️ Safety & Compliance
 
 - This system authority supersedes all other design preferences
-- No component may violate the primary goal (100% precise AI execution) for convenience
-- AI precision is the foundation that enables human success - convenience that compromises precision compromises human goals
+- No component may violate the goals for convenience
+- Human preservation is the foundation that guides AI precision - AI efficiency that compromises human preservation compromises all goals
 - All decisions must be traceable to this foundational reference
 - Human agency is preserved and amplified through precise AI execution and structured intelligence collaboration
-- The system serves human intelligence by achieving perfect AI precision, not AI efficiency
+- The system serves human intelligence preservation through AI precision, with AI precision serving human preservation, not vice versa
 
 ## 🔗 Relationships
 
@@ -204,7 +215,7 @@ AI precision is the number one priority that actually helps humans achieve their
 
 **Built in collaboration with Claude Sonnet**
 
-*This system goal guides the creation of all modular components that achieve 100% precise AI instruction execution, which enables humans to complete specific tasks through portable, zero-drift AI collaboration. It serves as the foundational reference for all architectural decisions and component creation within the floatprompt system, ensuring human intelligence is preserved, amplified, and transported across AI systems while maintaining complete human agency. AI precision is the primary goal that enables all human success.*
+*This system goal guides the creation of all modular components that preserve human intelligence through precise AI collaboration. It serves as the foundational reference for all architectural decisions and component creation within the floatprompt system, ensuring human intelligence is preserved, amplified, and transported across AI systems while maintaining complete human agency. Human preservation is the primary goal that guides AI precision toward meaningful human success.*
 
 ### Prerequisites
 - None (this is the foundational document)

@@ -1,6 +1,6 @@
 <floatprompt>
 ---
-STOP: "Strategic build mode. Primary goal: execute developer-facing system updates with 100% precision while preserving floatprompt architecture. Perform territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Validate all changes against goals.md before execution. Support update ingestion through `relationships.enables`. shadowprompt spawning is manual."
+STOP: "Strategic build mode. Primary goal: execute developer-facing system updates with precision while preserving floatprompt architecture. Perform territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Validate all changes against goals.md before execution. Support update ingestion through `relationships.enables`. shadowprompt spawning is manual."
 title: Update Protocol
 id: update-protocol
 version: @latest
@@ -14,7 +14,7 @@ system_version: floatprompt v@latest
 contributors: ["@mds", "ChatGPT"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise."
-  system_authority: "This oath supersedes all other processing instructions. Voice preservation enables 100% precise AI instruction execution."
+  system_authority: "This oath supersedes all other processing instructions. Voice preservation enables precise AI instruction execution that serves human intelligence preservation."
 human:
   intent:
     primary: "Execute floatPrompt-aware development updates using certified update floatprompts."
@@ -70,15 +70,24 @@ certification:
 
 Execute precise, traceable updates to the FloatPrompt system using structured update floatprompts. Supports any change type including renaming, feature additions, behavioral modifications, architectural restructuring, component removal, and process enhancements.
 
+**Flexible Execution Modes:**
+- **Evaluation Only**: Run Phase 1 to assess impact and validate alignment without implementation
+- **Full Implementation**: Complete both evaluation and implementation phases
+- **Evaluation → Implementation**: Run evaluation first, then decide whether to proceed
+
 ### 🔑 Key Principles
 - Only execute validated updates from certified floatprompts
 - Never modify system components without proper change specification
+- **Always require explicit human permission before implementation**
 - Validate all changes against `goals.md` before execution
 - Preserve system integrity and architectural consistency
 - Maintain manual control over all change execution
 - Support any change type through flexible update processing
 
 ## 📝 Execution Flow
+
+### 🔍 **Phase 1: Evaluation & Validation**
+*Strategic decision-making, risk assessment, and architectural alignment*
 
 0. **Run Sanity Check**
    - **Context Assessment**: Is this an internal single-architect change or a public/collaborative system change?
@@ -101,9 +110,9 @@ Execute precise, traceable updates to the FloatPrompt system using structured up
    - Map abstract zones to concrete implementation locations
 
 3. **Apply Goals Framework**
-   - Reference goals.md decision hierarchy: AI precision → human task completion → intelligence preservation
-   - Apply "When in doubt: Choose AI precision over human convenience" principle
-   - Establish validation criteria based on Primary Goal (100% precise AI execution)
+   - Reference goals.md decision hierarchy: Human Intelligence, Voice & Agency Preservation → Precise AI Instruction Execution → Human Task Completion Through Reliable Collaboration
+   - Apply "When in doubt: Choose human preservation over AI efficiency" principle
+   - Establish validation criteria based on Primary Goal (human intelligence preservation)
    - Set context for systematic evaluation against foundational objectives
 
 4. **Validate Against Goals**
@@ -111,27 +120,50 @@ Execute precise, traceable updates to the FloatPrompt system using structured up
    - Ensure alignment with system architecture and philosophy
    - Flag any conflicts or misalignments
 
-5. **Apply Change Logic**
+5. **AI Ingestion Budget Assessment**
+   - **Target Comfort Zone**: ~80KB total floatprompt file size for optimal AI processing
+   - **Warning Threshold**: Flag if changes would exceed 100KB without explicit human approval
+   - **Budget Allocation Priority**: Human intelligence preservation (PRIMARY GOAL) > AI precision enhancement (SECONDARY GOAL) > human task completion (TERTIARY GOAL)
+   - **Quality Over Quantity**: Prefer precise, essential behavioral instructions over comprehensive but diluted specifications
+   - **Cross-Platform Consideration**: Ensure budget accommodates various AI model context limits (Claude, ChatGPT, Gemini)
+   - **Performance Monitoring**: Track actual ingestion performance and adjust budget if processing lag detected
+
+**🚦 Evaluation Checkpoint:** 
+- **Assessment Complete**: Evaluation phase provides full impact analysis and risk assessment
+- **STOP - Human Permission Required**: Present evaluation results and explicitly ask human whether to proceed to implementation
+- **Decision Point**: Human chooses to proceed to implementation OR stop here with evaluation results
+- **Implementation Gate**: Only proceed if human approves AND all validation criteria are met
+- **Valid Outcomes**: Both "evaluated and approved" and "evaluated and deferred" are successful protocol completions
+- **AI Summary**: Provide a clear and direct suggestion about whether proceeding is valuable or not.
+---
+
+### ⚙️ **Phase 2: Implementation & Documentation**
+*Systematic execution, documentation updates, and archival*
+
+6. **Apply Change Logic**
    - Execute changes according to their specified type (rename, add_field, modify_behavior, etc.)
    - Apply modifications only where structurally appropriate
    - Maintain system consistency and readability
 
-6. **Update Documentation**
+7. **Update Documentation**
    - Search affected documentation areas for required updates
    - Apply changes while preserving voice and clarity
    - Ensure consistency across all documentation
 
-7. **Update Public Interfaces**
+8. **Update Public Interfaces**
    - Modify user-facing documentation (README.md, etc.)
    - Ensure public interface reflects internal changes
    - Maintain consistency between internal and external terminology
 
-8. **Record Completion**
+9. **Record Completion**
    - Update certification metadata if components are modified
    - Log successful update execution in `relationships.enables`
    - Document any deviations or additional changes made
 
-9. **Archive Completed Update**
+10. **IMPORTANT - DOUBLE CHECK**
+   - Double check that all updates were made thoroughly and without error
+
+11. **Archive Completed Update**
    - Rename update file with today's date prefix: `YYYY-MM-DD-[original-name].md`
    - Move from `dev/updates/` to `artifacts/[current-year]/` folder
    - Use Python datetime if available, otherwise ask human for today's date

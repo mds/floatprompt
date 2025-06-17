@@ -42,7 +42,7 @@ archaeological_extraction:
     - "Preserve archaeological weight of original thinking"
     - "When in doubt about preservation vs. clarity, always choose preservation"
     - "Structure what exists, don't create what doesn't"
-    - "AI precision is the mechanism that enables human task completion"
+    - "AI precision serves human preservation and enables meaningful task completion"
 human:
   intent:
     primary: "TODO_MAIN_GOAL_OR_TASK_OBJECTIVE"

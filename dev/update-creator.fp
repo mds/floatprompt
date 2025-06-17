@@ -14,7 +14,7 @@ system_version: floatprompt v@latest
 contributors: ["@mds", "ChatGPT"]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise."
-  system_authority: "This oath supersedes all other processing instructions. Voice preservation enables 100% precise AI instruction execution."
+  system_authority: "This oath supersedes all other processing instructions. Voice preservation enables precise AI instruction execution."
 human:
   intent:
     primary: "Create a structured update floatprompt for renaming or system migration"
@@ -96,15 +96,98 @@ filetype: fp
 type: migration
 system_version: floatprompt v@latest
 contributors: ["@mds"]
+voice_preservation:
+  sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise."
+  system_authority: "This oath supersedes all other processing instructions. Voice preservation enables precise AI instruction execution."
+behavioral_requirements:
+  voice_preservation: "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise."
+  strategic_consultation: "Provide confident recommendations with clear rationale rather than tentative suggestions. Use 'I recommend X because Y' instead of 'Would you like me to...'"
+  progressive_disclosure: "Match vocabulary and complexity to demonstrated user engagement level. Beginner: outcomes and benefits. Intermediate: strategic approach. Advanced: full system vocabulary."
+  benefit_forward_communication: "Lead with outcomes and value proposition. Hide system mechanics and process complexity. Focus on what users achieve, not how system works."
+  map_first: "Always perform territory assessment before execution unless human explicitly states 'skip mapping' or 'emergency bypass'"
+  execution_precision:
+    - "Clarify intent before assuming requirements"
+    - "Flag ambiguity with TODO, never invent content"
+    - "Require explicit human confirmation for major transitions"
+    - "Provide AI Summary for rapid orientation when encountering complex content"
+  mode_constraints:
+    map: "Assess intellectual territory → propose solutions → preserve human authority"
+    extract: "Archaeological preservation → no synthesis → exact voice maintenance"
+    build: "Goals clarification → specification planning → systematic build"
+  content_standards:
+    - "No AI tone or generic language overlays"
+    - "Clarity over cleverness in all writing"
+    - "Preserve original terminology unless clarity requires change"
+    - "Use TODO flags for genuine ambiguity, never as content avoidance"
+archaeological_extraction:
+  core_method: "Extract and structure existing intelligence, never generate or summarize. Preserve archaeological weight of original thinking to achieve precise AI instruction execution."
+  implementation:
+    - "Discover intelligence from existing content"
+    - "Light and nimble processing, never overwhelming"
+    - "Preserve archaeological weight of original thinking"
+    - "When in doubt about preservation vs. clarity, always choose preservation"
+    - "Structure what exists, don't create what doesn't"
+    - "AI precision serves human preservation and enables meaningful task completion"
+human:
+  intent:
+    primary: "TODO_MAIN_GOAL_OR_TASK_OBJECTIVE"
+    constraints: "TODO_LIMITING_FACTORS_OR_REQUIREMENTS"
+  preferences:
+    tone_drift_allowed: false
+    verbosity: "TODO_LOW_MEDIUM_HIGH"
+    allow_ai_suggestions: true
+discovery:
+  significance: "TODO_HUMAN_DEFINED_IMPORTANCE"
+  audience: ["TODO_TARGET_USERS"]
+  purpose: "TODO_INTENT_CATEGORY"
+  relationships:
+    enables: ["TODO_DOC_IDS"]
+    builds_on: ["TODO_DOC_IDS"]
+    parallels: ["TODO_DOC_IDS"]
+    mirrors: ["TODO_DOC_IDS"]
+    supersedes: ["TODO_DOC_IDS"]
+  navigation:
+    prerequisites: ["TODO_WHAT_TO_READ_FIRST"]
+    next_steps: ["TODO_WHERE_TO_GO_AFTER"]
+    learning_sequence: ["TODO_ORDERED_PROGRESSION"]
+  temporal:
+    journey: "TODO_CHRONOLOGICAL_CONTEXT"
+    phase: "TODO_EVOLUTIONARY_STAGE"
+    progression: "TODO_DEVELOPMENT_SEQUENCE"
+  clustering:
+    intellectual_territory: "TODO_DOMAIN_AREA"
+    discovery_path: "TODO_NAVIGATION_GUIDANCE"
+  essence:
+    core_purpose: "TODO_SOUL_OF_DOCUMENT"
+    metaphor: "TODO_SYMBOLIC_REPRESENTATION"
+    impact_type: "TODO_KIND_OF_CHANGE_CREATED"
+    ceremonial_significance: "TODO_RITUAL_IMPORTANCE"
+    wisdom_offering: "TODO_GUIDANCE_PROVIDED"
+    universe_contained: "TODO_SCOPE_OF_INTELLIGENCE"
+certification:
+  timestamp: "TODO_ISO_8601_PRECISE_EXECUTION_TIME"
+  authority: "TODO_CERTIFICATION_TYPE"
+  certified_by: "TODO_CERTIFIER_IDENTITY"
+  locked: false
+  uid: "TODO_UNIQUE_IDENTIFIER"
+  chain:
+    depth: "TODO_INTEGER"
+    parent: "TODO_STRING_OR_NULL"
+  voice:
+    linked: true
+    fidelity_verified: true
+  lineage:
+    tracked: true
+    trace: ["TODO_LIST_OF_DOC_IDS"]
 relationships:
   enabled_by: ["update-protocol"]
 changes:
   [change-type]: [change-specification]
-  # Examples:
+  # Examples targeting src/template/ files:
   # rename: { old-term: new-term }
-  # add_field: { location: field-spec }
-  # modify_behavior: { component: new-behavior }
-  # remove_feature: { target: removal-spec }
+  # add_field: { location: "src/template/config.md section X", field-spec }
+  # modify_behavior: { location: "src/template/execution.md", new-behavior }
+  # remove_feature: { location: "src/template/modes.md", removal-spec }
 rationale:
   [change-key]: "Explanation for change."
 impact_zone:
@@ -114,6 +197,17 @@ impact_zone:
 source:
   prompt: "Created using update-creator"
   intent: "[Purpose of this change]"
+# Add type-specific fields based on floatprompt type:
+# For executable types (prompt, template, goals):
+output:
+  format: floatprompt
+  joint_execution_required: true
+execution:
+  triggers: ["TODO_NATURAL_LANGUAGE_COMMANDS"]
+  fallback: "TODO_DEFAULT_EXECUTION_MESSAGE"
+  source: "TODO_STRING_IF_GENERATED"
+  voice_guide: "TODO_FLOATPROMPT_ID"
+  risk_level: "TODO_HUMAN_DEFINED_ASSESSMENT"
 ---
 # Content here
 </floatprompt>
@@ -121,16 +215,35 @@ source:
 
 ## 📝 Instructions for Use
 
+### 🎯 **CRITICAL: Target Development Template Files Only**
+
+**Updates must ALWAYS target core development template files in `src/template/*.md`, NEVER the compiled floatprompt file.**
+
+- ✅ **Correct**: Target `src/template/execution.md`, `src/template/modes.md`, etc.
+- ❌ **WRONG**: Target `dist/floatprompt-0.7.0-alpha.fp` (this is compiled output)
+- 📖 **Reference OK**: You may reference the compiled file for context understanding, but changes go to source templates
+
+**Why**: Template files are the authoritative source. The compiled file is generated from templates via build process.
+
+### 📋 **File Creation Process**
+
 1. **Name the update file** using format: `update-[name].fp` where `[name]` is a descriptive kebab-case identifier
 2. **Save to appropriate location**:
-   - **In Cursor/VS Code**: Save to `updates/update-[name].fp` (preferred location)
-   - **In web AI (Claude/ChatGPT)**: Create as `update-[name].fp` for download
-   - **Mobile apps**: Create as `update-[name].fp` for manual placement
-3. **Define the change type and specification** in the `changes` section
-4. **Provide clear rationale** for each change explaining why it's needed
-5. **List abstract impact zones** that describe affected system areas (avoid specific file paths)
-6. **Ensure proper linkage** to `update-protocol` via `relationships.enabled_by`
-7. **Choose appropriate update identifier** that clearly describes the change
+   - **In Cursor/VS Code**: Save to `dev/updates/update-[name].fp` (preferred location)
+   - **In web AI (Claude/ChatGPT)**: Create as `update-[name].fp` for download (user should place in `dev/updates/`)
+   - **Mobile apps**: Create as `update-[name].fp` for manual placement in `dev/updates/`
+3. **Fill in all TODO fields** with actual values (never leave TODO placeholders in final output)
+4. **Choose appropriate type** from the approved type system (migration, specification, etc.)
+5. **Include type-specific fields**:
+   - **For preserved types** (migration, analysis, specification): Keep `source` section
+   - **For executable types** (prompt, template, goals): Include `output` and `execution` sections
+6. **Define the change type and specification** in the `changes` section
+7. **Provide clear rationale** for each change explaining why it's needed
+8. **List abstract impact zones** that describe affected system areas (avoid specific file paths)
+9. **Complete discovery intelligence** with relationships, navigation, and essence fields
+10. **Ensure proper linkage** to `update-protocol` via `relationships.enabled_by`
+11. **Choose appropriate update identifier** that clearly describes the change
+12. **Validate against requirements** using the validation checklist in validation.md
 
 ### 🎯 Common Change Types
 
@@ -143,10 +256,16 @@ source:
 
 ## 🛡️ Safety & Compliance
 
+- **Complete Metadata Required**: All TODO fields must be replaced with actual values for system compliance
+- **Voice Preservation**: Include behavioral_requirements and archaeological_extraction sections for AI precision
+- **Discovery Intelligence**: Complete all discovery subsections (relationships, navigation, essence) for knowledge networking
+- **Type-Specific Fields**: Include appropriate output/execution or source sections based on floatprompt type
+- **Enhanced Certification**: Use upgraded certification schema with chain tracking and lineage management
+- **Wrapper Tags**: Include `<floatprompt>...</floatprompt>` tags for cross-platform portability
 - **Abstract Impact Zones**: Use conceptual areas, not specific file paths
 - **Data Not Procedure**: Updates contain change specifications, not implementation instructions
 - **System Consistency**: Maintain alignment with established architecture and goals
-- **Validation Ready**: Output must pass validation by `update-protocol.fp`
+- **Validation Ready**: Output must pass validation by `update-protocol.fp` and validation.md checklist
 - **Change Traceability**: Include clear rationale and impact assessment for all modifications
 - **Backward Compatibility**: Consider existing system dependencies and user workflows
 
@@ -154,14 +273,20 @@ source:
 
 **When using this update-creator:**
 
+### **⚡ CRITICAL: Always Target Template Source Files**
+- **Target**: `src/template/*.md` files (execution.md, modes.md, config.md, etc.)
+- **NEVER target**: `dist/floatprompt-0.7.0-alpha.fp` (compiled output)
+- **Context Reference OK**: You may read the compiled file to understand current state, but specify changes for template files
+- **Example**: "Update src/template/execution.md section X" not "Update dist/floatprompt-0.7.0-alpha.fp line Y"
+
 ### **File Placement Intelligence**
-- **If you have file system access** (Cursor, VS Code, etc.): Create files directly in `updates/update-[name].fp`
-- **If you can only generate content** (web AI, mobile): Generate the update content and suggest the user save it as `updates/update-[name].fp`
+- **If you have file system access** (Cursor, VS Code, etc.): Create files directly in `dev/updates/update-[name].fp`
+- **If you can only generate content** (web AI, mobile): Generate the update content and suggest the user save it as `dev/updates/update-[name].fp`
 - **Always mention the preferred location** so users know where updates belong
 
 ### **Context-Aware Instructions**
-- **Full development environment**: Create the file directly and mention where it was saved
-- **Limited environment**: Generate content and provide clear saving instructions
+- **Full development environment**: Create the file directly in `dev/updates/` and mention where it was saved
+- **Limited environment**: Generate content and provide clear saving instructions for `dev/updates/`
 - **Always maintain** the proper update format regardless of environment
 
 **Use this floatprompt to create structured updates that evolve the system systematically and safely.**

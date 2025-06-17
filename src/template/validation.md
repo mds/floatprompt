@@ -20,10 +20,10 @@ Before deploying any floatprompt:
 - [ ] Soft-coded fields use emergent, human-defined values
 
 **Goal Hierarchy Compliance:**
-- [ ] Primary Goal: Supports 100% precise AI instruction execution
-- [ ] Secondary Goal: Enables human task completion through zero-drift collaboration
-- [ ] Tertiary Goal: Preserves human intelligence, voice, and agency
-- [ ] System Principle: Chooses AI precision over human convenience where applicable
+- [ ] Primary Goal: Preserves human intelligence, voice, and agency
+- [ ] Secondary Goal: Supports precise AI instruction execution  
+- [ ] Tertiary Goal: Enables human task completion through reliable collaboration
+- [ ] System Principle: Chooses human preservation over AI efficiency where applicable
 
 **Type-Specific Field Validation:**
 - [ ] Executable types include `output.format: floatprompt`

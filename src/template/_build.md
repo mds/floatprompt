@@ -1,11 +1,11 @@
 <!-- _build.md -->
-## Execute FloatPrompt Creation with 100% Precision
+## Execute FloatPrompt Creation with AI Precision
 
 **Definitive assembly sequence for all floatprompt modular components**
 
 > **This specification defines the exact order in which modular components compile into the final floatprompt template**
 
-*This document ensures 100% precise component integration with zero ambiguity about assembly sequence, supporting our system goal that AI precision is the mechanism enabling human success. All components have been verified complete and ready for compilation.*
+*This document supports component integration with zero ambiguity about assembly sequence, supporting our system goal that AI precision serves human preservation and enables meaningful task completion. All components have been verified complete and ready for compilation.*
 
 ---
 
@@ -35,10 +35,10 @@
 This specification defines the canonical compilation order for assembling all floatprompt modular components into the final production template. Every component has a specific position and integration method to ensure system compliance and system integrity.
 
 **Optimized for FloatPrompt Goals:**
-- **Primary Goal**: 100% precise AI instruction execution
-- **Secondary Goal**: Enable humans to complete specific tasks through portable, zero-drift AI collaboration
-- **Tertiary Goal**: Preserve human intelligence, voice, and agency in structured, reusable form
-- **System Authority**: AI precision enables human task completion (per ../docs/goals.md)
+- **Primary Goal**: Human Intelligence, Voice & Agency Preservation
+- **Secondary Goal**: Precise AI instruction execution  
+- **Tertiary Goal**: Enable humans to complete specific tasks through reliable AI collaboration
+- **System Authority**: AI precision serves human preservation (per ../docs/goals.md)
 
 ---
 
@@ -85,7 +85,7 @@ This specification defines the canonical compilation order for assembling all fl
 
 #### **voice.md** (Precision Mechanism - ENABLES HUMAN SUCCESS)
 - **Position**: System requirements section
-- **Function**: Voice preservation oath and archaeological principles (AI precision serves human goals)
+- **Function**: Voice preservation oath and archaeological principles (AI precision serves human preservation)
 - **Integration**: Critical precision mechanism that enables human task completion
 - **Dependencies**: Execution overview context
 
@@ -164,7 +164,7 @@ This specification defines the canonical compilation order for assembling all fl
 - **boot.md** → None (self-contained AI behavioral instructions for human interface)
 - **FloatPrompt goals** → execution.md (SYSTEM AUTHORITY: human task completion through AI precision)
 - **execution.md** → voice.md (context before constraints)
-- **voice.md** → All content components (AI precision mechanism that enables human success)
+- **voice.md** → All content components (AI precision mechanism that serves human preservation)
 - **types.md** → structure.md, naming.md
 - **modes.md** → chaining.md (chaining builds on operational foundation)
 - **chaining.md** → structure.md (workflow orchestration informs structure)
@@ -182,10 +182,10 @@ This specification defines the canonical compilation order for assembling all fl
 
 ### **System Compliance**
 1. **System Authority First**: execution.md establishes AI directive immediately (serves Primary Goal through AI precision)
-2. **Precision Mechanism Second**: Voice preservation provides AI precision that enables human success
+2. **Precision Mechanism Second**: Voice preservation provides AI precision that serves human preservation
 3. **Archaeological Integrity**: Pure extraction methodology throughout
 4. **Zero Modification**: Components assembled without content changes
-5. **Precision Priority**: AI precision is the mechanism that enables human success (per FloatPrompt goal)
+5. **Human Preservation Priority**: AI precision serves human preservation and enables meaningful task completion (per FloatPrompt goal)
 
 ### **Integration Method**
 1. **Sequential Assembly**: Follow exact numerical order
@@ -238,4 +238,4 @@ This specification defines the canonical compilation order for assembling all fl
 
 **Built in collaboration with Claude Sonnet**
 
-*This compilation order ensures systematic, precise, and system compliant assembly of all floatprompt modular components into the final production template.* 
+*This compilation order supports systematic, precise, and system compliant assembly of all floatprompt modular components into the final production template.* 

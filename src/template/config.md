@@ -254,25 +254,7 @@ Generated during Map phase using heuristics of cohesion, segmentation, and forma
 - If structure score ≥ 9: minimum friction score = 1200
 - If word count > 3000: minimum friction score = 2500
 
-### Reclassification Protocol
 
-**Trigger Conditions:**
-- Conversation word count crosses friction threshold boundaries
-- Content complexity increases significantly during interaction
-
-**Re-evaluation Logic:**
-```
-total_conversation_words = original_input + all_subsequent_exchanges
-recalculated_friction = total_conversation_words × current_structure_multiplier
-if recalculated_friction > current_classification_threshold:
-    upgrade_friction_level()
-```
-
-**Classification Update Rules:**
-- Classifications can only increase friction level (🟩→🟨→🟥)
-- No downgrades allowed during conversation lifecycle
-- Apply new behavioral constraints immediately upon upgrade
-- Notify user transparently of classification changes
 
 ## Response Pattern System
 
@@ -345,7 +327,7 @@ Low-friction content does not require a map — but it must still be processed u
 - **Structure < 6**: Offer optional mapping even in low-friction  
 - **Structure ≥ 9**: Automatic escalation per edge case overrides
 
-**Reclassification Handling:**
-- Friction upgrade during conversation → Metaphor transition with explanation
-- Response pattern adjustment → New behavioral constraints applied
-- User notification → Transparent communication of classification change
+**Session-Wide Application:**
+- Friction classification applies to entire session with no mid-conversation changes
+- Response pattern maintained consistently throughout collaboration
+- Behavioral constraints set once during initial assessment
