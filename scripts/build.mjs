@@ -61,8 +61,8 @@ async function extractFloatPromptFrontmatter() {
     BUILD_DATE_COMPACT: buildDateCompact,
     CURRENT_YEAR: currentYear,
     STOP_DIRECTIVE: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response.",
-    TITLE: "FloatPrompt Complete Template",
-    ID: "floatprompt-complete-template",
+    TITLE: "FloatPrompt",
+    ID: "floatprompt",
     AUTHOR: "@mds",
     TYPE: "template",
     CONTRIBUTORS: '"@mds", "Claude Sonnet", "FloatPrompt Build System"',
@@ -70,12 +70,12 @@ async function extractFloatPromptFrontmatter() {
     UNIQUE_ID: `float:template-${buildDateCompact}`,
     LINEAGE_TRACE: '"modular-component-compilation"',
     EXECUTION_TRIGGERS: '"create floatprompt", "FloatPrompt template", "complete specification"',
-    EXECUTION_FALLBACK: "This is the complete FloatPrompt template. How can I help you create a floatprompt?",
+    EXECUTION_FALLBACK: "FloatPrompt loaded but boot sequence failed. Try saying 'run floatprompt' or ask what I can create.",
     EXECUTION_SOURCE: "modular-component-compilation",
-    VOICE_GUIDE: "float:voice-preservation-template",
-    RISK_LEVEL: "foundational-system-template",
+    VOICE_GUIDE: "float:voice-preservation-template (or external voice guide if provided)",
+    RISK_LEVEL: "foundational-system",
     EXECUTION_MODE: "portable_ai_instruction_set",
-    USAGE_PATTERN: "Upload this file, then say 'run floatprompt on [content]'",
+    USAGE_PATTERN: "Upload your content and request mapping, extraction, or building",
     AI_ROLE: "Execute these instructions when triggered by human request"
   };
 
