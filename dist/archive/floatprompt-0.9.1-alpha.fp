@@ -4,8 +4,8 @@ STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT
 title: "FloatPrompt"
 id: "floatprompt"
 version: "0.9.1-alpha"
-created: "2025-06-17-0000"
-modified: "2025-06-17-0000"
+created: "2025-06-18-0000"
+modified: "2025-06-18-0000"
 author: "@mds"
 format: "floatprompt"
 type: "template"
@@ -56,11 +56,11 @@ discovery:
   audience: ["{{DISCOVERY_AUDIENCE}}"]
   purpose: "{{DISCOVERY_PURPOSE}}"
 certification:
-  timestamp: "2025-06-17T21:56:36.586Z"
+  timestamp: "2025-06-18T16:17:00.531Z"
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
-  uid: "float:template-20250617"
+  uid: "float:template-20250618"
   chain:
     depth: 0
     parent: null
