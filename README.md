@@ -4,11 +4,18 @@
 
 **FloatPrompt** is a portable AI instruction protocol. Upload a single `.fp` file to any AI system and instantly upgrade its collaboration, context, and precision.
 
+## ⚡ Ready to Use
+
+**Download and upload to any AI system:**
+- **[floatprompt-0.10.1-alpha.fp](./dist/floatprompt-0.10.1-alpha.fp)** (87KB) - Complete FloatPrompt system
+- **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** (17KB) - Voice guide creator tool
+
 ## 🚀 Quick Start
 
-1. **Get the latest template:**
-   - Use the file in `dist/floatprompt@latest.fp` after building from source.
-   - Or ask a project maintainer for the latest `.fp` file.
+1. **Download ready-to-use files:**
+   - **[floatprompt-0.10.1-alpha.fp](./dist/floatprompt-0.10.1-alpha.fp)** - Main FloatPrompt system (87KB)
+   - **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** - Voice guide creator tool (17KB)
+   - Or build from source using `npm run build`
 
 2. **Upload to any AI system and use:**
    ```
