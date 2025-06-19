@@ -4,8 +4,6 @@
 
 **FloatPrompt** is a portable AI instruction protocol. Upload a single `.fp` file to any AI system and instantly upgrade its collaboration, context, and precision.
 
----
-
 ## 🚀 Quick Start
 
 1. **Get the latest template:**
@@ -24,8 +22,6 @@
 
 4. **Organize your work** using the [workspace structure](./workspace/) with examples and best practices.
 
----
-
 ## 🛠️ Build From Source
 
 ```bash
@@ -43,8 +39,6 @@ npm run build
 
 **Output**: `dist/floatprompt-@latest.fp` and `dist/voice-guide-creator.fp`
 
----
-
 ## 📦 What's in a FloatPrompt?
 
 - `.fp` files = complete, executable FloatPrompt documents (for AI upload)
@@ -53,8 +47,6 @@ npm run build
 - `.md` files = building blocks, templates, and documentation (for editing and assembly)
 
 _For advanced details on the `.fp` file format, see `docs/fp.md`._
-
----
 
 ## 📚 Documentation
 
@@ -74,28 +66,20 @@ _For advanced details on the `.fp` file format, see `docs/fp.md`._
 - **[Workspace Usage](workspace/_USAGE.md)** - Workspace structure and usage guide
 - **[Build System](scripts/build.mjs)** - Modular build system with shared components
 
----
-
 ## 🧠 How It Works
 
 - **Upload the `.fp` file** to any AI system that supports file input.
 - **Give your instructions**—the AI will follow your intent, structure, and voice with zero drift.
 - **Build your own**: Edit the modular components in `src/sys/` and shared components in `src/shared/`, then run the build script.
 
----
-
 ## ⚠️ Alpha Notice
 
 FloatPrompt is in active development.  
 Features, file structure, and instructions may change frequently.
 
----
-
 ## 📄 License
 
 [Creative Commons Attribution 4.0](LICENSE)
-
----
 
 ## Key Features
 
