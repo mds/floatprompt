@@ -7,8 +7,8 @@ Upload a single `.fp` file to any AI system and instantly upgrade its collaborat
 ## ⚡ Ready to Use
 
 **Download and upload to any AI system:**
-- **[floatprompt-0.10.1-alpha.fp](./dist/floatprompt-0.10.1-alpha.fp)** (87KB) - Complete system
-- **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** (17KB) - Extract your voice patterns as true source for AI collaboration
+- **[floatprompt-0.10.1-alpha.fp](./dist/floatprompt-0.10.1-alpha.fp)** (87KB) - Complete system (start here)
+- **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** (17KB) - Extract your voice patterns as true source for AI collaboration (advanced)
 
 ## 🚀 Why FloatPrompt?
 
@@ -20,7 +20,7 @@ Upload a single `.fp` file to any AI system and instantly upgrade its collaborat
 - **Build voice guides** - Extract your authentic voice patterns as the true source for AI to learn your thinking style
 - **Archaeological extraction** - Structure what exists rather than hallucinating
 
-**Real impact:** 4:1 token compression while maintaining strategic understanding. 90% reduction in context reconstruction overhead.
+**Real impact:** 4:1 token compression while maintaining strategic understanding. 90% reduction in AI model context reconstruction overhead in experimental chat threads.
 
 ## 🎯 Use Cases
 
@@ -78,11 +78,11 @@ _Advanced format details: `docs/fp.md`_
 
 ## 🧠 How It Works
 
-Upload the `.fp` file to any AI system. Give instructions—AI follows your intent, structure, and voice with zero drift. Build your own by editing `src/sys/` and `src/shared/` components.
+Upload the `.fp` file to any AI system and it becomes your invisible OS. Chat normally—FloatPrompt manages intent, structure, and voice preservation with zero drift behind the scenes. Build your own by editing `src/sys/` and `src/shared/` components.
 
 ## ⚠️ Alpha Notice
 
-Active development. Features and structure may change.
+Experimental technology in active development. Performance metrics based on limited testing. Features and structure may change.
 
 ## 📄 License
 
@@ -90,7 +90,7 @@ Active development. Features and structure may change.
 
 ## Key Features
 
-- **Zero-drift collaboration** - Structured behavioral preservation
+- **Zero-drift collaboration** - Structured behavioral preservation (experimental validation)
 - **Voice preservation** - Maintains exact thinking patterns
 - **Portable intelligence** - Works across any AI platform
 - **Archaeological extraction** - Preserves rather than paraphrases
