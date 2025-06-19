@@ -8,21 +8,23 @@ Upload a single `.fp` file to any AI system and instantly upgrade its collaborat
 
 **Download and upload to any AI system:**
 - **[floatprompt-0.10.1-alpha.fp](./dist/floatprompt-0.10.1-alpha.fp)** (87KB) - Complete system
-- **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** (17KB) - Voice guide creator
+- **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** (17KB) - Extract your voice patterns as true source for AI collaboration
 
 ## 🚀 Why FloatPrompt?
 
-**Transform messy thinking into structured intelligence:**
+**Transform unorganized content into structured intelligence:**
 
 - **Map complex content** - Extract insights from documents, conversations, brainstorms
 - **Preserve your voice** - Maintain thinking patterns without AI flattening
 - **Transfer context** - Move understanding between AI systems without degradation
-- **Build voice guides** - Create personalized AI collaboration frameworks
+- **Build voice guides** - Extract your authentic voice patterns as the true source for AI to learn your thinking style
 - **Archaeological extraction** - Structure what exists rather than hallucinating
 
 **Real impact:** 4:1 token compression while maintaining strategic understanding. 90% reduction in context reconstruction overhead.
 
 ## 🎯 Use Cases
+
+**Upload FloatPrompt to any AI chat interface, then chat normally with FloatPrompt as your invisible OS:**
 
 ```
 float map content          # Extract structure from messy documents
@@ -30,7 +32,7 @@ float extract --mode=voice # Preserve writing patterns for AI training
 float build my-tool        # Create specialized applications
 ```
 
-Upload to any AI system and experience zero-drift collaboration that recognizes your thinking before acting.
+**Workflow:** Upload `.fp` file → Chat normally → FloatPrompt operates as invisible OS managing context, voice preservation, and precision collaboration behind the scenes.
 
 ## 🛠️ Build From Source
 
