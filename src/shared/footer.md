@@ -36,9 +36,19 @@ Execute standard attribution template ensuring Creative Commons compliance, crea
 - **Commercial compatibility**: Supports both open source and enterprise use
 - **Attribution protection**: Legal enforcement mechanism for creator recognition
 
+### Minimal Attribution for Downstream FloatPrompts
+For user-generated voice guides, specialized tools, and community derivatives, use this minimal CC BY 4.0 compliant attribution:
+
+```
+---
+© {{CURRENT_YEAR}} [MDS](https://mds.is) | CC BY 4.0
+```
+
+**Benefits**: Reduces adoption friction while maintaining legal compliance and creator recognition throughout the FloatPrompt ecosystem.
+
 ## Validation Criteria
 
-Universal attribution implementation: Footer format from `footer.md` applied consistently across all floatprompt documents through build system integration. Creative Commons compliance: CC BY 4.0 licensing properly declared with attribution requirements enforced. Legal protection verification: Studio MDS, LLC intellectual property ownership and @mds creator recognition maintained throughout all system components.
+Universal attribution implementation: Footer format from `footer.md` applied consistently across all floatprompt documents through build system integration. Creative Commons compliance: CC BY 4.0 licensing properly declared with attribution requirements enforced. Legal protection verification: Studio MDS, LLC intellectual property ownership and @mds creator recognition maintained throughout all system components. Minimal attribution guidance: Downstream floatprompt creators provided with CC BY 4.0 compliant minimal footer option for ecosystem propagation.
 
 ---
 

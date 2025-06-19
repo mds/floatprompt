@@ -9,7 +9,7 @@
 ## 🚀 Quick Start
 
 1. **Get the latest template:**
-   - Use the file in `dist/floatprompt-{version}.fp` after building from source.
+   - Use the file in `dist/floatprompt@latest.fp` after building from source.
    - Or ask a project maintainer for the latest `.fp` file.
 
 2. **Upload to any AI system and use:**
@@ -34,12 +34,14 @@ npm run build
 ```
 
 **Build Features:**
+- **Shared Component Architecture**: `src/shared/` components used across multiple FloatPrompts
 - **YAML Injection System**: Eliminates duplication using shared components as single source of truth
 - **Template Variable Processing**: Dynamic values like `{{VERSION}}` and `{{BUILD_DATE}}`
+- **Synchronized Versioning**: Both core system and applications use same version metadata
 - **Automatic Archiving**: Previous versions stored in `dist/archive/`
 - **Compliance Validation**: Ensures 100% header.yaml (52 fields) and config.yaml (51 fields) specification compliance
 
-**Output**: `dist/floatprompt-{version}.fp`
+**Output**: `dist/floatprompt-@latest.fp` and `dist/voice-guide-creator.fp`
 
 ---
 
@@ -50,27 +52,27 @@ npm run build
   - Ready for direct AI upload and execution
 - `.md` files = building blocks, templates, and documentation (for editing and assembly)
 
-_For advanced details on the `.fp` file format, see `src/docs/fp.md`._
+_For advanced details on the `.fp` file format, see `docs/fp.md`._
 
 ---
 
 ## 📚 Documentation
 
 ### Core Documentation
-- **[Goals](src/docs/goals.md)** - Primary objectives and decision hierarchy
-- **[Voice Guide](src/docs/voice.md)** - Surgical precision writing methodology
-- **[Manifesto](src/docs/manifesto.md)** - Vision and philosophy
-- **[Safety](src/docs/safety.md)** - Built-in safety systems and friction management
+- **[Goals](docs/goals.md)** - Primary objectives and decision hierarchy
+- **[Voice Guide](docs/voice.md)** - Surgical precision writing methodology
+- **[Manifesto](docs/manifesto.md)** - Vision and philosophy
+- **[Safety](docs/safety.md)** - Built-in safety systems and friction management
 
 ### Technical Documentation
-- **[FloatPrompt Format](src/docs/fp.md)** - File format specification
-- **[Principles](src/docs/principles.md)** - Core system principles
-- **[Naming](src/docs/naming.md)** - Naming conventions
+- **[FloatPrompt Format](docs/fp.md)** - File format specification
+- **[Principles](docs/principles.md)** - Core system principles
+- **[Naming](docs/naming.md)** - Naming conventions
+- **[Discovery](docs/discovery.md)** - Research findings and cognitive efficiency analysis
 
 ### Development Workflow
-- **[Update Development README](dev/update-readme.md)** - Complete development workflow guide
-- **[Update Creator](dev/update-creator.fp)** - Tool for creating structured updates
-- **[Update Protocol](dev/update-protocol.fp)** - Tool for executing system updates
+- **[Workspace Usage](workspace/_USAGE.md)** - Workspace structure and usage guide
+- **[Build System](scripts/build.mjs)** - Modular build system with shared components
 
 ---
 
@@ -78,7 +80,7 @@ _For advanced details on the `.fp` file format, see `src/docs/fp.md`._
 
 - **Upload the `.fp` file** to any AI system that supports file input.
 - **Give your instructions**—the AI will follow your intent, structure, and voice with zero drift.
-- **Build your own**: Edit the modular components in `src/template/` and run the build script.
+- **Build your own**: Edit the modular components in `src/sys/` and shared components in `src/shared/`, then run the build script.
 
 ---
 
@@ -95,13 +97,16 @@ Features, file structure, and instructions may change frequently.
 
 ---
 
-**Built with 🤖 by [@mds](https://twitter.com/mds)**
-
 ## Key Features
 
 - **Zero-drift AI collaboration** through structured behavioral preservation
 - **Voice preservation** that maintains your exact thinking patterns
 - **Portable intelligence** that works across any AI platform
 - **Archaeological extraction** that preserves rather than paraphrases
+- **Complete voice foundation system** through enhanced voice-guide-creator with synthesis capabilities
+- **Modular voice architecture** enabling infinite specialized tool development
 - **Built-in safety system** through automatic friction classification and response selection
 - **Intuitive metaphor guidance** using building/hallway/small room spatial concepts for friction-appropriate responses
+
+---
+© 2025 [MDS](https://mds.is) | CC BY 4.0

@@ -19,7 +19,7 @@ Execute file naming conventions and canonical term preservation ensuring archaeo
 - `shadowPrompt` (camelCase)
 - `shadowVoice` (camelCase)
 
-> The system is called FloatPrompt — following JavaScript naming convention patterns.
+> The system is called FloatPrompt following JavaScript naming convention patterns.
 
 ## 📁 File Extension Rules
 

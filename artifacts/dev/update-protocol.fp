@@ -151,29 +151,33 @@ Execute precise, traceable FloatPrompt system updates using structured update fl
    - Maintain system consistency and readability
    - Apply voice guide surgical techniques
 
-8. **Update Documentation**
+8. **Apply Voice Logic**
+   - Use src/docs/voice.md to ensure proper text handling
+   - Use paramedic method where necessary
+
+9. **Update Documentation**
    - Search affected documentation areas for required updates
    - Apply changes while preserving voice and clarity
    - Apply Lanham Paramedic Method to eliminate verbose violations
    - Ensure consistency across documentation
 
-9. **Update Public Interfaces**
+10. **Update Public Interfaces**
    - Modify user-facing documentation (README.md, etc.)
    - Ensure public interface reflects internal changes
    - Maintain internal/external terminology consistency
    - Apply surgical precision principles
 
-10. **Record Completion**
+11. **Record Completion**
     - Update certification metadata if components modified
     - Log successful execution in `relationships.enables`
     - Document deviations or additional changes
 
-11. **Double Check**
+12. **Double Check**
     - Verify all updates complete and accurate
     - Confirm voice guide principles applied appropriately
     - Ensure surgical precision maintained while preserving functionality
 
-12. **Archive Completed Update**
+13. **Ask Human If AI Should Archive Completed Update**
     - Rename with today's date prefix: `YYYY-MM-DD-[original-name].md`
     - Move from `dev/updates/` to `artifacts/[current-year]/`
     - Use Python datetime if available, otherwise ask human for date

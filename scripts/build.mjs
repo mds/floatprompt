@@ -9,7 +9,7 @@ const VERSION = packageJson.version;
 
 // Build configuration following _order.md
 const BUILD_CONFIG = {
-  sourceDir: './src/template',
+  sourceDir: './src/sys',
   outputDir: './dist',
   outputFile: `floatprompt-${VERSION}.fp`,
   
@@ -39,6 +39,14 @@ const BUILD_CONFIG = {
   ]
 };
 
+// Voice Guide build configuration
+const VOICE_BUILD_CONFIG = {
+  sourceDir: './src/lib/voice',
+  outputDir: './dist',
+  outputFile: 'voice-guide-creator.fp',
+  sharedDir: './src/sys/shared'
+};
+
 async function extractFloatPromptFrontmatter() {
   const buildDate = new Date().toISOString().split('T')[0];
   const timestamp = new Date().toISOString();
@@ -46,7 +54,7 @@ async function extractFloatPromptFrontmatter() {
   const currentYear = new Date().getFullYear();
   
   // Archaeological extraction from header.md
-  const templateHeaderPath = path.join('./src/template', 'header.md');
+  const templateHeaderPath = path.join('./src/sys', 'header.md');
   const templateHeaderContent = await readComponent(templateHeaderPath);
   
   if (!templateHeaderContent) {
@@ -92,7 +100,7 @@ async function extractFloatPromptFrontmatter() {
 
 async function extractFloatPromptBody() {
   // Archaeological extraction from body.md
-  const templateBodyPath = path.join('./src/template', 'body.md');
+  const templateBodyPath = path.join('./src/sys', 'body.md');
   let templateBodyContent = await readComponent(templateBodyPath);
   
   if (!templateBodyContent) {
@@ -103,9 +111,9 @@ async function extractFloatPromptBody() {
   const includeRegex = /<!-- INCLUDE: (\w+\.md) -->/g;
   let match;
   
-  while ((match = includeRegex.exec(templateBodyContent)) !== null) {
-    const includeFile = match[1];
-    const includePath = path.join('./src/template', includeFile);
+      while ((match = includeRegex.exec(templateBodyContent)) !== null) {
+      const includeFile = match[1];
+      const includePath = path.join('./src/sys', includeFile);
     
     console.log(`📄 Processing include: ${includeFile}...`);
     const includeContent = await readComponent(includePath);
@@ -131,12 +139,12 @@ async function ensureDirectory(dirPath) {
   }
 }
 
-async function readComponent(componentPath) {
+async function readComponent(componentPath, sharedDir = './src/sys/shared') {
   try {
     let content = await fs.readFile(componentPath, 'utf-8');
     
     // Process shared YAML injections
-    content = await injectSharedYAML(content);
+    content = await injectSharedYAML(content, sharedDir);
     
     return content.trim();
   } catch (error) {
@@ -145,7 +153,7 @@ async function readComponent(componentPath) {
   }
 }
 
-async function injectSharedYAML(content) {
+async function injectSharedYAML(content, sharedDir = './src/sys/shared') {
   // Process INJECT markers: <!-- INJECT: filename.yaml -->
   const injectRegex = /<!-- INJECT: (.+?)\.yaml -->/g;
   let processed = content;
@@ -156,7 +164,7 @@ async function injectSharedYAML(content) {
   
   while ((match = injectRegex.exec(content)) !== null) {
     const filename = match[1];
-    const sharedPath = path.join('./src/template/shared', `${filename}.yaml`);
+    const sharedPath = path.join(sharedDir, `${filename}.yaml`);
     
     console.log(`🔗 Injecting shared YAML: ${filename}.yaml...`);
     
@@ -225,11 +233,11 @@ async function buildFloatPrompt() {
   }
   
   // Archaeological extraction from footer.md
-  const footerPath = path.join('./src/template', 'footer.md');
+  const footerPath = path.join('./src/shared', 'footer.md');
   let footerContent = await readComponent(footerPath);
   
   if (!footerContent) {
-    throw new Error('Failed to read footer.md - archaeological extraction requires source template');
+    throw new Error('Failed to read shared/footer.md - archaeological extraction requires source template');
   }
   
   // Replace template variables in footer
@@ -237,7 +245,7 @@ async function buildFloatPrompt() {
   footerContent = footerContent.replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
   
   // Add boot.md right after body.md
-  const bootPath = path.join('./src/template', 'boot.md');
+  const bootPath = path.join('./src/sys', 'boot.md');
   const bootContent = await readComponent(bootPath);
   
   if (!bootContent) {
@@ -269,10 +277,135 @@ async function buildFloatPrompt() {
   console.log(`📦 Version: ${VERSION}`);
 }
 
+async function buildVoiceGuide() {
+  console.log('🎭 Building Voice Guide Creator...\n');
+  
+  // Ensure output directory exists
+  await ensureDirectory(VOICE_BUILD_CONFIG.outputDir);
+  
+  // Read voice guide components
+  const headerPath = path.join(VOICE_BUILD_CONFIG.sourceDir, 'header.md');
+  const bodyPath = path.join(VOICE_BUILD_CONFIG.sourceDir, 'body.md');
+  const footerPath = path.join(VOICE_BUILD_CONFIG.sourceDir, 'footer.md');
+  
+  console.log('📄 Reading voice guide header...');
+  let headerContent = await readComponent(headerPath, VOICE_BUILD_CONFIG.sharedDir);
+  
+  // Process template variables in header
+  if (headerContent) {
+    const buildDate = new Date().toISOString().split('T')[0];
+    headerContent = headerContent
+      .replace(/\{\{VERSION\}\}/g, VERSION)
+      .replace(/\{\{BUILD_DATE\}\}/g, buildDate);
+  }
+  
+  console.log('📄 Reading voice guide body...');
+  let bodyContent = await readComponent(bodyPath, VOICE_BUILD_CONFIG.sharedDir);
+  
+  console.log('📄 Reading voice guide footer...');
+  let footerContent = await readComponent(footerPath, VOICE_BUILD_CONFIG.sharedDir);
+  
+  if (!headerContent) {
+    throw new Error('Failed to read voice guide header.md');
+  }
+  
+  // If body is empty, read from the existing dist file content
+  if (!bodyContent || bodyContent.trim() === '') {
+    console.log('📄 Body is empty, extracting from existing voice guide...');
+    try {
+      const existingPath = path.join(VOICE_BUILD_CONFIG.outputDir, VOICE_BUILD_CONFIG.outputFile);
+      const existingContent = await fs.readFile(existingPath, 'utf-8');
+      
+      // Extract content between header and footer
+      const startMarker = '---\n';
+      const endMarker = '\n---\n\n© ';
+      
+      const startIndex = existingContent.indexOf(startMarker);
+      const endIndex = existingContent.indexOf(endMarker);
+      
+      if (startIndex !== -1 && endIndex !== -1) {
+        const headerEndIndex = existingContent.indexOf('\n---\n', startIndex + 4);
+        if (headerEndIndex !== -1) {
+          bodyContent = existingContent.substring(headerEndIndex + 5, endIndex).trim();
+          console.log('✅ Extracted body content from existing file');
+        }
+      }
+    } catch (error) {
+      console.warn('⚠️  Could not extract from existing file, using empty body');
+      bodyContent = '';
+    }
+  }
+  
+  // Process footer injections
+  if (footerContent && footerContent.includes('<!-- INJECT: footer.md -->')) {
+    console.log('🔗 Processing footer injection...');
+    const sharedFooterPath = path.join('./src/shared', 'footer.md');
+    const sharedFooterContent = await readComponent(sharedFooterPath);
+    
+    if (sharedFooterContent) {
+      // Extract just the final attribution line from shared footer
+      const lines = sharedFooterContent.split('\n');
+      const attributionLine = lines.find(line => line.startsWith('© {{CURRENT_YEAR}}'));
+      
+      if (attributionLine) {
+        const currentYear = new Date().getFullYear();
+        const processedAttribution = attributionLine.replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
+        footerContent = footerContent.replace('<!-- INJECT: footer.md -->', processedAttribution);
+      }
+    }
+  }
+  
+  // Replace template variables in footer
+  const currentYear = new Date().getFullYear();
+  if (footerContent) {
+    footerContent = footerContent.replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
+  }
+  
+  // Generate footer from shared/footer.md if voice guide footer is missing
+  if (!footerContent) {
+    const sharedFooterPath = path.join('./src/shared', 'footer.md');
+    const sharedFooterContent = await fs.readFile(sharedFooterPath, 'utf-8');
+    
+    if (!sharedFooterContent) {
+      throw new Error('Failed to read shared/footer.md - voice guide build requires footer template');
+    }
+    
+    // Extract the minimal attribution template from the footer.md
+    const minimalMatch = sharedFooterContent.match(/```\s*\n---\s*\n© \{\{CURRENT_YEAR\}\} \[MDS\]\(https:\/\/mds\.is\) \| CC BY 4\.0\s*\n```/);
+    if (!minimalMatch) {
+      throw new Error('Failed to extract minimal attribution template from shared/footer.md - template format may be incorrect');
+    }
+    
+    footerContent = minimalMatch[0]
+      .replace(/```\s*\n/, '')
+      .replace(/\s*\n```/, '')
+      .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
+  }
+  
+  // Compile final voice guide
+  const finalVoiceGuide = [
+    headerContent,
+    bodyContent,
+    footerContent
+  ].filter(Boolean).join('\n\n');
+  
+  // Write output file
+  const outputPath = path.join(VOICE_BUILD_CONFIG.outputDir, VOICE_BUILD_CONFIG.outputFile);
+  await fs.writeFile(outputPath, finalVoiceGuide, 'utf-8');
+  
+  console.log(`\n✅ Successfully built Voice Guide Creator!`);
+  console.log(`📍 Output: ${outputPath}`);
+  console.log(`📏 Final size: ${Math.round(finalVoiceGuide.length / 1024)}KB`);
+  console.log(`🎭 Type: Voice Guide Creator`);
+}
+
 // Error handling
 async function main() {
   try {
+    // Build both the main FloatPrompt template and Voice Guide Creator
     await buildFloatPrompt();
+    console.log('\n' + '='.repeat(50) + '\n');
+    await buildVoiceGuide();
   } catch (error) {
     console.error('❌ Build failed:', error.message);
     process.exit(1);

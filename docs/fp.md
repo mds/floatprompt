@@ -97,22 +97,21 @@ Documentation, specifications, or building block content without FloatPrompt wra
 ### **✅ Files That Should Be .fp**
 
 **Complete FloatPrompt Documents:**
-- `floatprompt-0.4.1-alpha.fp` (complete system distribution)
-- `update-protocol.fp` (AI behavioral instructions)
-- `update-creator.fp` (AI behavioral instructions)
+- `floatprompt-0.10.0-alpha.fp` (complete system distribution)
+- `voice-guide-creator.fp` (AI behavioral instructions)
 - `task-analyzer.fp` (AI behavioral instructions)
 - Any file with `<floatprompt>` wrapper and behavioral specs
 
 ### **✅ Files That Should Be .md**
 
 **Building Blocks:**
-- `src/template/header.md` (template component)
-- `src/template/voice.md` (template component)
-- `src/template/config.md` (template component)
+- `src/sys/header.md` (template component)
+- `src/sys/voice.md` (template component)
+- `src/sys/config.md` (template component)
 
 **Documentation:**
-- `src/docs/goals.md` (system specification)
-- `src/docs/naming.md` (naming conventions)
+- `docs/goals.md` (system specification)
+- `docs/naming.md` (naming conventions)
 - `README.md` (project documentation)
 
 **Specifications:**
@@ -127,7 +126,13 @@ Documentation, specifications, or building block content without FloatPrompt wra
 ```
 
 **Template Assembly Example:**
-- `header.md` + `voice.md` + `config.md` + ... → `floatprompt-X.X.X.fp`
+- `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt-X.X.X.fp`
+
+**Shared Components Architecture:**
+- `src/shared/` contains components used across multiple FloatPrompts
+- `src/sys/` contains core FloatPrompt system components
+- `src/lib/` contains specialized application components
+- Build system resolves shared dependencies automatically
 
 ### **Ecosystem Signaling**
 - **`.fp` extension**: Signals "complete FloatPrompt" to tooling and AI systems
@@ -142,11 +147,11 @@ Documentation, specifications, or building block content without FloatPrompt wra
 
 ### **Primary Origination: Distribution Build Process**
 ```
-src/template/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
+src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
 ```
 
 **Canonical `.fp` creation pathway:**
-- Template components assembled through build system
+- Template components assembled through build system with shared components
 - Output to `dist/` folder as FloatPrompt distributions
 - Versioned, tested, and ready for ecosystem distribution
 
@@ -168,7 +173,7 @@ src/template/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
 ### **Creation Hierarchy**
 ```
 1. Core System → dist/floatprompt-X.X.X.fp (foundational distribution)
-2. Development Tools → dev/*.fp (system protocols and creators)
+2. Applications → dist/voice-guide-creator.fp, etc. (specialized tools)
 3. Domain Applications → Custom specialized .fp files
 4. Session Intelligence → Extracted collaborative outputs as .fp
 ```

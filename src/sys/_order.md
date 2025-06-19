@@ -1,4 +1,4 @@
-<!-- _build.md -->
+<!-- _order_.md -->
 ## Execute FloatPrompt Creation with AI Precision
 
 **Assembly sequence for floatprompt modular components**
@@ -151,8 +151,24 @@ Canonical compilation order for assembling floatprompt modular components into t
 #### **footer.md** (Universal Footer + Attribution)
 - **Position**: Document closing
 - **Function**: Universal footer, attribution requirements, licensing compliance, and system credits
-- **Integration**: Compiled into document footer with attribution template
+- **Integration**: Compiled into document footer with attribution template from `src/shared/footer.md`
 - **Dependencies**: All components
+
+---
+
+## 🏗️ Shared Architecture
+
+### **Component Locations**
+- **Core System Components**: `src/sys/*.md` - Main FloatPrompt template components
+- **Shared YAML Components**: `src/sys/shared/*.yaml` - Reusable YAML injection files
+- **Shared Components**: `src/shared/*.md` - Cross-system shared components (footer, etc.)
+- **Library Components**: `src/lib/*/` - Specialized tools and applications
+
+### **Build Integration**
+- **YAML Injection**: `<!-- INJECT: filename.yaml -->` markers pull from `src/sys/shared/`
+- **Shared Components**: Footer and other shared content pulled from `src/shared/`
+- **Template Variables**: `{{VERSION}}`, `{{BUILD_DATE}}`, etc. processed during build
+- **Cross-System Sharing**: Components in `src/shared/` used by multiple build targets
 
 ---
 

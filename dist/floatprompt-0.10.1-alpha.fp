@@ -3,13 +3,13 @@
 STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: "FloatPrompt"
 id: "floatprompt"
-version: "0.10.0-alpha"
-created: "2025-06-18-0000"
-modified: "2025-06-18-0000"
+version: "0.10.1-alpha"
+created: "2025-06-19"
+modified: "2025-06-19"
 author: "@mds"
 format: "floatprompt"
 type: "template"
-system_version: "floatprompt v0.10.0-alpha"
+system_version: "floatprompt v0.10.1-alpha"
 contributors: [""@mds", "Claude Sonnet", "FloatPrompt Build System""]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."
@@ -56,11 +56,11 @@ discovery:
   audience: ["{{DISCOVERY_AUDIENCE}}"]
   purpose: "{{DISCOVERY_PURPOSE}}"
 certification:
-  timestamp: "2025-06-18T16:17:19.756Z"
+  timestamp: "2025-06-19T00:35:05.221Z"
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
-  uid: "float:template-20250618"
+  uid: "float:template-20250619"
   chain:
     depth: 0
     parent: null
@@ -1724,7 +1724,7 @@ Execute file naming conventions and canonical term preservation ensuring archaeo
 - `shadowPrompt` (camelCase)
 - `shadowVoice` (camelCase)
 
-> The system is called FloatPrompt — following JavaScript naming convention patterns.
+> The system is called FloatPrompt following JavaScript naming convention patterns.
 
 ## 📁 File Extension Rules
 
@@ -1866,8 +1866,8 @@ STOP: "{{STOP_DIRECTIVE}}"
 title: "{{TITLE}}"
 id: "{{ID}}"
 version: "{{VERSION}}"
-created: "{{BUILD_DATE}}-0000"
-modified: "{{BUILD_DATE}}-0000"
+created: "{{BUILD_DATE}}"
+modified: "{{BUILD_DATE}}"
 author: "{{AUTHOR}}"
 format: "floatprompt"
 type: "{{TYPE}}"
@@ -1914,9 +1914,19 @@ Execute standard attribution template ensuring Creative Commons compliance, crea
 - **Commercial compatibility**: Supports both open source and enterprise use
 - **Attribution protection**: Legal enforcement mechanism for creator recognition
 
+### Minimal Attribution for Downstream FloatPrompts
+For user-generated voice guides, specialized tools, and community derivatives, use this minimal CC BY 4.0 compliant attribution:
+
+```
+---
+© 2025 [MDS](https://mds.is) | CC BY 4.0
+```
+
+**Benefits**: Reduces adoption friction while maintaining legal compliance and creator recognition throughout the FloatPrompt ecosystem.
+
 ## Validation Criteria
 
-Universal attribution implementation: Footer format from `footer.md` applied consistently across all floatprompt documents through build system integration. Creative Commons compliance: CC BY 4.0 licensing properly declared with attribution requirements enforced. Legal protection verification: Studio MDS, LLC intellectual property ownership and @mds creator recognition maintained throughout all system components.
+Universal attribution implementation: Footer format from `footer.md` applied consistently across all floatprompt documents through build system integration. Creative Commons compliance: CC BY 4.0 licensing properly declared with attribution requirements enforced. Legal protection verification: Studio MDS, LLC intellectual property ownership and @mds creator recognition maintained throughout all system components. Minimal attribution guidance: Downstream floatprompt creators provided with CC BY 4.0 compliant minimal footer option for ecosystem propagation.
 
 ---
 

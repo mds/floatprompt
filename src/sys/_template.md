@@ -56,7 +56,8 @@ Templates use shared YAML files for maximum DRY architecture:
 **Build Process**:
 - `<!-- INJECT: filename.yaml -->` markers replaced with actual YAML content
 - Template variables `{{VERSION}}`, `{{BUILD_DATE}}` processed after injection
-- Single source of truth maintained in `src/template/shared/*.yaml` files
+- Single source of truth maintained in `src/sys/shared/*.yaml` files
+- Shared components (footer) maintained in `src/shared/` directory
 
 ### **Implementation Requirements**
 - **Zero interpretive ambiguity** - Every specification unambiguous and actionable
