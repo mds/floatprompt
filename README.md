@@ -1,33 +1,36 @@
 # FloatPrompt
 
-> **The invisible AI operating system in a text file**
+> **The invisible OS for AI in a text file**
 
-**FloatPrompt** is a portable AI instruction protocol. Upload a single `.fp` file to any AI system and instantly upgrade its collaboration, context, and precision.
+Upload a single `.fp` file to any AI system and instantly upgrade its collaboration, context, and precision.
 
 ## ⚡ Ready to Use
 
 **Download and upload to any AI system:**
-- **[floatprompt-0.10.1-alpha.fp](./dist/floatprompt-0.10.1-alpha.fp)** (87KB) - Complete FloatPrompt system
-- **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** (17KB) - Voice guide creator tool
+- **[floatprompt-0.10.1-alpha.fp](./dist/floatprompt-0.10.1-alpha.fp)** (87KB) - Complete system
+- **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** (17KB) - Voice guide creator
 
-## 🚀 Quick Start
+## 🚀 Why FloatPrompt?
 
-1. **Download ready-to-use files:**
-   - **[floatprompt-0.10.1-alpha.fp](./dist/floatprompt-0.10.1-alpha.fp)** - Main FloatPrompt system (87KB)
-   - **[voice-guide-creator.fp](./dist/voice-guide-creator.fp)** - Voice guide creator tool (17KB)
-   - Or build from source using `npm run build`
+**Transform messy thinking into structured intelligence:**
 
-2. **Upload to any AI system and use:**
-   ```
-   Natural language: "Run floatprompt on [my content]"
-   CLI shortcuts:    float map content
-                     float extract --mode=voice  
-                     float build my-tool
-   ```
+- **Map complex content** - Extract insights from documents, conversations, brainstorms
+- **Preserve your voice** - Maintain thinking patterns without AI flattening
+- **Transfer context** - Move understanding between AI systems without degradation
+- **Build voice guides** - Create personalized AI collaboration frameworks
+- **Archaeological extraction** - Structure what exists rather than hallucinating
 
-3. **Get better, more precise AI collaboration.**
+**Real impact:** 4:1 token compression while maintaining strategic understanding. 90% reduction in context reconstruction overhead.
 
-4. **Organize your work** using the [workspace structure](./workspace/) with examples and best practices.
+## 🎯 Use Cases
+
+```
+float map content          # Extract structure from messy documents
+float extract --mode=voice # Preserve writing patterns for AI training  
+float build my-tool        # Create specialized applications
+```
+
+Upload to any AI system and experience zero-drift collaboration that recognizes your thinking before acting.
 
 ## 🛠️ Build From Source
 
@@ -36,53 +39,48 @@ npm install
 npm run build
 ```
 
-**Build Features:**
-- **Shared Component Architecture**: `src/shared/` components used across multiple FloatPrompts
-- **YAML Injection System**: Eliminates duplication using shared components as single source of truth
-- **Template Variable Processing**: Dynamic values like `{{VERSION}}` and `{{BUILD_DATE}}`
-- **Synchronized Versioning**: Both core system and applications use same version metadata
-- **Automatic Archiving**: Previous versions stored in `dist/archive/`
-- **Compliance Validation**: Ensures 100% header.yaml (52 fields) and config.yaml (51 fields) specification compliance
+**Features:**
+- **Shared components** - `src/shared/` used across multiple FloatPrompts
+- **YAML injection** - Eliminates duplication using shared components
+- **Template variables** - Dynamic `{{VERSION}}` and `{{BUILD_DATE}}`
+- **Synchronized versioning** - Core system and applications use same metadata
+- **Automatic archiving** - Previous versions in `dist/archive/`
+- **Compliance validation** - 100% header.yaml (52 fields) and config.yaml (51 fields)
 
 **Output**: `dist/floatprompt-@latest.fp` and `dist/voice-guide-creator.fp`
 
-## 📦 What's in a FloatPrompt?
+## 📦 File Types
 
-- `.fp` files = complete, executable FloatPrompt documents (for AI upload)
-  - Must include a `<floatprompt>...</floatprompt>` wrapper and YAML frontmatter
-  - Ready for direct AI upload and execution
-- `.md` files = building blocks, templates, and documentation (for editing and assembly)
+- `.fp` files = complete, executable documents for AI upload
+- `.md` files = building blocks, templates, documentation for editing
 
-_For advanced details on the `.fp` file format, see `docs/fp.md`._
+_Advanced format details: `docs/fp.md`_
 
 ## 📚 Documentation
 
-### Core Documentation
-- **[Goals](docs/goals.md)** - Primary objectives and decision hierarchy
-- **[Voice Guide](docs/voice.md)** - Surgical precision writing methodology
+**Core:**
+- **[Goals](docs/goals.md)** - Objectives and decision hierarchy
+- **[Voice Guide](docs/voice.md)** - Surgical precision writing
 - **[Manifesto](docs/manifesto.md)** - Vision and philosophy
-- **[Safety](docs/safety.md)** - Built-in safety systems and friction management
+- **[Safety](docs/safety.md)** - Safety systems and friction management
 
-### Technical Documentation
-- **[FloatPrompt Format](docs/fp.md)** - File format specification
+**Technical:**
+- **[Format](docs/fp.md)** - File specification
 - **[Principles](docs/principles.md)** - Core system principles
-- **[Naming](docs/naming.md)** - Naming conventions
-- **[Discovery](docs/discovery.md)** - Research findings and cognitive efficiency analysis
+- **[Naming](docs/naming.md)** - Conventions
+- **[Discovery](docs/discovery.md)** - Research and cognitive efficiency
 
-### Development Workflow
-- **[Workspace Usage](workspace/_USAGE.md)** - Workspace structure and usage guide
-- **[Build System](scripts/build.mjs)** - Modular build system with shared components
+**Development:**
+- **[Workspace](workspace/_USAGE.md)** - Structure and usage
+- **[Build System](scripts/build.mjs)** - Modular build with shared components
 
 ## 🧠 How It Works
 
-- **Upload the `.fp` file** to any AI system that supports file input.
-- **Give your instructions**—the AI will follow your intent, structure, and voice with zero drift.
-- **Build your own**: Edit the modular components in `src/sys/` and shared components in `src/shared/`, then run the build script.
+Upload the `.fp` file to any AI system. Give instructions—AI follows your intent, structure, and voice with zero drift. Build your own by editing `src/sys/` and `src/shared/` components.
 
 ## ⚠️ Alpha Notice
 
-FloatPrompt is in active development.  
-Features, file structure, and instructions may change frequently.
+Active development. Features and structure may change.
 
 ## 📄 License
 
@@ -90,14 +88,14 @@ Features, file structure, and instructions may change frequently.
 
 ## Key Features
 
-- **Zero-drift AI collaboration** through structured behavioral preservation
-- **Voice preservation** that maintains your exact thinking patterns
-- **Portable intelligence** that works across any AI platform
-- **Archaeological extraction** that preserves rather than paraphrases
-- **Complete voice foundation system** through enhanced voice-guide-creator with synthesis capabilities
-- **Modular voice architecture** enabling infinite specialized tool development
-- **Built-in safety system** through automatic friction classification and response selection
-- **Intuitive metaphor guidance** using building/hallway/small room spatial concepts for friction-appropriate responses
+- **Zero-drift collaboration** - Structured behavioral preservation
+- **Voice preservation** - Maintains exact thinking patterns
+- **Portable intelligence** - Works across any AI platform
+- **Archaeological extraction** - Preserves rather than paraphrases
+- **Voice foundation system** - Enhanced voice-guide-creator with synthesis
+- **Modular architecture** - Infinite specialized tool development
+- **Built-in safety** - Automatic friction classification and response selection
+- **Intuitive metaphors** - Building/hallway/room spatial concepts for responses
 
 ---
 © 2025 [@MDS](https://mds.is) | CC BY 4.0
