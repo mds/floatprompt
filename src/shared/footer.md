@@ -41,7 +41,7 @@ For user-generated voice guides, specialized tools, and community derivatives, u
 
 ```
 ---
-© {{CURRENT_YEAR}} [MDS](https://mds.is) | CC BY 4.0
+© {{CURRENT_YEAR}} [@MDS](https://mds.is) | CC BY 4.0
 ```
 
 **Benefits**: Reduces adoption friction while maintaining legal compliance and creator recognition throughout the FloatPrompt ecosystem.

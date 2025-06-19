@@ -109,4 +109,4 @@ Features, file structure, and instructions may change frequently.
 - **Intuitive metaphor guidance** using building/hallway/small room spatial concepts for friction-appropriate responses
 
 ---
-© 2025 [MDS](https://mds.is) | CC BY 4.0
+© 2025 [@MDS](https://mds.is) | CC BY 4.0

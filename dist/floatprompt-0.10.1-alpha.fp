@@ -56,7 +56,7 @@ discovery:
   audience: ["{{DISCOVERY_AUDIENCE}}"]
   purpose: "{{DISCOVERY_PURPOSE}}"
 certification:
-  timestamp: "2025-06-19T00:35:05.221Z"
+  timestamp: "2025-06-19T00:45:38.871Z"
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
@@ -1919,7 +1919,7 @@ For user-generated voice guides, specialized tools, and community derivatives, u
 
 ```
 ---
-© 2025 [MDS](https://mds.is) | CC BY 4.0
+© 2025 [@MDS](https://mds.is) | CC BY 4.0
 ```
 
 **Benefits**: Reduces adoption friction while maintaining legal compliance and creator recognition throughout the FloatPrompt ecosystem.

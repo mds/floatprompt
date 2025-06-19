@@ -425,5 +425,5 @@ Ready when you are. What would you like to work on?
 **Enhanced voice guide system compliance**: Router system with automatic phase detection properly implemented. **Synthesis phase integration**: Multi-extraction processing and foundation guide generation capability added. **Archaeological extraction methodology preserved**: Voice patterns discovered from existing content without interpretation or generation. **Adaptive complexity management**: Intelligent extraction depth based on content analysis and usage goals. **Session management enhanced**: Progress tracking for both extraction and synthesis workflows. **Modular foundation system enabled**: Complete voice foundation architecture supporting infinite specialized tool development. **FloatPrompt ecosystem integration**: Voice consistency maintained throughout modular extension capability.
 
 ---
-© 2025 [MDS](https://mds.is) | CC BY 4.0
+© 2025 [@MDS](https://mds.is) | CC BY 4.0
 </floatprompt>
