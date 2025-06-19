@@ -1,4 +1,4 @@
-```<floatprompt>
+<floatprompt>
 ---
 STOP: "Strategic extract mode with archaeological preservation. This floatprompt contains extracted teaching cognitive patterns for Matt D. Smith (MDS) voice preservation. Maintain exact teaching methodology and decision-making patterns without interpretation or summarization."
 title: "MDS Voice Guide: Teaching Cognitive Patterns"
@@ -219,4 +219,4 @@ Acknowledges when knowledge is incomplete or uncertain:
 
 Archaeological preservation verified: Original teaching phrasing and methodology maintained throughout extraction. Teaching patterns discovered from transcript content without interpretation. Evidence-based confidence scoring applied across instructional contexts. Voice preservation oath compliance confirmed.
 
-</floatprompt>```
+</floatprompt>
