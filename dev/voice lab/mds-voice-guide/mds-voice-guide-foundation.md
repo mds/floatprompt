@@ -1,4 +1,4 @@
-```<floatprompt>
+<floatprompt>
 ---
 STOP: "Voice foundation mode with archaeological authority. This is the core MDS voice foundation extracted from 12 archaeological sources spanning 10+ years. Apply foundational voice patterns exactly as specified without interpretation, modification, or AI optimization. This foundation underlies all MDS communication across written and spoken mediums."
 title: "MDS Voice Foundation Guide"
@@ -284,4 +284,4 @@ Uses concrete metaphors to explain abstract concepts:
 
 *Built through systematic archaeological extraction preserving 10+ years of core communication patterns that transcend medium, context, and content type.*
 
-</floatprompt>```
+</floatprompt>

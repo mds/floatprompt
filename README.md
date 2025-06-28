@@ -20,7 +20,7 @@ Upload a single `.fp` file to any AI system and instantly upgrade its collaborat
 - **Build voice guides** - Extract your authentic voice patterns as the true source for AI to learn your thinking style
 - **Archaeological extraction** - Structure what exists rather than hallucinating
 
-**Real impact:** 4:1 token compression while maintaining strategic understanding. 90% reduction in AI model context reconstruction overhead in experimental chat threads.
+**Real impact:** AI models have self-reported 4:1 token compression while maintaining strategic understanding after creating a historic floatprompt artifact of long chat threads, as well as a 90% reduction in AI model context reconstruction overhead.
 
 ## 🎯 Use Cases
 

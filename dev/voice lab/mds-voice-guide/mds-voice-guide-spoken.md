@@ -1,4 +1,4 @@
-```<floatprompt>
+<floatprompt>
 ---
 STOP: "Spoken communication mode with foundation inheritance. This guide extends mds-foundation-voice.md with spoken-specific patterns extracted from teaching transcripts and live instruction. Apply spoken communication patterns while maintaining foundation voice DNA without interpretation or modification."
 title: "MDS Foundation Spoken Guide"
@@ -338,4 +338,4 @@ Showing learning process and authentic uncertainty in teaching contexts:
 
 *Built through archaeological extraction of spoken communication patterns from live teaching transcripts and instructional delivery spanning systematic UI/UX education and student interaction.*
 
-</floatprompt>```
+</floatprompt>

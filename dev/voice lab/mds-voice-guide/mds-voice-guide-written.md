@@ -1,4 +1,4 @@
-```<floatprompt>
+<floatprompt>
 ---
 STOP: "Written communication mode with foundation inheritance. This guide extends mds-foundation-voice.md with written-specific patterns extracted from blog posts, business content, and curriculum documentation. Apply written communication patterns while maintaining foundation voice DNA without interpretation or modification."
 title: "MDS Foundation Written Guide"
@@ -310,4 +310,4 @@ Shows thinking process through written course corrections:
 
 *Built through archaeological extraction of written communication patterns spanning personal blogs, professional business content, and systematic curriculum documentation.*
 
-</floatprompt>```
+</floatprompt>
