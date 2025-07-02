@@ -56,7 +56,7 @@ discovery:
   audience: ["{{DISCOVERY_AUDIENCE}}"]
   purpose: "{{DISCOVERY_PURPOSE}}"
 certification:
-  timestamp: "2025-07-02T04:21:55.070Z"
+  timestamp: "2025-07-02T04:41:28.507Z"
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false

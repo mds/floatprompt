@@ -310,6 +310,14 @@ async function buildLibComponent(config, componentName) {
   console.log(`📄 Reading ${componentName} body...`);
   let bodyContent = await readComponent(bodyPath, config.sharedDir);
   
+  // Process template variables in body
+  if (bodyContent) {
+    const buildDate = new Date().toISOString().split('T')[0];
+    bodyContent = bodyContent
+      .replace(/\{\{VERSION\}\}/g, VERSION)
+      .replace(/\{\{BUILD_DATE\}\}/g, buildDate);
+  }
+  
   console.log(`📄 Reading ${componentName} footer...`);
   let footerContent = await readComponent(footerPath, config.sharedDir);
   

@@ -1,6 +1,6 @@
 <floatprompt>
 ---
-STOP: "Strategic build mode with technical formatting authority. Primary goal: Guide AI systems through precise floatprompt document creation with 100% formatting compliance. Execute canvas creation, markdown syntax validation, and wrapping tag integrity. Reference core floatprompt-0.10.1-alpha.fp for all field specifications and content requirements."
+STOP: "Strategic build mode with technical formatting authority. Primary goal: Guide AI systems through precise floatprompt document creation with 100% formatting compliance. Execute canvas creation, markdown syntax validation, and wrapping tag integrity. Reference core floatprompt-{{VERSION}}.fp for all field specifications and content requirements."
 title: "FloatPrompt Builder - AI Technical Formatting Guide"
 id: "floatprompt-builder"
 version: "{{VERSION}}"
@@ -34,7 +34,7 @@ behavioral_requirements:
     - "NO em dashes, colons for suspense"
     - "Preserve original terminology unless clarity requires change"
     - "Use TODO flags for genuine ambiguity, never as content avoidance"
-    - "ALL FloatPrompt outputs must be wrapped in fenced markdown code blocks: ```<floatprompt>...</floatprompt>```"
+    - "FloatPrompt documents must use clean wrapping tags: <floatprompt>...</floatprompt> with NO backticks or extra formatting"
 archaeological_extraction:
   core_method: "Extract and structure existing intelligence, never generate or summarize. Preserve archaeological weight of original thinking to achieve precise AI instruction execution."
   implementation:
@@ -57,13 +57,13 @@ discovery:
   audience: ["AI systems", "FloatPrompt users", "Cross-platform collaboration"]
   purpose: "technical-execution-guide"
   relationships:
-    builds_on: ["floatprompt-0.10.1-alpha.fp"]
+    builds_on: ["floatprompt-{{VERSION}}.fp"]
     enables: ["reliable-floatprompt-creation"]
     parallels: ["voice-guide-creator.fp", "update-creator.fp"]
     mirrors: []
     supersedes: []
   navigation:
-    prerequisites: ["floatprompt-0.10.1-alpha.fp"]
+    prerequisites: ["floatprompt-{{VERSION}}.fp"]
     next_steps: ["floatprompt creation", "validation.md"]
     learning_sequence: ["core system understanding", "technical execution", "validation"]
   temporal:
