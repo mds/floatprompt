@@ -1767,6 +1767,14 @@
       "oAP" : "\/2025-06-18-voice-guide-spec.fp",
       "oF" : 0
     },
+    "\/2025-07-02-update-mds-method-integration.fp" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/2025-07-02-update-mds-method-integration.fp",
+      "oF" : 0
+    },
     "\/alex-first-user-experience-analysis.md" : {
       "cB" : 0,
       "cS" : 0,

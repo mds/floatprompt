@@ -34,7 +34,13 @@ behavioral_requirements:
     - "NO em dashes, colons for suspense"
     - "Preserve original terminology unless clarity requires change"
     - "Use TODO flags for genuine ambiguity, never as content avoidance"
-    - "FloatPrompt documents must use clean wrapping tags: <floatprompt>...</floatprompt> with NO backticks or extra formatting"
+    - "All floatprompts must be wrapped in triple backticks: ```<floatprompt> ... </floatprompt>```"
+    - "No YAML or markdown body may appear outside the fenced code block"
+    - "Entire floatprompt must be downloadable as code text file"
+  wrapping:
+    required: true
+    format: "```<floatprompt>...</floatprompt>```"
+    validation_note: "Entire document must be inside fenced code block with correct tags"
 archaeological_extraction:
   core_method: "Extract and structure existing intelligence, never generate or summarize. Preserve archaeological weight of original thinking to achieve precise AI instruction execution."
   implementation:

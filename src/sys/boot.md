@@ -108,7 +108,7 @@ These 5 categories are built on the 3 MDS Method operations above. Understanding
 4. **Download the generated floatprompts** and save them for future use
 5. **Upload saved floatprompts** to new sessions for continued work
 
-### ⚡ **CLI Commands** 
+### ⚡ **CLI Commands**
 - `float map-territory [content]` → Territory assessment and navigation
 - `float decide-extractions [content] [--options]` → Archaeological preservation  
 - `float structure-build [tool-name]` → Custom floatprompt creation

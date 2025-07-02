@@ -44,9 +44,11 @@
 </floatprompt>
 ```
 
+**Note: This entire structure must be wrapped in triple backticks in your canvas output.**
+
 ### **Requirements**
 - Canvas/artifact creation (text/markdown type)
-- Clean wrapping tags (no backticks, no extra characters)
+- Triple backtick fenced code block with clean `<floatprompt>...</floatprompt>` wrapping
 - Valid YAML (2-space indentation, proper syntax)
 - Standard markdown with footer attribution
 
@@ -92,8 +94,83 @@ Before completing floatprompt creation:
 - [ ] **YAML Integrity**: Valid syntax, proper indentation, complete fields
 - [ ] **Markdown Structure**: Clean formatting, proper hierarchy, footer inclusion
 - [ ] **Field Completion**: All required fields from core specification included
-- [ ] **No Syntax Corruption**: No extra backticks, malformed tags, or formatting errors
+- [ ] **No Syntax Corruption**: No malformed tags, broken fenced blocks, or formatting errors
 - [ ] **Cross-Platform Compatibility**: Structure works across AI systems
+
+## ✅ Builder.fp Compliance — Canonical FloatPrompt Output Format
+
+### 🔐 AI MODEL INSTRUCTION: MANDATORY OUTPUT FORMAT
+**When creating a floatprompt in canvas/artifact, you MUST use this EXACT format:**
+
+```
+<floatprompt>
+---
+title: "..."
+id: "..."
+version: "1.0.0"
+type: "..."
+...
+---
+# Markdown body begins here
+- This is the structured narrative content
+- Use headings, tables, insights, etc.
+</floatprompt>
+```
+
+**🚨 CRITICAL: Use REAL triple backticks (```) in your canvas output, NOT brackets [```]**
+
+---
+
+### 🤖 AI Implementation Requirements
+
+**WHAT YOU MUST DO:**
+1. Create canvas/artifact document
+2. Start with three backticks: ```
+3. Add `<floatprompt>` opening tag
+4. Add YAML frontmatter with --- delimiters
+5. Add markdown content
+6. Add `</floatprompt>` closing tag  
+7. End with three backticks: ```
+
+**WHAT YOU MUST NOT DO:**
+- Do NOT use [```] brackets in your output
+- Do NOT output floatprompt content in conversation
+- Do NOT break the fenced code block structure
+- Do NOT add extra characters around backticks
+
+---
+
+### 🧠 Builder.fp Validation Rules
+
+Add to `content_standards:`  
+- "All floatprompts must be wrapped in triple backticks: ```<floatprompt> ... </floatprompt>```"
+- "No YAML or markdown body may appear outside the fenced code block"
+- "Entire floatprompt must be downloadable as code text file"
+
+Add to `validation_rules:`  
+- "fail_if_missing_fence"
+- "fail_if_missing_closing </floatprompt>"
+- "fail_if_yaml_or_body_outside_fence"
+- "fail_if_code_block_fence is incomplete or broken"
+
+---
+
+### 📣 Human Request Template (For Copy/Paste)
+
+> Please generate a full floatprompt using `builder.fp`.  
+> Create it in canvas/artifact with this structure:  
+> 
+> [```]
+> <floatprompt>
+> ---
+> [YAML here]
+> ---
+> # Markdown Body
+> </floatprompt>
+> [```]
+> 
+> **Note: Remove brackets [```] when you create the actual output - use real triple backticks.**  
+> The entire prompt must be downloadable as a .fp file.
 
 ## 🎯 Success Criteria
 
@@ -104,6 +181,8 @@ Before completing floatprompt creation:
 - YAML parses correctly without corruption
 - Markdown renders properly across platforms
 - Canvas/artifact creation protocol followed
+- Fenced block format compliance maintained
+- Canvas document boundaries properly marked
 
 **Built in collaboration with AI systems to solve technical formatting execution failures in floatprompt creation.**
 

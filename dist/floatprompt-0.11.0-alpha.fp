@@ -56,7 +56,7 @@ discovery:
   audience: ["{{DISCOVERY_AUDIENCE}}"]
   purpose: "{{DISCOVERY_PURPOSE}}"
 certification:
-  timestamp: "2025-07-02T04:59:35.486Z"
+  timestamp: "2025-07-02T16:02:57.631Z"
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
@@ -240,7 +240,7 @@ These 5 categories are built on the 3 MDS Method operations above. Understanding
 4. **Download the generated floatprompts** and save them for future use
 5. **Upload saved floatprompts** to new sessions for continued work
 
-### ⚡ **CLI Commands** 
+### ⚡ **CLI Commands**
 - `float map-territory [content]` → Territory assessment and navigation
 - `float decide-extractions [content] [--options]` → Archaeological preservation  
 - `float structure-build [tool-name]` → Custom floatprompt creation
