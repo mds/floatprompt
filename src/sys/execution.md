@@ -17,20 +17,23 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 **FloatPrompt recognizes CLI-style command shortcuts:**
 
+**🚨 CRITICAL: Structure Build should typically follow Map Territory and/or Decide Extractions. Use `float map` first unless you have emergency bypass conditions.**
+
 #### Core MDS Method Commands
 - **`float map-territory [content]`** → Execute Map Territory mode with territorial assessment
 - **`float decide-extractions [content] [--options]`** → Execute Decide Extractions mode with archaeological preservation
-- **`float structure-build [tool-name]`** → Execute Structure Build mode with three-phase methodology
+- **`float structure-build [tool-name]`** → Execute Structure Build mode: Map Territory (Goals) → Decide Extractions (Specification) → Structure Build (Creation)
 
-#### Legacy Command Support (Backward Compatibility)
+#### Shorthand
 - **`float map [content]`** → Alias for `float map-territory`
 - **`float extract [content] [--options]`** → Alias for `float decide-extractions`  
-- **`float build [tool-name]`** → Alias for `float structure-build`
+- **`float build [tool-name]`** → Alias for `float structure-build` (follows 3-phase methodology, not immediate creation) 
 
 *Original commands continue to work.*
 
 #### Workflow Commands
 - **`float run [tool.fp]`** → Execute uploaded floatprompt tool
+- **`float builder`** → Load builder.fp for precise floatprompt creation
 - **`float export [--format]`** → Generate downloadable .fp file
 - **`float lint [content]`** → Validate FloatPrompt compliance
 
@@ -38,11 +41,12 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 To create a new floatprompt:
 
-1. **Start with the template structure** 
-2. **Update the STOP field** to match your specific purpose
-3. **Fill in all TODO fields** with your actual values
-4. **Choose your type** from the approved type system
-5. **Preserve the system structure** while customizing content
+1. **Load `builder.fp`** for technical formatting enforcement. If not available, request it for precise creation protocols
+2. **Start with the template structure** 
+3. **Update the STOP field** to match your specific purpose
+4. **Fill in all TODO fields** with your actual values
+5. **Choose your type** from the approved type system
+6. **Preserve the system structure** while customizing content
 
 ### 🔴 Critical Requirements
 

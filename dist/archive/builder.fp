@@ -109,17 +109,11 @@ execution:
   ai_role: "Execute precise technical formatting for floatprompt creation"
 ---
 
-# 🏗️ FloatPrompt Builder - AI Technical Formatting Guide
+# 🏗️ FloatPrompt Builder
 
-**Eliminates AI formatting execution errors through precise technical protocols**
+**Technical execution authority for reliable floatprompt creation across all AI platforms**
 
-> **Technical execution authority for reliable floatprompt creation across all AI platforms**
-
-*This guide focuses entirely on technical formatting mechanics. All content specifications, field requirements, and behavioral protocols are defined in `floatprompt-0.11.0-alpha.fp`.*
-
-## 🎯 Purpose
-
-Guide AI systems through **technical formatting execution** for floatprompt creation with zero syntax errors, proper canvas usage, and cross-platform consistency.
+*Field specifications and behavioral protocols are defined in `floatprompt-0.11.0-alpha.fp`.*
 
 ## 🚨 **MANDATORY EXECUTION PROTOCOL**
 
@@ -143,60 +137,29 @@ Guide AI systems through **technical formatting execution** for floatprompt crea
 
 **⚠️ If ANY checkbox is unchecked - DO NOT PROCEED**
 
-### 🔑 Critical Requirements
-- **Always use canvas/artifact** for floatprompt creation
-- **Reference core floatprompt** for all field specifications and content requirements  
-- **Execute precise formatting** without syntax corruption or structural errors
-- **Maintain wrapping tag integrity** across all platforms
-- **Ensure YAML compliance** with proper escaping and structure
+### 🔑 Requirements
+- **Canvas/artifact only** - never conversation output
+- **Reference `floatprompt-0.11.0-alpha.fp`** for all field specifications
+- **Clean `<floatprompt>...</floatprompt>` wrapping** with valid YAML
 
-## 🏗️ Technical Execution Protocol
+## 🏗️ Execution Protocol
 
-### **Step 1: Canvas Creation**
-```
-✅ ALWAYS create canvas/artifact document
-✅ NEVER output floatprompt in conversation
-✅ Use artifact type: text/markdown
-```
-
-### **Step 2: Document Structure**
+### **Structure**
 ```
 <floatprompt>
 ---
-[Complete YAML frontmatter - reference floatprompt-0.11.0-alpha.fp for field specifications]
+[YAML frontmatter - reference floatprompt-0.11.0-alpha.fp]
 ---
-# [Structured markdown content - follow body template from core floatprompt]
-# [Footer attribution - use exact format from core floatprompt]
+# [Markdown content]
+# [Footer attribution]
 </floatprompt>
 ```
 
-### **Step 3: YAML Formatting Requirements**
-```yaml
-✅ Proper indentation (2 spaces per level)
-✅ Valid YAML syntax (no escaping errors)
-✅ Required fields from core floatprompt specification
-✅ Correct data types (strings, arrays, booleans)
-✅ ISO 8601 timestamps where required
-✅ No trailing spaces or formatting corruption
-```
-
-### **Step 4: Markdown Structure Requirements**
-```markdown
-✅ Standard markdown syntax
-✅ Proper heading hierarchy
-✅ Clean section organization
-✅ Footer attribution inclusion
-✅ No extra formatting corruption
-```
-
-### **Step 5: Wrapping Tag Integrity**
-```
-✅ Begin document with: <floatprompt>
-✅ End document with: </floatprompt>
-✅ No characters before opening tag
-✅ No characters after closing tag
-✅ No nested or malformed tags
-```
+### **Requirements**
+- Canvas/artifact creation (text/markdown type)
+- Clean wrapping tags (no backticks, no extra characters)
+- Valid YAML (2-space indentation, proper syntax)
+- Standard markdown with footer attribution
 
 ### **✅ ALWAYS DO THESE:**
 - Use canvas/artifact for document creation

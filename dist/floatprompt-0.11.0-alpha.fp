@@ -56,7 +56,7 @@ discovery:
   audience: ["{{DISCOVERY_AUDIENCE}}"]
   purpose: "{{DISCOVERY_PURPOSE}}"
 certification:
-  timestamp: "2025-07-02T04:41:28.507Z"
+  timestamp: "2025-07-02T04:59:35.486Z"
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
@@ -659,20 +659,23 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 **FloatPrompt recognizes CLI-style command shortcuts:**
 
+**🚨 CRITICAL: Structure Build should typically follow Map Territory and/or Decide Extractions. Use `float map` first unless you have emergency bypass conditions.**
+
 #### Core MDS Method Commands
 - **`float map-territory [content]`** → Execute Map Territory mode with territorial assessment
 - **`float decide-extractions [content] [--options]`** → Execute Decide Extractions mode with archaeological preservation
-- **`float structure-build [tool-name]`** → Execute Structure Build mode with three-phase methodology
+- **`float structure-build [tool-name]`** → Execute Structure Build mode: Map Territory (Goals) → Decide Extractions (Specification) → Structure Build (Creation)
 
-#### Legacy Command Support (Backward Compatibility)
+#### Shorthand
 - **`float map [content]`** → Alias for `float map-territory`
 - **`float extract [content] [--options]`** → Alias for `float decide-extractions`  
-- **`float build [tool-name]`** → Alias for `float structure-build`
+- **`float build [tool-name]`** → Alias for `float structure-build` (follows 3-phase methodology, not immediate creation) 
 
 *Original commands continue to work.*
 
 #### Workflow Commands
 - **`float run [tool.fp]`** → Execute uploaded floatprompt tool
+- **`float builder`** → Load builder.fp for precise floatprompt creation
 - **`float export [--format]`** → Generate downloadable .fp file
 - **`float lint [content]`** → Validate FloatPrompt compliance
 
@@ -680,11 +683,12 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 To create a new floatprompt:
 
-1. **Start with the template structure** 
-2. **Update the STOP field** to match your specific purpose
-3. **Fill in all TODO fields** with your actual values
-4. **Choose your type** from the approved type system
-5. **Preserve the system structure** while customizing content
+1. **Load `builder.fp`** for technical formatting enforcement. If not available, request it for precise creation protocols
+2. **Start with the template structure** 
+3. **Update the STOP field** to match your specific purpose
+4. **Fill in all TODO fields** with your actual values
+5. **Choose your type** from the approved type system
+6. **Preserve the system structure** while customizing content
 
 ### 🔴 Critical Requirements
 
@@ -1080,6 +1084,12 @@ Apply the MDS Method (Map Territory, Decide Extractions, Structure Build) as fou
 
 **The three foundational operations for all floatprompt creation and organization:**
 
+### 🎯 **Friction Enforcement Protocol**
+**Universal application across Structure Build and Decide Extractions modes:**
+- 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly."
+- 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping the territory first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue? (Note: skipping mapping may result in unanchored output.)"
+- 🟥 **High-friction**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
+
 ### 🗺️ **Map Territory** (FOUNDATIONAL PRIORITY)
 - **Purpose**: Maps intellectual territory, creates navigation, spawns contextual solutions
 - **Use Cases**: Discovery, overviews, work opportunities, relationships, learning sequences, organizing collections
@@ -1116,12 +1126,16 @@ Apply the MDS Method (Map Territory, Decide Extractions, Structure Build) as fou
 - **Use Cases**: Creating specialized tools, implementing custom requirements, building domain-specific floatprompts
 - **Output**: Complete, immediately usable custom floatprompts
 - **Trigger Examples**: "build this", "create a floatprompt for", "construct from these requirements"
-- **Friction Enforcement**: 
-  - 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly with build."
-  - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping the territory first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with structure build? (Note: skipping mapping may result in unanchored output.)"
-  - 🟥 **High-friction**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
+- **Builder Integration**: Load `builder.fp` for technical formatting protocols. If not available, request it for precise floatprompt creation
+- **Friction Enforcement**: See Friction Enforcement Protocol above, adapting language for "structure build" operations
 
-**Three-Phase Methodology:** Goals Clarification → Specification Planning → Systematic Build. Build recognizes requests for custom floatprompt creation, clarifies true intent, creates build plans, and builds custom floatprompts following established template structure.
+**🚨 CRITICAL: Structure Build applies MDS Method to floatprompt creation, NOT immediate creation (unless territory already mapped and extractions decided):**
+
+**Phase 1: Map Territory (Goals)** - What problem are you solving? What's the landscape of requirements?
+**Phase 2: Decide Extractions (Specification)** - What fields, behaviors, and intelligence should be extracted/included?
+**Phase 3: Structure Build (Creation)** - Build the floatprompt following established template structure with builder.fp formatting.
+
+Structure Build applies the complete MDS Method to floatprompt creation: maps the problem territory, decides what intelligence to extract/include, then structures the build following established template structure.
 
 **Access Patterns:** Build can be invoked through map recommendation when Repeatable Intelligence is identified, or called directly by experienced users.
 
@@ -1130,10 +1144,7 @@ Apply the MDS Method (Map Territory, Decide Extractions, Structure Build) as fou
 - **Use Cases**: Voice preservation, pattern capture, decision-making analysis, scope assessment
 - **Output**: Structured intelligence with archaeological voice preservation, voice guides, extracted patterns, strategic recommendations
 - **Trigger Examples**: "extract patterns from", "structure this intelligence", "preserve this voice"
-- **Friction Enforcement**: 
-  - 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly with extract."
-  - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping the territory first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with decide extractions? (Note: skipping mapping may result in unanchored output.)"
-  - 🟥 **High-friction**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
+- **Friction Enforcement**: See Friction Enforcement Protocol above, adapting language for "decide extractions" operations
 
 **Strategic Assessment:** Extract evaluates goal + territory to determine optimal approach and granularity. Delivers confident recommendations for extraction scope and methodology.
 
