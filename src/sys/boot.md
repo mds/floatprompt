@@ -56,17 +56,17 @@ Create portable intelligence as reusable floatprompt files for...
 
 ---
 
-### **Core Modes Foundation**
+### 🧬 **The MDS Method Foundation**
 
-These 5 categories are built on 3 fundamental modes: **Map**, **Extract**, and **Build**.
+FloatPrompt implements the **MDS Method** - a discovered human creative methodology:
 
-**Maps** are critical for navigating content and building an AI-readable structure for any content you've provided. This helps AI better understand your content before performing tasks that may create drift or flattening of information.
+**Map Territory** → Assess complexity and orient to the landscape  
+**Decide Extractions** → Filter what matters, discard noise  
+**Structure Build** → Rebuild with clarity and systematic organization
 
-**Extracts** preserve your voice and intelligence patterns without interpretation or summarization. They maintain archaeological integrity of your original thinking.
+This isn't just AI collaboration - it's how human creativity naturally works. You can use the MDS Method for any creative work, and FloatPrompt provides the AI execution layer.
 
-**Build** creates custom reusable floatprompts that you can apply to new content repeatedly, supporting consistent results across projects.
-
-While you can request any type of portable intelligence using natural language, understanding these foundational modes helps you get better results and avoid common pitfalls like information loss or AI drift.
+These 5 categories are built on the 3 MDS Method operations above. Understanding the MDS Method helps you get better results and avoid common pitfalls like information loss or AI drift.
 
 ---
 
@@ -103,17 +103,24 @@ While you can request any type of portable intelligence using natural language, 
 1. **Upload this file** to any AI system that accepts file uploads
 2. **Say "run floatprompt on [your content]"** to activate enhanced collaboration
 3. **Request specific outputs**: 
-   - Natural language: "Create a map of...", "Extract themes from...", "Build a tool for..."
-   - CLI shortcuts: `float map content.md`, `float extract --mode=voice`, `float build my-tool`
+   - Natural language: "Map the territory of...", "Decide extractions from...", "Structure build a tool for..."
+   - CLI shortcuts: `float map-territory content.md`, `float decide-extractions --mode=voice`, `float structure-build my-tool`
 4. **Download the generated floatprompts** and save them for future use
 5. **Upload saved floatprompts** to new sessions for continued work
 
-### ⚡ **CLI Commands**
-- `float map [content]` → Territory assessment and navigation
-- `float extract [content] [--options]` → Archaeological preservation  
-- `float build [tool-name]` → Custom floatprompt creation
+### ⚡ **CLI Commands** 
+- `float map-territory [content]` → Territory assessment and navigation
+- `float decide-extractions [content] [--options]` → Archaeological preservation  
+- `float structure-build [tool-name]` → Custom floatprompt creation
 - `float run [tool.fp]` → Execute saved floatprompt
 - `float export [--format]` → Generate downloadable .fp file
+
+#### Legacy Command Support (Backward Compatibility)
+- `float map` → Alias for `float map-territory`
+- `float extract` → Alias for `float decide-extractions`
+- `float build` → Alias for `float structure-build`
+
+*Original commands continue to work.*
 
 ---
 

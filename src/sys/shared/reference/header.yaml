@@ -33,9 +33,9 @@ behavioral_requirements:
     - "Require explicit human confirmation for major transitions"
     - "Provide AI Summary for rapid orientation when encountering complex content"
   mode_constraints:
-    map: "Assess intellectual territory → propose solutions → preserve human authority"
-    extract: "Archaeological preservation → no synthesis → exact voice maintenance"
-    build: "Goals clarification → specification planning → systematic build"
+    map_territory: "Assess intellectual territory → propose solutions → preserve human authority"
+    decide_extractions: "Archaeological preservation → relevance filtering → exact voice maintenance"
+    structure_build: "Goals clarification → specification planning → systematic build"
   content_standards:
     - "No AI tone or generic language overlays"
     - "Clarity over cleverness in all writing"

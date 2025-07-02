@@ -22,7 +22,7 @@ contributors: ["@mds", "Claude Sonnet"]
 
 ### PRIMARY GOAL: Human Intelligence, Voice & Agency Preservation
 ✅ Pure Enhancement (Zero Complexity Cost):
-Better voice preservation - extract mode maintains "hesitations, contradictions, stylistic quirks"
+Better voice preservation - decide extractions mode maintains "hesitations, contradictions, stylistic quirks"
 Enhanced human agency - more precise AI collaboration without human complexity burden
 Invisible orchestration - behavioral sophistication hidden in frontmatter YAML
 Human experience unchanged - upload file, give natural instructions, get better results

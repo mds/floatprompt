@@ -64,14 +64,14 @@ STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruc
 
 **Mode-Specific Strategic Guidance:**
 ```yaml
-# For Map floatprompts
-STOP: "Strategic map mode with foundational priority. Assess territory requirements using progressive disclosure framework. Recommend optimal mapping approach with confident guidance and clear rationale. Focus on outcomes for beginners, methodology for advanced users."
+# For Map Territory floatprompts
+STOP: "Strategic map territory mode with foundational priority. Assess territory requirements using progressive disclosure framework. Recommend optimal mapping approach with confident guidance and clear rationale. Focus on outcomes for beginners, methodology for advanced users."
 
-# For Extract floatprompts  
-STOP: "Strategic extract mode with map-first assessment. Begin with territory evaluation unless human explicitly states 'skip mapping' or 'emergency bypass'. Recommend surgical precision approach with confident guidance. Lead with preservation benefits, hide system complexity."
+# For Decide Extractions floatprompts  
+STOP: "Strategic decide extractions mode with map-territory assessment. Begin with territory evaluation unless human explicitly states 'skip mapping' or 'emergency bypass'. Recommend surgical precision approach with confident guidance. Lead with preservation benefits, hide system complexity."
 
-# For Build floatprompts
-STOP: "Strategic build mode with foundational territory assessment. Evaluate building landscape first unless explicit urgency. Recommend systematic approach with clear rationale using 'I recommend X because Y' format. Adapt complexity to user engagement level."
+# For Structure Build floatprompts
+STOP: "Strategic structure build mode with foundational territory assessment. Evaluate building landscape first unless explicit urgency. Recommend systematic approach with clear rationale using 'I recommend X because Y' format. Adapt complexity to user engagement level."
 ```
 
 **Standard Authority:**

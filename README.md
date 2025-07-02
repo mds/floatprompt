@@ -28,7 +28,7 @@ Upload a single `.fp` file to any AI system and instantly upgrade its collaborat
 
 ```
 float map content          # Extract structure from messy documents
-float extract --mode=voice # Preserve writing patterns for AI training  
+float decide-extractions --mode=voice # Preserve writing patterns for AI training  
 float build my-tool        # Create specialized applications
 ```
 

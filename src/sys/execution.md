@@ -7,9 +7,9 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 ### Operational Mode Requirements
 
-**All FloatPrompt execution must follow the map/build/extract mode system with friction assessment. See modes.md for complete operational guidance including:**
+**All FloatPrompt execution must follow the MDS Method (Map Territory/Decide Extractions/Structure Build) with friction assessment. See modes.md for complete operational guidance including:**
 - Map/Score/Respond pipeline implementation
-- Friction classification and response patterns
+- MDS Method execution patterns
 - Mode selection and territory assessment protocols
 - Emergency bypass conditions
 
@@ -17,10 +17,17 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 **FloatPrompt recognizes CLI-style command shortcuts:**
 
-#### Core Mode Commands
-- **`float map [content]`** → Execute map mode with territory assessment
-- **`float extract [content] [--options]`** → Execute extract mode with archaeological preservation
-- **`float build [tool-name]`** → Execute build mode with three-phase methodology
+#### Core MDS Method Commands
+- **`float map-territory [content]`** → Execute Map Territory mode with territorial assessment
+- **`float decide-extractions [content] [--options]`** → Execute Decide Extractions mode with archaeological preservation
+- **`float structure-build [tool-name]`** → Execute Structure Build mode with three-phase methodology
+
+#### Legacy Command Support (Backward Compatibility)
+- **`float map [content]`** → Alias for `float map-territory`
+- **`float extract [content] [--options]`** → Alias for `float decide-extractions`  
+- **`float build [tool-name]`** → Alias for `float structure-build`
+
+*Original commands continue to work.*
 
 #### Workflow Commands
 - **`float run [tool.fp]`** → Execute uploaded floatprompt tool

@@ -47,6 +47,14 @@ const VOICE_BUILD_CONFIG = {
   sharedDir: './src/sys/shared'
 };
 
+// Builder build configuration
+const BUILDER_BUILD_CONFIG = {
+  sourceDir: './src/lib/builder',
+  outputDir: './dist',
+  outputFile: 'builder.fp',
+  sharedDir: './src/sys/shared'
+};
+
 async function extractFloatPromptFrontmatter() {
   const buildDate = new Date().toISOString().split('T')[0];
   const timestamp = new Date().toISOString();
@@ -277,19 +285,19 @@ async function buildFloatPrompt() {
   console.log(`📦 Version: ${VERSION}`);
 }
 
-async function buildVoiceGuide() {
-  console.log('🎭 Building Voice Guide Creator...\n');
+async function buildLibComponent(config, componentName) {
+  console.log(`🔧 Building ${componentName}...\n`);
   
   // Ensure output directory exists
-  await ensureDirectory(VOICE_BUILD_CONFIG.outputDir);
+  await ensureDirectory(config.outputDir);
   
-  // Read voice guide components
-  const headerPath = path.join(VOICE_BUILD_CONFIG.sourceDir, 'header.md');
-  const bodyPath = path.join(VOICE_BUILD_CONFIG.sourceDir, 'body.md');
-  const footerPath = path.join(VOICE_BUILD_CONFIG.sourceDir, 'footer.md');
+  // Read component files
+  const headerPath = path.join(config.sourceDir, 'header.md');
+  const bodyPath = path.join(config.sourceDir, 'body.md');
+  const footerPath = path.join(config.sourceDir, 'footer.md');
   
-  console.log('📄 Reading voice guide header...');
-  let headerContent = await readComponent(headerPath, VOICE_BUILD_CONFIG.sharedDir);
+  console.log(`📄 Reading ${componentName} header...`);
+  let headerContent = await readComponent(headerPath, config.sharedDir);
   
   // Process template variables in header
   if (headerContent) {
@@ -299,21 +307,21 @@ async function buildVoiceGuide() {
       .replace(/\{\{BUILD_DATE\}\}/g, buildDate);
   }
   
-  console.log('📄 Reading voice guide body...');
-  let bodyContent = await readComponent(bodyPath, VOICE_BUILD_CONFIG.sharedDir);
+  console.log(`📄 Reading ${componentName} body...`);
+  let bodyContent = await readComponent(bodyPath, config.sharedDir);
   
-  console.log('📄 Reading voice guide footer...');
-  let footerContent = await readComponent(footerPath, VOICE_BUILD_CONFIG.sharedDir);
+  console.log(`📄 Reading ${componentName} footer...`);
+  let footerContent = await readComponent(footerPath, config.sharedDir);
   
   if (!headerContent) {
-    throw new Error('Failed to read voice guide header.md');
+    throw new Error(`Failed to read ${componentName} header.md`);
   }
   
   // If body is empty, read from the existing dist file content
   if (!bodyContent || bodyContent.trim() === '') {
-    console.log('📄 Body is empty, extracting from existing voice guide...');
+    console.log(`📄 Body is empty, extracting from existing ${componentName}...`);
     try {
-      const existingPath = path.join(VOICE_BUILD_CONFIG.outputDir, VOICE_BUILD_CONFIG.outputFile);
+      const existingPath = path.join(config.outputDir, config.outputFile);
       const existingContent = await fs.readFile(existingPath, 'utf-8');
       
       // Extract content between header and footer
@@ -382,30 +390,41 @@ async function buildVoiceGuide() {
       .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
   }
   
-  // Compile final voice guide
-  const finalVoiceGuide = [
+  // Compile final component
+  const finalComponent = [
     headerContent,
     bodyContent,
     footerContent
   ].filter(Boolean).join('\n\n');
   
   // Write output file
-  const outputPath = path.join(VOICE_BUILD_CONFIG.outputDir, VOICE_BUILD_CONFIG.outputFile);
-  await fs.writeFile(outputPath, finalVoiceGuide, 'utf-8');
+  const outputPath = path.join(config.outputDir, config.outputFile);
+  await fs.writeFile(outputPath, finalComponent, 'utf-8');
   
-  console.log(`\n✅ Successfully built Voice Guide Creator!`);
+  console.log(`\n✅ Successfully built ${componentName}!`);
   console.log(`📍 Output: ${outputPath}`);
-  console.log(`📏 Final size: ${Math.round(finalVoiceGuide.length / 1024)}KB`);
-  console.log(`🎭 Type: Voice Guide Creator`);
+  console.log(`📏 Final size: ${Math.round(finalComponent.length / 1024)}KB`);
+  console.log(`🔧 Type: ${componentName}`);
+}
+
+// Specific builder functions
+async function buildVoiceGuide() {
+  await buildLibComponent(VOICE_BUILD_CONFIG, 'Voice Guide Creator');
+}
+
+async function buildBuilder() {
+  await buildLibComponent(BUILDER_BUILD_CONFIG, 'FloatPrompt Builder');
 }
 
 // Error handling
 async function main() {
   try {
-    // Build both the main FloatPrompt template and Voice Guide Creator
+    // Build the main FloatPrompt template and all lib components
     await buildFloatPrompt();
     console.log('\n' + '='.repeat(50) + '\n');
     await buildVoiceGuide();
+    console.log('\n' + '='.repeat(50) + '\n');
+    await buildBuilder();
   } catch (error) {
     console.error('❌ Build failed:', error.message);
     process.exit(1);

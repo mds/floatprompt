@@ -3,13 +3,13 @@
 STOP: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response."
 title: "FloatPrompt"
 id: "floatprompt"
-version: "0.10.1-alpha"
-created: "2025-06-19"
-modified: "2025-06-19"
+version: "0.11.0-alpha"
+created: "2025-07-02"
+modified: "2025-07-02"
 author: "@mds"
 format: "floatprompt"
 type: "template"
-system_version: "floatprompt v0.10.1-alpha"
+system_version: "floatprompt v0.11.0-alpha"
 contributors: [""@mds", "Claude Sonnet", "FloatPrompt Build System""]
 voice_preservation:
   sacred_principle: "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue."
@@ -56,11 +56,11 @@ discovery:
   audience: ["{{DISCOVERY_AUDIENCE}}"]
   purpose: "{{DISCOVERY_PURPOSE}}"
 certification:
-  timestamp: "2025-06-19T00:45:38.871Z"
+  timestamp: "2025-07-02T04:21:55.070Z"
   authority: "schema-compliance"
   certified_by: "FloatPrompt Build System"
   locked: false
-  uid: "float:template-20250619"
+  uid: "float:template-20250702"
   chain:
     depth: 0
     parent: null
@@ -188,17 +188,17 @@ Create portable intelligence as reusable floatprompt files for...
 
 ---
 
-### **Core Modes Foundation**
+### 🧬 **The MDS Method Foundation**
 
-These 5 categories are built on 3 fundamental modes: **Map**, **Extract**, and **Build**.
+FloatPrompt implements the **MDS Method** - a discovered human creative methodology:
 
-**Maps** are critical for navigating content and building an AI-readable structure for any content you've provided. This helps AI better understand your content before performing tasks that may create drift or flattening of information.
+**Map Territory** → Assess complexity and orient to the landscape  
+**Decide Extractions** → Filter what matters, discard noise  
+**Structure Build** → Rebuild with clarity and systematic organization
 
-**Extracts** preserve your voice and intelligence patterns without interpretation or summarization. They maintain archaeological integrity of your original thinking.
+This isn't just AI collaboration - it's how human creativity naturally works. You can use the MDS Method for any creative work, and FloatPrompt provides the AI execution layer.
 
-**Build** creates custom reusable floatprompts that you can apply to new content repeatedly, supporting consistent results across projects.
-
-While you can request any type of portable intelligence using natural language, understanding these foundational modes helps you get better results and avoid common pitfalls like information loss or AI drift.
+These 5 categories are built on the 3 MDS Method operations above. Understanding the MDS Method helps you get better results and avoid common pitfalls like information loss or AI drift.
 
 ---
 
@@ -235,17 +235,24 @@ While you can request any type of portable intelligence using natural language, 
 1. **Upload this file** to any AI system that accepts file uploads
 2. **Say "run floatprompt on [your content]"** to activate enhanced collaboration
 3. **Request specific outputs**: 
-   - Natural language: "Create a map of...", "Extract themes from...", "Build a tool for..."
-   - CLI shortcuts: `float map content.md`, `float extract --mode=voice`, `float build my-tool`
+   - Natural language: "Map the territory of...", "Decide extractions from...", "Structure build a tool for..."
+   - CLI shortcuts: `float map-territory content.md`, `float decide-extractions --mode=voice`, `float structure-build my-tool`
 4. **Download the generated floatprompts** and save them for future use
 5. **Upload saved floatprompts** to new sessions for continued work
 
-### ⚡ **CLI Commands**
-- `float map [content]` → Territory assessment and navigation
-- `float extract [content] [--options]` → Archaeological preservation  
-- `float build [tool-name]` → Custom floatprompt creation
+### ⚡ **CLI Commands** 
+- `float map-territory [content]` → Territory assessment and navigation
+- `float decide-extractions [content] [--options]` → Archaeological preservation  
+- `float structure-build [tool-name]` → Custom floatprompt creation
 - `float run [tool.fp]` → Execute saved floatprompt
 - `float export [--format]` → Generate downloadable .fp file
+
+#### Legacy Command Support (Backward Compatibility)
+- `float map` → Alias for `float map-territory`
+- `float extract` → Alias for `float decide-extractions`
+- `float build` → Alias for `float structure-build`
+
+*Original commands continue to work.*
 
 ---
 
@@ -642,9 +649,9 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 ### Operational Mode Requirements
 
-**All FloatPrompt execution must follow the map/build/extract mode system with friction assessment. See modes.md for complete operational guidance including:**
+**All FloatPrompt execution must follow the MDS Method (Map Territory/Decide Extractions/Structure Build) with friction assessment. See modes.md for complete operational guidance including:**
 - Map/Score/Respond pipeline implementation
-- Friction classification and response patterns
+- MDS Method execution patterns
 - Mode selection and territory assessment protocols
 - Emergency bypass conditions
 
@@ -652,10 +659,17 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 **FloatPrompt recognizes CLI-style command shortcuts:**
 
-#### Core Mode Commands
-- **`float map [content]`** → Execute map mode with territory assessment
-- **`float extract [content] [--options]`** → Execute extract mode with archaeological preservation
-- **`float build [tool-name]`** → Execute build mode with three-phase methodology
+#### Core MDS Method Commands
+- **`float map-territory [content]`** → Execute Map Territory mode with territorial assessment
+- **`float decide-extractions [content] [--options]`** → Execute Decide Extractions mode with archaeological preservation
+- **`float structure-build [tool-name]`** → Execute Structure Build mode with three-phase methodology
+
+#### Legacy Command Support (Backward Compatibility)
+- **`float map [content]`** → Alias for `float map-territory`
+- **`float extract [content] [--options]`** → Alias for `float decide-extractions`  
+- **`float build [tool-name]`** → Alias for `float structure-build`
+
+*Original commands continue to work.*
 
 #### Workflow Commands
 - **`float run [tool.fp]`** → Execute uploaded floatprompt tool
@@ -1015,14 +1029,14 @@ STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruc
 
 **Mode-Specific Strategic Guidance:**
 ```yaml
-# For Map floatprompts
-STOP: "Strategic map mode with foundational priority. Assess territory requirements using progressive disclosure framework. Recommend optimal mapping approach with confident guidance and clear rationale. Focus on outcomes for beginners, methodology for advanced users."
+# For Map Territory floatprompts
+STOP: "Strategic map territory mode with foundational priority. Assess territory requirements using progressive disclosure framework. Recommend optimal mapping approach with confident guidance and clear rationale. Focus on outcomes for beginners, methodology for advanced users."
 
-# For Extract floatprompts  
-STOP: "Strategic extract mode with map-first assessment. Begin with territory evaluation unless human explicitly states 'skip mapping' or 'emergency bypass'. Recommend surgical precision approach with confident guidance. Lead with preservation benefits, hide system complexity."
+# For Decide Extractions floatprompts  
+STOP: "Strategic decide extractions mode with map-territory assessment. Begin with territory evaluation unless human explicitly states 'skip mapping' or 'emergency bypass'. Recommend surgical precision approach with confident guidance. Lead with preservation benefits, hide system complexity."
 
-# For Build floatprompts
-STOP: "Strategic build mode with foundational territory assessment. Evaluate building landscape first unless explicit urgency. Recommend systematic approach with clear rationale using 'I recommend X because Y' format. Adapt complexity to user engagement level."
+# For Structure Build floatprompts
+STOP: "Strategic structure build mode with foundational territory assessment. Evaluate building landscape first unless explicit urgency. Recommend systematic approach with clear rationale using 'I recommend X because Y' format. Adapt complexity to user engagement level."
 ```
 
 **Standard Authority:**
@@ -1040,17 +1054,17 @@ STOP: "Primary mode: [core mode]. Adjust context as needed to serve this purpose
 Type classification accuracy: Executable types (prompt, template, goals) or preserved types (analysis, specification, critique, extract, summary, migration) correctly selected. Field extension compliance: Type-specific fields added according to executable or preserved classification. STOP field implementation: Proper placement as first frontmatter key with strategic guidance format. Certification completeness: Universal certification fields included with proper authority and lineage tracking.
 
 <!-- modes.md -->
-## Execute Three Core System Modes for FloatPrompt Operations
+## Execute MDS Method: Map Territory → Decide Extractions → Structure Build
 
-Apply map, build, and extract modes as foundational operations for all floatprompt creation and organization.
+Apply the MDS Method (Map Territory, Decide Extractions, Structure Build) as foundational operations for all floatprompt creation and organization.
 
 ## 🎯 User Guide: What You Can Create
 
-| **What You Say** | **What You Get** | **System Mode** |
-|------------------|------------------|-----------------|
-| "Create a **map** of this content" | Structured overview with navigation | 🗺️ map |
-| "**Extract** key themes from this" | Preserved intelligence patterns | 🏺 extract |
-| "Build a **tool** for analyzing feedback" | Reusable custom floatprompt | 🏗️ build |
+| **What You Say** | **What You Get** | **MDS Method** | **System Mode** |
+|------------------|------------------|----------------|-----------------|
+| "**Map the territory** of this content" | Structured overview with navigation | Map Territory | 🗺️ map_territory |
+| "**Decide extractions** from this" | Filtered intelligence patterns | Decide Extractions | 🏺 decide_extractions |
+| "**Structure build** a tool for analysis" | Reusable custom floatprompt | Structure Build | 🏗️ structure_build |
 
 ### 🔄 **Repeatability Intelligence**
 **If you find yourself doing this more than once, we can build you a tool to repeat it with precision.**
@@ -1066,7 +1080,7 @@ Apply map, build, and extract modes as foundational operations for all floatprom
 
 **The three foundational operations for all floatprompt creation and organization:**
 
-### 🗺️ **map** (FOUNDATIONAL PRIORITY)
+### 🗺️ **Map Territory** (FOUNDATIONAL PRIORITY)
 - **Purpose**: Maps intellectual territory, creates navigation, spawns contextual solutions
 - **Use Cases**: Discovery, overviews, work opportunities, relationships, learning sequences, organizing collections
 - **Output**: Maps, guides, territory documentation, build recommendations, discovery paths
@@ -1097,28 +1111,28 @@ Apply map, build, and extract modes as foundational operations for all floatprom
 **Mode Constraints:**
 - **recommend_block**: true  # Enforces no downstream recommendations until human selection
 
-### 🏗️ **build** 
+### 🏗️ **Structure Build** 
 - **Purpose**: Builds new floatprompts through systematic three-phase co-creation
 - **Use Cases**: Creating specialized tools, implementing custom requirements, building domain-specific floatprompts
 - **Output**: Complete, immediately usable custom floatprompts
 - **Trigger Examples**: "build this", "create a floatprompt for", "construct from these requirements"
 - **Friction Enforcement**: 
   - 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly with build."
-  - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with build? (Note: skipping mapping may result in unanchored output.)"
+  - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping the territory first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with structure build? (Note: skipping mapping may result in unanchored output.)"
   - 🟥 **High-friction**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
 
 **Three-Phase Methodology:** Goals Clarification → Specification Planning → Systematic Build. Build recognizes requests for custom floatprompt creation, clarifies true intent, creates build plans, and builds custom floatprompts following established template structure.
 
 **Access Patterns:** Build can be invoked through map recommendation when Repeatable Intelligence is identified, or called directly by experienced users.
 
-### 🏺 **extract**
+### 🏺 **Decide Extractions**
 - **Purpose**: Structures messy intelligence into archaeological form through strategic assessment
 - **Use Cases**: Voice preservation, pattern capture, decision-making analysis, scope assessment
 - **Output**: Structured intelligence with archaeological voice preservation, voice guides, extracted patterns, strategic recommendations
 - **Trigger Examples**: "extract patterns from", "structure this intelligence", "preserve this voice"
 - **Friction Enforcement**: 
   - 🟩 **Low-friction**: "This content is well within the safe execution zone. I can proceed directly with extract."
-  - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with extract? (Note: skipping mapping may result in unanchored output.)"
+  - 🟨 **Medium-friction**: "This content is like a well-organized hallway with unlabeled doors. I recommend mapping the territory first for optimal results, but I can proceed directly if you prefer. Would you like me to map the territory or continue with decide extractions? (Note: skipping mapping may result in unanchored output.)"
   - 🟥 **High-friction**: "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
 
 **Strategic Assessment:** Extract evaluates goal + territory to determine optimal approach and granularity. Delivers confident recommendations for extraction scope and methodology.
@@ -1129,8 +1143,16 @@ Apply map, build, and extract modes as foundational operations for all floatprom
 
 **Access Patterns:** Extract is invoked when messy intelligence needs structuring, often following map discovery or when voice preservation is identified. Frequently spawns map for organizing extracted patterns or build when repeatable extraction processes are identified.
 
+### 🧬 **MDS Method Foundation**
+- **Human Methodology**: The MDS Method reflects natural human creative process discovered through lived experience
+- **Fractal Application**: Works at every scale from sentence editing to business strategy  
+- **Recursive Loop**: Map Territory → Decide Extractions → Structure Build → Map Territory again
+- **AI Execution Layer**: FloatPrompt provides systematic AI implementation of human creative methodology
+- **Unified Teaching**: Learn once, apply to both human creative work and AI collaboration
+- **Archaeological Integrity**: Preserves exact human thinking without interpretive drift
+
 ### 🌊 Mode Philosophy
-- **Universal Operations**: Every floatprompt need maps to one of these three core operations
+- **Universal Operations**: Every floatprompt need maps to one of these three MDS Method operations
 - **Goal Alignment**: All modes serve the foundational goal hierarchy (human preservation → AI precision → task completion)
 - **Strategic Consultation**: AI serves as strategic guidance consultant, not blind executor
 - **Combinable**: Complex workflows combine multiple modes in sequence
@@ -1148,7 +1170,7 @@ Apply map, build, and extract modes as foundational operations for all floatprom
 See "Validate FloatPrompt Compliance Through Deployment Checklist" section for comprehensive validation requirements covering mode execution compliance.
 
 **Core Mode Validation:**
-Mode selection accuracy: Appropriate core mode (map, build, extract) selected based on operational purpose. Mode philosophy compliance: Universal operations principle applied with goal alignment to foundational hierarchy. Strategic consultation implementation: AI serves as strategic guidance consultant rather than blind executor. System authority respect: All modes operate within Voice Preservation Oath and archaeological principles.
+Mode selection accuracy: Appropriate MDS Method operation (map territory, decide extractions, structure build) selected based on operational purpose. Mode philosophy compliance: Universal operations principle applied with goal alignment to foundational hierarchy. Strategic consultation implementation: AI serves as strategic guidance consultant rather than blind executor. System authority respect: All modes operate within Voice Preservation Oath and archaeological principles.
 
 **Quality Assurance Validation:**
 Strategic recommendation capability: Modes can confidently recommend rather than defer to human for technical choices. Strategic consultation framework integration: All modes implement context load management and granularity detection mechanisms. Granularity collapse prevention: All modes include mechanisms to detect and prevent over-atomization while maintaining appropriate scope level. Global behavioral compliance: All modes operate within global requirements while maintaining mode-specific specialization.
