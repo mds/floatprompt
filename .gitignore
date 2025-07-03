@@ -5,4 +5,7 @@
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db 
+Thumbs.db
+
+# Private protocol files (suppressed during alpha)
+/private/ 

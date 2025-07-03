@@ -1,8 +1,0 @@
-# FloatPrompt Discovery Essential Fields
-# Core knowledge navigation metadata
-# Source: atomic component extracted from header.yaml
-
-discovery:
-  significance: "{{DISCOVERY_SIGNIFICANCE}}"
-  audience: ["{{DISCOVERY_AUDIENCE}}"]
-  purpose: "{{DISCOVERY_PURPOSE}}" 

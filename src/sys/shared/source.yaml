@@ -1,7 +1,0 @@
-# FloatPrompt Source Fields
-# Content provenance for preserved/analysis types
-# Source: atomic component extracted from config.yaml
-
-source:
-  prompt: "{{SOURCE_PROMPT}}" # source of intelligence
-  intent: "{{SOURCE_INTENT}}" # short purpose statement 
