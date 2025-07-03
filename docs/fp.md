@@ -30,7 +30,7 @@ contributors: ["@mds", "Claude Sonnet"]
 
 **A `.md` file is content that does not meet the complete FloatPrompt criteria:**
 
-1. **Building Blocks**: Template components that assemble into FloatPrompts
+1. **Building Blocks**: Template components that assemble into FloatPrompt files
 2. **Documentation**: Informational content and specifications
 3. **Specifications**: Change descriptions, requirements, rationale
 4. **Standard Markdown**: No FloatPrompt wrapper or behavioral system
@@ -129,7 +129,7 @@ Documentation, specifications, or building block content without FloatPrompt wra
 - `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt-X.X.X.fp`
 
 **Shared Components Architecture:**
-- `src/shared/` contains components used across multiple FloatPrompts
+- `src/shared/` contains components used across multiple FloatPrompt files
 - `src/sys/` contains core FloatPrompt system components
 - `src/lib/` contains specialized application components
 - Build system resolves shared dependencies automatically
@@ -156,13 +156,13 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 - Versioned, tested, and ready for ecosystem distribution
 
 ### **Secondary Origination: Downstream Creation**
-**FloatPrompts created WITH the main FloatPrompt system:**
+**FloatPrompt files created WITH the main FloatPrompt system:**
 
 1. **Protocol Development**: `dev/update-protocol.fp`, `dev/update-creator.fp`
    - Behavioral instructions for system operations
    - Created using FloatPrompt methodology, become part of development toolkit
 
-2. **Specialized Applications**: Custom domain-specific FloatPrompts
+2. **Specialized Applications**: Custom domain-specific FloatPrompt files
    - Legal analysis protocols, content strategy systems, technical frameworks
    - Generated through FloatPrompt collaboration, saved as `.fp` for reuse
 
@@ -220,4 +220,8 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 
 ---
 
-**Specification establishes canonical architectural boundary between FloatPrompt documents (.fp) and all other content (.md), ensuring clear semantic distinction for AI precision, tooling recognition, and ecosystem clarity.** 
+**Specification establishes canonical architectural boundary between FloatPrompt documents (.fp) and all other content (.md), ensuring clear semantic distinction for AI precision, tooling recognition, and ecosystem clarity.**
+
+---
+
+*© 2025 [@MDS](https://mds.is) | CC BY 4.0* 

@@ -132,4 +132,8 @@ This represents a shift from conversational collaboration to **structured intell
 
 ---
 
-**Note**: This discovery log documents empirical findings about FloatPrompt's cognitive characteristics. As research continues, findings may be refined, validated, or expanded. The goal is to maintain an accurate record of what we've learned about how structured intelligence collaboration actually works in practice. 
+**Note**: This discovery log documents empirical findings about FloatPrompt's cognitive characteristics. As research continues, findings may be refined, validated, or expanded. The goal is to maintain an accurate record of what we've learned about how structured intelligence collaboration actually works in practice.
+
+---
+
+*© 2025 [@MDS](https://mds.is) | CC BY 4.0* 

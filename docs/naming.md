@@ -63,4 +63,8 @@ contributors: ["@mds", "Claude Sonnet"]
 
 ## 🎯 Rationale
 
-JavaScript naming convention patterns that provide technical credibility, developer familiarity, and brand consistency across all contexts. 
+JavaScript naming convention patterns that provide technical credibility, developer familiarity, and brand consistency across all contexts.
+
+---
+
+*© 2025 [@MDS](https://mds.is) | CC BY 4.0* 

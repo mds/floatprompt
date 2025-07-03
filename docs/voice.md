@@ -98,4 +98,8 @@ Lanham **never modifies**:
 1. **Apply voice preservation first** - Respect original phrasing, rhythm, tone
 2. **Identify Lanham targets** - Focus only on bureaucratic/administrative bloat
 3. **Surgical precision** - Remove only what serves no archaeological purpose
-4. **Verification** - Ensure voice archaeological weight remains intact 
+4. **Verification** - Ensure voice archaeological weight remains intact
+
+---
+
+*© 2025 [@MDS](https://mds.is) | CC BY 4.0* 

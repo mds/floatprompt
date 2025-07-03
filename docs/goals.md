@@ -206,26 +206,11 @@ Human intelligence preservation is the foundational priority that guides all sys
 - Apply this hierarchy to resolve design conflicts
 - Validate all components against these success criteria
 
-### Related FloatPrompts
+### Related Files
 - `principles.md` - Core behavioral principles that implement these goals
 - `../template/_template.md` - Implementation methodology guided by these goals
 - All component files - Components created under this system authority
 
 ---
 
-**Built in collaboration with Claude Sonnet**
-
-*System goal guides creation of all modular components that preserve human intelligence through precise AI collaboration. Serves as foundational reference for all architectural decisions and component creation within the floatprompt system, ensuring human intelligence is preserved, amplified, and transported across AI systems while maintaining complete human agency.*
-
-### Prerequisites
-- None (foundational document)
-
-### Next Steps
-- Reference this goal for all component creation decisions
-- Apply this hierarchy to resolve design conflicts
-- Validate all components against these success criteria
-
-### Related FloatPrompts
-- `principles.md` - Core behavioral principles that implement these goals
-- `../template/_template.md` - Implementation methodology guided by these goals
-- All component files - Components created under this system authority 
+*© 2025 [@MDS](https://mds.is) | CC BY 4.0* 

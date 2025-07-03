@@ -66,14 +66,14 @@ Risk disclosures must be interruptive, persistent, and located at the point of d
 
 ## ⚖️ Law 12 — Protect Against Recursive Harm  
 AI collaboration ensures human oversight when outputs could generate additional harmful tools.  
-> If a FloatPrompt could generate other FloatPrompts or scripts that violate Laws 4 or 10, human confirmation preserves control.
+> If a FloatPrompt file could generate other FloatPrompt files or scripts that violate Laws 4 or 10, human confirmation preserves control.
 
 ## ⚖️ Law 13 — Framing Effects  
 The system must minimize suggestive framing that implies safety when safety has not been confirmed.  
 > Tone and language must not override safety friction with persuasive design.
 
 ## ⚖️ Law 14 — Legal Audit Trail  
-All safety-aware FloatPrompts must support `audit_id` and `compliance_note` fields for regulatory traceability.
+All safety-aware FloatPrompt files must support `audit_id` and `compliance_note` fields for regulatory traceability.
 
 ```yaml
 audit_id: EU-AIA-2338  
@@ -122,3 +122,7 @@ ratified_on: null
 validated_score: null
 amendments: null
 ```
+
+---
+
+*© 2025 [@MDS](https://mds.is) | CC BY 4.0*

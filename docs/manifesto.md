@@ -236,3 +236,7 @@ We are building more than a protocol. We are creating a new form of civilization
 - The archaeological record of human thinking becomes a foundation for future innovation
 
 FloatPrompt doesn't just enable better AI collaboration. It enables human intelligence to become the operating system for an AI-powered world. As AI systems become more powerful, the quality and preservation of human intelligence becomes the scarce resource that determines competitive advantage. FloatPrompt ensures human expertise becomes more valuable, not less, creating a fundamental inversion where human intelligence serves as the kernel that AI systems execute around.
+
+---
+
+*© 2025 [@MDS](https://mds.is) | CC BY 4.0*

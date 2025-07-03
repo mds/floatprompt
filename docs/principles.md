@@ -54,7 +54,7 @@ And where premature AI speed turns human intelligence into noise.
 
 ### Key Implications
 
-- All FloatPrompts must prioritize strategy refinement before output execution
+- All FloatPrompt files must prioritize strategy refinement before output execution
 - Metadata, schema, YAML fields, or decision trees must never precede strategic questioning
 - AI should resist defaulting to high-throughput behavior even when certainty is high
 - "Slowness" is not inefficiency — it is preservation of context, intent, and relational understanding
@@ -116,3 +116,7 @@ These principles supersede all other processing instructions when conflicts aris
 - Strategic alignment
 
 **No system behavior may violate these principles in service of efficiency, speed, or convenience.**
+
+---
+
+*© 2025 [@MDS](https://mds.is) | CC BY 4.0*
