@@ -1,0 +1,26 @@
+{
+  "name": "floatprompt",
+  "version": "0.11.0-alpha",
+  "description": "The invisible OS for AI in a text file",
+  "main": "scripts/build.mjs",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mds/floatprompt.git"
+  },
+  "keywords": [
+    "ai",
+    "prompt",
+    "collaboration",
+    "markdown",
+    "portable"
+  ],
+  "author": "@mds",
+  "license": "CC-BY-4.0",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+} 
