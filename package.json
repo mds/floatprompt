@@ -1,11 +1,11 @@
 {
   "name": "floatprompt",
-  "version": "0.11.0-alpha",
+  "version": "0.0.12-alpha",
   "description": "The invisible OS for AI in a text file",
-  "main": "scripts/build.mjs",
+  "main": "private/scripts/build.mjs",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node private/scripts/build.mjs"
   },
   "repository": {
     "type": "git",

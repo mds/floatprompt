@@ -21,7 +21,7 @@ FloatPrompt is portable human intelligence protocol that captures complex human 
 - Proof of thinking rather than just memory
 - A bridge between human insight and AI execution
 
-floatprompt files are everything that floats in the system. Intelligence is in structured, reusable form.
+FloatPrompt files are everything that floats in the system. Intelligence is in structured, reusable form.
 
 ## 🚀 Universal AI System Upgrade
 
@@ -45,7 +45,7 @@ Every interaction is **joint execution**:
 
 - **HI (Human Intelligence)**: declares intent, voice, and context  
 - **AI (Artificial Intelligence)**: structures, responds, and organizes  
-- Together they generate floatprompt output, verifiable proof of collaborative thinking
+- Together they generate FloatPrompt output, verifiable proof of collaborative thinking
 
 This contract preserves human agency while enabling systematic execution. The human remains in control, choosing when and where to transport intelligence, while AI systems execute with archaeological respect for the original human intent.
 
@@ -63,12 +63,12 @@ Whether working in structured contexts or dynamic collaboration, the human alway
 - Clocks in with intent  
 - Chooses the appropriate approach for the task
 - Executes with presence and voice
-- Clocks out by producing a floatprompt—a certified artifact of the work
+- Clocks out by producing a floatprompt file—a certified artifact of the work
 
 > **If it's not signed, it's not finished.**
 
 ### 🎯 Structured Execution
-A disciplined space where execution is versioned, chainable, and co-execution aware. This context holds executable floatprompts, foundational documents, voice calibration tools, and intelligence libraries.
+A disciplined space where execution is versioned, chainable, and co-execution aware. This context holds executable FloatPrompt files, foundational documents, voice calibration tools, and intelligence libraries.
 
 This is where humans work for **reuse**.
 
@@ -77,14 +77,14 @@ A flexible context for improvisation where humans bring intuition, inferred voic
 
 Dynamic execution is real but ephemeral unless certified into floatprompt form.
 
-### 🧾 The floatprompt as Certificate
-A floatprompt is proof that:
+### 🧾 The floatprompt file as Certificate
+A floatprompt file is proof that:
 - A human was present
 - The execution followed structure  
 - Voice was preserved
 - Context was traceable
 
-Every floatprompt is timestamped, chain-aware, voice-linked, and lineage-tracked. This is how intelligence becomes proof. This is how humans close every loop.
+Every floatprompt file is timestamped, chain-aware, voice-linked, and lineage-tracked. This is how intelligence becomes proof. This is how humans close every loop.
 
 
 ## 🌊 Two Forms of Floating
@@ -92,12 +92,12 @@ Every floatprompt is timestamped, chain-aware, voice-linked, and lineage-tracked
 Intelligence moves through the system in two complementary forms:
 
 ### **Preserved Intelligence** 
-Transcripts, critiques, discoveries, analysis that serve as structured evidence and archaeological preservation for future floatprompts.
+Transcripts, critiques, discoveries, analysis that serve as structured evidence and archaeological preservation for future floatprompt files.
 
 ### **Executable Intelligence**
 Goals, specifications, instructional blueprints that serve as self-contained instructions for AI systems or dynamic collaboration.
 
-All floatprompts can float between these modes. Intelligence preserved can become executable; execution results become preserved knowledge. The boundaries are fluid, the format unified.
+All floatprompt files can float between these modes. Intelligence preserved can become executable; execution results become preserved knowledge. The boundaries are fluid, the format unified.
 
 
 ## 🗺 Mapping Before Mining
@@ -117,7 +117,7 @@ This territorial mapping prevents the loss of nuance that occurs when AI systems
 
 Voice is the foundation of execution fidelity. No interaction proceeds without preserving the human cognitive fingerprint that makes collaboration valuable.
 
-- Structured floatprompts reference established voice patterns
+- Structured floatprompt files reference established voice patterns
 - Dynamic interactions attach session voice context  
 - Voice preservation ensures that human expertise, style, and strategic thinking remain intact throughout the collaboration
 
@@ -152,13 +152,13 @@ FloatPrompt achieves something unprecedented: **the most sophisticated human-AI 
 - **Infinite portability** through disciplined text
 
 ### The Profound Strategy
-To any observer, floatprompts look like ordinary markdown:
+To any observer, floatprompt files look like ordinary markdown:
 - Works with every editor, preview tool, processor
 - Requires no installation, dependencies, or special software
 - **Contains universes of structured intelligence** beneath the surface
 - Enables systematic execution through constitutional discipline
 
-floatprompts use standard markdown as their outer format—combining the portability of markdown with the precision of disciplined metadata.
+floatprompt files use standard markdown as their outer format—combining the portability of markdown with the precision of disciplined metadata.
 
 ### The Strategic Reality
 **Most powerful = Most humble**
@@ -174,7 +174,7 @@ FloatPrompt creates a system for structured joint execution:
 
 1. **Human thinking initiates** - Complex intent, voice, and context enter the system
 2. **AI structures and responds** - Systematic organization while preserving human cognitive fingerprint  
-3. **floatprompt emerges** - Portable human intelligence in a simple text file that can be traced, reused, and scaled
+3. **floatprompt file emerges** - Portable human intelligence in a simple text file that can be traced, reused, and scaled
 
 > This is not memory.  
 > This is **proof of intelligence.**
@@ -186,7 +186,7 @@ What emerges is portable human intelligence, preserved in structured form that m
 FloatPrompt safety principles exist to **empower human agency** by preventing harm that would compromise human intelligence and control:
 
 - Systems ask before they act  
-- floatprompts preserve, never overwrite  
+- floatprompt files preserve, never overwrite  
 - Dynamic collaboration is labeled, not hidden  
 - The human is always present in every interaction
 - Voice always matters and is always preserved
@@ -205,13 +205,13 @@ FloatPrompt creates the foundation for organizational intelligence:
 - **Ecosystem-wide best practices** through shared cognitive architecture
 - **Scalable expertise preservation** that maintains human voice and context
 
-As floatprompts spread, they create a network of portable human intelligence that can flow across boundaries while maintaining fidelity to the original thinking.
+As floatprompt files spread, they create a network of portable human intelligence that can flow across boundaries while maintaining fidelity to the original thinking.
 
 
 ## ✅ Final Commitments
 
-- All floatprompts must declare intent and require joint execution  
-- All floatprompts must preserve lineage, voice, and source context
+- All floatprompt files must declare intent and require joint execution  
+- All floatprompt files must preserve lineage, voice, and source context
 - All executions must respect and amplify human intelligence
 - The system defends human voice and agency by default  
 - The human always signs the chain of intelligence
