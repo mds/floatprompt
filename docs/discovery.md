@@ -1,11 +1,3 @@
----
-title: FloatPrompt Discovery Log
-type: research
-description: "Empirical findings and research insights about FloatPrompt's cognitive and operational characteristics"
-author: @mds
-contributors: ["@mds", "Claude Sonnet"]
----
-
 # FloatPrompt Discovery Log
 
 **Empirical findings and research insights about FloatPrompt's cognitive and operational characteristics**

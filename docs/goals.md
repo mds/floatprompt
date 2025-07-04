@@ -1,11 +1,3 @@
----
-title: FloatPrompt System Goals
-type: specification
-description: Primary, secondary, and tertiary goals for all floatprompt component creation and decision making
-author: @mds
-contributors: ["@mds", "Claude Sonnet"]
----
-
 # Goals
 
 **FloatPrompt System Goals: Human intelligence preservation through precise AI collaboration**

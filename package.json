@@ -5,7 +5,10 @@
   "main": "private/scripts/build.mjs",
   "type": "module",
   "scripts": {
-    "build": "node private/scripts/build.mjs"
+    "build": "node private/scripts/build.mjs",
+    "update-readme": "node private/scripts/update-readme.mjs",
+    "build-all": "npm run build && npm run update-readme",
+    "website-content": "node private/scripts/update-readme.mjs"
   },
   "repository": {
     "type": "git",

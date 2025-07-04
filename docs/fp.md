@@ -1,11 +1,3 @@
----
-title: FloatPrompt File Format Specification
-type: specification
-description: Canonical definition of .fp file format and architectural boundaries
-author: @mds
-contributors: ["@mds", "Claude Sonnet"]
----
-
 # FloatPrompt File Format Specification
 
 **Canonical definition of what constitutes a FloatPrompt (.fp) file versus Markdown (.md) building blocks**

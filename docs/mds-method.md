@@ -1,11 +1,3 @@
----
-title: "The MDS Method: Recursive Clarity for Complex Work"
-type: specification
-description: "The foundational methodology behind FloatPrompt's design - a recursive three-phase loop for complex work"
-author: "@mds"
-contributors: ["@mds", "Claude Sonnet"]
----
-
 # 🔁 The MDS Method: Recursive Clarity for Complex Work
 
 *The foundational methodology behind FloatPrompt's design*

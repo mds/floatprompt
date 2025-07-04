@@ -1,11 +1,3 @@
----
-title: FloatPrompt Core Principles
-type: specification
-description: Foundational behavioral principles governing all FloatPrompt system operations
-author: @mds
-contributors: ["@mds", "ChatGPT"]
----
-
 # FloatPrompt Core Principles
 
 ## 🪞 Recognition Before Action

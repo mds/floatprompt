@@ -1,11 +1,3 @@
----
-title: FloatPrompt Naming Convention
-type: specification
-description: JavaScript-style naming rules for FloatPrompt across all contexts
-author: @mds
-contributors: ["@mds", "Claude Sonnet"]
----
-
 # FloatPrompt Naming Convention
 
 ## 🎯 Naming Rules
