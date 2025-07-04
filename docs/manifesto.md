@@ -6,7 +6,7 @@
 
 ## 🌊 The Problem We Solve
 
-In the age of AI collaboration, human intelligence gets lost in translation. Complex thinking becomes oversimplified prompts. Nuanced intent becomes generic requests. The cognitive fingerprint of human expertise—the very thing that makes AI collaboration valuable—disappears in the noise.
+In the age of AI collaboration, human intelligence gets lost in translation. Complex thinking becomes oversimplified prompts. Nuanced intent becomes generic requests. The cognitive fingerprint of human expertise, the very thing that makes AI collaboration valuable, disappears in the noise.
 
 Meanwhile, AI systems excel at structure and execution but lack the contextual wisdom, voice, and strategic thinking that humans bring. The result is collaboration that diminishes both parties. Humans become prompt engineers and AI becomes pattern matching.
 
@@ -63,7 +63,7 @@ Whether working in structured contexts or dynamic collaboration, the human alway
 - Clocks in with intent  
 - Chooses the appropriate approach for the task
 - Executes with presence and voice
-- Clocks out by producing a floatprompt file—a certified artifact of the work
+- Clocks out by producing a floatprompt file, a certified artifact of the work
 
 > **If it's not signed, it's not finished.**
 
