@@ -36,7 +36,7 @@ Analysis of complex strategic collaboration sessions¹ demonstrates measurable e
 
 **Memory Architecture:**
 - Structured format provides persistent cognitive scaffolding
-- YAML metadata creates explicit relationship navigation
+- JSON metadata creates explicit relationship navigation
 - Archaeological preservation maintains strategic intent across time
 
 ### **Structured Intelligence Hypothesis**

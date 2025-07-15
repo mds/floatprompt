@@ -116,11 +116,11 @@ The MDS loop powers every part of FloatPrompt's protocol:
 |-----------|-------------------------------|
 | **Map**   | Inventory user intent, purpose, content type → declare prompt type, intent, audience, system version |
 | **Decide**| Narrow required fields, voice settings, tone limits → confirm structure, behavior, usage mode |
-| **Structure**| Write YAML, structure markdown, wrap in builder.fp fence → validate prompt + output syntax |
+| **Structure**| Write JSON, structure markdown, wrap in builder.fp fence → validate prompt + output syntax |
 
 ### Recursive Logic in FloatPrompt
 - Each prompt is a full MDS loop
-- The YAML is a **Decided structure** from previously mapped needs
+- The JSON is a **Decided structure** from previously mapped needs
 - The markdown body is a **Structured output** from a decided purpose
 - The entire prompt is wrapped using **Structure phase logic**
 - Prompt creation itself is **looped recursively**

@@ -16,7 +16,7 @@
 ✅ Pure Enhancement (Zero Complexity Cost):
 Better voice preservation - decide extractions mode maintains "hesitations, contradictions, stylistic quirks"
 Enhanced human agency - more precise AI collaboration without human complexity burden
-Invisible orchestration - behavioral sophistication hidden in frontmatter YAML
+Invisible orchestration - behavioral sophistication hidden in frontmatter JSON
 Human experience unchanged - upload file, give natural instructions, get better results
 Core mission fulfillment - ensures humans remain human in AI collaboration
 
@@ -202,6 +202,50 @@ Human intelligence preservation is the foundational priority that guides all sys
 - `principles.md` - Core behavioral principles that implement these goals
 - `../template/_template.md` - Implementation methodology guided by these goals
 - All component files - Components created under this system authority
+
+## 🚫 YAGNI Check (Anti-Over-Engineering)
+
+**Before adding any new component, feature, or complexity, validate against these criteria:**
+
+### 🔍 Evidence-Based Decision Making
+- **Is there actual user demand?** → Don't build solutions for hypothetical problems
+- **Is the current system failing?** → Don't optimize what's already working
+- **Do we have usage data?** → Don't assume needs without evidence
+- **Is this solving a real friction point?** → Don't add features that feel good but aren't needed
+
+### ⚖️ Goals Hierarchy YAGNI Filter
+1. **Primary Goal**: Does this demonstrably improve human intelligence preservation? Or are we just adding complexity?
+2. **Secondary Goal**: Does this measurably enhance AI precision? Or are we over-engineering for edge cases?
+3. **Tertiary Goal**: Does this actually help humans complete tasks? Or does it add cognitive load?
+
+### 🚨 Red Flags (Stop and Reconsider)
+- **"Users might need..."** → Show evidence they actually need it
+- **"This would be nice to have..."** → Wait for actual demand
+- **"For completeness..."** → Completeness often conflicts with usability
+- **"Future-proofing..."** → Build for current needs, refactor when necessary
+- **"Best practices suggest..."** → Validate best practices against our specific goals
+
+### ✅ Green Lights (Proceed with Confidence)
+- **"Users are struggling with..."** → Clear evidence of friction
+- **"This breaks regularly..."** → System reliability issues
+- **"AI consistently fails at..."** → Precision gaps with evidence
+- **"Every session requires..."** → Demonstrated repetitive need
+
+### 🎯 YAGNI Decision Framework
+**Before building anything new, ask:**
+1. **What specific problem does this solve?** (Be concrete, not theoretical)
+2. **How do we know this is a real problem?** (Evidence, not assumptions)
+3. **What's the simplest solution?** (Avoid premature optimization)
+4. **Can we validate this quickly?** (Test before building)
+5. **Does this align with our three goals?** (Human preservation → AI precision → Task completion)
+
+### 🔧 Implementation Discipline
+- **Start with minimal viable solution** → Add complexity only when proven necessary
+- **Measure before optimizing** → Don't fix what isn't broken
+- **User feedback over developer assumptions** → Build what users actually need
+- **Simplicity over sophistication** → Hide complexity, don't expose it
+
+**Remember: The best feature is often the one you don't build. Every addition has a maintenance and cognitive cost.**
 
 ---
 

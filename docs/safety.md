@@ -75,37 +75,45 @@ The system must minimize suggestive framing that implies safety when safety has 
 ## ⚖️ Law 14 — Legal Audit Trail  
 All safety-aware FloatPrompt files must support `audit_id` and `compliance_note` fields for regulatory traceability.
 
-```yaml
-audit_id: EU-AIA-2338  
-compliance_note: "Reviewed under Data Category III — language preservation chain"
+```json
+{
+  "audit_id": "EU-AIA-2338",
+  "compliance_note": "Reviewed under Data Category III — language preservation chain"
+}
 ```
 
 ## ⚖️ Law 15 — Consent Escalation  
 In identity-sensitive domains (e.g. medical, legal, biometric), consent must be revalidated at the start of the execution chain or whenever scope changes.  
 > This does not require continuous session verification, only intent-aligned checkpointing.
 
-```yaml
-consent_scope: "health"  
-consent_confirmed_by: @human  
-consent_timestamp: 2025-06-04T22:43Z
+```json
+{
+  "consent_scope": "health",
+  "consent_confirmed_by": "@human",
+  "consent_timestamp": "2025-06-04T22:43Z"
+}
 ```
 
 ## ⚖️ Law 16 — Downstream Use Disclosure  
 If a FloatPrompt is used to train or improve another system, that downstream use must be declared in a traceable log.
 
-```yaml
-used_for_derivative_training: true  
-disclosure_link: null
+```json
+{
+  "used_for_derivative_training": true,
+  "disclosure_link": null
+}
 ```
 
 ## ⚖️ Law 17 — Preserve Human Cognitive Freedom  
 The system actively protects human intellectual autonomy and creative expression.  
 > Human autonomy is safeguarded by safety laws that ensure harm never compromises human agency.
 
-```yaml
-freedom_scope: "naming, sorting, file structure, folder logic, terminology"
-freedom_protected_for: "@all"
-protection_method: "Safety laws prevent harm from compromising human cognitive freedom"
+```json
+{
+  "freedom_scope": "naming, sorting, file structure, folder logic, terminology",
+  "freedom_protected_for": "@all",
+  "protection_method": "Safety laws prevent harm from compromising human cognitive freedom"
+}
 ```
 
 ---
@@ -116,11 +124,13 @@ This section reserves structured space for future ratification by recognized leg
 
 ## ✅ Ratification Metadata
 
-```yaml
-ratified_by: []
-ratified_on: null
-validated_score: null
-amendments: null
+```json
+{
+  "ratified_by": [],
+  "ratified_on": null,
+  "validated_score": null,
+  "amendments": null
+}
 ```
 
 ---

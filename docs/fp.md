@@ -9,7 +9,7 @@
 **A `.fp` file is a complete, executable FloatPrompt document that contains:**
 
 1. **FloatPrompt Wrapper**: `<floatprompt>content</floatprompt>` tags
-2. **Complete YAML Frontmatter**: Full behavioral specifications and metadata
+2. **Complete JSON Frontmatter**: Full behavioral specifications and metadata
 3. **Executable Content**: Ready for direct AI upload and execution
 4. **Joint Intelligence**: Designed for seamless AI & Human collaboration
 5. **HI-AI Co-Creation**: Product of collaborative Human Intelligence & Artificial Intelligence
@@ -47,19 +47,20 @@
 ```markdown
 <floatprompt>
 ---
-STOP: "behavioral instruction for AI"
-title: Document Title
-id: unique-identifier
-version: 1.0.0
-created: 2025-MM-DD-HHMM
-modified: 2025-MM-DD-HHMM
-author: @username
-format: floatprompt
-filetype: fp
-type: [template|build|extract|map]
-system_version: floatprompt v@latest
-contributors: ["@username", "AI Model"]
-[additional YAML fields...]
+{
+  "STOP": "behavioral instruction for AI",
+  "title": "Document Title",
+  "id": "unique-identifier",
+  "version": "1.0.0",
+  "created": "2025-MM-DD-HHMM",
+  "modified": "2025-MM-DD-HHMM",
+  "author": "@username",
+  "format": "floatprompt",
+  "filetype": "fp",
+  "type": "template",
+  "system_version": "floatprompt v@latest",
+  "contributors": ["@username", "AI Model"]
+}
 ---
 
 # Document Content
@@ -68,6 +69,11 @@ Complete behavioral specifications and executable content.
 
 </floatprompt>
 ```
+
+**FloatPrompt Frontmatter Format:**
+- **JSON Structure**: FloatPrompt uses JSON (not YAML) within standard `---` delimiters
+- **Why JSON**: Better parsing, validation, and cross-platform AI compatibility
+- **Familiar Pattern**: Uses markdown frontmatter convention with modern structured data
 
 ### **Standard .md File Structure**
 ```markdown
@@ -89,9 +95,8 @@ Documentation, specifications, or building block content without FloatPrompt wra
 ### **✅ Files That Should Be .fp**
 
 **Complete FloatPrompt Documents:**
-- `floatprompt-0.10.0-alpha.fp` (complete system distribution)
-- `voice-guide-creator.fp` (AI behavioral instructions)
-- `task-analyzer.fp` (AI behavioral instructions)
+- `floatprompt.fp` (complete system distribution)
+- `voice.fp` (AI behavioral instructions)
 - Any file with `<floatprompt>` wrapper and behavioral specs
 
 ### **✅ Files That Should Be .md**
@@ -118,7 +123,7 @@ Documentation, specifications, or building block content without FloatPrompt wra
 ```
 
 **Template Assembly Example:**
-- `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt-X.X.X.fp`
+- `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt.fp`
 
 **Shared Components Architecture:**
 - `src/shared/` contains components used across multiple FloatPrompt files
@@ -176,7 +181,7 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 
 ### **Required for .fp Classification**
 - [ ] Contains `<floatprompt>content</floatprompt>` wrapper
-- [ ] Contains complete YAML frontmatter with behavioral specifications
+- [ ] Contains complete JSON frontmatter with behavioral specifications
 - [ ] Contains `STOP:` field with AI behavioral instruction
 - [ ] Contains `format: floatprompt` field
 - [ ] Contains `filetype: fp` field
@@ -187,7 +192,7 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 
 ### **Disqualifiers for .fp Classification**
 - [ ] Missing FloatPrompt wrapper tags
-- [ ] Incomplete or missing YAML frontmatter
+- [ ] Incomplete or missing JSON frontmatter
 - [ ] Documentation-only content
 - [ ] Building block or partial content
 - [ ] No behavioral specifications for AI
