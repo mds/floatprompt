@@ -51,11 +51,13 @@ Use `update-protocol.fp` to systematically apply the update:
 ```
 
 ### **Step 5: Archive Completed Update**
-Move completed update from `dev/updates/` to `artifacts/2025/` with date prefix:
+Move completed update to `dev/3-closed/`:
 
 ```bash
 # Example:
-mv dev/updates/update-wrapping-tags.fp artifacts/2025/2025-06-13-update-wrapping-tags.fp
+mv dev/updates/update-wrapping-tags.fp dev/3-closed/
+# Optional date prefix if requested:
+# mv dev/updates/update-wrapping-tags.fp dev/3-closed/2025-06-13-update-wrapping-tags.fp
 ```
 
 ## 🛠️ Development Tools
