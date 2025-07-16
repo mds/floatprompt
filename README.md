@@ -6,16 +6,17 @@ A human intelligence preservation protocol by [@mds](https://mds.is) | © 2025 S
 
 ## 🎯 **What is FloatPrompt?**
 
-FloatPrompt solves the fundamental frustration of AI collaboration. You finally get ChatGPT working perfectly, then lose all that progress when you start a new session or switch platforms.
+FloatPrompt preserves and organizes human intelligence using AI's power while maintaining your authentic voice and thinking patterns. Extract valuable knowledge from transcripts, notes, and raw content into structured, reusable documents without losing the nuanced intelligence that makes your thinking valuable.
 
 Think **File → Save As for AI interaction**. FloatPrompt creates portable .fp.txt files that preserve your context, voice, and methodology. Upload to any AI platform and instantly restore your collaboration without starting over.
 
 ### **Core Problems FloatPrompt Solves**
 
-- **Session Loss**: You had a productive AI session on Monday working on a report, but by Friday you have to waste 30 minutes re-explaining the whole project just to continue where you left off
-- **Platform Lock-in**: You spend 2 hours getting ChatGPT to understand your project perfectly, then want to try Claude but would have to explain everything again from scratch  
+- **Knowledge Extraction & Preservation**: You have valuable human intelligence trapped in transcripts, meeting notes, interviews, and raw content. You want AI to help organize and repackage this knowledge, but AI typically dissolves the authentic human voice and thinking patterns into generic summaries, losing the nuanced intelligence that made the original content valuable
 - **Voice Flattening**: You want AI to summarize your valuable knowledge, but the output is riddled with em dashes, robotic corporate tone, and generic phrasing that completely erases how you actually think and communicate
 - **Context Chaos**: You spend hours researching and working through complex ideas with AI across multiple conversations, making real progress, but then face an impossible choice: either dig through endless conversation threads to find that one brilliant insight from last week, or keep adding to an already-overwhelming conversation
+- **Session Loss**: You had a productive AI session on Monday working on a report, but by Friday you have to waste 30 minutes re-explaining the whole project just to continue where you left off
+- **Platform Lock-in**: You spend 2 hours getting ChatGPT to understand your project perfectly, then want to try Claude but would have to explain everything again from scratch
 - **Breakthrough Loss**: You sometimes get ChatGPT to function perfectly after a long series of trial-and-error prompts, finding that sweet spot where it finally "gets" what you want. But when you start a new session, you can't reliably recreate that magic
 
 ### **The Method**
