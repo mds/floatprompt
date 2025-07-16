@@ -2,7 +2,7 @@
 
 **The invisible OS for AI**
 
-A human intelligence preservation protocol by [@mds](https://mds.is) | © 2025 Studio MDS, LLC
+A human intelligence preservation protocol
 
 ## 🎯 **What is FloatPrompt?**
 
@@ -32,6 +32,23 @@ This creates portable intelligence that travels with your work across any AI sys
 ### **Current Status**
 
 *Development build system operational*
+
+## 🚀 **Quick Start**
+
+**See FloatPrompt in Action:**
+
+1. **Voice Extraction Examples**: See how FloatPrompt extracts and preserves authentic voice patterns from raw content
+   - [Voice Guide Foundation](dev/voice%20lab/mds-voice-guide/mds-voice-guide-foundation.md) - Core voice preservation methodology
+   - [Cognitive Patterns](dev/voice%20lab/extracted%20voice%20summaries/mds-voice-cognitive-patterns.txt) - Extracted thinking patterns
+   - [Language Profile](dev/voice%20lab/extracted%20voice%20summaries/mds-voice-language-profile.txt) - Voice fingerprint analysis
+
+2. **Knowledge Organization**: Explore how raw intelligence becomes structured, reusable documents
+   - [Teaching Voice Calibration](dev/voice%20lab/extracted%20voice%20summaries/mds-teaching-voice-calibration.md) - Educational content processing
+   - [Micro-Patterns](dev/voice%20lab/extracted%20voice%20summaries/mds-voice-micro-patterns.txt) - Detailed pattern extraction
+
+3. **Try It Yourself**: Upload any .fp.txt file to ChatGPT, Claude, or your preferred AI platform and experience enhanced collaboration with preserved context and voice
+
+[Browse all examples →](dev/voice%20lab/)
 
 ## 🚀 **How It Works**
 
@@ -88,13 +105,15 @@ FloatPrompt functions as both a practical tool and portable protocol:
 
 This dual nature makes FloatPrompt universally compatible while keeping human thinking valuable.
 
-## 🛡️ **Development & Protection**
+## 🛡️ **Open Source & Protection**
 
-**Trademark**: FloatPrompt™ application in progress  
-**Status**: Private development with selected preview access  
-**Launch**: Planned for 2025
+**Open Source**: FloatPrompt is fully open source - all code, specifications, and documentation are freely available for use, contribution, and exploration
 
-This represents foundational work in human-AI collaboration infrastructure. Early access is limited to trusted partners and collaborators.
+**Trademark**: FloatPrompt™ name protection in progress to prevent ecosystem confusion
+
+**Status**: Active development, all contributions welcome
+
+This represents foundational work in human-AI collaboration infrastructure. The system is open for exploration, contribution, and use.
 
 <!-- BUILD_METADATA
 Version: 0.0.12-alpha  
