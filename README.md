@@ -6,17 +6,17 @@ A human intelligence preservation protocol by [@mds](https://mds.is) | © 2025 S
 
 ## 🎯 **What is FloatPrompt?**
 
-FloatPrompt solves the fundamental frustration of AI collaboration: you finally get ChatGPT working perfectly, then lose all that progress when you start a new session or switch platforms.
+FloatPrompt solves the fundamental frustration of AI collaboration. You finally get ChatGPT working perfectly, then lose all that progress when you start a new session or switch platforms.
 
 Think **File → Save As for AI interaction**. FloatPrompt creates portable .fp.txt files that preserve your context, voice, and methodology. Upload to any AI platform and instantly restore your collaboration without starting over.
 
 ### **Core Problems FloatPrompt Solves**
 
-- **Session Loss**: Spend 2 hours getting AI perfect, then waste 30 minutes re-explaining everything next week
-- **Platform Lock-in**: Perfect ChatGPT setup can't transfer to Claude without starting from scratch  
-- **Voice Flattening**: AI turns your authentic thinking into generic corporate-speak
-- **Context Chaos**: Valuable AI conversations scattered across platforms, impossible to find or reuse
-- **Breakthrough Loss**: Finally achieve perfect AI collaboration but can't reliably recreate it
+- **Session Loss**: You had a productive AI session on Monday working on a report, but by Friday you have to waste 30 minutes re-explaining the whole project just to continue where you left off
+- **Platform Lock-in**: You spend 2 hours getting ChatGPT to understand your project perfectly, then want to try Claude but would have to explain everything again from scratch  
+- **Voice Flattening**: You want AI to summarize your valuable knowledge, but the output is riddled with em dashes, robotic corporate tone, and generic phrasing that completely erases how you actually think and communicate
+- **Context Chaos**: You spend hours researching and working through complex ideas with AI across multiple conversations, making real progress, but then face an impossible choice: either dig through endless conversation threads to find that one brilliant insight from last week, or keep adding to an already-overwhelming conversation
+- **Breakthrough Loss**: You sometimes get ChatGPT to function perfectly after a long series of trial-and-error prompts, finding that sweet spot where it finally "gets" what you want. But when you start a new session, you can't reliably recreate that magic
 
 ### **The Method**
 
@@ -36,9 +36,9 @@ This creates portable intelligence that travels with your work across any AI sys
 
 FloatPrompt transforms AI collaboration from fragile, platform-locked conversations into portable, reusable intelligence:
 
-**Before FloatPrompt**: "I had this amazing conversation with ChatGPT last month but I can't find it, and now I need to explain everything again..."
+**Before FloatPrompt**: "I had this amazing conversation with ChatGPT last month where we solved my complex project issue, but I can't find it anywhere, and now I need to explain everything again from scratch..."
 
-**With FloatPrompt**: Upload your .fp.txt file → AI instantly understands your project, voice, and methodology → Continue exactly where you left off
+**With FloatPrompt**: Upload your .fp.txt file → AI instantly understands your project, methodology, and thinking style → Continue exactly where you left off with zero setup time
 
 ### **Key Capabilities**
 
@@ -48,6 +48,14 @@ FloatPrompt transforms AI collaboration from fragile, platform-locked conversati
 - **Knowledge Management**: Package weeks of AI collaboration into clean, reusable files
 - **Team Sharing**: Send your refined AI context to teammates for instant collaboration
 - **Breakthrough Recreation**: Reliably reproduce your best AI interactions every time
+
+### **Under the Hood**
+- **Structured Intelligence Protocol**: JSON-based behavioral specifications that work across any AI system
+- **Archaeological Extraction**: Preserves authentic human thinking patterns without AI rewriting
+- **Cross-Platform Portability**: Plain text files with sophisticated behavioral architecture
+- **Zero Dependencies**: Works everywhere, requires nothing, owns your data
+
+Built on the Map → Decide → Structure methodology with comprehensive schema validation.
 
 ### **Discovery Insights**
 
