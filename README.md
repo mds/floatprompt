@@ -4,78 +4,80 @@
 
 A human intelligence preservation protocol by [@mds](https://mds.is) | © 2025 Studio MDS, LLC
 
----
-
 ## 🎯 **What is FloatPrompt?**
 
-FloatPrompt is the invisible operating system that preserves your cognitive fingerprint in AI collaboration. It's a portable protocol that ensures your voice, intent, and thinking patterns remain intact across any AI system—from ChatGPT to Claude to enterprise platforms to systems not yet built.
+FloatPrompt solves the fundamental frustration of AI collaboration: you finally get ChatGPT working perfectly, then lose all that progress when you start a new session or switch platforms.
 
-Think of it as **infrastructure for human intelligence** that travels with your work, prevents cognitive flattening, and enables systematic collaboration while keeping you authentically human.
+Think **File → Save As for AI interaction**. FloatPrompt creates portable .fp.txt files that preserve your context, voice, and methodology. Upload to any AI platform and instantly restore your collaboration without starting over.
+
+### **Core Problems FloatPrompt Solves**
+
+- **Session Loss**: Spend 2 hours getting AI perfect, then waste 30 minutes re-explaining everything next week
+- **Platform Lock-in**: Perfect ChatGPT setup can't transfer to Claude without starting from scratch  
+- **Voice Flattening**: AI turns your authentic thinking into generic corporate-speak
+- **Context Chaos**: Valuable AI conversations scattered across platforms, impossible to find or reuse
+- **Breakthrough Loss**: Finally achieve perfect AI collaboration but can't reliably recreate it
 
 ### **The Method**
 
-Built on the **Map → Decide → Structure** methodology, FloatPrompt transforms how complex thinking gets preserved and executed:
+Built on the **Map → Decide → Structure** methodology:
 
 - **Map**: Surface the full terrain of your intent and context
 - **Decide**: Choose what matters most without losing nuance  
 - **Structure**: Organize for systematic AI execution while preserving your voice
 
-This isn't just better prompting, it's cognitive architecture that scales human intelligence.
+This creates portable intelligence that travels with your work across any AI system.
 
 ### **Current Status**
 
 *Development build system operational*
 
----
+## 🚀 **How It Works**
 
-## 🚀 **Why This Matters**
+FloatPrompt transforms AI collaboration from fragile, platform-locked conversations into portable, reusable intelligence:
 
-AI collaboration today flattens human intelligence into generic prompts. Complex thinking becomes oversimplified requests. Your cognitive fingerprint—the very thing that makes collaboration valuable—disappears in the noise.
+**Before FloatPrompt**: "I had this amazing conversation with ChatGPT last month but I can't find it, and now I need to explain everything again..."
 
-FloatPrompt solves fundamental problems by putting **human intelligence preservation first**:
+**With FloatPrompt**: Upload your .fp.txt file → AI instantly understands your project, voice, and methodology → Continue exactly where you left off
 
-- **Voice Preservation**: Your thinking patterns, style, and expertise remain intact
-- **Cognitive Portability**: Your intelligence travels across any AI system
-- **Systematic Execution**: AI follows your cognitive architecture precisely
-- **Constitutional Safety**: Built-in protections that enhance human agency
-- **Measurable Efficiency**: Real cognitive load reduction and context optimization
+### **Key Capabilities**
 
-Whether you're using ChatGPT for daily thinking, building AI applications, or implementing enterprise systems, FloatPrompt changes the relationship from "human prompts AI" to "human and AI execute jointly."
+- **Cross-Platform Intelligence**: Perfect ChatGPT session transfers instantly to Claude, Anthropic, or any AI
+- **Session Continuation**: Pick up exactly where you stopped, days or weeks later
+- **Voice Preservation**: Maintain your authentic thinking style instead of generic AI-speak
+- **Knowledge Management**: Package weeks of AI collaboration into clean, reusable files
+- **Team Sharing**: Send your refined AI context to teammates for instant collaboration
+- **Breakthrough Recreation**: Reliably reproduce your best AI interactions every time
 
 ### **Discovery Insights**
 
 Early analysis shows FloatPrompt enables:
-- **4.7:1 information compression** while maintaining complete strategic understanding
-- **90% reduction** in context reconstruction overhead
-- **Persistent cognitive scaffolding** that works across sessions and platforms
+- Significant information compression while maintaining complete strategic understanding
+- Dramatic reduction in context reconstruction overhead
+- Persistent cognitive scaffolding that works across sessions and platforms
 
-This isn't incremental improvement, it's structured intelligence collaboration.
-
----
+This isn't incremental improvement—it's portable intelligence collaboration.
 
 ## 🛡️ **Safety-First Design**
 
-FloatPrompt was built with constitutional principles that ensure AI collaboration never compromises human well-being, agency, or control. Every protection serves human empowerment:
+FloatPrompt preserves human agency in AI collaboration:
 
-- **Human oversight** for high-risk outputs
-- **Explicit consent** for sensitive domains  
+- **Human oversight** for important decisions
 - **Voice preservation** protections against cognitive flattening
-- **Audit trails** for regulatory compliance
+- **Quality control** to prevent polished-but-wrong outputs
 - **Agency amplification** rather than replacement
 
----
+Your intelligence stays authentically yours.
 
 ## 🌊 **Protocol Philosophy**
 
-FloatPrompt functions as both an invisible operating system upgrade for AI and a portable protocol for human intelligence:
+FloatPrompt functions as both a practical tool and portable protocol:
 
-**As Invisible OS**: Upload a FloatPrompt file → activate strategic consultation mode with significant capability improvements across any AI system
+**As Practical Tool**: Upload a .fp.txt file → activate enhanced AI collaboration with your preserved context and voice
 
-**As Protocol**: Joint execution contract where Human Intelligence declares intent and voice while Artificial Intelligence structures and organizes, creating verifiable proof of collaborative thinking
+**As Protocol**: Joint execution contract where you declare intent and voice while AI structures and organizes, creating verifiable collaborative thinking
 
-This dual nature makes FloatPrompt universally compatible while preserving what makes human thinking valuable.
-
----
+This dual nature makes FloatPrompt universally compatible while keeping human thinking valuable.
 
 ## 🛡️ **Development & Protection**
 
