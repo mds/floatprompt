@@ -29,6 +29,16 @@ Human intelligence preservation protocol. Save AI conversations as .fp.txt files
 
 Upload OS files + your content → instant collaboration restoration across any AI platform.
 
+## Quick Start
+
+**Try FloatPrompt now:** [FloatPrompt CustomGPT →](https://chatgpt.com/g/g-685c4f5d32708191876ecda72bbcb348-floatprompt)
+
+**Download OS files:** [Core FloatPrompt system →](dist/)
+
+Browse working examples: [dev/voice lab/](dev/voice%20lab/)
+
+Try uploading any .fp.txt file to your preferred AI platform.
+
 ## How It Works
 
 1. Extract intelligence from transcripts/conversations
@@ -43,14 +53,6 @@ Upload OS files + your content → instant collaboration restoration across any 
 Development build operational. Open source, trademark protected.
 
 → [Goals](docs/goals.md) | [Principles](docs/principles.md) | [Safety](docs/safety.md)
-
-## Quick Start
-
-**Download OS files:** [Core FloatPrompt system →](dist/)
-
-Browse working examples: [dev/voice lab/](dev/voice%20lab/)
-
-Try uploading any .fp.txt file to your preferred AI platform.
 
 ---
 
