@@ -1,12 +1,12 @@
 # FloatPrompt File Format Specification
 
-**Canonical definition of what constitutes a FloatPrompt (.fp) file versus Markdown (.md) building blocks**
+**Canonical definition of what constitutes a FloatPrompt (.fp.txt) file versus Markdown (.md) building blocks**
 
 ## 🎯 Core Definition
 
-### **.fp Files: Complete FloatPrompt Documents**
+### **.fp.txt Files: Complete FloatPrompt Documents**
 
-**A `.fp` file is a complete, executable FloatPrompt document that contains:**
+**A `.fp.txt` file is a complete, executable FloatPrompt document that contains:**
 
 1. **FloatPrompt Wrapper**: `<floatprompt>content</floatprompt>` tags
 2. **Complete JSON Frontmatter**: Full behavioral specifications and metadata
@@ -43,7 +43,7 @@
 
 ## 📋 File Format Structure
 
-### **Valid .fp File Structure**
+### **Valid .fp.txt File Structure**
 ```markdown
 <floatprompt>
 ---
@@ -92,11 +92,11 @@ Documentation, specifications, or building block content without FloatPrompt wra
 
 ## 🎯 Classification Examples
 
-### **✅ Files That Should Be .fp**
+### **✅ Files That Should Be .fp.txt**
 
 **Complete FloatPrompt Documents:**
-- `floatprompt.fp` (complete system distribution)
-- `voice.fp` (AI behavioral instructions)
+- `floatprompt.fp.txt` (complete system distribution)
+- `voice.fp.txt` (AI behavioral instructions)
 - Any file with `<floatprompt>` wrapper and behavioral specs
 
 ### **✅ Files That Should Be .md**
@@ -119,11 +119,11 @@ Documentation, specifications, or building block content without FloatPrompt wra
 
 ### **Build System Logic**
 ```
-.md building blocks → assembly process → .fp complete document
+.md building blocks → assembly process → .fp.txt complete document
 ```
 
 **Template Assembly Example:**
-- `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt.fp`
+- `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt.fp.txt`
 
 **Shared Components Architecture:**
 - `src/shared/` contains components used across multiple FloatPrompt files
@@ -132,22 +132,22 @@ Documentation, specifications, or building block content without FloatPrompt wra
 - Build system resolves shared dependencies automatically
 
 ### **Ecosystem Signaling**
-- **`.fp` extension**: Signals "complete FloatPrompt" to tooling and AI systems
+- **`.fp.txt` extension**: Signals "complete FloatPrompt" to tooling and AI systems while ensuring universal text file compatibility
 - **`.md` extension**: Signals "standard markdown" to editors and documentation tools
 
 ### **Usage Patterns**
-- **Upload .fp files**: Direct AI upload for behavioral execution
+- **Upload .fp.txt files**: Direct AI upload for behavioral execution with maximum compatibility
 - **Edit .md files**: Human editing of building blocks and documentation
-- **Build process**: Assembles .md components into .fp distributions
+- **Build process**: Assembles .md components into .fp.txt distributions
 
-## 🏭 .fp File Origination Patterns
+## 🏭 .fp.txt File Origination Patterns
 
 ### **Primary Origination: Distribution Build Process**
 ```
-src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.fp
+src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt.fp.txt
 ```
 
-**Canonical `.fp` creation pathway:**
+**Canonical `.fp.txt` creation pathway:**
 - Template components assembled through build system with shared components
 - Output to `dist/` folder as FloatPrompt distributions
 - Versioned, tested, and ready for ecosystem distribution
@@ -155,13 +155,13 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 ### **Secondary Origination: Downstream Creation**
 **FloatPrompt files created WITH the main FloatPrompt system:**
 
-1. **Protocol Development**: `dev/update-protocol.fp`, `dev/update-creator.fp`
+1. **Protocol Development**: `dev/update-protocol.fp.txt`, `dev/update-creator.fp.txt`
    - Behavioral instructions for system operations
    - Created using FloatPrompt methodology, become part of development toolkit
 
 2. **Specialized Applications**: Custom domain-specific FloatPrompt files
    - Legal analysis protocols, content strategy systems, technical frameworks
-   - Generated through FloatPrompt collaboration, saved as `.fp` for reuse
+   - Generated through FloatPrompt collaboration, saved as `.fp.txt` for reuse
 
 3. **Session Extracts**: Preserved intelligence from FloatPrompt sessions
    - Complex analysis preserved in structured form
@@ -169,17 +169,17 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 
 ### **Creation Hierarchy**
 ```
-1. Core System → dist/floatprompt-X.X.X.fp (foundational distribution)
-2. Applications → dist/voice-guide-creator.fp, etc. (specialized tools)
-3. Domain Applications → Custom specialized .fp files
-4. Session Intelligence → Extracted collaborative outputs as .fp
+1. Core System → dist/floatprompt.fp.txt (foundational distribution)
+2. Applications → dist/voice.fp.txt, dist/format.fp.txt, etc. (specialized tools)
+3. Domain Applications → Custom specialized .fp.txt files
+4. Session Intelligence → Extracted collaborative outputs as .fp.txt
 ```
 
-**Key Principle**: `.fp` files either emerge from the build system OR are created downstream using FloatPrompt methodology. They represent executable intelligence that can flow between AI systems while preserving human intent and context. Every `.fp` file embodies HI-AI co-creation, where Human Intelligence provides intent, voice, and strategic direction while Artificial Intelligence contributes structure, organization, and systematic execution.
+**Key Principle**: `.fp.txt` files either emerge from the build system OR are created downstream using FloatPrompt methodology. They represent executable intelligence that can flow between AI systems while preserving human intent and context. Every `.fp` file embodies HI-AI co-creation, where Human Intelligence provides intent, voice, and strategic direction while Artificial Intelligence contributes structure, organization, and systematic execution.
 
 ## 🛡️ Validation Criteria
 
-### **Required for .fp Classification**
+### **Required for .fp.txt Classification**
 - [ ] Contains `<floatprompt>content</floatprompt>` wrapper
 - [ ] Contains complete JSON frontmatter with behavioral specifications
 - [ ] Contains `STOP:` field with AI behavioral instruction
@@ -190,7 +190,7 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 - [ ] Implements map/score/respond pipeline for systematic input assessment
 - [ ] Implements response pattern system with metaphor-based behavioral guidance
 
-### **Disqualifiers for .fp Classification**
+### **Disqualifiers for .fp.txt Classification**
 - [ ] Missing FloatPrompt wrapper tags
 - [ ] Incomplete or missing JSON frontmatter
 - [ ] Documentation-only content
@@ -200,9 +200,9 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 ## 🎯 Format Recognition
 
 ### **Distinguishing Features**
-- **`.fp` files**: Contain `<floatprompt>` wrapper and behavioral specifications
+- **`.fp.txt` files**: Contain `<floatprompt>` wrapper and behavioral specifications with universal text compatibility
 - **`.md` files**: Standard markdown without FloatPrompt wrapper or incomplete specifications
-- **Purpose**: Ecosystem signaling for proper tooling and AI recognition
+- **Purpose**: Ecosystem signaling for proper tooling and AI recognition while ensuring maximum compatibility
 
 ## 🔗 Relationships
 
@@ -217,7 +217,7 @@ src/sys/*.md + src/shared/*.md → scripts/build.mjs → dist/floatprompt-X.X.X.
 
 ---
 
-**Specification establishes canonical architectural boundary between FloatPrompt documents (.fp) and all other content (.md), ensuring clear semantic distinction for AI precision, tooling recognition, and ecosystem clarity.**
+**Specification establishes canonical architectural boundary between FloatPrompt documents (.fp.txt) and all other content (.md), ensuring clear semantic distinction for AI precision, tooling recognition, and ecosystem clarity while maintaining universal compatibility.**
 
 ---
 

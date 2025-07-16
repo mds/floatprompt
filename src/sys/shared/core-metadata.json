@@ -1,0 +1,18 @@
+{
+  "_comment": "FloatPrompt Core Metadata Fields - Essential document identity and execution control",
+  "_source": "atomic component extracted from header.yaml - converted to JSON",
+  "STOP": "{{STOP_DIRECTIVE}}",
+  "title": "{{TITLE}}",
+  "id": "{{ID}}",
+  "version": "{{VERSION}}",
+  "created": "{{BUILD_DATE}}",
+  "modified": "{{BUILD_DATE}}",
+  "author": "{{AUTHOR}}",
+  "format": "floatprompt",
+  "filetype": "fp",
+  "type": "{{TYPE}}",
+  "system_version": "floatprompt v{{VERSION}}",
+  "contributors": ["{{CONTRIBUTORS}}"],
+  "friction_pipeline": ["map_content", "decide_score", "structure_response"],
+  "preservation_flags": ["voice", "archaeological", "lineage"]
+} 

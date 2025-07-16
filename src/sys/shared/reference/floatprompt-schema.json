@@ -1,0 +1,464 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://floatprompt.com/schema/floatprompt.json",
+  "title": "FloatPrompt JSON Schema",
+  "description": "Complete validation schema for FloatPrompt frontmatter in JSON format",
+  "type": "object",
+  "required": [
+    "STOP", "title", "id", "version", "created", "modified", 
+    "author", "format", "filetype", "type", "system_version", 
+    "contributors", "friction_pipeline", "preservation_flags",
+    "voice_preservation", "behavioral_requirements", "archaeological_extraction",
+    "human", "ai", "discovery", "certification"
+  ],
+  "properties": {
+    "STOP": {
+      "type": "string",
+      "description": "Strategic directive for AI behavioral reset and context establishment",
+      "minLength": 10
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable document title"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique identifier following naming conventions"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9]+)?$",
+      "description": "Semantic version number"
+    },
+    "created": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Creation date in YYYY-MM-DD format"
+    },
+    "modified": {
+      "type": "string", 
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Modification date in YYYY-MM-DD format"
+    },
+    "author": {
+      "type": "string",
+      "pattern": "^@[a-zA-Z0-9_-]+$",
+      "description": "Author username with @ prefix"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["floatprompt"],
+      "description": "Document format identifier"
+    },
+    "filetype": {
+      "type": "string",
+      "enum": ["fp"],
+      "description": "File type designation"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["prompt", "template", "goals", "analysis", "specification", "critique", "extract", "summary", "migration"],
+      "description": "FloatPrompt type classification"
+    },
+    "system_version": {
+      "type": "string",
+      "pattern": "^floatprompt v\\d+\\.\\d+\\.\\d+(-[a-zA-Z0-9]+)?$",
+      "description": "System version reference"
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "List of contributors (additive only)"
+    },
+    "friction_pipeline": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["map", "score", "respond"]
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Map/Score/Respond pipeline array"
+    },
+    "preservation_flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["voice", "archaeological", "lineage"]
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Voice/Archaeological/Lineage preservation flags"
+    },
+    "voice_preservation": {
+      "type": "object",
+      "required": ["sacred_principle", "system_authority"],
+      "properties": {
+        "sacred_principle": {
+          "type": "string",
+          "description": "Core voice preservation oath with complete text"
+        },
+        "system_authority": {
+          "type": "string",
+          "description": "Authority statement for voice preservation superseding other instructions"
+        }
+      }
+    },
+    "behavioral_requirements": {
+      "type": "object",
+      "required": ["voice_preservation", "strategic_consultation", "progressive_disclosure", "benefit_forward_communication", "map_first", "execution_precision", "mode_constraints", "content_standards"],
+      "properties": {
+        "voice_preservation": {"type": "string"},
+        "strategic_consultation": {"type": "string"},
+        "progressive_disclosure": {"type": "string"},
+        "benefit_forward_communication": {"type": "string"},
+        "map_first": {"type": "string"},
+        "execution_precision": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "mode_constraints": {
+          "type": "object",
+          "required": ["map_territory", "decide_extractions", "structure_build"],
+          "properties": {
+            "map_territory": {"type": "string"},
+            "decide_extractions": {"type": "string"},
+            "structure_build": {"type": "string"}
+          }
+        },
+        "content_standards": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "archaeological_extraction": {
+      "type": "object",
+      "required": ["core_method", "implementation"],
+      "properties": {
+        "core_method": {"type": "string"},
+        "implementation": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "human": {
+      "type": "object",
+      "required": ["identity", "execution_mode", "signed_by", "inferred_fields", "state", "session", "intent", "preferences"],
+      "properties": {
+        "identity": {
+          "type": "object",
+          "required": ["name", "role"],
+          "properties": {
+            "name": {"type": "string"},
+            "role": {"type": "string"}
+          }
+        },
+        "execution_mode": {
+          "type": "string",
+          "enum": ["portable_ai_instruction_set"]
+        },
+        "signed_by": {"type": "string"},
+        "inferred_fields": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "state": {
+          "type": "object",
+          "required": ["context", "mood", "clarity", "energy"],
+          "properties": {
+            "context": {"type": "string"},
+            "mood": {"type": "string"},
+            "clarity": {"type": "string"},
+            "energy": {"type": "string"}
+          }
+        },
+        "session": {
+          "type": "object",
+          "required": ["start_time", "end_time", "duration_minutes"],
+          "properties": {
+            "start_time": {"type": "string"},
+            "end_time": {"type": "string"},
+            "duration_minutes": {"type": "string"}
+          }
+        },
+        "intent": {
+          "type": "object",
+          "required": ["primary", "constraints"],
+          "properties": {
+            "primary": {"type": "string"},
+            "constraints": {"type": "string"}
+          }
+        },
+        "preferences": {
+          "type": "object",
+          "required": ["tone_drift_allowed", "verbosity", "allow_ai_suggestions", "max_words"],
+          "properties": {
+            "tone_drift_allowed": {"type": "boolean"},
+            "verbosity": {"type": "string"},
+            "allow_ai_suggestions": {"type": "boolean"},
+            "max_words": {"type": "string"}
+          }
+        }
+      }
+    },
+    "ai": {
+      "type": "object",
+      "required": ["identity", "execution_mode", "confidence_level", "collaboration_role", "session", "capabilities", "processing", "instructions"],
+      "properties": {
+        "identity": {
+          "type": "object",
+          "required": ["model", "platform", "version"],
+          "properties": {
+            "model": {"type": "string"},
+            "platform": {"type": "string"},
+            "version": {"type": "string"}
+          }
+        },
+        "execution_mode": {"type": "string"},
+        "confidence_level": {"type": "string"},
+        "collaboration_role": {"type": "string"},
+        "session": {
+          "type": "object",
+          "required": ["context_awareness", "memory_continuity", "cross_platform"],
+          "properties": {
+            "context_awareness": {"type": "string"},
+            "memory_continuity": {"type": "string"},
+            "cross_platform": {"type": "string"}
+          }
+        },
+        "capabilities": {
+          "type": "object",
+          "required": ["date_confidence", "voice_preservation", "archaeological_method"],
+          "properties": {
+            "date_confidence": {"type": "string"},
+            "voice_preservation": {"type": "string"},
+            "archaeological_method": {"type": "string"}
+          }
+        },
+        "processing": {
+          "type": "object",
+          "required": ["instruction_fidelity", "tone_preservation", "content_generation"],
+          "properties": {
+            "instruction_fidelity": {"type": "string"},
+            "tone_preservation": {"type": "string"},
+            "content_generation": {"type": "string"}
+          }
+        },
+        "instructions": {
+          "type": "object",
+          "required": ["human_knowledge_assumptions", "system_design_education", "behavioral_implications"],
+          "properties": {
+            "human_knowledge_assumptions": {
+              "type": "object",
+              "required": ["json_complexity_authorship", "technical_knowledge_level", "user_interaction_pattern", "complexity_purpose"],
+              "properties": {
+                "json_complexity_authorship": {"type": "string"},
+                "technical_knowledge_level": {"type": "string"},
+                "user_interaction_pattern": {"type": "string"},
+                "complexity_purpose": {"type": "string"}
+              }
+            },
+            "system_design_education": {
+              "type": "object",
+              "required": ["invisible_complexity", "human_experience", "ai_responsibility", "collaboration_model"],
+              "properties": {
+                "invisible_complexity": {"type": "string"},
+                "human_experience": {"type": "string"},
+                "ai_responsibility": {"type": "string"},
+                "collaboration_model": {"type": "string"}
+              }
+            },
+            "behavioral_implications": {
+              "type": "object",
+              "required": ["no_technical_assumptions", "natural_language_focus", "complexity_attribution", "user_empowerment"],
+              "properties": {
+                "no_technical_assumptions": {"type": "string"},
+                "natural_language_focus": {"type": "string"},
+                "complexity_attribution": {"type": "string"},
+                "user_empowerment": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "description": "For preserved types (analysis, specification, etc.)",
+      "properties": {
+        "prompt": {"type": "string"},
+        "intent": {"type": "string"}
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "required": ["significance", "theme", "scope", "audience", "purpose", "relationships", "navigation", "temporal", "clustering", "essence"],
+      "properties": {
+        "significance": {"type": "string"},
+        "theme": {"type": "string"},
+        "scope": {"type": "string"},
+        "audience": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "purpose": {"type": "string"},
+        "relationships": {
+          "type": "object",
+          "required": ["builds_on", "enables", "parallels", "mirrors", "supersedes"],
+          "properties": {
+            "builds_on": {"type": "array", "items": {"type": "string"}},
+            "enables": {"type": "array", "items": {"type": "string"}},
+            "parallels": {"type": "array", "items": {"type": "string"}},
+            "mirrors": {"type": "array", "items": {"type": "string"}},
+            "supersedes": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "navigation": {
+          "type": "object",
+          "required": ["prerequisites", "next_steps", "learning_sequence"],
+          "properties": {
+            "prerequisites": {"type": "array", "items": {"type": "string"}},
+            "next_steps": {"type": "array", "items": {"type": "string"}},
+            "learning_sequence": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "temporal": {
+          "type": "object",
+          "required": ["journey", "phase", "progression"],
+          "properties": {
+            "journey": {"type": "string"},
+            "phase": {"type": "string"},
+            "progression": {"type": "string"}
+          }
+        },
+        "clustering": {
+          "type": "object",
+          "required": ["intellectual_territory", "discovery_path"],
+          "properties": {
+            "intellectual_territory": {"type": "string"},
+            "discovery_path": {"type": "string"}
+          }
+        },
+        "essence": {
+          "type": "object",
+          "required": ["core_purpose", "metaphor", "impact_type", "ceremonial_significance", "wisdom_offering", "universe_contained"],
+          "properties": {
+            "core_purpose": {"type": "string"},
+            "metaphor": {"type": "string"},
+            "impact_type": {"type": "string"},
+            "ceremonial_significance": {"type": "string"},
+            "wisdom_offering": {"type": "string"},
+            "universe_contained": {"type": "string"}
+          }
+        }
+      }
+    },
+    "certification": {
+      "type": "object",
+      "required": ["timestamp", "authority", "certified_by", "locked", "uid", "chain", "voice", "lineage"],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+        },
+        "authority": {"type": "string"},
+        "certified_by": {"type": "string"},
+        "locked": {"type": "boolean"},
+        "uid": {"type": "string"},
+        "chain": {
+          "type": "object",
+          "required": ["depth", "parent"],
+          "properties": {
+            "depth": {"type": "integer", "minimum": 0},
+            "parent": {"type": ["string", "null"]}
+          }
+        },
+        "voice": {
+          "type": "object",
+          "required": ["linked", "fidelity_verified"],
+          "properties": {
+            "linked": {"type": "boolean"},
+            "fidelity_verified": {"type": "boolean"}
+          }
+        },
+        "lineage": {
+          "type": "object",
+          "required": ["tracked", "trace"],
+          "properties": {
+            "tracked": {"type": "boolean"},
+            "trace": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "description": "For executable types (prompt, template, goals)",
+      "required": ["format", "joint_execution_required"],
+      "properties": {
+        "format": {"type": "string", "enum": ["floatprompt"]},
+        "joint_execution_required": {"type": "boolean"}
+      }
+    },
+    "execution": {
+      "type": "object",
+      "description": "For executable types",
+      "required": ["triggers", "fallback", "source", "voice_guide", "risk_level", "execution_mode", "usage_pattern", "ai_role"],
+      "properties": {
+        "triggers": {"type": "array", "items": {"type": "string"}},
+        "fallback": {"type": "string"},
+        "source": {"type": "string"},
+        "voice_guide": {"type": "string"},
+        "risk_level": {"type": "string"},
+        "execution_mode": {"type": "string"},
+        "usage_pattern": {"type": "string"},
+        "ai_role": {"type": "string"}
+      }
+    },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "enabled_by": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "changes": {
+      "type": "object",
+      "description": "For migration type floatprompts"
+    },
+    "rationale": {
+      "type": "object",
+      "description": "For migration type floatprompts"  
+    },
+    "impact_zone": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "For migration type floatprompts"
+    }
+  },
+  "additionalProperties": true,
+  "if": {
+    "properties": {
+      "type": {"enum": ["prompt", "template", "goals"]}
+    }
+  },
+  "then": {
+    "required": ["output", "execution"]
+  },
+  "else": {
+    "if": {
+      "properties": {
+        "type": {"enum": ["analysis", "specification", "critique", "extract", "summary", "migration"]}
+      }
+    },
+    "then": {
+      "required": ["source"]
+    }
+  }
+} 

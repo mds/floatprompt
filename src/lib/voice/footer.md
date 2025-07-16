@@ -1,0 +1,3 @@
+---
+<!-- INJECT: footer.md -->
+</floatprompt>

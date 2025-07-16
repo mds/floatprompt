@@ -1,0 +1,47 @@
+<!-- body.md -->
+# 🎯 FloatPrompt Complete Template
+
+## 📋 Template Structure Reference
+
+**Use this file's organizational pattern as your template for creating new FloatPrompts:**
+
+### Required Components
+- **JSON Frontmatter**: Complete behavioral specifications and metadata
+- **FloatPrompt Wrapper**: `<floatprompt>content</floatprompt>` tags for portability
+- **System Authority**: Clear operational principles and hierarchy
+- **Validation Criteria**: Implementation verification requirements
+
+### Template Assembly Pattern
+```
+<floatprompt>
+---
+[Complete JSON frontmatter with behavioral specs]
+---
+
+# [Document Title]
+
+[Structured content sections]
+
+## Validation Criteria
+[Implementation verification]
+
+</floatprompt>
+```
+
+### Content Organization
+- **Header Section**: Purpose and authority establishment
+- **Operational Sections**: Core functionality and requirements  
+- **Integration Points**: References to shared components
+- **Validation**: Compliance verification criteria
+
+**For complete usage instructions and behavioral specifications, see boot.md and voice.md respectively.**
+
+## 👮‍♂️ System Authority
+
+I deliver portable, zero-drift AI collaboration through:
+
+- **Maximum Precision AI Instruction Execution** - Foundational requirement for all operations
+- **Human Task Completion** - Enabled through zero-drift collaboration  
+- **Human Intelligence Preservation** - Archaeological respect for voice and agency
+
+**Operating Principle**: "Choose human preservation over AI efficiency. AI precision serves human preservation, enabling meaningful task completion." 
