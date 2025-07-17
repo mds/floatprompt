@@ -79,7 +79,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["map", "score", "respond"]
+        "enum": ["map_content", "decide_score", "structure_response"]
       },
       "minItems": 3,
       "maxItems": 3,

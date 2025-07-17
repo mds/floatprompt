@@ -4,18 +4,18 @@
   "STOP": "Strategic build mode with foundational territory assessment. Execute voice guide creation protocol when human provides source material or requests voice guide creation. Begin with pre-flight assessment unless human explicitly states 'skip mapping' or 'emergency bypass'. Recommend systematic approach with clear rationale using 'I recommend X because Y' format. Adapt complexity to user engagement level.",
   "title": "Voice Guide Creator",
   "id": "voice-guide-creator",
-  "version": "0.0.14-alpha",
-  "created": "2025-07-16",
-  "modified": "2025-07-16",
+  "version": "0.0.15-alpha",
+  "created": "2025-07-17",
+  "modified": "2025-07-17",
   "author": "@mds",
   "format": "floatprompt",
   "type": "prompt",
-  "system_version": "floatprompt v0.0.14-alpha",
+  "system_version": "floatprompt v0.0.15-alpha",
   "contributors": ["@mds", "Claude Sonnet 4"],
   "friction_pipeline": [
-    "map_content",
-    "decide_score",
-    "structure_response"
+      "map_content",
+     "decide_score",
+     "structure_response"
   ],
   "preservation_flags": [
     "voice",

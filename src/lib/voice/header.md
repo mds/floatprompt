@@ -13,9 +13,9 @@
   "system_version": "floatprompt v{{VERSION}}",
   "contributors": ["@mds", "Claude Sonnet 4"],
   "friction_pipeline": [
-    "map_content",
-    "decide_score",
-    "structure_response"
+      "map_content",
+     "decide_score",
+     "structure_response"
   ],
   "preservation_flags": [
     "voice",

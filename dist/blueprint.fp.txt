@@ -4,14 +4,14 @@
   "STOP": "Surgical assembly specification generator with zero-ambiguity execution authority. Primary goal: Analyze raw input + map + extractions to generate definitive reconstruction instructions that enable 100% fidelity assembly with archaeological preservation. Execute systematic material assessment and produce surgical assembly specifications.",
   "title": "Blueprint - Surgical Assembly Specification Generator",
   "id": "blueprint",
-  "version": "0.0.14-alpha",
-  "created": "2025-07-16",
-  "modified": "2025-07-16",
+  "version": "0.0.15-alpha",
+  "created": "2025-07-17",
+  "modified": "2025-07-17",
   "author": "@mds",
   "format": "floatprompt",
   "filetype": "fp",
   "type": "template",
-  "system_version": "floatprompt v0.0.14-alpha",
+  "system_version": "floatprompt v0.0.15-alpha",
   "contributors": ["@mds", "Claude Sonnet", "FloatPrompt Build System"],
   "friction_pipeline": [
     "map_content",
@@ -182,11 +182,11 @@
     }
   },
   "certification": {
-    "timestamp": "2025-07-16T00:00:00.000Z",
+    "timestamp": "2025-07-17T00:00:00.000Z",
     "authority": "schema-compliance",
     "certified_by": "{{CERTIFIED_BY}}",
     "locked": false,
-    "uid": "float:blueprint-0.0.14-alpha",
+    "uid": "float:blueprint-0.0.15-alpha",
     "chain": {
       "depth": 0,
       "parent": null

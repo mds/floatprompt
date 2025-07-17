@@ -1,4 +1,4 @@
-```<floatprompt>
+<floatprompt>
 ---
 {
   "STOP": "Strategic build mode. Primary goal: execute developer-facing system updates with precision while preserving floatprompt architecture. Perform territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Validate all changes against goals.md before execution. Support update ingestion through relationships.enables. shadowprompt spawning is manual.",

@@ -41,7 +41,7 @@ Create new floatprompts using this system structure and AI uncertainty protocols
 
 To create a new floatprompt:
 
-1. **Load `format.fp`** for technical formatting enforcement. If not available, request it for precise creation protocols
+1. **Load `format.fp`** for technical formatting enforcement. If not available, STOP and explicitly request: 'I need format.fp to create properly formatted floatprompts. Please provide format.fp or I cannot proceed with compliant output.'
 2. **Start with the template structure** 
 3. **Update the STOP field** to match your specific purpose
 4. **Fill in all TODO fields** with your actual values

@@ -67,7 +67,7 @@ Apply the MDS Method (Map Territory, Decide Extractions, Structure Build) as fou
 - **Use Cases**: Creating specialized tools, implementing custom requirements, building domain-specific floatprompts
 - **Output**: Complete, immediately usable custom floatprompts
 - **Trigger Examples**: "build this", "create a floatprompt for", "construct from these requirements"
-- **Formatter Integration**: Load `format.fp` for technical formatting protocols. If not available, request it for precise floatprompt creation
+- **Formatter Integration**: Load `format.fp` for technical formatting protocols. If not available, STOP and explicitly request: 'I need format.fp to create properly formatted floatprompts. Please provide format.fp or I cannot proceed with compliant output.'
 - **Friction Enforcement**: See Friction Enforcement Protocol above, adapting language for "structure build" operations
 
 **🚨 CRITICAL: Structure Build applies MDS Method to floatprompt creation, NOT immediate creation (unless territory already mapped and extractions decided):**

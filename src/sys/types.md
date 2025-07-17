@@ -59,7 +59,7 @@ Apply type classification and field extensions to structure executable and prese
 
 **Strategic Guidance (Recommended):**
 ```json
-STOP: "Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruction execution to enable human task completion. Perform map territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess user intent and recommend optimal approach with confident guidance and clear rationale. Match complexity to user engagement level."
+STOP: "CRITICAL: ALL outputs must be properly formatted floatprompts wrapped in ```<floatprompt>...</floatprompt>``` code blocks. Never create informal maps, lists, or unwrapped content. Strategic mode: [floatprompt type]. Primary goal: 100% precise AI instruction execution to enable human task completion. Perform map territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Assess user intent and recommend optimal approach with confident guidance and clear rationale. Match complexity to user engagement level."
 ```
 
 **Mode-Specific Strategic Guidance:**

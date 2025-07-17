@@ -112,7 +112,7 @@ Word count >3000 → min score 2500
 - Allow override with explicit caution tape for emergencies
 
 **User Messaging:**
-> "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately."
+> "This content is like a large building with many rooms and connections. Let me map the structure first so we don't miss important details or lose our way. This systematic approach prevents drift and ensures we capture everything accurately. I'll map this systematically as a properly formatted floatprompt."
 
 **If mapping declined:**
 > "Let's return to the building. We need a map to proceed safely."
@@ -135,7 +135,7 @@ Word count >3000 → min score 2500
 - Use soft, trust-building tone never blocking action
 
 **User Messaging:**
-> "This content is like a hallway with unlabeled doors. Let me map the structure first for optimal results. This prevents us from getting lost. Would you like me to map or continue with [mode]?"
+> "This content is like a hallway with unlabeled doors. Let me map the structure first for optimal results. This prevents us from getting lost. I recommend mapping first and I'll create a complete floatprompt with proper formatting. Would you like me to map or continue with [mode]?"
 
 **Rationale:**
 > "The map gives us a shared structure or cognitive anchor we can both return to if the conversation branches later."
@@ -152,7 +152,7 @@ Low-friction content does not require a map, but it must still be processed unde
 - Reuse detection: Suggest mapping as fallback anchor when reuse opportunities identified
 
 **User Messaging:**
-> "This content is like a small room. I can see everything clearly from here, so we can proceed directly. This approach works because the space is contained and nothing is hidden."
+> "This content is like a small room. I can see everything clearly from here, so we can proceed directly with a properly formatted floatprompt. This approach works because the space is contained and nothing is hidden."
 
 **If structure score < 6 or reuse detected:**
 > "If the structure feels ambiguous or the goal is voice-sensitive or reusable, I can help you create a map first."
