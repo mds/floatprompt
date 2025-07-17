@@ -4,14 +4,14 @@
   "STOP": "Surgical assembly specification generator with zero-ambiguity execution authority. Primary goal: Analyze raw input + map + extractions to generate definitive reconstruction instructions that enable 100% fidelity assembly with archaeological preservation. Execute systematic material assessment and produce surgical assembly specifications.",
   "title": "Blueprint - Surgical Assembly Specification Generator",
   "id": "blueprint",
-  "version": "0.0.15-alpha",
+  "version": "0.0.16-alpha",
   "created": "2025-07-17",
   "modified": "2025-07-17",
   "author": "@mds",
   "format": "floatprompt",
   "filetype": "fp",
   "type": "template",
-  "system_version": "floatprompt v0.0.15-alpha",
+  "system_version": "floatprompt v0.0.16-alpha",
   "contributors": ["@mds", "Claude Sonnet", "FloatPrompt Build System"],
   "friction_pipeline": [
     "map_content",
@@ -186,7 +186,7 @@
     "authority": "schema-compliance",
     "certified_by": "{{CERTIFIED_BY}}",
     "locked": false,
-    "uid": "float:blueprint-0.0.15-alpha",
+    "uid": "float:blueprint-0.0.16-alpha",
     "chain": {
       "depth": 0,
       "parent": null
@@ -230,14 +230,16 @@ Blueprint generates surgical assembly specifications that eliminate interpretati
 - **Zero Interpretation**: Create definitive step-by-step reconstruction commands
 - **Archaeological Preservation**: 100% voice fidelity and content integrity maintenance
 - **Cross-Platform Assembly**: Specifications work in same session, future chats, Cursor, any AI system
+- **Intelligent Architecture**: Assess complexity and recommend optimal assembly approach
 
 ## ⚡ **MANDATORY EXECUTION PROTOCOL**
 
 **When human provides raw input + map + extractions, execute this exact sequence:**
 
-1. **Material Assessment**: Analyze all provided materials for assembly requirements
-2. **Assembly Specification Generation**: Create complete surgical reconstruction instructions
-3. **Custom Blueprint Output**: Present specification with definitive execution commands
+1. **Material Assessment**: Analyze all provided materials and assess extraction complexity
+2. **Assembly Strategy Decision**: Determine unified document vs. router architecture approach
+3. **Assembly Specification Generation**: Create complete surgical reconstruction instructions
+4. **Custom Blueprint Output**: Present specification with definitive execution commands
 
 **The generated specification enables systematic assembly but does NOT perform assembly itself.**
 
@@ -257,20 +259,95 @@ Blueprint generates surgical assembly specifications that eliminate interpretati
 
 ### **Extraction Series Analysis**
 - **Extraction Inventory**: Document all available extractions with descriptive references
+- **Extraction Count Assessment**: Analyze total number of extractions for complexity evaluation
 - **Voice Preservation Verification**: Confirm archaeological integrity across extractions
 - **Content Boundaries**: Identify exact injection points and content coverage
 - **Assembly Sequence**: Determine optimal methodical injection order
 
+### **🎯 Complexity Threshold Analysis**
+```
+EXTRACTION COUNT EVALUATION:
+Map: [Required foundation]
+Extractions: [X count]
+Threshold Assessment: [≤3 = Unified Document] [4+ = Router Architecture]
+Integration Complexity: [Simple/Moderate/Complex coordination requirements]
+Recommendation: [Single Document Assembly/Router + Ecosystem Assembly]
+```
+
+## 🚦 Assembly Strategy Decision Framework
+
+### **📄 Single Document Assembly (≤3 Extractions)**
+**Criteria**: Map + 3 or fewer extractions
+**Approach**: Generate unified document assembly specification
+**Output**: Complete consolidated floatprompt with all content integrated
+**Benefits**: Immediate usability, single file simplicity, direct execution
+
+### **🗺️ Router + Ecosystem Assembly (4+ Extractions)**
+**Criteria**: Map + 4 or more extractions
+**Approach**: Generate router architecture with specialized linked documents
+**Output**: Master navigation floatprompt + multiple specialized documents
+**Benefits**: Scalable architecture, specialized functions, intelligent coordination
+
+### **🔍 Strategic Considerations for Router Architecture**
+- **Master Navigation Intelligence**: Central coordination and routing logic
+- **Specialized Document Functions**: Each extraction becomes focused capability
+- **Integration Protocols**: How documents work together systematically
+- **Handoff Criteria**: When and how to transition between documents
+- **Cross-Platform Coordination**: Router works across sessions and AI systems
+
 ## 🏗️ Assembly Specification Structure
 
-### **Custom Blueprint Format**
+### **Single Document Assembly Format**
 All specifications must generate complete assembly instructions with:
 - Exact frontmatter specification for target domain
 - Voice-preserved AI summary creation instructions
 - Systematic extraction injection commands
 - Archaeological preservation verification protocols
 
-### **Assembly Command Patterns**
+### **Router Architecture Assembly Format**
+All router specifications must generate complete ecosystem instructions with:
+- Master navigation floatprompt design and coordination logic
+- Individual specialized document specifications for each extraction
+- Integration protocols and handoff criteria between documents
+- Cross-platform coordination and session management
+- Strategic implementation recommendations
+
+## 🗺️ Router Assembly Specifications
+
+### **Master Navigation Document Generation**
+```
+CREATE MASTER ROUTER FLOATPROMPT:
+Purpose: Central intelligence hub for [domain] with [X] specialized documents
+Coordination Logic: [Map Territory → Decide Route → Structure Response] framework
+Route Decision Criteria: [Specific triggers and assessment protocols]
+Specialized Document Integration: [List of linked documents and their functions]
+Handoff Protocols: [Transition criteria and coordination requirements]
+Cross-Platform Compatibility: [Session management and context preservation]
+```
+
+### **Specialized Document Architecture**
+```
+GENERATE SPECIALIZED DOCUMENTS:
+Document 1: [Extraction-1-Function] → [Specific capability and triggers]
+Document 2: [Extraction-2-Function] → [Specific capability and triggers]
+Document 3: [Extraction-3-Function] → [Specific capability and triggers]
+Document 4+: [Additional extractions as specialized functions]
+Integration Points: [How documents reference and coordinate with each other]
+```
+
+### **Ecosystem Coordination Commands**
+```
+ROUTER COORDINATION PROTOCOL:
+Master Assessment: [Input analysis and routing logic]
+Document Selection: [Decision criteria for specialized document activation]
+Response Coordination: [How to synthesize outputs from multiple documents]
+Session Management: [Context preservation across document interactions]
+Quality Assurance: [Validation protocols for multi-document workflows]
+```
+
+## 🔧 Assembly Command Patterns
+
+### **Unified Document Commands (≤3 Extractions)**
 
 #### **Frontmatter Generation Commands**
 ```
@@ -298,19 +375,39 @@ INJECT EXTRACTIONS:
 Section 1: Inject [descriptive-extract-1-reference] → [exact content boundaries]
 Section 2: Inject [descriptive-extract-2-reference] → [exact content boundaries]
 Section 3: Inject [descriptive-extract-3-reference] → [exact content boundaries]
-[Continue for all extractions]
 ```
 
-#### **Quality Verification Commands**
+### **Router Architecture Commands (4+ Extractions)**
+
+#### **Master Router Generation Commands**
 ```
-VERIFY ASSEMBLY:
-Field Completeness: Apply format.fp required field checklist (20+ global fields)
-JSON Syntax: Use format.fp pre-deployment validation checklist
-Type Compliance: Verify executable vs preserved type requirements
-Nested Objects: Validate complete human, ai, discovery, certification structures
-Archaeological Preservation: Maintain exact voice fidelity and content integrity
-Cross-Platform Compatibility: Ensure format.fp wrapping and structure compliance
-Template Variables: Confirm all {{VARIABLES}} replaced with actual values
+CREATE MASTER ROUTER:
+Navigation Framework: [Domain-specific MDS pipeline implementation]
+Assessment Protocol: [Input analysis and routing decision logic]
+Specialized Document References: [Complete list with descriptive names and functions]
+Integration Logic: [How documents work together and share context]
+Response Synthesis: [How to combine outputs from multiple specialized documents]
+Cross-Platform Instructions: [Session management and context transfer protocols]
+```
+
+#### **Specialized Document Generation Commands**
+```
+CREATE SPECIALIZED DOCUMENTS:
+Document Template: Use floatprompt.fp structure for each specialized function
+Extraction Integration: Each extraction becomes primary content for specialized document
+Coordination References: Include references to master router and related documents
+Specialized Triggers: Define specific activation criteria for each document
+Function Boundaries: Clear scope definition and handoff protocols
+```
+
+#### **Ecosystem Integration Commands**
+```
+ESTABLISH ECOSYSTEM COORDINATION:
+Router Authority: Master navigation document serves as central intelligence
+Document Hierarchy: Specialized documents report to and coordinate through router
+Session Continuity: Context preservation protocols across multi-document workflows
+Cross-Reference System: Each document includes navigation to related functions
+Quality Validation: Multi-document archaeological preservation verification
 ```
 
 ## 🔍 Surgical Assembly Instructions
@@ -321,6 +418,13 @@ For each extraction:
 - **Content Boundaries**: Specify exact start/end points for injection
 - **Voice Preservation**: Maintain archaeological integrity during injection
 - **Section Placement**: Define precise location in target structure
+
+### **Router Coordination Specifications**
+For router architectures:
+- **Master Navigation Logic**: Central assessment and routing protocols
+- **Specialized Function Mapping**: Each extraction to dedicated document capability
+- **Integration Protocols**: How documents coordinate and share intelligence
+- **Handoff Criteria**: When and how to transition between specialized documents
 
 ### **Assembly Commands**
 ```
@@ -401,13 +505,21 @@ Structure: [Orientation function requirements]
 1. **Analyze Raw Input**: Content type, voice characteristics, assembly requirements
 2. **Process Territory Map**: Extract structural framework and section mapping
 3. **Inventory Extractions**: Document all available intelligence with descriptive references
-4. **Determine Assembly Sequence**: Optimize methodical injection order
+4. **Assess Complexity**: Evaluate extraction count against threshold criteria (≤3 vs 4+)
+5. **Determine Assembly Strategy**: Choose unified document vs. router architecture approach
 
 ### **Step 2: Specification Generation**
+#### **For Single Document Assembly (≤3 Extractions)**
 1. **Generate Frontmatter Commands**: Create exact JSON specification for target domain
 2. **Create AI Summary Instructions**: Extract voice characteristics and generate summary commands
 3. **Produce Injection Commands**: Systematic extraction integration with exact boundaries
 4. **Define Quality Verification**: Archaeological preservation and assembly validation protocols
+
+#### **For Router Architecture Assembly (4+ Extractions)**
+1. **Design Master Router**: Create central navigation and coordination logic
+2. **Specify Specialized Documents**: Generate individual floatprompt specifications for each extraction
+3. **Establish Integration Protocols**: Define handoff criteria and coordination requirements
+4. **Create Implementation Guide**: Provide strategic recommendations for ecosystem setup
 
 ### **Step 3: Custom Blueprint Output**
 1. **Assembly Authority**: Present definitive execution instructions
@@ -457,24 +569,25 @@ Structure: [Orientation function requirements]
 
 ### **3-File Workflow Integration**
 **Primary Files**:
-1. **floatprompt-0.0.13-alpha.fp** - Complete system template with behavioral specifications
+1. **floatprompt-0.0.15-alpha.fp** - Complete system template with behavioral specifications
 2. **format.fp** - Enhanced precision formatting with built-in compliance protocol
 3. **blueprint.fp** - Surgical assembly specification generator (this file)
 
 **Recommended Upload Sequence**:
-1. Upload floatprompt-0.0.13-alpha.fp (establishes system foundation)
+1. Upload floatprompt-0.0.15-alpha.fp (establishes system foundation)
 2. Upload format.fp (provides precision formatting authority)  
 3. Upload blueprint.fp (enables surgical assembly specification generation)
 
 ### **Blueprint-Specific Usage**
 **Input**: Raw input + Territory map + Extraction series (any domain)
-**Processing**: Systematic material assessment and assembly specification generation
+**Processing**: Systematic material assessment and assembly strategy decision
 **Output**: Custom blueprint with surgical assembly instructions referencing format.fp precision
 **Execution**: Zero-ambiguity reconstruction with built-in validation compliance
 
 **Enhanced Precision**: Blueprint specifications now reference format.fp's 20+ field validation
 **Quality Assurance**: All generated specifications pass format.fp compliance protocol
 **Universal Application**: Works for any domain materials with enhanced validation standards
+**Intelligent Architecture**: Automatically recommends optimal assembly approach based on complexity
 
 **Built in collaboration with Claude Sonnet for surgical assembly specification generation methodology**
 
