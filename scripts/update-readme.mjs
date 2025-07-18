@@ -19,13 +19,13 @@ async function updateReadme() {
       `**Development Status** *(Version ${VERSION})*`
     );
     
-    // Update build metadata section (safe status info only)
+    // Update build metadata section (Core/Pro architecture)
     const buildDate = new Date().toISOString().split('T')[0];
     const newMetadata = `<!-- BUILD_METADATA
 Version: ${VERSION}  
-Phase: Alpha (IP Protected)
+Phase: Alpha - Core/Pro Architecture
 Status: Core systems operational
-Protection: Active until trademark completion
+Architecture: Core (Universal) + Pro (Advanced)
 Last Updated: ${buildDate}
 -->`;
     
@@ -34,16 +34,20 @@ Last Updated: ${buildDate}
       newMetadata
     );
     
-    // Verify core systems are present (without revealing details)
-    const distDir = './private/dist';
+    // Verify core systems are present (Core/Pro architecture)
+    const distDir = './dist';
     let systemStatus = 'operational';
     
     try {
       await fs.access(distDir);
       const files = await fs.readdir(distDir);
-      const fpFiles = files.filter(f => f.endsWith('.fp'));
+      const fpFiles = files.filter(f => f.endsWith('.fp.txt'));
       
-      if (fpFiles.length < 4) {
+      // Check for Core/Pro architecture files
+      const hasCoreFile = fpFiles.some(f => f.includes('floatprompt-core'));
+      const hasProFiles = fpFiles.some(f => f.includes('floatprompt-pro'));
+      
+      if (!hasCoreFile || !hasProFiles || fpFiles.length < 5) {
         systemStatus = 'building';
       }
     } catch {
@@ -88,14 +92,16 @@ async function extractWebsiteContent() {
     
     const websiteContent = {
       protocol_overview: extractSection('Protocol Overview'),
-      development_status: 'Alpha (IP Protected)',
+      development_status: 'Alpha - Core/Pro Architecture',
       version: VERSION,
       tagline: 'The invisible OS for AI in a text file',
-      ready_for_public: false, // Until trademark completed
+      architecture: 'Core (Universal) + Pro (Advanced)',
+      ready_for_public: true, // Core/Pro architecture is public-ready
       contact: 'https://mds.is'
     };
     
     // Save for website pipeline (safe content only)
+    await fs.mkdir('./private', { recursive: true });
     await fs.writeFile('./private/.website-content.json', JSON.stringify(websiteContent, null, 2));
     console.log('✅ Website content extracted (safe for public use)');
     
