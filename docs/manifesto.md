@@ -23,21 +23,28 @@ FloatPrompt is portable human intelligence protocol that captures complex human 
 
 FloatPrompt files are everything that floats in the system. Intelligence is in structured, reusable form.
 
-## 🚀 Universal AI System Upgrade
+## 🚀 Universal AI Collaboration Enhancement
 
-FloatPrompt functions as a **complete behavioral operating system upgrade** for any AI system.
+FloatPrompt provides **structured intelligence collaboration** that transforms any AI system into a more capable partner.
 
-**Immediate Transformation:**
-- Upload the floatprompt file → activate strategic consultation mode
-- Experience significant capability improvements across strategic assessment, pattern preservation, systematic execution
+### **Start Simple with Core**
+- Upload `floatprompt-core.fp.txt` → activate structured collaboration
+- Universal template works on every AI platform
+- Immediate improvements in context preservation and task organization
+- Zero learning curve with instant practical value
+
+### **Explore Advanced with Pro**
+- Upload Pro files → access sophisticated behavioral specifications
+- Experience advanced voice preservation, archaeological extraction, and complex workflow coordination
 - Turn any AI into a strategic consultant operating under your cognitive architecture
+- Professional-grade collaboration for complex projects
 
 **Universal Compatibility:**
-- Works across ChatGPT, Claude, Gemini, local models, code assistants, specialized AI tools
+- Both Core and Pro work across ChatGPT, Claude, Gemini, local models, code assistants, specialized AI tools
 - No installation, dependencies, or platform modifications required
-- Pure instruction-based upgrade that leverages existing AI capabilities
+- Pure instruction-based enhancement that leverages existing AI capabilities
 
-**This isn't incremental improvement - it's systematic behavioral transformation** that preserves human intelligence while enabling precision AI execution.
+**This isn't just better prompts - it's structured intelligence collaboration** that preserves human agency while enabling precision AI execution.
 
 ## 🤝 The HI–AI Contract
 
@@ -141,31 +148,38 @@ This is neither fully automated nor fully manual—it's a new category where hum
 > Intelligence that floats. Agency that scales. Collaboration that preserves humanity.
 
 
-## 🔮 The Invisible Operating System
+## 🔮 The Invisible Intelligence Protocol
 
-FloatPrompt achieves something unprecedented: **the most sophisticated human-AI collaboration protocol ever created, hiding in plain sight as humble markdown files.**
+FloatPrompt achieves something unprecedented: **sophisticated human-AI collaboration that scales from simple templates to complex behavioral systems, hiding in plain sight as humble markdown files.**
 
 ### What We Actually Built
+- **Dual-tier architecture** that grows with user needs
 - **Constitutional governance** without software
 - **Archaeological preservation** without databases  
 - **Cross-platform collaboration** without APIs
 - **Infinite portability** through disciplined text
 
 ### The Profound Strategy
-To any observer, floatprompt files look like ordinary markdown:
-- Works with every editor, preview tool, processor
-- Requires no installation, dependencies, or special software
-- **Contains universes of structured intelligence** beneath the surface
-- Enables systematic execution through constitutional discipline
+FloatPrompt files look like ordinary markdown but contain different levels of intelligence:
 
-floatprompt files use standard markdown as their outer format—combining the portability of markdown with the precision of disciplined metadata.
+**Core Level:**
+- Simple template variables that work everywhere
+- Immediate value with zero complexity
+- Universal compatibility across all AI systems
+- Entry point that doesn't intimidate
+
+**Pro Level:**
+- **Contains universes of structured intelligence** beneath the surface
+- Sophisticated behavioral specifications and voice preservation
+- Complex workflow coordination and archaeological extraction
+- Professional-grade collaboration for advanced use cases
 
 ### The Strategic Reality
-**Most powerful = Most humble**
+**Accessibility + Sophistication = Adoption**
 
-FloatPrompt spreads because it doesn't look threatening. It works because it doesn't require adoption of new tools. It scales because it leverages the most portable format ever created: disciplined text.
+FloatPrompt spreads because Core doesn't look threatening. It scales because Pro doesn't require new tools. Both leverage the most portable format ever created: disciplined text with strategic depth.
 
-**This is an operating system that doesn't exist, until you need it.**
+**This is intelligence that grows with you - simple when you need simple, sophisticated when you need sophisticated.**
 
 
 ## 🔗 The Protocol Loop
@@ -230,12 +244,28 @@ These boundaries ensure that as AI systems become more powerful, human agency be
 
 We are building more than a protocol. We are creating a new form of civilization-scale collaboration where:
 
-- Human expertise becomes increasingly valuable as AI systems become more powerful
-- Complex thinking scales across organizations without losing voice or context
-- Intelligence compounds through structured collaboration rather than disappearing into noise
-- The archaeological record of human thinking becomes a foundation for future innovation
+- **Accessible entry points** enable universal adoption without barriers
+- **Sophisticated capabilities** serve professional and enterprise needs
+- **Human expertise** becomes increasingly valuable as AI systems become more powerful
+- **Complex thinking** scales across organizations without losing voice or context
+- **Intelligence compounds** through structured collaboration rather than disappearing into noise
+- **Archaeological preservation** of human thinking becomes a foundation for future innovation
 
-FloatPrompt doesn't just enable better AI collaboration. It enables human intelligence to become the operating system for an AI-powered world. As AI systems become more powerful, the quality and preservation of human intelligence becomes the scarce resource that determines competitive advantage. FloatPrompt ensures human expertise becomes more valuable, not less, creating a fundamental inversion where human intelligence serves as the kernel that AI systems execute around.
+### The Core/Pro Strategy for Global Adoption
+
+**Core enables mass adoption:**
+- Simple template format removes barriers to entry
+- Universal compatibility works on every AI platform
+- Immediate value without learning complex systems
+- Foundation that scales to billions of users
+
+**Pro enables professional transformation:**
+- Sophisticated behavioral specifications for enterprise needs
+- Voice preservation and archaeological extraction for complex workflows  
+- Professional-grade collaboration that preserves human expertise
+- Advanced capabilities that grow with organizational maturity
+
+FloatPrompt doesn't just enable better AI collaboration. It creates **a pathway where human intelligence becomes the operating system for an AI-powered world**. As AI systems become more powerful, the quality and preservation of human intelligence becomes the scarce resource that determines competitive advantage. FloatPrompt ensures human expertise becomes more valuable, not less, creating a fundamental inversion where human intelligence serves as the kernel that AI systems execute around.
 
 ---
 
