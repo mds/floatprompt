@@ -10,14 +10,14 @@
 - **Use when**: You want structured prompts that work on any AI platform
 - **File**: `floatprompt-core.fp.txt` - Simple template, fast setup
 
-### **Upgrade to FloatPrompt Pro (Advanced)**  
+### **Try FloatPrompt Pro (Advanced)**  
 - **Perfect for**: Voice preservation, complex workflows, archaeological extraction
 - **Benefits**: Sophisticated AI collaboration, professional-grade results
 - **Use when**: You need advanced voice preservation and complex project coordination
 - **Files**: `floatprompt-pro.fp.txt`, `floatprompt-pro-voice.fp.txt`, etc.
 
-### **Natural Upgrade Path**
-Most users start with Core for immediate benefits, then upgrade to Pro when they need advanced capabilities. Both use the same `.fp.txt` format and cross-platform compatibility.
+### **Natural Learning Path**
+Most users start with Core for immediate benefits. Once you're comfortable with the process, try out the Pro files when you need advanced capabilities. Both use the same `.fp.txt` format and cross-platform compatibility.
 
 ---
 
@@ -27,7 +27,7 @@ Most users start with Core for immediate benefits, then upgrade to Pro when they
 **Problem:** You have a breakthrough conversation with ChatGPT that solves a complex problem, but when the session ends that valuable context just disappears forever.  
 **Solution:** FloatPrompt captures your conversation, thinking style, and context in a special text file. Upload this .fp.txt file to any AI platform (ChatGPT, Claude, etc.) and it instantly has your full conversation history and understands exactly how you work together.
 
-**Core vs Pro:** Start with Core for basic context preservation, upgrade to Pro when you need advanced voice preservation and archaeological extraction of complex conversations.
+**Core vs Pro:** Start with Core for basic context preservation, try Pro when you need advanced voice preservation and archaeological extraction of complex conversations.
 
 ### Knowledge Management
 **Problem:** You spend hours researching, brainstorming, and working through complex ideas with AI across multiple conversations. You make real progress, gather valuable insights, and develop solutions. But then you face an impossible choice: either dig through endless conversation threads to find that one brilliant insight from last week, or keep adding to an already-overwhelming conversation that's becoming too long and unfocused to be useful.  
@@ -87,9 +87,9 @@ Most users start with Core for immediate benefits, then upgrade to Pro when they
 **Problem:** You want AI to summarize and package your valuable knowledge into organized documents, but the output is riddled with em dashes, robotic corporate tone, and generic phrasing that completely erases how you actually think and communicate.  
 **Solution:** You create voice guide .fp.txt files with examples of your natural phrasing, writing style, and communication patterns. Upload these guides with your content and AI maintains your authentic voice instead of defaulting to obvious "ChatGPT-speak" that everyone can spot immediately.
 
-### Core → Pro Upgrade Journey
+### Core → Pro Learning Journey
 **Problem:** You start with simple prompt organization using Core, but as your AI collaboration becomes more sophisticated, you need advanced voice preservation, complex workflows, and professional-grade behavioral specifications.  
-**Solution:** FloatPrompt's upgrade path lets you start simple with Core for immediate benefits, then seamlessly upgrade to Pro when you're ready for advanced capabilities. Both use the same .fp.txt format, so your existing Core files remain compatible while you gain access to sophisticated features like archaeological extraction and complex project assembly.
+**Solution:** FloatPrompt's learning path lets you start simple with Core for immediate benefits, then seamlessly explore Pro when you're ready for advanced capabilities. Both use the same .fp.txt format, so your existing Core files remain compatible while you gain access to sophisticated features like archaeological extraction and complex project assembly.
 
 ### Strategic Decision Documentation
 **Problem:** Your team makes important decisions through messy email threads and scattered conversations, then six months later someone asks "why did we choose this approach?" and nobody can remember the full reasoning or find where it was discussed.  
