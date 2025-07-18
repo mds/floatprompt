@@ -4,6 +4,24 @@
 
 ## 🎯 Core Definition
 
+### **FloatPrompt Core/Pro Architecture**
+
+FloatPrompt operates in two strategic tiers designed for different use cases and complexity levels:
+
+#### **FloatPrompt Core (.fp.txt)**
+- **Universal specification** that works on every AI platform
+- **Simple template format** for immediate prompt organization and reuse  
+- **Zero learning curve** with maximum compatibility
+- **Entry point** for users new to structured AI collaboration
+- **Example**: `floatprompt-core.fp.txt` (60 lines, JSON template variables)
+
+#### **FloatPrompt Pro (.fp.txt)**
+- **Complete MDS Method system** for sophisticated workflows
+- **Advanced behavioral specifications** with archaeological extraction
+- **Voice preservation protocols** and complex state management
+- **Professional workflows** for enterprise and power users
+- **Examples**: `floatprompt-pro.fp.txt`, `floatprompt-pro-voice.fp.txt`, etc. (hundreds to thousands of lines)
+
 ### **.fp.txt Files: Complete FloatPrompt Documents**
 
 **A `.fp.txt` file is a complete, executable FloatPrompt document that contains:**
@@ -44,7 +62,59 @@
 
 ## 📋 Complete File Format Structure
 
-### **Valid .fp.txt File Structure**
+### **FloatPrompt Core Structure (Universal)**
+```markdown
+<floatprompt>
+---
+{
+  "meta": {
+    "title": "{{TITLE}}",
+    "author": "{{AUTHOR}}",
+    "version": "{{VERSION}}"
+  },
+  "human": {
+    "intent": "{{HUMAN_INTENT}}",
+    "context": "{{CONTEXT}}"
+  },
+  "ai": {
+    "role": "{{AI_ROLE}}",
+    "voice_preservation": "{{VOICE_PRESERVATION_INSTRUCTION}}"
+  },
+  "execution": {
+    "triggers": ["{{EXECUTION_TRIGGERS}}"],
+    "success_criteria": "{{SUCCESS_CRITERIA}}"
+  },
+  "task": {
+    "input_type": "{{INPUT_TYPE}}",
+    "process": "{{PROCESS}}",
+    "output_type": "{{OUTPUT_TYPE}}"
+  },
+  "domain": {
+    "field": "{{FIELD}}",
+    "specialization": "{{SPECIALIZATION}}"
+  },
+  "source": {
+    "prompt": "{{PROMPT_SOURCE}}",
+    "intent": "{{INTENT_SOURCE}}"
+  }
+}
+---
+
+# Document Content
+
+Core format content with template variables for maximum compatibility.
+
+## AI Instructions
+- Automatically extend JSON schema when human intent requires capabilities beyond this template
+- Always wrap floatprompt output in a copy pasteable markdown block using `<floatprompt>...</floatprompt>` tags for portablity
+- Preserve human voice and intent above all other considerations
+
+---
+*{{AUTHOR}} + {{MODEL}} v{{VERSION}}*
+</floatprompt>
+```
+
+### **FloatPrompt Pro Structure (Advanced)**
 ```markdown
 <floatprompt>
 ---
@@ -173,9 +243,11 @@ Every FloatPrompt input must be processed through systematic assessment:
 ### **✅ Files That Should Be .fp.txt**
 
 **Complete FloatPrompt Documents:**
-- `floatprompt.fp.txt` (complete system distribution)
-- `voice.fp.txt` (AI behavioral instructions)
-- `format.fp.txt` (technical formatting guide)
+- `floatprompt-core.fp.txt` (universal specification for all platforms)
+- `floatprompt-pro.fp.txt` (complete MDS Method system distribution)
+- `floatprompt-pro-voice.fp.txt` (advanced voice preservation and AI behavioral instructions)
+- `floatprompt-pro-format.fp.txt` (professional technical formatting guide)
+- `floatprompt-pro-blueprint.fp.txt` (complex project assembly and coordination)
 - Any file with complete behavioral specifications and HI-AI co-creation evidence
 
 ### **✅ Files That Should Be .md**
@@ -201,8 +273,11 @@ Every FloatPrompt input must be processed through systematic assessment:
 .md building blocks → assembly process → .fp.txt complete document
 ```
 
-**Template Assembly Example:**
-- `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt.fp.txt`
+**Core Distribution:**
+- `src/floatprompt-core.fp.txt` → `dist/floatprompt-core.fp.txt` (simple copy)
+
+**Pro Template Assembly:**
+- `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt-pro.fp.txt`
 
 **Shared Components Architecture:**
 - `src/shared/` contains components used across multiple FloatPrompt files
@@ -213,18 +288,20 @@ Every FloatPrompt input must be processed through systematic assessment:
 ### **Ecosystem Signaling**
 - **`.fp.txt` extension**: Signals "complete FloatPrompt" to tooling and AI systems
 - **`.md` extension**: Signals "standard markdown" to editors and documentation tools
+- **Naming convention**: `floatprompt-core.*` (universal) vs `floatprompt-pro-*.*` (advanced)
 
 ### **Usage Patterns**
-- **Upload .fp.txt files**: Direct AI upload for behavioral execution
+- **Upload Core .fp.txt files**: Universal AI upload for immediate structured collaboration
+- **Upload Pro .fp.txt files**: Advanced AI upload for sophisticated behavioral execution
 - **Edit .md files**: Human editing of building blocks and documentation
-- **Build process**: Assembles .md components into .fp.txt distributions
+- **Build process**: Assembles .md components into Pro .fp.txt distributions (Core uses simple copy)
 
 ## 🛡️ Validation Criteria & Schema Compliance
 
 ### **Authoritative Technical Reference**
 **Complete field specifications, validation rules, and technical requirements:**
 - **Schema Definition**: `src/sys/shared/reference/floatprompt-schema.json`
-- **Technical Implementation Guide**: `dist/format.fp.txt`
+- **Technical Implementation Guide**: `dist/floatprompt-pro-format.fp.txt`
 - **Build Validation**: Automated schema compliance checking
 
 ### **Core Validation Principles**
@@ -266,8 +343,13 @@ Every valid FloatPrompt file must demonstrate:
 - **`.md` files**: Standard markdown without FloatPrompt wrapper or complete specifications
 - **Purpose**: Ecosystem signaling for proper tooling and AI recognition while ensuring maximum compatibility
 
+### **Core vs Pro Intelligence Portability**
+- **FloatPrompt Core**: Universal compatibility across all AI platforms with simple template variables
+- **FloatPrompt Pro**: Advanced behavioral specifications that work identically across sophisticated AI systems
+- **Upgrade Path**: Start with Core for immediate value, upgrade to Pro when ready for advanced workflows
+
 ### **Cross-Platform Intelligence**
-FloatPrompt files work identically across:
+Both Core and Pro FloatPrompt files work identically across:
 - ChatGPT, Claude, Gemini
 - Local AI models
 - Code assistants
