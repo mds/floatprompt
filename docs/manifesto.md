@@ -23,7 +23,7 @@ FloatPrompt is portable human intelligence protocol that captures complex human 
 
 FloatPrompt files are everything that floats in the system. Intelligence is in structured, reusable form.
 
-## 🚀 Universal AI Collaboration Enhancement
+## 🚀 Universal AI Collaboration Upgrade
 
 FloatPrompt provides **structured intelligence collaboration** that transforms any AI system into a more capable partner.
 
@@ -40,7 +40,7 @@ FloatPrompt provides **structured intelligence collaboration** that transforms a
 - Professional-grade collaboration for complex projects
 
 **Universal Compatibility:**
-- Both Core and Pro work across ChatGPT, Claude, Gemini, local models, code assistants, specialized AI tools
+- Works across ChatGPT, Claude, Gemini, local models, code assistants, specialized AI tools
 - No installation, dependencies, or platform modifications required
 - Pure instruction-based enhancement that leverages existing AI capabilities
 
