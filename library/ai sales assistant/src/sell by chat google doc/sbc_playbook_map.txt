@@ -1,0 +1,103 @@
+<floatprompt>
+---
+{
+  "title": "Elite SBC Playbook Mapping - Sales Assistant Intelligence",
+  "id": "elite-sbc-playbook-map",
+  "version": "1.0.1",
+  "created": "2025-07-15",
+  "modified": "2025-07-15",
+  "author": "@mds",
+  "source": "Elite Coaching Program Sell By Chat SOP",
+  "type": "territory-map",
+  "system_version": "floatprompt v0.0.13-alpha",
+  "intent": "Map Elite SBC Playbook across existing 12-document sales assistant system. Identify overlap, preservation zones, extraction targets, and document routing.",
+  "voice_preservation": {
+    "linked": true,
+    "fidelity_verified": true
+  },
+  "relationships": {
+    "feeds": [
+      "Document 6: Blueprint Navigation",
+      "Document 7: Target Client Profile",
+      "Document 10: Client Success Stories",
+      "Document 11: Objections & Responses",
+      "Document 12: Content & Newsletter Bridge"
+    ],
+    "overlaps_with": [
+      "Five-Star Prospect Qualifier",
+      "Chat Close Sequencer",
+      "Conversation Analyzer",
+      "Platform Message Generator"
+    ]
+  },
+  "preservation_zones": [
+    "Objection templates (Document 11)",
+    "Buyer journey scoring (Conversation Analyzer)",
+    "CRM Tagging SOP (Blueprint)",
+    "Opener vs Closer roles (Navigation)",
+    "Message count gate: 9-message threshold before pitch",
+    "Follow-up bump language: 'Get my note?', 'Ping^ ;)'",
+    "Commitment challenge prompts: 'Nice vs Must', '1–10 scale', 'Is it a now or later thing?'"
+  ],
+  "extraction_targets": [
+    "Commitment testing prompts → Document 11",
+    "Closing structure & phrasing → Document 9 or Document 11",
+    "Follow-up timing protocol → Document 11",
+    "Qualification scoring 1–10 → Conversation Analyzer",
+    "Closer onboarding dialogue → Document 10 or post-close script",
+    "Daily opener SOP → Future elite-onboarding.fp",
+    "Message count gate logic → Conversation Analyzer",
+    "Emoji prompt triggers → Platform Message Generator"
+  ],
+  "new_structures_detected": [
+    "CRM pipeline stage automation logic",
+    "Cross-role handoff triggers",
+    "Platform-specific personalization tone guidance",
+    "Conversation validation logic (message count + qualification)"
+  ],
+  "notes": "This document is not a single-tool extraction but a master overlay across multiple assistant modules. Requires phased extraction into target documents. Should also inform future team onboarding SOP or float:elite-sales-system if standardized."
+}
+---
+
+# 🗺️ Elite SBC Playbook Mapping - Sales Assistant Intelligence
+
+This floatprompt preserves and routes strategic behavioral content from the Elite Coaching Program Sell By Chat document into the structured 12-document sales assistant system. Each section below shows where it should be embedded or extracted.
+
+## 🎯 Cross-Document Embeds
+
+### **🎯 Document 6 – Enhanced Blueprint Navigation**
+- CRM tagging protocols: lead → qualified → offer made → closed won/lost
+- Opener vs Closer roles + conversation stage handoffs
+- Notification cues and sourcing patterns
+- Tag-based automation logic (To-Process → Qualified pipeline)
+
+### **🎯 Document 11 – Objections & Responses**
+- Conditional objection trees: Time, Money, DIY, Commitment Length
+- Commitment prompts: "Nice to have vs Must have", "1-10 scale", "Do you want help?"
+- Follow-up sequencing protocol: bump scripts, emoji nudges, 24–21 day cadence
+- Message count logic for offer gate: "Must be 9+ messages before pitch"
+
+### **🎯 Document 10 – Client Success Stories**
+- Onboarding reinforcement phrasing
+- “You just made the best move for your business” identity anchoring
+- Coach-style post-close tone and community integration
+
+### **🎯 Conversation Analyzer**
+- Buyer scoring model (1–10 scale)
+- Handoff recognition point detection
+- “Don’t over-sell” lean-out principle for tone pattern matching
+- Conversation readiness gate: 9-message minimum
+
+### **🎯 Platform Message Generator**
+- Emoji patterns: 💪👌🚀 👊
+- Short sentence mandate
+- Chatbot detection avoidance (personalization)
+- Message format compliance for tone/length/urgency
+
+### **📁 Future SOP / New Document Candidate**
+- `elite-sales-onboarding.fp` or `closer-integration.fp`
+- Training Week: Day 1–5 structure
+- Opener/Closer alignment protocols
+- Internal team calibration for client interactions
+
+</floatprompt>

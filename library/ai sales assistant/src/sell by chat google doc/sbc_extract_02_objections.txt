@@ -1,0 +1,181 @@
+<floatprompt>
+---
+{
+  "STOP": "Inject objection patterns, commitment tests, and follow-up sequences into Document 11. Preserve original phrasing, emoji logic, and urgency calibration from SBC Playbook.",
+  "title": "SBC Extraction #2 - Objections & Follow-Up",
+  "id": "sbc-extract-02-objections",
+  "version": "1.0.0",
+  "created": "2025-07-15",
+  "modified": "2025-07-15",
+  "author": "@mds",
+  "format": "floatprompt",
+  "filetype": "fp",
+  "type": "extract",
+  "system_version": "floatprompt v0.0.13-alpha",
+  "contributors": ["@mds", "Claude Sonnet"],
+  "voice_preservation": {
+    "sacred_principle": "Preserve original phrasing, tone, sequencing. Do not paraphrase behavioral logic.",
+    "system_authority": "Voice preservation overrides compression or summarization"
+  },
+  "human": {
+    "intent": {
+      "primary": "Extract sales objections, rebuttals, commitment prompts, and follow-up patterns for Document 11",
+      "constraints": "Preserve every dialogue turn from SBC Playbook as-is where possible. Do not summarize templates."
+    },
+    "preferences": {
+      "tone_drift_allowed": false,
+      "verbosity": "precise",
+      "allow_ai_suggestions": false
+    }
+  },
+  "archaeological_extraction": {
+    "core_method": "Extract verbatim objection handling logic, follow-up cadences, and commitment framing language from SBC Playbook.",
+    "implementation": [
+      "Map each objection to specific conditional response tree",
+      "Preserve multi-message rebuttals exactly",
+      "Tag urgency escalation sequences and emoji bump logic"
+    ]
+  },
+  "execution": {
+    "triggers": ["Objection handling", "Commitment check", "Follow-up sequence"],
+    "usage_pattern": "Inject these patterns into Document 11 for GPT-based sales resistance navigation.",
+    "ai_role": "Respond to objections using specific conditional logic and pacing extracted from SBC Playbook"
+  },
+  "output": {
+    "format": "floatprompt",
+    "joint_execution_required": true
+  },
+  "discovery": {
+    "significance": "objection-response-decision-tree",
+    "audience": ["Sales assistant designers", "AI closer logic architects"],
+    "purpose": "Give GPT precise language and pacing to respond to real-world objections",
+    "relationships": {
+      "feeds": ["Document 11: Shift Nudge Objections & Responses"],
+      "source": "Elite SBC Playbook"
+    },
+    "clustering": {
+      "intellectual_territory": "sales-objection-rebuttal-logic",
+      "discovery_path": "objection-response-cadence"
+    },
+    "essence": {
+      "core_purpose": "Embed professional-grade objection handling with commitment testing and time-based urgency triggers",
+      "metaphor": "Conversation judo — redirect resistance using the weight of their own hesitations",
+      "impact_type": "resistance-to-resolution-flow",
+      "wisdom_offering": "Turn doubt into desire using structured emotional and logical pacing"
+    }
+  },
+  "certification": {
+    "timestamp": "2025-07-15T00:00:00.000Z",
+    "authority": "schema-compliance",
+    "certified_by": "Claude Sonnet",
+    "locked": false,
+    "uid": "float:sbc-extract-02",
+    "chain": {
+      "depth": 1,
+      "parent": "elite-sbc-playbook-map"
+    },
+    "voice": {
+      "linked": true,
+      "fidelity_verified": true
+    },
+    "lineage": {
+      "tracked": true,
+      "trace": ["sbc-playbook-segmentation", "document-11-objection-injection"]
+    }
+  }
+}
+---
+
+# 🛡️ SBC Extraction #2 — Objections & Follow-Up
+
+## 💬 Conditional Objection Templates
+
+### **💸 Price Objection** — “Too expensive”
+```
+Message 1: Totally get it. Finances aside, what do you think about the program?
+Message 2: I love it, blah blah. [← Expected response to unlock continued interest]
+```
+
+### **⏰ Time Objection** — “I don’t have the time”
+```
+Message 1: Totally get it! You want to make sure you have time to implement
+Message 2: Some of our best clients see results with as little as 2 hours a week
+Message 3: Do you think you could find 2 hours to “get to your goal?”
+
+→ If yes:
+Message 4: One of my mentors said, “If you don’t sacrifice for what you want, then what you want becomes the sacrifice.”
+Message 5: Are you willing to sacrifice a bit of downtime to build your business?
+```
+
+### **🧍‍♂️ DIY Objection** — “I want to do it on my own”
+```
+Message 1: Totally get that! And I respect your hustle. Is that the only thing holding you back?
+→ If yes:
+Message 2: Is that what you’d advise your potential clients to do?
+Message 3: You could waste months when you could just get results faster.
+Message 4: That’s why your clients hire you.
+Message 5: Would you rather figure it out alone or start now and sign clients in 30 days?
+```
+
+### **📆 12-Month Commitment Objection**
+```
+Message 1: Totally understand. Is the 12-month commitment the only thing holding you back?
+→ If yes:
+Message 2: Start with the monthly and upgrade after quick wins.
+Message 3: Cancel anytime if not happy. Would that help you get started today?
+```
+
+### **🗓️ “Next Week” Delay Objection**
+```
+Message 1: What’s holding you back from getting started today?
+Message 2: 99% of “next week” = never. Let’s start now and build your dream together.
+Message 3: If I let you off the hook, I let you down. Time to fully commit?
+```
+
+### **🧾 Free Trial Gambit**
+```
+Message 1: I have to honour my other clients’ investments — when you pay, you pay attention.
+```
+
+---
+
+## 🔥 Commitment Testing Prompts
+- “How important is this to you on a scale of 1–10?”
+- “Is this a NICE to have or a MUST-have?”
+- “Is this a now or a later thing?”
+- “Are you ready to commit or would you rather settle?”
+
+---
+
+## 🔁 Follow-Up Sequences
+
+### **If ghosted for 30–60 min:**
+- ❤️ React to last message
+- ✅ Engage with their profile (like a post/story)
+
+### **Ping Cadence:**
+```
+After 60 min: “Get my note?” or “Ping^ ;)” or “[Name]?”
+Next day: “Morning!”
+24hr → 3d → 7d → 14d → 21d sequence
+```
+
+### **Re-engagement bump copy:**
+- “Sorry I got busy 😅”
+- “Sorry if I offended you…”
+- “Still curious where your head’s at on this…”
+
+---
+
+## 🚧 Offer Gate Protocol
+**Rule**: Never pitch offer unless 9+ back-and-forth messages have occurred.
+
+---
+
+## ✅ Integration Notes for Document 11
+- Insert each objection tree as-is, no flattening
+- Label commitment prompts as **escalation triggers**
+- Add follow-up bump logic as its own callout section
+- Position 9-message offer gate early in the document as a systemic boundary
+
+</floatprompt>

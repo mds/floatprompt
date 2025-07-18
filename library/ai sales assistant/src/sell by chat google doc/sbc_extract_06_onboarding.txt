@@ -1,0 +1,158 @@
+<floatprompt>
+---
+{
+  "STOP": "Extract team onboarding training schedule and execution protocols from SBC Playbook. Structure as foundational intelligence for elite-sales-onboarding.fp.",
+  "title": "SBC Extraction #6 - Team Onboarding Protocol",
+  "id": "sbc-extract-06-onboarding",
+  "version": "1.0.0",
+  "created": "2025-07-15",
+  "modified": "2025-07-15",
+  "author": "@mds",
+  "format": "floatprompt",
+  "filetype": "fp",
+  "type": "extract",
+  "system_version": "floatprompt v0.0.13-alpha",
+  "contributors": ["@mds", "Claude Sonnet"],
+  "voice_preservation": {
+    "sacred_principle": "Preserve training tone, day-structure phrasing, and responsibility segmentation exactly as written.",
+    "system_authority": "Training cadence and clarity must not be compressed or paraphrased"
+  },
+  "human": {
+    "identity": {
+      "name": "@mds",
+      "role": "Training Architect"
+    },
+    "execution_mode": "portable_ai_instruction_set",
+    "signed_by": "@mds",
+    "inferred_fields": [],
+    "state": {
+      "context": "training-system-conversion",
+      "mood": "focused",
+      "clarity": "detailed",
+      "energy": "sequenced"
+    },
+    "session": {
+      "start_time": "2025-07-15T17:00:00Z",
+      "end_time": null,
+      "duration_minutes": null
+    },
+    "intent": {
+      "primary": "Extract 5-day training flow, closer/onboarding expectations, and system review cadence",
+      "constraints": "Preserve exact day labels, training categories, and tone of directive language"
+    },
+    "preferences": {
+      "tone_drift_allowed": false,
+      "verbosity": "comprehensive",
+      "allow_ai_suggestions": false,
+      "max_words": null
+    }
+  },
+  "archaeological_extraction": {
+    "core_method": "Preserve original Day 1–5 structure, responsibility delineation, and onboarding tone.",
+    "implementation": [
+      "Extract daily milestones and training focus",
+      "Retain phrase rhythm of task assignments",
+      "Do not alter internal titles or expectations"
+    ]
+  },
+  "execution": {
+    "triggers": ["team onboarding", "training plan", "role SOP"],
+    "usage_pattern": "Inject into elite-sales-onboarding.fp as the Day 1–5 standard training progression.",
+    "ai_role": "Guide new team members through standardized onboarding and performance expectations"
+  },
+  "output": {
+    "format": "floatprompt",
+    "joint_execution_required": true
+  },
+  "discovery": {
+    "significance": "internal-sdr-onboarding-ritual",
+    "audience": ["new openers", "closers", "SDR leads"],
+    "purpose": "Ensure internal team alignment with the SBC playbook",
+    "relationships": {
+      "feeds": ["elite-sales-onboarding.fp"],
+      "source": "Elite SBC Playbook"
+    },
+    "clustering": {
+      "intellectual_territory": "training-program-structure",
+      "discovery_path": "sop-onboarding-sequence"
+    },
+    "essence": {
+      "core_purpose": "Guide human team members through the mindset, tools, and expectations of the sales assistant framework",
+      "metaphor": "Rite of passage into sales precision",
+      "impact_type": "internal-alignment-enablement",
+      "wisdom_offering": "Every closer must be trained as if they’re running the system solo."
+    }
+  },
+  "certification": {
+    "timestamp": "2025-07-15T00:00:00.000Z",
+    "authority": "schema-compliance",
+    "certified_by": "Claude Sonnet",
+    "locked": false,
+    "uid": "float:sbc-extract-06",
+    "chain": {
+      "depth": 1,
+      "parent": "elite-sbc-playbook-map"
+    },
+    "voice": {
+      "linked": true,
+      "fidelity_verified": true
+    },
+    "lineage": {
+      "tracked": true,
+      "trace": ["sbc-playbook-segmentation", "elite-sales-onboarding-source"]
+    }
+  }
+}
+---
+
+# 🎓 SBC Extraction #6 — Team Onboarding Protocol
+
+## 🗓️ Week 1 Training Schedule (Verbatim)
+
+### **Day 1**
+- Intro to program and core values
+- Tech check: tools and access
+- Internal meeting cadence
+- Customer profiles + differentiators
+- Opener role clarity
+- Observe SBC Wins + real chats
+
+### **Day 2**
+- Voice style intro
+- Objection handling foundations
+- CRM: GoHighLevel training
+- Internal comms protocol
+
+### **Day 3**
+- Review Closed Won / Lost
+- Deep objection strategy
+- Closing techniques
+- Roleplay situational objections
+
+### **Day 4**
+- Follow-up scripting
+- Regular contact SOP
+- Pre-handle objections
+- Close conditioning protocols
+
+### **Day 5**
+- Go-Live: 100+ Chat Opens
+- Live close conversations
+- Week 1 review + effectiveness assessment
+- Week 2 planning kickoff
+
+---
+
+## 🧾 Team Commitments
+- Daily reports are non-optional
+- Managers inspect what they expect weekly
+- Opener → Closer handoff must meet readiness gate
+
+---
+
+## ✅ Integration Notes for elite-sales-onboarding.fp
+- Use as base section labeled `training_schedule`
+- Reference each day in role-specific GPT prompts
+- Gate assistant access to advanced tools until Day 5 is complete
+
+</floatprompt>

@@ -1,17 +1,17 @@
 <floatprompt>
 ---
 {
-  "STOP": "Strategic build mode with technical formatting authority. Primary goal: Guide AI systems through precise floatprompt document creation with 100% formatting compliance. Execute canvas creation, markdown syntax validation, and wrapping tag integrity. Reference core floatprompt-0.0.16-alpha.fp for all field specifications and content requirements.",
+  "STOP": "Strategic build mode with technical formatting authority. Primary goal: Guide AI systems through precise floatprompt document creation with 100% formatting compliance. Execute canvas creation, markdown syntax validation, and wrapping tag integrity. Reference core floatprompt-0.1.0-alpha.fp for all field specifications and content requirements.",
   "title": "FloatPrompt Formatter - AI Technical Formatting Guide",
   "id": "floatprompt-formatter",
-  "version": "0.0.16-alpha",
-  "created": "2025-07-17",
-  "modified": "2025-07-17",
+  "version": "0.1.0-alpha",
+  "created": "2025-07-18",
+  "modified": "2025-07-18",
   "author": "@mds",
   "format": "floatprompt",
   "filetype": "fp",
   "type": "template",
-  "system_version": "floatprompt v0.0.16-alpha",
+  "system_version": "floatprompt v0.1.0-alpha",
   "contributors": ["@mds", "Claude Sonnet"],
   "friction_pipeline": [
     "map_content",
@@ -157,7 +157,7 @@
     "audience": ["AI systems", "FloatPrompt users", "Cross-platform collaboration"],
     "purpose": "technical-execution-guide",
     "relationships": {
-      "builds_on": ["floatprompt-0.0.16-alpha.fp"],
+      "builds_on": ["floatprompt-0.1.0-alpha.fp"],
       "enables": ["reliable-floatprompt-creation"],
       "parallels": ["voice-guide-creator.fp", "update-creator.fp"],
       "mirrors": [
@@ -168,7 +168,7 @@
       ]
     },
     "navigation": {
-      "prerequisites": ["floatprompt-0.0.16-alpha.fp"],
+      "prerequisites": ["floatprompt-0.1.0-alpha.fp"],
       "next_steps": ["floatprompt creation", "validation.md"],
       "learning_sequence": ["core system understanding", "technical execution", "validation"]
     },
@@ -205,7 +205,7 @@
     "ai_role": "Execute precise technical formatting for floatprompt creation"
   },
   "certification": {
-    "timestamp": "2025-07-17T00:00:00.000Z",
+    "timestamp": "2025-07-18T00:00:00.000Z",
     "authority": "schema-compliance",
     "certified_by": "Claude Sonnet",
     "locked": false,

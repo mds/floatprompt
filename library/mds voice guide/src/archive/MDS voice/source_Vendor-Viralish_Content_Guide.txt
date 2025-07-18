@@ -1,0 +1,584 @@
+This document compiles reference content from the Viralish system, which includes playbooks, checklists, and frameworks for creating short-form, high-retention video content.
+
+These materials are used to support the performance storytelling layer inside MDS ContentOS. They guide hook logic, pacing, suspense structure, and payoff clarity.
+
+Use this to inspire:
+
+• Short-form video hooks  
+• Social-first content planning  
+• Suspense and resolution structure  
+• Before/after critiques with built-in tension
+
+Each section starts with a labeled filename and is separated by a visual divider.
+
+
+
+=== FILE: Viralish_7_Elements_of _the_Perfect_Hook.txt ===
+------------------------------
+Viralish
+
+
+7 Elements of the Perfect Hook
+------------------------------------------------
+
+1. Create an Itch
+	- Combine two things that don't usually go together
+
+2. Curiosity Gap
+	- Anchor the storyline to keep the viewer hooked through the big reveal
+
+3. Start in the Action
+	- Don't explain what you're going to do, JUST DO IT!
+		A. Anchor
+		B. Reveal
+
+		Niche Examples
+			- Cooking Videos
+			- DIYs
+			- Life Hacks
+			- Expert Advice
+			- Unboxing Videos
+			- NEVER SAY "Hey guys, today I'm going to show you.."
+
+4. Zero Backstory
+	- How will you "un-niche" your hook?
+	- Opening Shot (START WITH THIS)
+
+5. Zero Chaos
+	- Keep the viewer curious, never confused
+	- LOOK!
+
+6. Relatability
+	- Ideas for connecting with viewers and improving engagement
+	- Common Themes
+	- Shared Experiences
+	- Trending in the Media
+	- Popular Products
+
+7. Visual Storytelling
+	- The hook must be understandable without sound:
+	- Audio has captions or text
+	- Shot fills the frame
+	- Bright or contrasting colors
+	- Good lighting
+
+
+=== FILE: Viralish_Engagement_Tactics.txt ===
+------------------------------
+Viralish
+
+Engagement Tactics
+---------------------------
+- Wear something “unique” but never call attention to it.
+- Unzip your fly
+- Intentionally mispronounce something
+- Disagree on camera ask the audience to settle the debate
+- Place something absurd in the background of your video
+- Wear a controversial shirt
+- Intentionally use a tool or utensil wrong
+- Make blatantly false claims about a topic
+
+
+
+Subtle CTAs
+---------------------------
+“Settle this debate”
+“I hope his boss sees this”
+“Share with someone who...”
+“Send this to someone who...”
+“The world needs to see this”
+“Tell us your favorite...”
+“He deserves a raise”
+
+
+
+=== FILE: Viralish_Good_Video_Checklist.txt ===
+------------------------------
+Viralish
+
+HOW TO MAKE A GOOD VIDEO
+------------------------
+
+CHECKLIST FOR CREATORS
+-----------------------
+
+BEFORE YOU TURN ON THE CAMERA
+------------------------------
+- KEEP YOUR CONCEPT SIMPLE
+  Make it simple enough that a five-year-old could understand.
+
+  Good, simple premises:
+  - My child is a demon!
+  - How to clean your toilet
+  - Hack to double your $$$!
+  - My grandpa needs my kidney!
+  - Wine Pie
+  - There’s a family of raccoons in the bushes!
+
+  Bad, overly-complex premises:
+  - Grandpa doesn’t realize the surprise next door!
+  - Revenge on my husband's prank!
+  - Nobody liked him, until she came around.
+
+- SHOW US SOMETHING UNIQUE, SURPRISING OR SHOCKING
+  - Pour tequila into a coffee pot
+  - Drop a $100 bill into sizzling oil
+  - Cut a bike in half
+  - “Show, don’t tell.” Let’s SEE something happen
+
+- SET UP GOOD LIGHTING
+  Face the subject, avoid harsh shadows, backlight, and reflections
+
+- CHOOSE A SIMPLE BACKGROUND
+  Avoid clutter. Make your subject ‘pop’
+
+THE FIRST SECOND OF THE VIDEO
+-----------------------------
+- BEGIN WITH A SIMPLE SHOT
+  One person or close-up of two objects max
+
+- FILL UP THE MIDDLE THIRD OF THE FRAME
+  Put key visuals dead center. Avoid top/bottom edge.
+
+- START IN ON THE ACTION
+  Let the action begin as the video starts. Use slow, noticeable movement
+
+- DON’T MOVE THE CAMERA
+  Keep it still for comprehension. Zoom or pan only if slow and necessary
+
+THE FIRST 15 SECONDS OF YOUR VIDEO
+----------------------------------
+- SEAMLESSLY FLOW INTO THE SECOND ACTION OR PLOT POINT
+  Add new info to same frame, don’t swing camera away
+
+- MAKE IT CLEAR WHERE YOUR VIDEO IS ‘GOING’
+  Audience should know what they’re watching and what they’re waiting for
+
+- ESTABLISH HIGH STAKES
+  Make viewers care. Use high-impact, relatable stakes
+
+DURING YOUR VIDEO
+-----------------
+- LEAD UP TO ONE BIG MOMENT
+  Build toward an emotional payoff or visual reveal
+
+- ADD EMOTIONS
+  Use fear, anger, joy, admiration, awe
+
+- STEADILY MOVE TOWARDS THE VIDEO’S MAIN OBJECTIVE
+  No distractions. Mini-payoffs help
+
+- GIVE PEOPLE AT LEAST THREE THINGS TO COMMENT ON
+  - Appearance
+  - Unique props
+  - Moral dilemmas
+
+PUBLISHING YOUR VIDEO
+----------------------
+- CREATE A CAPTION IN LINE WITH FACEBOOK’S NEW WATCHBAIT GUIDELINES
+  - No ALL CAPS
+  - No ellipses...
+  - One emoji max
+  - No “You won’t believe!”
+  - No double !!
+  - No “You have to see...”
+  - Avoid “this...” and “when...”
+
+  Instead, be direct:
+  - Funny dog finds green ball!
+  - Child steals from grandma’s purse and gets caught!
+
+- PICK A GOOD THUMBNAIL
+  Clear, well-lit, relevant to video
+
+- PICK A TITLE THAT WILL NOT TRIGGER ‘EXTRA VIDEO REVIEW’
+  Avoid mentions of protected classes or controversy
+
+RULES TO LIVE BY
+----------------
+- FOLLOW ALL COMMUNITY STANDARDS AND MONETIZATION GUIDELINES
+  Violations can demonetize your page for months
+
+- DON’T GET US SUED
+  - Don’t defame businesses
+  - Don’t fake harmful stunts
+  - Don’t impersonate brands
+  - Don’t violate privacy
+  - Don’t do anything dangerous
+
+
+
+=== FILE: Viralish_Sticky_Video_Playbook.txt ===
+------------------------------
+# Viralish  
+
+## HOW TO MAKE STCKY VIDEOS  
+
+### CUSTOMIZABLE PLAYBOOK  
+A step-by-step guide to reaching more people.  
+Whether you’re a business owner or a creator, start increasing your views using our STCKY method.  
+
+---
+
+## KEYS TO 5 SUCCESS  
+
+**Have a strong desire to win.**  
+Success requires a fervent drive to win and unwavering determination...
+
+**Have a community.**  
+Joining a supportive community is a vital component...
+
+**Invest time and money.**  
+The third key to success involves dedicating substantial time...
+
+**Have a clear vision and plan.**  
+It’s critical to have a well-defined vision...
+
+**Continue learning and growing.**  
+The set of tools that got you to where you are...
+
+---
+
+## BEFORE YOU START  
+**Why Are You Doing This?**  
+Why do you want to make viral videos? How will it change your life?
+
+**Circle One:**  
+- I am a business owner promoting a product or service.  
+- I want to build a career making viral videos as a job.
+
+**Questions:**  
+1. How would you like your videos to make others feel?  
+2. What would you like to change about your life?  
+3. Why did you choose to invest in yourself?  
+4. What is your scary goal for this month?
+
+---
+
+## Your Video Identity  
+Anyone can make videos. That alone is not enough...  
+Define what you want to be known for:  
+- Ex. I’m the creator who...  
+- Ex. I‘m the guy who...
+
+**Prompts:**  
+- I make videos that:  
+- How would you describe your overall brand voice?  
+- How do you stand out from others in your niche?
+
+---
+
+## Your Brand Inspirations  
+There is nothing new under the sun...
+
+**Prompts:**  
+- List 5 creators/brand accounts...  
+- What do these 5 creators all have in common?  
+- What is it about their content that breaks through?  
+- Link 5 high-performing videos...
+
+---
+
+## NOW YOU’RE READY TO GET STCKY!  
+### -01- WHAT IS THE TEMPLATE?  
+A breakdown of the formula...
+
+### -02- CREATING THE PERFECT HOOK  
+The single most important part...
+
+### -03- HOLDING VIEWER SUSPENSE  
+Suspense is your secret weapon...
+
+### -04- THE ULTIMATE PAYOFF  
+Craft a payoff that makes your video shareable...
+
+### -05- RAISING THE STAKES  
+The difference between our 1 million and 50 million view videos...
+
+### -06- DOUBLE YOUR ENGAGEMENT  
+Get more likes, comments and views...
+
+---
+
+## LESSON 1 OUTLINE  
+**What are the 6 elements of creating a viral video?**  
+1.  
+2.  
+3.  
+4.  
+5.  
+6.  
+
+### THE HOOK  
+The hook is what happens in the first _____ seconds...
+
+### SUSPENSE  
+...separates creators from the most _______...
+
+### PAYOFF  
+Your video should lead up to one big _________.
+
+### Bike Video Breakdown  
+- What is the hook...  
+- What created suspense...  
+- This video is not dependent on ________  
+
+### Nurse Giveaway  
+- What is the hook...  
+- Why the costume...  
+- How to raise stakes...  
+- What was the CTA...
+
+---
+
+## THE HOOK  
+The ________ is a creator's #1 job!  
+List 5 examples...  
+1.  
+2.  
+3.  
+4.  
+5.
+
+**Curiosity Gap = The ____________**  
+Start in the ____________  
+- Avoid backstory  
+- Avoid chaos  
+- Hook should be understood without ___________
+
+---
+
+## SUSPENSE  
+____________ leads to highest earning potential.  
+Creators win by getting good at ____________
+
+### Example:  
+Adley’s prank video added suspense by...  
+
+**Tip:**  
+Take one beat and ____________ it into steps  
+Never mention ____________ in your video
+
+---
+
+## PAYOFF  
+The _______ is an opportunity to convert viewers...
+
+**Elements of a good payoff:**  
+- Shareable  
+- Relatable  
+- Evokes specific ___________
+
+End the video within ____ seconds...
+
+---
+
+## STAKES  
+Stakes determine ____________ people care.  
+
+**4 Ways to Raise Stakes:**  
+1.  
+2.  
+3.  
+4.  
+
+Change the ____________  
+
+**Bird Poop Car Prank:**  
+1.  
+2.  
+3.
+
+---
+
+## ENGAGEMENT  
+Define Engagement Baiting:  
+
+**Ways to inspire comments:**  
+1. Making ____________  
+2. Wearing ____________  
+3. ____________ props  
+4. ____________ behavior
+
+Encourage comments by ____________ words
+
+---
+
+## GENRES TO TRY  
+**Found Footage** – 3+ People, low budget  
+**Cooking** – 1 Person, med budget  
+**DIY Crafts** – 1 Person, creative space  
+**Drama** – 2+ People, filmed in public  
+**Reaction** – 1 Person, high volume  
+**Pranks** – 2+ People  
+**DIY Hacks** – 1–2 People, handy/tools  
+**Games** – 4+ People, high energy
+
+---
+
+## PICK YOUR BUCKET  
+**What is your main goal?**  
+- Get more views  
+- Earn money  
+- Gain followers  
+- Sell product
+
+**Execution Plan:**  
+- Describe your concept  
+- #1 takeaway  
+- Video count commitment
+
+---
+
+## PERFECT YOUR HOOK  
+**THE GOLDEN RULE**  
+🚦 Your first 5 seconds must set up a HOOK...  
+
+**Checklist:**  
+- Visually interesting  
+- Understood without sound  
+- Widely relatable  
+- Starting in the action  
+- Chaos-free  
+
+🛑 Are any boxes unchecked? Adjust accordingly.
+
+---
+
+## LET’S ADD SUSPENSE  
+### First 3:  
+Grab attention  
+
+### First 15 Seconds:  
+Establish intrigue  
+
+### 60s+:  
+Hold tension  
+
+**Checklist:**  
+- Holds tension  
+- Visually interesting  
+- Feels urgent  
+- No swipe moment  
+- Paces well
+
+---
+
+## THE PAYOFF  
+- Describe your payoff  
+- Evoked emotion?  
+- If not, what to adjust?
+
+**Checklist:**  
+- 💬 Shareable  
+- 😍 Satisfying  
+- 😂 Matches goal emotion  
+- 🎬 Ends within 5 seconds
+
+---
+
+## RAISING THE STAKES  
+Choose at least TWO:  
+- LOCATION  
+- PROPS  
+- WARDROBE  
+- CASTING  
+
+Look at your last video—how can you raise the stakes?
+
+---
+
+## DOUBLE YOUR ENGAGEMENT  
+**Tactics:**  
+- Controversial opinions  
+- Mistakes  
+- Unique outfits  
+- Offbeat props
+
+**Write 3 caption options:**  
+1.  
+2.  
+3.
+
+---
+
+## SETTING YOUR PATH TO SUCCESS 🚀  
+Congrats! You’ve started. Let’s reverse engineer your goals.
+
+### 🌟 Yearly Horizons  
+Plan your long-term vision  
+
+### 🌈 Monthly Milestones  
+Break down progress by month  
+
+### 📆 Weekly Wins  
+Craft weekly objectives  
+
+### 🚀 Daily Triumphs  
+Daily habits lead to massive results  
+
+---
+
+## YEARLY GOALS  
+- # of videos  
+- Platforms  
+- Brand deals  
+- Revenue goals  
+- Strategy
+
+---
+
+## MONTHLY GOALS  
+Layout space per month:  
+JAN FEB MAR  
+APR MAY JUN  
+JUL AUG SEP  
+OCT NOV DEC  
+
+---
+
+## WEEKLY PLANNER  
+MON TUE WED  
+THU FRI SAT  
+SUN  
+
+Props List:  
+THIS IS MY BEST WEEK YET!
+
+---
+
+## DAILY PLANNER  
+**Schedule:**  
+07:00–18:00  
+
+**To Do / Props / Productivity**  
+Rate: 1–10  
+
+---
+
+
+
+=== FILE: Viralish_Suspense_Ladder.txt ===
+------------------------------
+Viralish
+
+SUSPENSE
+LADDER
+
+
+Payoff
+What are you doing to encourage shares/engagement?
+Seventh Inning Stretch
+How are you holding the tension you’ve created before the payoff?
+Which beat are you elongating?
+First Minute
+What beat are you introducing/heightening at the 1 min mark that
+viewers will watch through an ad for?
+First 15 Seconds
+What is this first thing you are going to add that adds curiosity to see
+your payoff?
+What is your anchor?
+What are you planting in their mind in your
+first 3 seconds?
+
+

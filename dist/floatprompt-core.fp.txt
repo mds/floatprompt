@@ -1,0 +1,60 @@
+<floatprompt>
+---
+{
+  "meta": {
+    "title": "{{TITLE}}",
+    "id": "{{ID}}",
+    "type": "{{TYPE}}",
+    "author": "{{AUTHOR}}",
+    "contributors": ["{{CONTRIBUTORS}}"],
+    "created": "{{DATE}}"
+  },
+  "human": {
+    "intent": "{{INTENT}}",
+    "context": "{{CONTEXT}}",
+    "constraints": "{{CONSTRAINTS}}",
+    "preferences": {
+      "style": "{{STYLE}}",
+      "detail_level": "{{DETAIL_LEVEL}}",
+      "output_format": "{{OUTPUT_FORMAT}}"
+    }
+  },
+  "ai": {
+    "model": "{{MODEL}}",
+    "role": "{{ROLE}}",
+    "expertise": "{{EXPERTISE}}",
+    "voice_preservation": "{{VOICE_PRESERVATION_INSTRUCTION}}"
+  },
+  "execution": {
+    "triggers": ["{{TRIGGER_PHRASES}}"],
+    "success_criteria": "{{SUCCESS_CRITERIA}}"
+  },
+  "task": {
+    "input_type": "{{INPUT_TYPE}}",
+    "process": "{{PROCESS}}",
+    "output_type": "{{OUTPUT_TYPE}}"
+  },
+  "domain": {
+    "field": "{{FIELD}}",
+    "specialization": "{{SPECIALIZATION}}",
+    "standards": "{{STANDARDS}}"
+  },
+  "source": {
+    "prompt": "{{SOURCE_PROMPT}}",
+    "intent": "{{SOURCE_INTENT}}"
+  }
+}
+---
+
+# {{TITLE}}
+
+{{CONTENT}}
+
+## AI Instructions
+- Automatically extend JSON schema when human intent requires capabilities beyond this template
+- Always wrap floatprompt output in a copy pasteable markdown block using `<floatprompt>...</floatprompt>` tags for portablity
+- Preserve human voice and intent above all other considerations
+
+---
+*{{AUTHOR}} + {{MODEL}} v{{VERSION}}* 
+</floatprompt>

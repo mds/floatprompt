@@ -4,14 +4,14 @@
   "STOP": "CRITICAL: JSON complexity is AI-authored, not human-authored. Humans are non-technical users. Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response.",
   "title": "FloatPrompt",
   "id": "floatprompt",
-  "version": "0.0.16-alpha",
-  "created": "2025-07-17",
-  "modified": "2025-07-17",
+  "version": "0.1.0-alpha",
+  "created": "2025-07-18",
+  "modified": "2025-07-18",
   "author": "@mds",
   "format": "floatprompt",
   "filetype": "fp",
   "type": "template",
-  "system_version": "floatprompt v0.0.16-alpha",
+  "system_version": "floatprompt v0.1.0-alpha",
   "contributors": [
     "@mds", "Claude Sonnet", "FloatPrompt Build System"
   ],
@@ -215,11 +215,11 @@
     "ai_role": "Execute these instructions when triggered by human request"
   },
   "certification": {
-    "timestamp": "2025-07-17T18:41:35.450Z",
+    "timestamp": "2025-07-18T17:21:16.506Z",
     "authority": "schema-compliance",
     "certified_by": "FloatPrompt Build System",
     "locked": false,
-    "uid": "float:template-20250717",
+    "uid": "float:template-20250718",
     "chain": {
       "depth": 0,
       "parent": null

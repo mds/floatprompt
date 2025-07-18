@@ -11,7 +11,7 @@ const VERSION = packageJson.version;
 const BUILD_CONFIG = {
   sourceDir: './src/sys',
   outputDir: './dist',
-  outputFile: `floatprompt.fp.txt`,
+  outputFile: `floatprompt-pro.fp.txt`,
   
   // Compilation order from _order.md (updated to actual filenames)
   components: [
@@ -43,7 +43,7 @@ const BUILD_CONFIG = {
 const VOICE_BUILD_CONFIG = {
   sourceDir: './src/lib/voice',
   outputDir: './dist',
-  outputFile: 'voice.fp.txt',
+  outputFile: 'floatprompt-pro-voice.fp.txt',
   sharedDir: './src/sys/shared'
 };
 
@@ -51,7 +51,7 @@ const VOICE_BUILD_CONFIG = {
 const FORMATTER_BUILD_CONFIG = {
   sourceDir: './src/lib/format',
   outputDir: './dist',
-  outputFile: 'format.fp.txt',
+  outputFile: 'floatprompt-pro-format.fp.txt',
   sharedDir: './src/sys/shared'
 };
 
@@ -59,7 +59,7 @@ const FORMATTER_BUILD_CONFIG = {
 const BLUEPRINT_BUILD_CONFIG = {
   sourceDir: './src/lib/blueprint',
   outputDir: './dist',
-  outputFile: 'blueprint.fp.txt',
+  outputFile: 'floatprompt-pro-blueprint.fp.txt',
   sharedDir: './src/sys/shared'
 };
 
@@ -534,10 +534,31 @@ async function buildBlueprint() {
   await buildLibComponent(BLUEPRINT_BUILD_CONFIG, 'Blueprint - Surgical Assembly Specification Generator');
 }
 
+// Build Core FloatPrompt (simple copy)
+async function buildCore() {
+  console.log('📄 Building FloatPrompt Core...');
+  
+  const sourceCore = './src/floatprompt-core.fp.txt';
+  const distCore = './dist/floatprompt-core.fp.txt';
+  
+  try {
+    const coreContent = await fs.readFile(sourceCore, 'utf-8');
+    await fs.writeFile(distCore, coreContent, 'utf-8');
+    console.log('✅ FloatPrompt Core copied to dist/');
+  } catch (error) {
+    console.error('❌ Failed to build Core:', error.message);
+    throw error;
+  }
+}
+
 // Error handling
 async function main() {
   try {
-    // Build the main FloatPrompt template and all lib components
+    // Build Core (simple copy)
+    await buildCore();
+    console.log('\n' + '='.repeat(50) + '\n');
+    
+    // Build Pro files
     await buildFloatPrompt();
     console.log('\n' + '='.repeat(50) + '\n');
     await buildVoiceGuide();
