@@ -54,11 +54,7 @@ Last Updated: ${buildDate}
       systemStatus = 'building';
     }
     
-    // Update build status line (safe, non-revealing)
-    readmeContent = readmeContent.replace(
-      /\*Build system [^|]+\|/,
-      `*Build system ${systemStatus} |`
-    );
+    // Build status integrated into BUILD_METADATA section
     
     await fs.writeFile('./README.md', readmeContent, 'utf-8');
     console.log('✅ README.md updated successfully');
@@ -76,42 +72,7 @@ Last Updated: ${buildDate}
   }
 }
 
-// For website content extraction (safe, public-ready content)
-async function extractWebsiteContent() {
-  console.log('📄 Extracting website-safe content...');
-  
-  try {
-    const readmeContent = await fs.readFile('./README.md', 'utf-8');
-    
-    // Extract safe sections for website use
-    const extractSection = (sectionName) => {
-      const regex = new RegExp(`## 🚀 \\*\\*${sectionName}\\*\\*([\\s\\S]*?)(?=## |$)`, 'i');
-      const match = readmeContent.match(regex);
-      return match ? match[1].trim() : '';
-    };
-    
-    const websiteContent = {
-      protocol_overview: extractSection('Protocol Overview'),
-      development_status: 'Alpha - Core/Pro Architecture',
-      version: VERSION,
-      tagline: 'The invisible OS for AI in a text file',
-      architecture: 'Core (Universal) + Pro (Advanced)',
-      ready_for_public: true, // Core/Pro architecture is public-ready
-      contact: 'https://mds.is'
-    };
-    
-    // Save for website pipeline (safe content only)
-    await fs.mkdir('./private', { recursive: true });
-    await fs.writeFile('./private/.website-content.json', JSON.stringify(websiteContent, null, 2));
-    console.log('✅ Website content extracted (safe for public use)');
-    
-    return websiteContent;
-    
-  } catch (error) {
-    console.error('❌ Failed to extract website content:', error.message);
-    return { error: error.message };
-  }
-}
+// Simplified script - no website content extraction needed
 
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
@@ -119,10 +80,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   
   if (result.updated) {
     console.log(`📊 Status: Version ${result.version} | System ${result.systemStatus} | ${result.buildDate}`);
-    
-    // Also extract website-safe content
-    await extractWebsiteContent();
   }
 }
 
-export { updateReadme, extractWebsiteContent }; 
+export { updateReadme }; 
