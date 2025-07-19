@@ -19,13 +19,13 @@ async function updateReadme() {
       `**Development Status** *(Version ${VERSION})*`
     );
     
-    // Update build metadata section (Core/Pro architecture)
+    // Update build metadata section (Simple/Full architecture)
     const buildDate = new Date().toISOString().split('T')[0];
     const newMetadata = `<!-- BUILD_METADATA
 Version: ${VERSION}  
-Phase: Alpha - Core/Pro Architecture
-Status: Core systems operational
-Architecture: Core (Universal) + Pro (Advanced)
+Phase: Alpha - Simple/Full Architecture
+Status: Simple systems operational
+Architecture: Simple (Universal) + Full (Advanced)
 Last Updated: ${buildDate}
 -->`;
     
@@ -43,11 +43,11 @@ Last Updated: ${buildDate}
       const files = await fs.readdir(distDir);
       const fpFiles = files.filter(f => f.endsWith('.fp.txt'));
       
-      // Check for Core/Pro architecture files
-      const hasCoreFile = fpFiles.some(f => f.includes('floatprompt-core'));
-      const hasProFiles = fpFiles.some(f => f.includes('floatprompt-pro'));
+      // Check for Simple/Full architecture files
+      const hasSimpleFile = fpFiles.some(f => f.includes('floatprompt-simple'));
+      const hasFullFiles = fpFiles.some(f => f.includes('floatprompt.fp'));
       
-      if (!hasCoreFile || !hasProFiles || fpFiles.length < 5) {
+      if (!hasSimpleFile || !hasFullFiles || fpFiles.length < 5) {
         systemStatus = 'building';
       }
     } catch {

@@ -5,8 +5,8 @@
   "title": "Blueprint - Surgical Assembly Specification Generator",
   "id": "blueprint",
   "version": "0.1.0-alpha",
-  "created": "2025-07-18",
-  "modified": "2025-07-18",
+  "created": "2025-07-19",
+  "modified": "2025-07-19",
   "author": "@mds",
   "format": "floatprompt",
   "filetype": "fp",
@@ -182,7 +182,7 @@
     }
   },
   "certification": {
-    "timestamp": "2025-07-18T00:00:00.000Z",
+    "timestamp": "2025-07-19T00:00:00.000Z",
     "authority": "schema-compliance",
     "certified_by": "{{CERTIFIED_BY}}",
     "locked": false,

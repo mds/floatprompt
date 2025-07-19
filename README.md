@@ -15,18 +15,18 @@ Human intelligence preservation protocol. Save AI conversations as .fp.txt files
 
 ## Solution
 
-**FloatPrompt Core/Pro Architecture:**
+**FloatPrompt grows with you:**
 
-### **Start with Core (Universal)**
-- **`floatprompt-core.fp.txt`** - Universal specification that works on every AI platform
+### **Start Simple (Universal)**
+- **`floatprompt-simple.fp.txt`** - Universal specification that works on every AI platform
 - Simple template format for immediate prompt organization and reuse
 - Zero learning curve, maximum compatibility
 
-### **Upgrade to Pro (Advanced)**
-- **`floatprompt-pro.fp.txt`** - Complete MDS Method system for sophisticated workflows
-- **`floatprompt-pro-voice.fp.txt`** - Voice preservation and archaeological extraction
-- **`floatprompt-pro-format.fp.txt`** - Professional formatting and structure tools
-- **`floatprompt-pro-blueprint.fp.txt`** - Complex project assembly and coordination
+### **Discover Advanced Features**
+- **`floatprompt.fp.txt`** - Complete MDS Method system for sophisticated workflows
+- **`floatprompt-voice.fp.txt`** - Voice preservation and archaeological extraction
+- **`floatprompt-format.fp.txt`** - Professional formatting and structure tools
+- **`floatprompt-blueprint.fp.txt`** - Complex project assembly and coordination
 
 **Your .fp.txt files** contain:
 - Context and methodology
@@ -34,15 +34,15 @@ Human intelligence preservation protocol. Save AI conversations as .fp.txt files
 - Conversation history
 - Project specifications
 
-**Upgrade Path**: Start with Core for immediate value → Upgrade to Pro for professional workflows.
+**Natural Progression**: Start simple for immediate value → Discover advanced features as you grow.
 
 ## Quick Start
 
-### **Option 1: Start with Core (Recommended)**
-**Download:** [`floatprompt-core.fp.txt`](dist/floatprompt-core.fp.txt) - Works everywhere, immediate value
+### **Option 1: Start Simple (Recommended)**
+**Download:** [`floatprompt-simple.fp.txt`](dist/floatprompt-simple.fp.txt) - Works everywhere, immediate value
 
-### **Option 2: Try Pro Features**  
-**Download Pro System:** [Complete Pro suite →](dist/) - Advanced workflows and voice preservation
+### **Option 2: Explore Advanced Features**  
+**Download Full System:** [Complete FloatPrompt suite →](dist/) - Advanced workflows and voice preservation
 
 ### **Option 3: Interactive Demo**
 **Try FloatPrompt now:** [FloatPrompt CustomGPT →](https://chatgpt.com/g/g-685c4f5d32708191876ecda72bbcb348-floatprompt)

@@ -5,8 +5,8 @@
   "title": "FloatPrompt",
   "id": "floatprompt",
   "version": "0.1.0-alpha",
-  "created": "2025-07-18",
-  "modified": "2025-07-18",
+  "created": "2025-07-19",
+  "modified": "2025-07-19",
   "author": "@mds",
   "format": "floatprompt",
   "filetype": "fp",
@@ -215,11 +215,11 @@
     "ai_role": "Execute these instructions when triggered by human request"
   },
   "certification": {
-    "timestamp": "2025-07-18T17:21:16.506Z",
+    "timestamp": "2025-07-19T21:21:38.244Z",
     "authority": "schema-compliance",
     "certified_by": "FloatPrompt Build System",
     "locked": false,
-    "uid": "float:template-20250718",
+    "uid": "float:template-20250719",
     "chain": {
       "depth": 0,
       "parent": null

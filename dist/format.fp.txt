@@ -5,8 +5,8 @@
   "title": "FloatPrompt Formatter - AI Technical Formatting Guide",
   "id": "floatprompt-formatter",
   "version": "0.1.0-alpha",
-  "created": "2025-07-18",
-  "modified": "2025-07-18",
+  "created": "2025-07-19",
+  "modified": "2025-07-19",
   "author": "@mds",
   "format": "floatprompt",
   "filetype": "fp",
@@ -205,7 +205,7 @@
     "ai_role": "Execute precise technical formatting for floatprompt creation"
   },
   "certification": {
-    "timestamp": "2025-07-18T00:00:00.000Z",
+    "timestamp": "2025-07-19T00:00:00.000Z",
     "authority": "schema-compliance",
     "certified_by": "Claude Sonnet",
     "locked": false,

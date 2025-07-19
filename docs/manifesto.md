@@ -27,13 +27,13 @@ FloatPrompt files are everything that floats in the system. Intelligence is in s
 
 FloatPrompt provides **structured intelligence collaboration** that transforms any AI system into a more capable partner.
 
-### **Start Simple with Core**
-- Upload `floatprompt-core.fp.txt` → activate structured collaboration
+### **Start Simple**
+- Upload `floatprompt-simple.fp.txt` → activate structured collaboration
 - Universal template works on every AI platform
 - Immediate improvements in context preservation and task organization
 - Zero learning curve with instant practical value
 
-### **Explore Advanced with Pro**
+### **Discover Advanced Features**
 - Upload Pro files → access sophisticated behavioral specifications
 - Experience advanced voice preservation, archaeological extraction, and complex workflow coordination
 - Turn any AI into a strategic consultant operating under your cognitive architecture

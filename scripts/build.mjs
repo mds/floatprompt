@@ -11,7 +11,7 @@ const VERSION = packageJson.version;
 const BUILD_CONFIG = {
   sourceDir: './src/sys',
   outputDir: './dist',
-  outputFile: `floatprompt-pro.fp.txt`,
+  outputFile: `floatprompt.fp.txt`,
   
   // Compilation order from _order.md (updated to actual filenames)
   components: [
@@ -43,7 +43,7 @@ const BUILD_CONFIG = {
 const VOICE_BUILD_CONFIG = {
   sourceDir: './src/lib/voice',
   outputDir: './dist',
-  outputFile: 'floatprompt-pro-voice.fp.txt',
+  outputFile: 'voice.fp.txt',
   sharedDir: './src/sys/shared'
 };
 
@@ -51,15 +51,15 @@ const VOICE_BUILD_CONFIG = {
 const FORMATTER_BUILD_CONFIG = {
   sourceDir: './src/lib/format',
   outputDir: './dist',
-  outputFile: 'floatprompt-pro-format.fp.txt',
+  outputFile: 'format.fp.txt',
   sharedDir: './src/sys/shared'
 };
 
-// Blueprint build configuration
+// Blueprint build configuration  
 const BLUEPRINT_BUILD_CONFIG = {
   sourceDir: './src/lib/blueprint',
   outputDir: './dist',
-  outputFile: 'floatprompt-pro-blueprint.fp.txt',
+  outputFile: 'blueprint.fp.txt',
   sharedDir: './src/sys/shared'
 };
 
@@ -534,19 +534,19 @@ async function buildBlueprint() {
   await buildLibComponent(BLUEPRINT_BUILD_CONFIG, 'Blueprint - Surgical Assembly Specification Generator');
 }
 
-// Build Core FloatPrompt (simple copy)
-async function buildCore() {
-  console.log('📄 Building FloatPrompt Core...');
+// Build Simple FloatPrompt (simple copy)
+async function buildSimple() {
+  console.log('📄 Building FloatPrompt Simple...');
   
-  const sourceCore = './src/floatprompt-core.fp.txt';
-  const distCore = './dist/floatprompt-core.fp.txt';
+  const sourceSimple = './src/floatprompt-simple.fp.txt';
+  const distSimple = './dist/simple.fp.txt';
   
   try {
-    const coreContent = await fs.readFile(sourceCore, 'utf-8');
-    await fs.writeFile(distCore, coreContent, 'utf-8');
-    console.log('✅ FloatPrompt Core copied to dist/');
+    const simpleContent = await fs.readFile(sourceSimple, 'utf-8');
+    await fs.writeFile(distSimple, simpleContent, 'utf-8');
+    console.log('✅ FloatPrompt Simple copied to dist/');
   } catch (error) {
-    console.error('❌ Failed to build Core:', error.message);
+    console.error('❌ Failed to build Simple:', error.message);
     throw error;
   }
 }
@@ -555,7 +555,7 @@ async function buildCore() {
 async function main() {
   try {
     // Build Core (simple copy)
-    await buildCore();
+    await buildSimple();
     console.log('\n' + '='.repeat(50) + '\n');
     
     // Build Pro files

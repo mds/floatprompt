@@ -1,4 +1,4 @@
-# FloatPrompt Core Principles
+# FloatPrompt Principles
 
 ## 🪞 Recognition Before Action
 
