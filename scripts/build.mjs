@@ -7,35 +7,25 @@ import path from 'path';
 const packageJson = JSON.parse(await fs.readFile('./package.json', 'utf-8'));
 const VERSION = packageJson.version;
 
-// Build configuration following _order.md
+// Build configuration following new 6-file MDS structure
 const BUILD_CONFIG = {
   sourceDir: './src/sys',
   outputDir: './dist',
   outputFile: `floatprompt.fp.txt`,
   
-  // Compilation order from _order.md (updated to actual filenames)
+  // New 6-file MDS structure compilation order
   components: [
-    // Phase 1: Foundation Components
-    { file: 'config.md', type: 'markdown', phase: 'Foundation' },
+    // Phase 1: Infrastructure
+    { file: 'header.md', type: 'frontmatter', phase: 'Infrastructure' },
+    { file: 'boot.md', type: 'markdown', phase: 'Infrastructure' },
     
-    // Phase 2: Core System Components  
-    { file: 'execution.md', type: 'markdown', phase: 'Core System' },
-    { file: 'voice.md', type: 'markdown', phase: 'Core System' },
-    { file: 'types.md', type: 'markdown', phase: 'Core System' },
-    { file: 'modes.md', type: 'markdown', phase: 'Core System' },
-    { file: 'chaining.md', type: 'markdown', phase: 'Core System' },
+    // Phase 2: MDS Method (Core Functionality)
+    { file: 'map.md', type: 'markdown', phase: 'Territory' },
+    { file: 'decide.md', type: 'markdown', phase: 'Extraction' },
+    { file: 'structure.md', type: 'markdown', phase: 'Assembly' },
     
-    // Phase 3: Structure Components
-    { file: 'structure.md', type: 'markdown', phase: 'Structure' },
-    { file: 'discovery.md', type: 'markdown', phase: 'Structure' },
-    
-    // Phase 4: Validation Components
-    { file: 'validation.md', type: 'markdown', phase: 'Validation' },
-    { file: 'enforcement.md', type: 'markdown', phase: 'Validation' },
-    
-    // Phase 5: Convention Components
-    { file: 'naming.md', type: 'markdown', phase: 'Convention' },
-    { file: 'metadata.md', type: 'markdown', phase: 'Convention' }
+    // Phase 3: Foundation
+    { file: 'footer.md', type: 'markdown', phase: 'Infrastructure' }
   ]
 };
 
@@ -69,42 +59,26 @@ async function extractFloatPromptFrontmatter() {
   const buildDateCompact = buildDate.replace(/-/g, '');
   const currentYear = new Date().getFullYear();
   
-  // Archaeological extraction from header.md
-  const templateHeaderPath = path.join('./src/sys', 'header.md');
-  const templateHeaderContent = await readComponent(templateHeaderPath);
+  // Read frontmatter from header.md
+  const headerPath = path.join('./src/sys', 'header.md');
+  const headerContent = await readComponent(headerPath);
   
-  if (!templateHeaderContent) {
-    throw new Error('Failed to read header.md - archaeological extraction requires source template');
+  if (!headerContent) {
+    throw new Error('Failed to read header.md - frontmatter extraction requires source template');
   }
   
-  // Build variables for complete field mapping
+  // Build variables for template replacement
   const buildVariables = {
     VERSION: VERSION,
     BUILD_DATE: buildDate,
     BUILD_TIMESTAMP: timestamp,
     BUILD_DATE_COMPACT: buildDateCompact,
     CURRENT_YEAR: currentYear,
-    STOP_DIRECTIVE: "CRITICAL: JSON complexity is AI-authored, not human-authored. Humans are non-technical users. Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response.",
-    TITLE: "FloatPrompt",
-    ID: "floatprompt",
-    AUTHOR: "@mds",
-    TYPE: "template",
-    CONTRIBUTORS: '@mds", "Claude Sonnet", "FloatPrompt Build System',
-    CERTIFIED_BY: "FloatPrompt Build System",
-    UNIQUE_ID: `float:template-${buildDateCompact}`,
-    LINEAGE_TRACE: '"modular-component-compilation"',
-    EXECUTION_TRIGGERS: '"create floatprompt", "FloatPrompt template", "complete specification"',
-    EXECUTION_FALLBACK: "FloatPrompt loaded but boot sequence failed. Try saying 'run floatprompt' or ask what I can create.",
-    EXECUTION_SOURCE: "modular-component-compilation",
-    VOICE_GUIDE: "float:voice-preservation-template (or external voice guide if provided)",
-    RISK_LEVEL: "foundational-system",
-    EXECUTION_MODE: "portable_ai_instruction_set",
-    USAGE_PATTERN: "Upload your content and request mapping, extraction, or building",
-    AI_ROLE: "Execute these instructions when triggered by human request"
+    AI_MODEL: "{{AI_MODEL}}"
   };
 
   // Replace template variables with actual build values
-  let processedContent = templateHeaderContent;
+  let processedContent = headerContent;
   
   for (const [varName, value] of Object.entries(buildVariables)) {
     const regex = new RegExp(`\\{\\{${varName}\\}\\}`, 'g');
@@ -112,38 +86,6 @@ async function extractFloatPromptFrontmatter() {
   }
   
   return processedContent;
-}
-
-async function extractFloatPromptBody() {
-  // Archaeological extraction from body.md
-  const templateBodyPath = path.join('./src/sys', 'body.md');
-  let templateBodyContent = await readComponent(templateBodyPath);
-  
-  if (!templateBodyContent) {
-    throw new Error('Failed to read body.md - archaeological extraction requires source template');
-  }
-  
-  // Process include directives
-  const includeRegex = /<!-- INCLUDE: (\w+\.md) -->/g;
-  let match;
-  
-      while ((match = includeRegex.exec(templateBodyContent)) !== null) {
-      const includeFile = match[1];
-      const includePath = path.join('./src/sys', includeFile);
-    
-    console.log(`📄 Processing include: ${includeFile}...`);
-    const includeContent = await readComponent(includePath);
-    
-    if (includeContent) {
-      // Replace the include directive with the actual content
-      templateBodyContent = templateBodyContent.replace(match[0], includeContent);
-    } else {
-      console.warn(`⚠️  Warning: Include file not found: ${includeFile}`);
-      templateBodyContent = templateBodyContent.replace(match[0], `<!-- MISSING: ${includeFile} -->`);
-    }
-  }
-  
-  return templateBodyContent;
 }
 
 async function ensureDirectory(dirPath) {
@@ -319,75 +261,60 @@ function formatJSONAsYAML(key, value, indent = '') {
 }
 
 async function buildFloatPrompt() {
-  console.log('🚀 Building FloatPrompt template from refined components...\n');
+  console.log('🚀 Building FloatPrompt template using injection system...\n');
   
   // Ensure output directory exists
   await ensureDirectory(BUILD_CONFIG.outputDir);
   
-
+  // Read the template file
+  const templatePath = path.join(BUILD_CONFIG.sourceDir, '_template.md');
+  console.log('📄 Reading template structure...');
   
-  const compiledSections = [];
+  let template = await fs.readFile(templatePath, 'utf-8');
+  if (!template) {
+    throw new Error('Failed to read _template.md - template file required for build');
+  }
   
-  // Process each component in order
-  for (const component of BUILD_CONFIG.components) {
-    const componentPath = path.join(BUILD_CONFIG.sourceDir, component.file);
+  // Process all INJECT directives
+  const injectRegex = /<!-- INJECT: (.+?) -->/g;
+  const matches = [...template.matchAll(injectRegex)];
+  
+  for (const match of matches) {
+    const filename = match[1];
+    const filePath = path.join(BUILD_CONFIG.sourceDir, filename);
     
-    console.log(`📄 Reading ${component.file}...`);
-    const content = await readComponent(componentPath);
+    console.log(`🔗 Injecting: ${filename}...`);
     
-    if (content) {
-      // Add component content directly (already AI Precision Optimized)
-      compiledSections.push(content);
-      compiledSections.push('');
-    } else {
-      compiledSections.push(`### MISSING: ${component.file}`);
-      compiledSections.push('*Component not found - build cannot complete*');
-      compiledSections.push(''); 
+    try {
+      let content = await fs.readFile(filePath, 'utf-8');
+      
+      // Replace the injection marker with actual content
+      template = template.replace(match[0], content.trim());
+    } catch (error) {
+      console.warn(`⚠️  Warning: Could not inject ${filename} - ${error.message}`);
+      template = template.replace(match[0], `<!-- ERROR: Could not inject ${filename} -->`);
     }
   }
   
-  // Archaeological extraction from footer.md
-  const footerPath = path.join('./src/shared', 'footer.md');
-  let footerContent = await readComponent(footerPath);
+  // Process template variables in the final assembled template
+  const buildDate = new Date().toISOString().split('T')[0];
+  const systemVersion = `v${VERSION}`;
   
-  if (!footerContent) {
-    throw new Error('Failed to read shared/footer.md - archaeological extraction requires source template');
-  }
+  template = template
+    .replace(/\{\{VERSION\}\}/g, VERSION)
+    .replace(/\{\{DATE\}\}/g, buildDate)
+    .replace(/\{\{SYSTEM_VERSION\}\}/g, systemVersion)
+    .replace(/\{\{AI_MODEL\}\}/g, "{{AI_MODEL}}"); // Keep this as template variable for runtime
   
-  // Replace template variables in footer
-  const currentYear = new Date().getFullYear();
-  footerContent = footerContent.replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
-  
-  // Add boot.md right after body.md
-  const bootPath = path.join('./src/sys', 'boot.md');
-  const bootContent = await readComponent(bootPath);
-  
-  if (!bootContent) {
-    throw new Error('Failed to read boot.md - archaeological extraction requires source template');
-  }
-
-  // Compile final template with AI Precision Optimized structure and proper .fp format
-  const finalTemplate = [
-    '<floatprompt>',
-    await extractFloatPromptFrontmatter(),
-    await extractFloatPromptBody(),
-    bootContent,
-    '',
-    ...compiledSections,
-    footerContent,
-    '</floatprompt>'
-  ].join('\n');
-  
-  // Write .fp.txt output file
+  // Write final template
   const outputPath = path.join(BUILD_CONFIG.outputDir, BUILD_CONFIG.outputFile);
-  await fs.writeFile(outputPath, finalTemplate, 'utf-8');
+  await fs.writeFile(outputPath, template, 'utf-8');
   
-  console.log(`\n✅ Successfully compiled FloatPrompt template from refined components!`);
+  console.log(`\n✅ Successfully compiled FloatPrompt template using injection system!`);
   console.log(`📍 Output: ${outputPath}`);
-  console.log(`📊 Components processed: ${BUILD_CONFIG.components.length}`);
-  console.log(`📏 Final size: ${Math.round(finalTemplate.length / 1024)}KB`);
-  console.log(`🎯 Structure: AI Precision Optimized with proper STOP field placement`);
-  console.log(`🏛️ Authority: All 15 components refined and compilation-ready`);
+  console.log(`📏 Final size: ${Math.round(template.length / 1024)}KB`);
+  console.log(`🎯 Structure: Template-driven injection system`);
+  console.log(`🏛️ Authority: Clean separation of template and content`);
   console.log(`📦 Version: ${VERSION}`);
 }
 

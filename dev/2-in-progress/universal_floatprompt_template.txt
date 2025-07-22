@@ -1,0 +1,162 @@
+# 🎯 {{TITLE}}
+
+**{{ONE_LINE_PURPOSE_STATEMENT}}**
+
+> **{{VALUE_PROPOSITION_QUOTE}}**
+
+*{{EXTENDED_DESCRIPTION_WITH_OPERATING_PRINCIPLE}}*
+
+---
+
+## 🎯 System Authority
+
+{{OPERATING_PRINCIPLE_AND_CORE_MISSION}}
+
+**Operating Principle**: "{{CORE_OPERATING_PHILOSOPHY}}"
+
+**Core Mission**: {{PRIMARY_FUNCTION_AND_AUTHORITY}}
+
+---
+
+## ⚡ {{USAGE_PATTERN_SECTION}}
+<!-- CONDITIONAL: Varies by tool type -->
+
+<!-- FOR EXECUTABLE TOOLS: -->
+## ⚡ Quick Start
+{{IMMEDIATE_ACTION_GUIDANCE}}
+
+<!-- FOR REFERENCE TOOLS: -->
+## ⚡ Application Guide  
+{{HOW_TO_USE_THIS_REFERENCE}}
+
+<!-- FOR WORKFLOW TOOLS: -->
+## ⚡ Automatic Detection
+{{PHASE_DETECTION_AND_ROUTING}}
+
+<!-- FOR OS/FOUNDATION: -->
+## ⚡ Quick Start Options
+{{MULTIPLE_USAGE_PATHWAYS}}
+
+---
+
+## 🎯 Goals
+**What this tool accomplishes:**
+- {{PRIMARY_GOAL}}
+- {{SECONDARY_GOAL}}
+- {{SUCCESS_METRIC}}
+
+---
+
+## 📝 Context
+**When and why to use this tool:**
+- **Best for**: {{IDEAL_USE_CASES}}
+- **Works with**: {{COMPATIBLE_TOOLS_AND_WORKFLOWS}}
+- **Timing**: {{OPTIMAL_USAGE_CONTEXT}}
+
+---
+
+## 📤 Output
+**What you get:**
+- **Format**: {{OUTPUT_FORMAT}}
+- **Structure**: {{OUTPUT_ORGANIZATION}}
+- **Quality**: {{OUTPUT_STANDARDS}}
+- **Handoff**: {{NEXT_STEP_COMPATIBILITY}}
+
+---
+
+## ⚠️ Warnings
+**Important limitations and considerations:**
+- {{CRITICAL_LIMITATION_1}}
+- {{VOICE_PRESERVATION_WARNING}}
+- {{USAGE_BOUNDARY_WARNING}}
+- {{QUALITY_DEPENDENCY_WARNING}}
+
+---
+
+## {{DYNAMIC_CORE_SECTIONS}}
+<!-- CONDITIONAL: Expands based on tool complexity and type -->
+
+<!-- FOR SIMPLE UTILITIES: -->
+## 📋 Core Functionality
+{{SINGLE_PRIMARY_FUNCTION}}
+
+<!-- FOR COMPLEX WORKFLOWS: -->
+## 📋 {{PROCESS_NAME}} Methodology
+{{MULTI_STEP_PROCESS_WITH_PHASES}}
+
+### **{{PHASE_1_NAME}}**
+{{PHASE_1_DETAILS}}
+
+### **{{PHASE_2_NAME}}**  
+{{PHASE_2_DETAILS}}
+
+### **{{PHASE_N_NAME}}**
+{{PHASE_N_DETAILS}}
+
+<!-- FOR EXTRACTION TOOLS: -->
+## 📋 Archaeological Extraction Protocol
+{{VOICE_PRESERVATION_METHODOLOGY}}
+
+## 🛡️ Quality Assurance Standards
+{{VOICE_PROTECTION_AND_VALIDATION}}
+
+<!-- FOR TRANSFORMATION TOOLS: -->
+## 📋 Transformation Process
+{{INPUT_TO_OUTPUT_METHODOLOGY}}
+
+## 🎛️ {{TOOL_SPECIFIC_CALIBRATION}}
+{{VOICE_OR_PARAMETER_CALIBRATION}}
+
+<!-- FOR REFERENCE DOCUMENTS: -->
+## 📊 {{REFERENCE_CONTENT_TITLE}}
+{{CORE_REFERENCE_INFORMATION}}
+
+## 📋 Usage Guidelines
+{{APPLICATION_INSTRUCTIONS}}
+
+<!-- FOR OS/FOUNDATION TOOLS: -->
+## 🗺️ Core System Modes
+{{MDS_METHOD_OR_CORE_OPERATIONS}}
+
+## 🔄 Multi-Step Workflows
+{{CHAINING_AND_ORCHESTRATION}}
+
+## 📋 Configuration Standards
+{{BEHAVIORAL_REQUIREMENTS_AND_STANDARDS}}
+
+---
+
+## 🔗 Integration Features
+<!-- CONDITIONAL: Only for tools that coordinate with others -->
+
+### **{{COORDINATION_TYPE}}**
+{{TOOL_COORDINATION_DETAILS}}
+
+### **Required Dependencies**
+{{EXTERNAL_REQUIREMENTS_AND_VOICE_GUIDES}}
+
+### **Pipeline Coordination**
+{{WORKFLOW_INTEGRATION_PROTOCOLS}}
+
+---
+
+## 🛡️ Quality Standards
+<!-- CONDITIONAL: Only for voice-sensitive or quality-critical tools -->
+
+### **{{PRESERVATION_TYPE}} Preservation**
+{{QUALITY_ASSURANCE_PROTOCOLS}}
+
+### **{{VALIDATION_TYPE} Validation**  
+{{SUCCESS_CRITERIA_AND_METRICS}}
+
+### **{{PROTECTION_TYPE}} Protection**
+{{SAFETY_AND_COMPLIANCE_MEASURES}}
+
+---
+
+**{{COLLABORATION_ATTRIBUTION_LINE}}**
+
+*{{CLOSING_PHILOSOPHICAL_STATEMENT}}*
+
+---
+© 2025 [@MDS](https://mds.is) | CC BY 4.0

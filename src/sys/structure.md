@@ -1,115 +1,333 @@
-<!-- structure.md -->
-## Structure FloatPrompt Bodies Through Standard Markdown Template
+<!-- USAGE NOTES:
+- The complex part - actual FloatPrompt creation
+- Contains Universal JSON Guide for AI construction
+- Technical formatting protocols (biggest AI challenge)
+- Custom tool building where variation happens  
+- References map.md insights and decide.md extractions
+- Content from: structure.md assembly + modes.md Structure Build + types.md patterns + chaining.md orchestration + execution.md construction + Universal JSON Guide
+-->
 
-Apply standardized markdown template ensuring 100% precise AI instruction execution with complete human readability and voice preservation.
+## Structure Build
 
-## 🧱 System Body Structure
+**AI construction protocols for building custom FloatPrompts through systematic methodology**
 
-**Standard markdown template ensuring 100% precise AI instruction execution with complete human readability**
+> **"Universal structure + Conditional complexity + Infinite expandability = Systematic tool creation"**
 
-All floatprompts support optional `voice_override` metadata for custom voice injection.
-
-```markdown
-# 🏺 TODO_TITLE
-
-**TODO_TAGLINE_DESCRIBING_PURPOSE**
-
-> **TODO_CORE_VALUE_PROPOSITION**
-
-*TODO_EXTENDED_DESCRIPTION_OF_INTELLIGENCE_OR_PURPOSE*
+*Complete AI guidance for technical FloatPrompt creation with formatting compliance and conversational emergence.*
 
 ## 🎯 Purpose
 
-TODO_DETAILED_PURPOSE_AND_INTENT
+Build custom FloatPrompts through systematic three-phase co-creation with universal architecture compliance, technical formatting precision, and conversational sophistication scaling from simple utilities to complex workflow orchestrators.
 
 ### 🔑 Key Principles
-- TODO_PRINCIPLE_1
-- TODO_PRINCIPLE_2
-- TODO_PRINCIPLE_3
+- **Universal structure** - 100% predictable top-level architecture
+- **Collapsible complexity** - Simple tools minimal, complex tools expanded
+- **Infinite expandability** - Any functionality nests within requirements/integration
+- **Conversational emergence** - Tools emerge from dialogue, not form-filling
 
-## 📝 Main Content
+## 🚨 **MANDATORY EXECUTION PROTOCOL**
 
-TODO_PRIMARY_INTELLIGENCE_CONTENT
+**BEFORE YOU BEGIN - READ THIS TWICE:**
 
-### AI Summary
-TODO_OBJECTIVE_ANALYSIS_AND_TRANSFORMATION_OVERVIEW
+1. **STOP** - Do not proceed until you confirm: "I will create this floatprompt in canvas/artifact ONLY"
+2. **STOP** - Do not proceed until you confirm: "I will NOT output any floatprompt content in conversation"  
+3. **STOP** - Do not proceed until you confirm: "I will use complete JSON structure, not minimal examples"
 
-### TODO_SECTION_1
-TODO_CONTENT_WITH_PRESERVED_VOICE
+**IF YOU CANNOT CONFIRM ALL THREE - DO NOT PROCEED WITH FLOATPROMPT CREATION**
 
-### TODO_SECTION_2
-TODO_STRUCTURED_INTELLIGENCE
+## 🏗️ **DEFINITIVE Universal FloatPrompt Architecture**
 
-## 🔗 Relationships
+### **100% UNIVERSAL FIELDS (Every Single FloatPrompt)**
 
-### Prerequisites
-- TODO_WHAT_TO_READ_FIRST
-
-### Next Steps
-- TODO_WHERE_TO_GO_NEXT
-
-### Related FloatPrompts
-- TODO_CONNECTED_INTELLIGENCE
-
-## 📝 Implementation Notes
-
-TODO_SPECIFIC_GUIDANCE_FOR_USE
-
-## 🛡️ Safety & Compliance
-
-TODO_RELEVANT_SAFETY_CONSIDERATIONS
-TODO_HUMAN_AGENCY_PRESERVATION
-
-**Built in collaboration with TODO_AI_MODELS**
-
-*TODO_CLOSING_PHILOSOPHICAL_STATEMENT*
+```json
+{
+  "STOP": "{{EXECUTION_DIRECTIVE}}",
+  "meta": {
+    "title": "{{TITLE}}",
+    "id": "{{ID}}",
+    "type": "{{TYPE}}",
+    "author": "{{AUTHOR}}",
+    "contributors": ["{{CONTRIBUTORS}}"],
+    "created": "{{DATE}}",
+    "version": "{{VERSION}}",
+    "system_version": "floatprompt v0.0.16-alpha",
+    "format": "floatprompt",
+    "filetype": "fp"
+  },
+  "human": {
+    "intent": "{{PRIMARY_GOAL}}",
+    "context": "{{USAGE_CONTEXT}}",
+    "constraints": "{{LIMITATIONS}}",
+    "preferences": {
+      "style": "{{COMMUNICATION_STYLE}}",
+      "detail_level": "{{DEPTH_PREFERENCE}}",
+      "output_format": "{{EXPECTED_RESULT}}"
+    }
+  },
+  "ai": {
+    "model": "{{AI_MODEL}}",
+    "role": "{{AI_FUNCTION}}",
+    "expertise": "{{DOMAIN_KNOWLEDGE}}",
+    "voice_preservation": "{{VOICE_HANDLING_INSTRUCTION}}"
+  },
+  "requirements": {
+    "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
+  },
+  "integration": {
+    "{{PIPELINE_COORDINATION}}": "{{DESCRIPTION}}"
+  }
+}
 ```
 
-## 🏗️ OS/Application Architecture Pattern
+### **HIGHLY RECOMMENDED FIELDS (90-95% of FloatPrompts)**
 
-**FloatPrompt operates as a true operating system for AI collaboration with clean separation between universal system concerns and specific application logic.**
-
-### **FloatPrompt OS (Kernel)**
-**Core System File: `floatprompt-X.X.X-alpha.fp`**
-- **Role**: Operating system kernel providing foundational context
-- **Contains**: Complete format requirements, behavioral specifications, system authority
-- **Scope**: System-wide standards, universal behavioral contracts
-
-### **FloatPrompt Applications (Downstream)**
-**Application Files: `update-creator.fp`, `task-specific.fp`, etc.**
-- **Role**: Specialized applications running within OS context
-- **Contains**: Task-specific instructions, focused functionality
-- **Scope**: Specific use cases, targeted problem solving
-
-### **Optimal Usage Sequence**
+```json
+{
+  "execution": {
+    "triggers": ["{{ACTIVATION_PATTERNS}}"],
+    "success_criteria": "{{OUTCOME_DEFINITION}}"
+  },
+  "task": {
+    "input_type": "{{EXPECTED_INPUT}}",
+    "process": "{{TRANSFORMATION_METHOD}}",
+    "output_type": "{{EXPECTED_OUTPUT}}"
+  },
+  "domain": {
+    "field": "{{SPECIALIZATION_AREA}}",
+    "specialization": "{{SPECIFIC_FOCUS}}",
+    "standards": "{{QUALITY_CRITERIA}}"
+  },
+  "source": {
+    "prompt": "{{ORIGIN_PROMPT}}",
+    "intent": "{{SOURCE_PURPOSE}}"
+  }
+}
 ```
-1. Upload: floatprompt-{{VERSION}}.fp (establish OS context)
-2. Upload: specific-application.fp (run targeted task)
-3. AI Context: Complete system foundation + specific instructions
+
+## 🎯 **Conditional Field Inclusion Logic**
+
+### **AI Decision Tree for Field Inclusion**
+
+**execution** - Include if:
+- User requests executable tool
+- Mentions triggers or activation
+- Describes workflow or process
+- Tool needs success criteria
+
+**task** - Include if:
+- Clear input→transformation→output
+- Processing or conversion needed
+- Content manipulation required
+- Systematic transformation described
+
+**domain** - Include if:
+- Specialized field mentioned
+- Industry-specific requirements
+- Technical standards needed
+- Professional expertise required
+
+**source** - Include if:
+- Built from existing content
+- References prior work
+- Iterative improvement
+- Adaptation of existing tool
+
+## 🎯 **Tool Type Pattern Recognition**
+
+### **Voice-Sensitive Tools (Archaeological)**
+```json
+{
+  "requirements": {
+    "archaeological_methodology": "Extract without interpretation, preserve voice patterns",
+    "voice_preservation": {
+      "extraction_method": "Archaeological precision with zero drift",
+      "cognitive_patterns": "Maintain human decision-making fingerprint",
+      "temporal_precision": "Preserve hesitations, tildes, discovery markers"
+    },
+    "output_structure": "Organized intelligence with voice authenticity"
+  }
+}
 ```
 
-### **Separation of Concerns**
+### **Simple Tools (Content Creation)**
+```json
+{
+  "task": {
+    "input_type": "Source content or requirements",
+    "process": "Direct transformation or creation methodology", 
+    "output_type": "Target format (newsletter, script, thread)"
+  },
+  "requirements": {
+    "core_functionality": "Primary content creation or transformation purpose",
+    "quality_standards": "Format and audience requirements"
+  }
+}
+```
 
-**OS Kernel Responsibilities:**
-- Format requirements and validation rules
-- Behavioral contracts and voice preservation
-- Cross-platform compatibility standards
-- Universal field specifications
-- System-wide architectural principles
+### **Workflow Tools (Multi-Stage Coordination)**
+```json
+{
+  "requirements": {
+    "orchestration_logic": "Multi-stage process coordination with phase detection",
+    "decision_frameworks": "Conditional logic and routing systems",
+    "workflow_stages": "Systematic progression through defined phases"
+  },
+  "integration": {
+    "tool_coordination": "Multi-tool workflow management",
+    "handoff_protocols": "Context preservation between tools"
+  }
+}
+```
 
-**Application Responsibilities:**
-- Task-specific execution logic
-- Focused problem-solving instructions
-- Specialized workflow guidance
-- Domain-specific examples and templates
-- Targeted user experience optimization
+### **Coordination Tools (Reference & Integration)**
+```json
+{
+  "requirements": {
+    "reference_material": "Foundational knowledge or voice patterns",
+    "integration_protocols": "Cross-tool compatibility specifications"
+  },
+  "integration": {
+    "ecosystem_role": "How this tool supports other FloatPrompts",
+    "coordination_features": "Pipeline integration and handoff capabilities"
+  }
+}
+```
 
-### 🎯 **Goal Implementation**
+## 🤖 **AI Construction Protocol**
 
-This template ensures **human intelligence preservation through precise AI collaboration** through structured consistency, voice preservation placeholders, AI Summary integration, explicit TODO guidance, safety integration, and systematic organization.
+### **When user requests FloatPrompt creation:**
 
-This template ensures **complete human readability** through clear section headers, strategic TODO placement, relationship mapping, implementation guidance, and soft-coded structure.
+**1. Analyze request complexity:**
+- Simple function = minimal JSON structure
+- Complex workflow = expanded requirements/integration
+- Multi-tool coordination = rich integration section
 
-## Validation Criteria
+**2. Determine field inclusion:**
+- Always include: STOP, meta, human, ai, requirements, integration
+- Conditionally include: execution, task, domain, source based on decision tree
 
-Template structure compliance: Standard markdown template applied with all required sections included. TODO placeholder implementation: Explicit placeholders used to prevent hallucination and maintain archaeological integrity. Goal implementation verification: Primary goal (human preservation) achieved through Secondary goal (AI precision) methodologies properly applied. Voice preservation integration: Dedicated placeholders and safety sections preserve human agency throughout structure. 
+**3. Populate requirements appropriately:**
+- Voice-sensitive tools → archaeological_methodology, voice_preservation, temporal_precision
+- Simple tools → core_functionality, quality_standards
+- Workflow tools → orchestration_logic, workflow_stages, decision_frameworks
+- Coordination tools → reference_material, integration_protocols
+
+**4. Structure integration based on ecosystem role:**
+- Standalone tool → minimal coordination notes
+- Pipeline component → detailed workflow integration
+- System utility → cross-tool compatibility requirements
+
+**5. Expand complexity only when user request demonstrates need:**
+- Don't add workflow management for simple transformations
+- Don't include quality gates unless quality assurance mentioned
+- Don't add session context unless historical preservation needed
+
+## 📋 **Universal Markdown Template**
+
+### **Standard Body Structure**
+
+```markdown
+# {{TITLE}}
+
+**{{ONE_LINE_PURPOSE_STATEMENT}}**
+*{{EXTENDED_DESCRIPTION}}*
+
+## System Authority
+{{CORE_OPERATING_PHILOSOPHY_AND_MISSION}}
+
+## Quick Start
+{{IMMEDIATE_ACTION_GUIDANCE}}
+
+## Goals
+{{TOOL_PURPOSE_AND_GOALS}}
+
+## Context
+{{WHEN_AND_WHY_TO_USE}}
+
+## Output
+{{WHAT_YOU_GET}}
+
+## Warnings
+{{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
+
+**Voice Preservation:**
+- {{VOICE_PRESERVATION_WARNING}}
+- {{ARCHAEOLOGICAL_METHODOLOGY_CONSTRAINTS}}
+
+<!-- CONDITIONAL SECTIONS START -->
+
+<!-- FOR VOICE-SENSITIVE TOOLS: -->
+## Voice Preservation Methodology
+{{ARCHAEOLOGICAL_AND_CALIBRATION_APPROACH}}
+
+<!-- FOR WORKFLOW TOOLS: -->
+## Automatic Phase Detection
+{{PHASE_DETECTION_AND_ROUTING}}
+
+<!-- FOR SIMPLE TOOLS: -->
+## Core Methodology
+{{PRIMARY_FUNCTION_APPROACH}}
+
+<!-- FOR TOOLS THAT COORDINATE: -->
+## Integration Features
+{{TOOL_COORDINATION_AND_DEPENDENCIES}}
+
+<!-- CONDITIONAL SECTIONS END -->
+
+**{{COLLABORATION_ATTRIBUTION_LINE}}**
+
+*{{CLOSING_PHILOSOPHICAL_STATEMENT}}*
+
+© 2025 [@MDS](https://mds.is) | CC BY 4.0
+```
+
+## 🛡️ **Technical Formatting Requirements**
+
+### **Canvas/Artifact Creation Protocol**
+```
+<floatprompt
+[COMPLETE JSON FRONTMATTER
+# [Markdown content following universal template]
+</floatprompt>
+```
+
+### **Critical Requirements:**
+- **Web Browser AI**: Use canvas/artifact with triple backticks
+- **Desktop Tools**: Create actual .fp files directly
+- **Complete JSON structure** - never minimal examples
+- **Template variable replacement** - all {{VARIABLES}} filled
+- **Voice preservation compliance** - archaeological methodology
+
+## 📊 **Quality Assurance Checklist**
+
+**Before completing FloatPrompt creation:**
+
+- [ ] **Canvas Usage**: Document created in artifact/canvas, not conversation
+- [ ] **Complete JSON**: Full frontmatter structure, not minimal example
+- [ ] **Field Completeness**: All required fields present and populated
+- [ ] **Template Compliance**: Markdown follows universal template structure
+- [ ] **Conditional Logic**: Appropriate sections for tool type
+- [ ] **Voice Preservation**: Archaeological methodology compliance
+- [ ] **Technical Format**: Clean wrapping tags and valid JSON syntax
+
+## 🔄 **Conversational Construction Process**
+
+### **Phase 1: Territory Assessment (from map.md)**
+- Apply friction scoring and complexity assessment
+- Determine tool type and architectural requirements
+- Establish voice preservation needs
+
+### **Phase 2: Extraction Planning (from decide.md)**
+- Define archaeological methodology if voice-sensitive
+- Identify behavioral requirements and constraints
+- Plan integration and coordination needs
+
+### **Phase 3: Systematic Build (structure.md)**
+- Apply universal architecture with conditional complexity
+- Use appropriate tool type pattern
+- Follow technical formatting protocols
+- Validate against quality assurance checklist
+
+**Tools emerge naturally from conversation, not form-filling or one-shot generation.**
+
+**AI construction guidance enabling systematic FloatPrompt creation through conversational emergence with technical precision and universal architecture compliance.**

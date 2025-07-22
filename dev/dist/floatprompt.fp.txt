@@ -1,0 +1,8 @@
+<floatprompt>
+header.md
+boot.md
+map.md
+decide.md
+structure.md
+footer.md
+</floatprompt>

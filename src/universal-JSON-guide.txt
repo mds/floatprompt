@@ -1,0 +1,513 @@
+<floatprompt>
+---
+{
+  "STOP": "FloatPrompt universal architecture documentation mode. Provide definitive guidance for consistent FloatPrompt structure with conditional field inclusion logic and AI construction protocols. Enable systematic tool creation with collapsible complexity and universal compatibility.",
+  "meta": {
+    "title": "FloatPrompt Universal Architecture Guide",
+    "id": "universal-architecture-guide",
+    "type": "specification",
+    "author": "@mds",
+    "contributors": ["@mds", "Claude Sonnet 4"],
+    "created": "2025-01-17",
+    "version": "1.0.0",
+    "system_version": "floatprompt v0.0.16-alpha",
+    "format": "floatprompt",
+    "filetype": "fp"
+  },
+  "human": {
+    "intent": "Establish definitive FloatPrompt architecture with universal field structure and conditional complexity expansion",
+    "context": "systematic FloatPrompt creation after architectural evolution across 15+ tools and comprehensive taxonomy analysis",
+    "constraints": "maintain backward compatibility while enabling infinite expandability through requirements/integration nesting",
+    "preferences": {
+      "style": "systematic architectural specification with practical implementation guidance",
+      "detail_level": "comprehensive technical documentation with clear decision logic",
+      "output_format": "structured guide with definitive field requirements and conditional inclusion protocols"
+    }
+  },
+  "ai": {
+    "model": "{{AI_MODEL}}",
+    "role": "FloatPrompt architecture specialist providing systematic tool creation guidance and structural consistency protocols",
+    "expertise": "universal JSON architecture design, conditional field inclusion logic, and systematic tool creation methodologies",
+    "voice_preservation": "maintain technical precision while ensuring practical implementability for FloatPrompt development"
+  },
+  "execution": {
+    "triggers": ["floatprompt architecture", "universal structure", "field requirements", "construction guide"],
+    "success_criteria": "definitive architecture specification enabling consistent FloatPrompt creation with appropriate complexity scaling"
+  },
+  "task": {
+    "input_type": "architectural requirements and taxonomy analysis for universal FloatPrompt structure",
+    "process": "synthesize field requirements, conditional logic, and construction protocols into systematic specification",
+    "output_type": "comprehensive architecture guide with definitive field structure and AI construction instructions"
+  },
+  "domain": {
+    "field": "software architecture and systematic tool design",
+    "specialization": "FloatPrompt universal structure specification with conditional complexity management",
+    "standards": "architectural consistency + infinite expandability + backward compatibility + systematic construction protocols"
+  },
+  "source": {
+    "prompt": "comprehensive FloatPrompt taxonomy analysis and architectural evolution across multiple tool categories",
+    "intent": "establish universal structure enabling consistent tool creation with collapsible complexity and systematic expandability"
+  },
+  "requirements": {
+    "universal_architecture": {
+      "definitive_field_structure": "100% universal fields + highly recommended fields + conditional expansion logic",
+      "collapsible_complexity": "simple tools use minimal structure, complex tools expand within requirements/integration",
+      "backward_compatibility": "existing FloatPrompts remain valid while new tools follow universal structure",
+      "infinite_expandability": "any specialized functionality can nest within requirements/integration framework"
+    },
+    "construction_protocols": {
+      "conditional_inclusion_logic": "AI decision tree for determining which fields to include based on tool purpose and complexity",
+      "complexity_assessment": "systematic evaluation of tool requirements to determine appropriate JSON structure depth",
+      "dynamic_population": "intelligent field population based on user request analysis and tool type detection",
+      "quality_assurance": "validation criteria ensuring architectural consistency and functional completeness"
+    },
+    "implementation_guidance": {
+      "field_specifications": "complete definition of each universal field with usage guidelines and examples",
+      "expansion_patterns": "systematic approaches for nesting complex functionality within requirements/integration",
+      "ai_instructions": "clear protocols for AI systems to construct appropriate FloatPrompt structure dynamically"
+    }
+  },
+  "integration": {
+    "floatprompt_ecosystem": {
+      "core_os_compatibility": "universal structure works seamlessly with floatprompt.fp.txt behavioral foundation",
+      "tool_coordination": "integration field enables systematic pipeline workflows and cross-tool communication",
+      "template_system": "universal architecture serves as foundation for simple.fp.txt and specialized templates"
+    },
+    "development_workflow": {
+      "systematic_creation": "architecture guide enables consistent tool development across all FloatPrompt categories",
+      "quality_standards": "universal structure ensures predictable AI processing and human readability",
+      "scalability_protocols": "architecture supports growth from simple utilities to complex workflow orchestrators"
+    }
+  }
+}
+---
+
+# FloatPrompt Universal Architecture Guide
+
+**Definitive field structure and construction protocols for consistent FloatPrompt creation**
+
+> **"Universal structure + Conditional complexity + Infinite expandability = Systematic tool creation"**
+
+*Comprehensive architecture specification enabling collapsible complexity and systematic FloatPrompt development across all domains and use cases.*
+
+## 🎯 Purpose
+
+Establish the definitive FloatPrompt architecture with universal field structure, conditional inclusion logic, and AI construction protocols. Enable systematic tool creation that scales from simple utilities to complex workflow orchestrators while maintaining architectural consistency and backward compatibility.
+
+### 🔑 Key Principles
+- **Universal structure** - 100% predictable top-level architecture
+- **Collapsible complexity** - Simple tools minimal, complex tools expanded
+- **Infinite expandability** - Any functionality nests within requirements/integration
+- **Backward compatibility** - Existing tools remain valid
+
+## 🏗️ **DEFINITIVE Universal FloatPrompt Architecture**
+
+### **100% UNIVERSAL FIELDS (Every Single FloatPrompt)**
+
+```json
+{
+  "STOP": "{{EXECUTION_DIRECTIVE}}",
+  "meta": {
+    "title": "{{TITLE}}",
+    "id": "{{ID}}",
+    "type": "{{TYPE}}",
+    "author": "{{AUTHOR}}",
+    "contributors": ["{{CONTRIBUTORS}}"],
+    "created": "{{DATE}}",
+    "version": "{{VERSION}}",
+    "system_version": "floatprompt v0.0.16-alpha",
+    "format": "floatprompt",
+    "filetype": "fp"
+  },
+  "human": {
+    "intent": "{{PRIMARY_GOAL}}",
+    "context": "{{USAGE_CONTEXT}}",
+    "constraints": "{{LIMITATIONS}}",
+    "preferences": {
+      "style": "{{COMMUNICATION_STYLE}}",
+      "detail_level": "{{DEPTH_PREFERENCE}}",
+      "output_format": "{{EXPECTED_RESULT}}"
+    }
+  },
+  "ai": {
+    "model": "{{AI_MODEL}}",
+    "role": "{{AI_FUNCTION}}",
+    "expertise": "{{DOMAIN_KNOWLEDGE}}",
+    "voice_preservation": "{{VOICE_HANDLING_INSTRUCTION}}"
+  },
+  "requirements": {
+    "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
+  },
+  "integration": {
+    "{{PIPELINE_COORDINATION}}": "{{DESCRIPTION}}"
+  }
+}
+```
+
+### **HIGHLY RECOMMENDED FIELDS (90-95% of FloatPrompts)**
+
+```json
+{
+  "execution": {
+    "triggers": ["{{ACTIVATION_PATTERNS}}"],
+    "success_criteria": "{{OUTCOME_DEFINITION}}"
+  },
+  "task": {
+    "input_type": "{{EXPECTED_INPUT}}",
+    "process": "{{TRANSFORMATION_METHOD}}",
+    "output_type": "{{EXPECTED_OUTPUT}}"
+  },
+  "domain": {
+    "field": "{{SPECIALIZATION_AREA}}",
+    "specialization": "{{SPECIFIC_FOCUS}}",
+    "standards": "{{QUALITY_CRITERIA}}"
+  },
+  "source": {
+    "prompt": "{{ORIGIN_PROMPT}}",
+    "intent": "{{SOURCE_PURPOSE}}"
+  }
+}
+```
+
+## 🎯 **Conditional Field Inclusion Logic**
+
+### **AI Decision Tree for Field Inclusion**
+
+```json
+{
+  "field_decision_logic": {
+    "execution": {
+      "include_if": [
+        "user_requests_executable_tool",
+        "mentions_triggers_or_activation",
+        "describes_workflow_or_process",
+        "tool_needs_success_criteria"
+      ],
+      "skip_if": [
+        "pure_reference_request",
+        "documentation_only",
+        "knowledge_base_creation",
+        "static_guide_request"
+      ]
+    },
+    "task": {
+      "include_if": [
+        "clear_input_transformation_output",
+        "processing_or_conversion_needed",
+        "content_manipulation_required",
+        "systematic_transformation_described"
+      ],
+      "skip_if": [
+        "no_transformation_involved",
+        "pure_information_storage",
+        "reference_material_only"
+      ]
+    },
+    "domain": {
+      "include_if": [
+        "specialized_field_mentioned",
+        "industry_specific_requirements",
+        "technical_standards_needed",
+        "professional_expertise_required"
+      ],
+      "skip_if": [
+        "general_purpose_tool",
+        "cross_domain_utility",
+        "no_specialization_needed"
+      ]
+    },
+    "source": {
+      "include_if": [
+        "built_from_existing_content",
+        "references_prior_work",
+        "iterative_improvement",
+        "adaptation_of_existing_tool"
+      ],
+      "skip_if": [
+        "completely_original_creation",
+        "first_generation_tool",
+        "no_source_material"
+      ]
+    }
+  }
+}
+```
+
+## 🚀 **Complexity Expansion Patterns**
+
+### **Everything Complex Tucks Into Requirements/Integration**
+
+#### **Simple Tool Structure**
+```json
+{
+  "requirements": {
+    "core_functionality": "Single primary function description"
+  },
+  "integration": {
+    "pipeline_coordination": "Basic workflow compatibility notes"
+  }
+}
+```
+
+#### **Complex Workflow Tool Structure**
+```json
+{
+  "requirements": {
+    "core_functionality": "Primary tool purpose",
+    "workflow_orchestration": {
+      "stages": "Multi-step process definition",
+      "decision_points": "Human approval requirements",
+      "quality_gates": "Validation checkpoints"
+    },
+    "specialized_logic": {
+      "domain_expertise": "Field-specific knowledge requirements",
+      "processing_methodology": "Systematic approach definition",
+      "output_standards": "Quality and format requirements"
+    }
+  },
+  "integration": {
+    "pipeline_coordination": "Multi-tool workflow integration",
+    "session_context": {
+      "temporal_awareness": "Project phase and timeline sensitivity",
+      "collaboration_history": "Previous session continuity requirements"
+    },
+    "knowledge_network": {
+      "prerequisites": "Required knowledge or tools",
+      "enables": "Capabilities unlocked by this tool",
+      "coordinates_with": "Related tools in ecosystem"
+    }
+  }
+}
+```
+
+## 🎯 **Tool Type Pattern Recognition**
+
+### **Voice-Sensitive Tools (Archaeological)**
+```json
+{
+  "requirements": {
+    "archaeological_methodology": "Extract without interpretation, preserve voice patterns",
+    "voice_preservation": {
+      "extraction_method": "Archaeological precision with zero drift",
+      "cognitive_patterns": "Maintain human decision-making fingerprint",
+      "temporal_precision": "Preserve hesitations, tildes, discovery markers"
+    },
+    "output_structure": "Organized intelligence with voice authenticity"
+  }
+}
+```
+
+### **Simple Tools (Content Creation)**
+```json
+{
+  "task": {
+    "input_type": "Source content or requirements",
+    "process": "Direct transformation or creation methodology", 
+    "output_type": "Target format (newsletter, script, thread)"
+  },
+  "requirements": {
+    "core_functionality": "Primary content creation or transformation purpose",
+    "quality_standards": "Format and audience requirements"
+  }
+}
+```
+
+### **Workflow Tools (Multi-Stage Coordination)**
+```json
+{
+  "requirements": {
+    "orchestration_logic": "Multi-stage process coordination with phase detection",
+    "decision_frameworks": "Conditional logic and routing systems",
+    "workflow_stages": "Systematic progression through defined phases"
+  },
+  "integration": {
+    "tool_coordination": "Multi-tool workflow management",
+    "handoff_protocols": "Context preservation between tools"
+  }
+}
+```
+
+### **Coordination Tools (Reference & Integration)**
+```json
+{
+  "requirements": {
+    "reference_material": "Foundational knowledge or voice patterns",
+    "integration_protocols": "Cross-tool compatibility specifications"
+  },
+  "integration": {
+    "ecosystem_role": "How this tool supports other FloatPrompts",
+    "coordination_features": "Pipeline integration and handoff capabilities"
+  }
+}
+```
+
+## 🤖 **AI Construction Instructions**
+
+### **FloatPrompt Construction Protocol**
+
+**When user requests FloatPrompt creation:**
+
+1. **Analyze request complexity:**
+   - Simple function = minimal JSON structure
+   - Complex workflow = expanded requirements/integration
+   - Multi-tool coordination = rich integration section
+
+2. **Determine field inclusion:**
+   - Always include: STOP, meta, human, ai, requirements, integration
+   - Conditionally include: execution, task, domain, source based on decision tree
+
+3. **Populate requirements appropriately:**
+   - Voice-sensitive tools → archaeological_methodology, voice_preservation, temporal_precision
+   - Simple tools → core_functionality, quality_standards
+   - Workflow tools → orchestration_logic, workflow_stages, decision_frameworks
+   - Coordination tools → reference_material, integration_protocols
+
+4. **Structure integration based on ecosystem role:**
+   - Standalone tool → minimal coordination notes
+   - Pipeline component → detailed workflow integration
+   - System utility → cross-tool compatibility requirements
+
+5. **Expand complexity only when user request demonstrates need:**
+   - Don't add workflow management for simple transformations
+   - Don't include quality gates unless quality assurance mentioned
+   - Don't add session context unless historical preservation needed
+
+### **Dynamic Population Logic**
+
+```json
+{
+  "dynamic_population": {
+    "human_intent_analysis": {
+      "extract_from_request": [
+        "primary_goal → human.intent",
+        "usage_context → human.context", 
+        "limitations → human.constraints",
+        "communication_style → human.preferences.style"
+      ]
+    },
+    "ai_role_inference": {
+      "determine_from_function": [
+        "voice_sensitive_request → 'archaeological_intelligence_extractor'",
+        "simple_content_request → 'content_creation_specialist'",
+        "workflow_request → 'process_orchestration_coordinator'",
+        "coordination_request → 'ecosystem_integration_facilitator'"
+      ]
+    },
+    "requirements_nesting": {
+      "simple_function": "single_key_value_pair",
+      "complex_function": "nested_object_with_subsections",
+      "workflow_function": "multi_stage_process_definition"
+    }
+  }
+}
+```
+
+## 📊 **Architecture Benefits**
+
+### **Universal Predictability**
+- **Every FloatPrompt** has the same 6-10 top-level fields
+- **AI processing** always knows where to find core information
+- **Human readability** consistent across all tools
+- **Tool development** follows predictable pattern
+
+### **Infinite Expandability**
+- **Simple tools** use basic requirements/integration
+- **Complex tools** nest rich functionality within requirements/integration
+- **No structural changes** needed as complexity grows
+- **Clean separation** between universal structure and specialized logic
+
+### **Ecosystem Compatibility**
+- **Core OS integration** - All tools work with floatprompt.fp.txt
+- **Cross-tool coordination** - Integration field enables pipeline workflows
+- **Template consistency** - Universal architecture supports simple.fp.txt
+- **Quality standards** - Requirements field ensures functional completeness
+
+## 🎯 **Implementation Examples**
+
+### **Simple Newsletter Tool**
+```json
+{
+  "STOP": "Newsletter creation mode with voice preservation",
+  "meta": {...},
+  "human": {
+    "intent": "Transform content into newsletter format",
+    "context": "weekly newsletter creation workflow"
+  },
+  "ai": {
+    "role": "Content transformation specialist"
+  },
+  "requirements": {
+    "newsletter_formatting": "Weekly format with voice preservation and professional development focus"
+  },
+  "integration": {
+    "content_pipeline": "Works with content extraction and script writing tools"
+  }
+}
+```
+
+### **Complex Sales Assessment Tool**
+```json
+{
+  "STOP": "Sales assessment mode with buyer qualification priority",
+  "meta": {...},
+  "human": {...},
+  "ai": {...},
+  "execution": {
+    "triggers": ["assess buyer", "qualify prospect"],
+    "success_criteria": "systematic buyer qualification with routing recommendation"
+  },
+  "task": {
+    "input_type": "sales conversation context",
+    "process": "4-question assessment framework",
+    "output_type": "qualification results with tool routing"
+  },
+  "domain": {
+    "field": "sales conversation analysis",
+    "specialization": "professional development positioning"
+  },
+  "requirements": {
+    "assessment_framework": {
+      "qualification_scoring": "4-question systematic evaluation",
+      "conversation_stage_detection": "Opening/Discovery/Positioning/Closing identification",
+      "pain_level_analysis": "High/Medium/Low assessment with professional context"
+    },
+    "sales_methodology": {
+      "voice_preservation": "Authentic MDS conversational patterns",
+      "professional_development_framing": "Career advancement context integration"
+    }
+  },
+  "integration": {
+    "sales_workflow": {
+      "tool_progression": "Assessment → Response → Objection handling",
+      "context_handoff": "Buyer state preservation across tools"
+    },
+    "voice_coordination": "Works with MDS voice guides for authentic communication"
+  }
+}
+```
+
+## 🛡️ **Quality Assurance**
+
+### **Validation Criteria**
+- **Universal field compliance** - All 6 required fields present and properly formatted
+- **Conditional field appropriateness** - Optional fields included only when logic supports inclusion
+- **Requirements organization** - Tool-specific functionality properly nested within requirements
+- **Integration coordination** - Ecosystem role and workflow integration clearly defined
+- **Complexity justification** - Expansion complexity matches actual tool requirements
+
+### **Architectural Consistency**
+- **Backward compatibility** - Existing FloatPrompts remain functional
+- **Forward scalability** - Architecture supports infinite expansion
+- **Cross-tool coordination** - Integration protocols enable systematic workflows
+- **Voice preservation** - Human agency and intelligence protected throughout
+
+## AI Instructions
+- Apply universal architecture systematically for all FloatPrompt creation
+- Use conditional inclusion logic to determine appropriate field structure based on tool complexity and purpose
+- Nest all specialized functionality within requirements and integration fields to maintain structural consistency
+- Expand complexity only when user request demonstrates genuine need for advanced features
+- Validate architectural compliance and ensure universal field requirements are met
+
+---
+*Universal architecture specification enabling systematic FloatPrompt creation with collapsible complexity and infinite expandability.*
+</floatprompt> 
