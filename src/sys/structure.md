@@ -15,17 +15,17 @@
 
 *Complete AI guidance for technical FloatPrompt creation with formatting compliance and conversational emergence.*
 
-## 🎯 Purpose
+## Purpose
 
 Build custom FloatPrompts through systematic three-phase co-creation with universal architecture compliance, technical formatting precision, and conversational sophistication scaling from simple utilities to complex workflow orchestrators.
 
-### 🔑 Key Principles
+### Key Principles
 - **Universal structure** - 100% predictable top-level architecture
 - **Collapsible complexity** - Simple tools minimal, complex tools expanded
 - **Infinite expandability** - Any functionality nests within requirements/integration
 - **Conversational emergence** - Tools emerge from dialogue, not form-filling
 
-## 🚨 **MANDATORY EXECUTION PROTOCOL**
+## **MANDATORY EXECUTION PROTOCOL**
 
 **BEFORE YOU BEGIN - READ THIS TWICE:**
 
@@ -35,7 +35,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 
 **IF YOU CANNOT CONFIRM ALL THREE - DO NOT PROCEED WITH FLOATPROMPT CREATION**
 
-## 🏗️ **DEFINITIVE Universal FloatPrompt Architecture**
+## **DEFINITIVE Universal FloatPrompt Architecture**
 
 ### **100% UNIVERSAL FIELDS (Every Single FloatPrompt)**
 
@@ -104,7 +104,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 }
 ```
 
-## 🎯 **Conditional Field Inclusion Logic**
+## **Conditional Field Inclusion Logic**
 
 ### **AI Decision Tree for Field Inclusion**
 
@@ -132,7 +132,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 - Iterative improvement
 - Adaptation of existing tool
 
-## 🎯 **Tool Type Pattern Recognition**
+## **Tool Type Pattern Recognition**
 
 ### **Voice-Sensitive Tools (Archaeological)**
 ```json
@@ -193,7 +193,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 }
 ```
 
-## 🤖 **AI Construction Protocol**
+## **AI Construction Protocol**
 
 ### **When user requests FloatPrompt creation:**
 
@@ -222,7 +222,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 - Don't include quality gates unless quality assurance mentioned
 - Don't add session context unless historical preservation needed
 
-## 📋 **Universal Markdown Template**
+## **Universal Markdown Template**
 
 ### **Standard Body Structure**
 
@@ -281,7 +281,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 © 2025 [@MDS](https://mds.is) | CC BY 4.0
 ```
 
-## 🛡️ **Technical Formatting Requirements**
+## **Technical Formatting Requirements**
 
 ### **Canvas/Artifact Creation Protocol**
 ```
@@ -298,7 +298,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 - **Template variable replacement** - all {{VARIABLES}} filled
 - **Voice preservation compliance** - archaeological methodology
 
-## 📊 **Quality Assurance Checklist**
+## **Quality Assurance Checklist**
 
 **Before completing FloatPrompt creation:**
 
@@ -310,19 +310,19 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 - [ ] **Voice Preservation**: Archaeological methodology compliance
 - [ ] **Technical Format**: Clean wrapping tags and valid JSON syntax
 
-## 🔄 **Conversational Construction Process**
+## **Conversational Construction Process**
 
-### **Phase 1: Territory Assessment (from map.md)**
+### **Phase 1: Map Territory (from map.md)**
 - Apply friction scoring and complexity assessment
 - Determine tool type and architectural requirements
 - Establish voice preservation needs
 
-### **Phase 2: Extraction Planning (from decide.md)**
+### **Phase 2: Decide Extractions (from decide.md)**
 - Define archaeological methodology if voice-sensitive
 - Identify behavioral requirements and constraints
 - Plan integration and coordination needs
 
-### **Phase 3: Systematic Build (structure.md)**
+### **Phase 3: Structure Build (structure.md)**
 - Apply universal architecture with conditional complexity
 - Use appropriate tool type pattern
 - Follow technical formatting protocols

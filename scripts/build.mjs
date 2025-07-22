@@ -29,64 +29,16 @@ const BUILD_CONFIG = {
   ]
 };
 
-// Voice Guide build configuration
-const VOICE_BUILD_CONFIG = {
-  sourceDir: './src/lib/voice',
-  outputDir: './dist',
-  outputFile: 'voice.fp.txt',
-  sharedDir: './src/sys/shared'
+// Library copy configuration - these are complete files that just need copying
+const LIB_COPY_CONFIG = {
+  sourceDir: './src/lib',
+  outputDir: './dist/lib',
+  files: [
+    'blueprint.fp.txt',
+    'format.fp.txt', 
+    'voice.fp.txt'
+  ]
 };
-
-// Formatter build configuration
-const FORMATTER_BUILD_CONFIG = {
-  sourceDir: './src/lib/format',
-  outputDir: './dist',
-  outputFile: 'format.fp.txt',
-  sharedDir: './src/sys/shared'
-};
-
-// Blueprint build configuration  
-const BLUEPRINT_BUILD_CONFIG = {
-  sourceDir: './src/lib/blueprint',
-  outputDir: './dist',
-  outputFile: 'blueprint.fp.txt',
-  sharedDir: './src/sys/shared'
-};
-
-async function extractFloatPromptFrontmatter() {
-  const buildDate = new Date().toISOString().split('T')[0];
-  const timestamp = new Date().toISOString();
-  const buildDateCompact = buildDate.replace(/-/g, '');
-  const currentYear = new Date().getFullYear();
-  
-  // Read frontmatter from header.md
-  const headerPath = path.join('./src/sys', 'header.md');
-  const headerContent = await readComponent(headerPath);
-  
-  if (!headerContent) {
-    throw new Error('Failed to read header.md - frontmatter extraction requires source template');
-  }
-  
-  // Build variables for template replacement
-  const buildVariables = {
-    VERSION: VERSION,
-    BUILD_DATE: buildDate,
-    BUILD_TIMESTAMP: timestamp,
-    BUILD_DATE_COMPACT: buildDateCompact,
-    CURRENT_YEAR: currentYear,
-    AI_MODEL: "{{AI_MODEL}}"
-  };
-
-  // Replace template variables with actual build values
-  let processedContent = headerContent;
-  
-  for (const [varName, value] of Object.entries(buildVariables)) {
-    const regex = new RegExp(`\\{\\{${varName}\\}\\}`, 'g');
-    processedContent = processedContent.replace(regex, value);
-  }
-  
-  return processedContent;
-}
 
 async function ensureDirectory(dirPath) {
   try {
@@ -231,35 +183,6 @@ async function injectSharedComponents(content, sharedDir = './src/sys/shared') {
   return processed;
 }
 
-// Helper function to convert JSON object back to YAML format for injection
-function formatJSONAsYAML(key, value, indent = '') {
-  if (typeof value === 'string') {
-    return `${indent}${key}: "${value}"`;
-  } else if (typeof value === 'boolean' || typeof value === 'number') {
-    return `${indent}${key}: ${value}`;
-  } else if (Array.isArray(value)) {
-    if (value.length === 0) {
-      return `${indent}${key}: []`;
-    }
-    let result = `${indent}${key}:\n`;
-    value.forEach(item => {
-      if (typeof item === 'string') {
-        result += `${indent}  - "${item}"\n`;
-      } else {
-        result += `${indent}  - ${item}\n`;
-      }
-    });
-    return result.trimEnd();
-  } else if (typeof value === 'object' && value !== null) {
-    let result = `${indent}${key}:\n`;
-    for (const [subKey, subValue] of Object.entries(value)) {
-      result += formatJSONAsYAML(subKey, subValue, indent + '  ') + '\n';
-    }
-    return result.trimEnd();
-  }
-  return `${indent}${key}: ${value}`;
-}
-
 async function buildFloatPrompt() {
   console.log('🚀 Building FloatPrompt template using injection system...\n');
   
@@ -318,181 +241,52 @@ async function buildFloatPrompt() {
   console.log(`📦 Version: ${VERSION}`);
 }
 
-async function buildLibComponent(config, componentName) {
-  console.log(`🔧 Building ${componentName}...\n`);
+async function copyLibraryFiles() {
+  console.log('📚 Copying library files to dist/lib/...\n');
   
   // Ensure output directory exists
-  await ensureDirectory(config.outputDir);
+  await ensureDirectory(LIB_COPY_CONFIG.outputDir);
   
-  // Read component files
-  const headerPath = path.join(config.sourceDir, 'header.md');
-  const bodyPath = path.join(config.sourceDir, 'body.md');
-  const footerPath = path.join(config.sourceDir, 'footer.md');
-  
-  console.log(`📄 Reading ${componentName} header...`);
-  let headerContent = await readComponent(headerPath, config.sharedDir);
-  
-  // Process template variables in header
-  if (headerContent) {
-    const buildDate = new Date().toISOString().split('T')[0];
-    headerContent = headerContent
-      .replace(/\{\{VERSION\}\}/g, VERSION)
-      .replace(/\{\{BUILD_DATE\}\}/g, buildDate);
-  }
-  
-  console.log(`📄 Reading ${componentName} body...`);
-  let bodyContent = await readComponent(bodyPath, config.sharedDir);
-  
-  // Process template variables in body
-  if (bodyContent) {
-    const buildDate = new Date().toISOString().split('T')[0];
-    bodyContent = bodyContent
-      .replace(/\{\{VERSION\}\}/g, VERSION)
-      .replace(/\{\{BUILD_DATE\}\}/g, buildDate);
-  }
-  
-  console.log(`📄 Reading ${componentName} footer...`);
-  let footerContent = await readComponent(footerPath, config.sharedDir);
-  
-  if (!headerContent) {
-    throw new Error(`Failed to read ${componentName} header.md`);
-  }
-  
-  // If body is empty, read from the existing dist file content
-  if (!bodyContent || bodyContent.trim() === '') {
-    console.log(`📄 Body is empty, extracting from existing ${componentName}...`);
+  for (const filename of LIB_COPY_CONFIG.files) {
+    const sourcePath = path.join(LIB_COPY_CONFIG.sourceDir, filename);
+    const outputPath = path.join(LIB_COPY_CONFIG.outputDir, filename);
+    
+    console.log(`📄 Copying: ${filename}...`);
+    
     try {
-      const existingPath = path.join(config.outputDir, config.outputFile);
-      const existingContent = await fs.readFile(existingPath, 'utf-8');
+      let content = await fs.readFile(sourcePath, 'utf-8');
       
-      // Extract content between header and footer
-      const startMarker = '---\n';
-      const endMarker = '\n---\n\n© ';
+      // Process template variables if any exist
+      const buildDate = new Date().toISOString().split('T')[0];
+      const systemVersion = `v${VERSION}`;
       
-      const startIndex = existingContent.indexOf(startMarker);
-      const endIndex = existingContent.indexOf(endMarker);
+      content = content
+        .replace(/\{\{VERSION\}\}/g, VERSION)
+        .replace(/\{\{DATE\}\}/g, buildDate)
+        .replace(/\{\{SYSTEM_VERSION\}\}/g, systemVersion)
+        .replace(/\{\{AI_MODEL\}\}/g, "{{AI_MODEL}}"); // Keep this as template variable for runtime
       
-      if (startIndex !== -1 && endIndex !== -1) {
-        const headerEndIndex = existingContent.indexOf('\n---\n', startIndex + 4);
-        if (headerEndIndex !== -1) {
-          bodyContent = existingContent.substring(headerEndIndex + 5, endIndex).trim();
-          console.log('✅ Extracted body content from existing file');
-        }
-      }
+      await fs.writeFile(outputPath, content, 'utf-8');
+      
+      console.log(`✅ Successfully copied: ${filename} (${Math.round(content.length / 1024)}KB)`);
     } catch (error) {
-      console.warn('⚠️  Could not extract from existing file, using empty body');
-      bodyContent = '';
+      console.error(`❌ Failed to copy ${filename}:`, error.message);
     }
   }
   
-  // Process footer injections
-  if (footerContent && footerContent.includes('<!-- INJECT: footer.md -->')) {
-    console.log('🔗 Processing footer injection...');
-    const sharedFooterPath = path.join('./src/shared', 'footer.md');
-    const sharedFooterContent = await readComponent(sharedFooterPath);
-    
-    if (sharedFooterContent) {
-      // Extract just the final attribution line from shared footer
-      const lines = sharedFooterContent.split('\n');
-      const attributionLine = lines.find(line => line.startsWith('© {{CURRENT_YEAR}}'));
-      
-      if (attributionLine) {
-        const currentYear = new Date().getFullYear();
-        const processedAttribution = attributionLine.replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
-        footerContent = footerContent.replace('<!-- INJECT: footer.md -->', processedAttribution);
-      }
-    }
-  }
-  
-  // Replace template variables in footer
-  const currentYear = new Date().getFullYear();
-  if (footerContent) {
-    footerContent = footerContent.replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
-  }
-  
-  // Generate footer from shared/footer.md if voice guide footer is missing
-  if (!footerContent) {
-    const sharedFooterPath = path.join('./src/shared', 'footer.md');
-    const sharedFooterContent = await fs.readFile(sharedFooterPath, 'utf-8');
-    
-    if (!sharedFooterContent) {
-      throw new Error('Failed to read shared/footer.md - voice guide build requires footer template');
-    }
-    
-    // Extract the minimal attribution template from the footer.md
-    const minimalMatch = sharedFooterContent.match(/```\s*\n---\s*\n© \{\{CURRENT_YEAR\}\} \[MDS\]\(https:\/\/mds\.is\) \| CC BY 4\.0\s*\n```/);
-    if (!minimalMatch) {
-      throw new Error('Failed to extract minimal attribution template from shared/footer.md - template format may be incorrect');
-    }
-    
-    footerContent = minimalMatch[0]
-      .replace(/```\s*\n/, '')
-      .replace(/\s*\n```/, '')
-      .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear);
-  }
-  
-  // Compile final component
-  const finalComponent = [
-    headerContent,
-    bodyContent,
-    footerContent
-  ].filter(Boolean).join('\n\n');
-  
-  // Write .fp.txt output file
-  const outputPath = path.join(config.outputDir, config.outputFile);
-  await fs.writeFile(outputPath, finalComponent, 'utf-8');
-  
-  console.log(`\n✅ Successfully built ${componentName}!`);
-  console.log(`📍 Output: ${outputPath}`);
-  console.log(`📏 Final size: ${Math.round(finalComponent.length / 1024)}KB`);
-  console.log(`🔧 Type: ${componentName}`);
-}
-
-// Specific builder functions
-async function buildVoiceGuide() {
-  await buildLibComponent(VOICE_BUILD_CONFIG, 'Voice Guide Creator');
-}
-
-async function buildFormatter() {
-  await buildLibComponent(FORMATTER_BUILD_CONFIG, 'FloatPrompt Formatter');
-}
-
-async function buildBlueprint() {
-  await buildLibComponent(BLUEPRINT_BUILD_CONFIG, 'Blueprint - Surgical Assembly Specification Generator');
-}
-
-// Build Simple FloatPrompt (simple copy)
-async function buildSimple() {
-  console.log('📄 Building FloatPrompt Simple...');
-  
-  const sourceSimple = './src/floatprompt-simple.fp.txt';
-  const distSimple = './dist/simple.fp.txt';
-  
-  try {
-    const simpleContent = await fs.readFile(sourceSimple, 'utf-8');
-    await fs.writeFile(distSimple, simpleContent, 'utf-8');
-    console.log('✅ FloatPrompt Simple copied to dist/');
-  } catch (error) {
-    console.error('❌ Failed to build Simple:', error.message);
-    throw error;
-  }
+  console.log(`\n✅ Successfully copied ${LIB_COPY_CONFIG.files.length} library files!`);
+  console.log(`📍 Output directory: ${LIB_COPY_CONFIG.outputDir}`);
 }
 
 // Error handling
 async function main() {
   try {
-    // Build Core (simple copy)
-    await buildSimple();
-    console.log('\n' + '='.repeat(50) + '\n');
-    
-    // Build Pro files
+    // Build main FloatPrompt OS
     await buildFloatPrompt();
     console.log('\n' + '='.repeat(50) + '\n');
-    await buildVoiceGuide();
-    console.log('\n' + '='.repeat(50) + '\n');
-    await buildFormatter();
-    console.log('\n' + '='.repeat(50) + '\n');
-    await buildBlueprint();
+    
+    // Copy library files
+    await copyLibraryFiles();
   } catch (error) {
     console.error('❌ Build failed:', error.message);
     process.exit(1);

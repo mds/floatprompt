@@ -4,10 +4,10 @@
 
 | **Context** | **Format** | **Example** |
 |-------------|------------|-------------|
-| **Document titles & headers** | `FloatPrompt` | "# FloatPrompt Complete Template" |
-| **Sentence beginnings** | `FloatPrompt` | "FloatPrompt enables joint execution..." |
+| **Document titles & headers** | `FloatPrompt` | "# FloatPrompt System" |
+| **Sentence beginnings** | `FloatPrompt` | "FloatPrompt enables systematic collaboration..." |
 | **Mid-sentence technical refs** | `floatprompt` | "Upload the floatprompt file..." |
-| **Filenames** | `floatprompt` | `floatprompt-0.10.0-alpha.fp`, `floatprompt-goals.md` |
+| **Filenames** | `floatprompt` | `floatprompt.fp.txt`, `floatprompt-goals.md` |
 | **Brand references** | `FloatPrompt` | "The FloatPrompt system serves humans" |
 | **Plural references** | `FloatPrompt files` | "Multiple FloatPrompt files can be chained" |
 
@@ -22,20 +22,20 @@
 
 | **File Type** | **Extension** | **Example** |
 |---------------|---------------|-------------|
-| **Core FloatPrompt System** | `.fp` | `floatprompt-0.10.0-alpha.fp` |
-| **FloatPrompt Applications** | `.fp` | `voice-guide-creator.fp` |
-| **Building blocks** | `.md` | `header.md`, `voice.md` |
+| **Main System OS** | `.fp.txt` | `floatprompt.fp.txt` |
+| **Specialized Library Tools** | `.fp.txt` | `voice.fp.txt`, `format.fp.txt`, `blueprint.fp.txt` |
+| **Building blocks** | `.md` | `header.json`, `map.md`, `decide.md` |
 | **Documentation** | `.md` | `README.md`, `goals.md` |
 
 ## ✅ Quick Examples
 
 **✅ Correct:**
-- "FloatPrompt is a portable AI instruction set."
-- "Upload the floatprompt file to activate collaboration."
-- "The FloatPrompt system enables zero-drift workflows."
+- "FloatPrompt is the invisible OS for AI."
+- "Upload the floatprompt file to activate systematic collaboration."
+- "The FloatPrompt system enables enhanced AI collaboration."
 - "Multiple FloatPrompt files can be chained together."
-- File: `floatprompt-0.10.0-alpha.fp` (core system)
-- File: `voice-guide-creator.fp` (application)
+- File: `floatprompt.fp.txt` (40KB main system OS)
+- File: `lib/voice.fp.txt` (specialized voice preservation tool)
 - File: `floatprompt-goals.md` (documentation)
 
 **❌ Incorrect:**
@@ -45,17 +45,41 @@
 - "Multiple FloatPrompts can be chained..." (never plural)
 - "Several floatprompts were created..." (never plural)
 
-## 🎯 Application Naming Convention
+## 🎯 System Architecture Naming
 
-**Core System vs Applications:**
-- **Core System**: `floatprompt-{version}.fp` (e.g., `floatprompt-0.10.0-alpha.fp`)
-- **Applications**: `{functional-name}.fp` (e.g., `voice-guide-creator.fp`)
+**Main OS vs Library Tools:**
+- **Main OS**: `floatprompt.fp.txt` (40KB system with tool creation authority)
+- **Library Tools**: `{function}.fp.txt` in `lib/` directory (e.g., `lib/voice.fp.txt`)
 
-**Rationale**: Following OS/Application architecture pattern where the core system gets versioned naming while applications get functional names. Both maintain synchronized version metadata internally.
+**Build Structure:**
+```
+dist/
+├── floatprompt.fp.txt           # Main System OS
+└── lib/
+    ├── voice.fp.txt             # Voice preservation specialist
+    ├── format.fp.txt            # Technical formatting authority
+    └── blueprint.fp.txt         # Assembly specification generator
+```
+
+**Rationale**: Systematic paradigm where main OS creates specialized tools through conversational emergence. Main OS gets universal naming while specialized tools get functional names in organized library structure.
+
+## 🎯 Strategic Positioning Language
+
+**Brand Positioning:**
+- **"The invisible OS for AI"** - Primary brand positioning
+- **"System architecture"** - Architecture description
+- **"Conversational emergence"** - Tool creation methodology
+- **"Archaeological voice preservation"** - Core capability
+
+**Technical Language:**
+- **"Map → Decide → Structure"** - Core methodology
+- **"Universal template architecture"** - System foundation
+- **"Conditional complexity"** - 90% simple, 10% voice-critical
+- **"Cross-platform compatibility"** - Universal deployment
 
 ## 🎯 Rationale
 
-JavaScript naming convention patterns that provide technical credibility, developer familiarity, and brand consistency across all contexts.
+Updated naming convention reflects systematic paradigm with production-ready architecture. Maintains JavaScript-style consistency while supporting new organizational structure and strategic positioning as "the invisible OS for AI."
 
 ---
 

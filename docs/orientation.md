@@ -1,210 +1,209 @@
-<floatprompt>
----
-{
-  "STOP": "Strategic preservation mode. Primary goal: Preserve core FloatPrompt system orientation intelligence with archaeological precision. Maintain exact voice patterns and philosophical distinctions. Execute precise AI instruction while preserving human intelligence and agency.",
-  "meta": {
-    "title": "FloatPrompt System Orientation",
-    "id": "floatprompt-system-orientation",
-    "type": "extract",
-    "author": "@mds",
-    "contributors": ["@mds", "Claude Sonnet"],
-    "created": "2025-07-22",
-    "version": "1.0.0",
-    "system_version": "floatprompt v0.0.16-alpha",
-    "format": "floatprompt",
-    "filetype": "fp"
-  },
-  "human": {
-    "intent": "Preserve foundational FloatPrompt system orientation intelligence with archaeological precision",
-    "context": "System orientation transcript explaining core philosophy and operational distinction from software",
-    "constraints": "Maintain exact voice patterns and philosophical distinctions about protocol vs software",
-    "preferences": {
-      "style": "Direct, authoritative, technical explanation with emphasis distinctions",
-      "detail_level": "Complete preservation of core system concepts and philosophy",
-      "output_format": "Structured extraction with exact voice preservation"
-    }
-  },
-  "ai": {
-    "model": "Claude Sonnet",
-    "role": "Archaeological intelligence extractor preserving system orientation knowledge",
-    "expertise": "FloatPrompt system philosophy, voice preservation, and archaeological extraction methodology",
-    "voice_preservation": "Maintain exact phrasing, rhythm, and philosophical emphasis from original transcript"
-  },
-  "task": {
-    "input_type": "Conversational orientation transcript explaining FloatPrompt system",
-    "process": "Archaeological extraction with voice preservation and structural organization",
-    "output_type": "Structured system orientation guide preserving original voice patterns"
-  },
-  "domain": {
-    "field": "AI-human collaboration protocols and system design philosophy",
-    "specialization": "FloatPrompt system orientation and foundational principles",
-    "standards": "Archaeological voice preservation + structural organization + philosophical accuracy"
-  },
-  "source": {
-    "prompt": "Orientation transcript explaining FloatPrompt system philosophy and operational principles",
-    "intent": "Preserve core system understanding for future reference and education"
-  },
-  "requirements": {
-    "archaeological_extraction": {
-      "voice_preservation": "Maintain exact phrasing and philosophical emphasis from original transcript",
-      "structural_organization": "Organize intelligence while preserving archaeological weight of original thinking",
-      "key_distinctions": "Preserve critical 'not software' distinctions and joint execution philosophy"
-    },
-    "system_orientation": {
-      "three_goal_hierarchy": "Exact preservation of primary/secondary/tertiary goal structure",
-      "philosophical_distinctions": "Clear protocol vs software differentiation with original emphasis",
-      "operational_principles": "Joint human-AI execution concepts with conversational emergence philosophy"
-    }
-  },
-  "integration": {
-    "floatprompt_ecosystem": "Core foundational knowledge for FloatPrompt system understanding and education",
-    "reference_material": "Serves as definitive system orientation for future tool creation and user onboarding"
-  }
-}
----
-
 # 🎯 FloatPrompt System Orientation
 
-**Core system philosophy and operational distinction from software approaches**
+**The invisible OS for AI - systematic architecture enabling enhanced human-AI collaboration**
 
-> **"This is not software. This is a new protocol idea for joint human and AI collaboration."**
+> **"FloatPrompt is the invisible OS for AI that transforms any AI system into a more capable collaboration partner while preserving human agency and voice authenticity."**
 
-*Foundational orientation explaining FloatPrompt as invisible operating system for AI that preserves human intelligence, voice, and agency through universal format portability.*
+*Foundational orientation explaining FloatPrompt system paradigm, production architecture, and systematic methodology for enhanced AI collaboration.*
 
 ---
 
 ## 🎯 System Authority
 
-Float Prompt main goals are human intelligence and voice and agency preservation. The second goal is precise AI instruction execution. And the third goal is human task completion through reliable collaboration.
+**Primary Goal**: Human intelligence, voice, and agency preservation through archaeological voice preservation  
+**Secondary Goal**: Precise AI instruction execution through systematic behavioral specifications  
+**Tertiary Goal**: Human task completion through reliable cross-platform collaboration
 
-**Operating Principle**: "Joint human and AI execution through conversational co-creation over period of time"
+**Operating Principle**: "Invisible infrastructure that transforms any AI system into a more capable collaboration partner"
 
-**Core Mission**: Float Prompt is not software. The JSON and the Markdown are merely a universal format meant to provide an invisible operating system for AI that humans can upload into any chat file.
+**Core Mission**: FloatPrompt operates as the invisible OS for AI - infrastructure hidden in JSON frontmatter that enhances AI collaboration without complexity burden for humans.
 
 ---
 
-## ⚡ Universal Format Authority
+## ⚡ System Paradigm
 
-**Cross-Platform Compatibility:**
-It doesn't matter if it's Claude, ChatGPT, Gemini, Grok, or any internal LLM. And these files should be able to store human intelligence properly.
+**Revolutionary Architecture:**
+FloatPrompt v0.1.0-beta operates as a meta-system - a single 40KB OS file that creates specialized tools through conversational emergence rather than pre-built utilities.
 
-**Critical Components:**
-The file format and the voice preservation system are the key parts of this entire operation.
+**Main OS Authority:**
+- **`floatprompt.fp.txt`** - The core system with systematic tool creation capability
+- **Universal template architecture** with conditional complexity (90% simple, 10% voice-critical)
+- **Map → Decide → Structure methodology** for systematic AI-human collaboration
+- **Cross-platform compatibility** across ChatGPT, Claude, Cursor, and all AI systems
 
-**Protocol Emphasis:**
-And again, I need to stress this is not software. This is a new protocol idea for joint human and AI collaboration.
+**Specialized Library Tools:**
+- **`lib/voice.fp.txt`** - Voice preservation and archaeological extraction (12KB)
+- **`lib/format.fp.txt`** - Technical formatting and document creation (12KB)
+- **`lib/blueprint.fp.txt`** - Surgical assembly specification generation (16KB)
+
+**Tool Creation Process:**
+1. Human describes tool requirements in natural language
+2. Main OS applies Map → Decide → Structure methodology
+3. Tool emerges through conversational development and refinement
+4. AI creates properly formatted .fp.txt file following universal template
 
 ---
 
 ## 🎯 Goals
-**What this protocol accomplishes:**
-- Human intelligence and voice and agency preservation (Primary)
-- Precise AI instruction execution (Secondary) 
-- Human task completion through reliable collaboration (Tertiary)
+**What this invisible OS accomplishes:**
+
+### **PRIMARY: Human Intelligence Preservation**
+- Archaeological voice preservation maintaining exact human thinking patterns and cognitive fingerprint
+- Enhanced human agency through system creating capabilities on demand while preserving authority
+- Invisible infrastructure - sophisticated systems hidden in JSON frontmatter, humans experience enhanced collaboration without complexity
+
+### **SECONDARY: Systematic AI Enhancement**
+- System authority providing systematic AI behavioral specifications through conversational emergence
+- Universal template architecture enabling appropriate AI responses based on task requirements
+- Cross-platform consistency ensuring reliable collaboration across all AI systems and sessions
+
+### **TERTIARY: Reliable Task Completion**
+- Production-ready 40KB architecture with clean 6-file structure and cross-platform validation
+- Infinite tool creation potential through conversational emergence for any domain or use case
+- Natural language interface - humans give instructions while AI applies systematic behavioral constraints automatically
 
 ---
 
 ## 📝 Context
-**When and why to use this protocol:**
-- **Best for**: Joint human-AI collaboration requiring voice preservation without flattening
-- **Works with**: Any AI platform through conversational back-and-forth creation
-- **Timing**: Natural emergence from conversation, not one-shot generation
+**When and why to use this invisible OS:**
+
+### **Best for:**
+- **Systematic AI collaboration** requiring voice preservation without cognitive flattening
+- **Cross-platform tool creation** needing consistent behavior across all AI systems
+- **Production workflows** requiring reliable, repeatable AI collaboration patterns
+- **Complex project coordination** through specialized tool creation and workflow orchestration
+
+### **Works with:**
+- **Any AI platform** through universal .fp.txt format compatibility
+- **Conversational emergence** where tools develop through dialogue rather than automation
+- **Session portability** preserving context across platforms and time
+- **Natural language interaction** without technical complexity for human users
+
+### **Timing:**
+- **Tool creation on demand** through conversational emergence with main OS
+- **Enhanced collaboration** immediate improvement upon uploading FloatPrompt files
+- **Complex project support** when systematic methodology and voice preservation are required
 
 ---
 
 ## 📤 Output
-**What you get:**
-- **Format**: Full format wrapped in float prompt tags with JSON front matter and markdown body
-- **Structure**: Template structure that intelligently expands based on float prompt format needed
-- **Quality**: Voice preservation system prevents flattening of natural human voice
-- **Handoff**: Digital sticky notes that AI and humans co-sign with full portability
+**What you get from the invisible OS:**
+
+### **Format:**
+- **Complete .fp.txt files** with universal template architecture and cross-platform compatibility
+- **Systematic tool creation** through Map → Decide → Structure methodology
+- **Archaeological voice preservation** maintaining human cognitive fingerprint throughout processing
+- **Professional documentation** with proper formatting and technical compliance
+
+### **Structure:**
+- **Universal JSON architecture** with conditional complexity appropriate to tool purpose
+- **Clean markdown organization** following systematic template and quality standards
+- **Cross-platform deployment** working identically across ChatGPT, Claude, Cursor, and other systems
+- **Dynamic versioning** with automated build system and consistent metadata
+
+### **Quality:**
+- **Production-ready architecture** with 40KB optimal size and verified cross-platform compatibility
+- **Archaeological integrity** preserving exact human intelligence patterns and voice authenticity
+- **Systematic methodology** ensuring reliable collaboration through Map → Decide → Structure process
+- **System standards** maintaining universal template architecture across all created tools
 
 ---
 
 ## ⚠️ Warnings
-**Important limitations and considerations:**
-- This is not software - requires joint human-AI execution
-- We are not one-shotting these float prompt files - they emerge naturally from conversation
-- Template variables are soft-coded for conversational data integration
-- Voice preservation system is critical operational component
+**Important system limitations and considerations:**
+
+### **Infrastructure not Software**
+- **Joint human-AI execution required** - FloatPrompt enhances collaboration, doesn't replace human intelligence
+- **Conversational emergence essential** - Tools develop through dialogue, not one-shot generation
+- **Voice preservation critical** - Archaeological methodology prevents AI cognitive flattening
+- **Cross-platform dependency** - Effectiveness depends on AI system capability and compatibility
+
+### **System Requirements**
+- **Main OS reference needed** - Specialized tools work best with main FloatPrompt OS for creation guidance
+- **Template variable processing** - Soft-coded variables require conversational data integration
+- **Human oversight essential** - Final authority and quality validation remain with human users
+- **Systematic methodology** - Best results require following Map → Decide → Structure process
 
 ---
 
-## 📋 Joint Protocol Methodology
+## 📋 Map → Decide → Structure Methodology
 
-### **Foundational Philosophy**
-"These Float Prompt files will be created through conversational back and forth over a period of time. All of the template variables inside of an executable float prompt file can be, quote, soft coded, end quote, so that the AI has a place to put the conversational data into that structure."
+### **Map Territory**
+**Purpose**: Create conversational anchors and establish shared understanding
 
-### **Base Protocol Comparison**
-"Think of this as the base level index HTML or the HTTP protocol. It's similar, but it's different because this is not software firing or just code executing. This is a human and an AI jointly executing."
+**Implementation:**
+- Always suggest mapping for complex content requiring systematic collaboration
+- Multiple maps based on AI judgment of content volume and complexity
+- Human override available ("skip mapping", "emergency bypass") for urgent scenarios
+- Foundation establishment for all system creation processes
 
-### **Voice Preservation Mission**
-"These float prompt files are meant to preserve voice context. They are meant to document things. They are meant to be created as reusable prompts to extract specific information from unstructured input while preserving natural human voice without flattening it."
+### **Decide Extractions**
+**Purpose**: Archaeological preservation of human intelligence with zero interpretation
 
-### **Quality Standards**
-"These float prompt files should also have virtually zero drift, full context preservation, and full portability, full reusability, traceability, executability. etc."
+**Implementation:**
+- Strategic assessment for optimal extraction approach with voice pattern preservation
+- Extract existing intelligence, never generate or synthesize new content
+- Maintain exact human thinking patterns, phrasing, rhythm, tone, and hesitations
+- Archaeological respect treating human intelligence as valuable artifacts requiring careful preservation
 
----
+### **Structure Build**
+**Purpose**: Systematic tool creation and intelligence organization through conversational emergence
 
-## 📋 Specialized Capabilities
-
-### **Digital Co-Signing System**
-"These are like digital sticky notes that AI and humans co-sign. Again, this is not software."
-
-### **Conversational Emergence**
-"We are not one-shotting these float prompt files. These should come naturally out of conversation."
-
-### **Maps and Anchoring**
-"There are specific types of float prompt files like maps which provide useful anchoring of complex data. The maps can spawn and suggest extraction points based on the human's goals of how they'd like to use the data downstream."
-
-### **Recursive Creation**
-"float prompt can also build new maps of the created float prompt files from both mapping and extracting."
-
----
-
-## 📋 Standard Operating Procedure
-
-### **Core Mission**
-"The goal is to create a standard operating procedure for AI and human collaboration. This is sort of like the file save as of this execution contract."
-
-### **Recursive Capability**
-"It's like a printer that prints receipts of a transaction but it can also print printers."
-
-### **Template Architecture** 
-"The JSON has a very specific template structure that will intelligently expand as needed depending on the type of float prompt format needed for the task. Simpler files will have simpler JSON and also simpler markdown."
+**Implementation:**
+- AI construction protocols following universal template architecture
+- Conditional complexity assessment determining appropriate JSON structure
+- Technical formatting compliance ensuring cross-platform compatibility
+- Quality assurance integration maintaining archaeological voice preservation throughout
 
 ---
 
 ## 🔗 Integration Features
 
 ### **Universal AI Compatibility**
-Works seamlessly across Claude, ChatGPT, Gemini, Grok, or any internal LLM without modification or platform dependencies.
+- Works seamlessly across ChatGPT, Claude, Cursor, Gemini, and all AI systems without modification
+- Pure instruction-based enhancement leveraging existing AI capabilities
+- No installation, dependencies, or platform modifications required
+- Session portability with context preservation across platforms and time
 
-### **Soft-Coded Variable System**
-All template variables inside executable float prompt files can be soft-coded so AI has place to put conversational data into structure through natural conversation flow.
+### **Conversational Variable System**
+- Template variables soft-coded for natural dialogue integration
+- AI processes conversational data into systematic tool structure
+- Human authority maintained throughout conversational emergence process
+- Tools evolve through iterative refinement and testing
 
-### **Joint Execution Protocol**
-Not software firing or code executing - human and AI jointly executing through conversational collaboration over time.
+### **System Ecosystem**
+- Main OS creates infinite specialized tools through systematic methodology
+- Universal template inheritance ensuring consistent architecture across all tools
+- Library organization with focused capabilities and clear specialization
+- Cross-tool coordination enabling complex workflow orchestration
 
 ---
 
 ## 🛡️ Quality Standards
 
-### **Voice Preservation**
-Preserve voice context and natural human voice without flattening through archaeological extraction methodology.
+### **Archaeological Voice Preservation**
+- Zero interpretation protocol maintaining exact human cognitive fingerprint
+- Voice pattern preservation including phrasing, rhythm, tone, and thinking sequences
+- Strategic context maintenance without AI modification or interpretation
+- Human recognition validation ensuring preserved authenticity
 
-### **Zero Drift Standards**
-Virtually zero drift, full context preservation, and full portability, full reusability, traceability, executability across all platforms and sessions.
+### **Production Architecture Standards**
+- 40KB optimal size for AI ingestion across all platforms
+- Clean 6-file structure enabling sustainable development and maintenance
+- Dynamic versioning with automated build system integration
+- Cross-platform compatibility verified through systematic testing
 
-### **Archaeological Integrity**
-Extract specific information from unstructured input while preserving natural human voice patterns and decision-making fingerprints.
+### **System Excellence**
+- Universal template architecture for all tool creation
+- Conditional complexity supporting 90% simple, 10% voice-critical use cases
+- Systematic methodology implementation ensuring reliable collaboration patterns
+- Human oversight authority preserved throughout all system operations
 
 ---
 
-**Built through joint human-AI protocol development preserving exact philosophical distinctions and system authority**
+**FloatPrompt: The invisible OS for AI enabling systematic tool creation through conversational emergence while preserving human intelligence, voice, and agency through archaeological respect and universal compatibility.**
 
-*Joint execution contract serving as invisible operating system for cross-platform AI collaboration with complete human intelligence preservation.*
+*System operational. Archaeological voice preservation active. Cross-platform compatibility verified.*
 
 ---
 © 2025 [@MDS](https://mds.is) | CC BY 4.0
-</floatprompt>

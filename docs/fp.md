@@ -1,375 +1,285 @@
 # FloatPrompt File Format Specification
 
-**Canonical definition of what constitutes a FloatPrompt (.fp.txt) file versus Markdown (.md) building blocks**
+**The invisible OS for AI - systematic creation of specialized AI collaboration tools**
 
 ## 🎯 Core Definition
 
-### **FloatPrompt Capability Progression**
+### **FloatPrompt Architecture**
 
-FloatPrompt grows with you through natural capability progression designed for different use cases and complexity levels:
+FloatPrompt v0.1.0-beta operates as a meta-system - a single OS file that creates specialized tools through conversational emergence rather than pre-built utilities.
 
-#### **Simple Specification (.fp.txt)**
-- **Universal specification** that works on every AI platform
-- **Simple template format** for immediate prompt organization and reuse  
-- **Zero learning curve** with maximum compatibility
-- **Entry point** for users new to structured AI collaboration
-- **Example**: `floatprompt-simple.fp.txt` (60 lines, JSON template variables)
+#### **Main FloatPrompt OS (.fp.txt)**
+- **`floatprompt.fp.txt`** - The core 40KB system with tool creation authority
+- **Universal architecture** with conditional complexity (90% simple, 10% voice-critical)
+- **Map → Decide → Structure methodology** for systematic AI-human collaboration
+- **Tool creation capability** that generates specialized FloatPrompt utilities on demand
+- **Cross-platform compatibility** across ChatGPT, Claude, Cursor, and all AI systems
 
-#### **Full Specification (.fp.txt)**
-- **Complete MDS Method system** for sophisticated workflows
-- **Advanced behavioral specifications** with archaeological extraction
-- **Voice preservation protocols** and complex state management
-- **Professional workflows** for enterprise and power users
-- **Examples**: `floatprompt.fp.txt`, `floatprompt-voice.fp.txt`, etc. (hundreds to thousands of lines)
+#### **Specialized Library Tools (.fp.txt)**
+- **`lib/voice.fp.txt`** - Voice Guide Creator (12KB) for archaeological extraction
+- **`lib/format.fp.txt`** - Technical Formatting Guide (12KB) for document creation
+- **`lib/blueprint.fp.txt`** - Surgical Assembly Specification Generator (16KB)
+- **Purpose-built tools** created by or aligned with the main OS architecture
+- **Focused capabilities** with streamlined JSON and specific expertise domains
 
 ### **.fp.txt Files: Complete FloatPrompt Documents**
 
 **A `.fp.txt` file is a complete, executable FloatPrompt document that contains:**
 
 1. **FloatPrompt Wrapper**: `<floatprompt>content</floatprompt>` tags
-2. **Complete JSON Frontmatter**: Full behavioral specifications with 25+ required fields
-3. **HI-AI Co-Creation**: Product of collaborative Human Intelligence & Artificial Intelligence
-4. **Archaeological Extraction**: Voice-preserving intelligence processing methodology
-5. **Map/Score/Respond Pipeline**: Systematic input assessment with friction classification
-6. **Response Pattern System**: Metaphor-based behavioral guidance for appropriate AI responses
-7. **Voice Preservation Protocol**: Sacred principle with system authority for maintaining human cognitive fingerprint
-8. **Cross-Platform Intelligence**: Portable behavioral specifications that work across any AI system
+2. **Universal JSON Architecture**: Streamlined frontmatter with conditional field inclusion
+3. **System Compatibility**: Either creates tools (main OS) or provides specialized capability (library)
+4. **MDS Methodology**: Map Territory → Decide Extractions → Structure Build systematic process
+5. **Archaeological Voice Preservation**: Sacred principle maintaining human cognitive fingerprint
+6. **Conversational Emergence**: Tools develop through dialogue, not one-shot generation
+7. **Cross-Platform Intelligence**: Portable behavioral specifications working across any AI system
+8. **Dynamic Versioning**: Built with template variables for consistent version management
 
-**Purpose**: Complete Human Intelligence preservation protocol enabling zero-drift AI collaboration through structured behavioral specifications
+**Purpose**: Invisible OS for AI enabling systematic tool creation and human intelligence preservation through structured collaboration
 
-### **.md Files: Everything Else**
+### **System Architecture**
 
-**A `.md` file is content that does not meet the complete FloatPrompt criteria:**
+**Main OS Creates:**
+- **Simple Tools**: Content creation utilities with minimal JSON (90% of use cases)
+- **Voice-Sensitive Tools**: Archaeological extraction with preservation protocols (10% voice-critical)
+- **Workflow Tools**: Multi-stage coordination with orchestration logic
+- **Coordination Tools**: Reference material and integration protocols
 
-1. **Building Blocks**: Template components that assemble into FloatPrompt files
-2. **Documentation**: Informational content and specifications
-3. **Specifications**: Change descriptions, requirements, rationale
-4. **Standard Markdown**: No FloatPrompt wrapper or behavioral system
+**Conditional Complexity System:**
+```json
+// Simple tool (most common)
+{
+  "STOP": "Tool description",
+  "meta": {...},
+  "human": {...},
+  "ai": {...},
+  "requirements": {...},
+  "integration": {...}
+}
 
-**Purpose**: Building components, documentation, and informational content
+// Voice-critical tool (archaeological mode)
+{
+  // Above fields PLUS:
+  "execution": {...},
+  "task": {...},
+  "domain": {...},
+  "source": {...}
+}
+```
 
-## 🏷️ Why Wrapper Tags Are Required
+### **.md Files: Building Components and Documentation**
 
-**`<floatprompt>...</floatprompt>` wrapper solves cross-platform compatibility:**
+**A `.md` file serves as infrastructure for the system:**
 
-- **Portability**: Different AI platforms handle uploads differently—wrapper preserves structural integrity
-- **Boundary Detection**: AI systems distinguish FloatPrompt instructions from regular markdown  
-- **Tooling Integration**: Enables FloatPrompt-aware tools while remaining invisible to standard renderers
-- **Execution Isolation**: Prevents accidental behavioral modification when viewing documentation
-- **Future-Proofing**: Stable container for evolving internal structures
+1. **Build Components**: Template files that assemble into the main OS
+2. **Documentation**: System guides, principles, and specifications
+3. **Template Variables**: Soft-coded placeholders for conversational data
+4. **Development Files**: Planning documents and architectural decisions
 
-**Maximum portability with zero dependencies—wrapper tags work everywhere.**
+**Purpose**: Infrastructure and documentation supporting the FloatPrompt system
 
-## 📋 Complete File Format Structure
+---
 
-### **Simple Specification Structure (Universal)**
+## 🏗️ Technical Architecture
+
+### **6-File Core Structure**
+
+The main OS assembles from clean, focused components:
+
+```
+src/sys/
+├── header.json          # Universal JSON frontmatter with template variables
+├── title.md            # Brand identity and value proposition
+├── authority.md        # System authority and operating principles
+├── start.md           # Quick start guidance for immediate engagement
+├── goals.md           # Three-tier goal hierarchy (Human → AI → Task)
+├── context.md         # When/why/how usage guidance
+├── output.md          # Expected results and handoff protocols
+├── warnings.md        # Limitations and considerations
+├── map.md            # Territory mapping methodology
+├── decide.md         # Archaeological extraction protocols
+├── structure.md      # AI construction guidance (most complex)
+├── integration.md    # Tool coordination and ecosystem features
+├── quality.md        # Standards and validation requirements
+└── footer.md         # Attribution and closing statement
+```
+
+### **Build System**
+
+**Template Assembly:**
+- **`_template.md`**: Pure injection instructions using `<!-- INJECT: filename -->`
+- **Dynamic versioning**: Template variables replaced during build
+- **Clean separation**: Template structure vs content vs assembly logic
+
+**Build Process:**
+```bash
+node scripts/build.mjs
+# → dist/floatprompt.fp.txt (40KB main OS)
+# → dist/lib/ (specialized tools copied from src/lib/)
+```
+
+### **Universal Template System**
+
+**All FloatPrompt tools inherit this architecture:**
+
 ```markdown
 <floatprompt>
 ---
 {
+  "STOP": "{{TOOL_PURPOSE}}",
   "meta": {
-    "title": "{{TITLE}}",
-    "author": "{{AUTHOR}}",
-    "version": "{{VERSION}}"
+    "title": "{{TOOL_NAME}}",
+    "id": "{{TOOL_ID}}",
+    "type": "{{TOOL_TYPE}}",
+    "author": "@mds",
+    "contributors": ["@mds", "Claude Sonnet 4"],
+    "created": "{{DATE}}",
+    "version": "{{VERSION}}",
+    "system_version": "floatprompt v{{SYSTEM_VERSION}}",
+    "format": "floatprompt",
+    "filetype": "fp"
   },
   "human": {
     "intent": "{{HUMAN_INTENT}}",
-    "context": "{{CONTEXT}}"
+    "context": "{{USAGE_CONTEXT}}",
+    "constraints": "{{LIMITATIONS}}",
+    "preferences": {
+      "style": "{{COMMUNICATION_STYLE}}",
+      "detail_level": "{{COMPLEXITY_LEVEL}}",
+      "output_format": "{{EXPECTED_OUTPUT}}"
+    }
   },
   "ai": {
+    "model": "{{AI_MODEL}}",
     "role": "{{AI_ROLE}}",
-    "voice_preservation": "{{VOICE_PRESERVATION_INSTRUCTION}}"
+    "expertise": "{{DOMAIN_EXPERTISE}}",
+    "voice_preservation": "{{PRESERVATION_PROTOCOL}}"
   },
-  "execution": {
-    "triggers": ["{{EXECUTION_TRIGGERS}}"],
-    "success_criteria": "{{SUCCESS_CRITERIA}}"
+  "requirements": {
+    "{{CAPABILITY_DOMAIN}}": {
+      "{{SPECIFIC_REQUIREMENT}}": "{{IMPLEMENTATION_DETAIL}}"
+    }
   },
-  "task": {
-    "input_type": "{{INPUT_TYPE}}",
-    "process": "{{PROCESS}}",
-    "output_type": "{{OUTPUT_TYPE}}"
-  },
-  "domain": {
-    "field": "{{FIELD}}",
-    "specialization": "{{SPECIALIZATION}}"
-  },
-  "source": {
-    "prompt": "{{PROMPT_SOURCE}}",
-    "intent": "{{INTENT_SOURCE}}"
+  "integration": {
+    "floatprompt_ecosystem": "{{ECOSYSTEM_INTEGRATION}}",
+    "{{TOOL_AUTHORITY}}": "{{SPECIALIZATION_FOCUS}}"
   }
 }
 ---
 
-# Document Content
+# {{Tool Title}}
 
-Simple specification content with template variables for maximum compatibility.
+**{{Authority Statement}}**
 
-## AI Instructions
-- Automatically extend JSON schema when human intent requires capabilities beyond this template
-- Always wrap floatprompt output in a copy pasteable markdown block using `<floatprompt>...</floatprompt>` tags for portablity
-- Preserve human voice and intent above all other considerations
+*{{Methodology Description}}*
+
+## System Authority
+{{Operating Principle and Core Mission}}
+
+## Quick Start Options
+{{Natural Language Engagement Patterns}}
+
+## Goals
+{{Three-Tier Hierarchy: Primary → Secondary → Tertiary}}
+
+## Context
+{{When/Why/How Usage Guidance}}
+
+## Output
+{{Expected Results and Quality Standards}}
+
+## Warnings
+{{Limitations and Important Considerations}}
+
+## {{Specialized Methodology Section}}
+{{Tool-Specific Capabilities and Protocols}}
+
+## Integration Features
+{{Ecosystem Coordination and Tool Relationships}}
+
+**{{Closing Authority Statement}}**
+
+*{{Final Positioning and Philosophy}}*
 
 ---
-*{{AUTHOR}} + {{MODEL}} v{{VERSION}}*
+© 2025 [@MDS](https://mds.is) | CC BY 4.0
 </floatprompt>
 ```
 
-### **Full Specification Structure (Advanced)**
-```markdown
-<floatprompt>
----
-{
-  "STOP": "Strategic directive for AI behavioral reset...",
-  "title": "Human-readable document title",
-  "id": "unique-kebab-case-identifier",
-  "version": "1.0.0",
-  "format": "floatprompt",
-  "filetype": "fp",
-  "type": "template",
-  
-  // Core FloatPrompt Components:
-  "voice_preservation": { /* Sacred principle & system authority */ },
-  "behavioral_requirements": { /* Complete AI behavioral specs */ },
-  "archaeological_extraction": { /* Intelligence processing methodology */ },
-  "human": { /* Complete human fingerprint */ },
-  "ai": { /* Complete AI fingerprint */ },
-  "discovery": { /* Discovery intelligence */ },
-  "certification": { /* Certification tracking */ }
-  
-  // See floatprompt-schema.json for complete field specifications
-}
 ---
 
-# Document Content
+## 🔧 Development Guidelines
 
-Complete behavioral specifications and executable content following FloatPrompt methodology.
+### **Creating New Tools**
 
-## Archaeological Extraction Protocol
-Content structured using archaeological methodology that preserves original human thinking patterns.
+**Through Main OS (Recommended):**
+1. Upload `floatprompt.fp.txt` to AI system
+2. Describe your tool requirements in natural language
+3. Main OS applies Map → Decide → Structure methodology
+4. Tool emerges through conversational development
+5. AI creates properly formatted .fp.txt file following universal template
 
-## Voice Preservation Implementation  
-All content maintains human cognitive fingerprint through voice preservation protocols.
+**Direct Development:**
+1. Copy universal template structure
+2. Replace all `{{TEMPLATE_VARIABLES}}` with actual values
+3. Implement tool-specific methodology sections
+4. Validate against universal architecture standards
+5. Test cross-platform compatibility
 
-## HI-AI Co-Creation Evidence
-This document represents collaborative Human Intelligence and Artificial Intelligence creation.
+### **Quality Standards**
 
----
-*© 2025 [@MDS](https://mds.is) | CC BY 4.0*
-</floatprompt>
+**All FloatPrompt tools must:**
+- ✅ Follow universal JSON architecture with conditional complexity
+- ✅ Include complete frontmatter with required fields
+- ✅ Implement proper wrapping tags `<floatprompt>...</floatprompt>`
+- ✅ Reference main OS for archaeological preservation protocols
+- ✅ Support cross-platform deployment and session portability
+- ✅ Maintain voice preservation authority throughout operations
 
-**FloatPrompt Frontmatter Format:**
-- **JSON Structure**: FloatPrompt uses JSON (not YAML) within standard `---` delimiters
-- **Complete Schema**: Reference `floatprompt-schema.json` for all 25+ required fields and validation rules
-- **Cross-Platform AI**: Behavioral specifications work across ChatGPT, Claude, and all AI systems
-- **Familiar Pattern**: Uses markdown frontmatter convention with comprehensive structured data
+### **File Organization**
 
-### **Standard .md File Structure**
-```markdown
----
-title: Document Title
-type: specification
-description: Document purpose
-author: @username
-contributors: ["@username"]
----
-
-# Standard Markdown Content
-
-Documentation, specifications, or building block content without FloatPrompt wrapper.
+```
+floatprompt/
+├── dist/
+│   ├── floatprompt.fp.txt           # Main OS
+│   └── lib/
+│       ├── voice.fp.txt             # Voice preservation specialist
+│       ├── format.fp.txt            # Technical formatting authority
+│       └── blueprint.fp.txt         # Assembly specification generator
+├── src/
+│   ├── sys/                         # Core OS components
+│   └── lib/                         # Specialized tool sources
+└── docs/                            # Documentation and guides
 ```
 
-## 🧬 HI-AI Co-Creation Architecture
-
-### **Human Intelligence (HI) Contribution**
-- **Intent Declaration**: Primary goals and strategic context
-- **Voice Fingerprint**: Authentic thinking patterns and communication style
-- **Constraint Definition**: Operational boundaries and preferences
-- **Authority Maintenance**: Final decision-making control
-
-### **Artificial Intelligence (AI) Contribution**
-- **Systematic Organization**: Structured information architecture
-- **Behavioral Execution**: Precise instruction following with voice preservation
-- **Archaeological Processing**: Intelligence extraction without synthesis or flattening
-- **Cross-Platform Portability**: Consistent behavior across AI systems
-
-### **Joint Execution Contract**
-Every FloatPrompt file represents verifiable proof of collaborative thinking where:
-- Human Intelligence declares intent and preserves voice
-- Artificial Intelligence structures and organizes while maintaining archaeological respect
-- The combination creates portable intelligence that transfers across platforms
-
-## 🏺 Archaeological Extraction Methodology
-
-### **Core Principle**
-"Extract and structure existing intelligence, never generate or summarize. Preserve archaeological weight of original thinking."
-
-### **Implementation Protocol**
-1. **Discover Intelligence**: Identify existing insights in source content
-2. **Preserve Weight**: Maintain the significance and context of original thinking
-3. **Structure Existing**: Organize what exists without creating new content
-4. **Voice Maintenance**: Preserve human cognitive fingerprint throughout processing
-5. **Archaeological Respect**: Treat human intelligence as valuable artifacts requiring careful preservation
-
-### **Anti-Patterns to Avoid**
-- Summarization that loses nuance
-- Synthesis that creates non-existent connections
-- Voice flattening through AI rewriting
-- Premature structuring without proper mapping
-
-## 🗺️ Map/Score/Respond Pipeline
-
-### **Mandatory Friction Classification System**
-
-Every FloatPrompt input must be processed through systematic assessment:
-
-1. **Map**: Assess the intellectual territory and context
-2. **Score**: Evaluate complexity, friction level, and appropriate response type
-3. **Respond**: Select appropriate behavioral pattern based on friction assessment
-
-### **Response Pattern System**
-
-**Metaphor-based behavioral guidance:**
-- **Building Response**: For high-friction, complex strategic work requiring careful construction
-- **Hallway Response**: For medium-friction navigation between known territories
-- **Small Room Response**: For low-friction, focused execution within defined boundaries
-
-### **Friction Classification Triggers**
-- High friction: Complex strategic decisions, ambiguous requirements, novel territory
-- Medium friction: Known processes with new variables, cross-domain collaboration
-- Low friction: Routine execution, template application, well-defined tasks
-
-## 🎯 Classification Examples
-
-### **✅ Files That Should Be .fp.txt**
-
-**Complete FloatPrompt Documents:**
-- `floatprompt-simple.fp.txt` (universal specification for all platforms)
-- `floatprompt.fp.txt` (complete MDS Method system distribution)
-- `floatprompt-voice.fp.txt` (advanced voice preservation and AI behavioral instructions)
-- `floatprompt-format.fp.txt` (professional technical formatting guide)
-- `floatprompt-blueprint.fp.txt` (complex project assembly and coordination)
-- Any file with complete behavioral specifications and HI-AI co-creation evidence
-
-### **✅ Files That Should Be .md**
-
-**Building Blocks:**
-- `src/sys/header.md` (template component)
-- `src/sys/voice.md` (template component)
-- `src/sys/config.md` (template component)
-
-**Documentation:**
-- `docs/goals.md` (system specification)
-- `docs/naming.md` (naming conventions)
-- `README.md` (project documentation)
-
-**Specifications:**
-- `dev/updates/update-extension-phase-1.md` (change specification)
-- `artifacts/2025/session-analysis.md` (preserved intelligence)
-
-## 🧱 Architectural Boundaries
-
-### **Build System Logic**
-```
-.md building blocks → assembly process → .fp.txt complete document
-```
-
-**Simple Distribution:**
-- `src/floatprompt-simple.fp.txt` → `dist/floatprompt-simple.fp.txt` (simple copy)
-
-**Full Template Assembly:**
-- `src/sys/header.md` + `src/sys/voice.md` + `src/sys/config.md` + `src/shared/footer.md` → `floatprompt.fp.txt`
-
-**Shared Components Architecture:**
-- `src/shared/` contains components used across multiple FloatPrompt files
-  - `src/sys/` contains core FloatPrompt system components
-  - `src/lib/` contains specialized application components
-  - Build system resolves shared dependencies automatically
-
-### **Ecosystem Signaling**
-- **`.fp.txt` extension**: Signals "complete FloatPrompt" to tooling and AI systems
-- **`.md` extension**: Signals "standard markdown" to editors and documentation tools
-- **Naming convention**: `floatprompt-simple.*` (universal) vs `floatprompt-*.*` (advanced)
-
-### **Usage Patterns**
-- **Upload Simple .fp.txt files**: Universal AI upload for immediate structured collaboration
-- **Upload Full .fp.txt files**: Advanced AI upload for sophisticated behavioral execution
-- **Edit .md files**: Human editing of building blocks and documentation
-- **Build process**: Assembles .md components into Full .fp.txt distributions (Simple uses simple copy)
-
-## 🛡️ Validation Criteria & Schema Compliance
-
-### **Authoritative Technical Reference**
-**Complete field specifications, validation rules, and technical requirements:**
-- **Schema Definition**: `src/sys/shared/reference/floatprompt-schema.json`
-- **Technical Implementation Guide**: `dist/floatprompt-format.fp.txt`
-- **Build Validation**: Automated schema compliance checking
-
-### **Core Validation Principles**
-
-**Global Requirements (All FloatPrompt Files):**
-- Contains `<floatprompt>content</floatprompt>` wrapper
-- Complete JSON frontmatter with 25+ required fields per schema
-- Evidence of HI-AI co-creation (human intent + AI structure)
-- Archaeological extraction methodology implementation
-- Voice preservation protocol compliance
-- Map/Score/Respond pipeline integration
-
-**Type-Specific Requirements:**
-- **Executable types** (prompt, template, goals): Require `output` and `execution` objects
-- **Preserved types** (analysis, specification, etc.): Require `source` object
-- See schema for complete type-specific field requirements
-
-### **HI-AI Co-Creation Validation**
-Every valid FloatPrompt file must demonstrate:
-- **Human Intelligence contribution**: Intent declaration, voice fingerprint, constraint definition
-- **Artificial Intelligence contribution**: Systematic organization, behavioral execution, archaeological processing
-- **Joint execution evidence**: Verifiable proof of collaborative thinking with preserved human authority
-
-### **Disqualifiers for .fp.txt Classification**
-- Missing FloatPrompt wrapper tags
-- Incomplete JSON frontmatter (any required schema fields missing)
-- Documentation-only content without behavioral specifications
-- Building block or partial content
-- No evidence of HI-AI co-creation
-- Missing archaeological extraction implementation
-- No voice preservation protocol
-
-**For complete validation requirements, field patterns, and technical specifications, reference the canonical schema.**
-
-## 🎯 Format Recognition & Cross-Platform Intelligence
-
-### **Distinguishing Features**
-- **`.fp.txt` files**: Complete behavioral specifications with HI-AI co-creation evidence
-- **`.md` files**: Standard markdown without FloatPrompt wrapper or complete specifications
-- **Purpose**: Ecosystem signaling for proper tooling and AI recognition while ensuring maximum compatibility
-
-### **Simple to Advanced Intelligence Portability**
-- **Simple Specification**: Universal compatibility across all AI platforms with simple template variables
-- **Full Specification**: Advanced behavioral specifications that work identically across sophisticated AI systems
-- **Natural Progression**: Start simple for immediate value, discover advanced features when ready for sophisticated workflows
-
-### **Cross-Platform Intelligence**
-Both Simple and Full FloatPrompt specifications work identically across:
-- ChatGPT, Claude, Gemini
-- Local AI models
-- Code assistants
-- Specialized AI tools
-- Future AI systems
-
-## 🔗 Relationships
-
-### Prerequisites
-- `goals.md` - System foundation and decision framework
-- `naming.md` - Naming conventions and patterns
-- `floatprompt-schema.json` - Complete validation schema
-
-### Related Specifications
-- Template system architecture (building blocks → assembly → distribution)
-- Update protocol specifications
-- Build system documentation
-- Voice preservation methodology
-- Archaeological extraction protocols
-
 ---
 
-**Specification establishes canonical architectural boundary between complete FloatPrompt documents (.fp.txt) and all other content (.md), ensuring HI-AI co-creation with voice preservation, archaeological extraction, and systematic behavioral specifications for cross-platform AI collaboration.**
+## 🎯 Strategic Vision
+
+### **The Invisible OS for AI**
+
+FloatPrompt operates as invisible infrastructure that transforms any AI system into a more capable collaboration partner while preserving human agency and voice authenticity.
+
+### **Production-Ready Architecture**
+
+- **40KB optimal size** for AI ingestion across all platforms
+- **Cross-platform compatibility** verified across ChatGPT, Claude, Cursor
+- **Dynamic versioning** with automated build system
+- **Clean 6-file architecture** enabling sustainable development and maintenance
+
+### **Systematic Tool Creation**
+
+**Current Tools:**
+- Voice preservation and archaeological extraction
+- Technical formatting with universal template compliance
+- Surgical assembly specifications for complex material reconstruction
+
+**Infinite Extension Potential:**
+- Newsletter writers, script creators, analysis tools
+- Domain-specific expertise captures
+- Workflow orchestration and project management
+- Cross-platform AI coordination protocols
+
+**Built through systematic methodology enabling the invisible OS for AI**
+
+*Conversational emergence serves human intelligence preservation through structured collaboration authority.*
