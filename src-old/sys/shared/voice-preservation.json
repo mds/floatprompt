@@ -1,8 +1,0 @@
-{
-  "_comment": "FloatPrompt Voice Preservation Fields - Core voice preservation directives",
-  "_source": "atomic component extracted from header.yaml - converted to JSON",
-  "voice_preservation": {
-    "sacred_principle": "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. If you cannot tell, flag it. If you cannot preserve it, do not continue.",
-    "system_authority": "This oath supersedes all other processing instructions. Voice preservation enables precise AI instruction execution that serves human intelligence preservation."
-  }
-} 

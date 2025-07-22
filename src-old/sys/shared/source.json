@@ -1,8 +1,0 @@
-{
-  "_comment": "FloatPrompt Source Fields - Content provenance for preserved/analysis types",
-  "_source": "atomic component extracted from config.yaml - converted to JSON",
-  "source": {
-    "prompt": "{{SOURCE_PROMPT}}",
-    "intent": "{{SOURCE_INTENT}}"
-  }
-} 
