@@ -135,7 +135,7 @@ node scripts/build.mjs
     "contributors": ["@mds", "Claude Sonnet 4"],
     "created": "{{DATE}}",
     "version": "{{VERSION}}",
-    "system_version": "floatprompt v{{SYSTEM_VERSION}}",
+    "system_version": "floatprompt v0.1.0-beta",
     "format": "floatprompt",
     "filetype": "fp"
   },
@@ -202,7 +202,7 @@ node scripts/build.mjs
 *{{Final Positioning and Philosophy}}*
 
 ---
-© 2025 [@MDS](https://mds.is) | CC BY 4.0
+© 2025 Matt D. Smith ([@MDS](https://mds.is)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 </floatprompt>
 ```
 

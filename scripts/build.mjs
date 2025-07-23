@@ -218,7 +218,7 @@ async function buildFloatPrompt() {
       template = template.replace(match[0], `<!-- ERROR: Could not inject ${filename} -->`);
     }
   }
-  
+
   // Process template variables in the final assembled template
   const buildDate = new Date().toISOString().split('T')[0];
   const systemVersion = `v${VERSION}`;
@@ -250,18 +250,18 @@ async function copyLibraryFiles() {
   for (const filename of LIB_COPY_CONFIG.files) {
     const sourcePath = path.join(LIB_COPY_CONFIG.sourceDir, filename);
     const outputPath = path.join(LIB_COPY_CONFIG.outputDir, filename);
-    
+  
     console.log(`📄 Copying: ${filename}...`);
     
     try {
       let content = await fs.readFile(sourcePath, 'utf-8');
-      
+  
       // Process template variables if any exist
-      const buildDate = new Date().toISOString().split('T')[0];
+    const buildDate = new Date().toISOString().split('T')[0];
       const systemVersion = `v${VERSION}`;
       
       content = content
-        .replace(/\{\{VERSION\}\}/g, VERSION)
+      .replace(/\{\{VERSION\}\}/g, VERSION)
         .replace(/\{\{DATE\}\}/g, buildDate)
         .replace(/\{\{SYSTEM_VERSION\}\}/g, systemVersion)
         .replace(/\{\{AI_MODEL\}\}/g, "{{AI_MODEL}}"); // Keep this as template variable for runtime
@@ -271,8 +271,8 @@ async function copyLibraryFiles() {
       console.log(`✅ Successfully copied: ${filename} (${Math.round(content.length / 1024)}KB)`);
     } catch (error) {
       console.error(`❌ Failed to copy ${filename}:`, error.message);
+      }
     }
-  }
   
   console.log(`\n✅ Successfully copied ${LIB_COPY_CONFIG.files.length} library files!`);
   console.log(`📍 Output directory: ${LIB_COPY_CONFIG.outputDir}`);
