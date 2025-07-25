@@ -11,7 +11,7 @@
     "contributors": ["MDS", "Claude Sonnet 4"],
     "created": "{{CURRENT_YEAR}}",
     "version": "1.0",
-    "system_version": "v0.1.0-beta"
+    "system_version": "floatprompt v0.1.0-beta"
   },
   
   "human": {
@@ -26,7 +26,6 @@
   },
   
   "ai": {
-    "model": "Claude Sonnet 4",
     "role": "Update Protocol executor providing systematic change management with archaeological preservation",
     "expertise": "system validation, architectural consistency, voice preservation, precise change implementation",
     "voice_preservation": "Sacred principle: First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."

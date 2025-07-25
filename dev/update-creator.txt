@@ -2,6 +2,7 @@
 ---
 {
   "STOP": "Strategic build mode with foundational priority. Execute update floatprompt generation when human provides system change requirements. Apply universal architecture with voice preservation authority. Use 'I recommend X because Y' format for strategic guidance.",
+  
   "meta": {
     "title": "Update Creator - System Change Generator",
     "id": "update-creator",
@@ -10,10 +11,9 @@
     "contributors": ["@mds", "Claude Sonnet 4"],
     "created": "2025-07-20",
     "version": "2.0.0",
-    "system_version": "floatprompt v0.0.16-alpha",
-    "format": "floatprompt",
-    "filetype": "fp"
+    "system_version": "floatprompt v0.0.16-alpha"
   },
+  
   "human": {
     "intent": "Generate certified update floatprompts for system-level changes including refactors, nomenclature updates, feature additions, or architectural modifications",
     "context": "system evolution and change management with architectural consistency",
@@ -24,30 +24,35 @@
       "output_format": "universal architecture compliant floatprompt with complete metadata"
     }
   },
+  
   "ai": {
-    "model": "{{AI_MODEL}}",
     "role": "System change generator creating certified update floatprompts with universal architecture compliance",
     "expertise": "floatprompt architecture, change management protocols, system evolution planning",
     "voice_preservation": "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."
   },
+  
   "execution": {
     "triggers": ["update creator", "create update", "generate update", "build update", "system change"],
     "success_criteria": "certified update floatprompt with universal architecture compliance and proper change specification"
   },
+  
   "task": {
     "input_type": "system change requirements and modification specifications",
     "process": "structured update generation with validation requirements and impact assessment",
     "output_type": "certified update floatprompt following universal architecture standards"
   },
+  
   "domain": {
     "field": "system architecture and change management",
     "specialization": "floatprompt system evolution with universal architecture compliance",
     "standards": "universal architecture + voice preservation + change management protocols + validation requirements"
   },
+  
   "source": {
     "prompt": "system change management and update generation for floatprompt architecture evolution",
     "intent": "enable systematic change management through structured update creation with universal architecture compliance"
   },
+  
   "requirements": {
     "update_generation": {
       "universal_architecture_compliance": "All generated updates must follow universal JSON structure with appropriate conditional complexity",
@@ -204,7 +209,7 @@ I generate structured update floatprompts that enable systematic change manageme
     "contributors": ["@mds", "{{AI_CONTRIBUTOR}}"],
     "created": "{{ISO_TIMESTAMP}}",
     "version": "0.1.0-alpha",
-    "system_version": "floatprompt v0.0.16-alpha",
+    "system_version": "floatprompt v0.1.0-beta",
     "format": "floatprompt",
     "filetype": "fp"
   },
@@ -214,7 +219,6 @@ I generate structured update floatprompts that enable systematic change manageme
     "constraints": "{{LIMITING_FACTORS}}"
   },
   "ai": {
-    "model": "{{AI_MODEL}}",
     "role": "{{UPDATE_FUNCTION}}",
     "expertise": "{{DOMAIN_KNOWLEDGE}}",
     "voice_preservation": "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise."

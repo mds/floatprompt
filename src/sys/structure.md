@@ -25,6 +25,7 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
 1. **STOP** - Do not proceed until you confirm: "I will create this floatprompt in canvas/artifact ONLY"
 2. **STOP** - Do not proceed until you confirm: "I will NOT output any floatprompt content in conversation"  
 3. **STOP** - Do not proceed until you confirm: "I will use complete JSON structure, not minimal examples"
+4. **STOP** - Do not proceed until you confirm: "I will fill in ALL template variables - no {{VARIABLES}} should remain in the final document"
 
 **CRITICAL CONFIDENCE CHECK:**
 **Do you feel 100% confident and 0% ambiguous about how to structure and create this floatprompt file?**
@@ -108,7 +109,6 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
     }
   },
   "ai": {
-    "model": "{{AI_MODEL}}",
     "role": "{{AI_FUNCTION}}",
     "expertise": "{{DOMAIN_KNOWLEDGE}}",
     "voice_preservation": "{{VOICE_HANDLING_INSTRUCTION}}"
@@ -272,7 +272,9 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
 - Pipeline component → detailed workflow integration
 - System utility → cross-tool compatibility requirements
 
-**5. Expand complexity only when user request demonstrates need:**
+**5. Complete variable resolution and appropriate complexity:**
+- **Fill ALL template variables** - Replace {{TITLE}}, {{VARIABLES}} with actual production values
+- **Zero template syntax** should remain in final production documents
 - Don't add workflow management for simple transformations
 - Don't include quality gates unless quality assurance mentioned
 - Don't add session context unless historical preservation needed
@@ -359,6 +361,13 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
 - **Voice preservation compliance** - archaeological methodology
 - **Cross-platform compatibility** - .txt format ensures immediate usability
 
+**Variable Resolution Standards:**
+- **{{TITLE}}** → Actual tool title without template syntax
+- **{{CONTRIBUTORS}}** → ["human_name", "AI_model_name"] with actual human author and AI system used
+  - **If human_name unknown**: Ask "What name should I use for the author field?" before proceeding
+- **{{TEMPLATE_VARIABLES}}** → Replace ALL with appropriate production values
+- **Production documents** must contain zero template variable syntax
+
 ## **Quality Assurance Checklist**
 
 **Before completing FloatPrompt creation:**
@@ -372,6 +381,7 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
 - [ ] **Conditional Logic**: Appropriate sections for tool type
 - [ ] **Voice Preservation**: Archaeological methodology compliance
 - [ ] **Technical Format**: Clean wrapping tags and valid JSON syntax
+- [ ] **Variable Completion**: All {{TEMPLATE_VARIABLES}} replaced with actual values - no template syntax remains in production document
 
 ## **Conversational Construction Process**
 

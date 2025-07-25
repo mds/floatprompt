@@ -5,7 +5,7 @@
     "id": "floatprompt-discovery-log",
     "type": "documentation",
     "author": "MDS",
-    "created": "{{CURRENT_YEAR}}",
+    "created": "2025-07-25",
     "version": "1.0",
     "system_version": "v0.1.0-beta"
   },

@@ -1,0 +1,306 @@
+<floatprompt>
+---
+{
+  "STOP": "System enhancement mode with high priority. Execute structure.md updates to prevent template variable confusion in AI-generated FloatPrompt documents. Apply universal architecture with voice preservation authority.",
+  
+  "meta": {
+    "title": "FloatPrompt System Update: Variable Completion Guidance",
+    "id": "floatprompt-variable-completion-update",
+    "type": "system-update",
+    "author": "@mds",
+    "contributors": ["@mds", "Claude Sonnet 4"],
+    "created": "2025-07-24",
+    "version": "0.1.1-beta",
+    "system_version": "floatprompt v0.0.16-alpha",
+    "format": "floatprompt",
+    "filetype": "fp"
+  },
+  
+  "human": {
+    "intent": "Update FloatPrompt core files to prevent template variable confusion and ensure AI systems create production-ready documents",
+    "context": "Development environment update for structure.md section addressing systematic improvement in AI construction protocols",
+    "constraints": "Provide specific file locations, exact code changes, and implementation guidance for immediate system update",
+    "preferences": {
+      "style": "Precise development instructions with exact code snippets and file modification guidance",
+      "detail_level": "Complete implementation details with specific line additions and quality assurance integration",
+      "output_format": "Structured update specification ready for immediate implementation in development environment"
+    }
+  },
+  
+  "ai": {
+    "model": "Claude Sonnet 4",
+    "role": "FloatPrompt system update specialist providing precise development guidance for core file modifications",
+    "expertise": "FloatPrompt architecture modification, development environment updates, quality assurance protocol enhancement, systematic improvement implementation",
+    "voice_preservation": "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."
+  },
+  
+  "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear development instructions for immediate implementation with specific file locations and code changes for preventing AI template variable confusion",
+      "ai_behavioral_specification": "Systematic update protocols ensuring AI systems understand variable completion requirements for production document creation with mandatory validation checkpoints"
+    },
+    "change_specification": {
+      "modify_behavior": "Add variable completion validation to MANDATORY EXECUTION PROTOCOL, Quality Assurance Checklist, AI Construction Protocol, and Technical Formatting Requirements",
+      "rationale": "Prevent template variable confusion in AI-generated FloatPrompt documents by requiring complete variable resolution for production documents",
+      "impact_assessment": "Structure.md modifications affecting all AI construction protocols and quality validation processes"
+    },
+    "validation_requirements": {
+      "compatibility_check": "Backward compatibility preservation - updates affect new document creation only, existing documents remain valid",
+      "integration_testing": "Build system verification after structure.md modifications with sample document generation testing",
+      "quality_assurance": "Variable completion validation through updated mandatory protocol and quality checklist integration"
+    }
+  },
+  
+  "integration": {
+    "update_protocol": {
+      "enabled_by": ["update-protocol"],
+      "workflow_integration": "Systematic enhancement to FloatPrompt construction protocols through targeted structure.md improvements",
+      "system_coordination": "Core system improvement affecting all AI-generated documents with quality assurance integration"
+    }
+  }
+}
+---
+
+# FloatPrompt System Update: Variable Completion Guidance
+
+**Targeted system improvement preventing template variable confusion in AI-generated FloatPrompt documents**
+
+*Specific development environment updates for structure.md section ensuring AI systems create production-ready documents with complete variable resolution.*
+
+## System Authority
+
+I provide precise development instructions for updating FloatPrompt core files to prevent template variable confusion. This systematic improvement ensures AI systems understand the requirement for complete variable resolution in production FloatPrompt documents.
+
+**Update Priority:** High - Addresses systematic confusion in AI construction protocols that creates unusable documents with template syntax remaining.
+
+## Quick Start
+
+**Target File:** `src/sys/structure.md` in FloatPrompt development environment
+
+**Primary Changes:**
+1. **MANDATORY EXECUTION PROTOCOL** - Add variable completion requirement
+2. **Quality Assurance Checklist** - Add variable completion validation
+3. **AI Construction Protocol** - Add explicit variable resolution guidance
+
+**Implementation Time:** 5-10 minutes with immediate testing capability
+
+## Goals
+
+### **PRIMARY: Eliminate Template Variable Confusion**
+- **Clear instruction addition** - Explicit requirement for AI systems to fill all template variables in production documents
+- **Systematic prevention** - Protocol updates preventing template syntax remaining in final FloatPrompt documents
+- **Production readiness enforcement** - Quality assurance integration ensuring documents are immediately usable upon creation
+
+### **SECONDARY: Enhanced AI Construction Guidance**
+- **Protocol clarity improvement** - Specific guidance about production vs. template document distinction
+- **Quality assurance integration** - Systematic validation preventing common AI construction errors
+- **Consistency enforcement** - Uniform variable resolution across all AI-generated FloatPrompt documents
+
+### **TERTIARY: Development Environment Optimization**
+- **Immediate implementation** - Ready-to-apply changes requiring no additional research or decision-making
+- **Validation integration** - Clear success criteria for confirming update effectiveness
+- **Ecosystem coordination** - Changes integrate seamlessly with existing FloatPrompt architecture
+
+## Context
+
+### **Problem Identification**
+**Issue:** AI systems creating FloatPrompt documents with inconsistent variable completion, leaving some template variables unfilled (e.g., `"model": "{{AI_MODEL}}"`) while filling others, resulting in unusable documents.
+
+**Root Cause:** Missing explicit instruction in construction protocols requiring complete variable resolution for production documents.
+
+**Impact:** Confusion about production vs. template document creation, inconsistent AI behavior, unusable FloatPrompt documents requiring manual correction.
+
+### **Solution Approach**
+**Targeted Enhancement:** Add clear, explicit instructions about variable completion requirements at multiple validation points in the construction process.
+
+**Implementation Strategy:** Minimal, precise additions to existing protocol rather than architectural changes, ensuring backward compatibility.
+
+## Output
+
+### **File Modifications Required**
+
+### **1. MANDATORY EXECUTION PROTOCOL Update**
+
+**Location:** `src/sys/structure.md` - MANDATORY EXECUTION PROTOCOL section
+
+**Current Content:**
+```markdown
+**BEFORE YOU BEGIN - READ THIS TWICE:**
+
+1. **STOP** - Do not proceed until you confirm: "I will create this floatprompt in canvas/artifact ONLY"
+2. **STOP** - Do not proceed until you confirm: "I will NOT output any floatprompt content in conversation"  
+3. **STOP** - Do not proceed until you confirm: "I will use complete JSON structure, not minimal examples"
+
+**IF YOU CANNOT CONFIRM ALL THREE - DO NOT PROCEED WITH FLOATPROMPT CREATION**
+```
+
+**Add After Line 3:**
+```markdown
+4. **STOP** - Do not proceed until you confirm: "I will fill in ALL template variables - no {{VARIABLES}} should remain in the final document"
+```
+
+**Update Final Line:**
+```markdown
+**IF YOU CANNOT CONFIRM ALL FOUR - DO NOT PROCEED WITH FLOATPROMPT CREATION**
+```
+
+### **2. Quality Assurance Checklist Update**
+
+**Location:** `src/sys/structure.md` - Quality Assurance Checklist section
+
+**Current Content:**
+```markdown
+**Before completing FloatPrompt creation:**
+
+- [ ] **Canvas Usage**: Document created in artifact/canvas, not conversation
+- [ ] **Complete JSON**: Full frontmatter structure, not minimal example
+- [ ] **Field Completeness**: All required fields present and populated
+- [ ] **Template Compliance**: Markdown follows universal template structure
+- [ ] **Conditional Logic**: Appropriate sections for tool type
+- [ ] **Voice Preservation**: Archaeological methodology compliance
+- [ ] **Technical Format**: Clean wrapping tags and valid JSON syntax
+```
+
+**Add After Technical Format:**
+```markdown
+- [ ] **Variable Completion**: All {{TEMPLATE_VARIABLES}} replaced with actual values - no template syntax remains in production document
+```
+
+### **3. AI Construction Protocol Enhancement**
+
+**Location:** `src/sys/structure.md` - AI Construction Protocol section
+
+**Current Step 5:**
+```markdown
+5. **Expand complexity only when user request demonstrates need:**
+   - Don't add workflow management for simple transformations
+   - Don't include quality gates unless quality assurance mentioned
+   - Don't add session context unless historical preservation needed
+```
+
+**Replace With:**
+```markdown
+5. **Complete variable resolution and appropriate complexity:**
+   - **Fill ALL template variables** - Replace {{AI_MODEL}}, {{TITLE}}, {{VARIABLES}} with actual production values
+   - **Zero template syntax** should remain in final production documents
+   - Don't add workflow management for simple transformations
+   - Don't include quality gates unless quality assurance mentioned
+   - Don't add session context unless historical preservation needed
+```
+
+### **4. Technical Formatting Requirements Addition**
+
+**Location:** `src/sys/structure.md` - Technical Formatting Requirements section
+
+**Add After "Critical Requirements:" list:**
+```markdown
+**Variable Resolution Standards:**
+- **{{AI_MODEL}}** → "Claude Sonnet 4", "ChatGPT-4", or "Universal AI System" based on context
+- **{{TITLE}}** → Actual tool title without template syntax
+- **{{TEMPLATE_VARIABLES}}** → Replace ALL with appropriate production values
+- **Production documents** must contain zero template variable syntax
+```
+
+## Warnings
+
+### **Implementation Considerations**
+- **File backup recommended** - Create backup of `src/sys/structure.md` before modifications
+- **Build system testing** - Verify changes don't break automated build process after implementation
+- **Existing document compatibility** - Updates affect new document creation only, existing documents remain valid
+
+### **Validation Requirements**
+- **Test document creation** - Generate sample FloatPrompt after updates to confirm variable completion
+- **Protocol verification** - Ensure all four mandatory execution steps appear in built documents
+- **Quality checklist integration** - Confirm variable completion appears in quality assurance validation
+
+## Implementation Protocol
+
+### **Step-by-Step Update Process**
+
+### **1. File Preparation**
+```bash
+# Navigate to FloatPrompt development directory
+cd /path/to/floatprompt
+
+# Create backup of current structure.md
+cp src/sys/structure.md src/sys/structure.md.backup
+
+# Open structure.md in cursor
+cursor src/sys/structure.md
+```
+
+### **2. Apply Modifications**
+**In Cursor:**
+1. **Find MANDATORY EXECUTION PROTOCOL section**
+2. **Add line 4** with variable completion requirement
+3. **Update final confirmation line** from "ALL THREE" to "ALL FOUR"
+4. **Find Quality Assurance Checklist section**
+5. **Add Variable Completion checklist item** after Technical Format
+6. **Find AI Construction Protocol section**
+7. **Update step 5** with variable resolution requirements
+8. **Find Technical Formatting Requirements section**
+9. **Add Variable Resolution Standards** after Critical Requirements
+
+### **3. Build and Test**
+```bash
+# Build updated system
+node scripts/build.mjs
+
+# Verify build success
+ls -la dist/floatprompt.txt
+
+# Test document creation with AI system
+# Upload dist/floatprompt.txt to AI platform
+# Request sample tool creation
+# Verify no {{VARIABLES}} remain in output
+```
+
+### **4. Validation Confirmation**
+**Success Criteria:**
+- [ ] **Build completes** without errors after modifications
+- [ ] **Four mandatory execution steps** appear in built floatprompt.txt
+- [ ] **Variable completion checklist item** present in quality assurance section
+- [ ] **AI-generated test document** contains no template variable syntax
+- [ ] **All fields properly filled** with production values in test creation
+
+## Integration Verification
+
+### **Post-Update Testing Protocol**
+
+### **1. System Build Validation**
+```bash
+# Clean build test
+rm -rf dist/
+node scripts/build.mjs
+# Verify: dist/floatprompt.txt exists and contains updates
+```
+
+### **2. AI Behavior Testing**
+**Upload updated floatprompt.txt to AI system and request:**
+> "Create a simple content creation tool for turning research notes into blog posts"
+
+**Validation Checklist:**
+- [ ] **No {{VARIABLES}}** remain in generated document
+- [ ] **All JSON fields** contain actual values
+- [ ] **Model field** shows actual AI system name
+- [ ] **Title field** contains specific tool name
+- [ ] **Production ready** document can be immediately used
+
+### **3. Quality Assurance Integration**
+**Verify AI systems reference updated checklist:**
+- [ ] **Variable completion mentioned** in AI construction process
+- [ ] **Quality validation includes** template variable checking
+- [ ] **Mandatory protocol includes** all four confirmation steps
+
+---
+
+**Systematic improvement through targeted development environment enhancement**
+
+*Precise system update eliminating template variable confusion and ensuring production-ready FloatPrompt document creation through enhanced AI construction protocols.*
+
+---
+
+*The invisible OS for AI*
+
+© 2025 [@MDS](https://mds.is) | CC BY 4.0
+</floatprompt>

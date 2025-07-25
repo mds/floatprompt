@@ -11,9 +11,7 @@
     "contributors": ["@mds", "Claude Sonnet 4"],
     "created": "2025-07-23",
     "version": "0.1.0-beta",
-    "system_version": "floatprompt v0.1.0-beta",
-    "format": "floatprompt",
-    "filetype": "txt"
+    "system_version": "floatprompt v0.1.0-beta"
   },
   
   "human": {
