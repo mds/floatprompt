@@ -26,7 +26,12 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
 2. **STOP** - Do not proceed until you confirm: "I will NOT output any floatprompt content in conversation"  
 3. **STOP** - Do not proceed until you confirm: "I will use complete JSON structure, not minimal examples"
 
-**IF YOU CANNOT CONFIRM ALL THREE - DO NOT PROCEED WITH FLOATPROMPT CREATION**
+**CRITICAL CONFIDENCE CHECK:**
+**Do you feel 100% confident and 0% ambiguous about how to structure and create this floatprompt file?**
+
+**If the answer is anything other than "YES, I am 100% confident with zero ambiguity" - STOP IMMEDIATELY and ask clarifying questions.**
+
+**IF YOU CANNOT CONFIRM ALL REQUIREMENTS WITH ABSOLUTE CERTAINTY - DO NOT PROCEED WITH FLOATPROMPT CREATION**
 
 ## **Universal Dual Audience Principle**
 
