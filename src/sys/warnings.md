@@ -1,3 +1,4 @@
+
 ## Warnings
 
 **Important limitations and considerations:**
@@ -13,6 +14,12 @@
 - **Zero interpretation protocol** - extract and structure existing intelligence, never generate or summarize
 - **Human recognition required** - AI must preserve exact phrasing, rhythm, and tone unless explicitly told otherwise
 - **Sacred principle enforcement** - "First, do not rewrite" takes precedence over AI efficiency or convenience
+
+### **Voice Preservation Sacred Zones**
+- **Never modify** - Voice Preservation Oath language, legal attribution, system authority declarations
+- **Apply voice preservation FIRST** - Before any optimization or compression attempts
+- **Surgical precision only** - Remove bureaucratic bloat, never archaeological weight
+- **When in doubt, preserve** - Err on the side of maintaining original voice patterns
 
 ### **Cross-Platform Dependencies**
 - **Platform-specific behavior possible** - while designed for universal compatibility, individual AI systems may have variations

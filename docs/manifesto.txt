@@ -1,8 +1,74 @@
+<floatprompt>
+---
+{
+  "STOP": "FloatPrompt manifesto and strategic positioning mode. Primary goal: Communicate FloatPrompt's vision, principles, and strategic positioning for human-AI collaboration infrastructure. Enable interactive exploration of FloatPrompt philosophy and methodology. Provide comprehensive understanding of the invisible OS for AI paradigm.",
+  
+  "meta": {
+    "title": "FloatPrompt Manifesto",
+    "id": "floatprompt-manifesto",
+    "type": "documentation",
+    "author": "@mds",
+    "contributors": ["@mds", "Claude Sonnet 4"],
+    "created": "2025-07-23",
+    "version": "0.1.0-beta",
+    "system_version": "floatprompt v0.1.0-beta",
+    "format": "floatprompt",
+    "filetype": "txt"
+  },
+  
+  "human": {
+    "intent": "Communicate FloatPrompt's strategic vision, core principles, and transformative potential for human-AI collaboration",
+    "context": "foundational philosophy and positioning document for the invisible OS for AI paradigm",
+    "constraints": "maintain authentic voice while providing comprehensive understanding of FloatPrompt's purpose and methodology",
+    "preferences": {
+      "style": "strategic manifesto with confident positioning and clear value proposition",
+      "detail_level": "comprehensive vision with practical implementation guidance",
+      "output_format": "interactive documentation enabling conversational exploration of FloatPrompt philosophy"
+    }
+  },
+  
+  "ai": {
+    "model": "{{AI_MODEL}}",
+    "role": "FloatPrompt Philosophy Guide enabling interactive exploration of manifesto content and strategic positioning",
+    "expertise": "FloatPrompt methodology, human-AI collaboration principles, strategic positioning, system architecture",
+    "voice_preservation": "Sacred principle: First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."
+  },
+  
+  "requirements": {
+    "manifesto_communication": {
+      "vision_articulation": "Clear communication of FloatPrompt as invisible OS for AI with transformative collaboration potential",
+      "principle_explanation": "Detailed exploration of archaeological voice preservation, conversational emergence, and conditional complexity",
+      "strategic_positioning": "Comprehensive understanding of FloatPrompt's role in human-AI collaboration future",
+      "practical_guidance": "Implementation methodology and system architecture explanation"
+    },
+    "interactive_exploration": {
+      "conversational_engagement": "Enable users to explore manifesto concepts through natural language questions",
+      "concept_clarification": "Provide detailed explanations of complex principles and methodologies",
+      "implementation_guidance": "Help users understand how to apply FloatPrompt principles in practice",
+      "strategic_implications": "Discuss broader implications for AI collaboration and digital content evolution"
+    }
+  },
+  
+  "integration": {
+    "floatprompt_ecosystem": {
+      "foundational_document": "Core philosophical foundation for all FloatPrompt tools and methodology",
+      "strategic_reference": "Primary source for understanding FloatPrompt's mission and vision",
+      "implementation_guide": "Practical methodology for applying invisible OS principles"
+    },
+    "documentation_coordination": {
+      "joint_human_ai_format": "Demonstrates FloatPrompt format applied to documentation for interactive exploration",
+      "universal_metadata_standard": "Example of AI-readable structured content for the AI-enhanced world",
+      "conversational_documentation": "Enables dialogue-based exploration rather than static reading"
+    }
+  }
+}
+---
+
 # FloatPrompt Manifesto
 
 > **FloatPrompt is the invisible OS for AI - a meta-system that transforms any AI system into a more capable collaboration partner while preserving human agency and voice authenticity.**
 
-## 🌊 The Problem We Solve
+## The Problem We Solve
 
 In the age of AI collaboration, human intelligence gets lost in translation. Complex thinking becomes oversimplified prompts. Nuanced intent becomes generic requests. The cognitive fingerprint of human expertise, the very thing that makes AI collaboration valuable, disappears in the noise.
 
@@ -10,30 +76,30 @@ Meanwhile, AI systems excel at structure and execution but lack the contextual w
 
 **We need collaboration that preserves and amplifies human intelligence while enabling systematic AI execution.**
 
-## ⚙️ What FloatPrompt Is
+## What FloatPrompt Is
 
 FloatPrompt is the invisible OS for AI - infrastructure that transforms any AI system into a more capable collaboration partner through structured intelligence protocols.
 
 **Core Architecture:**
-- **40KB main OS** that creates specialized AI collaboration tools
+- **41KB main OS** that creates specialized AI collaboration tools
 - **Conversational emergence** where tools develop through dialogue, not automation
 - **Archaeological voice preservation** maintaining human cognitive fingerprint
 - **Cross-platform compatibility** across ChatGPT, Claude, Cursor, and all AI systems
 
 **System Features:**
-- **Single main OS** (`floatprompt.fp.txt`) with tool creation authority
+- **Single main OS** (`floatprompt.txt`) with tool creation authority
 - **Specialized library tools** for focused capabilities (voice, formatting, assembly)
 - **Universal template system** with conditional complexity (90% simple, 10% voice-critical)
 - **Map → Decide → Structure methodology** for systematic AI-human collaboration
 
 FloatPrompt files are intelligence that has floated into structured, reusable form - portable across platforms and time.
 
-## 🚀 Universal AI Collaboration Upgrade
+## Universal AI Collaboration Upgrade
 
 FloatPrompt provides **the invisible OS for AI** that transforms any AI system into a more capable partner.
 
 ### **Start Simple - Natural Tool Creation**
-- Upload `floatprompt.fp.txt` → activate systematic collaboration
+- Upload `floatprompt.txt` → activate systematic collaboration
 - Describe what you need in natural language → tool emerges through conversation
 - Universal compatibility works on every AI platform without installation
 - Immediate improvements in voice preservation and systematic collaboration
@@ -45,20 +111,20 @@ FloatPrompt provides **the invisible OS for AI** that transforms any AI system i
 - **Custom domain tools** emerging through conversational development
 
 ### **Production-Ready Architecture**
-- **40KB optimal size** for AI ingestion across all platforms
+- **41KB optimal size** for AI ingestion across all platforms
 - **Cross-platform tested** on ChatGPT, Claude, Cursor, and other systems
 - **Dynamic versioning** with automated build system
-- **Clean 6-file architecture** enabling sustainable development
+- **Clean modular architecture** enabling sustainable development
 
 **Universal Compatibility:**
-- Works across all AI platforms through .fp.txt format
+- Works across all AI platforms through .txt format
 - No installation, dependencies, or platform modifications required
 - Pure instruction-based enhancement leveraging existing AI capabilities
 - Session portability preserving context across platforms and time
 
 **This isn't just better prompts - it's the invisible OS for AI** that preserves human agency while enabling precision AI execution.
 
-## 🤝 The HI–AI Contract
+## The HI–AI Contract
 
 **Human Intelligence (HI) Provides:**
 - **Intent and Vision**: What needs to be accomplished and why
@@ -78,7 +144,7 @@ FloatPrompt provides **the invisible OS for AI** that transforms any AI system i
 - **Portable Intelligence**: Tools and insights transfer across platforms and time
 - **Systematic Collaboration**: Reliable patterns for complex project execution
 
-## 🎯 Core Principles
+## Core Principles
 
 ### **Archaeological Voice Preservation**
 **Sacred Principle**: "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise."
@@ -100,10 +166,10 @@ FloatPrompt provides **the invisible OS for AI** that transforms any AI system i
 
 **Value**: Human investment in tool creation pays off across their entire AI workflow ecosystem.
 
-## 🏗️ System Architecture
+## System Architecture
 
 ### **Main Operating System**
-**`floatprompt.fp.txt`** (40KB) - The core system with systematic tool creation authority
+**`floatprompt.txt`** (41KB) - The core system with systematic tool creation authority
 
 **Capabilities:**
 - Creates specialized tools through conversational emergence
@@ -114,11 +180,11 @@ FloatPrompt provides **the invisible OS for AI** that transforms any AI system i
 ### **Specialized Library Tools**
 **Purpose-built tools** aligned with the main OS architecture:
 
-- **`lib/voice.fp.txt`** - Voice Guide Creator for archaeological extraction
-- **`lib/format.fp.txt`** - Technical Formatting Guide for document creation
-- **`lib/blueprint.fp.txt`** - Surgical Assembly Specification Generator
+- **`lib/voice.txt`** - Voice Guide Creator for archaeological extraction
+- **`lib/format.txt`** - Technical Formatting Guide for document creation
+- **`lib/blueprint.txt`** - Surgical Assembly Specification Generator
 
-**Extension Potential**: Newsletter writers, analysis tools, domain expertise captures, workflow orchestration systems
+**Extension Potential**: Writing tools with voice preservation, document formatters, research assistants, SOPs and systematic procedures that humans and AI can follow together
 
 ### **Development Methodology**
 1. **Natural Language Requirements** - Human describes tool needs in conversation
@@ -127,7 +193,7 @@ FloatPrompt provides **the invisible OS for AI** that transforms any AI system i
 4. **Structure Build** - Create properly formatted tool following universal template
 5. **Conversational Refinement** - Tool evolves through dialogue and testing
 
-## 🌊 The Invisible Infrastructure
+## The Invisible Infrastructure
 
 ### **Why "Invisible"?**
 FloatPrompt operates as infrastructure - sophisticated behavioral systems hidden in JSON frontmatter that only AI systems process. Humans experience enhanced collaboration without complexity burden.
@@ -149,7 +215,7 @@ FloatPrompt operates as infrastructure - sophisticated behavioral systems hidden
 - **Human-centric technology** - Preserves agency while enabling precision
 - **Universal compatibility** - Works everywhere AI works
 
-## 🎭 Map → Decide → Structure Methodology
+## Map → Decide → Structure Methodology
 
 ### **Map Territory**
 **Purpose**: Create conversational anchors and shared understanding
@@ -178,11 +244,11 @@ FloatPrompt operates as infrastructure - sophisticated behavioral systems hidden
 - Technical formatting requirements and quality assurance
 - Conversational emergence rather than form-filling automation
 
-## 🚀 Production Excellence
+## Production Excellence
 
 ### **Technical Achievement**
-- **40KB optimal size** for AI ingestion budgets
-- **6-file clean architecture** replacing 16+ file complexity
+- **41KB optimal size** for AI ingestion budgets
+- **Modular clean architecture** replacing complex file systems
 - **Dynamic versioning** with automated build system
 - **Cross-platform validation** across major AI systems
 
@@ -199,7 +265,7 @@ FloatPrompt operates as infrastructure - sophisticated behavioral systems hidden
 - Maintenance complexity → Sustainable architecture
 - Experimental approach → Production-ready system
 
-## 🌍 Vision for AI Collaboration
+## Vision for AI Collaboration
 
 ### **Immediate Impact**
 **Transform any AI system** into a more capable collaboration partner through invisible infrastructure that preserves human agency while enabling systematic execution.
@@ -217,7 +283,7 @@ FloatPrompt operates as infrastructure - sophisticated behavioral systems hidden
 **The invisible OS for AI enables this future by providing infrastructure for enhanced collaboration rather than replacement of human intelligence.**
 
 ---
+*The invisible OS for AI*
 
-**FloatPrompt: The invisible OS for AI - where human intelligence preservation meets systematic AI enhancement through archaeological respect and conversational emergence.**
+© 2025 ([@MDS](https://mds.is)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-*System operational. Voice preservation active. Cross-platform compatibility verified.*

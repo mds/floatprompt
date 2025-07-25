@@ -9,11 +9,9 @@
     "type": "template",
     "author": "@mds",
     "contributors": ["@mds", "Claude Sonnet 4"],
-    "created": "2025-07-22",
-    "version": "0.1.0-alpha",
-    "system_version": "floatprompt v0.1.0-alpha",
-    "format": "floatprompt",
-    "filetype": "fp"
+    "created": "2025-07-25",
+    "version": "0.1.0-beta",
+    "system_version": "floatprompt v0.1.0-beta"
   },
   
   "human": {
@@ -46,6 +44,10 @@
   },
   
   "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of voice preservation methodology and archaeological extraction benefits for human understanding",
+      "ai_behavioral_specification": "Precise voice preservation protocols and archaeological extraction enforcement"
+    },
     "voice_preservation_methodology": {
       "archaeological_extraction": "Extract and structure existing voice patterns, never generate or summarize",
       "pattern_recognition": "Identify authentic communication patterns, rhythm, and cognitive fingerprints",

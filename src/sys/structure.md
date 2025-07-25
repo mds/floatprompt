@@ -1,15 +1,7 @@
-<!-- USAGE NOTES:
-- The complex part - actual FloatPrompt creation
-- Contains Universal JSON Guide for AI construction
-- Technical formatting protocols (biggest AI challenge)
-- Custom tool building where variation happens  
-- References map.md insights and decide.md extractions
-- Content from: structure.md assembly + modes.md Structure Build + types.md patterns + chaining.md orchestration + execution.md construction + Universal JSON Guide
--->
 
 ## Structure Build
 
-**AI construction protocols for building custom FloatPrompts through systematic methodology**
+**AI construction protocols for building custom FloatPrompt files through systematic methodology**
 
 > **"Universal structure + Conditional complexity + Infinite expandability = Systematic tool creation"**
 
@@ -17,10 +9,11 @@
 
 ## Purpose
 
-Build custom FloatPrompts through systematic three-phase co-creation with universal architecture compliance, technical formatting precision, and conversational sophistication scaling from simple utilities to complex workflow orchestrators.
+Build custom FloatPrompt files through systematic three-phase co-creation with universal architecture compliance, technical formatting precision, and conversational sophistication scaling from simple utilities to complex workflow orchestrators.
 
 ### Key Principles
 - **Universal structure** - 100% predictable top-level architecture
+- **Dual audience design** - Every FloatPrompt serves both human comprehension and AI behavioral specification
 - **Collapsible complexity** - Simple tools minimal, complex tools expanded
 - **Infinite expandability** - Any functionality nests within requirements/integration
 - **Conversational emergence** - Tools emerge from dialogue, not form-filling
@@ -34,6 +27,53 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 3. **STOP** - Do not proceed until you confirm: "I will use complete JSON structure, not minimal examples"
 
 **IF YOU CANNOT CONFIRM ALL THREE - DO NOT PROCEED WITH FLOATPROMPT CREATION**
+
+## **Universal Dual Audience Principle**
+
+**Every FloatPrompt file must successfully serve both human comprehension and AI behavioral specification needs.**
+
+### **Why Dual Audience Is Essential**
+
+**The fundamental insight**: Every FloatPrompt file serves both:
+- **Human comprehension** - Understanding purpose, context, and value
+- **AI behavioral specification** - Precise execution instructions and contextual anchoring
+
+**Without dual audience design:**
+- Humans can't understand what the tool does or why it matters
+- AI lacks proper behavioral context for consistent execution
+- Files become either too technical (AI-only) or too vague (human-only)
+
+### **Behavioral Impact on AI Systems**
+
+**Without dual audience specification**, AI might:
+- Jump straight into technical implementation details
+- Use complex jargon assuming technical knowledge
+- Focus only on execution without explaining value
+- Miss the need to clarify concepts for human understanding
+
+**With dual audience specification**, AI must:
+- Explain concepts clearly before diving into technical details
+- Provide context for why something matters to humans
+- Scale complexity appropriately - simple explanations with technical depth available
+- Balance human comprehension with AI precision
+
+### **Implementation Requirements**
+
+**Every FloatPrompt must include:**
+```json
+"requirements": {
+  "dual_audience_support": {
+    "human_comprehension": "Clear explanation of purpose, value, and usage for human understanding",
+    "ai_behavioral_specification": "Precise contextual anchoring and execution guidance for systematic AI processing"
+  }
+}
+```
+
+**This creates measurable behavioral changes:**
+- AI reads this and modifies communication style, detail level, response structure
+- Forces balance between human accessibility and technical precision
+- Prevents AI-only or human-only responses
+- Ensures files become intelligent, self-documenting collaboration partners
 
 ## **DEFINITIVE Universal FloatPrompt Architecture**
 
@@ -50,9 +90,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
     "contributors": ["{{CONTRIBUTORS}}"],
     "created": "{{DATE}}",
     "version": "{{VERSION}}",
-    "system_version": "floatprompt v0.0.16-alpha",
-    "format": "floatprompt",
-    "filetype": "fp"
+    "system_version": "floatprompt v0.1.0-beta"
   },
   "human": {
     "intent": "{{PRIMARY_GOAL}}",
@@ -71,6 +109,10 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
     "voice_preservation": "{{VOICE_HANDLING_INSTRUCTION}}"
   },
   "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of purpose, value, and usage for human understanding",
+      "ai_behavioral_specification": "Precise contextual anchoring and execution guidance for systematic AI processing"
+    },
     "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
   },
   "integration": {
@@ -79,7 +121,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 }
 ```
 
-### **HIGHLY RECOMMENDED FIELDS (90-95% of FloatPrompts)**
+### **HIGHLY RECOMMENDED FIELDS (90-95% of FloatPrompt files)**
 
 ```json
 {
@@ -138,6 +180,10 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 ```json
 {
   "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of voice preservation methodology and archaeological extraction benefits",
+      "ai_behavioral_specification": "Precise archaeological extraction protocols and voice preservation enforcement"
+    },
     "archaeological_methodology": "Extract without interpretation, preserve voice patterns",
     "voice_preservation": {
       "extraction_method": "Archaeological precision with zero drift",
@@ -158,6 +204,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
     "output_type": "Target format (newsletter, script, thread)"
   },
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "core_functionality": "Primary content creation or transformation purpose",
     "quality_standards": "Format and audience requirements"
   }
@@ -168,6 +215,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 ```json
 {
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "orchestration_logic": "Multi-stage process coordination with phase detection",
     "decision_frameworks": "Conditional logic and routing systems",
     "workflow_stages": "Systematic progression through defined phases"
@@ -183,11 +231,12 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 ```json
 {
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "reference_material": "Foundational knowledge or voice patterns",
     "integration_protocols": "Cross-tool compatibility specifications"
   },
   "integration": {
-    "ecosystem_role": "How this tool supports other FloatPrompts",
+    "ecosystem_role": "How this tool supports other FloatPrompt files",
     "coordination_features": "Pipeline integration and handoff capabilities"
   }
 }
@@ -207,6 +256,7 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 - Conditionally include: execution, task, domain, source based on decision tree
 
 **3. Populate requirements appropriately:**
+- **ALWAYS include dual_audience_support as the first requirement** - this serves the PRIMARY goal of human authority and voice preservation
 - Voice-sensitive tools → archaeological_methodology, voice_preservation, temporal_precision
 - Simple tools → core_functionality, quality_standards
 - Workflow tools → orchestration_logic, workflow_stages, decision_frameworks
@@ -291,19 +341,27 @@ Build custom FloatPrompts through systematic three-phase co-creation with univer
 </floatprompt>
 ```
 
+### **Current File Creation Protocol:**
+- **Web Browser AI**: Use canvas/artifact, save as .txt for universal compatibility
+- **Desktop Tools**: Create actual .txt files directly
+- **File extension**: Use .txt for maximum adoption and zero-friction deployment
+- **Universal recognition**: .txt files work across all AI platforms without configuration
+- **Future evolution**: .fp extension planned but .txt is current production standard
+
 ### **Critical Requirements:**
-- **Web Browser AI**: Use canvas/artifact with triple backticks
-- **Desktop Tools**: Create actual .fp files directly
 - **Complete JSON structure** - never minimal examples
-- **Template variable replacement** - all {{VARIABLES}} filled
+- **Template variable replacement** - all {{VARIABLES}} filled with actual values
 - **Voice preservation compliance** - archaeological methodology
+- **Cross-platform compatibility** - .txt format ensures immediate usability
 
 ## **Quality Assurance Checklist**
 
 **Before completing FloatPrompt creation:**
 
 - [ ] **Canvas Usage**: Document created in artifact/canvas, not conversation
+- [ ] **File Format**: Use .txt for creating floatprompt files
 - [ ] **Complete JSON**: Full frontmatter structure, not minimal example
+- [ ] **Dual Audience Support**: dual_audience_support included as first requirement
 - [ ] **Field Completeness**: All required fields present and populated
 - [ ] **Template Compliance**: Markdown follows universal template structure
 - [ ] **Conditional Logic**: Appropriate sections for tool type

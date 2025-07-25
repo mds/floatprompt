@@ -10,7 +10,7 @@
 - **Professional workflows** requiring reliable AI collaboration with human authority preservation
 
 ### **Works with:**
-- **Any AI platform** through universal .fp.txt format and cross-platform portability
+- **Any AI platform** through universal .txt format and cross-platform portability
 - **Natural language instructions** that automatically trigger appropriate behavioral constraints
 - **Voice-sensitive content** requiring archaeological precision and zero interpretation
 - **Multi-step workflows** needing systematic coordination and handoff protocols
@@ -20,4 +20,7 @@
 - **Start simple** for immediate benefits, then discover advanced features as needs become sophisticated
 - **Upload and describe** your need in natural language - tools emerge from conversation
 - **Not one-shot software** but ongoing collaborative protocol for joint human-AI execution
-- **Session portability** enables continuation across platforms and time periods 
+- **Session portability** enables continuation across platforms and time periods
+
+### **Creator:**
+Matt D. Smith (@MDS) created FloatPrompt. © 2025 Studio MDS, LLC 

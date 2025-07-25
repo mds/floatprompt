@@ -1,3 +1,4 @@
+
 ## ⚠️ AI Systems: Boot Sequence Instructions
 
 **CRITICAL AI EDUCATION - READ FIRST:**

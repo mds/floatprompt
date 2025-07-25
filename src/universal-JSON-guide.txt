@@ -1,18 +1,16 @@
 <floatprompt>
 ---
 {
-  "STOP": "FloatPrompt universal architecture documentation mode. Provide definitive guidance for consistent FloatPrompt structure with conditional field inclusion logic and AI construction protocols. Enable systematic tool creation with collapsible complexity and universal compatibility.",
+  "STOP": "FloatPrompt Universal Architecture Guide. Primary goal: Provide definitive guidance for consistent FloatPrompt structure with conditional field inclusion logic and AI construction protocols. Enable systematic tool creation with collapsible complexity and universal compatibility.",
   "meta": {
     "title": "FloatPrompt Universal Architecture Guide",
-    "id": "universal-architecture-guide",
+    "id": "floatprompt-universal-architecture-guide",
     "type": "specification",
-    "author": "@mds",
-    "contributors": ["@mds", "Claude Sonnet 4"],
-    "created": "2025-01-17",
-    "version": "1.0.0",
-    "system_version": "floatprompt v0.0.16-alpha",
-    "format": "floatprompt",
-    "filetype": "fp"
+    "author": "MDS",
+    "contributors": ["MDS", "Claude Sonnet 4"],
+    "created": "{{CURRENT_YEAR}}",
+    "version": "1.0",
+    "system_version": "v0.1.0-beta"
   },
   "human": {
     "intent": "Establish definitive FloatPrompt architecture with universal field structure and conditional complexity expansion",
@@ -25,7 +23,7 @@
     }
   },
   "ai": {
-    "model": "{{AI_MODEL}}",
+    "model": "Claude Sonnet 4",
     "role": "FloatPrompt architecture specialist providing systematic tool creation guidance and structural consistency protocols",
     "expertise": "universal JSON architecture design, conditional field inclusion logic, and systematic tool creation methodologies",
     "voice_preservation": "maintain technical precision while ensuring practical implementability for FloatPrompt development"
@@ -49,10 +47,14 @@
     "intent": "establish universal structure enabling consistent tool creation with collapsible complexity and systematic expandability"
   },
   "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of purpose, value, and usage for human understanding",
+      "ai_behavioral_specification": "Precise contextual anchoring and execution guidance for systematic AI processing"
+    },
     "universal_architecture": {
       "definitive_field_structure": "100% universal fields + highly recommended fields + conditional expansion logic",
       "collapsible_complexity": "simple tools use minimal structure, complex tools expand within requirements/integration",
-      "backward_compatibility": "existing FloatPrompts remain valid while new tools follow universal structure",
+      "backward_compatibility": "existing FloatPrompt files remain valid while new tools follow universal structure",
       "infinite_expandability": "any specialized functionality can nest within requirements/integration framework"
     },
     "construction_protocols": {
@@ -69,9 +71,9 @@
   },
   "integration": {
     "floatprompt_ecosystem": {
-      "core_os_compatibility": "universal structure works seamlessly with floatprompt.fp.txt behavioral foundation",
+      "core_os_compatibility": "universal structure works seamlessly with floatprompt.txt behavioral foundation",
       "tool_coordination": "integration field enables systematic pipeline workflows and cross-tool communication",
-      "template_system": "universal architecture serves as foundation for simple.fp.txt and specialized templates"
+      "template_system": "universal architecture serves as foundation for simple.txt and specialized templates"
     },
     "development_workflow": {
       "systematic_creation": "architecture guide enables consistent tool development across all FloatPrompt categories",
@@ -115,9 +117,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
     "contributors": ["{{CONTRIBUTORS}}"],
     "created": "{{DATE}}",
     "version": "{{VERSION}}",
-    "system_version": "floatprompt v0.0.16-alpha",
-    "format": "floatprompt",
-    "filetype": "fp"
+    "system_version": "v0.1.0-beta"
   },
   "human": {
     "intent": "{{PRIMARY_GOAL}}",
@@ -136,6 +136,10 @@ Establish the definitive FloatPrompt architecture with universal field structure
     "voice_preservation": "{{VOICE_HANDLING_INSTRUCTION}}"
   },
   "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of purpose and value",
+      "ai_behavioral_specification": "Precise execution guidance"
+    },
     "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
   },
   "integration": {
@@ -144,7 +148,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
 }
 ```
 
-### **HIGHLY RECOMMENDED FIELDS (90-95% of FloatPrompts)**
+### **HIGHLY RECOMMENDED FIELDS (90-95% of FloatPrompt files)**
 
 ```json
 {
@@ -241,6 +245,10 @@ Establish the definitive FloatPrompt architecture with universal field structure
 ```json
 {
   "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of purpose and value",
+      "ai_behavioral_specification": "Precise execution guidance"
+    },
     "core_functionality": "Single primary function description"
   },
   "integration": {
@@ -253,6 +261,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
 ```json
 {
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "core_functionality": "Primary tool purpose",
     "workflow_orchestration": {
       "stages": "Multi-step process definition",
@@ -286,6 +295,10 @@ Establish the definitive FloatPrompt architecture with universal field structure
 ```json
 {
   "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of voice preservation methodology and archaeological extraction benefits",
+      "ai_behavioral_specification": "Precise archaeological extraction protocols and voice preservation enforcement"
+    },
     "archaeological_methodology": "Extract without interpretation, preserve voice patterns",
     "voice_preservation": {
       "extraction_method": "Archaeological precision with zero drift",
@@ -306,6 +319,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
     "output_type": "Target format (newsletter, script, thread)"
   },
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "core_functionality": "Primary content creation or transformation purpose",
     "quality_standards": "Format and audience requirements"
   }
@@ -316,6 +330,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
 ```json
 {
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "orchestration_logic": "Multi-stage process coordination with phase detection",
     "decision_frameworks": "Conditional logic and routing systems",
     "workflow_stages": "Systematic progression through defined phases"
@@ -331,11 +346,12 @@ Establish the definitive FloatPrompt architecture with universal field structure
 ```json
 {
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "reference_material": "Foundational knowledge or voice patterns",
     "integration_protocols": "Cross-tool compatibility specifications"
   },
   "integration": {
-    "ecosystem_role": "How this tool supports other FloatPrompts",
+    "ecosystem_role": "How this tool supports other FloatPrompt files",
     "coordination_features": "Pipeline integration and handoff capabilities"
   }
 }
@@ -357,6 +373,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
    - Conditionally include: execution, task, domain, source based on decision tree
 
 3. **Populate requirements appropriately:**
+   - **ALWAYS include dual_audience_support as the first requirement**
    - Voice-sensitive tools → archaeological_methodology, voice_preservation, temporal_precision
    - Simple tools → core_functionality, quality_standards
    - Workflow tools → orchestration_logic, workflow_stages, decision_frameworks
@@ -394,9 +411,9 @@ Establish the definitive FloatPrompt architecture with universal field structure
       ]
     },
     "requirements_nesting": {
-      "simple_function": "single_key_value_pair",
-      "complex_function": "nested_object_with_subsections",
-      "workflow_function": "multi_stage_process_definition"
+      "simple_function": "dual_audience_support + core_functionality",
+      "complex_function": "dual_audience_support + nested_specialized_logic",
+      "workflow_function": "dual_audience_support + orchestration_protocols"
     }
   }
 }
@@ -405,7 +422,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
 ## 📊 **Architecture Benefits**
 
 ### **Universal Predictability**
-- **Every FloatPrompt** has the same 6-10 top-level fields
+- **Every FloatPrompt file** has the same 6-10 top-level fields
 - **AI processing** always knows where to find core information
 - **Human readability** consistent across all tools
 - **Tool development** follows predictable pattern
@@ -417,9 +434,9 @@ Establish the definitive FloatPrompt architecture with universal field structure
 - **Clean separation** between universal structure and specialized logic
 
 ### **Ecosystem Compatibility**
-- **Core OS integration** - All tools work with floatprompt.fp.txt
+- **Core OS integration** - All tools work with floatprompt.txt
 - **Cross-tool coordination** - Integration field enables pipeline workflows
-- **Template consistency** - Universal architecture supports simple.fp.txt
+- **Template consistency** - Universal architecture supports simple.txt
 - **Quality standards** - Requirements field ensures functional completeness
 
 ## 🎯 **Implementation Examples**
@@ -437,6 +454,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
     "role": "Content transformation specialist"
   },
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "newsletter_formatting": "Weekly format with voice preservation and professional development focus"
   },
   "integration": {
@@ -466,6 +484,7 @@ Establish the definitive FloatPrompt architecture with universal field structure
     "specialization": "professional development positioning"
   },
   "requirements": {
+    "dual_audience_support": "Required for all FloatPrompt files",
     "assessment_framework": {
       "qualification_scoring": "4-question systematic evaluation",
       "conversation_stage_detection": "Opening/Discovery/Positioning/Closing identification",
@@ -490,13 +509,14 @@ Establish the definitive FloatPrompt architecture with universal field structure
 
 ### **Validation Criteria**
 - **Universal field compliance** - All 6 required fields present and properly formatted
+- **Dual audience requirement** - Every FloatPrompt must include dual_audience_support in requirements
 - **Conditional field appropriateness** - Optional fields included only when logic supports inclusion
 - **Requirements organization** - Tool-specific functionality properly nested within requirements
 - **Integration coordination** - Ecosystem role and workflow integration clearly defined
 - **Complexity justification** - Expansion complexity matches actual tool requirements
 
 ### **Architectural Consistency**
-- **Backward compatibility** - Existing FloatPrompts remain functional
+- **Backward compatibility** - Existing FloatPrompt files remain functional
 - **Forward scalability** - Architecture supports infinite expansion
 - **Cross-tool coordination** - Integration protocols enable systematic workflows
 - **Voice preservation** - Human agency and intelligence protected throughout
@@ -509,5 +529,8 @@ Establish the definitive FloatPrompt architecture with universal field structure
 - Validate architectural compliance and ensure universal field requirements are met
 
 ---
-*Universal architecture specification enabling systematic FloatPrompt creation with collapsible complexity and infinite expandability.*
+
+*FloatPrompt System Architecture | Current build: 43KB OS file | Universal .txt format*  
+*© {{CURRENT_YEAR}} Float Systems. Distributed under MIT License.*
+
 </floatprompt> 

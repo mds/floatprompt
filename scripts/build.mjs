@@ -7,13 +7,13 @@ import path from 'path';
 const packageJson = JSON.parse(await fs.readFile('./package.json', 'utf-8'));
 const VERSION = packageJson.version;
 
-// Build configuration following new 6-file MDS structure
+// Build configuration following modular architecture
 const BUILD_CONFIG = {
   sourceDir: './src/sys',
   outputDir: './dist',
-  outputFile: `floatprompt.fp.txt`,
+  outputFile: `floatprompt.txt`,
   
-  // New 6-file MDS structure compilation order
+  // Modular structure compilation order
   components: [
     // Phase 1: Infrastructure
     { file: 'header.md', type: 'frontmatter', phase: 'Infrastructure' },
@@ -34,9 +34,9 @@ const LIB_COPY_CONFIG = {
   sourceDir: './src/lib',
   outputDir: './dist/lib',
   files: [
-    'blueprint.fp.txt',
-    'format.fp.txt', 
-    'voice.fp.txt'
+    'blueprint.txt',
+    'format.txt', 
+    'voice.txt'
   ]
 };
 
@@ -221,11 +221,13 @@ async function buildFloatPrompt() {
 
   // Process template variables in the final assembled template
   const buildDate = new Date().toISOString().split('T')[0];
+  const currentYear = new Date().getFullYear();
   const systemVersion = `v${VERSION}`;
   
   template = template
     .replace(/\{\{VERSION\}\}/g, VERSION)
     .replace(/\{\{DATE\}\}/g, buildDate)
+    .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear)
     .replace(/\{\{SYSTEM_VERSION\}\}/g, systemVersion)
     .replace(/\{\{AI_MODEL\}\}/g, "{{AI_MODEL}}"); // Keep this as template variable for runtime
   
@@ -258,11 +260,13 @@ async function copyLibraryFiles() {
   
       // Process template variables if any exist
     const buildDate = new Date().toISOString().split('T')[0];
+      const currentYear = new Date().getFullYear();
       const systemVersion = `v${VERSION}`;
       
       content = content
       .replace(/\{\{VERSION\}\}/g, VERSION)
         .replace(/\{\{DATE\}\}/g, buildDate)
+        .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear)
         .replace(/\{\{SYSTEM_VERSION\}\}/g, systemVersion)
         .replace(/\{\{AI_MODEL\}\}/g, "{{AI_MODEL}}"); // Keep this as template variable for runtime
       

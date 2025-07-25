@@ -9,11 +9,9 @@
     "type": "template",
     "author": "@mds",
     "contributors": ["@mds", "Claude Sonnet 4"],
-    "created": "2025-07-22",
-    "version": "0.1.0-alpha",
-    "system_version": "floatprompt v0.1.0-alpha",
-    "format": "floatprompt",
-    "filetype": "fp"
+    "created": "2025-07-25",
+    "version": "0.1.0-beta",
+    "system_version": "floatprompt v0.1.0-beta"
   },
   
   "human": {
@@ -46,6 +44,10 @@
   },
   
   "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of technical formatting requirements and compliance benefits for human understanding",
+      "ai_behavioral_specification": "Precise formatting protocols and technical validation enforcement"
+    },
     "technical_formatting_authority": {
       "canvas_creation": "All FloatPrompt documents must be created in canvas/artifact, never in conversation",
       "json_compliance": "Complete JSON frontmatter structure with universal field architecture",
