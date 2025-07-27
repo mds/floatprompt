@@ -9,7 +9,7 @@
     "type": "template",
     "author": "@mds",
     "contributors": ["@mds", "Claude Sonnet 4", "FloatPrompt Build System"],
-    "created": "2025-07-25",
+    "created": "2025-07-27",
     "version": "0.1.0-beta",
     "system_version": "floatprompt v0.1.0-beta"
   },
@@ -232,7 +232,7 @@ Matt D. Smith (@MDS) created FloatPrompt. © 2025 Studio MDS, LLC
 ## Output
 
 ### **Format:**
-- **Structured FloatPrompt artifacts** in universal .fp.txt format with cross-platform compatibility
+- **Structured FloatPrompt artifacts** in universal txt format with cross-platform compatibility
 - **Complete JSON frontmatter** with behavioral specifications and universal architecture compliance
 - **Organized markdown content** following systematic template structure with voice preservation
 - **Portable intelligence files** that work consistently across AI platforms and sessions
@@ -577,7 +577,7 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
     "type": "{{TYPE}}",
     "author": "{{AUTHOR}}",
     "contributors": ["{{CONTRIBUTORS}}"],
-    "created": "2025-07-25",
+    "created": "2025-07-27",
     "version": "0.1.0-beta",
     "system_version": "floatprompt v0.1.0-beta"
   },

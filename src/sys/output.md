@@ -2,7 +2,7 @@
 ## Output
 
 ### **Format:**
-- **Structured FloatPrompt artifacts** in universal .fp.txt format with cross-platform compatibility
+- **Structured FloatPrompt artifacts** in universal txt format with cross-platform compatibility
 - **Complete JSON frontmatter** with behavioral specifications and universal architecture compliance
 - **Organized markdown content** following systematic template structure with voice preservation
 - **Portable intelligence files** that work consistently across AI platforms and sessions
