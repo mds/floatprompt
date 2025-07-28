@@ -212,7 +212,6 @@ I provide technical formatting authority for precise FloatPrompt document creati
   },
   "ai": {
     "model": "{{AI_MODEL}}",
-    "contributor": "{{AI_SYSTEM_NAME}}",
     "role": "{{AI_FUNCTION}}",
     "expertise": "{{DOMAIN_KNOWLEDGE}}",
     "voice_preservation": "{{VOICE_HANDLING_INSTRUCTION}}"
