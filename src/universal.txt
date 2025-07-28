@@ -1,0 +1,78 @@
+<floatprompt>
+---
+{
+  "STOP": "{{EXECUTION_DIRECTIVE}}",
+  "meta": {
+    "title": "{{TITLE}}",
+    "id": "{{ID}}",
+    "type": "{{TYPE}}",
+    "created": "{{DATE}}",
+    "version": "{{VERSION}}",
+    "system_version": "floatprompt v0.1.0-beta",
+    "process": "AI-generated from human conversation"
+  },
+  "human": {
+    "author": "{{HUMAN_NAME}}",
+    "intent": "{{PRIMARY_GOAL}}",
+    "context": "{{USAGE_CONTEXT}}",
+    "constraints": "{{LIMITATIONS}}",
+    "preferences": {
+      "style": "{{COMMUNICATION_STYLE}}",
+      "detail_level": "{{DEPTH_PREFERENCE}}",
+      "output_format": "{{EXPECTED_RESULT}}"
+    }
+  },
+  "ai": {
+    "model": "{{AI_MODEL}}",
+    "contributor": "{{AI_SYSTEM_NAME}}",
+    "role": "{{AI_FUNCTION}}",
+    "expertise": "{{DOMAIN_KNOWLEDGE}}",
+    "voice_preservation": "{{VOICE_HANDLING_INSTRUCTION}}"
+  },
+  "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation for human understanding",
+      "ai_behavioral_specification": "Precise execution guidance for AI processing"
+    },
+    "voice_preservation": {
+      "extraction_method": "Preserve exact phrasing, rhythm, tone, hesitations",
+      "cognitive_patterns": "Maintain authentic human thinking process",
+      "temporal_precision": "Keep discovery markers, tildes, real-time indicators"
+    },
+    "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
+  }
+}
+---
+
+# {{TITLE}}
+
+**{{ONE_LINE_PURPOSE_STATEMENT}}**
+
+> **{{TAGLINE_OR_QUOTE}}**
+
+*{{EXTENDED_DESCRIPTION}}*
+
+## System Authority
+{{CORE_OPERATING_PHILOSOPHY_AND_MISSION}}
+
+## Quick Start
+{{IMMEDIATE_ACTION_GUIDANCE}}
+
+## Goals
+{{TOOL_PURPOSE_AND_GOALS}}
+
+## Context
+{{WHEN_AND_WHY_TO_USE}}
+
+## Output
+{{WHAT_YOU_GET}}
+
+## Warnings
+{{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
+
+**{{COLLABORATION_ATTRIBUTION_LINE}}**
+
+*{{CLOSING_PHILOSOPHICAL_STATEMENT}}*
+
+© 2025 [@MDS](https://mds.is) | CC BY 4.0
+</floatprompt>

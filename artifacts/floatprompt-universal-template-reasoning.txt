@@ -1,0 +1,365 @@
+<floatprompt>
+---
+{
+  "STOP": "Document strategic reasoning for FloatPrompt universal template architecture. Primary goal: Provide comprehensive analysis of design decisions, trade-offs, and validation against core FloatPrompt goals. Execute systematic documentation of architectural evolution and rationale.",
+  "meta": {
+    "title": "FloatPrompt Universal Template Strategic Reasoning",
+    "id": "floatprompt-universal-template-reasoning",
+    "type": "analysis",
+    "created": "2025-07-28",
+    "version": "1.0.0",
+    "system_version": "floatprompt v0.1.0-beta"
+  },
+  "human": {
+    "author": "MDS",
+    "intent": "Document the strategic reasoning behind the 5-field universal FloatPrompt template architecture",
+    "context": "comprehensive analysis session evaluating template simplification from 10-field conditional architecture to 5-field universal structure",
+    "constraints": "maintain objectivity while documenting decision rationale and architectural trade-offs",
+    "preferences": {
+      "style": "strategic analysis with clear reasoning and evidence-based conclusions",
+      "detail_level": "comprehensive documentation of architectural decisions and validation process",
+      "output_format": "structured strategic analysis with decision framework and validation against core goals"
+    }
+  },
+  "ai": {
+    "model": "Claude Sonnet 4",
+    "contributor": "Claude Sonnet 4",
+    "role": "Strategic architectural analyst documenting FloatPrompt template design decisions and validation process",
+    "expertise": "system architecture analysis, design trade-off evaluation, and strategic documentation",
+    "voice_preservation": "Maintain analytical precision while preserving authentic reasoning process and strategic insights"
+  },
+  "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation for human understanding of architectural decisions and strategic reasoning",
+      "ai_behavioral_specification": "Precise execution guidance for AI processing of template architecture and validation methodology"
+    },
+    "voice_preservation": {
+      "extraction_method": "Preserve exact phrasing, rhythm, tone, hesitations from strategic analysis process",
+      "cognitive_patterns": "Maintain authentic human thinking process and decision-making rationale",
+      "temporal_precision": "Keep discovery markers, tildes, real-time indicators from architectural evolution"
+    },
+    "strategic_analysis": {
+      "architectural_evolution": "Document progression from complex conditional to simplified universal structure",
+      "decision_validation": "Systematic evaluation against PRIMARY, SECONDARY, and TERTIARY FloatPrompt goals",
+      "trade_off_analysis": "Comprehensive assessment of benefits and limitations of universal template approach",
+      "implementation_rationale": "Evidence-based justification for specific architectural choices and field selections"
+    }
+  }
+}
+---
+
+# FloatPrompt Universal Template Strategic Reasoning
+
+**Comprehensive analysis of architectural decisions and validation against core FloatPrompt goals**
+
+> **"Systematic simplification from conditional complexity to universal architecture while preserving all essential collaborative functionality"**
+
+*Strategic documentation of the design evolution from 10-field conditional architecture to 5-field universal template, including decision rationale, trade-off analysis, and validation against PRIMARY human voice preservation goals.*
+
+## System Authority
+
+I document the strategic reasoning behind FloatPrompt's universal template architecture, providing comprehensive analysis of design decisions, architectural evolution, and systematic validation against core collaborative goals.
+
+**Operating Principle**: "Universal structure enables predictable AI-human collaboration while preserving voice authenticity and cross-platform consistency through systematic behavioral specification."
+
+**Core Mission**: Analyze and document the strategic rationale for template simplification, demonstrating how 5-field universal architecture achieves all FloatPrompt goals with reduced complexity.
+
+## Quick Start
+
+This analysis documents why the 5-field universal template (STOP, META, HUMAN, AI, REQUIREMENTS) represents optimal FloatPrompt architecture through systematic evaluation of:
+
+- **Architectural Evolution**: Progression from conditional complexity to universal simplicity
+- **Goal Validation**: Systematic assessment against PRIMARY, SECONDARY, TERTIARY objectives
+- **Implementation Evidence**: Proof that simplified structure handles all existing tool complexity
+- **Strategic Benefits**: Cross-platform consistency and joint execution protocol optimization
+
+## Goals
+
+### **Document Architectural Excellence**
+- Provide comprehensive strategic reasoning for universal template adoption
+- Validate design decisions against PRIMARY human voice preservation goals
+- Demonstrate systematic simplification without functionality loss
+- Establish evidence-based foundation for template architecture choices
+
+### **Enable Implementation Confidence**
+- Document trade-off analysis and architectural benefits
+- Provide validation evidence for universal structure effectiveness
+- Establish strategic framework for template usage and development
+- Support adoption decisions through systematic reasoning documentation
+
+### **Preserve Strategic Intelligence**
+- Maintain authentic reasoning process and decision-making rationale
+- Document architectural evolution and complexity management approach
+- Preserve strategic insights for future template development and optimization
+- Enable systematic understanding of FloatPrompt design philosophy
+
+## Context
+
+### **Architectural Evolution Context**
+This analysis emerged from systematic evaluation of FloatPrompt template complexity, beginning with 10-field conditional architecture and progressing through systematic simplification to achieve optimal joint execution protocol structure.
+
+### **Strategic Decision Framework**
+Template architecture evaluated against three-tier FloatPrompt goal hierarchy:
+- **PRIMARY**: Human Intelligence, Voice & Agency Preservation
+- **SECONDARY**: Precise AI Instruction Execution
+- **TERTIARY**: Human Task Completion Through Reliable Collaboration
+
+### **Implementation Validation**
+Design decisions validated against actual FloatPrompt examples including Design Decision Extractor, Voice Guides, Course Modules, and Core OS, demonstrating universal template compatibility with existing sophisticated tools.
+
+## Output
+
+### **Strategic Analysis Structure**
+- **Architectural Evolution**: Complete progression from conditional to universal structure
+- **Decision Validation**: Systematic evaluation against core FloatPrompt goals
+- **Trade-off Analysis**: Comprehensive benefits and limitations assessment
+- **Implementation Evidence**: Proof of universal template effectiveness with existing tools
+- **Strategic Recommendations**: Clear guidance for template adoption and usage
+
+### **Decision Documentation Quality**
+- **Evidence-Based Reasoning**: All architectural decisions supported by systematic analysis and goal validation
+- **Authentic Process Preservation**: Strategic reasoning documented with authentic decision-making progression
+- **Implementation Validation**: Real-world compatibility demonstrated through existing FloatPrompt tool analysis
+- **Strategic Framework**: Clear methodology for evaluating template architecture decisions
+
+## Warnings
+
+### **Analysis Scope Limitations**
+- **Based on existing examples**: Validation limited to provided FloatPrompt files and strategic discussion
+- **Implementation assumption**: Assumes universal template will perform as analyzed without extensive real-world testing
+- **Strategic perspective**: Analysis reflects specific architectural evaluation session context
+
+### **Architectural Considerations**
+- **Simplification trade-offs**: Universal structure may require different approaches for highly specialized tools
+- **Evolution potential**: Template architecture may need refinement based on broader usage patterns
+- **Cross-platform assumption**: Universal compatibility assumes AI systems process JSON behavioral specifications consistently
+
+## Architectural Evolution Analysis
+
+### **Initial State: 10-Field Conditional Architecture**
+**Original Structure:**
+- STOP, META, HUMAN, AI, EXECUTION, TASK, DOMAIN, SOURCE, REQUIREMENTS, INTEGRATION
+- Complex conditional inclusion logic
+- Decision trees for field selection
+- "Highly recommended" vs "universal" distinction
+
+**Complexity Issues Identified:**
+- Conditional field inclusion created inconsistent structure
+- Decision trees added cognitive overhead for AI processing
+- YAGNI violations with decorative metadata fields
+- Over-engineering of joint execution protocol
+
+### **Evolution Process: Systematic Simplification**
+**Phase 1: Field Necessity Analysis**
+Systematic evaluation of each field against core FloatPrompt goals:
+- **STOP**: Essential behavioral directive ✓
+- **META**: Necessary for human organization ✓
+- **HUMAN**: Critical for voice preservation and agency ✓
+- **AI**: Essential for behavioral specification ✓
+- **REQUIREMENTS**: Core tool functionality container ✓
+- **EXECUTION**: Often inferrable from STOP + REQUIREMENTS
+- **TASK**: AI can determine from HUMAN.intent + behavioral context
+- **DOMAIN**: Redundant with AI.expertise
+- **SOURCE**: Nice-to-have provenance, not execution-critical
+- **INTEGRATION**: Only needed for complex multi-tool workflows
+
+**Phase 2: Absorption Analysis**
+Determined that EXECUTION, TASK, DOMAIN, SOURCE, INTEGRATION functionality could be absorbed into the 5 essential fields without loss of capability.
+
+**Phase 3: Universal Structure Validation**
+Confirmed that 5-field universal architecture handles all existing FloatPrompt complexity through requirements field expansion.
+
+### **Final State: 5-Field Universal Architecture**
+**Simplified Structure:**
+- STOP, META, HUMAN, AI, REQUIREMENTS
+- No conditional logic
+- Universal fields with variable internal complexity
+- Joint execution protocol optimization
+
+## Goal Validation Framework
+
+### **PRIMARY Goal Validation: Human Intelligence, Voice & Agency Preservation**
+
+**Voice Preservation Authority:**
+- `human.author`: Human attribution explicitly preserved
+- `human.intent/context/constraints`: Complete human agency documentation
+- `requirements.voice_preservation`: Explicit archaeological methodology with temporal precision
+- `ai.voice_preservation`: Behavioral specification for authentic voice handling
+
+**Agency Preservation Evidence:**
+- Human section maintains complete collaborative context
+- AI section serves human preservation goals through behavioral specification
+- Requirements field enables human-directed tool functionality without AI autonomous operation
+
+**Intelligence Preservation Validation:**
+Universal template preserves all voice authenticity capabilities demonstrated in existing 40KB+ FloatPrompt files through systematic requirements field expansion.
+
+### **SECONDARY Goal Validation: Precise AI Instruction Execution**
+
+**Behavioral Specification Completeness:**
+- `STOP`: Primary behavioral directive for consistent AI processing
+- `ai.role/expertise`: Precise AI behavioral modification
+- `requirements.dual_audience_support`: Explicit behavioral change instructions
+- Universal structure enables cross-platform consistency
+
+**Cross-Platform Reliability:**
+5-field universal architecture provides identical behavioral anchoring across ChatGPT, Claude, Cursor, and all AI systems through complete contextual specification.
+
+**Systematic Processing Evidence:**
+Universal template maintains all sophisticated processing capabilities shown in existing FloatPrompt examples through requirements field architectural expansion.
+
+### **TERTIARY Goal Validation: Human Task Completion Through Reliable Collaboration**
+
+**Joint Execution Protocol:**
+- Clear human-AI collaboration boundaries through structured sections
+- Systematic behavioral modification enabling reliable partnership
+- Context preservation across sessions and platforms
+- Natural language to systematic tool creation pathway
+
+**Task Completion Evidence:**
+Universal template enables all demonstrated FloatPrompt capabilities including design decision extraction, voice preservation, course development, and systematic content creation.
+
+**Collaboration Reliability:**
+Simplified structure reduces AI processing complexity while maintaining complete behavioral specification for consistent joint execution results.
+
+## Trade-off Analysis
+
+### **Benefits of Universal Architecture**
+
+**Architectural Simplicity:**
+- Eliminates conditional field inclusion logic
+- Reduces AI construction complexity
+- Provides predictable structure across all tools
+- Simplifies cross-platform compatibility
+
+**Processing Efficiency:**
+- AI systems process identical structure consistently
+- No decision trees required for field inclusion
+- Reduced cognitive overhead for template population
+- Faster tool creation through systematic structure
+
+**Joint Execution Optimization:**
+- Humans always know what structure to expect
+- AI receives consistent behavioral specification
+- Cross-platform portability without architectural variation
+- Systematic collaboration protocol optimization
+
+### **Potential Limitations**
+
+**Complexity Absorption Requirements:**
+- Requirements field must handle variable tool complexity
+- Simple tools include unused voice preservation specifications
+- Complex tools need sophisticated requirements field expansion
+- Potential JSON verbosity for basic utilities
+
+**Architectural Constraint Acceptance:**
+- Some specialized tools might benefit from dedicated fields
+- Universal structure may not optimize for specific use cases
+- Template flexibility limited by 5-field constraint
+- Expansion complexity contained within requirements field
+
+### **Risk Mitigation Strategies**
+
+**Complexity Management:**
+Requirements field architectural expansion handles sophisticated tool needs without structural changes to universal template.
+
+**Specialization Support:**
+Voice preservation specifications and dual audience support provide foundation for any specialized tool development.
+
+**Evolution Pathway:**
+Universal architecture supports organic growth through requirements field expansion while maintaining structural consistency.
+
+## Implementation Evidence
+
+### **Compatibility Validation with Existing Tools**
+
+**Design Decision Extractor (40KB):**
+- STOP: "Execute design decision extraction protocol" ✓
+- HUMAN: Intent, context, voice preservation needs ✓
+- AI: Archaeological extraction specialist behavioral specification ✓
+- REQUIREMENTS: All sophisticated functionality (archaeological methodology, voice preservation, content creation optimization) nests within requirements field ✓
+
+**Voice Guides (30KB+ each):**
+- STOP: "Apply MDS voice patterns with foundation inheritance" ✓
+- HUMAN: Voice calibration needs and usage context ✓
+- AI: Voice preservation specialist with medium-specific expertise ✓
+- REQUIREMENTS: Complete voice pattern specifications, archaeological extraction protocols, and quality standards contained within requirements expansion ✓
+
+**Course Modules (40KB+ each):**
+- STOP: "Module development mode with systematic methodology" ✓
+- HUMAN: Educational intent and professional development context ✓
+- AI: Module development consultant with domain expertise ✓
+- REQUIREMENTS: All systematic methodology, operational readiness protocols, and quality assurance frameworks handled through requirements field architectural expansion ✓
+
+**Core FloatPrompt OS (43KB):**
+- STOP: "FloatPrompt Operating System core infrastructure mode" ✓
+- HUMAN: Portable AI collaboration infrastructure intent ✓
+- AI: Strategic AI collaboration with voice preservation authority ✓
+- REQUIREMENTS: Complete OS functionality including Map/Decide/Structure methodology, friction assessment, and ecosystem coordination contained within requirements architectural framework ✓
+
+### **Absorption Validation**
+
+**Previously Separate Fields Successfully Absorbed:**
+
+**EXECUTION** → Requirements field "execution_parameters" when needed
+**TASK** → AI infers transformation logic from STOP directive and human intent
+**DOMAIN** → Covered comprehensively by AI.expertise specification
+**SOURCE** → Mentioned in human.context when relevant for tool development
+**INTEGRATION** → Handled within requirements field "integration_protocols" for complex workflows
+
+**No Functionality Loss Demonstrated:**
+All existing FloatPrompt capabilities preserved through universal template architecture with requirements field expansion handling sophisticated tool complexity.
+
+## Strategic Recommendations
+
+### **Universal Template Adoption**
+
+**Immediate Implementation:**
+Adopt 5-field universal template as definitive FloatPrompt architecture for all new tool creation and systematic collaboration protocol development.
+
+**Migration Strategy:**
+Existing FloatPrompt files remain compatible while new tools follow universal architecture, enabling gradual ecosystem migration without disruption.
+
+**Development Standards:**
+Establish universal template as foundational standard for FloatPrompt development with requirements field expansion handling specialized functionality.
+
+### **Architectural Principles**
+
+**Simplicity Through Systematization:**
+Universal structure provides predictable architecture while requirements field enables infinite expandability for specialized tool development.
+
+**Joint Execution Protocol Optimization:**
+5-field architecture optimizes human-AI collaboration through clear behavioral specification and systematic cross-platform consistency.
+
+**Voice Preservation Authority:**
+Universal template maintains PRIMARY goal focus through explicit voice preservation specifications and archaeological methodology integration.
+
+### **Quality Assurance Framework**
+
+**Template Validation Criteria:**
+- All 5 universal fields present and properly populated
+- Voice preservation specifications included for voice-sensitive tools  
+- Dual audience support maintaining human comprehension and AI behavioral specification
+- Requirements field appropriately expanded for tool complexity
+- Cross-platform compatibility through universal .txt format
+
+**Implementation Success Metrics:**
+- Consistent AI behavioral modification across platforms
+- Preserved voice authenticity in generated tools
+- Reliable joint execution protocol functionality
+- Systematic tool creation through conversational emergence
+
+## Conclusion
+
+The 5-field universal FloatPrompt template represents optimal architecture for joint execution protocols, achieving all PRIMARY, SECONDARY, and TERTIARY goals while eliminating conditional complexity. Strategic analysis validates universal structure effectiveness through systematic goal evaluation and implementation evidence from existing sophisticated FloatPrompt tools.
+
+**Universal template adoption enables predictable AI-human collaboration with voice preservation authority and cross-platform consistency through systematic behavioral specification.**
+
+**Strategic reasoning supports immediate implementation of universal architecture as definitive FloatPrompt standard.**
+
+---
+
+*Strategic architectural analysis preserving authentic decision-making rationale and systematic validation methodology for FloatPrompt universal template development.*
+
+© 2025 [@MDS](https://mds.is) | CC BY 4.0
+</floatprompt>
