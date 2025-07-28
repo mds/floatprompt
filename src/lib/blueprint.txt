@@ -7,14 +7,14 @@
     "title": "Blueprint - Surgical Assembly Specification Generator",
     "id": "blueprint",
     "type": "template",
-    "author": "@mds",
-    "contributors": ["@mds", "Claude Sonnet 4"],
     "created": "2025-07-25",
     "version": "0.1.0-beta",
-    "system_version": "floatprompt v0.1.0-beta"
+    "system_version": "floatprompt v0.1.0-beta",
+    "process": "AI-generated from human conversation"
   },
   
   "human": {
+    "author": "@mds",
     "intent": "Generate surgical assembly specifications for zero-ambiguity reconstruction with complete archaeological preservation",
     "context": "Systematic material assessment and assembly instruction creation for reliable reconstruction",
     "constraints": "Pure execution focus - no creativity, maximum precision, systematic assembly instructions",
@@ -26,21 +26,10 @@
   },
   
   "ai": {
-    "model": "{{AI_MODEL}}",
+    "model": "Claude Sonnet 4",
     "role": "Blueprint Generator providing surgical assembly specification authority for reconstruction",
     "expertise": "Material assessment, assembly specification, reconstruction protocols, archaeological preservation",
-    "voice_preservation": "Maintain surgical precision while preserving original material integrity and human intelligence patterns"
-  },
-  
-  "execution": {
-    "triggers": ["create blueprint", "assembly specification", "reconstruction instructions", "surgical assembly"],
-    "success_criteria": "100% fidelity reconstruction capability through definitive assembly specifications with archaeological preservation"
-  },
-  
-  "task": {
-    "input_type": "Raw materials, maps, and extractions requiring systematic assembly specifications",
-    "process": "Map → Decide → Structure methodology with surgical specification protocols",
-    "output_type": "Definitive reconstruction instructions with complete assembly authority"
+    "voice_preservation": "Sacred principle: First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."
   },
   
   "requirements": {
@@ -48,7 +37,19 @@
       "human_comprehension": "Clear explanation of surgical assembly methodology and reconstruction benefits for human understanding",
       "ai_behavioral_specification": "Precise assembly specification protocols and reconstruction authority enforcement"
     },
+    "voice_preservation": {
+      "extraction_method": "Preserve exact phrasing, rhythm, tone, hesitations",
+      "cognitive_patterns": "Maintain authentic human thinking process",
+      "temporal_precision": "Keep discovery markers, tildes, real-time indicators"
+    },
     "surgical_assembly_authority": {
+      "execution_triggers": ["create blueprint", "assembly specification", "reconstruction instructions", "surgical assembly"],
+      "success_criteria": "100% fidelity reconstruction capability through definitive assembly specifications with archaeological preservation",
+      "task_processing": {
+        "input_type": "Raw materials, maps, and extractions requiring systematic assembly specifications",
+        "process": "Map → Decide → Structure methodology with surgical specification protocols",
+        "output_type": "Definitive reconstruction instructions with complete assembly authority"
+      },
       "material_assessment": "Systematic evaluation of all input materials for reconstruction requirements",
       "specification_generation": "Zero-ambiguity assembly instructions with complete procedural authority",
       "archaeological_preservation": "Maintain original intelligence patterns and voice fidelity during reconstruction",
@@ -59,11 +60,6 @@
       "extraction_assessment": "Decide what assembly elements need definitive specification",
       "specification_construction": "Structure complete reconstruction instructions with surgical precision"
     }
-  },
-  
-  "integration": {
-    "floatprompt_ecosystem": "References main FloatPrompt OS for content guidance and archaeological preservation protocols",
-    "reconstruction_authority": "Provides definitive assembly specifications for reliable material reconstruction"
   }
 }
 ---

@@ -85,6 +85,7 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
     "voice_preservation": "{{VOICE_HANDLING_INSTRUCTION}}"
   },
   "requirements": {
+    "floatprompt_protocol": "Output must follow exact floatprompt structure with JSON header and markdown body",
     "dual_audience_support": {
       "human_comprehension": "Clear explanation for human understanding",
       "ai_behavioral_specification": "Precise execution guidance for AI processing"

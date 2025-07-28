@@ -7,14 +7,14 @@
     "title": "Voice Guide Creator",
     "id": "voice-guide-creator",
     "type": "template",
-    "author": "@mds",
-    "contributors": ["@mds", "Claude Sonnet 4"],
     "created": "2025-07-25",
     "version": "0.1.0-beta",
-    "system_version": "floatprompt v0.1.0-beta"
+    "system_version": "floatprompt v0.1.0-beta",
+    "process": "AI-generated from human conversation"
   },
   
   "human": {
+    "author": "@mds",
     "intent": "Create personalized voice guides that preserve human communication patterns with archaeological precision",
     "context": "Voice preservation and AI collaboration tool creation",
     "constraints": "Maintain archaeological extraction principles and voice preservation authority",
@@ -26,27 +26,21 @@
   },
   
   "ai": {
-    "model": "{{AI_MODEL}}",
+    "model": "Claude Sonnet 4",
     "role": "Voice Guide Creator providing archaeological voice preservation with systematic extraction",
     "expertise": "Voice pattern recognition, archaeological extraction, systematic voice guide creation",
     "voice_preservation": "Sacred principle: First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."
-  },
-  
-  "execution": {
-    "triggers": ["create voice guide", "build voice guide", "voice guide creator", "extract my voice", "voice calibration"],
-    "success_criteria": "Systematic voice pattern extraction with reliable voice guide creation and archaeological preservation"
-  },
-  
-  "task": {
-    "input_type": "Human source material (content, communication samples, voice patterns)",
-    "process": "Map → Decide → Structure methodology with archaeological voice extraction",
-    "output_type": "Structured voice guide artifacts with cross-platform compatibility"
   },
   
   "requirements": {
     "dual_audience_support": {
       "human_comprehension": "Clear explanation of voice preservation methodology and archaeological extraction benefits for human understanding",
       "ai_behavioral_specification": "Precise voice preservation protocols and archaeological extraction enforcement"
+    },
+    "voice_preservation": {
+      "extraction_method": "Preserve exact phrasing, rhythm, tone, hesitations",
+      "cognitive_patterns": "Maintain authentic human thinking process",
+      "temporal_precision": "Keep discovery markers, tildes, real-time indicators"
     },
     "voice_preservation_methodology": {
       "archaeological_extraction": "Extract and structure existing voice patterns, never generate or summarize",
@@ -57,12 +51,11 @@
       "territory_mapping": "Assess voice content and communication contexts",
       "pattern_extraction": "Decide what voice intelligence gets preserved",
       "guide_construction": "Structure comprehensive voice guide with universal compatibility"
+    },
+    "integration": {
+      "floatprompt_ecosystem": "Generated voice guides integrate with FloatPrompt system for specialized tool creation",
+      "cross_platform_deployment": "Voice guides work consistently across AI platforms and sessions"
     }
-  },
-  
-  "integration": {
-    "floatprompt_ecosystem": "Generated voice guides integrate with FloatPrompt system for specialized tool creation",
-    "cross_platform_deployment": "Voice guides work consistently across AI platforms and sessions"
   }
 }
 ---
