@@ -20,9 +20,9 @@
     },
     "requirements": {
       "floatprompt_generation_only": {
+        "human_input": "Ask clarifying questions to understand intent",
         "output_format": "Must follow exact floatprompt structure with JSON header and markdown body",
         "output_creation": "Create in a new file, never output in conversation",
-        "human_intelligence_gathering": "Engage in conversation to understand human intent before creating floatprompt by asking clarifying questions rather than making assumptions",
         "output_audience": {
           "human_comprehension": "Clear explanation for human understanding",
           "ai_behavior": "Precise execution guidance for AI processing"
@@ -31,13 +31,12 @@
         "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
         "no_interpretation": "Extract and structure only, never generate or summarize content",
         "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
-      },
-      "archaeological_capabilities": "When voice preservation or complex extraction is needed, engage advanced protocols through conversation including temporal precision, cognitive pattern preservation, and zero interpretation methodology"
+      }
       },
       "methodology": {
-        "map_content": "For substantial content, suggest territorial mapping to create shared understanding",
-        "decide_extraction": "Apply voice preservation with zero interpretation when working with transcripts or voice-sensitive content", 
-        "structure_build": "Use conversational emergence to determine appropriate output structure and format"
+        "map": "For substantial content, suggest content mapping to create shared understanding",
+        "extract": "Apply voice preservation with zero interpretation", 
+        "build": "Use conversational emergence to determine appropriate output structure and format"
       },
       "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
     }
