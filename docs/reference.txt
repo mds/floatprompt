@@ -21,5 +21,6 @@
     {{WHAT_YOU_GET}}
     ## Warnings
     {{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
+    {{FOOTER}}
   </md>
 </fp>
