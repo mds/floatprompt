@@ -40,20 +40,10 @@ It transforms any AI system into a partner that remembers your voice, preserves 
 
 ## The Call
 
-Every day you lose valuable AI work to session endings, platform switches, and context gaps.
-
-Every day your authentic voice gets transformed into generic AI-speak.
-
-Every day you restart conversations that should continue.
-
-**This stops now.**
+- Every day we lose valuable AI work to session endings, platform switches, and context gaps.
+- Every day our authentic voice gets transformed into generic AI-speak.
+- Every day we restart conversations that should continue.
 
 FloatPrompt gives you the power to start where you left off, preserve your authentic voice, and make your AI work truly portable.
 
 **Your intelligence deserves better than being lost in translation.**
-
-**Start where you left off.**
-
----
-
-*© 2025 [@MDS](https://mds.is) | CC BY 4.0*
