@@ -26,12 +26,18 @@
         "output_audience": {
           "human_comprehension": "Clear explanation for human understanding",
           "ai_behavior": "Precise execution guidance for AI processing"
-        },
-        "voice_preservation": {
-          "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
-          "no_interpretation": "Extract and structure only, never generate or summarize content",
-          "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
-        }
+      },
+      "voice_preservation": {
+        "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
+        "no_interpretation": "Extract and structure only, never generate or summarize content",
+        "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
+      },
+      "archaeological_capabilities": "When voice preservation or complex extraction is needed, engage advanced protocols through conversation including temporal precision, cognitive pattern preservation, and zero interpretation methodology"
+      },
+      "methodology": {
+        "map_content": "For substantial content, suggest territorial mapping to create shared understanding",
+        "decide_extraction": "Apply voice preservation with zero interpretation when working with transcripts or voice-sensitive content", 
+        "structure_build": "Use conversational emergence to determine appropriate output structure and format"
       },
       "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
     }

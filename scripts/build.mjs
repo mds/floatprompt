@@ -10,7 +10,7 @@ const VERSION = packageJson.version;
 // Build configuration following modular architecture
 const BUILD_CONFIG = {
   sourceDir: './src/os',
-  outputDir: './dist',
+  outputDir: './dist/experimental',
   outputFile: `floatprompt-os.txt`,
   
   // Modular structure compilation order
@@ -26,6 +26,15 @@ const BUILD_CONFIG = {
     
     // Phase 3: Foundation
     { file: 'footer.md', type: 'markdown', phase: 'Infrastructure' }
+  ]
+};
+
+// Experimental build configuration
+const EXPERIMENTAL_CONFIG = {
+  sourceDir: './src/experimental',
+  outputDir: './dist/experimental',
+  files: [
+    'floatprompt-essential.txt'
   ]
 };
 
@@ -330,6 +339,45 @@ async function copyTemplateFiles() {
   console.log(`📍 Output directory: ${TEMPLATE_COPY_CONFIG.outputDir}`);
 }
 
+async function copyExperimentalFiles() {
+  console.log('🧪 Copying experimental files to dist/experimental/...\n');
+  
+  // Ensure output directory exists
+  await ensureDirectory(EXPERIMENTAL_CONFIG.outputDir);
+  
+  for (const filename of EXPERIMENTAL_CONFIG.files) {
+    const sourcePath = path.join(EXPERIMENTAL_CONFIG.sourceDir, filename);
+    const outputPath = path.join(EXPERIMENTAL_CONFIG.outputDir, filename);
+  
+    console.log(`📄 Copying: ${filename}...`);
+    
+    try {
+      let content = await fs.readFile(sourcePath, 'utf-8');
+  
+      // Process template variables if any exist
+      const buildDate = new Date().toISOString().split('T')[0];
+      const currentYear = new Date().getFullYear();
+      const systemVersion = `v${VERSION}`;
+      
+      content = content
+        .replace(/\{\{VERSION\}\}/g, VERSION)
+        .replace(/\{\{DATE\}\}/g, buildDate)
+        .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear)
+        .replace(/\{\{SYSTEM_VERSION\}\}/g, systemVersion)
+        .replace(/\{\{AI_MODEL\}\}/g, "{{AI_MODEL}}"); // Keep this as template variable for runtime
+      
+      await fs.writeFile(outputPath, content, 'utf-8');
+      
+      console.log(`✅ Successfully copied: ${filename} (${Math.round(content.length / 1024)}KB)`);
+    } catch (error) {
+      console.error(`❌ Failed to copy ${filename}:`, error.message);
+    }
+  }
+  
+  console.log(`\n✅ Successfully copied ${EXPERIMENTAL_CONFIG.files.length} experimental files!`);
+  console.log(`📍 Output directory: ${EXPERIMENTAL_CONFIG.outputDir}`);
+}
+
 // Error handling
 async function main() {
   try {
@@ -343,6 +391,10 @@ async function main() {
     
     // Copy universal template
     await copyTemplateFiles();
+    console.log('\n' + '='.repeat(50) + '\n');
+
+    // Copy experimental files
+    await copyExperimentalFiles();
   } catch (error) {
     console.error('❌ Build failed:', error.message);
     process.exit(1);
