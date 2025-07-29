@@ -9,9 +9,9 @@ const VERSION = packageJson.version;
 
 // Build configuration following modular architecture
 const BUILD_CONFIG = {
-  sourceDir: './src/sys',
+  sourceDir: './src/os',
   outputDir: './dist',
-  outputFile: `floatprompt.txt`,
+  outputFile: `floatprompt-os.txt`,
   
   // Modular structure compilation order
   components: [
@@ -36,7 +36,16 @@ const LIB_COPY_CONFIG = {
   files: [
     'blueprint.txt',
     'format.txt', 
-    'voice.txt'
+    'voice-guide-creator.txt'
+  ]
+};
+
+// Template copy configuration - copy the universal template to dist
+const TEMPLATE_COPY_CONFIG = {
+  sourceDir: './src',
+  outputDir: './dist',
+  files: [
+    'floatprompt.txt'
   ]
 };
 
@@ -49,7 +58,7 @@ async function ensureDirectory(dirPath) {
   }
 }
 
-async function readComponent(componentPath, sharedDir = './src/sys/shared') {
+async function readComponent(componentPath, sharedDir = './src/os/shared') {
   try {
     let content = await fs.readFile(componentPath, 'utf-8');
     
@@ -63,7 +72,7 @@ async function readComponent(componentPath, sharedDir = './src/sys/shared') {
   }
 }
 
-async function injectSharedComponents(content, sharedDir = './src/sys/shared') {
+async function injectSharedComponents(content, sharedDir = './src/os/shared') {
   // Process INJECT markers: <!-- INJECT: filename.json --> (or .yaml for backward compatibility)
   const jsonInjectRegex = /<!-- INJECT: (.+?)\.json -->/g;
   const yamlInjectRegex = /<!-- INJECT: (.+?)\.yaml -->/g;
@@ -282,6 +291,45 @@ async function copyLibraryFiles() {
   console.log(`📍 Output directory: ${LIB_COPY_CONFIG.outputDir}`);
 }
 
+async function copyTemplateFiles() {
+  console.log('📋 Copying universal template to dist/...\n');
+  
+  // Ensure output directory exists
+  await ensureDirectory(TEMPLATE_COPY_CONFIG.outputDir);
+  
+  for (const filename of TEMPLATE_COPY_CONFIG.files) {
+    const sourcePath = path.join(TEMPLATE_COPY_CONFIG.sourceDir, filename);
+    const outputPath = path.join(TEMPLATE_COPY_CONFIG.outputDir, filename);
+  
+    console.log(`📄 Copying: ${filename}...`);
+    
+    try {
+      let content = await fs.readFile(sourcePath, 'utf-8');
+  
+      // Process template variables if any exist
+      const buildDate = new Date().toISOString().split('T')[0];
+      const currentYear = new Date().getFullYear();
+      const systemVersion = `v${VERSION}`;
+      
+      content = content
+        .replace(/\{\{VERSION\}\}/g, VERSION)
+        .replace(/\{\{DATE\}\}/g, buildDate)
+        .replace(/\{\{CURRENT_YEAR\}\}/g, currentYear)
+        .replace(/\{\{SYSTEM_VERSION\}\}/g, systemVersion)
+        .replace(/\{\{AI_MODEL\}\}/g, "{{AI_MODEL}}"); // Keep this as template variable for runtime
+      
+      await fs.writeFile(outputPath, content, 'utf-8');
+      
+      console.log(`✅ Successfully copied: ${filename} (${Math.round(content.length / 1024)}KB)`);
+    } catch (error) {
+      console.error(`❌ Failed to copy ${filename}:`, error.message);
+    }
+  }
+  
+  console.log(`\n✅ Successfully copied universal template!`);
+  console.log(`📍 Output directory: ${TEMPLATE_COPY_CONFIG.outputDir}`);
+}
+
 // Error handling
 async function main() {
   try {
@@ -291,6 +339,10 @@ async function main() {
     
     // Copy library files
     await copyLibraryFiles();
+    console.log('\n' + '='.repeat(50) + '\n');
+    
+    // Copy universal template
+    await copyTemplateFiles();
   } catch (error) {
     console.error('❌ Build failed:', error.message);
     process.exit(1);

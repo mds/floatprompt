@@ -1,70 +1,23 @@
-{
-  "STOP": "FloatPrompt Use Cases Documentation. Primary goal: Demonstrate practical applications and value propositions for FloatPrompt across simple to advanced use cases. Enable users to understand how FloatPrompt solves real problems in AI collaboration, context preservation, and knowledge management workflows.",
-  "meta": {
-    "title": "FloatPrompt Use Cases",
-    "id": "floatprompt-use-cases",
-    "type": "documentation",
-    "author": "MDS",
-    "created": "{{CURRENT_YEAR}}",
-    "version": "1.0",
-    "system_version": "v0.1.0-beta"
-  },
-  "human": {
-    "purpose": "Provide comprehensive examples of FloatPrompt applications from simple prompt organization to advanced AI collaboration workflows",
-    "goals": [
-      "Demonstrate natural progression from simple to advanced FloatPrompt usage",
-      "Show concrete solutions to common AI collaboration problems",
-      "Illustrate value propositions for different user types and scenarios",
-      "Provide clear use case examples for context preservation, knowledge management, and voice preservation"
-    ],
-    "audience": "Potential users, current users exploring advanced features, teams evaluating FloatPrompt adoption",
-    "context": "Marketing and educational document that demonstrates practical value and encourages adoption through relatable problem/solution scenarios"
-  },
-  "ai": {
-    "model": "Claude Sonnet 4",
-    "instructions": "Use this document to understand FloatPrompt's practical applications and value propositions. When helping users, reference these use cases to demonstrate relevant benefits and suggest appropriate FloatPrompt solutions for their specific needs.",
-    "behavior_constraints": [
-      "Reference specific use cases when they match user problems",
-      "Emphasize the natural progression from simple to advanced usage",
-      "Highlight cross-platform compatibility and context preservation benefits",
-      "Maintain the authentic problem/solution tone and specific user scenario descriptions"
-    ]
-  },
-  "requirements": {
-    "format_compliance": "Follow universal JSON architecture and .txt file standards",
-    "dual_audience_support": "Serve both human understanding of FloatPrompt benefits and AI reference for suggesting relevant use cases",
-    "voice_preservation": "Maintain the authentic problem/solution tone and specific user scenario descriptions",
-    "integration_ready": "Compatible with all FloatPrompt modes and system components"
-  },
-  "integration": {
-    "system_role": "Use case reference document for demonstrating FloatPrompt value propositions and practical applications",
-    "dependencies": ["goals.txt", "fp.txt", "voice.txt"],
-    "authority_level": "Reference - provides examples and guidance for FloatPrompt application scenarios"
-  }
-}
-
-<floatprompt>
-
 # FloatPrompt Use Cases
 
 **File → Save As for AI interaction**
 
-## 🎯 Simple to Advanced: Natural Capability Progression
+## Universal Template: Natural Capability Progression
 
-### **Start Simple (Universal)**
+### **Start Simple**
 - **Perfect for**: Prompt organization, basic context preservation, cross-platform compatibility
 - **Benefits**: Works everywhere, zero learning curve, immediate value
 - **Use when**: You want structured prompts that work on any AI platform
-- **File**: `floatprompt-simple.txt` - Simple template, fast setup
+- **File**: `floatprompt.txt` - Universal template for individual creation
 
 ### **Discover Advanced Features**  
 - **Perfect for**: Voice preservation, complex workflows, archaeological extraction
 - **Benefits**: Sophisticated AI collaboration, professional-grade results
 - **Use when**: You need advanced voice preservation and complex project coordination
-- **Files**: `floatprompt.txt`, `floatprompt-voice.txt`, etc.
+- **File**: `floatprompt-os.txt` - Complete operating system with full capabilities
 
 ### **Natural Learning Path**
-FloatPrompt grows with you - start simple for immediate benefits, then discover advanced features as your needs become more sophisticated. Both specifications use the same `.txt` format and cross-platform compatibility.
+FloatPrompt grows with you - start with the universal template for immediate benefits, then explore the full OS as your needs become more sophisticated. Both files use the same `.txt` format and cross-platform compatibility.
 
 ---
 
@@ -74,7 +27,7 @@ FloatPrompt grows with you - start simple for immediate benefits, then discover 
 **Problem:** You have a breakthrough conversation with ChatGPT that solves a complex problem, but when the session ends that valuable context just disappears forever.  
 **Solution:** FloatPrompt captures your conversation, thinking style, and context in a special text file. Upload this `.txt` file to any AI platform (ChatGPT, Claude, etc.) and it instantly has your full conversation history and understands exactly how you work together.
 
-**Simple to Advanced:** Start simple for basic context preservation, explore advanced features when you need sophisticated voice preservation and archaeological extraction of complex conversations.
+**Universal Template:** Start with `floatprompt.txt` for basic context preservation, explore `floatprompt-os.txt` when you need sophisticated voice preservation and archaeological extraction of complex conversations.
 
 ### Knowledge Management
 **Problem:** You spend hours researching, brainstorming, and working through complex ideas with AI across multiple conversations. You make real progress, gather valuable insights, and develop solutions. But then you face an impossible choice: either dig through endless conversation threads to find that one brilliant insight from last week, or keep adding to an already-overwhelming conversation that's becoming too long and unfocused to be useful.  
@@ -84,7 +37,7 @@ FloatPrompt grows with you - start simple for immediate benefits, then discover 
 **Problem:** You spend 2 hours getting ChatGPT to understand your project perfectly, then want to try Claude but would have to explain everything again from scratch.  
 **Solution:** When you have a great ChatGPT session, FloatPrompt saves it as a `.txt` file containing all your context and methodology. Upload this file to Claude and it immediately understands your full project, thinking style, and where you left off.
 
-**Simple to Advanced:** Simple specification provides universal compatibility across all platforms with straightforward context transfer. Full specification adds sophisticated behavioral specifications that work identically across advanced AI systems.
+**Universal Template:** The `floatprompt.txt` template provides universal compatibility across all platforms with straightforward context transfer. The `floatprompt-os.txt` file adds sophisticated behavioral specifications that work identically across advanced AI systems.
 
 ### Team Knowledge Sharing
 **Problem:** You spend weeks training ChatGPT to understand your company's writing style and project requirements, but your teammate has to start from zero with their own AI.  
@@ -98,7 +51,7 @@ FloatPrompt grows with you - start simple for immediate benefits, then discover 
 **Problem:** You spend time crafting the perfect rough notes with your authentic thinking style, but AI turns it into generic corporate-speak that sounds like everyone else.  
 **Solution:** You create FloatPrompt voice guide files with specific examples of your writing style, tone preferences, and phrasing patterns. Upload these `.txt` files to any AI session and it immediately understands how to maintain your authentic voice instead of defaulting to generic AI-speak.
 
-**Simple to Advanced:** Simple specification includes basic voice preservation instructions. Full specification offers sophisticated voice guides (`floatprompt-voice.txt`) with archaeological extraction methodology for complex voice preservation across extended workflows.
+**Universal Template:** The `floatprompt.txt` template includes basic voice preservation instructions. The `floatprompt-os.txt` file offers sophisticated voice preservation with archaeological extraction methodology for complex voice preservation across extended workflows.
 
 ### Workflow Refinement
 **Problem:** You finally get AI to understand your workflow perfectly after multiple conversations, but every new chat means starting over and losing all that progress.  
@@ -120,7 +73,7 @@ FloatPrompt grows with you - start simple for immediate benefits, then discover 
 **Problem:** You've perfected a prompt sequence that consistently produces great results, but you have to recreate it from scratch every time or hunt through old conversations to copy-paste pieces.  
 **Solution:** FloatPrompt lets you package your proven prompt workflows into reusable `.txt` templates. Load the template into any AI session and instantly have your refined methodology, examples, and instructions ready to go for consistent results every time.
 
-**Simple to Advanced:** Simple specification provides straightforward template variables for reusable prompts. Full specification offers complex assembly workflows (`floatprompt-blueprint.txt`) for sophisticated multi-step processes and project coordination.
+**Universal Template:** The `floatprompt.txt` template provides straightforward template variables for reusable prompts. The `floatprompt-os.txt` file offers complex assembly workflows with sophisticated multi-step processes and project coordination.
 
 ### Breakthrough Recreation
 **Problem:** You sometimes get ChatGPT to function perfectly after a long series of trial-and-error prompts, finding that sweet spot where it finally "gets" what you want. But when you start a new session, you can't reliably recreate that magic and end up fumbling around trying to remember what combination of prompts worked.  
@@ -134,23 +87,16 @@ FloatPrompt grows with you - start simple for immediate benefits, then discover 
 **Problem:** You want AI to summarize and package your valuable knowledge into organized documents, but the output is riddled with em dashes, robotic corporate tone, and generic phrasing that completely erases how you actually think and communicate.  
 **Solution:** You create voice guide `.txt` files with examples of your natural phrasing, writing style, and communication patterns. Upload these guides with your content and AI maintains your authentic voice instead of defaulting to obvious "ChatGPT-speak" that everyone can spot immediately.
 
-### Simple → Advanced Learning Journey
+### Universal Template Learning Journey
 **Problem:** You start with simple prompt organization, but as your AI collaboration becomes more sophisticated, you need advanced voice preservation, complex workflows, and professional-grade behavioral specifications.  
-**Solution:** FloatPrompt grows with you - start simple for immediate benefits, then seamlessly discover advanced features when you're ready for sophisticated capabilities. Both specifications use the same `.txt` format, so your existing simple files remain compatible while you gain access to advanced features like archaeological extraction and complex project assembly.
+**Solution:** FloatPrompt grows with you - start with the universal template for immediate benefits, then seamlessly discover the full OS features when you're ready for sophisticated capabilities. Both files use the same `.txt` format, so your existing template files remain compatible while you gain access to advanced features like archaeological extraction and complex project assembly.
 
 ### Strategic Decision Documentation
 **Problem:** Your team makes important decisions through messy email threads and scattered conversations, then six months later someone asks "why did we choose this approach?" and nobody can remember the full reasoning or find where it was discussed.  
 **Solution:** You use FloatPrompt to systematically document your decision-making process, key factors, and reasoning as you work through complex choices. The structured format helps you organize scattered thinking into clear `.txt` files that stakeholders can reference months later to understand the full strategic context.
 
-**Core vs Pro:** Core handles basic decision documentation. Pro provides advanced discovery metadata and relationship mapping for complex strategic decisions across organizational contexts.
+**Template vs OS:** The universal template handles basic decision documentation. The full OS provides advanced discovery metadata and relationship mapping for complex strategic decisions across organizational contexts.
 
 ### Quality Control for AI Output
 **Problem:** You get ChatGPT to produce something that looks professional and comprehensive, but when you review it carefully, it's missing key nuances, uses the wrong tone, or makes assumptions that change your intended meaning.  
 **Solution:** You upload FloatPrompt files that include recognition-before-action instructions, requiring AI to reflect your thinking back to you before generating any output. You verify that AI understands your actual intent and voice before allowing it to proceed, preventing polished-but-wrong results.
-
----
-
-*FloatPrompt System Architecture | Current build: 43KB OS file | Universal .txt format*  
-*© {{CURRENT_YEAR}} Float Systems. Distributed under MIT License.*
-
-</floatprompt> 

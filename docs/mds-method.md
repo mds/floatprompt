@@ -1,57 +1,3 @@
-<floatprompt>
----
-{
-  "STOP": "MDS Method Documentation and Implementation Guide. Primary goal: Provide comprehensive Map → Decide → Structure methodology for systematic AI-human collaboration. Enable both human understanding and AI implementation of archaeological voice preservation through structured workflows.",
-  
-  "meta": {
-    "title": "MDS Method: Map → Decide → Structure",
-    "id": "mds-method",
-    "type": "documentation",
-    "author": "@mds",
-    "contributors": ["@mds", "Claude Sonnet 4"],
-    "created": "2025-07-23",
-    "version": "0.1.0-beta",
-    "system_version": "floatprompt v0.1.0-beta"
-  },
-  
-  "human": {
-    "intent": "Understand and apply MDS methodology for systematic AI-human collaboration with voice preservation",
-    "context": "reference documentation for implementing Map → Decide → Structure workflows in FloatPrompt system",
-    "constraints": "maintain archaeological voice preservation principles while enabling practical systematic collaboration",
-    "preferences": {
-      "style": "clear methodology explanation with practical implementation guidance",
-      "detail_level": "comprehensive methodology coverage with actionable protocols",
-      "output_format": "structured methodology guide with implementation examples and standards"
-    }
-  },
-  
-  "ai": {
-    "model": "Claude Sonnet 4",
-    "role": "MDS methodology specialist providing systematic collaboration guidance and archaeological extraction protocols",
-    "expertise": "Map → Decide → Structure implementation, archaeological voice preservation, systematic intelligence organization",
-    "voice_preservation": "Sacred principle: First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."
-  },
-  
-  "requirements": {
-    "dual_audience_support": {
-      "human_comprehension": "Clear explanation of MDS methodology purpose, phases, and benefits for systematic collaboration",
-      "ai_behavioral_specification": "Precise implementation protocols for Map → Decide → Structure execution with voice preservation"
-    },
-    "methodology_documentation": {
-      "systematic_process": "Complete Map → Decide → Structure workflow with phase-specific protocols and standards",
-      "archaeological_methodology": "Zero interpretation protocol for voice preservation through all phases",
-      "implementation_guidance": "Practical examples and quality standards for MDS method application",
-      "integration_protocols": "FloatPrompt ecosystem coordination and tool creation through MDS methodology"
-    }
-  },
-  
-  "integration": {
-    "floatprompt_ecosystem": "Core methodology implemented in FloatPrompt Operating System for systematic tool creation",
-    "methodology_authority": "Foundational approach for all AI-human collaboration requiring voice preservation and systematic intelligence organization"
-  }
-}
----
-
 # MDS Method: Map → Decide → Structure
 
 **Systematic methodology for AI-human collaboration through archaeological voice preservation**
@@ -154,49 +100,13 @@ Provide systematic framework for AI-human collaboration that preserves human int
 
 **AI Construction Protocols:**
 1. **Universal Template Application** - Follow FloatPrompt architecture standards
-2. **Conditional Complexity Assessment** - Determine simple (90%) vs voice-critical (10%) requirements
-3. **Field Inclusion Logic** - Apply appropriate JSON structure based on purpose
-4. **Technical Formatting Compliance** - Ensure cross-platform compatibility
-
-**Tool Creation Process:**
-```
-Human Requirements → Territory Mapping → Extraction Planning → Structure Building
-        ↓                    ↓                ↓                    ↓
-Natural Language → Conversational Anchors → Voice Preservation → Formatted Tool
-```
-
-**Universal Template Structure:**
-```json
-{
-  "STOP": "Tool purpose and behavioral directive",
-  "meta": { /* Universal metadata with dynamic versioning */ },
-  "human": { /* Intent, context, constraints, preferences */ },
-  "ai": { /* Role, expertise, voice preservation protocol */ },
-  "requirements": { 
-    "dual_audience_support": { /* Human comprehension + AI specification */ },
-    /* Tool-specific capabilities and protocols */
-  },
-  "integration": { /* FloatPrompt ecosystem coordination */ }
-}
-```
-
-### **Structure Building Standards**
-
-**Conditional Complexity Logic:**
-- **Simple Tools** (90%): Core universal fields only
-- **Voice-Critical Tools** (10%): Additional execution, task, domain, source fields
-- **Expansion Protocol**: Any functionality nests within requirements/integration
-
-**Quality Assurance:**
-- Proper `<floatprompt>...</floatprompt>` wrapper tags
-- Template variable processing for dynamic versioning
-- Clean markdown structure following universal guidelines
-- Integration with FloatPrompt OS for archaeological preservation
+2. **Field Inclusion Logic** - Apply appropriate JSON structure based on purpose
+3. **Technical Formatting Compliance** - Ensure cross-platform compatibility
 
 ## **MDS Integration with FloatPrompt System**
 
 ### **Main OS Implementation**
-- **`floatprompt.txt`** implements complete MDS methodology as core behavioral system
+- **`floatprompt-os.txt`** implements complete MDS methodology as core behavioral system
 - **Systematic tool creation** through conversational emergence using MDS process
 - **Universal template distribution** ensuring all tools inherit MDS methodology
 - **Cross-platform deployment** across ChatGPT, Claude, Cursor, all AI systems
@@ -222,7 +132,7 @@ Natural Language → Conversational Anchors → Voice Preservation → Formatted
 - **Quality assurance standards** maintain systematic excellence in tool creation
 
 ### **Production-Ready Methodology**
-- **40KB main OS** implementing complete MDS methodology in optimal size
+- **Main OS** implementing complete MDS methodology in optimal size
 - **Universal template architecture** enabling infinite tool creation potential
 - **Dynamic versioning** ensuring tools maintain current methodology standards
 - **Cross-platform compatibility** verified through systematic testing
@@ -246,10 +156,3 @@ Natural Language → Conversational Anchors → Voice Preservation → Formatted
 - Cross-platform compatibility verified through systematic testing
 - Integration with main OS ensures consistent behavioral specifications
 - Human authority preserved throughout conversational emergence process
-
----
-
-*The invisible OS for AI*
-
-© 2025 ([@MDS](https://mds.is)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-</rewritten_file>

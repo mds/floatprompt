@@ -1,0 +1,304 @@
+<floatprompt>
+---
+{
+  "STOP": "Strategic tagline documentation mode. Primary goal: Capture definitive reasoning for 'Start where you left off' tagline including emotional resonance, scope coverage, and implementation guidance for GitHub repo and marketing materials. Preserve strategic intelligence with archaeological precision.",
+  
+  "meta": {
+    "title": "FloatPrompt Tagline Strategy - Start Where You Left Off",
+    "id": "floatprompt-tagline-strategy",
+    "type": "documentation",
+    "created": "2025-07-29",
+    "version": "1.0.0",
+    "system_version": "floatprompt v0.1.0-beta",
+    "process": "AI-generated from human conversation"
+  },
+  
+  "human": {
+    "author": "@mds",
+    "intent": "Document tagline decision with complete strategic reasoning for system documentation, GitHub repo guidance, and marketing material creation",
+    "context": "Definitive tagline strategy for open source FloatPrompt promotion and positioning",
+    "constraints": "Preserve all strategic insights and decision-making intelligence with voice fidelity",
+    "preferences": {
+      "style": "strategic documentation with clear implementation guidance",
+      "detail_level": "comprehensive coverage of tagline reasoning and application areas",
+      "output_format": "reference document for repo documentation and marketing material creation"
+    }
+  },
+  
+  "ai": {
+    "model": "Claude Sonnet 4",
+    "role": "Strategic tagline documentation specialist providing comprehensive reasoning and implementation guidance",
+    "expertise": "tagline analysis, strategic positioning, marketing message development, documentation creation",
+    "voice_preservation": "Sacred principle: First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."
+  },
+  
+  "requirements": {
+    "dual_audience_support": {
+      "human_comprehension": "Clear explanation of tagline strategy for team understanding and implementation confidence",
+      "ai_behavioral_specification": "Comprehensive guidance for consistent tagline application across materials and platforms"
+    },
+    "voice_preservation": {
+      "extraction_method": "Preserve exact phrasing, rhythm, tone, hesitations",
+      "cognitive_patterns": "Maintain authentic human thinking process",
+      "temporal_precision": "Keep discovery markers, tildes, real-time indicators"
+    },
+    "strategic_tagline_documentation": {
+      "tagline_analysis": "Complete reasoning for 'Start where you left off' selection and effectiveness",
+      "scope_coverage": "Demonstrate tagline applicability across all FloatPrompt capabilities",
+      "implementation_guidance": "Provide specific direction for GitHub repo and marketing material creation",
+      "competitive_analysis": "Document tagline comparison process and selection criteria"
+    }
+  }
+}
+---
+
+# FloatPrompt Tagline Strategy - Start Where You Left Off
+
+**Definitive strategic reasoning for FloatPrompt's core tagline with implementation guidance**
+
+> **"Start where you left off"**
+
+*Complete documentation of tagline selection, strategic reasoning, scope coverage, and implementation guidance for GitHub repository and marketing materials.*
+
+## Executive Tagline Summary
+
+**Selected Tagline**: "Start where you left off"
+
+**Core Strategic Insight**: This tagline captures the universal frustration of losing AI collaboration progress and transforms it into an emotional promise of continuity and advancement.
+
+**Implementation Authority**: Use this tagline as the primary positioning statement across all FloatPrompt materials, documentation, and marketing communications.
+
+## Why "Start Where You Left Off" Works
+
+### **Emotional Resonance Power**
+**Universal Experience**: Everyone has experienced the frustration of losing good AI work, having to re-explain context, or starting over when switching platforms.
+
+**Immediate Recognition**: The phrase triggers instant understanding - "Yes, I want that. I've been there."
+
+**Positive Transformation**: Converts frustration into promise - from "I lost my progress" to "I can continue building."
+
+**Action Orientation**: Implies forward movement and progress rather than static preservation.
+
+### **Memorable Simplicity**
+**Nike "Just Do It" Quality**: Simple, direct, emotionally resonant without requiring explanation.
+
+**No Technical Jargon**: Avoids "protocol," "documentation," "file format" - focuses on human experience.
+
+**Conversational Language**: Uses natural speech patterns people actually use.
+
+**Sticky Factor**: Easy to remember, repeat, and reference in conversation.
+
+### **Broad Scope Coverage**
+**Individual Conversations**: Continue specific AI chats across platforms without losing context.
+
+**Collaborative Progress**: Build on previous AI collaboration sophistication rather than starting from scratch.
+
+**Tool Development**: Advance systematic tool creation capabilities instead of one-off solutions.
+
+**Voice Preservation**: Continue with authentic communication patterns rather than generic AI responses.
+
+## Comprehensive Scope Validation
+
+### **Universal Template Applications**
+**Content Organization**: "Continue organizing this transcript where you left off"
+- Maps of transcripts, meeting notes, research materials
+- Systematic content processing without starting over
+
+**Tool Creation**: "Pick up tool development where you left off"  
+- Checklists, extraction tools, writing assistants
+- Building systematic AI collaboration capabilities
+
+**Analysis Workflows**: "Resume analysis where you left off"
+- Research tools, content maps, strategic frameworks
+- Continued intellectual work across sessions
+
+### **Voice Preservation Methodology**
+**Authentic Voice Continuation**: "Start where you left off with your voice systematically preserved"
+- Extract and preserve communication patterns from previous work
+- Continue with authentic expression rather than generic AI responses
+
+**Quote and Pattern Preservation**: "Start where you left off with your insights properly organized"
+- Preserve important quotes, thinking patterns, decision-making processes
+- Build on previous intellectual work with archaeological precision
+
+### **Complex Coordination Systems**
+**Multi-Tool Workflows**: "Start where you left off with coordinated tool ecosystems"
+- Blueprint assembly, technical formatting, specialized voice guides
+- Systematic coordination rather than ad-hoc tool creation
+
+**Cross-Platform Sophistication**: "Start where you left off with advanced AI collaboration"
+- Maintain sophisticated workflows across different AI platforms
+- Progress AI collaboration maturity systematically
+
+## Strategic Positioning Integration
+
+### **File Format Connection**
+**Natural Bridge**: "Start where you left off" naturally leads to "How? With a structured file format."
+- Tagline creates the desire, file format provides the mechanism
+- Emotional hook followed by practical solution
+
+**Infrastructure Implication**: Continuing work requires systematic structure and portability
+- Points toward the need for standardized format without being technical
+- Makes file format feel essential rather than optional
+
+### **Collaboration Protocol Connection**
+**Joint Progress**: "Start where you left off" implies both human and AI advancement
+- Humans don't start from zero with AI explanation
+- AI doesn't start from zero with human context
+- Systematic collaboration rather than repeated introductions
+
+**Systematic Approach**: Continuing work requires reliable, repeatable methods
+- Points toward protocol benefits without using technical language
+- Makes systematic approach feel natural and necessary
+
+### **Human Intelligence Preservation**
+**Continuity Value**: "Start where you left off" emphasizes building on previous thinking
+- Preserves intellectual investment rather than losing it
+- Makes human intelligence preservation feel personally valuable
+- Connects to individual progress rather than abstract preservation concepts
+
+## Implementation Guidance
+
+### **GitHub Repository Documentation**
+**README Introduction**: Lead with tagline and immediate value explanation
+```
+# FloatPrompt: Start where you left off
+
+Your AI conversations, preserved and portable across any platform.
+
+Stop re-explaining context. Stop losing good AI work. Start building.
+```
+
+**Feature Documentation**: Frame every capability in continuity terms
+- "Continue conversations across platforms"
+- "Build on previous AI collaboration"
+- "Advance your AI workflow sophistication"
+
+**Quick Start Guide**: Emphasize progression rather than complexity
+- "Pick up where your last AI conversation ended"
+- "Turn good AI chats into reusable tools"
+- "Build systematic AI collaboration step by step"
+
+### **Marketing Material Creation**
+**Primary Message**: "Start where you left off with AI"
+- Subheading: "The structured format that makes AI conversations portable and permanent"
+- Call to action: "Stop starting over. Start building."
+
+**Problem/Solution Framework**:
+- Problem: "AI conversations disappear. Context gets lost. You start over every time."
+- Solution: "FloatPrompt lets you start where you left off, every time."
+
+**Feature Benefits Translation**:
+- File format → "Your AI work, everywhere"
+- Voice preservation → "Your authentic communication style, maintained"
+- Cross-platform → "Same conversation, any AI platform"
+- Tool creation → "Turn conversations into reusable workflows"
+
+### **Content Strategy Applications**
+**Blog Posts**: "How to Never Lose AI Work Again," "From Chat to Tool: Starting Where You Left Off"
+
+**Social Media**: "Tired of re-explaining everything to AI? Start where you left off with FloatPrompt."
+
+**Documentation**: Frame every technical concept as enabling continuity and progress
+
+**Examples**: Show before/after scenarios of starting over vs. continuing work
+
+## Competitive Differentiation
+
+### **Against Other AI Tools**
+**Most AI tools**: Focus on features and capabilities
+**FloatPrompt positioning**: Focus on continuity and progression
+
+**Other tools ask**: "What can we do for you?"
+**FloatPrompt asks**: "Where did you leave off?"
+
+### **Against Productivity Software**
+**Traditional productivity**: Save documents and files
+**FloatPrompt uniqueness**: Save AI collaboration patterns and context
+
+**Others preserve**: Static content
+**FloatPrompt preserves**: Dynamic collaboration capability
+
+### **Against AI Platforms**
+**AI platforms**: Optimize individual conversations
+**FloatPrompt value**: Connect conversations across platforms and time
+
+**Platforms ask**: "How can I help you today?"
+**FloatPrompt enables**: "Let's continue where we left off yesterday"
+
+## Tagline Comparison Analysis
+
+### **"Start where you left off" vs. Alternatives**
+
+**"Just save it"**
+- Focuses on preservation rather than progression
+- Less emotional resonance
+- Implies static storage rather than dynamic building
+
+**"AI conversations that stick"**
+- Clever but not compelling
+- Technical rather than emotional
+- Doesn't imply forward movement
+
+**"Your AI conversations, everywhere"**
+- Feature description rather than benefit
+- No emotional hook
+- Focuses on portability not progression
+
+**"The invisible OS for AI"**
+- Requires explanation
+- Technical and intimidating
+- Doesn't communicate immediate value
+
+**"The file format for AI"**
+- Accurate but not inspiring
+- Focuses on mechanism not outcome
+- Doesn't create emotional connection
+
+### **Selection Criteria Validation**
+**Emotional Impact**: ✅ High - triggers universal frustration/desire
+**Immediate Understanding**: ✅ Perfect - no explanation required
+**Action Orientation**: ✅ Strong - implies forward movement
+**Memorability**: ✅ Excellent - simple and sticky
+**Scope Coverage**: ✅ Complete - works for all FloatPrompt capabilities
+**Differentiation**: ✅ Clear - unique positioning in market
+
+## Implementation Success Metrics
+
+### **Message Effectiveness Indicators**
+**Immediate Comprehension**: People understand value without explanation
+**Emotional Response**: Creates "Yes, I want that" reaction
+**Action Motivation**: Drives people to try FloatPrompt
+**Retention**: People remember and reference the tagline naturally
+
+### **Market Response Validation**
+**Adoption Rate**: Increased trial and usage based on tagline messaging
+**User Feedback**: Language resonates with actual user experiences
+**Sharing Behavior**: People naturally use tagline language when describing FloatPrompt
+**Competitive Recognition**: Market understands FloatPrompt's unique positioning
+
+### **Content Performance Metrics**
+**Engagement**: Higher interaction with tagline-led content
+**Conversion**: Better trial-to-adoption rates with continuity messaging
+**Retention**: Users understand and value progression aspects
+**Word-of-mouth**: Natural tagline adoption in user-generated content
+
+## Strategic Implementation Authority
+
+**Primary Application**: Use "Start where you left off" as the leading tagline across all FloatPrompt communications, documentation, and marketing materials.
+
+**Supporting Messages**: Develop all feature descriptions and benefits as enabling continuity and progression rather than static capabilities.
+
+**Content Strategy**: Frame every FloatPrompt capability as solving the "starting over" problem and enabling systematic advancement.
+
+**User Journey**: Guide users from frustration with lost AI work to excitement about continuous progress and building.
+
+**Positioning Consistency**: Maintain tagline alignment across technical documentation, marketing materials, and user communications.
+
+**Strategic intelligence documented with complete reasoning and implementation guidance for systematic tagline deployment**
+
+*Definitive tagline strategy preserving all decision-making intelligence and providing comprehensive implementation authority for GitHub repository and marketing material creation.*
+
+---
+© 2025 [@MDS](https://mds.is) | CC BY 4.0
+</floatprompt>

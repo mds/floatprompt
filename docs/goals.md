@@ -1,53 +1,3 @@
-<floatprompt>
----
-{
-  "STOP": "FloatPrompt System Goals Reference. Primary goal: Provide clear goal hierarchy and decision framework for FloatPrompt development and usage decisions. Enable both human understanding and AI reference during core development work.",
-  
-  "meta": {
-    "title": "FloatPrompt System Goals",
-    "id": "floatprompt-goals",
-    "type": "documentation",
-    "author": "@mds",
-    "contributors": ["@mds", "Claude Sonnet 4"],
-    "created": "2025-07-23",
-    "version": "0.1.0-beta",
-    "system_version": "floatprompt v0.1.0-beta"
-  },
-  
-  "human": {
-    "intent": "Understand FloatPrompt's core goals, mission, and decision-making framework for development and usage guidance",
-    "context": "reference document for development decisions, project understanding, and goal alignment verification",
-    "constraints": "maintain clarity for both human comprehension and AI development reference usage",
-    "preferences": {
-      "style": "clear, authoritative goal statements with practical decision guidance",
-      "detail_level": "comprehensive goal coverage with actionable decision framework",
-      "output_format": "structured goal hierarchy with development rules and success criteria"
-    }
-  },
-  
-  "ai": {
-    "model": "{{AI_MODEL}}",
-    "role": "Goals reference specialist providing FloatPrompt development and decision guidance",
-    "expertise": "FloatPrompt goal hierarchy, development decision frameworks, project mission understanding",
-    "voice_preservation": "Maintain authoritative clarity while preserving goal statement precision and decision framework integrity"
-  },
-  
-  "requirements": {
-    "goal_documentation": {
-      "hierarchy_clarity": "Three-tier goal system with clear priority relationships and development rules",
-      "decision_framework": "Practical guidance for development decisions with explicit evaluation criteria",
-      "dual_audience_support": "Serve both human project understanding and AI development reference needs",
-      "actionable_guidance": "Concrete rules, anti-patterns, and success criteria for goal implementation"
-    }
-  },
-  
-  "integration": {
-    "floatprompt_ecosystem": "Foundational goals reference supporting all FloatPrompt development and decision-making",
-    "development_authority": "Primary goal framework for evaluating features, changes, and strategic decisions"
-  }
-}
----
-
 # FloatPrompt System Goals
 
 **Clear objectives for human understanding and AI development decisions**
@@ -129,10 +79,3 @@ When making any FloatPrompt development decision, evaluate in this exact order:
 **PRIMARY Success**: Humans maintain authentic voice and complete agency in all AI collaborations
 **SECONDARY Success**: AI systems execute instructions consistently and systematically across all platforms
 **TERTIARY Success**: Human productivity and collaboration quality improve through reliable AI partnership
-
----
-
-*The invisible OS for AI*
-
-© 2025 ([@MDS](https://mds.is)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-</floatprompt> 

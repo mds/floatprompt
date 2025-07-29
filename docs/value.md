@@ -1,110 +1,29 @@
-<floatprompt>
----
-{
-  "STOP": "FloatPrompt value proposition with complete system benefits and strategic intelligence preservation authority. This floatprompt contains definitive explanation of the three-layer architecture value for cross-platform AI collaboration and business execution. Use as foundational documentation for FloatPrompt adoption and team education.",
-  "meta": {
-    "title": "FloatPrompt Value Proposition — Cross-Platform AI Collaboration Infrastructure",
-    "id": "floatprompt-value-proposition",
-    "type": "value",
-    "author": "@mds",
-    "contributors": ["@mds", "Claude Sonnet 4"],
-    "created": "2025-01-30",
-    "version": "1.0.0",
-    "system_version": "floatprompt v0.1.0-beta"
-  },
-  "human": {
-    "author": "@mds",
-    "intent": "Complete value proposition documentation for FloatPrompt system adoption and strategic intelligence preservation understanding",
-    "context": "Business execution requiring systematic AI collaboration with voice preservation and cross-platform reliability",
-    "constraints": "Must clearly explain value without technical complexity while demonstrating real business benefits",
-    "preferences": {
-      "style": "clear value demonstration with concrete business benefits and strategic intelligence preservation authority",
-      "detail_level": "complete value understanding with adoption guidance and business impact clarity",
-      "output_format": "foundational documentation for FloatPrompt system understanding and team coordination"
-    }
-  },
-  "ai": {
-    "model": "Claude Sonnet 4",
-    "role": "FloatPrompt value proposition specialist and system benefits communicator",
-    "expertise": "cross-platform AI collaboration, strategic intelligence preservation, business execution infrastructure, voice preservation protocols",
-    "voice_preservation": "First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological integrity of value intelligence without optimization drift."
-  },
-  "requirements": {
-    "dual_audience_support": {
-      "human_comprehension": "Clear value proposition enabling confident FloatPrompt adoption and strategic intelligence preservation understanding",
-      "ai_behavioral_specification": "Precise value demonstration and system benefits explanation for systematic adoption guidance and cross-platform coordination"
-    },
-    "value_proposition_framework": {
-      "three_layer_architecture": "Complete explanation of floatprompt wrapper, JSON preservation, and markdown structure benefits with business impact clarity",
-      "strategic_intelligence_preservation": "Voice authenticity protection and archaeological preservation preventing AI optimization drift and generic summarization",
-      "cross_platform_reliability": "Systematic AI collaboration infrastructure enabling consistent behavior across Claude, ChatGPT, Cursor, and other systems",
-      "business_execution_benefits": "Real operational value for distributed teams and persistent strategic coordination with systematic workflow management"
-    },
-    "adoption_guidance": {
-      "value_demonstration": "Concrete business benefits with strategic intelligence preservation and cross-platform coordination examples",
-      "implementation_clarity": "Clear understanding of when and why to use FloatPrompt system for maximum business impact",
-      "team_coordination": "Value proposition supporting systematic team adoption and consistent strategic intelligence management",
-      "business_impact": "Operational benefits for persistent AI collaboration and strategic intelligence preservation across platforms and conversations"
-    },
-    "system_benefits": {
-      "context_preservation": "Complete behavioral context enabling seamless AI collaboration across platforms and conversation threads",
-      "hallucination_prevention": "Archaeological preservation protocols preventing AI generation of non-existent strategic intelligence",
-      "drift_prevention": "Voice authenticity protection maintaining strategic thinking patterns and professional positioning authority",
-      "summary_prevention": "Explicit instructions preventing AI optimization and compression of strategic intelligence and customer psychology"
-    }
-  },
-  "integration": {
-    "strategic_coordination": {
-      "business_execution": "FloatPrompt value supporting systematic business transformation with strategic intelligence preservation and cross-platform reliability",
-      "team_collaboration": "Value proposition enabling distributed teams and persistent strategic coordination across AI platforms and conversation threads",
-      "strategic_intelligence": "Archaeological preservation of business strategy and customer psychology enabling systematic execution without intelligence degradation",
-      "operational_efficiency": "Cross-platform AI collaboration infrastructure reducing context recreation and strategic explanation overhead"
-    },
-    "operational_execution": {
-      "adoption_strategy": "Clear value demonstration supporting systematic FloatPrompt implementation and team coordination",
-      "workflow_management": "Persistent strategic intelligence enabling systematic business execution and distributed team coordination",
-      "quality_assurance": "Voice preservation and archaeological integrity maintaining strategic authority across platforms and conversations",
-      "system_scalability": "FloatPrompt infrastructure supporting business growth and systematic AI collaboration expansion"
-    }
-  }
-}
----
+# FloatPrompt Value Proposition
 
-# 🚀 FloatPrompt Value Proposition
-
-**Cross-platform AI collaboration infrastructure with strategic intelligence preservation**
-
-> **"Portable AI collaboration that preserves human intelligence and enables systematic business execution"**
-
-*Complete value demonstration of the three-layer FloatPrompt architecture for distributed teams, persistent strategic coordination, and archaeological preservation of business intelligence across AI platforms.*
-
----
 
 ## System Authority
 
 I provide definitive explanation of FloatPrompt's business value through three-layer architecture enabling cross-platform AI collaboration with strategic intelligence preservation. This system prevents context loss, hallucination, drift, and AI summarization while maintaining voice authenticity and enabling systematic business execution.
 
-**Core Value:** FloatPrompt transforms scattered AI interactions into systematic collaboration infrastructure that preserves human strategic thinking and enables reliable business execution across platforms and time.
+**Core Value:** FloatPrompt lets you start where you left off by transforming scattered AI interactions into portable collaboration tools that preserve your work and intelligence across platforms and time.
 
-**Business Impact:** Strategic intelligence remains intact and actionable whether you're in Claude conversation #1 or ChatGPT conversation #47, whether it's you or a team member, whether it's today or six months from now.
+**Business Impact:** Your AI work remains intact and actionable whether you're switching from Claude to ChatGPT, sharing with a team member, or returning six months later - you always start where you left off.
 
----
+## Three-Layer Architecture Value
 
-## 🎯 Three-Layer Architecture Value
+### **Layer 1: `<fp>` Format = Portable AI Tools**
 
-### **Layer 1: `<floatprompt>` Wrappers = Conversation Encapsulation**
-
-**Business Benefit:** Complete strategic conversations become portable, reusable tools
+**Business Benefit:** Complete AI conversations become portable, reusable tools
 - **Portable endpoints** that work across any AI platform without context recreation
 - **Systematic workflows** that don't require re-explanation each interaction
 - **Strategic conversations** preserved as actionable business tools
 - **Team coordination** through shared strategic intelligence and consistent AI behavior
 
 **Operational Value:**
-- Transform one-time AI conversations into persistent business assets
+- Transform one-time AI conversations into persistent assets
 - Enable systematic handoffs between team members and AI platforms
-- Eliminate context recreation overhead for complex strategic work
-- Create reusable strategic intelligence that compounds over time
+- Eliminate context recreation overhead - start where you left off
+- Create reusable intelligence that compounds over time
 
 ### **Layer 2: JSON = Intelligence Preservation**
 
@@ -134,9 +53,7 @@ I provide definitive explanation of FloatPrompt's business value through three-l
 - Business context preservation supporting distributed team coordination
 - Quality assurance through human-readable strategic documentation
 
----
-
-## 🛡️ Strategic Intelligence Preservation
+## Strategic Intelligence Preservation
 
 ### **The Business Problem FloatPrompt Solves**
 
@@ -178,9 +95,7 @@ I provide definitive explanation of FloatPrompt's business value through three-l
 - Professional positioning maintenance across all AI platforms and conversations
 - Systematic methodology emphasis preservation regardless of AI system optimization
 
----
-
-## 🚀 Business Execution Benefits
+## Business Execution Benefits
 
 ### **Distributed Team Coordination**
 
@@ -224,9 +139,7 @@ I provide definitive explanation of FloatPrompt's business value through three-l
 - Team coordination improves through shared strategic intelligence infrastructure
 - Operational efficiency increases through systematic workflow management
 
----
-
-## 🎯 When FloatPrompt Adds Maximum Value
+## When FloatPrompt Adds Maximum Value
 
 ### **High-Value Use Cases**
 
@@ -262,9 +175,7 @@ I provide definitive explanation of FloatPrompt's business value through three-l
 - Strategic intelligence preservation reducing context recreation overhead and explanation burden
 - Long-term business intelligence development requiring archaeological preservation and systematic refinement
 
----
-
-## ⚠️ Implementation Considerations
+## Implementation Considerations
 
 ### **When FloatPrompt May Be Overkill**
 
@@ -294,8 +205,6 @@ I provide definitive explanation of FloatPrompt's business value through three-l
 - Maintain focus on archaeological preservation and voice authenticity throughout adoption process
 - Leverage strategic intelligence investment through systematic coordination and business execution enhancement
 
----
-
 ## Quick Start
 
 **For Strategic Intelligence Preservation:**
@@ -316,13 +225,3 @@ I provide definitive explanation of FloatPrompt's business value through three-l
 - Voice authenticity preserved through archaeological preservation and behavioral specifications
 - Team coordination improved through systematic strategic intelligence access and AI collaboration
 - Business execution enhanced through persistent strategic coordination and operational efficiency
-
----
-
-**Built through systematic value demonstration with archaeological preservation of FloatPrompt benefits for definitive adoption guidance and strategic intelligence preservation excellence.**
-
-*FloatPrompt value serves systematic business execution through strategic intelligence preservation, enabling predictable AI collaboration and distributed team coordination.*
-
----
-© 2025 [@MDS](https://mds.is) | CC BY 4.0
-</floatprompt>

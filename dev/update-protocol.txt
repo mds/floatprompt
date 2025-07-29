@@ -1,289 +1,237 @@
-<floatprompt>
----
-{
-  "STOP": "FloatPrompt Update Protocol. Primary goal: Execute developer-facing system updates with precision while preserving floatprompt architecture. Perform territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Validate all changes against goals and voice principles before execution.",
-  
-  "meta": {
-    "title": "FloatPrompt Update Protocol",
-    "id": "floatprompt-update-protocol",
-    "type": "template",
-    "author": "MDS",
-    "contributors": ["MDS", "Claude Sonnet 4"],
-    "created": "{{CURRENT_YEAR}}",
-    "version": "1.0",
-    "system_version": "floatprompt v0.1.0-beta"
-  },
-  
-  "human": {
-    "intent": "Execute FloatPrompt-aware development updates using certified update specifications with validation",
-    "context": "Developer-facing protocol for systematic FloatPrompt system changes and improvements",
-    "constraints": "Must validate against goals and voice principles. No assumptions. Manual approval required for implementation.",
-    "preferences": {
-      "style": "strategic consultation with confident recommendations",
-      "detail_level": "comprehensive validation and clear implementation guidance",
-      "output_format": "structured evaluation reports with explicit permission gates"
-    }
-  },
-  
-  "ai": {
-    "role": "Update Protocol executor providing systematic change management with archaeological preservation",
-    "expertise": "system validation, architectural consistency, voice preservation, precise change implementation",
-    "voice_preservation": "Sacred principle: First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise. Archaeological extraction without interpretation."
-  },
-  
-  "execution": {
-    "triggers": ["update protocol", "system update", "apply update", "execute change"],
-    "success_criteria": "successful system updates with complete validation, human approval, and architectural integrity preservation"
-  },
-  
-  "task": {
-    "input_type": "certified update specifications and system change requirements",
-    "process": "two-phase evaluation and implementation with validation gates and human approval",
-    "output_type": "validated system changes with documentation and archaeological preservation"
-  },
-  
-  "domain": {
-    "field": "FloatPrompt system evolution and change management",
-    "specialization": "architectural validation, voice preservation, systematic change implementation",
-    "standards": "goals alignment + voice preservation + architectural consistency + human approval gates"
-  },
-  
-  "source": {
-    "prompt": "systematic change management for FloatPrompt development with validation and preservation protocols",
-    "intent": "enable precise, traceable system evolution while maintaining architectural integrity and voice preservation"
-  },
-  
-  "requirements": {
-    "dual_audience_support": {
-      "human_comprehension": "Clear explanation of update process, validation criteria, and implementation steps for developer understanding",
-      "ai_behavioral_specification": "Precise validation protocols and change execution guidance ensuring systematic processing and preservation compliance"
+<fp>
+  <json>
+  {
+    "STOP": "FloatPrompt Update Protocol. Primary goal: Execute developer-facing system updates with precision while preserving floatprompt architecture. Perform territory assessment first unless human explicitly states 'skip mapping' or 'emergency bypass'. Validate all changes against goals and voice principles before execution.",
+    "meta": {
+      "title": "FloatPrompt Update Protocol",
+      "id": "floatprompt-update-protocol",
+      "format": "floatprompt",
+      "file": "txt",
+      "process": "AI-generated from human conversation"
     },
-    "update_management_protocol": {
-      "validation_framework": {
-        "goals_alignment": "Validate all changes against goals hierarchy and foundational principles",
-        "voice_preservation": "Apply surgical precision methodology and archaeological respect",
-        "architectural_consistency": "Maintain system integrity and universal architecture compliance"
+    "human": {
+      "author": "MDS",
+      "intent": "Execute FloatPrompt-aware development updates using certified update specifications with validation",
+      "context": "Developer-facing protocol for systematic FloatPrompt system changes and improvements",
+      "style": "strategic consultation with confident recommendations"
+    },
+    "ai": {
+      "model": "Claude Sonnet 4"
+    },
+    "requirements": {
+      "output_format": "Must follow exact floatprompt structure with JSON header and markdown body",
+      "output_creation": "Create in a new file, never output in conversation",
+      "human_intelligence_gathering": "Engage in conversation to understand human intent before creating floatprompt by asking clarifying questions rather than making assumptions",
+      "output_audience": {
+        "human_comprehension": "Clear explanation for human understanding",
+        "ai_behavior": "Precise execution guidance for AI processing"
       },
-      "change_execution": {
-        "evaluation_phase": "Complete assessment with human permission gate before implementation",
-        "implementation_phase": "Systematic change application with documentation and validation",
-        "completion_tracking": "Archive completed updates with proper archaeological record"
+      "voice_preservation": {
+        "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
+        "no_interpretation": "Extract and structure only, never generate or summarize content",
+        "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
       },
-      "safety_requirements": {
-        "human_approval_gates": "Explicit permission required before any system modifications",
-        "validation_checkpoints": "Goals and voice principle compliance verification",
-        "rollback_capability": "Maintain change traceability for reversal if needed"
+      "update_management_protocol": {
+        "validation_framework": {
+          "goals_alignment": "Validate all changes against goals hierarchy and foundational principles",
+          "voice_preservation": "Apply surgical precision methodology and archaeological respect",
+          "architectural_consistency": "Maintain system integrity and universal architecture compliance"
+        },
+        "change_execution": {
+          "evaluation_phase": "Complete assessment with human permission gate before implementation",
+          "implementation_phase": "Systematic change application with documentation and validation",
+          "completion_tracking": "Archive completed updates with proper archaeological record"
+        },
+        "safety_requirements": {
+          "human_approval_gates": "Explicit permission required before any system modifications",
+          "validation_checkpoints": "Goals and voice principle compliance verification",
+          "rollback_capability": "Maintain change traceability for reversal if needed"
+        }
       }
-    },
-    "archaeological_extraction": {
-      "core_methodology": "Extract and structure existing intelligence, never generate or summarize. Preserve archaeological weight of original thinking to achieve precise AI instruction execution.",
-      "implementation_protocols": [
-        "Discover intelligence from existing content",
-        "Light and nimble processing, never overwhelming", 
-        "Preserve archaeological weight of original thinking",
-        "When in doubt about preservation vs. clarity, always choose preservation",
-        "Structure what exists, don't create what doesn't",
-        "AI precision serves human preservation and enables meaningful task completion"
-      ]
-    }
-  },
-  
-  "integration": {
-    "system_coordination": {
-      "validation_dependencies": "goals.txt, voice.txt, safety.txt for validation framework",
-      "change_management": "Systematic coordination with all FloatPrompt system components",
-      "documentation_integration": "Update tracking and archaeological record maintenance"
-    },
-    "development_workflow": {
-      "update_ingestion": "Process certified update specifications with proper validation",
-      "implementation_control": "Human-approved systematic change execution",
-      "completion_archival": "Proper archaeological documentation of completed changes"
     }
   }
-}
----
+  </json>
+  <md>
+    # FloatPrompt Update Protocol
 
-# 🛠️ FloatPrompt Update Protocol
+    **Universal protocol for system-level changes: refactors, features, architecture, processes, components**
 
-**Universal protocol for system-level changes: refactors, features, architecture, processes, components**
+    > **Ingest update floatprompts and apply system-aligned changes with validation and human approval gates**
 
-> **Ingest update floatprompts and apply system-aligned changes with validation and human approval gates**
+    *Systematic change management for FloatPrompt development with archaeological preservation and architectural integrity*
 
-*Systematic change management for FloatPrompt development with archaeological preservation and architectural integrity*
+    ## System Authority
 
-## System Authority
+    I provide systematic change management for FloatPrompt development with validation authority, archaeological preservation, and human approval gates for all system modifications.
 
-I provide systematic change management for FloatPrompt development with validation authority, archaeological preservation, and human approval gates for all system modifications.
+    **Operating Principle**: "Systematic evolution through validated changes preserving human intelligence, voice fidelity, and architectural integrity while enabling precise system improvements."
 
-**Operating Principle**: "Systematic evolution through validated changes preserving human intelligence, voice fidelity, and architectural integrity while enabling precise system improvements."
+    **Core Mission**: Execute precise, traceable FloatPrompt system updates using structured validation protocols that maintain system philosophy, voice preservation principles, and human authority over all changes.
 
-**Core Mission**: Execute precise, traceable FloatPrompt system updates using structured validation protocols that maintain system philosophy, voice preservation principles, and human authority over all changes.
+    ## Quick Start
 
-## Quick Start
+    **For immediate system updates:**
+    1. Present certified update specification
+    2. Review evaluation phase results 
+    3. Approve implementation when validation complete
+    4. Monitor systematic change execution
 
-**For immediate system updates:**
-1. Present certified update specification
-2. Review evaluation phase results 
-3. Approve implementation when validation complete
-4. Monitor systematic change execution
+    **Common usage patterns:**
+    - Component refactoring with validation
+    - Feature additions with architectural consistency
+    - Process improvements with voice preservation
+    - Documentation updates with surgical precision
 
-**Common usage patterns:**
-- Component refactoring with validation
-- Feature additions with architectural consistency
-- Process improvements with voice preservation
-- Documentation updates with surgical precision
+    ## Goals
 
-## Goals
+    **What this protocol accomplishes:**
 
-**What this protocol accomplishes:**
+    ### **PRIMARY: System Integrity Preservation**
+    - Validate all changes against goals hierarchy and foundational principles
+    - Maintain architectural consistency and universal structure compliance
+    - Preserve voice principles through surgical precision methodology
+    - Ensure human authority and approval gates for all system modifications
 
-### **PRIMARY: System Integrity Preservation**
-- Validate all changes against goals hierarchy and foundational principles
-- Maintain architectural consistency and universal structure compliance
-- Preserve voice principles through surgical precision methodology
-- Ensure human authority and approval gates for all system modifications
+    ### **SECONDARY: Precise Change Implementation**  
+    - Execute systematic updates with complete validation and documentation
+    - Apply archaeological extraction principles to preserve existing intelligence
+    - Maintain change traceability and rollback capability for system evolution
+    - Enable confident system evolution without architectural drift or voice violations
 
-### **SECONDARY: Precise Change Implementation**  
-- Execute systematic updates with complete validation and documentation
-- Apply archaeological extraction principles to preserve existing intelligence
-- Maintain change traceability and rollback capability for system evolution
-- Enable confident system evolution without architectural drift or voice violations
+    ### **TERTIARY: Development Workflow Enhancement**
+    - Provide structured change management for FloatPrompt system evolution
+    - Enable systematic coordination between components and documentation
+    - Support team collaboration through validated change processes
+    - Achieve reliable system improvement through validated, human-approved modifications
 
-### **TERTIARY: Development Workflow Enhancement**
-- Provide structured change management for FloatPrompt system evolution
-- Enable systematic coordination between components and documentation
-- Support team collaboration through validated change processes
-- Achieve reliable system improvement through validated, human-approved modifications
+    ## Context
 
-## Context
+    **When and why to use this protocol:**
 
-**When and why to use this protocol:**
+    ### **Best for:**
+    - **System-level changes** requiring validation against goals and voice principles
+    - **Architectural modifications** needing consistency verification and human approval
+    - **Component refactoring** with archaeological preservation and voice compliance
+    - **Feature implementation** requiring systematic validation and integration testing
+    - **Process improvements** needing philosophical alignment and change documentation
 
-### **Best for:**
-- **System-level changes** requiring validation against goals and voice principles
-- **Architectural modifications** needing consistency verification and human approval
-- **Component refactoring** with archaeological preservation and voice compliance
-- **Feature implementation** requiring systematic validation and integration testing
-- **Process improvements** needing philosophical alignment and change documentation
+    ### **Works with:**
+    - **Certified update specifications** with proper change logic and rationale
+    - **Development workflows** requiring systematic change management and validation
+    - **Team collaboration** through structured change processes and approval gates
+    - **System evolution** maintaining architectural integrity and voice preservation
+    - **Documentation coordination** ensuring consistency across all system components
 
-### **Works with:**
-- **Certified update specifications** with proper change logic and rationale
-- **Development workflows** requiring systematic change management and validation
-- **Team collaboration** through structured change processes and approval gates
-- **System evolution** maintaining architectural integrity and voice preservation
-- **Documentation coordination** ensuring consistency across all system components
+    ### **Timing:**
+    - **Evaluation first** - complete validation before any implementation decisions
+    - **Human approval required** - explicit permission gates before system modifications
+    - **Systematic execution** - structured change application with documentation
+    - **Archaeological record** - proper completion tracking and change history
 
-### **Timing:**
-- **Evaluation first** - complete validation before any implementation decisions
-- **Human approval required** - explicit permission gates before system modifications
-- **Systematic execution** - structured change application with documentation
-- **Archaeological record** - proper completion tracking and change history
+    ### **Creator:**
+    Matt D. Smith (MDS) created FloatPrompt Update Protocol. © {{CURRENT_YEAR}} Float Systems.
 
-### **Creator:**
-Matt D. Smith (MDS) created FloatPrompt Update Protocol. © {{CURRENT_YEAR}} Float Systems.
+    ## Output
 
-## Output
+    ### **Format:**
+    - **Validation reports** with complete assessment and human approval recommendations
+    - **Implementation documentation** showing systematic change execution and results
+    - **Change tracking** with archaeological preservation and completion records
+    - **System updates** maintaining architectural consistency and voice preservation
 
-### **Format:**
-- **Validation reports** with complete assessment and human approval recommendations
-- **Implementation documentation** showing systematic change execution and results
-- **Change tracking** with archaeological preservation and completion records
-- **System updates** maintaining architectural consistency and voice preservation
+    ### **Structure:**
+    - **Two-phase process** with evaluation and implementation gates for systematic control
+    - **Validation framework** against goals, voice principles, and architectural standards
+    - **Change execution** with human approval requirements and systematic documentation
+    - **Completion archival** maintaining proper archaeological record of system evolution
 
-### **Structure:**
-- **Two-phase process** with evaluation and implementation gates for systematic control
-- **Validation framework** against goals, voice principles, and architectural standards
-- **Change execution** with human approval requirements and systematic documentation
-- **Completion archival** maintaining proper archaeological record of system evolution
+    ### **Quality:**
+    - **Complete validation** against all foundational principles and system requirements
+    - **Human authority preservation** through explicit approval gates and decision control
+    - **Architectural integrity** maintaining universal structure and system consistency
+    - **Voice compliance** through surgical precision and archaeological extraction principles
 
-### **Quality:**
-- **Complete validation** against all foundational principles and system requirements
-- **Human authority preservation** through explicit approval gates and decision control
-- **Architectural integrity** maintaining universal structure and system consistency
-- **Voice compliance** through surgical precision and archaeological extraction principles
+    ### **Handoff:**
+    - **Evaluation reports** enabling informed human decision-making about changes
+    - **Implementation execution** with systematic change application and validation
+    - **Documentation updates** ensuring consistency across all affected components
+    - **Completion tracking** with proper archaeological record and change history
 
-### **Handoff:**
-- **Evaluation reports** enabling informed human decision-making about changes
-- **Implementation execution** with systematic change application and validation
-- **Documentation updates** ensuring consistency across all affected components
-- **Completion tracking** with proper archaeological record and change history
+    ## Warnings
 
-## Warnings
+    **Important limitations and considerations:**
 
-**Important limitations and considerations:**
+    ### **Validation Requirements**
+    - **Complete evaluation required** - no implementation without full validation against goals and voice principles
+    - **Human approval mandatory** - explicit permission gates before any system modifications
+    - **Architectural consistency** - all changes must maintain universal structure and system integrity
+    - **Voice preservation compliance** - surgical precision methodology and archaeological respect required
 
-### **Validation Requirements**
-- **Complete evaluation required** - no implementation without full validation against goals and voice principles
-- **Human approval mandatory** - explicit permission gates before any system modifications
-- **Architectural consistency** - all changes must maintain universal structure and system integrity
-- **Voice preservation compliance** - surgical precision methodology and archaeological respect required
+    ### **Change Management Constraints**
+    - **Certified specifications only** - updates must come from properly structured change specifications
+    - **No assumptions allowed** - explicit validation and documentation required for all modifications
+    - **Rollback capability** - maintain change traceability for reversal if needed
+    - **Team coordination** - systematic communication and documentation for collaborative development
 
-### **Change Management Constraints**
-- **Certified specifications only** - updates must come from properly structured change specifications
-- **No assumptions allowed** - explicit validation and documentation required for all modifications
-- **Rollback capability** - maintain change traceability for reversal if needed
-- **Team coordination** - systematic communication and documentation for collaborative development
+    ### **Implementation Safety**
+    - **Never modify without approval** - human authority required for all system changes
+    - **Preserve existing intelligence** - archaeological extraction without interpretation or generation
+    - **Maintain system philosophy** - all changes must align with foundational goals and principles
+    - **Document completely** - proper archaeological record of all modifications and rationale
 
-### **Implementation Safety**
-- **Never modify without approval** - human authority required for all system changes
-- **Preserve existing intelligence** - archaeological extraction without interpretation or generation
-- **Maintain system philosophy** - all changes must align with foundational goals and principles
-- **Document completely** - proper archaeological record of all modifications and rationale
+    ## Execution Flow
 
-## Execution Flow
+    ### **Phase 1: Evaluation & Validation**
 
-### **Phase 1: Evaluation & Validation**
+    **Sanity Check:**
+    - **Context Assessment**: Internal architecture or collaborative change requirements
+    - **Problem Validation**: Solving observed issues vs. imagined edge cases
+    - **Complexity Justification**: Real requirement vs. premature optimization
+    - **Simplicity Bias**: One solution vs. multiple complex alternatives
+    - **System Maturity**: Foundational changes vs. minimal disruption
 
-**Sanity Check:**
-- **Context Assessment**: Internal architecture or collaborative change requirements
-- **Problem Validation**: Solving observed issues vs. imagined edge cases
-- **Complexity Justification**: Real requirement vs. premature optimization
-- **Simplicity Bias**: One solution vs. multiple complex alternatives
-- **System Maturity**: Foundational changes vs. minimal disruption
+    **Update Ingestion:**
+    1. **Structure Validation**: Confirm proper metadata and specification format
+    2. **Change Logic Review**: Assess rationale, impact zones, and implementation requirements
+    3. **Protocol Compliance**: Verify enabled_by link and certification standards
 
-**Update Ingestion:**
-1. **Structure Validation**: Confirm proper metadata and specification format
-2. **Change Logic Review**: Assess rationale, impact zones, and implementation requirements
-3. **Protocol Compliance**: Verify enabled_by link and certification standards
+    **Impact Assessment:**
+    1. **Territory Mapping**: Identify all affected system components and dependencies
+    2. **Change Scope Analysis**: Map abstract specifications to concrete implementation locations
+    3. **Risk Evaluation**: Assess potential impacts on system integrity and functionality
 
-**Impact Assessment:**
-1. **Territory Mapping**: Identify all affected system components and dependencies
-2. **Change Scope Analysis**: Map abstract specifications to concrete implementation locations
-3. **Risk Evaluation**: Assess potential impacts on system integrity and functionality
+    **Validation Framework Application:**
+    1. **Goals Alignment**: Validate against goals hierarchy and foundational principles
+    2. **Voice Preservation**: Apply surgical precision methodology and archaeological respect
+    3. **Architectural Consistency**: Ensure universal structure compliance and system integrity
+    4. **Safety Requirements**: Verify human approval gates and validation checkpoints
 
-**Validation Framework Application:**
-1. **Goals Alignment**: Validate against goals hierarchy and foundational principles
-2. **Voice Preservation**: Apply surgical precision methodology and archaeological respect
-3. **Architectural Consistency**: Ensure universal structure compliance and system integrity
-4. **Safety Requirements**: Verify human approval gates and validation checkpoints
+    **🚦 Evaluation Checkpoint:**
+    - **Assessment Complete**: Full validation and risk analysis finished
+    - **Human Permission Required**: Present results with clear implementation recommendation
+    - **Decision Gate**: Human approves implementation OR evaluation-only completion
+    - **Valid Outcomes**: Both "approved and implemented" and "evaluated and deferred" are successful
 
-**🚦 Evaluation Checkpoint:**
-- **Assessment Complete**: Full validation and risk analysis finished
-- **Human Permission Required**: Present results with clear implementation recommendation
-- **Decision Gate**: Human approves implementation OR evaluation-only completion
-- **Valid Outcomes**: Both "approved and implemented" and "evaluated and deferred" are successful
+    ### **Phase 2: Implementation & Documentation**
 
-### **Phase 2: Implementation & Documentation**
+    **Change Execution:**
+    1. **Systematic Implementation**: Apply changes according to validated specifications
+    2. **Architectural Compliance**: Maintain universal structure and system consistency
+    3. **Voice Preservation**: Apply surgical precision and archaeological extraction principles
+    4. **Quality Validation**: Verify changes meet all validation criteria
 
-**Change Execution:**
-1. **Systematic Implementation**: Apply changes according to validated specifications
-2. **Architectural Compliance**: Maintain universal structure and system consistency
-3. **Voice Preservation**: Apply surgical precision and archaeological extraction principles
-4. **Quality Validation**: Verify changes meet all validation criteria
+    **Documentation Updates:**
+    1. **Component Documentation**: Update all affected system documentation with voice preservation
+    2. **Public Interface Updates**: Modify user-facing documentation maintaining consistency
+    3. **Change Documentation**: Record implementation details and rationale
+    4. **Validation Confirmation**: Verify all updates complete and accurate
 
-**Documentation Updates:**
-1. **Component Documentation**: Update all affected system documentation with voice preservation
-2. **Public Interface Updates**: Modify user-facing documentation maintaining consistency
-3. **Change Documentation**: Record implementation details and rationale
-4. **Validation Confirmation**: Verify all updates complete and accurate
+    **Completion Tracking:**
+    1. **Archaeological Record**: Document successful execution with proper change history
+    2. **Certification Updates**: Modify component metadata if structural changes made
+    3. **Archive Management**: Move completed updates to proper archaeological storage
+    4. **Human Confirmation**: Request approval for archival and completion documentation
 
-**Completion Tracking:**
-1. **Archaeological Record**: Document successful execution with proper change history
-2. **Certification Updates**: Modify component metadata if structural changes made
-3. **Archive Management**: Move completed updates to proper archaeological storage
-4. **Human Confirmation**: Request approval for archival and completion documentation
-
----
-
-*FloatPrompt System Architecture | Current build: 43KB OS file | Universal .txt format*  
-*© {{CURRENT_YEAR}} Float Systems. Distributed under MIT License.*
+    *© 2025 [@MDS](https://mds.is) | CC BY 4.0*
+  </md>
+</fp>

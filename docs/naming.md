@@ -1,57 +1,3 @@
-<floatprompt>
----
-{
-  "STOP": "FloatPrompt Naming Convention Guide. Primary goal: Provide clear naming standards for FloatPrompt system components, files, and brand references. Enable consistent naming across documentation, files, and communications.",
-  
-  "meta": {
-    "title": "FloatPrompt Naming Convention",
-    "id": "floatprompt-naming",
-    "type": "documentation",
-    "author": "@mds",
-    "contributors": ["@mds", "Claude Sonnet 4"],
-    "created": "2025-07-23",
-    "version": "0.1.0-beta",
-    "system_version": "floatprompt v0.1.0-beta"
-  },
-  
-  "human": {
-    "intent": "Understand and apply consistent FloatPrompt naming conventions across all contexts and file types",
-    "context": "reference guide for naming FloatPrompt system components, files, brand references, and documentation",
-    "constraints": "maintain consistency with current .txt adoption strategy and cross-platform compatibility approach",
-    "preferences": {
-      "style": "clear naming rules with practical examples and rationale",
-      "detail_level": "comprehensive coverage of all naming contexts with validation examples",
-      "output_format": "structured naming guide with quick reference tables and validation criteria"
-    }
-  },
-  
-  "ai": {
-    "model": "Claude Sonnet 4",
-    "role": "Naming convention specialist providing FloatPrompt system naming guidance and brand consistency protocols",
-    "expertise": "FloatPrompt naming standards, file naming conventions, brand positioning language, technical terminology",
-    "voice_preservation": "Maintain naming precision while preserving clear explanatory voice for consistent application"
-  },
-  
-  "requirements": {
-    "dual_audience_support": {
-      "human_comprehension": "Clear naming rules with practical examples for consistent brand and file naming application",
-      "ai_behavioral_specification": "Precise naming protocols for systematic FloatPrompt component creation and documentation"
-    },
-    "naming_standards": {
-      "brand_consistency": "Clear FloatPrompt vs floatprompt usage rules across all contexts and applications",
-      "file_conventions": "Current .txt adoption strategy with future .fp evolution path",
-      "technical_terminology": "Consistent language for system architecture and methodology references",
-      "validation_examples": "Correct and incorrect usage examples for practical application guidance"
-    }
-  },
-  
-  "integration": {
-    "floatprompt_ecosystem": "Foundational naming standards supporting all FloatPrompt development and documentation",
-    "naming_authority": "Primary reference for consistent FloatPrompt system component and brand naming"
-  }
-}
----
-
 # FloatPrompt Naming Convention
 
 **Clear naming standards for FloatPrompt system components, files, and brand references**
@@ -119,7 +65,8 @@ Provide systematic naming standards for FloatPrompt components, files, and commu
 ### **Current File Structure**
 ```
 dist/
-├── floatprompt.txt              # 43KB Main System OS
+├── floatprompt.txt              # 2KB Universal template
+├── floatprompt-os.txt           # 36KB Main System OS
 └── lib/
     ├── voice.txt                # Voice preservation specialist
     ├── format.txt               # Technical formatting authority
@@ -127,7 +74,8 @@ dist/
 ```
 
 ### **Naming Conventions**
-- **Main OS**: `floatprompt.txt` (universal system with tool creation authority)
+- **Universal Template**: `floatprompt.txt` (2KB template for individual creation)
+- **Main OS**: `floatprompt-os.txt` (36KB system with tool creation authority)
 - **Library Tools**: `{function}.txt` in `lib/` directory with descriptive function names
 - **Documentation**: `{topic}.txt` for FloatPrompt format or `{topic}.md` for building components
 
@@ -161,7 +109,8 @@ dist/
 - "Library tools like voice.txt provide specialized capabilities."
 
 **File Naming:**
-- `floatprompt.txt` (43KB main system)
+- `floatprompt.txt` (2KB universal template)
+- `floatprompt-os.txt` (36KB main system)
 - `lib/voice.txt` (voice preservation tool)
 - `goals.txt` (documentation in FloatPrompt format)
 - `mds-method.txt` (methodology documentation)
@@ -192,7 +141,8 @@ dist/
 - **Current .txt strategy** for all file references
 
 ### **For File Creation**
-- **Main system**: Always `floatprompt.txt`
+- **Universal template**: Always `floatprompt.txt`
+- **Main system**: Always `floatprompt-os.txt`
 - **Library tools**: Descriptive function names with .txt extension
 - **Documentation**: Topic-based naming with .txt for FloatPrompt format
 - **Cross-platform** compatibility through universal .txt adoption
@@ -202,10 +152,3 @@ dist/
 - **Technical accuracy** reflecting current .txt implementation
 - **Future awareness** acknowledging .fp evolution without premature adoption
 - **Universal accessibility** emphasizing immediate usability across all platforms
-
----
-
-*The invisible OS for AI*
-
-© 2025 ([@MDS](https://mds.is)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-</floatprompt>

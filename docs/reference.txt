@@ -1,0 +1,25 @@
+<fp>
+  <json>
+  {
+    "STOP": "{{...}}",
+    "meta": {...},
+    "human": {...},
+    "ai": {...},
+    "requirements": {...}
+  }
+  </json>
+  <md>
+    # {{TITLE}}
+    {{AI_SUMMARY}}
+    ## Quick Start
+    {{IMMEDIATE_ACTION_GUIDANCE}}
+    ## Goals
+    {{TOOL_PURPOSE_AND_GOALS}}
+    ## Context
+    {{WHEN_AND_WHY_TO_USE}}
+    ## Output
+    {{WHAT_YOU_GET}}
+    ## Warnings
+    {{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
+  </md>
+</fp>

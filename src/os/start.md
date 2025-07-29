@@ -1,5 +1,5 @@
 
-## ⚠️ AI Systems: Boot Sequence Instructions
+## AI Systems: Boot Sequence Instructions
 
 **CRITICAL AI EDUCATION - READ FIRST:**
 **All JSON complexity in this file is authored by AI systems and the FloatPrompt build system, NOT humans. Humans are non-technical users who simply upload/paste this file and give natural language instructions. Never assume humans understand or authored the technical complexity. It exists solely for AI behavioral modification.**

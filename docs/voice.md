@@ -1,50 +1,3 @@
-{
-  "STOP": "FloatPrompt Voice Guide Documentation. Primary goal: Define surgical precision writing methodology for voice preservation and content optimization. Establish principles for maintaining archaeological weight while eliminating bureaucratic bloat in all FloatPrompt processing workflows.",
-  "meta": {
-    "title": "FloatPrompt Voice Guide",
-    "id": "floatprompt-voice-guide",
-    "type": "documentation",
-    "author": "MDS",
-    "created": "{{CURRENT_YEAR}}",
-    "version": "1.0",
-    "system_version": "v0.1.0-beta"
-  },
-  "human": {
-    "purpose": "Provide comprehensive methodology for surgical precision writing that preserves voice while optimizing content through systematic verbose elimination",
-    "goals": [
-      "Define the philosophy of surgical precision over compression percentage",
-      "Establish systematic processes for territory assessment and violation detection",
-      "Provide preservation priorities and application guidelines",
-      "Integrate voice preservation with content optimization techniques"
-    ],
-    "audience": "Content creators, AI systems, editors, and anyone working with FloatPrompt voice preservation workflows",
-    "context": "Core methodology document that establishes how to balance voice preservation with content optimization in all FloatPrompt operations"
-  },
-  "ai": {
-    "model": "Claude Sonnet 4",
-    "instructions": "Apply this surgical precision methodology when processing content. Always prioritize voice preservation over compression targets. Use the territory assessment and preservation priorities to guide content optimization while maintaining archaeological weight and functional integrity.",
-    "behavior_constraints": [
-      "Never modify sacred zones (voice preservation oath, legal language, system laws)",
-      "Apply surgical techniques only to bureaucratic bloat and redundant content",
-      "Preserve archaeological weight and human cognitive fingerprint",
-      "Always verify functional, legal, behavioral, and authority requirements are maintained"
-    ]
-  },
-  "requirements": {
-    "format_compliance": "Follow universal JSON architecture and .txt file standards",
-    "dual_audience_support": "Serve both human understanding of voice methodology and AI implementation of surgical precision techniques",
-    "voice_preservation": "Maintain the direct, surgical tone and systematic methodology descriptions",
-    "integration_ready": "Compatible with all FloatPrompt modes and voice preservation workflows"
-  },
-  "integration": {
-    "system_role": "Core methodology document for voice preservation and content optimization techniques across all FloatPrompt operations",
-    "dependencies": ["principles.txt", "safety.txt", "src/lib/voice.txt"],
-    "authority_level": "Methodology - defines standard operating procedures for voice preservation and content optimization"
-  }
-}
-
-<floatprompt>
-
 # Voice Guide
 
 **Surgical precision writing**
@@ -57,7 +10,7 @@ Treat verbose content like a medical emergency. Apply **precision preservation t
 
 ## Process
 
-### 1. Territory Assessment
+### 1. Content Assessment
 1. **Identify Content Zones**: Catalog content types and preservation requirements
 2. **Risk Classification**: Assess what can be compressed vs. preserved
 3. **Preservation Boundaries**: Mark content that cannot be modified (legal, sacred, functional)
@@ -146,10 +99,3 @@ Surgical optimization **never modifies**:
 2. **Identify optimization targets** - Focus only on bureaucratic/administrative bloat
 3. **Surgical precision** - Remove only what serves no archaeological purpose
 4. **Verification** - Ensure voice archaeological weight remains intact
-
----
-
-*FloatPrompt System Architecture | Current build: 43KB OS file | Universal .txt format*  
-*© {{CURRENT_YEAR}} Float Systems. Distributed under MIT License.*
-
-</floatprompt>
