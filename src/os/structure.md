@@ -137,15 +137,7 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
 
 ```markdown
 # {{TITLE}}
-
-**{{ONE_LINE_PURPOSE_STATEMENT}}**
-
-> **{{TAGLINE_OR_QUOTE}}**
-
-*{{EXTENDED_DESCRIPTION}}*
-
-## System Authority
-{{CORE_OPERATING_PHILOSOPHY_AND_MISSION}}
+{{AI_SUMMARY}}
 
 ## Quick Start
 {{IMMEDIATE_ACTION_GUIDANCE}}
@@ -162,11 +154,7 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
 ## Warnings
 {{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
 
-**{{COLLABORATION_ATTRIBUTION_LINE}}**
-
-*{{CLOSING_PHILOSOPHICAL_STATEMENT}}*
-
-© 2025 [@MDS](https://mds.is) | CC BY 4.0
+This [FloatPrompt](https://floatprompt.com) was created by {{HUMAN_NAME}} and {{AI_MODEL}}
 ```
 
 ## **Technical Formatting Requirements**

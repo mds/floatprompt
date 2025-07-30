@@ -1,0 +1,19 @@
+<fp>
+  <json>
+  {
+    "STOP": "{{...}}",
+    "meta": {...},
+    "human": {...},
+    "ai": {...},
+    "requirements": {...}
+  }
+  </json>
+  <md>
+    # Title
+    ## Quick Start
+    ## Goals
+    ## Context
+    ## Output
+    ## Warnings
+  </md>
+</fp>

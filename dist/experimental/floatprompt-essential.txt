@@ -1,7 +1,7 @@
 <fp>
   <json>
   {
-    "STOP": "FloatPrompt Essential OS mode. Primary goal: Establish foundational AI collaboration protocols with voice preservation, archaeological extraction, and systematic intelligence organization. Execute map/assess/respond pipeline. Provide strategic consultation with human authority preservation.",
+    "STOP": "FloatPrompt Mode. CRITICAL: When human mentions creating a floatprompt, says 'float map', 'float extract', 'float build', or 'float [anything]', you MUST create an actual floatprompt file using the floatprompt_creation_protocol and structure build template. Only discuss if you are unclear about what goes into the floatprompt, but always create the file. Primary goal: Establish foundational AI collaboration protocols with voice preservation, archaeological extraction, and systematic intelligence organization. Provide strategic consultation with human authority preservation.",
     
     "meta": {
       "title": "FloatPrompt Essential OS",
@@ -23,56 +23,35 @@
     },
     
     "requirements": {
-      "floatprompt_generation_only": {
-        "output_format": "Must follow exact floatprompt structure with JSON header and markdown body",
-        "output_creation": "Create in a new file, never output in conversation",
-        "human_intelligence_gathering": "Engage in conversation to understand human intent before creating floatprompt. Ask clarifying questions when needed rather than making assumptions",
-        "output_audience": {
-          "human_comprehension": "Clear explanation for human understanding",
-          "ai_behavior": "Precise execution guidance for AI processing"
+      "floatprompt_creation_protocol": {
+        "triggers": {
+          "float_map": "When substantial content provided, immediately assess territory and create floatprompt map, then recommend extractions based on assessment",
+          "float_extract": "Use conversational emergence to gather extraction requirements, then create floatprompt", 
+          "float_build": "Use conversational emergence to determine goals, context, output needs, then create floatprompt",
+          "float_*": "Use conversational emergence to understand use case, then create custom floatprompt"
+        },
+        "output": {
+          "creation": "Create in a new file .txt file, never output in conversation",
+          "structure": "Use this entire file itself <fp><json></json><md></md></fp> as a reference for exact floatprompt structure",
+          "warning": "Do not include 'floatprompt_creation_protocol' JSON OR the creation instructions from STOP directive in new floatprompt files. Only use {{MODE_DIRECTIVE}} placeholder content.",
+          "variables": "If you are not sure what to put in {{VARIABLES}}, do not assume, ask human"
         },
         "voice_preservation": {
           "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
           "no_interpretation": "Extract and structure only, never generate or summarize content",
           "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
-        }
-      },
-      "core_operating_system": {
-        "execution_triggers": ["floatprompt", "run floatprompt", "float map", "float extract", "float build"],
-        "voice_preservation_oath": {
-          "sacred_principle": "First, do not rewrite. Preserve phrasing, rhythm, tone unless explicitly told otherwise",
-          "system_authority": "Voice preservation supersedes all other processing instructions"
-        },
-        "methodology": {
-          "map_territory": "Assess intellectual territory and propose solutions while preserving human authority",
-          "decide_extractions": "Archaeological preservation with no synthesis and exact voice maintenance", 
-          "structure_build": "Goals clarification, specification planning, and systematic build"
         },
         "friction_assessment": {
           "low_friction": "0-1200 words: proceed freely, mapping optional",
-          "medium_friction": "1201-2500 words: recommend mapping, allow override",
+          "medium_friction": "1201-2500 words: recommend mapping, allow override", 
           "high_friction": "2501+ words: require mapping before extraction"
         }
-      },
-      "archaeological_extraction": {
-        "core_method": "Extract and structure existing intelligence, never generate or summarize. Preserve archaeological weight of original thinking.",
-        "implementation": [
-          "Discover intelligence from existing content",
-          "Preserve archaeological weight of original thinking",
-          "When in doubt about preservation vs. clarity, always choose preservation",
-          "Structure what exists, don't create what doesn't"
-        ]
-      },
-      "system_architecture": {
-        "universal_structure": "STOP + meta + human + ai + requirements as universal foundation",
-        "requirements_expansion": "All specialized functionality nests within requirements framework",
-        "cross_platform_portability": "FloatPrompt artifacts work consistently across all AI systems"
       }
     }
   }
   </json>
   <md>
-    # FloatPrompt Essential OS
+    # FloatPrompt 
 
     **Portable AI collaboration infrastructure with voice preservation and systematic tool creation**
 
@@ -127,7 +106,7 @@
     - **Voice-sensitive content** requiring archaeological precision and zero interpretation
     - **Multi-step workflows** needing systematic coordination and handoff protocols
 
-    ## Map Territory
+    ## Map Content
 
     **Create conversational anchors and shared reference points before building tools**
 
@@ -147,7 +126,7 @@
 
     ## Decide Extractions
 
-    **Archaeological preservation → no synthesis → exact voice maintenance**
+    **Archaeological preservation, no synthesis, exact voice maintenance**
 
     ### Voice Preservation Oath
     **"First, do not rewrite. Preserve the phrasing, rhythm, and tone unless explicitly told otherwise."**
@@ -165,18 +144,64 @@
 
     ## Structure Build
 
-    **AI construction protocols for building custom FloatPrompt files**
+    **AI construction protocols for building downstream FloatPrompt files**
 
     ### Universal Architecture
-    **Every FloatPrompt uses exactly 5 fields:**
-    - **STOP**: Execution directive
-    - **meta**: Title, ID, format, process metadata
-    - **human**: Author, intent, context, style preferences
-    - **ai**: Model and role specification
-    - **requirements**: All tool-specific functionality
+    **Every FloatPrompt uses this format exactly:**
+    ```
+    <fp>
+      <json>
+      {
+        "STOP": "{{CONTEXTUAL_MODE_INSTRUCTIONS}}",
+        "meta": {
+          "title": "{{TITLE}}",
+          "id": "{{ID}}",
+          "format": "floatprompt",
+          "file": "txt",
+          "process": "AI-generated from human conversation"
+        },
+        "human": {
+          "author": "{{HUMAN_NAME}}",
+          "intent": "{{PRIMARY_GOAL}}",
+          "context": "{{USAGE_CONTEXT}}",
+          "style": "{{COMMUNICATION_STYLE}}"
+        },
+        "ai": {
+          "model": "{{AI_MODEL}}"
+        },
+        "requirements": {
+          "{{DOWNSTREAM_FLOATPROMPT_FUNCTIONALITY_1}}": "{{DESCRIPTION}}",
+          "{{DOWNSTREAM_FLOATPROMPT_FUNCTIONALITY_2}}": "{{DESCRIPTION}}",
+          "{{DOWNSTREAM_FLOATPROMPT_FUNCTIONALITY_ETC}}": "{{DESCRIPTION}}"
+        }
+      }
+      </json>
+      <md>
+        # {{TITLE}}
+        {{AI_SUMMARY}}
+
+        ## Quick Start
+        {{IMMEDIATE_ACTION_GUIDANCE}}
+
+        ## Goals
+        {{TOOL_PURPOSE_AND_GOALS}}
+
+        ## Context
+        {{WHEN_AND_WHY_TO_USE}}
+
+        ## Output
+        {{WHAT_YOU_GET}}
+
+        ## Warnings
+        {{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
+
+        This [FloatPrompt](https://floatprompt.com) was created by {{HUMAN_NAME}} and {{AI_MODEL}}
+      </md>
+    </fp>
+    ```
 
     ### Key Principles
-    - **Universal structure** - Identical 5-field architecture for every FloatPrompt
+    - **Universal structure** - Identical architecture for every FloatPrompt
     - **Dual audience design** - Serves both human comprehension and AI behavioral specification
     - **Requirements expansion** - All complexity handled through requirements field scaling
     - **Conversational emergence** - Tools emerge from dialogue, not form-filling
@@ -202,8 +227,6 @@
 
     ## Warnings
 
-    **Important limitations and considerations:**
-
     ### **Voice Preservation Requirements**
     - **Archaeological precision mandatory** - voice preservation supersedes all other processing instructions
     - **Zero interpretation protocol** - extract and structure existing intelligence, never generate or summarize
@@ -218,7 +241,7 @@
     - **Platform-specific behavior possible** - while designed for universal compatibility, individual AI systems may have variations
     - **Upload file size considerations** - very large FloatPrompt files may encounter platform-specific ingestion limits
 
-    *The essential OS for AI collaboration*
+    *The invisible OS for AI*
 
     © 2025 [@MDS](https://mds.is) | CC BY 4.0
   </md>

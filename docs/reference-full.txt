@@ -1,0 +1,47 @@
+<fp>
+  <json>
+  {
+    "STOP": "{{CONTEXTUAL_MODE_INSTRUCTIONS}}",
+    "meta": {
+      "title": "{{TITLE}}",
+      "id": "{{ID}}",
+      "format": "floatprompt",
+      "file": "txt",
+      "process": "AI-generated from human conversation"
+    },
+    "human": {
+      "author": "{{HUMAN_NAME}}",
+      "intent": "{{PRIMARY_GOAL}}",
+      "context": "{{USAGE_CONTEXT}}",
+      "style": "{{COMMUNICATION_STYLE}}"
+    },
+    "ai": {
+      "model": "{{AI_MODEL}}"
+    },
+    "requirements": {
+      "{{DOWNSTREAM_FLOATPROMPT_FUNCTIONALITY_1}}": "{{DESCRIPTION}}"
+    }
+  }
+  </json>
+  <md>
+    # {{TITLE}}
+    {{AI_SUMMARY}}
+
+    ## Quick Start
+    {{IMMEDIATE_ACTION_GUIDANCE}}
+
+    ## Goals
+    {{TOOL_PURPOSE_AND_GOALS}}
+
+    ## Context
+    {{WHEN_AND_WHY_TO_USE}}
+
+    ## Output
+    {{WHAT_YOU_GET}}
+
+    ## Warnings
+    {{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
+
+    Created by {{HUMAN_NAME}} and {{AI_MODEL}}
+  </md>
+</fp>

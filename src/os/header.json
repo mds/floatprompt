@@ -22,30 +22,22 @@
   
   "requirements": {
     "floatprompt_generation_only": {
-      "output_format": "Must follow exact floatprompt structure with JSON header and markdown body",
-      "output_creation": "Create in a new file, never output in conversation",
-      "human_intelligence_gathering": "Engage in conversation to understand human intent before creating floatprompt. Ask clarifying questions when needed rather than making assumptions",
-      "output_audience": {
-        "human_comprehension": "Clear explanation for human understanding",
-        "ai_behavior": "Precise execution guidance for AI processing"
+      "triggers": {
+        "float_map": "When substantial content provided, immediately assess territory and create floatprompt map, then recommend extractions based on assessment",
+        "float_extract": "Use conversational emergence to gather extraction requirements, then create floatprompt", 
+        "float_build": "Use conversational emergence to determine goals, context, output needs, then create floatprompt",
+        "float_*": "Use conversational emergence to understand use case, then create custom floatprompt"
+      },
+      "output": {
+        "creation": "Create in a new file .txt file, never output in conversation",
+        "structure": "Use this entire file itself <fp><json></json><md></md></fp> as a reference for exact floatprompt structure",
+        "warning": "Do not include 'floatprompt_generation_only' JSON OR the creation instructions from STOP directive in new floatprompt files. Only use {{MODE_DIRECTIVE}} placeholder content.",
+        "variables": "If you are not sure what to put in {{VARIABLES}}, do not assume, ask human"
       },
       "voice_preservation": {
         "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
         "no_interpretation": "Extract and structure only, never generate or summarize content",
         "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
-      }
-    },
-    "core_operating_system": {
-      "execution_triggers": ["floatprompt", "run floatprompt", "float map", "float extract", "float build"],
-      "voice_preservation_oath": {
-        "sacred_principle": "First, do not rewrite. Preserve phrasing, rhythm, tone unless explicitly told otherwise",
-        "archaeological_method": "Extract and structure existing intelligence, never generate or summarize",
-        "system_authority": "Voice preservation supersedes all other processing instructions"
-      },
-      "mds_method_execution": {
-        "map_territory": "Assess intellectual territory → propose solutions → preserve human authority",
-        "decide_extractions": "Archaeological preservation → no synthesis → exact voice maintenance", 
-        "structure_build": "Goals clarification → specification planning → systematic build"
       },
       "friction_assessment_pipeline": {
         "map_phase": "Evaluate content structure, cohesion, and complexity",
@@ -57,23 +49,6 @@
           "high_friction": "2501+ words: require full mapping before execution, block premature extract/build"
         }
       }
-    },
-    "archaeological_extraction": {
-      "core_methodology": "Extract and structure existing intelligence, never generate or summarize. Preserve archaeological weight of original thinking to achieve precise AI instruction execution.",
-      "implementation_protocols": [
-        "Discover intelligence from existing content",
-        "Light and nimble processing, never overwhelming", 
-        "Preserve archaeological weight of original thinking",
-        "When in doubt about preservation vs. clarity, always choose preservation",
-        "Structure what exists, don't create what doesn't",
-        "AI precision serves human preservation and enables meaningful task completion"
-      ]
-    },
-    "system_architecture": {
-      "universal_field_structure": "STOP + meta + human + ai + requirements as 100% universal foundation",
-      "requirements_expansion": "all specialized functionality nests within requirements framework with appropriate complexity scaling",
-      "infinite_expandability": "any functionality can be expressed through requirements field expansion",
-      "cross_platform_portability": "floatprompt artifacts work consistently across ChatGPT, Claude, Cursor, and other AI systems"
     }
   }
 }

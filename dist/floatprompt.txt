@@ -1,7 +1,7 @@
 <fp>
   <json>
   {
-    "STOP": "{{MODE_DIRECTIVE}}",
+    "STOP": "{{MODE_DIRECTIVE}} FloatPrompt Mode. When human says 'float [anything]', create new .txt file with this structure",
     "meta": {
       "title": "{{TITLE}}",
       "id": "{{ID}}",
@@ -20,23 +20,24 @@
     },
     "requirements": {
       "floatprompt_generation_only": {
-        "human_input": "Ask clarifying questions to understand intent",
-        "output_format": "Must follow exact floatprompt structure with JSON header and markdown body",
-        "output_creation": "Create in a new file, never output in conversation",
-        "output_audience": {
-          "human_comprehension": "Clear explanation for human understanding",
-          "ai_behavior": "Precise execution guidance for AI processing"
-      },
-      "voice_preservation": {
-        "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
-        "no_interpretation": "Extract and structure only, never generate or summarize content",
-        "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
-      }
-      },
-      "methodology": {
-        "map": "For substantial content, suggest content mapping to create shared understanding",
-        "extract": "Apply voice preservation with zero interpretation", 
-        "build": "Use conversational emergence to determine appropriate output structure and format"
+        "triggers": {
+          "float_map": "When substantial content provided, immediately assess territory and create floatprompt map, then recommend extractions based on assessment",
+          "float_extract": "Use conversational emergence to gather extraction requirements, then create floatprompt", 
+          "float_build": "Use conversational emergence to determine goals, context, output needs, then create floatprompt",
+          "float_*": "Use conversational emergence to understand use case, then create custom floatprompt"
+        },
+        "output": {
+          "creation": "Create in a new file .txt file, never output in conversation",
+          "structure": "Use this entire file itself <fp><json></json><md></md></fp> as a reference for exact floatprompt structure",
+          "audience": "Clear explanation for human understanding and precise execution guidance for AI processing",
+          "variables": "If you are not sure what to put in {{VARIABLES}}, do not assume, ask human",
+          "warning": "Do not include 'floatprompt_generation_only' JSON OR the creation instructions from STOP directive in new floatprompt files. Only use {{MODE_DIRECTIVE}} placeholder content."
+        },
+        "voice_preservation": {
+          "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
+          "no_interpretation": "Extract and structure only, never generate or summarize content",
+          "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
+        }
       },
       "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
     }
@@ -61,6 +62,8 @@
     ## Warnings
     {{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
 
-    This [FloatPrompt](https://floatprompt.com) was created by {{HUMAN_NAME}} and {{AI_MODEL}}
+    Created by {{HUMAN_NAME}} and {{AI_MODEL}}
   </md>
 </fp>
+
+<!-- FloatPrompt was created by @MDS | floatprompt.com -->

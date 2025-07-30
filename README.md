@@ -18,6 +18,20 @@ AI conversations disappear and with them, the work, insights, and tools that eme
 
 ## The Solution
 
+```
+<fp> Wrapper
+Structure, portability, and consistency. Provides a standard format that AI systems can recognize and process consistently across different platforms. Creates clear boundaries for floatprompt content.
+
+<json> Section
+AI behavioral context and systematic instructions. Gives AI explicit rules about how to behave, what to preserve, when to ask questions, and how to handle different trigger commands. More precise than natural language instructions.
+
+<md> Section
+Human readability and structured AI guidance. Uses markdown hierarchy (headings, sections) to organize information that both humans can easily read/modify and AI can systematically process. Explains what the tool does, when to use it, and what to expect.
+
+Together:
+A dual-native format. Humans can read and understand it, AI gets systematic behavioral instructions, and it works the same way across different AI platforms. The wrapper ensures recognition, JSON provides AI precision, markdown enables human comprehension and AI guidance.
+```
+
 - **Cross-platform continuity** - Same collaboration sophistication, any AI platform
 - **Voice preservation** - Your authentic communication style, maintained
 - **Progressive building** - Conversations that become tools, workflows, and systematic intelligence

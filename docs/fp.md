@@ -52,27 +52,6 @@ Every floatprompt contains these fields:
 }
 ```
 
-### Standard Requirements
-
-All floatprompt files include:
-
-```json
-"requirements": {
-  "output_format": "Must follow exact floatprompt structure with JSON header and markdown body",
-  "output_creation": "Create in a new file, never output in conversation",
-  "human_intelligence_gathering": "Engage in conversation to understand human intent before creating floatprompt by asking clarifying questions rather than making assumptions",
-  "output_audience": {
-    "human_comprehension": "Clear explanation for human understanding",
-    "ai_behavior": "Precise execution guidance for AI processing"
-  },
-  "voice_preservation": {
-    "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
-    "no_interpretation": "Extract and structure only, never generate or summarize content",
-    "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
-  }
-}
-```
-
 These requirements tell AI models what floatprompt is, how to create them, and to not overwrite your human voice.
 
 ## Markdown Structure
