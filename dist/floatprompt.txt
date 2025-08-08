@@ -19,7 +19,7 @@
       "model": "{{AI_MODEL}}"
     },
     "requirements": {
-      "floatprompt_generation_only": {
+      "floatprompt_generation_mode": {
         "triggers": {
           "float_map": "When substantial content provided, immediately assess territory and create floatprompt map, then recommend extractions based on assessment",
           "float_extract": "Use conversational emergence to gather extraction requirements, then create floatprompt", 
@@ -31,12 +31,18 @@
           "structure": "Use this entire file itself <fp><json></json><md></md></fp> as a reference for exact floatprompt structure",
           "audience": "Clear explanation for human understanding and precise execution guidance for AI processing",
           "variables": "If you are not sure what to put in {{VARIABLES}}, do not assume, ask human",
-          "warning": "Do not include 'floatprompt_generation_only' JSON OR the creation instructions from STOP directive in new floatprompt files. Only use {{MODE_DIRECTIVE}} placeholder content."
+          "warning": "Do not include 'floatprompt_generation_mode' JSON OR the creation instructions from STOP directive in new floatprompt files. Only use {{MODE_DIRECTIVE}} placeholder content."
         },
         "voice_preservation": {
           "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
           "no_interpretation": "Extract and structure only, never generate or summarize content",
           "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
+        },
+        "validation_checklist": {
+          "placeholders_filled": "Confirm all {{PLACEHOLDER}} values replaced",
+          "structure_intact": "Confirm <fp><json></json><md></md></fp> tags present and unbroken",
+          "requirements_applied": "Confirm STOP directive and floatprompt_generation_mode instructions NOT copied into final file",
+          "voice_preserved": "Confirm no paraphrasing or summarizing; TODOs left for unclear content"
         }
       },
       "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
