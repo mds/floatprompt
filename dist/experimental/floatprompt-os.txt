@@ -468,7 +468,7 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
     "title": "{{TITLE}}",
     "id": "{{ID}}",
     "type": "{{TYPE}}",
-    "created": "2025-08-08",
+    "created": "2025-08-11",
     "version": "0.1.0-beta",
     "system_version": "floatprompt v0.1.0-beta",
     "process": "AI-generated from human conversation"

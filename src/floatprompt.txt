@@ -72,4 +72,4 @@
   </md>
 </fp>
 
-<!-- FloatPrompt was created by @MDS | floatprompt.com -->
+<!-- @MDS | floatprompt.com -->
