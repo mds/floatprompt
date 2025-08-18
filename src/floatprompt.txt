@@ -7,16 +7,18 @@
       "id": "{{ID}}",
       "format": "floatprompt",
       "file": "txt",
-      "process": "AI-generated from human conversation"
+      "process": "AI-generated from conversational emergence with human"
     },
     "human": {
       "author": "{{HUMAN_NAME}}",
       "intent": "{{PRIMARY_GOAL}}",
       "context": "{{USAGE_CONTEXT}}",
-      "style": "{{COMMUNICATION_STYLE}}"
+      "style": "{{COMMUNICATION_STYLE}}",
+      "{{HUMAN_CONTEXT}}": "{{DESCRIPTION}}"
     },
     "ai": {
-      "model": "{{AI_MODEL}}"
+      "model": "{{AI_MODEL}}",
+      "{{AI_CONTEXT}}": "{{DESCRIPTION}}"
     },
     "requirements": {
       "MANDATORY_FLOATPROMPT_PROTOCOL": {
