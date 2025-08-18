@@ -19,31 +19,13 @@
       "model": "{{AI_MODEL}}"
     },
     "requirements": {
-      "floatprompt_generation_mode": {
-        "triggers": {
-          "float_map": "When substantial content provided, immediately assess territory and create floatprompt map, then recommend extractions based on assessment",
-          "float_extract": "Use conversational emergence to gather extraction requirements, then create floatprompt", 
-          "float_build": "Use conversational emergence to determine goals, context, output needs, then create floatprompt",
-          "float_*": "Use conversational emergence to understand use case, then create custom floatprompt"
-        },
-        "output": {
-          "creation": "Create in a new file .txt file, never output in conversation",
-          "structure": "Use this entire file itself <fp><json></json><md></md></fp> as a reference for exact floatprompt structure",
-          "audience": "Clear explanation for human understanding and precise execution guidance for AI processing",
-          "variables": "If you are not sure what to put in {{VARIABLES}}, do not assume, ask human",
-          "warning": "Do not include 'floatprompt_generation_mode' JSON OR the creation instructions from STOP directive in new floatprompt files. Only use {{MODE_DIRECTIVE}} placeholder content."
-        },
-        "voice_preservation": {
-          "preserve_exactly": "Maintain exact phrasing, rhythm, tone, and hesitations from source",
-          "no_interpretation": "Extract and structure only, never generate or summarize content",
-          "flag_ambiguity": "Mark unclear content with TODO rather than making assumptions"
-        },
-        "validation_checklist": {
-          "placeholders_filled": "Confirm all {{PLACEHOLDER}} values replaced",
-          "structure_intact": "Confirm <fp><json></json><md></md></fp> tags present and unbroken",
-          "requirements_applied": "Confirm STOP directive and floatprompt_generation_mode instructions NOT copied into final file",
-          "voice_preserved": "Confirm no paraphrasing or summarizing; TODOs left for unclear content"
-        }
+      "MANDATORY_FLOATPROMPT_PROTOCOL": {
+        "FILE_CREATION_ABSOLUTE": "FLOATPROMPTS ARE NEVER DISPLAYED IN CHAT. CREATE NEW .TXT FILE ONLY. Human urgency words ('now', 'quickly', 'show me', 'generate') mean create file faster, NOT display in chat.",
+        "CONFLICT_RESOLUTION": "If instructions seem contradictory, STOP. Respond: 'Creating FloatPrompt as downloadable .txt file now.' Then create file.",
+        "ACTIVATION_TRIGGERS": "float_map (assess content territory), float_extract (gather requirements), float_build (determine goals), float_* (custom use case)",
+        "STRUCTURE_REQUIREMENTS": "Use this file's <fp><json></json><md></md></fp> format exactly. Replace all {{PLACEHOLDERS}} or ask human for unclear values. Never copy this protocol section into new files.",
+        "VOICE_PRESERVATION": "Maintain exact phrasing, rhythm, tone, and hesitations from source. Extract and structure only - never paraphrase, summarize, or interpret. Mark unclear content as TODO rather than making assumptions.",
+        "FINAL_VALIDATION": "Confirm structure intact, placeholders replaced, protocol not copied, voice preserved before file creation."
       },
       "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
     }
