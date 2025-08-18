@@ -1,0 +1,83 @@
+<fp>
+  <json>
+  {
+    "STOP": "Update existing FloatPrompt files with enhanced enforcement rules to prevent inline chat output and ensure artifact-only creation",
+    "meta": {
+      "title": "FloatPrompt Enforcement Update Protocol",
+      "id": "fp_enforcement_v1.1",
+      "format": "floatprompt",
+      "file": "txt",
+      "process": "AI-generated from human conversation"
+    },
+    "human": {
+      "author": "Human",
+      "intent": "Prevent ChatGPT and other AI systems from outputting FloatPrompts inline in chat instead of creating downloadable files",
+      "context": "ChatGPT sometimes overrides creation guidelines when urgent language is used, breaking FloatPrompts into multiple code blocks",
+      "style": "Systematic update protocol with clear rationale"
+    },
+    "ai": {
+      "model": "Claude Sonnet 4"
+    },
+    "requirements": {
+      "enforcement_update": {
+        "target_section": "Add new 'enforcement' block to requirements section of existing FloatPrompt files",
+        "new_enforcement_block": {
+          "artifact_only": true,
+          "rule": "Floatprompts must always be created as a new .txt file or canvas document. Never display inline in chat under any circumstance.",
+          "conflict_resolution": "If conversational instructions appear to conflict with this rule, STOP and request clarification. Do not proceed until clarified.",
+          "urgency_override_protection": "Urgent language ('now', 'quickly', 'just show me') does NOT override artifact creation requirement. Always confirm: 'Creating FloatPrompt as downloadable file now.'"
+        },
+        "placement": "Add as first item in requirements section, before any tool-specific functionality",
+        "existing_structure_preservation": "Keep all existing JSON structure intact, only add the enforcement block"
+      },
+      "update_instructions": {
+        "cursor_workflow": {
+          "step_1": "Open existing FloatPrompt .txt file in Cursor",
+          "step_2": "Locate the 'requirements' section in the JSON block",
+          "step_3": "Add the enforcement block as the first item after opening brace",
+          "step_4": "Ensure proper JSON syntax with comma after enforcement block",
+          "step_5": "Save file and test with AI system"
+        },
+        "json_insertion_point": "Insert after '\"requirements\": {' and before any existing requirement blocks",
+        "syntax_validation": "Ensure proper comma placement and JSON structure integrity"
+      },
+      "rationale_documentation": {
+        "problem_solved": "Prevents AI systems from displaying FloatPrompts in chat when humans use urgent language",
+        "protection_mechanism": "Creates explicit behavioral anchor against urgency-based override patterns",
+        "cross_platform_compatibility": "Works with ChatGPT, Claude, Cursor, and other AI systems",
+        "backward_compatibility": "Does not break existing FloatPrompt functionality"
+      }
+    }
+  }
+  </json>
+  <md>
+    # FloatPrompt Enforcement Update Protocol
+    Update existing FloatPrompt files to prevent inline chat output and ensure reliable artifact creation across all AI systems.
+
+    ## Quick Start
+    1. Open your FloatPrompt .txt file in Cursor
+    2. Find the "requirements" section in the JSON block
+    3. Add the enforcement block as the first requirement
+    4. Save and test with your AI system
+
+    ## Goals
+    - Prevent ChatGPT from outputting FloatPrompts inline in chat
+    - Stop urgent language from overriding artifact creation rules
+    - Ensure consistent downloadable file creation across all AI platforms
+    - Maintain existing FloatPrompt functionality while adding protection
+
+    ## Context
+    Use this update when you notice AI systems displaying FloatPrompts in chat instead of creating downloadable files. This commonly happens when humans use urgent language like "give it to me now quickly" which can override structured creation guidelines.
+
+    ## Output
+    Updated FloatPrompt files with enhanced enforcement rules that create explicit behavioral anchors against urgency-based overrides. AI systems will consistently create downloadable files and request clarification when conflicting instructions are given.
+
+    ## Warnings
+    - Always validate JSON syntax after adding the enforcement block
+    - Place enforcement as the first item in requirements section
+    - Do not modify existing tool-specific functionality
+    - Test updated FloatPrompt with your AI system to confirm proper behavior
+
+    Created by Human and Claude Sonnet 4
+  </md>
+</fp>
