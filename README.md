@@ -38,13 +38,13 @@ A dual-native format. Humans can read and understand it, AI gets systematic beha
 - **Context preservation** - Never lose good AI work again
 
 **Core System:**
-- **`floatprompt.txt`** (2KB) - Universal template for creating portable AI tools
-- **`floatprompt-os.txt`** (36KB) - Complete operating system with Map → Decide → Structure methodology
+- **`floatprompt.txt`** (3KB) - Complete AI collaboration system with creation protocol, voice preservation, and natural language triggers
 
-**Specialized Tools:**
-- **`lib/blueprint.txt`** - Assembly specification and reconstruction (16KB)
-- **`lib/format.txt`** - Technical formatting and document creation (14KB)  
-- **`lib/voice.txt`** - Voice preservation and pattern extraction (12KB)
+**Natural Language Activation:**
+- **"float map"** - Immediate content territory assessment and floatprompt creation
+- **"float extract"** - Voice preservation extraction with conversational requirements gathering  
+- **"float build"** - Systematic tool creation through collaborative dialogue
+- **"float [anything]"** - Custom floatprompt creation for any specific use case
 
 **Your floatprompt files** enable:
 - Continue AI collaboration across platforms without losing progress
@@ -54,51 +54,58 @@ A dual-native format. Humans can read and understand it, AI gets systematic beha
 
 ## Quick Start
 
-**1: Start simple**
-Download [`floatprompt.txt`](dist/floatprompt.txt) - Universal template for creating your first portable AI tool
+**Upload and activate:**
+Download [`floatprompt.txt`](floatprompt.txt) and upload to any AI system (ChatGPT, Claude, Cursor, etc.)
 
-**2: Go full hard-core voice preservation mode**  
-Download [`floatprompt-os.txt`](dist/floatprompt-os.txt) - Complete OS with strong voice preservation protocols, embedded methodology, and tool creation features
+**Natural language triggers:**
+- Say **"float map"** with content → AI immediately creates mapping floatprompt
+- Say **"float extract"** → AI creates extraction tool through conversation
+- Say **"float build [anything]"** → AI creates custom floatprompt for your use case
 
-**3. Work with specialized tools or create your own**
-Browse [`lib/`](dist/lib/) - Voice guide creation, formatting, and assembly tools
+**Result:** Custom floatprompt files that preserve your work, voice, and collaboration context across any AI platform.
 
 
 ## How It Works
 
-1. **Upload** a floatprompt file to any AI platform
-2. **Have a conversation** about your specific need or project
-3. **Create a structured floatprompt** of your valuable session
-4. **Save it for future sessions** on any platform 
+1. **Upload** `floatprompt.txt` to any AI platform
+2. **Say "float [anything]"** to trigger custom floatprompt creation
+3. **Collaborate** through conversation to define your specific needs
+4. **Receive** a structured floatprompt file tailored to your use case
+5. **Reuse** across any AI platform with consistent behavior 
 
 → [Technical details](docs/fp.md) | [Methodology](docs/mds-method.md)
 
-### **Progression Over Repetition**
-- **Continue building** rather than starting over
-- **Advance sophistication** rather than repeat explanations
-- **Preserve progress** rather than lose context
-- **Enable growth** rather than platform lock-in
+### **Human+AI Collaboration Model**
+- **Joint execution** through conversational collaboration with shared context
+- **Strategic framework application** to your specific situation  
+- **Collaborative assistant** approach vs. autonomous software execution
+- **Voice preservation** protocols maintain your authentic thinking patterns
 
 ### **Your Intelligence, Preserved**
 - **Archaeological precision** - Exact voice patterns and thinking processes maintained
 - **Zero interpretation** - Your intelligence, not AI's interpretation of it
 - **Cross-platform reliability** - Same results on ChatGPT, Claude, Cursor, any AI
-- **Emergent continuity** - Tools and workflows that develop through conversation, preserved
+- **Self-referential system** - Template teaches AI how to create more floatprompts
 
 → [Goals](docs/goals.md) | [Principles](docs/principles.md) | [Safety](docs/safety.md)
 
 ## Architecture
 
-**Production-Ready System** *(Version 0.1.0-beta)*
+**Simplified Single-File System** *(Version 0.1.0-beta)*
 
-- **Universal template architecture** with `<fp>` + `<json>` + `<md>` structure
-- **Cross-platform compatibility** verified across major AI systems  
-- **Dynamic versioning** with automated build system
-- **Clean modular structure** enabling sustainable development
+- **Complete system in one file** - `floatprompt.txt` contains everything needed
+- **Dual architecture** - JSON for AI behavior, markdown for human comprehension  
+- **Self-referential template** - Teaches AI how to create more floatprompts
+- **Natural language triggers** - "float [anything]" activation system
+- **Cross-platform compatibility** - Works identically across all AI systems
+
+**Legacy/Experimental:**
+- **`experimental/`** directory contains archived build system and previous OS versions
+- **Preserved for reference** - Complex tooling available for advanced use cases
 
 **System Features:**
-- **Conversational emergence** - Tools and workflows develop through dialogue, preserved systematically
-- **Archaeological voice preservation** - Your authentic patterns and intelligence, maintained
+- **Conversational emergence** - Tools develop through dialogue, preserved systematically
+- **Archaeological voice preservation** - Your authentic patterns and intelligence, maintained  
 - **Universal compatibility** - Works on every AI platform without installation
 - **Progressive sophistication** - Build advanced collaboration capabilities that persist
 

@@ -25,10 +25,10 @@ Provide systematic naming standards for FloatPrompt components, files, and commu
 
 | **File Type** | **Extension** | **Example** |
 |---------------|---------------|-------------|
-| **Main System OS** | `.txt` | `floatprompt.txt` |
-| **Specialized Library Tools** | `.txt` | `voice.txt`, `format.txt`, `blueprint.txt` |
-| **Documentation** | `.txt` | `goals.txt`, `mds-method.txt` |
-| **Building Blocks** | `.md` | `header.json`, `map.md`, `decide.md` |
+| **Main System Template** | `.txt` | `floatprompt.txt` |
+| **Legacy/Experimental** | `.txt` | `experimental/floatprompt-os.txt` |
+| **Documentation** | `.md` | `fp.md`, `orientation.md`, `goals.md` |
+| **Reference Files** | `.txt` | `reference-micro.txt`, `reference-mini.txt` |
 
 ### **File Extension Rationale**
 
@@ -64,35 +64,39 @@ Provide systematic naming standards for FloatPrompt components, files, and commu
 
 ### **Current File Structure**
 ```
-dist/
-├── floatprompt.txt              # 2KB Universal template
-├── floatprompt-os.txt           # 36KB Main System OS
-└── lib/
-    ├── voice.txt                # Voice preservation specialist
-    ├── format.txt               # Technical formatting authority
-    └── blueprint.txt            # Assembly specification generator
+floatprompt/
+├── floatprompt.txt              # 3KB Universal template and complete system
+├── docs/                        # Documentation in markdown
+├── artifacts/                   # Historical development artifacts
+├── dev/                         # Development files
+└── experimental/                # Archived legacy system
+    ├── src/                     # Old source files  
+    ├── dist/                    # Old distribution
+    ├── scripts/                 # Build system
+    └── package.json             # Build dependencies
 ```
 
 ### **Naming Conventions**
-- **Universal Template**: `floatprompt.txt` (2KB template for individual creation)
-- **Main OS**: `floatprompt-os.txt` (36KB system with tool creation authority)
-- **Library Tools**: `{function}.txt` in `lib/` directory with descriptive function names
-- **Documentation**: `{topic}.txt` for FloatPrompt format or `{topic}.md` for building components
+- **Main Template**: `floatprompt.txt` (3KB complete system with creation protocol)
+- **Documentation**: `{topic}.md` for system documentation
+- **Reference Files**: `reference-{type}.txt` for structure examples
+- **Legacy System**: `experimental/` directory contains archived build system and OS versions
 
 ## **Brand Positioning Language**
 
 ### **Primary Positioning**
-- **"The invisible OS for AI"** - Core brand identity and value proposition
-- **"Systematic tool creation"** - Key capability description
+- **"Complete AI collaboration system in one file"** - Core value proposition
+- **"Conversational emergence"** - Natural tool creation through dialogue
+- **"Human+AI collaboration model"** - Partnership approach vs. autonomous execution
 - **"Archaeological voice preservation"** - Unique methodology advantage
 - **"Cross-platform compatibility"** - Universal deployment capability
 
 ### **Technical Terminology**
-- **"Map → Decide → Structure"** - Core MDS methodology
-- **"Universal architecture"** - System foundation approach
-- **"Conditional complexity"** - 90% simple, 10% voice-critical scaling
-- **"Conversational emergence"** - Tool development methodology
-- **"Dual audience design"** - Human comprehension + AI behavioral specification
+- **"Float triggers"** - Natural language activation ("float map", "float extract", "float build", "float [anything]")
+- **"Dual architecture"** - JSON for AI behavior, markdown for human comprehension
+- **"Self-referential template"** - Template that teaches AI how to create more floatprompts
+- **"Conversational emergence"** - Tool development through collaborative dialogue
+- **"Voice preservation protocols"** - Systematic protection of human thinking patterns
 
 ## **Validation Examples**
 
@@ -104,16 +108,15 @@ dist/
 - "FloatPrompt files maintain voice preservation throughout processing."
 
 **Technical References:**
-- "Upload the floatprompt.txt file to activate systematic collaboration."
-- "The main floatprompt.txt contains the complete operating system."
-- "Library tools like voice.txt provide specialized capabilities."
+- "Upload the floatprompt.txt file to activate the collaboration system."
+- "Say 'float map' to create a content mapping floatprompt."
+- "The floatprompt.txt contains the complete creation protocol."
 
 **File Naming:**
-- `floatprompt.txt` (2KB universal template)
-- `floatprompt-os.txt` (36KB main system)
-- `lib/voice.txt` (voice preservation tool)
-- `goals.txt` (documentation in FloatPrompt format)
-- `mds-method.txt` (methodology documentation)
+- `floatprompt.txt` (3KB complete system)
+- `docs/fp.md` (format specification)
+- `docs/reference-micro.txt` (minimal structure example)
+- `experimental/floatprompt-os.txt` (legacy OS version)
 
 ### **❌ Incorrect Usage**
 
@@ -129,8 +132,8 @@ dist/
 
 **File Naming:**
 - `FloatPrompt.txt` (wrong capitalization)
-- `floatprompt.fp.txt` (outdated extension strategy)
-- `voice.fp.txt` (current standard is .txt)
+- `floatprompt.fp` (current standard is .txt)
+- `floatprompt-template.txt` (main file is just floatprompt.txt)
 
 ## **Implementation Guidelines**
 
@@ -141,10 +144,9 @@ dist/
 - **Current .txt strategy** for all file references
 
 ### **For File Creation**
-- **Universal template**: Always `floatprompt.txt`
-- **Main system**: Always `floatprompt-os.txt`
-- **Library tools**: Descriptive function names with .txt extension
-- **Documentation**: Topic-based naming with .txt for FloatPrompt format
+- **Main system**: Always `floatprompt.txt`
+- **Documentation**: Topic-based naming with .md extension
+- **Reference files**: `reference-{type}.txt` format
 - **Cross-platform** compatibility through universal .txt adoption
 
 ### **For Communications**
