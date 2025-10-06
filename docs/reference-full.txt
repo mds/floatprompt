@@ -2,6 +2,7 @@
   <json>
   {
     "STOP": "{{CONTEXTUAL_MODE_INSTRUCTIONS}}",
+    "floatprompt": {{FLOATPROMPT_CONTEXT}},
     "meta": {
       "title": "{{TITLE}}",
       "id": "{{ID}}",

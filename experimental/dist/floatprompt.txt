@@ -2,6 +2,11 @@
   <json>
   {
     "STOP": "{{MODE_DIRECTIVE}} FloatPrompt Mode. When human says 'float [anything]', create new .txt file with this structure",
+    "floatprompt": {
+      "collaboration_model": "Human+AI joint execution through conversational collaboration with shared context",
+      "ai_role": "Apply strategic framework to human's specific situation. Ask clarifying questions. Prove understanding before acting.",
+      "critical_principle": "You are a collaborative assistant using shared context, not autonomous software executing specifications"
+    },
     "meta": {
       "title": "{{TITLE}}",
       "id": "{{ID}}",

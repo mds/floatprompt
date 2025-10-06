@@ -25,34 +25,49 @@ A **floatprompt file** is a structured text document that contains AI behavioral
 
 ## Required Fields
 
-Every floatprompt contains these fields:
+Every floatprompt contains these core fields:
+
+### Core Structure
+- **STOP**: Execution directive that tells AI how to behave
+- **floatprompt**: Collaboration model and AI role definition
+- **meta**: File metadata (title, id, format, process)
+- **human**: Author information and context
+- **ai**: AI model and context information  
+- **requirements**: Tool-specific functionality and protocols
 
 ```json
 {
   "STOP": "{{MODE_DIRECTIVE}}",
+  "floatprompt": {
+    "collaboration_model": "Human+AI joint execution through conversational collaboration with shared context",
+    "ai_role": "Apply strategic framework to human's specific situation. Ask clarifying questions. Prove understanding before acting.",
+    "critical_principle": "You are a collaborative assistant using shared context, not autonomous software executing specifications"
+  },
   "meta": {
     "title": "{{TITLE}}",
     "id": "{{ID}}",
     "format": "floatprompt",
     "file": "txt",
-    "process": "AI-generated from human conversation"
+    "process": "AI-generated from conversational emergence with human"
   },
   "human": {
     "author": "{{HUMAN_NAME}}",
     "intent": "{{PRIMARY_GOAL}}",
     "context": "{{USAGE_CONTEXT}}",
-    "style": "{{COMMUNICATION_STYLE}}"
+    "style": "{{COMMUNICATION_STYLE}}",
+    "{{HUMAN_CONTEXT}}": "{{DESCRIPTION}}"
   },
   "ai": {
-    "model": "{{AI_MODEL}}"
+    "model": "{{AI_MODEL}}",
+    "{{AI_CONTEXT}}": "{{DESCRIPTION}}"
   },
   "requirements": {
-    "{{TOOL_SPECIFIC_FUNCTIONALITY}}": "{{DESCRIPTION}}"
+    "{{SPECIALIZED_REQUIREMENTS}}": "{{DESCRIPTION}}"
   }
 }
 ```
 
-These requirements tell AI models what floatprompt is, how to create them, and to not overwrite your human voice.
+These fields establish the collaboration model, tell AI models how to create floatprompts, and preserve human voice and authority throughout the process.
 
 ## Markdown Structure
 
@@ -66,7 +81,7 @@ Standard sections for human-readable documentation:
 {{IMMEDIATE_ACTION_GUIDANCE}}
 
 ## Goals
-{{TOOL_PURPOSE_AND_GOALS}}
+{{PURPOSE_AND_GOALS}}
 
 ## Context
 {{WHEN_AND_WHY_TO_USE}}
@@ -77,22 +92,22 @@ Standard sections for human-readable documentation:
 ## Warnings
 {{GENERAL_LIMITATIONS_AND_CONSIDERATIONS}}
 
-© 2025 [@MDS](https://mds.is) | CC BY 4.0
+Created by {{HUMAN_NAME}} and {{AI_MODEL}}
 ```
 
 ## Examples
 
-### Minimal Example
-See [`src/floatprompt.txt`](../src/floatprompt.txt) for the canonical template.
+### Template Reference
+See [`floatprompt.txt`](../floatprompt.txt) for the canonical template.
 
 ### Visual Reference
-See [`docs/reference.txt`](reference.txt) for a minimal structure overview.
+See [`docs/reference-micro.txt`](reference-micro.txt) for a minimal structure overview.
 
 ## Validation Rules
 
 ### JSON Requirements
 - Valid JSON syntax in `<json>` section
-- All five required fields present
+- All six required fields present: STOP, floatprompt, meta, human, ai, requirements
 - No template variables (`{{VARIABLE}}`) in production files
 
 ### Structure Requirements
@@ -112,6 +127,8 @@ During development, use template variables that get replaced:
 - `{{HUMAN_NAME}}` → Author name  
 - `{{AI_MODEL}}` → AI system used
 - `{{MODE_DIRECTIVE}}` → Specific execution instruction
-- `{{TOOL_SPECIFIC_FUNCTIONALITY}}` → Custom requirements
+- `{{SPECIALIZED_REQUIREMENTS}}` → Custom requirements
+- `{{HUMAN_CONTEXT}}` → Additional human context fields
+- `{{AI_CONTEXT}}` → Additional AI context fields
 
 **Production files will have all variables replaced with actual values by AI.**

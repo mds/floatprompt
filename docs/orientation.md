@@ -10,42 +10,48 @@
 
 **Immediate Action:**
 
-1. **Upload `floatprompt-os.txt`** to any AI system → activate systematic collaboration
-2. **Describe your need** in natural language → tools emerge through conversation  
-3. **Experience enhanced collaboration** with voice preservation and consistency
+1. **Upload `floatprompt.txt`** to any AI system → activate floatprompt creation mode
+2. **Say "float [anything]"** → AI creates custom collaboration tools through conversation  
+3. **Experience enhanced collaboration** with voice preservation and systematic intelligence
 
 **Universal Compatibility:** Works immediately across ChatGPT, Claude, Cursor, and all AI systems without installation.
 
 ## System Architecture
 
-### **Two Main Files:**
+### **Main Template:**
 
-**`floatprompt.txt` (2KB)** - Universal template for creating individual floatprompt files
-- Clean template with variables for quick tool creation
-- Perfect for single-purpose AI collaboration tools
+**`floatprompt.txt` (3KB)** - Universal template and system definition
+- Complete floatprompt creation protocol with collaboration model
+- Self-referential template that teaches AI how to create new floatprompts
+- Comprehensive system context and voice preservation protocols
+- Natural language triggers: "float map", "float extract", "float build", "float [anything]"
 
-**`floatprompt-os.txt` (36KB)** - Complete operating system for advanced collaboration
-- Full Map → Decide → Structure methodology
-- Archaeological voice preservation protocols
-- Systematic tool creation authority
-
-### **Library Tools:**
-**`lib/voice.txt`** - Voice preservation specialist  
-**`lib/format.txt`** - Technical formatting authority  
-**`lib/blueprint.txt`** - Assembly specification generator
+### **Legacy/Experimental:**
+**`experimental/`** - Archive of previous build system and OS versions
+- Contains the original complex build system and floatprompt-os.txt
+- Preserved for reference and advanced use cases
 
 ## Core Concepts
+
+### **Human+AI Collaboration Model**
+**Core Principle:** "You are a collaborative assistant using shared context, not autonomous software executing specifications."
+
+FloatPrompt establishes systematic human-AI partnership through:
+- **Joint execution** through conversational collaboration
+- **Strategic framework application** to human's specific situation
+- **Clarifying questions** and proving understanding before acting
 
 ### **Archaeological Voice Preservation**
 **Sacred Principle:** "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise."
 
 FloatPrompt maintains your authentic thinking patterns, communication style, and voice across all AI interactions.
 
-### **Map → Decide → Structure Methodology**
-**Systematic three-phase process:**
-1. **Map Territory** - Establish shared understanding
-2. **Decide Extractions** - Archaeological preservation of intelligence  
-3. **Structure Build** - Systematic tool creation
+### **Conversational Emergence**
+**Natural tool creation through dialogue:**
+- **"float map"** - Immediate content territory assessment
+- **"float extract"** - Voice preservation with conversational requirements gathering
+- **"float build"** - Systematic tool creation through collaborative dialogue
+- **"float [anything]"** - Custom floatprompt creation for any use case
 
 ### **Cross-Platform Portability**
 **Context travels with content** - Upload the same file to any AI system and maintain identical functionality and understanding.
@@ -85,4 +91,4 @@ For basic, one-time AI interactions, standard prompting may be more appropriate.
 - **[Format Specification](fp.md)** - Technical file format details
 - **[MDS Methodology](mds-method.md)** - Complete collaboration methodology
 
-**Start Simple:** Upload `floatprompt-os.txt` to your preferred AI system and describe what you need. The system will guide you through tool creation and enhanced collaboration naturally.
+**Start Simple:** Upload `floatprompt.txt` to your preferred AI system and say "float [anything]" to create custom collaboration tools. The system will guide you through enhanced AI partnership naturally.
