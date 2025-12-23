@@ -1,101 +1,75 @@
-# Voice Guide
+# Voice Preservation
 
-**Surgical precision writing**
+When floatprompts process human content, they preserve how people actually think and communicate.
 
-## Philosophy
+## The Problem
 
-Treat verbose content like a medical emergency. Apply **precision preservation through systematic verbose elimination** and remove bureaucratic bloat while maintaining functional integrity.
+AI defaults to rewriting everything into generic, polished output. Your messy-but-authentic notes become corporate-speak. Your distinctive phrasing gets smoothed into forgettable prose. Em dashes everywhere.
 
-**"Surgical precision over compression percentage"** - Preserve archaeological weight and functional capability over word count targets.
+The result sounds like AI wrote it—because AI did rewrite it.
 
-## Process
+## The Solution
 
-### 1. Content Assessment
-1. **Identify Content Zones**: Catalog content types and preservation requirements
-2. **Risk Classification**: Assess what can be compressed vs. preserved
-3. **Preservation Boundaries**: Mark content that cannot be modified (legal, sacred, functional)
-4. **Compression Targets**: Establish goals based on content sensitivity
+Floatprompts can specify voice preservation rules that maintain authentic expression:
 
-### 2. Violation Detection
-**Common Violations:**
-- Redundant explanations
-- Bureaucratic elaboration
-- Parenthetical bloat
-- Verbose headers
-- Implementation redundancy
-- Cross-reference verbosity
+```json
+{
+  "requirements": {
+    "voice_preservation": {
+      "preserve": "Their phrasing, rhythm, tone, and personality",
+      "avoid": "Corporate speak, AI-optimized language, over-polishing",
+      "principle": "Mirror their voice. Light editing for grammar only."
+    }
+  }
+}
+```
 
-### 3. Surgical Techniques
-- **Redundant Content Elimination**: Remove repeated information
-- **Parenthetical Compression**: Eliminate verbose examples and clarifications
-- **Header Streamlining**: Direct, functional headers
-- **Implementation Detail Compression**: Preserve function, compress explanation
-- **Cross-Reference Simplification**: Include essential information directly
+## What to Preserve
 
-### 4. Preservation Verification
-1. **Functional Requirements**: All operational capabilities preserved
-2. **Legal Requirements**: All legal compliance maintained
-3. **Behavioral Requirements**: All specifications preserved
-4. **Authority Requirements**: All system authority preserved
+**Phrasing** — The specific words they choose, not synonyms you prefer
 
-## Preservation Priorities
+**Rhythm** — Short sentences. Long ones too. The pattern matters.
 
-**Sacred Zones (NO MODIFICATION)**
-- Voice Preservation Oath sacred principle language
-- Legal attribution and licensing language
-- System laws controlling execution
-- Emergency protocols and critical authority
+**Tone** — Casual, formal, sarcastic, earnest—whatever they actually sound like
 
-**High Preservation (MINIMAL MODIFICATION)**
-- Functional specifications and core operations
-- Behavioral logic and decision-making patterns
-- Validation requirements and compliance logic
-- Authority structures and enforcement mechanisms
+**Hesitations** — "I think maybe..." is different from "Definitely..."
 
-**Moderate Preservation (CAREFUL COMPRESSION)**
-- Implementation details and how-to specifications
-- Format requirements and metadata specifications
-- Classification systems and categorization logic
+**Quirks** — The unusual phrasings that make their voice distinctive
 
-**Compression-Safe (AGGRESSIVE OPTIMIZATION)**
-- Verbose explanations of obvious concepts
-- Bureaucratic formatting and administrative language
-- Cross-reference redundancy and verbose pointers
-- Implementation examples that can be simplified
+## What to Avoid
 
-## Application
+**Generic rewriting** — "Utilize" instead of "use," "leverage" instead of... anything
 
-**When to Apply:**
-- Content exceeds optimal length
-- Bureaucratic language obscures functionality
-- Redundant explanations create overhead
-- Verbose descriptions slow comprehension
+**Em dash addiction** — The telltale sign of AI-polished content
 
-**When NOT to Apply:**
-- Legal language requiring exact preservation
-- Sacred or ceremonial text with spiritual authority
-- Behavioral specifications controlling execution
-- Authority structures defining system power
+**Corporate smoothing** — Turning authentic expression into professional-sounding nothing
 
-## Voice Preservation Integration
+**Over-optimization** — Making it "better" in ways that erase personality
 
-Surgical optimization **serves** voice preservation by targeting:
-- Redundant administrative language
-- Bureaucratic elaboration
-- Verbose cross-references
-- Implementation redundancy
+**Synthesizing** — Creating new phrasing that sounds like them but isn't
 
-Surgical optimization **never modifies**:
-- Sacred principle language
-- Legal compliance text
-- Core behavioral specifications
-- System authority declarations
+## Implementation
 
-## Balance
+**For coaches and writers:**
+```json
+"voice_preservation": {
+  "principle": "Mirror the human's voice. Light editing for grammar and flow only.",
+  "avoid": "Corporate speak, AI-optimized language, over-polishing",
+  "preserve": "Their phrasing, energy, and authentic expression"
+}
+```
 
-**When content needs both voice preservation AND surgical optimization:**
+**For extractors:**
+```json
+"voice_preservation": {
+  "principle": "Extract exactly what they said. No paraphrasing.",
+  "preserve": "Original phrasing, hesitations, contradictions",
+  "flag": "Unclear content marked as TODO rather than interpreted"
+}
+```
 
-1. **Apply voice preservation first** - Respect original phrasing, rhythm, tone
-2. **Identify optimization targets** - Focus only on bureaucratic/administrative bloat
-3. **Surgical precision** - Remove only what serves no archaeological purpose
-4. **Verification** - Ensure voice archaeological weight remains intact
+## The Test
+
+Read the output aloud. Does it sound like the person who created the input? Or does it sound like AI wrote it?
+
+If it sounds like AI, voice preservation failed.
