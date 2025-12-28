@@ -14,7 +14,7 @@ Historical archive and active specifications for FloatPrompt evolution.
 | File | Purpose |
 |------|---------|
 | **floatprompt-vision-2025-12-28.md** | Vision document — FloatPrompt as invisible OS for AI |
-| **floatsystem-specification.md** | _system.md boot loader format |
+| **floatsystem-specification.md** | _float/system.md boot loader format |
 | **floatstructure-specification.md** | Root OS architecture, pilot principle |
 | **floatdoc-specification.md** | YAML frontmatter format for documents |
 | **floatlog-specification.md** | Session logging format |
@@ -35,7 +35,7 @@ Historical archive and active specifications for FloatPrompt evolution.
 - Then individual specs as needed
 
 **For historical context:**
-- See `2025/_float.md` for comprehensive TOC of 113 historical files
+- See `2025/_float/index.md` for comprehensive TOC of 113 historical files
 - Organized by category: specifications, breakthroughs, manifestos, etc.
 
 ## Note

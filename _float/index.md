@@ -19,11 +19,18 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 
 ## Contents
 
+### FloatSystem (`_float/`)
+
+| File | Purpose |
+|------|---------|
+| **_float/system.md** | Boot loader — read first for full project awareness |
+| **_float/index.md** | This file — root navigation |
+| **_float/logs/** | Session logs (activity history) |
+
 ### Root Files
 
 | File | Purpose |
 |------|---------|
-| **_system.md** | Boot loader — read first for full project awareness |
 | **floatprompt.txt** | The template (3KB) — creates more floatprompts |
 | **floatprompt-os.txt** | The full system (35KB) — guided tool creation |
 | **README.md** | Public-facing documentation |
@@ -37,7 +44,6 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 | **dev/** | Development tools and update protocols |
 | **experimental/** | Build system (Node.js, legacy) |
 | **artifacts/** | Historical archive (113+ files documenting evolution) |
-| **sessions/** | Activity history and session logs |
 
 ---
 
@@ -45,14 +51,19 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 
 ```
 floatprompt/
-├── _system.md          # Boot loader (read first)
-├── _float.md                 # This file
+├── _float/                  # FloatSystem container
+│   ├── system.md            # Boot loader (read first)
+│   ├── index.md             # This file
+│   └── logs/                # Session logs
+│       └── YYYY-MM-DD.md
+│
 ├── floatprompt.txt          # The template (3KB)
 ├── floatprompt-os.txt       # The full system (35KB)
 ├── README.md                # Public-facing documentation
 │
 ├── docs/                    # Core documentation
-│   ├── _float.md             # Folder navigation
+│   ├── _float/
+│   │   └── index.md         # Folder navigation
 │   ├── fp.md                # File format specification
 │   ├── mds-method.md        # MDS methodology (Map → Decide → Structure)
 │   ├── use.md               # What you can build
@@ -61,44 +72,42 @@ floatprompt/
 │   ├── voice.md             # Voice preservation rules
 │   ├── safety.md            # Safety guidelines
 │   ├── philosophy/          # Background thinking
-│   │   ├── _float.md
-│   │   ├── context.md       # Context engineering philosophy
-│   │   ├── discovery.md     # How floatprompt was discovered
-│   │   ├── manifesto.md     # Core manifesto
-│   │   ├── naming.md        # Naming conventions
-│   │   ├── orientation.md   # Orientation guide
-│   │   └── value.md         # Value proposition
+│   │   ├── _float/
+│   │   │   └── index.md
+│   │   └── [philosophy docs]
 │   └── reference/           # Template references
-│       ├── _float.md
-│       ├── reference-full.txt
-│       ├── reference-mini.txt
-│       └── reference-micro.txt
+│       ├── _float/
+│       │   └── index.md
+│       └── [reference files]
 │
 ├── context/                 # Onboarding
-│   ├── _float.md
+│   ├── _float/
+│   │   └── index.md
 │   └── floatprompt-context.txt
 │
 ├── dev/                     # Development tools
-│   ├── _float.md
+│   ├── _float/
+│   │   └── index.md
 │   ├── update-creator.txt
 │   ├── update-protocol.txt
 │   └── updates/
+│       └── _float/
+│           └── index.md
 │
 ├── experimental/            # Build system (Node.js)
-│   ├── _float.md
+│   ├── _float/
+│   │   └── index.md
 │   ├── src/
 │   ├── dist/
 │   ├── scripts/
 │   └── package.json
 │
-├── sessions/                # Activity history
-│   ├── _float.md
-│   └── [session logs]
-│
 └── artifacts/               # Historical archive
-    ├── _float.md
+    ├── _float/
+    │   └── index.md
     └── 2025/                # 113+ files
-        └── _float.md
+        └── _float/
+            └── index.md
 ```
 
 ---
@@ -252,7 +261,7 @@ npm run build-all    # Build everything
 
 ## Key Files to Read First
 
-1. **_system.md** — Boot loader (this repo's behavioral protocol)
+1. **_float/system.md** — Boot loader (this repo's behavioral protocol)
 2. **floatprompt.txt** — The template itself
 3. **docs/fp.md** — File format specification
 4. **docs/mds-method.md** — The methodology
@@ -260,7 +269,7 @@ npm run build-all    # Build everything
 6. **docs/principles.md** — Core principles
 7. **docs/voice.md** — Voice preservation
 
-For historical context: `artifacts/2025/_float.md` has a comprehensive TOC of 113 files documenting the evolution of FloatPrompt throughout 2025.
+For historical context: `artifacts/2025/_float/index.md` has a comprehensive TOC of 113 files documenting the evolution of FloatPrompt throughout 2025.
 
 ---
 
@@ -283,4 +292,4 @@ The "floatdoc" concept (lighter-weight document format) was explored in June 202
 
 © 2025 @MDS | CC BY 4.0
 
-<!-- AI: Keep this file in sync with _system.md structure map. Update when root files/folders change. -->
+<!-- AI: Keep this file in sync with _float/system.md structure map. Update when root files/folders change. -->
