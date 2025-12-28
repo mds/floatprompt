@@ -67,13 +67,53 @@ any-project/
 
 ## The `_float/` Folder
 
-Every directory can have a `_float/` subfolder containing:
+Every directory can have a `_float/` subfolder. The root `_float/` has the most, subfolders are minimal.
+
+### Core (Always)
 
 | File | Purpose |
 |------|---------|
 | `system.md` | Boot loader (root only) |
 | `index.md` | Navigation for parent folder |
 | `logs/` | Session history (root only) |
+
+### Optional (As Needed)
+
+| Folder | Purpose | When to use |
+|--------|---------|-------------|
+| `prompts/` | Project-specific FloatPrompt tools | When you have AI tools for this project |
+| `context/` | Context files for AI sessions | When AI needs domain knowledge, conventions |
+| `docs/` | AI-specific documentation | When you need FloatDocs for AI consumption |
+
+### Example: Full Structure
+
+```
+_float/
+├── system.md              # Boot loader
+├── index.md               # Root navigation
+├── logs/                  # Session history
+│   └── 2025-12-28.md
+│
+├── prompts/               # Project-specific AI tools
+│   ├── code-reviewer.txt
+│   └── doc-generator.txt
+│
+├── context/               # AI context files
+│   ├── project.md         # What this project is
+│   └── conventions.md     # Patterns, style guides
+│
+└── docs/                  # AI-specific documentation
+    └── api-patterns.md    # Domain knowledge for AI
+```
+
+### Subfolder `_float/`
+
+Subfolders keep it minimal — just `index.md`:
+
+```
+src/_float/
+└── index.md               # Describes src/ contents
+```
 
 **Underscore only on folder** — files inside need no prefix.
 
