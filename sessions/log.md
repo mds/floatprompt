@@ -11,6 +11,16 @@ Changelog of AI session activity. Newest entries first.
 
 ---
 
+## 2025-12-28 19:00 — Rename system.md → float-system.md
+commit: f01aa5a
+
+- Renamed for filename readability (FloatSystem = proper name, float-system.md = file)
+- Updated all references in specs and navigation files
+- Kept historical log entries unchanged (archaeological preservation)
+- Clear separation: float-system.md (behavior) vs float.md (navigation)
+
+---
+
 ## 2025-12-28 18:30 — Add FloatDoc frontmatter to all docs
 commit: 1c6085e
 
