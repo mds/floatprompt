@@ -9,30 +9,15 @@ ai_updated: 2025-12-28
 
 Historical archive and active specifications for FloatPrompt evolution.
 
-## Active Specifications (Root)
+## Current Specifications
 
 | File | Purpose |
 |------|---------|
-| **floatprompt-vision-2025-12-28.md** | Vision document — FloatPrompt as invisible OS for AI |
-| **floatsystem-specification.md** | _float/system.md boot loader format |
-| **floatstructure-specification.md** | Root OS architecture, pilot principle |
-| **floatdoc-specification.md** | YAML frontmatter format for documents |
-| **floatlog-specification.md** | Session logging format |
-| **float-folder-architecture-exploration.md** | _float/ container folder architecture exploration |
-| **floatprompt-npm-scaffold-spec.md** | npm package scaffold specification |
+| **floatprompt-npm-scaffold-spec.md** | npm package scaffold specification (uses `_float/` architecture) |
 
-## Session Handoffs
+## Historical Archive
 
-| File | Purpose |
-|------|---------|
-| **floatsystem-session-2025-12-28.md** | Genesis session handoff document |
-| **floatsystem-session-2025-12-28-continuation.md** | Architecture migration handoff |
-
-## Explorations
-
-| File | Purpose |
-|------|---------|
-| **float-doc-exploration.md** | Field exploration and stress testing |
+See `2025/_float/index.md` for historical specs, explorations, and session handoffs that document the evolution from flat structure to `_float/` container architecture.
 
 ## Subfolders
 

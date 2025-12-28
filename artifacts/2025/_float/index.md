@@ -56,8 +56,24 @@ Comprehensive categorized TOC covering:
 3. floatprompt_duality_philosophy
 4. 2025-06-07-0004-floatprompt-constitutional-analogy
 
+## December 2025 — FloatSystem Genesis
+
+The final evolution: from flat files to `_float/` container architecture.
+
+| File | Purpose |
+|------|---------|
+| **floatprompt-vision-2025-12-28.md** | Vision document — FloatPrompt as invisible OS for AI |
+| **floatsystem-specification.md** | Original `_system.md` boot loader spec (flat structure) |
+| **floatstructure-specification.md** | Root OS architecture, pilot principle |
+| **floatdoc-specification.md** | YAML frontmatter format for documents |
+| **floatlog-specification.md** | Session logging format (uses `sessions/`) |
+| **float-folder-architecture-exploration.md** | Exploration that led to `_float/` container architecture |
+| **float-doc-exploration.md** | Field exploration and stress testing |
+| **floatsystem-session-2025-12-28.md** | Genesis session handoff |
+| **floatsystem-session-2025-12-28-continuation.md** | Architecture migration handoff |
+
 ## Note
 
-This is a historical archive. The current specifications live in `artifacts/` root (floatsystem-specification.md, floatdoc-specification.md, etc.).
+This is a historical archive. The **living implementation** is now in `_float/system.md` at project root. These specs document the evolution of thinking, not the current architecture.
 
 <!-- AI: This is a historical archive. Update only when adding new 2025 artifacts. -->
