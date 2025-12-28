@@ -11,6 +11,17 @@ Changelog of AI session activity. Newest entries first.
 
 ---
 
+## 2025-12-28 19:15 — Add underscore prefix to float files
+commit: 105a849
+
+- Renamed float-system.md → _float-system.md
+- Renamed all float.md → _float.md (11 files)
+- Files now sort to top of directory listings
+- Underscore signals "system/meta file"
+- Updated all references in specs and navigation
+
+---
+
 ## 2025-12-28 19:00 — Rename system.md → float-system.md
 commit: f01aa5a
 
