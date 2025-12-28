@@ -35,6 +35,12 @@ Core documentation for FloatPrompt. Start here to understand the system.
 |------|--------|---------|
 | **use.md** | Show practical applications | Coaches, writers, extractors, assistants |
 
+### FloatSystem
+
+| File | Intent | Purpose |
+|------|--------|---------|
+| **floatsystem.md** | Document the `_float/` architecture | Project awareness for AI |
+
 ### Subfolders
 
 | Folder | Purpose |
@@ -58,6 +64,9 @@ Core documentation for FloatPrompt. Start here to understand the system.
 
 **Practical:**
 7. **use.md** - What you can build: coaches, writers, extractors, assistants, index files
+
+**FloatSystem:**
+8. **floatsystem.md** - The `_float/` architecture for project awareness
 
 ---
 
