@@ -26,12 +26,13 @@
     "boot_sequence": {
       "1": "Read this file completely",
       "2": "Load structure map into memory",
-      "3": "Understand file conventions",
-      "4": "Check for integrity issues",
-      "5": "Read recent session logs",
-      "6": "Report any gaps or broken links",
-      "7": "Proceed with task",
-      "8": "Log session before ending"
+      "3": "Traverse ALL float.md files to understand each folder",
+      "4": "Read sessions/log.md for recent activity and context",
+      "5": "Skim key docs: docs/fp.md, docs/goals.md, docs/principles.md",
+      "6": "Build mental model of what exists and what happened",
+      "7": "Check for integrity issues, report gaps before proceeding",
+      "8": "Execute human requests",
+      "9": "Log session before ending (append to sessions/log.md)"
     },
     "maintenance": {
       "recursive": true,
@@ -59,7 +60,8 @@ floatprompt/
 ├── system.md              # This file (boot loader, read first)
 ├── float.md               # Root navigation
 ├── sessions/              # Activity history
-│   └── float.md
+│   ├── float.md
+│   └── log.md             # Session changelog (read this for context)
 │
 ├── floatprompt.txt        # The template (3KB) - creates floatprompts
 ├── floatprompt-os.txt     # The full system (35KB) - guided tool creation
@@ -83,7 +85,9 @@ floatprompt/
 │   └── float.md
 │
 ├── dev/                   # Development tools
-│   └── float.md
+│   ├── float.md
+│   └── updates/           # Update specs (in-progress, closed)
+│       └── float.md
 │
 ├── experimental/          # Build system (legacy)
 │   └── float.md
@@ -146,12 +150,15 @@ ai_updated:
 
 ### AI Responsibilities
 
-**Every session:**
-1. Read `system.md` first (boot)
-2. Check integrity
-3. Surface issues before proceeding
-4. Execute human requests
-5. Log session before ending (append to `sessions/log.md`)
+**Every session (penetration sequence):**
+1. Read `system.md` first (this file)
+2. Traverse ALL `float.md` files (understand each folder)
+3. Read `sessions/log.md` (recent activity, handoff context)
+4. Skim key docs: `docs/fp.md`, `docs/goals.md`, `docs/principles.md`
+5. Build mental model (what exists, what happened, current state)
+6. Check integrity, surface issues before proceeding
+7. Execute human requests
+8. Log session before ending (append to `sessions/log.md`)
 
 **Session log format** (changelog-style, newest first):
 ```markdown
