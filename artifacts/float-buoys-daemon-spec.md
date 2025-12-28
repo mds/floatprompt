@@ -1,7 +1,7 @@
 ---
-title: Float Buoys Specification
+title: Float Buoys Daemon Specification
 type: spec
-status: draft
+status: tabled
 created: 2025-12-28
 
 human_author: MDS
@@ -10,10 +10,12 @@ human_context: Dropbox-style sync for AI context
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
-ai_notes: MVP spec from conversation — keep it simple, avoid YAGNI
+ai_notes: Tabled in favor of simpler slash commands approach. Preserved for future if real-time sync is needed.
 ---
 
-# Float Buoys Specification
+# Float Buoys Daemon Specification
+
+> **Status: Tabled.** Starting with simpler slash commands approach. See `float-buoys-commands-spec.md`. This spec preserved for future if real-time sync is needed.
 
 **Dropbox for AI context.** A background daemon that keeps `_float/` files accurate so any AI dropping into a project has current, reliable context.
 

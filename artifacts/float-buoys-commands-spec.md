@@ -1,21 +1,21 @@
 ---
-title: Float Commands Specification
+title: Float Buoys Commands Specification
 type: spec
-status: draft
+status: active
 created: 2025-12-28
 
 human_author: MDS
 human_intent: Specify Claude Code slash commands for FloatSystem maintenance
-human_context: Lighter alternative to daemon — on-demand agents during session
+human_context: Lighter alternative to daemon — on-demand buoys during session
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
-ai_notes: Alternative to float-buoys-spec.md — no daemon, just slash commands
+ai_notes: Active approach — simpler than daemon, no software to build
 ---
 
-# Float Commands Specification
+# Float Buoys Commands Specification
 
-**On-demand FloatSystem maintenance via Claude Code slash commands.** No daemon, no install, no background process. Just commands that spawn agents when you need them.
+**On-demand FloatSystem maintenance via Claude Code slash commands.** No daemon, no install, no background process. Just commands that spawn buoys when you need them.
 
 ---
 
@@ -36,12 +36,12 @@ If you can remember to run `/float-verify` at session start, you don't need a da
 ## The Commands
 
 ```
-/float          # Boot/orientation (existing)
-/float-verify   # Check integrity, report issues
-/float-sync     # Fix issues with agent swarm
+/float          # Boot/orientation
+/float verify   # Check integrity, report issues
+/float sync     # Fix issues by spawning buoys
 ```
 
-All commands live in `.claude/commands/` and work immediately when repo is cloned.
+Single command file (`.claude/commands/float.md`) handles all subcommands via `$ARGUMENTS`. Works immediately when repo is cloned.
 
 ---
 
@@ -62,9 +62,9 @@ Already built. Boots FloatSystem or initializes new projects.
 
 ---
 
-## /float-verify
+## /float verify
 
-Check integrity of all `_float/` files. Report issues. No changes.
+Check integrity of all `_float/` files. Report issues. No changes. (This is essentially the Integrity Buoy, on-demand.)
 
 ### What It Checks
 
@@ -93,13 +93,13 @@ Directory: /Users/mds/Projects/floatprompt
 ✓ dev/_float/index.md — OK
 
 Summary: 3 issues in 2 files
-Run /float-sync to fix
+Run /float sync to fix
 ```
 
 ### Implementation
 
 ```markdown
-# /float-verify
+# /float verify
 
 Check FloatSystem integrity. Report issues without making changes.
 
@@ -112,14 +112,14 @@ Check FloatSystem integrity. Report issues without making changes.
    - Compare and note discrepancies
 3. Check `_float/system.md` structure map against reality
 4. Report findings in structured format
-5. Suggest `/float-sync` if issues found
+5. Suggest `/float sync` if issues found
 ```
 
 ---
 
-## /float-sync
+## /float sync
 
-Fix issues found by verify. Spawns agents for each task type.
+Fix issues found by verify. Spawns buoys for each task type.
 
 ### How It Works
 
@@ -127,20 +127,23 @@ Fix issues found by verify. Spawns agents for each task type.
 2. Categorize issues:
    - **Simple** (Tier 1): Add/remove rows in tables
    - **Complex** (Tier 2): New files need descriptions
-3. Spawn appropriate agents
-4. Show proposed changes
-5. Apply on approval
+3. Show proposed changes
+4. Apply on approval
+5. Spawn appropriate buoys
 
-### Agent Types
+### Buoy Types
 
-| Agent | Handles | AI Needed? |
-|-------|---------|-----------|
-| **Index Agent** | Add/remove file rows in tables | No |
-| **System Agent** | Update structure map | No |
-| **Describe Agent** | Write descriptions for new files | Yes (Haiku) |
-| **Scaffold Agent** | Create missing `_float/index.md` files | Minimal |
+| Buoy | Handles | AI Needed? |
+|------|---------|-----------|
+| **Index Buoy** | Add/remove file rows in tables | No |
+| **System Buoy** | Update structure map | No |
+| **Describe Buoy** | Write descriptions for new files | Yes (Haiku) |
+| **Scaffold Buoy** | Create missing `_float/index.md` files | Minimal |
+| **Log Buoy** | Record activity to `_float/logs/` | No |
 
-**Describe Agent notes:**
+Same buoys as the daemon spec — just spawned on-demand instead of running continuously.
+
+**Describe Buoy notes:**
 - Model: Haiku (fast, cheap, sufficient for descriptions)
 - Skip config files: `.json`, `.yaml`, `.env`, `package.json`, etc.
 - Show proposed description, allow edit before apply
@@ -170,11 +173,12 @@ Generating descriptions...
   new-feature.md → "Feature documentation for user authentication flow"
   [accept/edit/skip]: accept
 
-Spawning agents...
-  ✓ Index Agent: Updated docs/_float/index.md
-  ✓ Scaffold Agent: Created examples/new-example/_float/index.md
-  ✓ Describe Agent: new-feature.md → "Feature documentation for..."
-  ✓ System Agent: Updated structure map
+Spawning buoys...
+  ✓ Index Buoy: Updated docs/_float/index.md
+  ✓ Scaffold Buoy: Created examples/new-example/_float/index.md
+  ✓ Describe Buoy: new-feature.md → "Feature documentation for..."
+  ✓ System Buoy: Updated structure map
+  ✓ Log Buoy: Recorded activity
 
 Sync complete. 4 changes applied.
 ```
@@ -182,37 +186,38 @@ Sync complete. 4 changes applied.
 ### Implementation
 
 ```markdown
-# /float-sync
+# /float sync
 
-Fix FloatSystem issues by spawning specialized agents.
+Fix FloatSystem issues by spawning buoys.
 
 ## Steps
 
-1. Run /float-verify internally
+1. Run /float verify internally
 2. If no issues, report "All clear" and exit
 3. Categorize issues by type
 4. Show proposed changes, ask for approval
-5. For each issue type, spawn appropriate agent:
-   - Simple table updates → single agent handles all
-   - New file descriptions → one agent per file (parallel)
-   - New folders → scaffold agent creates index.md
+5. Spawn appropriate buoys:
+   - Index Buoy → table updates
+   - Describe Buoy → new file descriptions (parallel)
+   - Scaffold Buoy → create missing index.md
+   - System Buoy → update structure map
+   - Log Buoy → record activity
 6. Report results
-7. Log activity to `_float/logs/YYYY-MM-DD.md`
 ```
 
 ---
 
-## Agent Spawning
+## Buoy Spawning
 
-Uses Claude Code's Task tool to spawn agents in parallel where possible.
+Uses Claude Code's Task tool to spawn buoys in parallel where possible.
 
 **Example: 3 new files need descriptions**
 
 ```
-Spawning Describe Agents (3 parallel)...
-  → Agent 1: Reading src/auth.js...
-  → Agent 2: Reading src/utils.js...
-  → Agent 3: Reading docs/setup.md...
+Spawning Describe Buoys (3 parallel)...
+  → Buoy 1: Reading src/auth.js...
+  → Buoy 2: Reading src/utils.js...
+  → Buoy 3: Reading docs/setup.md...
 
 Results:
   ✓ src/auth.js → "Authentication middleware with JWT validation"
@@ -244,21 +249,19 @@ Parallel execution keeps sync fast even with multiple files.
 
 ```
 .claude/commands/
-├── float.md           # Boot/orientation (existing)
-├── float-verify.md    # Check integrity
-└── float-sync.md      # Fix issues
+└── float.md           # Handles all: /float, /float verify, /float sync
 ```
 
-No additional files needed. Commands work immediately.
+Single command file routes based on `$ARGUMENTS`. No additional files needed.
 
 ---
 
 ## Logging
 
-`/float-sync` logs activity to `_float/logs/YYYY-MM-DD.md`:
+`/float sync` logs activity to `_float/logs/YYYY-MM-DD.md`:
 
 ```markdown
-## 14:32 — /float-sync
+## 14:32 — /float sync
 
 - Updated: docs/_float/index.md (+1 file, -1 file)
 - Created: examples/new-example/_float/index.md
@@ -289,9 +292,9 @@ Uses same logic as daemon spec for consistency.
 ## MVP Scope
 
 **In:**
-- `/float-verify` — full integrity checking
-- `/float-sync` — table updates, scaffold creation
-- Parallel agent spawning for descriptions
+- `/float verify` — full integrity checking
+- `/float sync` — table updates, scaffold creation
+- Parallel buoy spawning for descriptions
 - Logging to `_float/logs/`
 
 **Out (for later):**
@@ -303,8 +306,8 @@ Uses same logic as daemon spec for consistency.
 
 ## Success Criteria
 
-1. `/float-verify` reports all integrity issues
-2. `/float-sync` fixes issues with approval
+1. `/float verify` reports all integrity issues
+2. `/float sync` fixes issues with approval
 3. New files get meaningful descriptions
 4. Missing `_float/index.md` files are created
 5. Activity logged to `_float/logs/`
@@ -327,10 +330,11 @@ The specs are designed to be compatible.
 
 ## Next Steps
 
-1. Draft `/float-verify.md` command
-2. Draft `/float-sync.md` command
-3. Test on floatprompt repo
-4. Iterate based on real usage
+1. Update `/float` command to handle subcommands
+2. Implement `verify` subcommand
+3. Implement `sync` subcommand
+4. Test on floatprompt repo
+5. Iterate based on real usage
 
 ---
 
