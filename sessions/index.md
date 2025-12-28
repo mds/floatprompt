@@ -25,7 +25,7 @@ Activity history for the FloatPrompt project.
 ## Statistics
 
 - Total sessions: 1
-- Files created: 4 (system.md, index.md, sessions/index.md, sessions/2025-12-28.md)
+- Files created: 14 (system.md, index.md, 12 subfolder index.md files)
 - Branch: `floatsystem`
 
 ---
