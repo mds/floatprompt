@@ -59,19 +59,19 @@ Every directory gets a `_float/` subfolder that contains all FloatSystem files f
 project/
 ├── _float/                     # Root FloatSystem container
 │   ├── system.md               # Boot loader
-│   ├── nav.md                  # Root navigation
+│   ├── index.md                # Root context/navigation
 │   ├── logs/
 │   │   └── 2025-12-28.md
 │   └── config.md               # Optional settings
 │
 ├── src/
 │   ├── _float/                 # Src-level context
-│   │   └── nav.md              # Navigation for src/
+│   │   └── index.md            # Context for src/
 │   └── [project code]
 │
 ├── docs/
 │   ├── _float/                 # Docs-level context
-│   │   └── nav.md
+│   │   └── index.md
 │   └── [doc files]
 │
 └── package.json
@@ -79,13 +79,22 @@ project/
 
 ### File Naming Inside `_float/`
 
-Since files are already namespaced by the folder, no underscore prefix needed:
+**Underscore only on the folder.** Files inside need no prefix — the folder IS the namespace.
 
-| Current | Proposed |
-|---------|----------|
-| `_system.md` | `_float/system.md` |
-| `_float.md` | `_float/nav.md` |
-| `sessions/log-2025-12-28.md` | `_float/logs/2025-12-28.md` |
+| Current | Proposed | Purpose |
+|---------|----------|---------|
+| `_system.md` | `_float/system.md` | Boot loader (root only) |
+| `_float.md` | `_float/index.md` | Context/navigation for parent folder |
+| `sessions/log-2025-12-28.md` | `_float/logs/2025-12-28.md` | Session logs |
+| (new) | `_float/config.md` | Optional project settings |
+
+**Standard files inside `_float/`:**
+- `index.md` — Main context file (like index.html)
+- `system.md` — Boot loader (root `_float/` only)
+- `logs/` — Session log folder
+- `config.md` — Optional settings
+
+Clean, familiar conventions. No redundant prefixes.
 
 ### Benefits
 
@@ -103,7 +112,7 @@ Since files are already namespaced by the folder, no underscore prefix needed:
   "boot_sequence": {
     "1": "Read _float/system.md completely",
     "2": "Load structure map into memory",
-    "3": "Traverse ALL _float/nav.md files. Verify Contents tables match parent folder contents.",
+    "3": "Traverse ALL _float/index.md files. Verify Contents tables match parent folder contents.",
     "4": "Read today's log (_float/logs/YYYY-MM-DD.md)",
     "5": "Build mental model of project structure",
     "6": "Flag discrepancies before proceeding",
@@ -117,9 +126,9 @@ Since files are already namespaced by the folder, no underscore prefix needed:
 
 ```
 AI reads: project/_float/system.md
-       → project/_float/nav.md
-       → project/src/_float/nav.md
-       → project/docs/_float/nav.md
+       → project/_float/index.md
+       → project/src/_float/index.md
+       → project/docs/_float/index.md
        → project/_float/logs/2025-12-28.md
        → Ready to work
 ```
@@ -131,7 +140,7 @@ AI reads: project/_float/system.md
 ```
 _float/
 ├── system.md           # Boot loader, behavioral protocol
-├── nav.md              # Root navigation (what's in project root)
+├── index.md              # Root navigation (what's in project root)
 ├── logs/
 │   ├── 2025-12-28.md   # Daily session logs
 │   └── 2025-12-27.md
@@ -142,7 +151,7 @@ _float/
 
 ```
 src/_float/
-└── nav.md              # Navigation for src/ contents
+└── index.md              # Navigation for src/ contents
 ```
 
 Minimal. Just navigation. Inherits behavior from root `_float/system.md`.
@@ -153,7 +162,7 @@ For large projects, logs could be scoped:
 
 ```
 src/_float/
-├── nav.md
+├── index.md
 └── logs/               # Optional: src-specific logs
     └── 2025-12-28.md
 ```
@@ -168,13 +177,13 @@ $ npx floatprompt init
 
 Creating FloatSystem structure...
   ✓ _float/system.md
-  ✓ _float/nav.md
+  ✓ _float/index.md
   ✓ _float/logs/
 
 FloatSystem initialized.
-- Edit _float/nav.md to document your project structure
+- Edit _float/index.md to document your project structure
 - AI sessions will log to _float/logs/
-- Run 'npx floatprompt scan' to auto-generate nav.md files
+- Run 'npx floatprompt scan' to auto-generate index.md files
 ```
 
 ### Scan Command
@@ -183,10 +192,10 @@ FloatSystem initialized.
 $ npx floatprompt scan
 
 Scanning project structure...
-  ✓ Created src/_float/nav.md (12 files)
-  ✓ Created docs/_float/nav.md (8 files)
-  ✓ Created tests/_float/nav.md (24 files)
-  ✓ Updated _float/nav.md (root)
+  ✓ Created src/_float/index.md (12 files)
+  ✓ Created docs/_float/index.md (8 files)
+  ✓ Created tests/_float/index.md (24 files)
+  ✓ Updated _float/index.md (root)
 
 4 navigation files created/updated.
 ```
@@ -227,8 +236,8 @@ Scanning project structure...
 Should files inside `_float/` keep underscore prefixes?
 
 ```
-Option A: _float/system.md, _float/nav.md (no underscore, folder provides namespace)
-Option B: _float/_system.md, _float/_nav.md (underscore for consistency)
+Option A: _float/system.md, _float/index.md (no underscore, folder provides namespace)
+Option B: _float/_system.md, _float/_index.md (underscore for consistency)
 ```
 
 Recommendation: **Option A** — folder is the namespace, no need for double-prefixing.
@@ -261,21 +270,15 @@ auto_scan: true
 
 Recommendation: **Optional** — Not required for basic usage.
 
-### 4. Nav File Naming
+### 4. Index File Naming — DECIDED
 
-`nav.md` vs `index.md` vs `float.md`?
+**`index.md`** — Familiar convention (like index.html), universally understood as "entry point."
 
-| Name | Pros | Cons |
-|------|------|------|
-| `nav.md` | Clear purpose | New convention |
-| `index.md` | Familiar pattern | Generic |
-| `float.md` | Brand consistency | Redundant with folder name |
-
-Recommendation: **nav.md** — Clear, short, purpose-driven.
+No underscore needed since `_float/` folder is the namespace.
 
 ### 5. Subfolder Threshold
 
-When should a subfolder get its own `_float/nav.md`?
+When should a subfolder get its own `_float/index.md`?
 
 - Every folder? (comprehensive but verbose)
 - Only folders with 5+ files? (threshold)
@@ -292,7 +295,7 @@ For the reviewing agent:
 
 2. **Is `_float/` the right folder name?** Alternatives: `.float/`, `__float__/`, `_context/`, `_ai/`
 
-3. **Should nav.md describe its parent folder or its sibling files?** (i.e., does `src/_float/nav.md` describe what's in `src/` or what's in `src/_float/`?)
+3. **Should index.md describe its parent folder or its sibling files?** (i.e., does `src/_float/index.md` describe what's in `src/` or what's in `src/_float/`?)
 
 4. **Is the boot sequence clear?** Would an AI know how to penetrate this structure?
 
