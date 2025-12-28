@@ -5,7 +5,7 @@ status: draft
 created: 2025-12-28
 
 human_author: MDS
-human_intent: Define the float-system.md root behavioral protocol
+human_intent: Define the _float-system.md root behavioral protocol
 human_context: The brain of FloatSystem - points to everything, instructs AI on maintenance
 
 ai_model: Claude Opus 4
@@ -19,7 +19,7 @@ ai_notes: Initial draft. Needs real-world validation.
 
 ## Overview
 
-`float-system.md` is the root behavioral protocol for any FloatSystem project. It's the first file AI reads, and it defines:
+`_float-system.md` is the root behavioral protocol for any FloatSystem project. It's the first file AI reads, and it defines:
 
 1. **Structure** — Where everything is
 2. **Conventions** — What each file type means
@@ -29,21 +29,21 @@ ai_notes: Initial draft. Needs real-world validation.
 
 ## File Location
 
-`float-system.md` lives at the root of a project. One per project.
+`_float-system.md` lives at the root of a project. One per project.
 
 ```
 project/
-├── float-system.md          # THE root behavioral protocol
-├── float.md           # Root folder navigation
+├── _float-system.md          # THE root behavioral protocol
+├── _float.md           # Root folder navigation
 ├── docs/
-│   └── float.md
+│   └── _float.md
 ├── tools/
-│   └── float.md
+│   └── _float.md
 ```
 
 ## Format
 
-`float-system.md` is a floatprompt (behavioral modifier):
+`_float-system.md` is a floatprompt (behavioral modifier):
 
 ```markdown
 <fp>
@@ -93,17 +93,17 @@ project/
 
 ```
 project/
-├── float-system.md              # This file (behavioral protocol)
-├── float.md               # Root navigation
+├── _float-system.md              # This file (behavioral protocol)
+├── _float.md               # Root navigation
 ├── docs/                  # Documentation
-│   ├── float.md           # Folder navigation
+│   ├── _float.md           # Folder navigation
 │   ├── spec.md            # Specifications
 │   └── guide.md           # Guides
 ├── tools/                 # Floatprompt tools
-│   ├── float.md           # Folder navigation
+│   ├── _float.md           # Folder navigation
 │   └── coach.md           # Example tool
 └── artifacts/             # Historical/reference
-    └── float.md           # Folder navigation
+    └── _float.md           # Folder navigation
 ```
 
 ## Behavioral Files
@@ -112,7 +112,7 @@ These files modify AI behavior (floatprompts):
 
 | File | Location | Purpose |
 |------|----------|---------|
-| `float-system.md` | `/` | Root protocol (this file) |
+| `_float-system.md` | `/` | Root protocol (this file) |
 | [Add other behavioral files] | | |
 
 ## Navigation Files
@@ -121,17 +121,17 @@ These files map folder contents (floatindex):
 
 | File | Location | Status |
 |------|----------|--------|
-| `float.md` | `/` | |
-| `float.md` | `/docs/` | |
-| `float.md` | `/tools/` | |
-| `float.md` | `/artifacts/` | |
+| `_float.md` | `/` | |
+| `_float.md` | `/docs/` | |
+| `_float.md` | `/tools/` | |
+| `_float.md` | `/artifacts/` | |
 
 ## File Conventions
 
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
-| `float-system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol |
-| `float.md` | FloatNav | YAML frontmatter | Folder navigation |
+| `_float-system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol |
+| `_float.md` | FloatNav | YAML frontmatter | Folder navigation |
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral |
 
@@ -172,7 +172,7 @@ ai_notes:
 ### AI Responsibilities
 
 **On every session:**
-1. Read `float-system.md` first
+1. Read `_float-system.md` first
 2. Load structure map
 3. Check integrity (see below)
 4. Surface any issues before proceeding
@@ -180,8 +180,8 @@ ai_notes:
 
 **Integrity checks:**
 - [ ] All folders in structure map exist
-- [ ] All folders have `float.md`
-- [ ] All `float.md` files list actual contents
+- [ ] All folders have `_float.md`
+- [ ] All `_float.md` files list actual contents
 - [ ] All floatdocs have required frontmatter fields
 - [ ] No broken internal links
 - [ ] No orphaned files (files not listed in any index)
@@ -191,15 +191,15 @@ ai_notes:
 ```
 ⚠️ FloatSystem Integrity Issues:
 
-1. Missing float.md in /new-folder/
+1. Missing _float.md in /new-folder/
 2. Broken link: /docs/old-file.md (file doesn't exist)
 3. Orphaned file: /tools/unused.md (not in index)
 4. Stale ai_updated: /docs/spec.md (90 days old)
 
 Suggested actions:
-- Create /new-folder/float.md
+- Create /new-folder/_float.md
 - Remove or fix link to old-file.md
-- Add unused.md to /tools/float.md or delete
+- Add unused.md to /tools/_float.md or delete
 - Review spec.md and update ai_notes
 
 Proceed with fixes? (Human approval required)
@@ -217,8 +217,8 @@ Proceed with fixes? (Human approval required)
 When AI modifies a file:
 1. Update `ai_updated` in that file's frontmatter
 2. Update `ai_notes` with what changed
-3. Check if parent `float.md` needs updating
-4. Check if `float-system.md` structure map needs updating
+3. Check if parent `_float.md` needs updating
+4. Check if `_float-system.md` structure map needs updating
 5. Propagate changes upward as needed
 
 ## Agent Handoff Protocol
@@ -230,16 +230,16 @@ handoff:
   from_agent: [agent type]
   to_agent: [agent type]
   context:
-    system: float-system.md (always include)
-    folder: [relevant float.md]
+    system: _float-system.md (always include)
+    folder: [relevant _float.md]
     files: [specific files for task]
     task: [what to do]
     constraints: [any limitations]
 ```
 
 **Minimum handoff context:**
-- Always include `float-system.md` reference
-- Include relevant `float.md` for scope
+- Always include `_float-system.md` reference
+- Include relevant `_float.md` for scope
 - Include specific files needed for task
 
 ## Warnings
@@ -256,12 +256,12 @@ handoff:
 
 ## Required Sections
 
-Every `float-system.md` must have:
+Every `_float-system.md` must have:
 
 1. **STOP directive** — Tells AI this is the root protocol
 2. **Structure Map** — Visual tree of project
 3. **Behavioral Files** — List of all floatprompts
-4. **Navigation Files** — List of all float.md files
+4. **Navigation Files** — List of all _float.md files
 5. **File Conventions** — What each pattern means
 6. **Maintenance Protocol** — How AI keeps things healthy
 7. **Agent Handoff** — How to pass context
@@ -272,14 +272,14 @@ AI should check on every session:
 
 | Check | Severity | Action |
 |-------|----------|--------|
-| Missing float.md | High | Create or flag |
+| Missing _float.md | High | Create or flag |
 | Broken link | High | Flag to human |
 | Orphaned file | Medium | Flag to human |
 | Stale ai_updated (>30 days) | Low | Suggest review |
 | Missing required frontmatter | Medium | Flag to human |
 | Structure map out of sync | High | Update or flag |
 
-## Example: Minimal float-system.md
+## Example: Minimal _float-system.md
 
 ```markdown
 <fp>
@@ -296,13 +296,13 @@ AI should check on every session:
 # FloatSystem: My Project
 
 ## Structure
-- `/float-system.md` — This file
-- `/float.md` — Root nav
-- `/docs/float.md` — Docs nav
+- `/_float-system.md` — This file
+- `/_float.md` — Root nav
+- `/docs/_float.md` — Docs nav
 
 ## Conventions
-- `float-system.md` = behavioral protocol
-- `float.md` = folder navigation
+- `_float-system.md` = behavioral protocol
+- `_float.md` = folder navigation
 - YAML frontmatter = document context
 
 ## Maintenance

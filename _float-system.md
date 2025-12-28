@@ -26,7 +26,7 @@
     "boot_sequence": {
       "1": "Read this file completely",
       "2": "Load structure map into memory",
-      "3": "Traverse ALL float.md files to understand each folder",
+      "3": "Traverse ALL _float.md files to understand each folder",
       "4": "Read sessions/log.md for recent activity and context",
       "5": "Skim key docs: docs/fp.md, docs/goals.md, docs/principles.md",
       "6": "Build mental model of what exists and what happened",
@@ -51,16 +51,16 @@
 
 **The invisible OS for AI — practicing what we preach.**
 
-This repository contains FloatPrompt, a structured text format for portable AI collaboration. This `float-system.md` file is the boot loader that gives any AI instant awareness of the project.
+This repository contains FloatPrompt, a structured text format for portable AI collaboration. This `_float-system.md` file is the boot loader that gives any AI instant awareness of the project.
 
 ## Structure Map
 
 ```
 floatprompt/
-├── float-system.md        # This file (boot loader, read first)
-├── float.md               # Root navigation
+├── _float-system.md        # This file (boot loader, read first)
+├── _float.md               # Root navigation
 ├── sessions/              # Activity history
-│   ├── float.md
+│   ├── _float.md
 │   └── log.md             # Session changelog (read this for context)
 │
 ├── floatprompt.txt        # The template (3KB) - creates floatprompts
@@ -68,7 +68,7 @@ floatprompt/
 ├── README.md              # Public-facing documentation
 │
 ├── docs/                  # Core documentation
-│   ├── float.md           # Folder navigation
+│   ├── _float.md           # Folder navigation
 │   ├── fp.md              # File format specification
 │   ├── mds-method.md      # MDS methodology
 │   ├── goals.md           # Goal hierarchy
@@ -77,33 +77,33 @@ floatprompt/
 │   ├── use.md             # What you can build
 │   ├── safety.md          # Safety guidelines
 │   ├── philosophy/        # Background thinking
-│   │   └── float.md
+│   │   └── _float.md
 │   └── reference/         # Template references
-│       └── float.md
+│       └── _float.md
 │
 ├── context/               # Onboarding
-│   └── float.md
+│   └── _float.md
 │
 ├── dev/                   # Development tools
-│   ├── float.md
+│   ├── _float.md
 │   └── updates/           # Update specs (in-progress, closed)
-│       └── float.md
+│       └── _float.md
 │
 ├── experimental/          # Build system (legacy)
-│   └── float.md
+│   └── _float.md
 │
 └── artifacts/             # Historical archive
-    ├── float.md
+    ├── _float.md
     └── 2025/              # 113+ files documenting evolution
-        └── float.md
+        └── _float.md
 ```
 
 ## File Conventions
 
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
-| `float-system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol (this file) |
-| `float.md` | FloatNav | Minimal YAML | Folder navigation |
+| `_float-system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol (this file) |
+| `_float.md` | FloatNav | Minimal YAML | Folder navigation |
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
 | `*.txt` with `<fp>` tags | FloatPrompt | `<fp>` tags | Portable tools |
@@ -127,7 +127,7 @@ ai_notes:
 ---
 ```
 
-### FloatNav Frontmatter (float.md)
+### FloatNav Frontmatter (_float.md)
 
 ```yaml
 ---
@@ -142,7 +142,7 @@ ai_updated:
 
 | File | Location | Purpose |
 |------|----------|---------|
-| `float-system.md` | `/` | Root protocol (this file) |
+| `_float-system.md` | `/` | Root protocol (this file) |
 | `floatprompt.txt` | `/` | Template for creating floatprompts |
 | `floatprompt-os.txt` | `/` | Full OS with guided creation |
 
@@ -151,8 +151,8 @@ ai_updated:
 ### AI Responsibilities
 
 **Every session (penetration sequence):**
-1. Read `float-system.md` first (this file)
-2. Traverse ALL `float.md` files (understand each folder)
+1. Read `_float-system.md` first (this file)
+2. Traverse ALL `_float.md` files (understand each folder)
 3. Read `sessions/log.md` (recent activity, handoff context)
 4. Skim key docs: `docs/fp.md`, `docs/goals.md`, `docs/principles.md`
 5. Build mental model (what exists, what happened, current state)
@@ -170,8 +170,8 @@ commit: [hash]
 ```
 
 **Integrity checks:**
-- [ ] All folders have `float.md`
-- [ ] All `float.md` files reflect actual contents
+- [ ] All folders have `_float.md`
+- [ ] All `_float.md` files reflect actual contents
 - [ ] No broken internal links
 - [ ] No orphaned files
 - [ ] Structure map matches reality
@@ -180,8 +180,8 @@ commit: [hash]
 ```
 FloatSystem Integrity Issues:
 
-1. Missing float.md in /new-folder/
-2. Stale: /docs/old.md (not in float.md)
+1. Missing _float.md in /new-folder/
+2. Stale: /docs/old.md (not in _float.md)
 3. Broken link: references deleted file
 
 Suggested fixes: [list]
@@ -199,18 +199,18 @@ Proceed? (Human approval required)
 
 When AI modifies a file:
 1. Update `ai_updated` in frontmatter
-2. Check if `float.md` needs updating
+2. Check if `_float.md` needs updating
 3. Check if structure map needs updating
 4. Propagate changes upward
 
 ### Distributed Hooks
 
-Each `float.md` has a context-specific AI hook at the bottom — a trigger that reminds AI what to maintain locally. The hook points to this protocol for full instructions.
+Each `_float.md` has a context-specific AI hook at the bottom — a trigger that reminds AI what to maintain locally. The hook points to this protocol for full instructions.
 
 Example hooks:
-- `sessions/float.md`: "Append to log.md after significant activity"
-- `docs/float.md`: "Update when docs added/removed"
-- Root `float.md`: "Keep in sync with float-system.md structure map"
+- `sessions/_float.md`: "Append to log.md after significant activity"
+- `docs/_float.md`: "Update when docs added/removed"
+- Root `_float.md`: "Keep in sync with _float-system.md structure map"
 
 ## Goal Hierarchy
 
@@ -236,13 +236,13 @@ handoff:
   from_agent: [agent type]
   to_agent: [agent type]
   context:
-    system: float-system.md (always include)
-    folder: [relevant float.md]
+    system: _float-system.md (always include)
+    folder: [relevant _float.md]
     files: [specific files for task]
     task: [what to do]
 ```
 
-**Minimum:** Always pass `float-system.md` reference.
+**Minimum:** Always pass `_float-system.md` reference.
 
 ## Warnings
 

@@ -11,7 +11,7 @@ human_context: Part of FloatPrompt system - floatdoc provides mutual understandi
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
 ai_notes: |
-  Updated _float.md → float.md naming
+  Updated __float.md → _float.md naming
   Added related field as optional
   Clarified type can have multiple comma-separated values
   Validated against docs/ files - spec covers all cases
@@ -32,7 +32,7 @@ FloatDoc is a lightweight context format within the FloatPrompt system. While fl
 | **FloatSystem** | Organizational layer | Folder structure |
 | **FloatPrompt** | Tools (modify AI behavior) | `<fp><json><md></fp>` in `.txt` |
 | **FloatDoc** | Context (mutual understanding) | YAML frontmatter in `.md` |
-| **FloatNav** | Navigation (folder map) | `float.md` |
+| **FloatNav** | Navigation (folder map) | `_float.md` |
 
 ## Core Principles
 
@@ -246,9 +246,9 @@ ai_notes: |
 ---
 ```
 
-## FloatNav (`float.md`)
+## FloatNav (`_float.md`)
 
-Every folder has a `float.md` file that serves as navigation:
+Every folder has a `_float.md` file that serves as navigation:
 
 ```yaml
 ---
@@ -287,7 +287,7 @@ This folder contains historical documentation of FloatPrompt's evolution.
 Active archive. AI maintains catalogue.
 ```
 
-The `float.md` naming convention provides clear visibility as the folder's navigation file.
+The `_float.md` naming convention provides clear visibility as the folder's navigation file.
 
 ## Relationship to FloatPrompt
 

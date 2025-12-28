@@ -19,7 +19,7 @@ ai_notes: Foundational vision document. References floatdoc-specification.md and
 
 FloatPrompt is the invisible operating system for AI collaboration.
 
-Feed a single `float-system.md` file to any AI. It boots up, penetrates the folder structure, builds rich context, and becomes aware of everything—what exists, how it connects, what's healthy, what needs attention.
+Feed a single `_float-system.md` file to any AI. It boots up, penetrates the folder structure, builds rich context, and becomes aware of everything—what exists, how it connects, what's healthy, what needs attention.
 
 **One file turns the lights on.**
 
@@ -46,9 +46,9 @@ FloatPrompt defines the instruction set:
 | Component | File/Pattern | Purpose | Format |
 |-----------|--------------|---------|--------|
 | **FloatStructure** | Root architecture | Overall OS | — |
-| **FloatFolder** | Any folder + float.md | Folder pattern | — |
-| **FloatSystem** | `float-system.md` | Boot loader, behavioral protocol | `<fp>` tags |
-| **FloatNav** | `float.md` | Folder navigation | Minimal YAML |
+| **FloatFolder** | Any folder + _float.md | Folder pattern | — |
+| **FloatSystem** | `_float-system.md` | Boot loader, behavioral protocol | `<fp>` tags |
+| **FloatNav** | `_float.md` | Folder navigation | Minimal YAML |
 | **FloatDoc** | `*.md` | Document context | Full YAML frontmatter |
 | **FloatPrompt** | `*.md` | Tools, behavioral modifiers | `<fp>` tags |
 | **FloatLog** | `sessions/` | Activity history | Session YAML |
@@ -57,33 +57,33 @@ FloatPrompt defines the instruction set:
 
 ```
 project/
-├── float-system.md          # THE root (behavioral, read first)
-├── float.md           # Root folder navigation
+├── _float-system.md          # THE root (behavioral, read first)
+├── _float.md           # Root folder navigation
 ├── sessions/          # Activity history
-│   ├── float.md       # Session navigation
+│   ├── _float.md       # Session navigation
 │   └── 2025-12-28.md  # Daily session log
 ├── docs/
-│   ├── float.md       # Folder navigation
+│   ├── _float.md       # Folder navigation
 │   ├── guide.md       # FloatDoc (frontmatter)
 │   └── spec.md        # FloatDoc (frontmatter)
 ├── tools/
-│   ├── float.md       # Folder navigation
+│   ├── _float.md       # Folder navigation
 │   └── coach.md       # FloatPrompt tool (<fp> tags)
 └── artifacts/
-    ├── float.md       # Folder navigation
+    ├── _float.md       # Folder navigation
     └── notes.md       # FloatDoc (frontmatter)
 ```
 
 ## The Penetration Sequence
 
-When AI receives `float-system.md`:
+When AI receives `_float-system.md`:
 
 ```
-1. Read float-system.md
+1. Read _float-system.md
    → Understand behavioral rules
    → Load structure map
 
-2. Follow map to each float.md
+2. Follow map to each _float.md
    → Understand folder purposes
    → See file listings
 
@@ -111,7 +111,7 @@ When AI receives `float-system.md`:
 
 8. Log session before ending
    → Record activity
-   → Update sessions/float.md
+   → Update sessions/_float.md
    → Leave handoff notes
 ```
 
@@ -125,14 +125,14 @@ Structure IS compression. Conventions eliminate verbosity.
 
 | Component | Tokens |
 |-----------|--------|
-| float-system.md | 300-500 |
-| float.md (per folder) | 30-50 |
+| _float-system.md | 300-500 |
+| _float.md (per folder) | 30-50 |
 | floatdoc frontmatter | 40-60 |
 | session log (recent) | 50-150 |
 
 **Example: 10-folder project, 50 files**
-- 1 float-system.md: 400 tokens
-- 10 float.md: 400 tokens
+- 1 _float-system.md: 400 tokens
+- 10 _float.md: 400 tokens
 - 50 frontmatters: 2000 tokens (skimmed)
 - 3 recent sessions: 300 tokens
 
@@ -142,7 +142,7 @@ Deep dive only when task requires.
 
 ## Field Specifications
 
-### float-system.md (Boot Loader)
+### _float-system.md (Boot Loader)
 
 Uses `<fp>` tags. Behavioral modifier. No YAML frontmatter needed—the JSON handles it.
 
@@ -165,7 +165,7 @@ Uses `<fp>` tags. Behavioral modifier. No YAML frontmatter needed—the JSON han
 </fp>
 ```
 
-### float.md (Folder Navigation)
+### _float.md (Folder Navigation)
 
 Minimal YAML. Just enough to map the folder.
 
@@ -187,7 +187,7 @@ ai_updated:
 
 Skips: created, human_author, human_intent, human_context, ai_model, ai_notes
 
-Why: float.md is navigation, not content. Keep it lean.
+Why: _float.md is navigation, not content. Keep it lean.
 
 ### floatdoc (Document Context)
 
@@ -242,13 +242,13 @@ No YAML frontmatter—the JSON contains all metadata.
 ### AI Responsibilities
 
 **Every session:**
-1. Read float-system.md first
+1. Read _float-system.md first
 2. Check integrity
 3. Surface issues before proceeding
 
 **Integrity checks:**
-- All folders have float.md
-- All float.md files reflect actual contents
+- All folders have _float.md
+- All _float.md files reflect actual contents
 - No broken internal links
 - No orphaned files
 - Structure map matches reality
@@ -257,7 +257,7 @@ No YAML frontmatter—the JSON contains all metadata.
 ```
 ⚠️ FloatSystem Integrity Issues:
 
-1. Missing float.md in /new-folder/
+1. Missing _float.md in /new-folder/
 2. Stale: /docs/old.md not in index
 3. Broken link: references deleted file
 
@@ -276,8 +276,8 @@ Proceed? (Human approval required)
 
 When AI modifies a file:
 1. Update ai_updated
-2. Check if float.md needs updating
-3. Check if float-system.md structure map needs updating
+2. Check if _float.md needs updating
+3. Check if _float-system.md structure map needs updating
 4. Propagate changes upward
 
 ## Agent Handoff
@@ -289,13 +289,13 @@ handoff:
   from: [agent]
   to: [agent]
   context:
-    system: float-system.md (always)
-    scope: [relevant float.md files]
+    system: _float-system.md (always)
+    scope: [relevant _float.md files]
     files: [specific files for task]
     task: [what to do]
 ```
 
-**Minimum:** Always pass float-system.md reference.
+**Minimum:** Always pass _float-system.md reference.
 
 ## Naming Conventions
 
@@ -303,8 +303,8 @@ All files are `.md` for universal compatibility.
 
 | Name | Purpose |
 |------|---------|
-| `float-system.md` | Root behavioral protocol (one per project) |
-| `float.md` | Folder navigation (one per folder) |
+| `_float-system.md` | Root behavioral protocol (one per project) |
+| `_float.md` | Folder navigation (one per folder) |
 | `*.md` with frontmatter | Documents (floatdocs) |
 | `*.md` with `<fp>` tags | Tools (floatprompts) |
 
@@ -327,9 +327,9 @@ Differentiation by content, not file extension.
 ```
 FloatPrompt (trademark, umbrella)
 └── FloatStructure (the OS architecture)
-    └── FloatFolder (any folder with float.md)
-        ├── FloatSystem → float-system.md (boot loader, root only)
-        ├── FloatNav → float.md (navigation)
+    └── FloatFolder (any folder with _float.md)
+        ├── FloatSystem → _float-system.md (boot loader, root only)
+        ├── FloatNav → _float.md (navigation)
         ├── FloatDoc → *.md (document context)
         ├── FloatPrompt → *.md (tools)
         ├── FloatLog → sessions/ (activity log)
@@ -340,7 +340,7 @@ FloatPrompt (trademark, umbrella)
 
 **FloatPrompt** is the invisible OS for AI.
 
-**float-system.md** is the power switch. Feed it to any AI, the lights turn on.
+**_float-system.md** is the power switch. Feed it to any AI, the lights turn on.
 
 **The penetration sequence** builds rich context from minimal tokens.
 

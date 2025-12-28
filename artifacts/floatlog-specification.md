@@ -25,8 +25,8 @@ FloatLog is the session logging component of FloatSystem. It records AI activity
 
 | Component | File | Purpose |
 |-----------|------|---------|
-| FloatSystem | `float-system.md` | Boot loader, behavioral protocol |
-| FloatNav | `float.md` | Folder navigation |
+| FloatSystem | `_float-system.md` | Boot loader, behavioral protocol |
+| FloatNav | `_float.md` | Folder navigation |
 | FloatDoc | frontmatter | Document context |
 | FloatPrompt | `<fp>` tags | Tools, behavioral modifiers |
 | **FloatLog** | `sessions/` | Activity history |
@@ -47,10 +47,10 @@ FloatLog is the session logging component of FloatSystem. It records AI activity
 
 ```
 project/
-├── float-system.md
-├── float.md
+├── _float-system.md
+├── _float.md
 ├── sessions/
-│   ├── float.md              # Session navigation
+│   ├── _float.md              # Session navigation
 │   ├── 2025-12-28.md         # Daily log
 │   ├── 2025-12-29.md
 │   └── 2025-12-30.md
@@ -61,13 +61,13 @@ project/
 ```
 project/
 ├── sessions/
-│   ├── float.md              # Session navigation
+│   ├── _float.md              # Session navigation
 │   ├── 2025-12/
-│   │   ├── float.md          # Month navigation
+│   │   ├── _float.md          # Month navigation
 │   │   ├── 2025-12-28.md
 │   │   └── 2025-12-29.md
 │   └── 2025-11/
-│       ├── float.md
+│       ├── _float.md
 │       └── ...
 ```
 
@@ -76,9 +76,9 @@ project/
 ```
 project/
 ├── sessions/
-│   ├── float.md
+│   ├── _float.md
 │   ├── 2025-12-28/
-│   │   ├── float.md          # Day navigation
+│   │   ├── _float.md          # Day navigation
 │   │   ├── 0900-scan.md      # Morning scan
 │   │   └── 1400-update.md    # Afternoon work
 ```
@@ -124,14 +124,14 @@ Brief description of what happened this session.
 
 - [x] Scanned system (boot sequence complete)
 - [x] Found 3 integrity issues
-- [x] Updated `/docs/float.md`
+- [x] Updated `/docs/_float.md`
 - [ ] Flagged `/tools/old.md` for review (pending human)
 
 ## Files Modified
 
 | File | Action | Notes |
 |------|--------|-------|
-| `/docs/float.md` | Updated | Added new file listing |
+| `/docs/_float.md` | Updated | Added new file listing |
 | `/docs/guide.md` | Updated | Refreshed ai_notes |
 
 ## Issues Surfaced
@@ -139,7 +139,7 @@ Brief description of what happened this session.
 | File | Issue | Severity | Status |
 |------|-------|----------|--------|
 | `/tools/old.md` | 90 days stale | Low | Pending review |
-| `/new-folder/` | Missing float.md | High | Created |
+| `/new-folder/` | Missing _float.md | High | Created |
 
 ## Handoff Notes
 
@@ -171,7 +171,7 @@ Context for next session or agent:
 | **Issues Surfaced** | If any | Table of problems found |
 | **Handoff Notes** | No | Context for next session |
 
-## sessions/float.md
+## sessions/_float.md
 
 The sessions folder needs its own index:
 
@@ -232,7 +232,7 @@ Typical session log: 50-150 tokens.
 Updated boot sequence:
 
 ```
-1. Read float-system.md completely
+1. Read _float-system.md completely
 2. Load structure map into memory
 3. Understand file conventions
 4. Check for integrity issues
@@ -249,7 +249,7 @@ Step 8 added: Log activity before session ends.
 
 **AI responsibilities:**
 - Create session log at end of each working session
-- Update sessions/float.md with new entry
+- Update sessions/_float.md with new entry
 - Keep handoff notes current
 - Archive old sessions (optional, by month/quarter)
 

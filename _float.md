@@ -23,7 +23,7 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 
 | File | Purpose |
 |------|---------|
-| **float-system.md** | Boot loader — read first for full project awareness |
+| **_float-system.md** | Boot loader — read first for full project awareness |
 | **floatprompt.txt** | The template (3KB) — creates more floatprompts |
 | **floatprompt-os.txt** | The full system (35KB) — guided tool creation |
 | **README.md** | Public-facing documentation |
@@ -45,14 +45,14 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 
 ```
 floatprompt/
-├── float-system.md          # Boot loader (read first)
-├── float.md                 # This file
+├── _float-system.md          # Boot loader (read first)
+├── _float.md                 # This file
 ├── floatprompt.txt          # The template (3KB)
 ├── floatprompt-os.txt       # The full system (35KB)
 ├── README.md                # Public-facing documentation
 │
 ├── docs/                    # Core documentation
-│   ├── float.md             # Folder navigation
+│   ├── _float.md             # Folder navigation
 │   ├── fp.md                # File format specification
 │   ├── mds-method.md        # MDS methodology (Map → Decide → Structure)
 │   ├── use.md               # What you can build
@@ -61,7 +61,7 @@ floatprompt/
 │   ├── voice.md             # Voice preservation rules
 │   ├── safety.md            # Safety guidelines
 │   ├── philosophy/          # Background thinking
-│   │   ├── float.md
+│   │   ├── _float.md
 │   │   ├── context.md       # Context engineering philosophy
 │   │   ├── discovery.md     # How floatprompt was discovered
 │   │   ├── manifesto.md     # Core manifesto
@@ -69,36 +69,36 @@ floatprompt/
 │   │   ├── orientation.md   # Orientation guide
 │   │   └── value.md         # Value proposition
 │   └── reference/           # Template references
-│       ├── float.md
+│       ├── _float.md
 │       ├── reference-full.txt
 │       ├── reference-mini.txt
 │       └── reference-micro.txt
 │
 ├── context/                 # Onboarding
-│   ├── float.md
+│   ├── _float.md
 │   └── floatprompt-context.txt
 │
 ├── dev/                     # Development tools
-│   ├── float.md
+│   ├── _float.md
 │   ├── update-creator.txt
 │   ├── update-protocol.txt
 │   └── updates/
 │
 ├── experimental/            # Build system (Node.js)
-│   ├── float.md
+│   ├── _float.md
 │   ├── src/
 │   ├── dist/
 │   ├── scripts/
 │   └── package.json
 │
 ├── sessions/                # Activity history
-│   ├── float.md
+│   ├── _float.md
 │   └── [session logs]
 │
 └── artifacts/               # Historical archive
-    ├── float.md
+    ├── _float.md
     └── 2025/                # 113+ files
-        └── float.md
+        └── _float.md
 ```
 
 ---
@@ -252,7 +252,7 @@ npm run build-all    # Build everything
 
 ## Key Files to Read First
 
-1. **float-system.md** — Boot loader (this repo's behavioral protocol)
+1. **_float-system.md** — Boot loader (this repo's behavioral protocol)
 2. **floatprompt.txt** — The template itself
 3. **docs/fp.md** — File format specification
 4. **docs/mds-method.md** — The methodology
@@ -260,7 +260,7 @@ npm run build-all    # Build everything
 6. **docs/principles.md** — Core principles
 7. **docs/voice.md** — Voice preservation
 
-For historical context: `artifacts/2025/float.md` has a comprehensive TOC of 113 files documenting the evolution of FloatPrompt throughout 2025.
+For historical context: `artifacts/2025/_float.md` has a comprehensive TOC of 113 files documenting the evolution of FloatPrompt throughout 2025.
 
 ---
 
@@ -283,4 +283,4 @@ The "floatdoc" concept (lighter-weight document format) was explored in June 202
 
 © 2025 @MDS | CC BY 4.0
 
-<!-- AI: Keep this file in sync with float-system.md structure map. Update when root files/folders change. -->
+<!-- AI: Keep this file in sync with _float-system.md structure map. Update when root files/folders change. -->
