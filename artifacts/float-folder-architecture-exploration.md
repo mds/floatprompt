@@ -1,0 +1,314 @@
+---
+title: "_float/ Folder Architecture Exploration"
+type: exploration, specification
+status: draft
+created: 2025-12-28
+
+human_author: MDS
+human_intent: Explore architectural shift to _float/ container folders
+human_context: Considering npm installable FloatSystem that works in any existing project
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: |
+  Created for validation with separate AI agent.
+  Significant architectural shift from current approach.
+  Need to validate tradeoffs before implementation.
+---
+
+# _float/ Folder Architecture Exploration
+
+## Context
+
+FloatSystem is evolving toward an installable tool (`npm install -g floatprompt`) that can be added to any existing project. This creates new requirements:
+
+1. **No collisions** — Can't assume folder names like `sessions/` or `docs/` are available
+2. **Clear namespace** — Easy to distinguish FloatSystem files from project files
+3. **Visibility** — FloatSystem philosophy values plain text visibility over hidden files
+4. **Portability** — Structure should work in any project regardless of existing layout
+
+## Current Architecture
+
+```
+project/
+├── _system.md              # Boot loader (root only)
+├── _float.md               # Navigation (in every folder)
+├── sessions/
+│   ├── _float.md
+│   └── log-2025-12-28.md
+├── docs/
+│   ├── _float.md
+│   └── [doc files]
+└── src/
+    └── [project code]
+```
+
+**Problems with current approach:**
+- `sessions/` might collide with existing project folder
+- `_float.md` files scattered throughout project
+- Hard to distinguish FloatSystem from project structure
+- Unclear what to delete if removing FloatSystem
+
+## Proposed Architecture: `_float/` Container
+
+### Core Idea
+
+Every directory gets a `_float/` subfolder that contains all FloatSystem files for that scope.
+
+```
+project/
+├── _float/                     # Root FloatSystem container
+│   ├── system.md               # Boot loader
+│   ├── nav.md                  # Root navigation
+│   ├── logs/
+│   │   └── 2025-12-28.md
+│   └── config.md               # Optional settings
+│
+├── src/
+│   ├── _float/                 # Src-level context
+│   │   └── nav.md              # Navigation for src/
+│   └── [project code]
+│
+├── docs/
+│   ├── _float/                 # Docs-level context
+│   │   └── nav.md
+│   └── [doc files]
+│
+└── package.json
+```
+
+### File Naming Inside `_float/`
+
+Since files are already namespaced by the folder, no underscore prefix needed:
+
+| Current | Proposed |
+|---------|----------|
+| `_system.md` | `_float/system.md` |
+| `_float.md` | `_float/nav.md` |
+| `sessions/log-2025-12-28.md` | `_float/logs/2025-12-28.md` |
+
+### Benefits
+
+1. **Zero collision risk** — `_float/` is a unique namespace
+2. **Clear boundaries** — Everything FloatSystem is in `_float/` folders
+3. **Easy removal** — Delete all `_float/` folders to uninstall
+4. **Sorts to top** — Underscore prefix on folder
+5. **Clean project structure** — Project files stay uncluttered
+6. **Installable** — `npx floatprompt init` creates `_float/` structure
+
+### Boot Sequence (Revised)
+
+```json
+{
+  "boot_sequence": {
+    "1": "Read _float/system.md completely",
+    "2": "Load structure map into memory",
+    "3": "Traverse ALL _float/nav.md files. Verify Contents tables match parent folder contents.",
+    "4": "Read today's log (_float/logs/YYYY-MM-DD.md)",
+    "5": "Build mental model of project structure",
+    "6": "Flag discrepancies before proceeding",
+    "7": "Execute human requests",
+    "8": "Log session before ending"
+  }
+}
+```
+
+### Penetration Pattern
+
+```
+AI reads: project/_float/system.md
+       → project/_float/nav.md
+       → project/src/_float/nav.md
+       → project/docs/_float/nav.md
+       → project/_float/logs/2025-12-28.md
+       → Ready to work
+```
+
+## Detailed Structure
+
+### Root `_float/`
+
+```
+_float/
+├── system.md           # Boot loader, behavioral protocol
+├── nav.md              # Root navigation (what's in project root)
+├── logs/
+│   ├── 2025-12-28.md   # Daily session logs
+│   └── 2025-12-27.md
+└── config.md           # Optional: project-specific settings
+```
+
+### Subfolder `_float/`
+
+```
+src/_float/
+└── nav.md              # Navigation for src/ contents
+```
+
+Minimal. Just navigation. Inherits behavior from root `_float/system.md`.
+
+### Optional: Nested Logs
+
+For large projects, logs could be scoped:
+
+```
+src/_float/
+├── nav.md
+└── logs/               # Optional: src-specific logs
+    └── 2025-12-28.md
+```
+
+But default is centralized logs in root `_float/logs/`.
+
+## Installation Flow
+
+```bash
+$ cd my-project
+$ npx floatprompt init
+
+Creating FloatSystem structure...
+  ✓ _float/system.md
+  ✓ _float/nav.md
+  ✓ _float/logs/
+
+FloatSystem initialized.
+- Edit _float/nav.md to document your project structure
+- AI sessions will log to _float/logs/
+- Run 'npx floatprompt scan' to auto-generate nav.md files
+```
+
+### Scan Command
+
+```bash
+$ npx floatprompt scan
+
+Scanning project structure...
+  ✓ Created src/_float/nav.md (12 files)
+  ✓ Created docs/_float/nav.md (8 files)
+  ✓ Created tests/_float/nav.md (24 files)
+  ✓ Updated _float/nav.md (root)
+
+4 navigation files created/updated.
+```
+
+## Tradeoffs
+
+### Pros
+
+| Benefit | Description |
+|---------|-------------|
+| **Isolation** | FloatSystem is self-contained |
+| **No collisions** | Works in any project |
+| **Clear ownership** | Obvious what's FloatSystem vs project |
+| **Easy cleanup** | `rm -rf **/_float` removes everything |
+| **Tooling friendly** | Easy to write install/scan/update commands |
+| **Gitignore friendly** | Can ignore `_float/logs/` if desired |
+
+### Cons
+
+| Drawback | Description |
+|----------|-------------|
+| **Deeper nesting** | `_float/system.md` vs `_system.md` |
+| **More folders** | Each scope gets a `_float/` folder |
+| **Discovery** | Slightly less visible than root-level files |
+| **Breaking change** | Requires migration from current structure |
+
+### Mitigations
+
+- **Deeper nesting**: One extra folder level is minimal cost
+- **More folders**: Only created where needed, not everywhere
+- **Discovery**: `_float/` sorts to top, still visible
+- **Breaking change**: Migration script can automate
+
+## Open Questions
+
+### 1. Naming Inside `_float/`
+
+Should files inside `_float/` keep underscore prefixes?
+
+```
+Option A: _float/system.md, _float/nav.md (no underscore, folder provides namespace)
+Option B: _float/_system.md, _float/_nav.md (underscore for consistency)
+```
+
+Recommendation: **Option A** — folder is the namespace, no need for double-prefixing.
+
+### 2. Log Location
+
+Centralized vs distributed logs?
+
+```
+Option A: All logs in root _float/logs/ (centralized)
+Option B: Each _float/ can have its own logs/ (distributed)
+Option C: Centralized default, distributed optional
+```
+
+Recommendation: **Option C** — Simple default, flexibility when needed.
+
+### 3. Config File
+
+Should there be a `_float/config.md` or `_float/config.json`?
+
+```yaml
+# _float/config.md
+---
+project_name: my-project
+ai_models_allowed: [claude, gpt-4]
+log_retention_days: 30
+auto_scan: true
+---
+```
+
+Recommendation: **Optional** — Not required for basic usage.
+
+### 4. Nav File Naming
+
+`nav.md` vs `index.md` vs `float.md`?
+
+| Name | Pros | Cons |
+|------|------|------|
+| `nav.md` | Clear purpose | New convention |
+| `index.md` | Familiar pattern | Generic |
+| `float.md` | Brand consistency | Redundant with folder name |
+
+Recommendation: **nav.md** — Clear, short, purpose-driven.
+
+### 5. Subfolder Threshold
+
+When should a subfolder get its own `_float/nav.md`?
+
+- Every folder? (comprehensive but verbose)
+- Only folders with 5+ files? (threshold)
+- Only when explicitly created? (manual)
+- Auto-generated on scan? (tooling-driven)
+
+Recommendation: **Tooling-driven** — `npx floatprompt scan` creates where useful.
+
+## Validation Questions
+
+For the reviewing agent:
+
+1. **Does this architecture solve the collision problem** for installing into existing projects?
+
+2. **Is `_float/` the right folder name?** Alternatives: `.float/`, `__float__/`, `_context/`, `_ai/`
+
+3. **Should nav.md describe its parent folder or its sibling files?** (i.e., does `src/_float/nav.md` describe what's in `src/` or what's in `src/_float/`?)
+
+4. **Is the boot sequence clear?** Would an AI know how to penetrate this structure?
+
+5. **What's missing?** Are there use cases this doesn't handle?
+
+6. **Migration path?** How would existing FloatPrompt projects migrate to this structure?
+
+## Next Steps (If Validated)
+
+1. Update all specifications to reflect `_float/` architecture
+2. Migrate floatprompt repository to new structure
+3. Build `npx floatprompt init` command
+4. Build `npx floatprompt scan` command
+5. Update documentation
+6. Test with external projects
+
+---
+
+*This document is for architectural validation. Do not implement until reviewed.*
