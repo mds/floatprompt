@@ -12,7 +12,7 @@ Changelog of AI session activity. Newest entries first.
 ---
 
 ## 2025-12-28 18:30 — Add FloatDoc frontmatter to all docs
-commit: 7d3a736
+commit: 1c6085e
 
 - Added full FloatDoc YAML frontmatter to all 13 documentation files
 - Includes both human_ fields (author, intent, context) and ai_ fields (model, updated, notes)
