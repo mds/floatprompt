@@ -35,7 +35,7 @@ Historical archive and active specifications for FloatPrompt evolution.
 - Then individual specs as needed
 
 **For historical context:**
-- See `2025/float.md` for comprehensive TOC of 113 historical files
+- See `2025/_float.md` for comprehensive TOC of 113 historical files
 - Organized by category: specifications, breakthroughs, manifestos, etc.
 
 ## Note
