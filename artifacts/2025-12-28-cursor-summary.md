@@ -10,7 +10,9 @@ human_context: Post-boot sequence snapshot for handoff or reference
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
-ai_notes: Generated after completing _float/system.md boot sequence
+ai_notes: |
+  Generated after completing _float/system.md boot sequence
+  Updated to include MDS loop framing (5 loops for full context)
 ---
 
 # Cursor Context Summary — 2025-12-28
@@ -151,13 +153,29 @@ What floatprompt must never do:
 
 ## MDS Methodology
 
-**Map → Decide → Structure**
+**Map → Decide → Structure** — Loop as necessary.
 
-1. **Map** — Establish shared understanding before building
-2. **Decide** — Determine what the tool needs to do
-3. **Structure** — Build the floatprompt file
+A universal methodology for building understanding. Applies to tools, context, learning, problem-solving.
 
-Depth scales with complexity.
+| Phase | Map | Decide | Structure |
+|-------|-----|--------|-----------|
+| **Building Tools** | Assess territory | What tool needs | Build floatprompt |
+| **Building Context** | Orient to structure | What to focus on | Operational understanding |
+| **Learning** | Survey domain | What matters | Organize knowledge |
+
+**The loops I used this session:**
+
+```
+Loop 1: Boot       → Initial awareness
+Loop 2: Verify     → Confirmed project state
+Loop 3: Deepen     → Understood the "why"
+Loop 4: Ground     → Practical understanding
+Loop 5: Complete   → Full context achieved
+```
+
+**The test:** "Do I understand enough to do what I need to do?"
+
+Depth scales with complexity. Simple tasks = one loop. Full context = multiple loops.
 
 ---
 

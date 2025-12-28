@@ -41,7 +41,7 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 | Folder | Purpose |
 |--------|---------|
 | **docs/** | Core documentation (format spec, methodology, principles) |
-| **context/** | Onboarding documents for new AI sessions |
+| **context/** | Onboarding at three depths (float-map, float-context, float-deepdive) |
 | **examples/** | Real-world FloatPrompt tools (coaches, extractors, writers) |
 | **dev/** | Development tools and update protocols |
 | **experimental/** | Build system (Node.js, legacy) |
@@ -269,18 +269,19 @@ npm run build-all    # Build everything
 
 ---
 
-## Key Files to Read First
+## Context Depth
 
-1. **_float/system.md** — Boot loader (this repo's behavioral protocol)
-2. **floatprompt.md** — The template itself
-3. **docs/floatprompt.md** — FloatPrompt file format
-4. **docs/floatdoc.md** — FloatDoc format (document context)
-5. **docs/mds-method.md** — The methodology
-6. **docs/goals.md** — Goal hierarchy
-7. **docs/principles.md** — Core principles
-8. **docs/voice.md** — Voice preservation
+**Depth scales with complexity.** Choose based on what you need:
 
-For historical context: `artifacts/2025/_float/index.md` has a comprehensive TOC of 113 files documenting the evolution of FloatPrompt throughout 2025.
+| Level | File | Scope | When to Use |
+|-------|------|-------|-------------|
+| Quick | `context/float-map.md` | 6 files, ~5 min | Simple tasks, quick questions |
+| Standard | `context/float-context.md` | Conceptual, ~2 min | Need system understanding |
+| Full | `context/float-deepdive.md` | 24+ files, ~15 min | Complex work, system evolution |
+
+**Always start with:** `_float/system.md` (boot loader)
+
+For historical context: `artifacts/2025/_float/index.md` has 150+ files documenting the evolution of FloatPrompt throughout 2025.
 
 ---
 

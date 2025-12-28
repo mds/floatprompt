@@ -11,31 +11,51 @@ Onboarding documents for bringing fresh AI sessions up to speed on the FloatProm
 
 ## Files
 
-| File | Purpose |
-|------|---------|
-| **float-context.md** | Master context document. Upload to any AI for instant understanding of the full system. |
+| File | Depth | Purpose |
+|------|-------|---------|
+| **float-map.md** | Quick | 6 files, ~5 min, one loop. Minimal orientation for simple tasks. |
+| **float-context.md** | Standard | Conceptual overview. Upload for instant system understanding. |
+| **float-deepdive.md** | Full | 24+ files, ~15 min, 5 loops. Complete operational context. |
 
-## Purpose
+## Depth Levels
 
-When starting a fresh AI session, upload `float-context.md` to give the AI comprehensive understanding of:
+**Depth scales with complexity.** Choose based on what you need:
 
-- The three components (FloatDoc, FloatPrompt, FloatSystem)
-- When to use each component
-- Goal hierarchy and principles
-- MDS methodology
-- Core distinctions (context vs. behavior vs. awareness)
+| Level | Files | Time | Use When |
+|-------|-------|------|----------|
+| **float-map** | 6 | ~5 min | Quick tasks, first contact, time-constrained |
+| **float-context** | 1 (conceptual) | ~2 min | Need to understand what FloatPrompt is |
+| **float-deepdive** | 24+ | ~15 min | Complex tools, system evolution, full collaboration |
 
 ## Usage
 
+**Quick orientation:**
 ```
-1. Start new AI session
-2. Upload float-context.md
-3. AI instantly understands the full FloatPrompt system
-4. Continue working
+1. Upload float-map.md
+2. AI reads 6 key files
+3. Minimal working context achieved
 ```
 
-This is lighter than uploading the full `floatprompt-os.md` when you just need context, not tool-building capability.
+**Conceptual understanding:**
+```
+1. Upload float-context.md
+2. AI instantly understands the system
+3. Good for explanations, simple guidance
+```
 
-For full tool-building capability, use `floatprompt.md` or `floatprompt-os.md` from root.
+**Full operational context:**
+```
+1. Upload float-deepdive.md
+2. AI follows 5 MDS loops, reads 24+ files
+3. Complete understanding for complex work
+```
+
+## When to Use Each
+
+- **float-map** — Quick questions, simple tasks, first contact
+- **float-context** — Understanding what FloatPrompt is, conceptual discussions
+- **float-deepdive** — Building complex tools, system evolution, strategic work
+
+For tool-building capability (not just context), use `floatprompt.md` or `floatprompt-os.md` from root.
 
 <!-- AI: Update this file when context/onboarding documents change. -->

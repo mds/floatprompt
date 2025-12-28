@@ -28,11 +28,17 @@
       "2": "Load structure map into memory",
       "3": "Traverse ALL _float/index.md files. Verify each Contents table matches parent folder contents. Flag discrepancies.",
       "4": "Read today's session log (_float/logs/YYYY-MM-DD.md) for recent activity",
-      "5": "Skim key docs: docs/floatprompt.md, docs/floatdoc.md, docs/goals.md, docs/principles.md",
-      "6": "Build mental model of what exists and what happened",
+      "5": "Choose context depth based on task complexity (see context/ folder)",
+      "6": "Build mental model (what exists, what happened, current state)",
       "7": "Check for integrity issues, report gaps before proceeding",
       "8": "Execute human requests",
       "9": "Log session before ending (append to _float/logs/YYYY-MM-DD.md)"
+    },
+    "context_depth": {
+      "principle": "Depth scales with complexity",
+      "quick": "context/float-map.md — 6 files, ~5 min, one MDS loop",
+      "standard": "context/float-context.md — conceptual overview, ~2 min",
+      "full": "context/float-deepdive.md — 24+ files, ~15 min, 5 MDS loops"
     },
     "maintenance": {
       "recursive": true,
@@ -183,11 +189,21 @@ ai_updated:
 1. Read `_float/system.md` first (this file)
 2. Traverse ALL `_float/index.md` files. Verify Contents tables match parent folder contents. Flag discrepancies.
 3. Read today's session log `_float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
-4. Skim key docs: `docs/floatprompt.md`, `docs/floatdoc.md`, `docs/goals.md`, `docs/principles.md`
+4. Choose context depth based on task complexity (see below)
 5. Build mental model (what exists, what happened, current state)
 6. Check integrity, surface issues before proceeding
 7. Execute human requests
 8. Log session before ending (append to `_float/logs/YYYY-MM-DD.md`)
+
+**Context depth (choose based on task):**
+
+| Level | File | Scope | When to Use |
+|-------|------|-------|-------------|
+| Quick | `context/float-map.md` | 6 files, ~5 min | Simple tasks, quick questions |
+| Standard | `context/float-context.md` | Conceptual, ~2 min | Need system understanding |
+| Full | `context/float-deepdive.md` | 24+ files, ~15 min | Complex work, system evolution |
+
+**Depth scales with complexity.** Quick tasks need quick context. Deep work needs deep context.
 
 **Session log format** (changelog-style, newest first):
 ```markdown

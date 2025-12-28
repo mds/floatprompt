@@ -20,6 +20,7 @@ Historical archive and active specifications for FloatPrompt evolution.
 | File | Purpose |
 |------|---------|
 | **2025-12-28-cursor-summary.md** | AI context snapshot after FloatSystem boot sequence |
+| **2025-12-28-cursor-context-build-path.md** | Documented path of 24 files read to achieve full context |
 
 ## Historical Archive
 
