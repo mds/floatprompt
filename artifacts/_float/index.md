@@ -23,7 +23,7 @@ See `2025/_float/index.md` for historical specs, explorations, and session hando
 
 | Folder | Purpose |
 |--------|---------|
-| **2025/** | Historical archive — 113+ files documenting FloatPrompt evolution throughout 2025 |
+| **2025/** | Historical archive — 150+ files documenting FloatPrompt evolution throughout 2025 |
 
 ## Key Documents
 

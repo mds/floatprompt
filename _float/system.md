@@ -105,7 +105,7 @@ floatprompt/
 └── artifacts/             # Historical archive
     ├── _float/
     │   └── index.md
-    └── 2025/              # 113+ files documenting evolution
+    └── 2025/              # 150+ files documenting evolution
         └── _float/
             └── index.md
 ```

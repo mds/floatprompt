@@ -44,7 +44,7 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 | **context/** | Onboarding documents for new AI sessions |
 | **dev/** | Development tools and update protocols |
 | **experimental/** | Build system (Node.js, legacy) |
-| **artifacts/** | Historical archive (113+ files documenting evolution) |
+| **artifacts/** | Historical archive (150+ files documenting evolution) |
 
 ---
 
@@ -109,7 +109,7 @@ floatprompt/
 └── artifacts/               # Historical archive
     ├── _float/
     │   └── index.md
-    └── 2025/                # 113+ files
+    └── 2025/                # 150+ files
         └── _float/
             └── index.md
 ```
@@ -146,7 +146,7 @@ floatprompt/
 - Must begin with `<fp>` and end with `</fp>`
 - JSON section precedes markdown section
 - No `{{PLACEHOLDER}}` variables in production files
-- Extension: `.txt` for universal compatibility
+- Extension: `.md` for universal compatibility
 
 ---
 
