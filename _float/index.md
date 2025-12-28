@@ -31,7 +31,8 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 
 | File | Purpose |
 |------|---------|
-| **floatprompt.md** | The template (3KB) — creates more floatprompts |
+| **floatprompt.md** | The template (3KB) — creates floatprompts |
+| **floatdoc.md** | FloatDoc tool — adds context frontmatter to documents |
 | **floatprompt-os.md** | The full system (35KB) — guided tool creation |
 | **README.md** | Public-facing documentation |
 
@@ -58,6 +59,7 @@ floatprompt/
 │       └── YYYY-MM-DD.md
 │
 ├── floatprompt.md           # The template (3KB)
+├── floatdoc.md              # FloatDoc tool
 ├── floatprompt-os.md        # The full system (35KB)
 ├── README.md                # Public-facing documentation
 │

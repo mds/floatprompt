@@ -29,6 +29,11 @@ That's a floatprompt. A text file that becomes a tool.
 - What it does: Teaches AI how to create floatprompts
 - Best for: Experienced users who know what they want to build
 
+**[`floatdoc.md`](floatdoc.md)** — FloatDoc tool
+- Use when: Adding context frontmatter to any document
+- What it does: Generates YAML frontmatter for mutual understanding
+- Best for: Documenting what files ARE (not modifying behavior)
+
 **[`floatprompt-os.md`](floatprompt-os.md)** (35KB) — The full system
 - Use when: You want guided tool creation
 - What it does: Boot sequence, friction scoring, step-by-step methodology

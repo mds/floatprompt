@@ -64,6 +64,7 @@ floatprompt/
 │       └── YYYY-MM-DD.md  # Daily session logs
 │
 ├── floatprompt.md         # The template (3KB) - creates floatprompts
+├── floatdoc.md            # FloatDoc tool - adds context frontmatter
 ├── floatprompt-os.md      # The full system (35KB) - guided tool creation
 ├── README.md              # Public-facing documentation
 │
@@ -167,6 +168,7 @@ ai_updated:
 |------|----------|---------|
 | `system.md` | `_float/` | Root protocol (this file) |
 | `floatprompt.md` | `/` | Template for creating floatprompts |
+| `floatdoc.md` | `/` | Tool for adding context frontmatter |
 | `floatprompt-os.md` | `/` | Full OS with guided creation |
 
 ## Maintenance Protocol
