@@ -15,6 +15,12 @@ Historical archive and active specifications for FloatPrompt evolution.
 |------|---------|
 | **floatprompt-npm-scaffold-spec.md** | npm package scaffold specification (uses `_float/` architecture) |
 
+## Session Summaries
+
+| File | Purpose |
+|------|---------|
+| **2025-12-28-cursor-summary.md** | AI context snapshot after FloatSystem boot sequence |
+
 ## Historical Archive
 
 See `2025/_float/index.md` for historical specs, explorations, and session handoffs that document the evolution from flat structure to `_float/` container architecture.
@@ -33,7 +39,7 @@ See `2025/_float/index.md` for historical specs, explorations, and session hando
 - Then individual specs as needed
 
 **For historical context:**
-- See `2025/_float/index.md` for comprehensive TOC of 113 historical files
+- See `2025/_float/index.md` for comprehensive TOC of 150+ historical files
 - Organized by category: specifications, breakthroughs, manifestos, etc.
 
 ## Note

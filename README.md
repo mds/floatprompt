@@ -1,26 +1,16 @@
 # FloatPrompt
 
-**Build AI tools as text files.**
+*The invisible OS for AI.*
 
-Upload a floatprompt to any AI platform and it becomes a specialized tool—a coach, an assistant, a workflow—that guides you through a process and produces structured output.
-
-Not prompts. Not saved context. **Tools.**
+Build AI tools as text files. Upload a floatprompt to any AI platform and it becomes a specialized tool—a coach, an assistant, a workflow—that guides you through a process and produces structured output.
 
 ## What It Looks Like
 
 A floatprompt is a text file with two parts: JSON for AI behavior, markdown for methodology.
 
-Upload one to ChatGPT, Claude, or Cursor and the AI transforms. It has a persona, follows a process, asks specific questions, produces defined outputs.
+Upload one to ChatGPT, Claude, or Cursor and the AI transforms. It has a new persona, follows a process, asks specific questions, produces defined outputs.
 
-**Example:** The AI Portfolio Coach floatprompt (700 lines) turns any AI into a portfolio coach that:
-- Guides designers through 5 phases (Map → Decide → Structure → Details → Logistics)
-- Asks questions progressively, one phase at a time
-- Preserves the designer's voice ("no em dashes," "sound selective not desperate")
-- Produces a personalized HTML planning document with project-by-project image plans
-
-The output isn't chat. It's a 500-line artifact the designer opens in their browser and works from.
-
-That's a floatprompt. A text file that becomes a tool.
+A text file that becomes a tool.
 
 ## Which File?
 
@@ -49,27 +39,34 @@ Start with the OS if you're new. Graduate to the template when you know what you
 4. Collaborate through conversation
 5. Receive a custom floatprompt for your use case
 
-## The Format
+## The System
 
+Three components, from simple to full:
+
+### FloatDoc — Context
+YAML frontmatter for richer AI understanding of any document.
+```yaml
+---
+title: Project Brief
+human_intent: Define project scope
+---
+```
+
+### FloatPrompt — Tools
+Universal structure for portable AI tooling. JSON for behavior, markdown for methodology.
 ```
 <fp>
-  <json>
-    AI behavioral specification
-    - Persona and tone
-    - Interaction patterns
-    - Output requirements
-    - Voice preservation rules
-  </json>
-  <md>
-    Methodology and content
-    - Process phases
-    - Framework details
-    - Templates and examples
-  </md>
+  <json>{ behavioral spec }</json>
+  <md># methodology</md>
 </fp>
 ```
+The template (`floatprompt.md`, 3KB) teaches AI how to create tools. The full system (`floatprompt-os.md`, 35KB) adds guided creation for deep knowledge work and content manipulation.
 
-**JSON** tells the AI how to behave. **Markdown** tells it what to do. Together they create a tool that works identically on any AI platform.
+### FloatSystem — Project Awareness
+`_float/` folders that give AI instant awareness of entire directories.
+- `_float/system.md` — Boot loader (read first)
+- `_float/index.md` — Navigation and context
+- Recursive traversal activates full project understanding
 
 ## Why Text Files
 

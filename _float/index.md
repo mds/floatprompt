@@ -87,7 +87,7 @@ floatprompt/
 ├── context/                 # Onboarding
 │   ├── _float/
 │   │   └── index.md
-│   └── floatprompt-context.md
+│   └── float-context.md
 │
 ├── dev/                     # Development tools
 │   ├── _float/
