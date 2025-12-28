@@ -81,3 +81,5 @@ Use these tools when making systematic changes to FloatPrompt itself. For normal
 ---
 
 © 2025 @MDS
+
+<!-- AI: Update this file when dev tools or update workflow changes. -->

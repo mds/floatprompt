@@ -126,3 +126,5 @@ Template references at three complexity levels:
 ---
 
 © 2025 @MDS
+
+<!-- AI: Update this file when docs are added, removed, or reorganized. -->

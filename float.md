@@ -282,3 +282,5 @@ The "floatdoc" concept (lighter-weight document format) was explored in June 202
 ---
 
 © 2025 @MDS | CC BY 4.0
+
+<!-- AI: Keep this file in sync with system.md structure map. Update when root files/folders change. -->

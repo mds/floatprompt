@@ -36,6 +36,4 @@ Changelog-style. Each entry:
 
 Newest entries at top, like `git log`.
 
----
-
-AI appends to log.md after significant activity.
+<!-- AI: Append to log.md after significant activity. Format: timestamp, commit hash, brief bullets. -->

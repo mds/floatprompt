@@ -29,6 +29,6 @@ Template references at three complexity levels. Use these as starting points for
 
 Start minimal. Add complexity only when needed. A simple tool doesn't need full-spec overhead.
 
----
-
 All templates use `.txt` extension for universal compatibility.
+
+<!-- AI: Update this file when reference templates are added or modified. -->

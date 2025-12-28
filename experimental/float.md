@@ -120,3 +120,5 @@ Standalone floatprompt tools:
 ---
 
 © 2025 @MDS
+
+<!-- AI: This folder is archived/legacy. Update only if build system changes. -->

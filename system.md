@@ -64,7 +64,6 @@ floatprompt/
 ├── floatprompt.txt        # The template (3KB) - creates floatprompts
 ├── floatprompt-os.txt     # The full system (35KB) - guided tool creation
 ├── README.md              # Public-facing documentation
-├── CLAUDE.md              # Claude Code specific guidance
 │
 ├── docs/                  # Core documentation
 │   ├── float.md           # Folder navigation
@@ -104,7 +103,6 @@ floatprompt/
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
 | `*.txt` with `<fp>` tags | FloatPrompt | `<fp>` tags | Portable tools |
-| `CLAUDE.md` | Context | Markdown | Claude Code specific (legacy, being integrated) |
 
 ### FloatDoc Frontmatter
 
@@ -153,7 +151,16 @@ ai_updated:
 2. Check integrity
 3. Surface issues before proceeding
 4. Execute human requests
-5. Log session before ending
+5. Log session before ending (append to `sessions/log.md`)
+
+**Session log format** (changelog-style, newest first):
+```markdown
+## YYYY-MM-DD HH:MM — Short title
+commit: [hash]
+
+- What changed and why
+- Brief bullets
+```
 
 **Integrity checks:**
 - [ ] All folders have `float.md`
@@ -188,6 +195,15 @@ When AI modifies a file:
 2. Check if `float.md` needs updating
 3. Check if structure map needs updating
 4. Propagate changes upward
+
+### Distributed Hooks
+
+Each `float.md` has a context-specific AI hook at the bottom — a trigger that reminds AI what to maintain locally. The hook points to this protocol for full instructions.
+
+Example hooks:
+- `sessions/float.md`: "Append to log.md after significant activity"
+- `docs/float.md`: "Update when docs added/removed"
+- Root `float.md`: "Keep in sync with system.md structure map"
 
 ## Goal Hierarchy
 

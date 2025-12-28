@@ -13,7 +13,7 @@ Historical documentation of FloatPrompt's evolution from January through Decembe
 
 ## Quick Navigation
 
-See **CLAUDE.md** in this folder for comprehensive categorized TOC covering:
+Comprehensive categorized TOC covering:
 
 - Foundational Specifications & Architecture
 - Breakthrough Moments
@@ -60,6 +60,4 @@ See **CLAUDE.md** in this folder for comprehensive categorized TOC covering:
 
 This is a historical archive. The current specifications live in `artifacts/` root (floatsystem-specification.md, floatdoc-specification.md, etc.).
 
----
-
-See CLAUDE.md for full categorized listing.
+<!-- AI: This is a historical archive. Update only when adding new 2025 artifacts. -->

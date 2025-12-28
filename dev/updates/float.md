@@ -31,6 +31,6 @@ Update specifications and records for FloatPrompt system changes.
 - Maintain rollback capability
 - Archaeological record of all changes
 
----
-
 See parent folder for update-creator.txt and update-protocol.txt tools.
+
+<!-- AI: Update this file when updates are added or moved between in-progress and closed. -->

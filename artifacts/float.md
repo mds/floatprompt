@@ -35,13 +35,13 @@ Historical archive and active specifications for FloatPrompt evolution.
 - Then individual specs as needed
 
 **For historical context:**
-- See `2025/CLAUDE.md` for comprehensive TOC of 113 historical files
+- See `2025/float.md` for comprehensive TOC of 113 historical files
 - Organized by category: specifications, breakthroughs, manifestos, etc.
 
 ## Note
 
 The specifications in this folder are **drafts** from the FloatSystem genesis session. They need real-world validation but the architecture is sound.
 
----
-
 This folder is actively maintained. New specifications and session logs are added as FloatPrompt evolves.
+
+<!-- AI: Update this file when specifications are added or modified. -->

@@ -36,6 +36,6 @@ When starting a fresh AI session, upload `floatprompt-context.txt` to give the A
 
 This is lighter than uploading the full `floatprompt-os.txt` when you just need context, not tool-building capability.
 
----
-
 For full tool-building capability, use `floatprompt.txt` or `floatprompt-os.txt` from root.
+
+<!-- AI: Update this file when context/onboarding documents change. -->

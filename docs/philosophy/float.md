@@ -34,6 +34,4 @@ Background thinking and origin documents. Read for context on why FloatPrompt ex
 
 Start with **manifesto.md** for the vision, then **orientation.md** for practical understanding. The others provide depth on specific aspects.
 
----
-
-See also: CLAUDE.md in this folder for Claude Code specific guidance.
+<!-- AI: Update this file when philosophy docs are added or removed. -->
