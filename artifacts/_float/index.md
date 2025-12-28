@@ -13,6 +13,7 @@ Historical archive and active specifications for FloatPrompt evolution.
 
 | File | Purpose |
 |------|---------|
+| **float-buoys-spec.md** | Float Buoys daemon — background file watcher that keeps `_float/` files accurate |
 | **floatprompt-npm-scaffold-spec.md** | npm package scaffold specification (uses `_float/` architecture) |
 
 ## Session Summaries
