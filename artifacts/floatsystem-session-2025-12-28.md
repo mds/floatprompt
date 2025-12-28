@@ -17,7 +17,7 @@ ai_notes: Comprehensive handoff document. Read this to understand all FloatSyste
 
 ## What We Built
 
-FloatPrompt is "the invisible OS for AI." Feed a single `system.md` to any AI, it boots up, penetrates folder structure, builds rich context, becomes aware of everything.
+FloatPrompt is "the invisible OS for AI." Feed a single `float-system.md` to any AI, it boots up, penetrates folder structure, builds rich context, becomes aware of everything.
 
 **One file turns the lights on.**
 
@@ -75,7 +75,7 @@ ai_ = AI attribution
 
 ### 4. Simple File Names
 
-**Decision:** `system.md`, `float.md` — no underscores, no prefixes
+**Decision:** `float-system.md`, `float.md` — no underscores, no prefixes
 
 **Why:**
 - Next.js uses `index.tsx` not `_index.tsx`
@@ -114,7 +114,7 @@ This is the core contract. AI does almost all heavy lifting. Human steers.
 |-----------|------|---------|
 | FloatStructure | (architecture) | Overall OS |
 | FloatFolder | folder + float.md | Folder pattern |
-| FloatSystem | `system.md` | Boot loader |
+| FloatSystem | `float-system.md` | Boot loader |
 | FloatNav | `float.md` | Navigation |
 | FloatDoc | YAML frontmatter | Document context |
 | FloatPrompt | `<fp>` tags | Behavioral tools |
@@ -122,9 +122,9 @@ This is the core contract. AI does almost all heavy lifting. Human steers.
 
 ## The Penetration Sequence
 
-When AI receives `system.md`:
+When AI receives `float-system.md`:
 
-1. Read system.md → behavioral rules, structure map
+1. Read float-system.md → behavioral rules, structure map
 2. Follow map to each float.md → folder purposes
 3. Skim floatdoc frontmatter → document understanding
 4. Read recent session logs → recent activity, handoff context
@@ -142,7 +142,7 @@ When AI receives `system.md`:
 | File | Purpose |
 |------|---------|
 | `floatdoc-specification.md` | YAML frontmatter format |
-| `floatsystem-specification.md` | system.md boot loader format |
+| `floatsystem-specification.md` | float-system.md boot loader format |
 | `floatstructure-specification.md` | Root OS architecture |
 | `floatlog-specification.md` | Session logging format |
 | `floatprompt-vision-2025-12-28.md` | Vision document |
@@ -166,7 +166,7 @@ These concepts exist but don't need immediate implementation:
 - FloatStructure as a named/marketed concept
 - Templates system
 
-The core (system.md, float.md, floatdoc frontmatter, sessions/) is solid and complete.
+The core (float-system.md, float.md, floatdoc frontmatter, sessions/) is solid and complete.
 
 ## Stress Tests Passed
 
@@ -187,7 +187,7 @@ All scenarios handled cleanly with the 10-field format.
 
 | Component | Tokens |
 |-----------|--------|
-| system.md | 300-500 |
+| float-system.md | 300-500 |
 | float.md (per folder) | 30-50 |
 | floatdoc frontmatter | 40-60 |
 | session log | 50-150 |
@@ -198,7 +198,7 @@ Structure IS compression. Conventions eliminate verbosity.
 
 If you're reading this in a fresh session:
 
-1. **Read system.md first** (when it exists) — it's the boot loader
+1. **Read float-system.md first** (when it exists) — it's the boot loader
 2. **The vision is simple:** One file turns the lights on
 3. **FloatDoc ≠ FloatPrompt:** Context vs behavior
 4. **Human decides, AI executes:** Don't wait for permission to maintain

@@ -19,7 +19,7 @@ ai_notes: Foundational vision document. References floatdoc-specification.md and
 
 FloatPrompt is the invisible operating system for AI collaboration.
 
-Feed a single `system.md` file to any AI. It boots up, penetrates the folder structure, builds rich context, and becomes aware of everything—what exists, how it connects, what's healthy, what needs attention.
+Feed a single `float-system.md` file to any AI. It boots up, penetrates the folder structure, builds rich context, and becomes aware of everything—what exists, how it connects, what's healthy, what needs attention.
 
 **One file turns the lights on.**
 
@@ -47,7 +47,7 @@ FloatPrompt defines the instruction set:
 |-----------|--------------|---------|--------|
 | **FloatStructure** | Root architecture | Overall OS | — |
 | **FloatFolder** | Any folder + float.md | Folder pattern | — |
-| **FloatSystem** | `system.md` | Boot loader, behavioral protocol | `<fp>` tags |
+| **FloatSystem** | `float-system.md` | Boot loader, behavioral protocol | `<fp>` tags |
 | **FloatNav** | `float.md` | Folder navigation | Minimal YAML |
 | **FloatDoc** | `*.md` | Document context | Full YAML frontmatter |
 | **FloatPrompt** | `*.md` | Tools, behavioral modifiers | `<fp>` tags |
@@ -57,7 +57,7 @@ FloatPrompt defines the instruction set:
 
 ```
 project/
-├── system.md          # THE root (behavioral, read first)
+├── float-system.md          # THE root (behavioral, read first)
 ├── float.md           # Root folder navigation
 ├── sessions/          # Activity history
 │   ├── float.md       # Session navigation
@@ -76,10 +76,10 @@ project/
 
 ## The Penetration Sequence
 
-When AI receives `system.md`:
+When AI receives `float-system.md`:
 
 ```
-1. Read system.md
+1. Read float-system.md
    → Understand behavioral rules
    → Load structure map
 
@@ -125,13 +125,13 @@ Structure IS compression. Conventions eliminate verbosity.
 
 | Component | Tokens |
 |-----------|--------|
-| system.md | 300-500 |
+| float-system.md | 300-500 |
 | float.md (per folder) | 30-50 |
 | floatdoc frontmatter | 40-60 |
 | session log (recent) | 50-150 |
 
 **Example: 10-folder project, 50 files**
-- 1 system.md: 400 tokens
+- 1 float-system.md: 400 tokens
 - 10 float.md: 400 tokens
 - 50 frontmatters: 2000 tokens (skimmed)
 - 3 recent sessions: 300 tokens
@@ -142,7 +142,7 @@ Deep dive only when task requires.
 
 ## Field Specifications
 
-### system.md (Boot Loader)
+### float-system.md (Boot Loader)
 
 Uses `<fp>` tags. Behavioral modifier. No YAML frontmatter needed—the JSON handles it.
 
@@ -242,7 +242,7 @@ No YAML frontmatter—the JSON contains all metadata.
 ### AI Responsibilities
 
 **Every session:**
-1. Read system.md first
+1. Read float-system.md first
 2. Check integrity
 3. Surface issues before proceeding
 
@@ -277,7 +277,7 @@ Proceed? (Human approval required)
 When AI modifies a file:
 1. Update ai_updated
 2. Check if float.md needs updating
-3. Check if system.md structure map needs updating
+3. Check if float-system.md structure map needs updating
 4. Propagate changes upward
 
 ## Agent Handoff
@@ -289,13 +289,13 @@ handoff:
   from: [agent]
   to: [agent]
   context:
-    system: system.md (always)
+    system: float-system.md (always)
     scope: [relevant float.md files]
     files: [specific files for task]
     task: [what to do]
 ```
 
-**Minimum:** Always pass system.md reference.
+**Minimum:** Always pass float-system.md reference.
 
 ## Naming Conventions
 
@@ -303,7 +303,7 @@ All files are `.md` for universal compatibility.
 
 | Name | Purpose |
 |------|---------|
-| `system.md` | Root behavioral protocol (one per project) |
+| `float-system.md` | Root behavioral protocol (one per project) |
 | `float.md` | Folder navigation (one per folder) |
 | `*.md` with frontmatter | Documents (floatdocs) |
 | `*.md` with `<fp>` tags | Tools (floatprompts) |
@@ -328,7 +328,7 @@ Differentiation by content, not file extension.
 FloatPrompt (trademark, umbrella)
 └── FloatStructure (the OS architecture)
     └── FloatFolder (any folder with float.md)
-        ├── FloatSystem → system.md (boot loader, root only)
+        ├── FloatSystem → float-system.md (boot loader, root only)
         ├── FloatNav → float.md (navigation)
         ├── FloatDoc → *.md (document context)
         ├── FloatPrompt → *.md (tools)
@@ -340,7 +340,7 @@ FloatPrompt (trademark, umbrella)
 
 **FloatPrompt** is the invisible OS for AI.
 
-**system.md** is the power switch. Feed it to any AI, the lights turn on.
+**float-system.md** is the power switch. Feed it to any AI, the lights turn on.
 
 **The penetration sequence** builds rich context from minimal tokens.
 

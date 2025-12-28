@@ -21,7 +21,7 @@ ai_notes: Comprehensive spec for FloatSystem as an invisible OS for AI. Core doc
 
 **FloatPrompt is the invisible OS for AI.**
 
-Feed a single `system.md` file to any AI. It boots up, penetrates the folder structure, builds rich context, and becomes aware of everything—what exists, how it connects, what's healthy, what needs attention.
+Feed a single `float-system.md` file to any AI. It boots up, penetrates the folder structure, builds rich context, and becomes aware of everything—what exists, how it connects, what's healthy, what needs attention.
 
 **One file turns the lights on.**
 
@@ -75,7 +75,7 @@ The human:
 |-----------|--------------|---------|--------|
 | **FloatStructure** | Root architecture | Overall OS | — |
 | **FloatFolder** | Any folder with float.md | Folder pattern | — |
-| **FloatSystem** | `system.md` | Boot loader, root behavioral | `<fp>` tags |
+| **FloatSystem** | `float-system.md` | Boot loader, root behavioral | `<fp>` tags |
 | **FloatNav** | `float.md` | Folder navigation | Minimal YAML |
 | **FloatDoc** | `*.md` | Document context | Full YAML frontmatter |
 | **FloatPrompt** | `*.md` | Tools, behavioral modifiers | `<fp>` tags |
@@ -93,7 +93,7 @@ Plus:
 
 ```
 /
-├── system.md           # Boot loader, root behavioral
+├── float-system.md           # Boot loader, root behavioral
 ├── float.md            # Root navigation
 └── sessions/           # Activity log
     └── float.md
@@ -105,7 +105,7 @@ These three are sacred. Every FloatSystem has them.
 
 ```
 /
-├── system.md           # Root behavioral (CORE)
+├── float-system.md           # Root behavioral (CORE)
 ├── float.md            # Root navigation (CORE)
 ├── sessions/           # Activity log (CORE)
 │   └── float.md
@@ -156,7 +156,7 @@ any-folder/
 **Minimum:** `float.md`
 
 **Optional additions:**
-- `behavior.md` — extends/overrides root system.md for this folder
+- `behavior.md` — extends/overrides root float-system.md for this folder
 - `sessions/` — local activity logging (for high-activity folders)
 
 **Every folder in FloatStructure should be a FloatFolder.** AI creates and maintains float.md for each folder.
@@ -177,7 +177,7 @@ projects/                    # FloatFolder
 
 ## File Specifications
 
-### system.md (Root Behavioral)
+### float-system.md (Root Behavioral)
 
 One per project. Lives at root. Boot loader for AI.
 
@@ -270,7 +270,7 @@ ai_notes:
 
 ### behavior.md (Subfolder Behavioral)
 
-Optional. Extends/overrides root system.md for specific folder.
+Optional. Extends/overrides root float-system.md for specific folder.
 
 **Format:** YAML frontmatter + rules
 
@@ -278,7 +278,7 @@ Optional. Extends/overrides root system.md for specific folder.
 ---
 title: Project Behavior
 type: behavior
-extends: ../system.md
+extends: ../float-system.md
 ---
 
 # Folder-Specific Rules
@@ -295,7 +295,7 @@ This folder has additional constraints:
 - Files in `archive/` should not be modified
 ```
 
-AI reads root `system.md` first, then checks for local `behavior.md` and applies both.
+AI reads root `float-system.md` first, then checks for local `behavior.md` and applies both.
 
 ### sessions/ (Activity Log)
 
@@ -354,10 +354,10 @@ Most users skip this. AI can scaffold without it.
 
 ## The Penetration Sequence
 
-When AI receives `system.md`:
+When AI receives `float-system.md`:
 
 ```
-1. Read system.md
+1. Read float-system.md
    → Understand behavioral rules
    → Load structure map
 
@@ -403,14 +403,14 @@ Structure IS compression.
 
 | Component | Tokens (approx) |
 |-----------|-----------------|
-| system.md | 300-500 |
+| float-system.md | 300-500 |
 | float.md (per folder) | 30-50 |
 | floatdoc frontmatter | 40-60 |
 | session log (recent) | 50-150 |
 | behavior.md | 50-100 |
 
 **Example: 10-folder project, 50 files**
-- 1 system.md: 400 tokens
+- 1 float-system.md: 400 tokens
 - 10 float.md: 400 tokens
 - 50 frontmatters: 2000 tokens (skimmed)
 - 3 recent sessions: 300 tokens
@@ -477,7 +477,7 @@ For teams, suggested structure:
 
 ```
 /
-├── system.md
+├── float-system.md
 ├── float.md
 ├── sessions/
 │
@@ -528,7 +528,7 @@ AI handles whatever naming humans prefer.
 How behavioral rules cascade:
 
 ```
-1. system.md (root)
+1. float-system.md (root)
    ↓ applies everywhere
 
 2. behavior.md (folder-specific)
@@ -539,7 +539,7 @@ How behavioral rules cascade:
 ```
 
 **Resolution:**
-- Start with root `system.md` rules
+- Start with root `float-system.md` rules
 - Layer folder `behavior.md` on top
 - Apply tool-specific rules if using a floatprompt
 
@@ -552,7 +552,7 @@ More specific wins. But root rules always provide the foundation.
 ### AI Responsibilities
 
 **Every session:**
-1. Read system.md first (boot)
+1. Read float-system.md first (boot)
 2. Check integrity
 3. Surface issues before proceeding
 4. Execute human requests
@@ -596,7 +596,7 @@ Proceed with fixes? (Human approval required)
 **FloatPrompt** = The invisible OS for AI
 
 **Core (always):**
-- `system.md` — boot loader
+- `float-system.md` — boot loader
 - `float.md` — navigation (every folder)
 - `sessions/` — activity log
 
@@ -627,7 +627,7 @@ Proceed with fixes? (Human approval required)
 | Spec | Defines |
 |------|---------|
 | **FloatStructure** (this) | Root OS architecture |
-| **FloatSystem** | system.md boot loader format |
+| **FloatSystem** | float-system.md boot loader format |
 | **FloatDoc** | Document frontmatter format |
 | **FloatLog** | Session logging format |
 | **FloatPrompt** | Tool/behavioral specification |

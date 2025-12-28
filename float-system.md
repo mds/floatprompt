@@ -51,13 +51,13 @@
 
 **The invisible OS for AI — practicing what we preach.**
 
-This repository contains FloatPrompt, a structured text format for portable AI collaboration. This `system.md` file is the boot loader that gives any AI instant awareness of the project.
+This repository contains FloatPrompt, a structured text format for portable AI collaboration. This `float-system.md` file is the boot loader that gives any AI instant awareness of the project.
 
 ## Structure Map
 
 ```
 floatprompt/
-├── system.md              # This file (boot loader, read first)
+├── float-system.md        # This file (boot loader, read first)
 ├── float.md               # Root navigation
 ├── sessions/              # Activity history
 │   ├── float.md
@@ -102,7 +102,7 @@ floatprompt/
 
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
-| `system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol (this file) |
+| `float-system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol (this file) |
 | `float.md` | FloatNav | Minimal YAML | Folder navigation |
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
@@ -142,7 +142,7 @@ ai_updated:
 
 | File | Location | Purpose |
 |------|----------|---------|
-| `system.md` | `/` | Root protocol (this file) |
+| `float-system.md` | `/` | Root protocol (this file) |
 | `floatprompt.txt` | `/` | Template for creating floatprompts |
 | `floatprompt-os.txt` | `/` | Full OS with guided creation |
 
@@ -151,7 +151,7 @@ ai_updated:
 ### AI Responsibilities
 
 **Every session (penetration sequence):**
-1. Read `system.md` first (this file)
+1. Read `float-system.md` first (this file)
 2. Traverse ALL `float.md` files (understand each folder)
 3. Read `sessions/log.md` (recent activity, handoff context)
 4. Skim key docs: `docs/fp.md`, `docs/goals.md`, `docs/principles.md`
@@ -210,7 +210,7 @@ Each `float.md` has a context-specific AI hook at the bottom — a trigger that 
 Example hooks:
 - `sessions/float.md`: "Append to log.md after significant activity"
 - `docs/float.md`: "Update when docs added/removed"
-- Root `float.md`: "Keep in sync with system.md structure map"
+- Root `float.md`: "Keep in sync with float-system.md structure map"
 
 ## Goal Hierarchy
 
@@ -236,13 +236,13 @@ handoff:
   from_agent: [agent type]
   to_agent: [agent type]
   context:
-    system: system.md (always include)
+    system: float-system.md (always include)
     folder: [relevant float.md]
     files: [specific files for task]
     task: [what to do]
 ```
 
-**Minimum:** Always pass `system.md` reference.
+**Minimum:** Always pass `float-system.md` reference.
 
 ## Warnings
 

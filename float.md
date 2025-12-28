@@ -23,7 +23,7 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 
 | File | Purpose |
 |------|---------|
-| **system.md** | Boot loader — read first for full project awareness |
+| **float-system.md** | Boot loader — read first for full project awareness |
 | **floatprompt.txt** | The template (3KB) — creates more floatprompts |
 | **floatprompt-os.txt** | The full system (35KB) — guided tool creation |
 | **README.md** | Public-facing documentation |
@@ -45,7 +45,7 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 
 ```
 floatprompt/
-├── system.md                # Boot loader (read first)
+├── float-system.md          # Boot loader (read first)
 ├── float.md                 # This file
 ├── floatprompt.txt          # The template (3KB)
 ├── floatprompt-os.txt       # The full system (35KB)
@@ -252,7 +252,7 @@ npm run build-all    # Build everything
 
 ## Key Files to Read First
 
-1. **system.md** — Boot loader (this repo's behavioral protocol)
+1. **float-system.md** — Boot loader (this repo's behavioral protocol)
 2. **floatprompt.txt** — The template itself
 3. **docs/fp.md** — File format specification
 4. **docs/mds-method.md** — The methodology
@@ -283,4 +283,4 @@ The "floatdoc" concept (lighter-weight document format) was explored in June 202
 
 © 2025 @MDS | CC BY 4.0
 
-<!-- AI: Keep this file in sync with system.md structure map. Update when root files/folders change. -->
+<!-- AI: Keep this file in sync with float-system.md structure map. Update when root files/folders change. -->

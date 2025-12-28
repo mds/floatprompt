@@ -25,7 +25,7 @@ FloatLog is the session logging component of FloatSystem. It records AI activity
 
 | Component | File | Purpose |
 |-----------|------|---------|
-| FloatSystem | `system.md` | Boot loader, behavioral protocol |
+| FloatSystem | `float-system.md` | Boot loader, behavioral protocol |
 | FloatNav | `float.md` | Folder navigation |
 | FloatDoc | frontmatter | Document context |
 | FloatPrompt | `<fp>` tags | Tools, behavioral modifiers |
@@ -47,7 +47,7 @@ FloatLog is the session logging component of FloatSystem. It records AI activity
 
 ```
 project/
-├── system.md
+├── float-system.md
 ├── float.md
 ├── sessions/
 │   ├── float.md              # Session navigation
@@ -232,7 +232,7 @@ Typical session log: 50-150 tokens.
 Updated boot sequence:
 
 ```
-1. Read system.md completely
+1. Read float-system.md completely
 2. Load structure map into memory
 3. Understand file conventions
 4. Check for integrity issues
