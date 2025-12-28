@@ -27,12 +27,12 @@
       "1": "Read this file completely",
       "2": "Load structure map into memory",
       "3": "Traverse ALL _float.md files to understand each folder",
-      "4": "Read sessions/log.md for recent activity and context",
+      "4": "Read today's session log (sessions/log-YYYY-MM-DD.md) for recent activity",
       "5": "Skim key docs: docs/fp.md, docs/goals.md, docs/principles.md",
       "6": "Build mental model of what exists and what happened",
       "7": "Check for integrity issues, report gaps before proceeding",
       "8": "Execute human requests",
-      "9": "Log session before ending (append to sessions/log.md)"
+      "9": "Log session before ending (append to today's log file)"
     },
     "maintenance": {
       "recursive": true,
@@ -61,7 +61,7 @@ floatprompt/
 ├── _float.md               # Root navigation
 ├── sessions/              # Activity history
 │   ├── _float.md
-│   └── log.md             # Session changelog (read this for context)
+│   └── log-YYYY-MM-DD.md  # Daily session logs (read today's for context)
 │
 ├── floatprompt.txt        # The template (3KB) - creates floatprompts
 ├── floatprompt-os.txt     # The full system (35KB) - guided tool creation
@@ -153,12 +153,12 @@ ai_updated:
 **Every session (penetration sequence):**
 1. Read `_system.md` first (this file)
 2. Traverse ALL `_float.md` files (understand each folder)
-3. Read `sessions/log.md` (recent activity, handoff context)
+3. Read today's session log `sessions/log-YYYY-MM-DD.md` (recent activity, handoff context)
 4. Skim key docs: `docs/fp.md`, `docs/goals.md`, `docs/principles.md`
 5. Build mental model (what exists, what happened, current state)
 6. Check integrity, surface issues before proceeding
 7. Execute human requests
-8. Log session before ending (append to `sessions/log.md`)
+8. Log session before ending (append to today's log file)
 
 **Session log format** (changelog-style, newest first):
 ```markdown
@@ -208,7 +208,7 @@ When AI modifies a file:
 Each `_float.md` has a context-specific AI hook at the bottom — a trigger that reminds AI what to maintain locally. The hook points to this protocol for full instructions.
 
 Example hooks:
-- `sessions/_float.md`: "Append to log.md after significant activity"
+- `sessions/_float.md`: "Append to today's log file after significant activity"
 - `docs/_float.md`: "Update when docs added/removed"
 - Root `_float.md`: "Keep in sync with _system.md structure map"
 
