@@ -11,6 +11,25 @@ Changelog of AI session activity. Newest entries first.
 
 ---
 
+## 2025-12-28 17:30 — Add distributed AI hooks
+commit: e70e06f
+
+- Added context-specific AI hooks to all 12 float.md files
+- Updated system.md: removed CLAUDE.md refs, added session log format, added "Distributed Hooks" section
+- Fixed stale CLAUDE.md references in artifacts/float.md, artifacts/2025/float.md, docs/philosophy/float.md
+- Pattern: centralized protocol in system.md, distributed triggers in each float.md
+
+---
+
+## 2025-12-28 17:15 — Convert to changelog format
+commit: cf09648
+
+- Created sessions/log.md (changelog-style, newest first)
+- Removed per-day session files
+- Each entry: timestamp, commit hash, brief bullets
+
+---
+
 ## 2025-12-28 16:45 — Delete CLAUDE.md files
 commit: e56e2aa
 
