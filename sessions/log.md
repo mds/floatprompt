@@ -11,6 +11,15 @@ Changelog of AI session activity. Newest entries first.
 
 ---
 
+## 2025-12-28 19:20 — Simplify _float-system.md → _system.md
+commit: 842d31f
+
+- Underscore already signals "system/meta file"
+- No need for redundant "float" in filename
+- Clean pair: `_system.md` + `_float.md`
+
+---
+
 ## 2025-12-28 19:15 — Add underscore prefix to float files
 commit: 105a849
 
