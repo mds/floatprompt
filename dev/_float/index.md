@@ -17,8 +17,8 @@ Development tools and update management for FloatPrompt.
 
 | File | Purpose |
 |------|---------|
-| **update-creator.txt** | FloatPrompt tool for creating system updates. Upload to AI and describe what needs to change. |
-| **update-protocol.txt** | FloatPrompt tool for executing updates with validation. Ensures changes align with goals and voice principles. |
+| **update-creator.md** | FloatPrompt tool for creating system updates. Upload to AI and describe what needs to change. |
+| **update-protocol.md** | FloatPrompt tool for executing updates with validation. Ensures changes align with goals and voice principles. |
 
 ### Subfolders
 
@@ -47,8 +47,8 @@ updates/
 
 ## Update Workflow
 
-1. **Create update spec** using `update-creator.txt`
-2. **Execute update** using `update-protocol.txt`
+1. **Create update spec** using `update-creator.md`
+2. **Execute update** using `update-protocol.md`
 3. **Validate** against goals hierarchy and voice principles
 4. **Move to closed/** when complete
 
@@ -56,7 +56,7 @@ updates/
 
 ## Key Principles
 
-From `update-protocol.txt`:
+From `update-protocol.md`:
 
 - **Territory assessment first** (unless explicitly skipped)
 - **Validate against goals** before execution
@@ -76,7 +76,7 @@ From `update-protocol.txt`:
 
 ## When to Use
 
-Use these tools when making systematic changes to FloatPrompt itself. For normal floatprompt creation, use the main `floatprompt.txt` template.
+Use these tools when making systematic changes to FloatPrompt itself. For normal floatprompt creation, use the main `floatprompt.md` template.
 
 ---
 

@@ -6,7 +6,7 @@ created: 2025-06
 
 human_author: MDS
 human_intent: Define naming standards - FloatPrompt capitalization, file extensions
-human_context: Brand consistency, never plural, .txt adoption strategy
+human_context: Brand consistency, never plural, unified .md extension
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
@@ -17,11 +17,11 @@ ai_notes: Added FloatDoc frontmatter
 
 **Clear naming standards for FloatPrompt system components, files, and brand references**
 
-*Consistent naming conventions supporting current .txt adoption strategy and cross-platform compatibility.*
+*Consistent naming conventions with unified .md extension for all files.*
 
 ## Purpose
 
-Provide systematic naming standards for FloatPrompt components, files, and communications that maintain brand consistency while supporting the current .txt adoption strategy and universal compatibility approach.
+Provide systematic naming standards for FloatPrompt components, files, and communications that maintain brand consistency with a unified .md extension for all files.
 
 ## **Naming Rules**
 
@@ -29,34 +29,35 @@ Provide systematic naming standards for FloatPrompt components, files, and commu
 |-------------|------------|-------------|
 | **Document titles & headers** | `FloatPrompt` | "# FloatPrompt System Goals" |
 | **Sentence beginnings** | `FloatPrompt` | "FloatPrompt enables systematic collaboration..." |
-| **Mid-sentence technical refs** | `floatprompt` | "Upload the floatprompt.txt file..." |
-| **Filenames** | `floatprompt` | `floatprompt.txt`, `floatprompt-goals.txt` |
+| **Mid-sentence technical refs** | `floatprompt` | "Upload the floatprompt.md file..." |
+| **Filenames** | `floatprompt` | `floatprompt.md`, `floatprompt-goals.md` |
 | **Brand references** | `FloatPrompt` | "The FloatPrompt system serves humans" |
 | **Plural references** | `FloatPrompt files` | "Multiple FloatPrompt files can be coordinated" |
 
 ## **File Extension Strategy**
 
-### **Current Adoption (.txt files)**
+### **Unified .md Extension**
 
 | **File Type** | **Extension** | **Example** |
 |---------------|---------------|-------------|
-| **Main System Template** | `.txt` | `floatprompt.txt` |
-| **Legacy/Experimental** | `.txt` | `experimental/floatprompt-os.txt` |
-| **Documentation** | `.md` | `fp.md`, `orientation.md`, `goals.md` |
-| **Reference Files** | `.txt` | `reference-micro.txt`, `reference-mini.txt` |
+| **Main System Template** | `.md` | `floatprompt.md` |
+| **Full System** | `.md` | `floatprompt-os.md` |
+| **Documentation** | `.md` | `floatdoc.md`, `goals.md` |
+| **Reference Files** | `.md` | `reference-micro.md`, `reference-mini.md` |
+| **Tools** | `.md` | `update-creator.md`, `update-protocol.md` |
 
 ### **File Extension Rationale**
 
-**Current Strategy (.txt):**
-- **Universal compatibility** across all AI platforms without configuration
-- **Zero friction deployment** enabling immediate usage without technical setup
-- **Maximum accessibility** ensuring adoption without specialized file type support
-- **Cross-platform reliability** working identically across all systems
+**Why .md for everything:**
+- **Universal compatibility** — .md is plain text, works on all AI platforms
+- **One extension to explain** — no confusion between .txt and .md
+- **Better rendering** — GitHub, editors, and tools render .md nicely
+- **Same portability** — .md uploads work identically to .txt
 
 **Future Evolution (.fp):**
 - **Ecosystem maturation** with specialized tooling and enhanced features
 - **Native file support** in development environments and AI platforms
-- **Backward compatibility** maintaining full .txt support indefinitely
+- **Backward compatibility** maintained
 - **User choice** allowing adoption of .fp benefits when ready
 
 ## **Never Plural Rule**
@@ -80,22 +81,20 @@ Provide systematic naming standards for FloatPrompt components, files, and commu
 ### **Current File Structure**
 ```
 floatprompt/
-├── floatprompt.txt              # 3KB Universal template and complete system
-├── docs/                        # Documentation in markdown
+├── floatprompt.md               # 3KB Universal template
+├── floatprompt-os.md            # 35KB Full system
+├── docs/                        # Documentation
 ├── artifacts/                   # Historical development artifacts
 ├── dev/                         # Development files
 └── experimental/                # Archived legacy system
-    ├── src/                     # Old source files  
-    ├── dist/                    # Old distribution
-    ├── scripts/                 # Build system
-    └── package.json             # Build dependencies
 ```
 
 ### **Naming Conventions**
-- **Main Template**: `floatprompt.txt` (3KB complete system with creation protocol)
-- **Documentation**: `{topic}.md` for system documentation
-- **Reference Files**: `reference-{type}.txt` for structure examples
-- **Legacy System**: `experimental/` directory contains archived build system and OS versions
+- **Main Template**: `floatprompt.md` (3KB complete system with creation protocol)
+- **Full System**: `floatprompt-os.md` (35KB guided tool creation)
+- **Documentation**: `{topic}.md` for all documentation
+- **Reference Files**: `reference-{type}.md` for structure examples
+- **Tools**: `{tool-name}.md` for floatprompt tools
 
 ## **Brand Positioning Language**
 
@@ -123,15 +122,15 @@ floatprompt/
 - "FloatPrompt files maintain voice preservation throughout processing."
 
 **Technical References:**
-- "Upload the floatprompt.txt file to activate the collaboration system."
+- "Upload the floatprompt.md file to activate the collaboration system."
 - "Say 'float map' to create a content mapping floatprompt."
-- "The floatprompt.txt contains the complete creation protocol."
+- "The floatprompt.md contains the complete creation protocol."
 
 **File Naming:**
-- `floatprompt.txt` (3KB complete system)
-- `docs/fp.md` (format specification)
-- `docs/reference-micro.txt` (minimal structure example)
-- `experimental/floatprompt-os.txt` (legacy OS version)
+- `floatprompt.md` (3KB template)
+- `floatprompt-os.md` (35KB full system)
+- `docs/floatprompt.md` (format specification)
+- `docs/reference-micro.md` (minimal structure example)
 
 ### **❌ Incorrect Usage**
 
@@ -146,9 +145,9 @@ floatprompt/
 - "Several floatprompts were created..." (never plural)
 
 **File Naming:**
-- `FloatPrompt.txt` (wrong capitalization)
-- `floatprompt.fp` (current standard is .txt)
-- `floatprompt-template.txt` (main file is just floatprompt.txt)
+- `FloatPrompt.md` (wrong capitalization)
+- `floatprompt.fp` (current standard is .md)
+- `floatprompt-template.md` (main file is just floatprompt.md)
 
 ## **Implementation Guidelines**
 
@@ -156,16 +155,16 @@ floatprompt/
 - **Title case** for brand references and document titles
 - **Lowercase** for technical references and file mentions
 - **Never plural** in any context or usage
-- **Current .txt strategy** for all file references
+- **Unified .md extension** for all file references
 
 ### **For File Creation**
-- **Main system**: Always `floatprompt.txt`
-- **Documentation**: Topic-based naming with .md extension
-- **Reference files**: `reference-{type}.txt` format
-- **Cross-platform** compatibility through universal .txt adoption
+- **Main system**: Always `floatprompt.md`
+- **All files**: Use .md extension
+- **Reference files**: `reference-{type}.md` format
+- **Cross-platform** compatibility through universal .md adoption
 
 ### **For Communications**
 - **Brand consistency** with FloatPrompt capitalization rules
-- **Technical accuracy** reflecting current .txt implementation
+- **Technical accuracy** reflecting current .md implementation
 - **Future awareness** acknowledging .fp evolution without premature adoption
 - **Universal accessibility** emphasizing immediate usability across all platforms

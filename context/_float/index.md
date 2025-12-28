@@ -13,11 +13,11 @@ Onboarding documents for bringing fresh AI sessions up to speed on FloatPrompt.
 
 | File | Purpose |
 |------|---------|
-| **floatprompt-context.txt** | Master context document. Upload to any AI for instant FloatPrompt understanding. |
+| **floatprompt-context.md** | Master context document. Upload to any AI for instant FloatPrompt understanding. |
 
 ## Purpose
 
-When starting a fresh AI session, upload `floatprompt-context.txt` to give the AI comprehensive understanding of:
+When starting a fresh AI session, upload `floatprompt-context.md` to give the AI comprehensive understanding of:
 
 - What FloatPrompt is
 - The core distinction (behavior vs. context)
@@ -29,13 +29,13 @@ When starting a fresh AI session, upload `floatprompt-context.txt` to give the A
 
 ```
 1. Start new AI session
-2. Upload floatprompt-context.txt
+2. Upload floatprompt-context.md
 3. AI instantly understands FloatPrompt
 4. Continue working
 ```
 
-This is lighter than uploading the full `floatprompt-os.txt` when you just need context, not tool-building capability.
+This is lighter than uploading the full `floatprompt-os.md` when you just need context, not tool-building capability.
 
-For full tool-building capability, use `floatprompt.txt` or `floatprompt-os.txt` from root.
+For full tool-building capability, use `floatprompt.md` or `floatprompt-os.md` from root.
 
 <!-- AI: Update this file when context/onboarding documents change. -->

@@ -13,11 +13,18 @@ Core documentation for FloatPrompt. Start here to understand the system.
 
 ## Contents
 
-### Essential (Read First)
+### Formats (Read First)
 
 | File | Intent | Purpose |
 |------|--------|---------|
-| **fp.md** | Define the `<fp><json><md></fp>` file structure | File format specification |
+| **floatprompt.md** | Define the `<fp><json><md></fp>` file structure | FloatPrompt format (tools) |
+| **floatdoc.md** | Define YAML frontmatter format | FloatDoc format (documents) |
+| **floatsystem.md** | Document the `_float/` architecture | FloatSystem (project awareness) |
+
+### Methodology
+
+| File | Intent | Purpose |
+|------|--------|---------|
 | **mds-method.md** | Explain Map → Decide → Structure methodology | The core methodology |
 | **goals.md** | Define three-tier goal hierarchy | Voice > behavior > artifacts |
 
@@ -35,12 +42,6 @@ Core documentation for FloatPrompt. Start here to understand the system.
 |------|--------|---------|
 | **use.md** | Show practical applications | Coaches, writers, extractors, assistants |
 
-### FloatSystem
-
-| File | Intent | Purpose |
-|------|--------|---------|
-| **floatsystem.md** | Document the `_float/` architecture | Project awareness for AI |
-
 ### Subfolders
 
 | Folder | Purpose |
@@ -52,21 +53,22 @@ Core documentation for FloatPrompt. Start here to understand the system.
 
 ## Reading Order
 
-**Essential (read first):**
-1. **fp.md** - File format specification. The `<fp><json></json><md></md></fp>` structure.
-2. **mds-method.md** - The methodology: Map → Decide → Structure
-3. **goals.md** - Three-tier goal hierarchy (voice > behavior > artifacts)
+**Formats (read first):**
+1. **floatprompt.md** - FloatPrompt format. The `<fp><json><md></fp>` structure for tools.
+2. **floatdoc.md** - FloatDoc format. YAML frontmatter for documents.
+3. **floatsystem.md** - FloatSystem architecture. The `_float/` folder convention.
+
+**Methodology:**
+4. **mds-method.md** - The methodology: Map → Decide → Structure
+5. **goals.md** - Three-tier goal hierarchy (voice > behavior > artifacts)
 
 **Principles:**
-4. **principles.md** - Recognition before action. Slow is smooth. Anti-patterns.
-5. **voice.md** - Voice preservation rules. What to preserve, what to avoid.
-6. **safety.md** - Safety guidelines. Human oversight, no weaponization.
+6. **principles.md** - Recognition before action. Slow is smooth. Anti-patterns.
+7. **voice.md** - Voice preservation rules. What to preserve, what to avoid.
+8. **safety.md** - Safety guidelines. Human oversight, no weaponization.
 
 **Practical:**
-7. **use.md** - What you can build: coaches, writers, extractors, assistants, index files
-
-**FloatSystem:**
-8. **floatsystem.md** - The `_float/` architecture for project awareness
+9. **use.md** - What you can build: coaches, writers, extractors, assistants
 
 ---
 
@@ -128,9 +130,9 @@ Template references at three complexity levels:
 
 | File | Purpose |
 |------|---------|
-| reference-full.txt | All fields, full structure |
-| reference-mini.txt | Minimal viable template |
-| reference-micro.txt | Absolute minimum |
+| reference-full.md | All fields, full structure |
+| reference-mini.md | Minimal viable template |
+| reference-micro.md | Absolute minimum |
 
 ---
 

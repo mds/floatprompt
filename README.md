@@ -24,12 +24,12 @@ That's a floatprompt. A text file that becomes a tool.
 
 ## Which File?
 
-**[`floatprompt.txt`](floatprompt.txt)** (3KB) — The template
+**[`floatprompt.md`](floatprompt.md)** (3KB) — The template
 - Use when: Building a floatprompt through conversation
 - What it does: Teaches AI how to create floatprompts
 - Best for: Experienced users who know what they want to build
 
-**[`floatprompt-os.txt`](floatprompt-os.txt)** (35KB) — The full system
+**[`floatprompt-os.md`](floatprompt-os.md)** (35KB) — The full system
 - Use when: You want guided tool creation
 - What it does: Boot sequence, friction scoring, step-by-step methodology
 - Best for: First-time users, complex tools, when you want more structure
@@ -38,7 +38,7 @@ Start with the OS if you're new. Graduate to the template when you know what you
 
 ## Quick Start
 
-1. Download [`floatprompt-os.txt`](floatprompt-os.txt) (full system) or [`floatprompt.txt`](floatprompt.txt) (template only)
+1. Download [`floatprompt-os.md`](floatprompt-os.md) (full system) or [`floatprompt.md`](floatprompt.md) (template only)
 2. Upload to any AI (ChatGPT, Claude, Cursor)
 3. Follow the guided flow (OS) or say "float build [what you need]" (template)
 4. Collaborate through conversation
@@ -98,7 +98,8 @@ Anything you'd want an AI to do repeatedly, with specific behavior, producing co
 ## Documentation
 
 - [What You Can Build](docs/use.md)
-- [File Format](docs/fp.md)
+- [FloatPrompt Format](docs/floatprompt.md)
+- [FloatDoc Format](docs/floatdoc.md)
 - [MDS Methodology](docs/mds-method.md) (Map → Decide → Structure)
 - [Goals](docs/goals.md) | [Principles](docs/principles.md) | [Voice](docs/voice.md) | [Safety](docs/safety.md)
 

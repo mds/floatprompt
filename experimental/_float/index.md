@@ -13,7 +13,7 @@ Legacy build system for compiling modular FloatPrompt components. Preserved for 
 
 ## Status
 
-**Archived/Legacy.** The root `floatprompt.txt` and `floatprompt-os.txt` are the current production files.
+**Archived/Legacy.** The root `floatprompt.md` and `floatprompt-os.md` are the current production files.
 
 ---
 
@@ -113,7 +113,7 @@ Standalone floatprompt tools:
 
 ## When to Use
 
-**Most users**: Use the pre-built `floatprompt.txt` or `floatprompt-os.txt` from root.
+**Most users**: Use the pre-built `floatprompt.md` or `floatprompt-os.md` from root.
 
 **Developers**: Use this build system if you need to modify the OS components and recompile.
 

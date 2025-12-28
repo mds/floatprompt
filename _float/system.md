@@ -28,7 +28,7 @@
       "2": "Load structure map into memory",
       "3": "Traverse ALL _float/index.md files. Verify each Contents table matches parent folder contents. Flag discrepancies.",
       "4": "Read today's session log (_float/logs/YYYY-MM-DD.md) for recent activity",
-      "5": "Skim key docs: docs/fp.md, docs/goals.md, docs/principles.md",
+      "5": "Skim key docs: docs/floatprompt.md, docs/floatdoc.md, docs/goals.md, docs/principles.md",
       "6": "Build mental model of what exists and what happened",
       "7": "Check for integrity issues, report gaps before proceeding",
       "8": "Execute human requests",
@@ -63,15 +63,17 @@ floatprompt/
 │   └── logs/              # Activity history
 │       └── YYYY-MM-DD.md  # Daily session logs
 │
-├── floatprompt.txt        # The template (3KB) - creates floatprompts
-├── floatprompt-os.txt     # The full system (35KB) - guided tool creation
+├── floatprompt.md         # The template (3KB) - creates floatprompts
+├── floatprompt-os.md      # The full system (35KB) - guided tool creation
 ├── README.md              # Public-facing documentation
 │
 ├── docs/                  # Core documentation
 │   ├── _float/
 │   │   └── index.md       # Folder navigation
-│   ├── fp.md              # File format specification
-│   ├── mds-method.md      # MDS methodology
+│   ├── floatprompt.md      # FloatPrompt file format
+│   ├── floatdoc.md         # FloatDoc format
+│   ├── floatsystem.md      # FloatSystem architecture
+│   ├── mds-method.md       # MDS methodology
 │   ├── goals.md           # Goal hierarchy
 │   ├── principles.md      # Core principles
 │   ├── voice.md           # Voice preservation
@@ -116,7 +118,6 @@ floatprompt/
 | `_float/logs/*.md` | FloatLog | Minimal YAML | Session logs |
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
-| `*.txt` with `<fp>` tags | FloatPrompt | `<fp>` tags | Portable tools |
 
 ### `_float/` Folder Convention
 
@@ -165,8 +166,8 @@ ai_updated:
 | File | Location | Purpose |
 |------|----------|---------|
 | `system.md` | `_float/` | Root protocol (this file) |
-| `floatprompt.txt` | `/` | Template for creating floatprompts |
-| `floatprompt-os.txt` | `/` | Full OS with guided creation |
+| `floatprompt.md` | `/` | Template for creating floatprompts |
+| `floatprompt-os.md` | `/` | Full OS with guided creation |
 
 ## Maintenance Protocol
 
@@ -176,7 +177,7 @@ ai_updated:
 1. Read `_float/system.md` first (this file)
 2. Traverse ALL `_float/index.md` files. Verify Contents tables match parent folder contents. Flag discrepancies.
 3. Read today's session log `_float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
-4. Skim key docs: `docs/fp.md`, `docs/goals.md`, `docs/principles.md`
+4. Skim key docs: `docs/floatprompt.md`, `docs/floatdoc.md`, `docs/goals.md`, `docs/principles.md`
 5. Build mental model (what exists, what happened, current state)
 6. Check integrity, surface issues before proceeding
 7. Execute human requests

@@ -18,9 +18,9 @@ Update specifications and records for FloatPrompt system changes.
 
 ## Workflow
 
-1. Create update spec using `../update-creator.txt`
+1. Create update spec using `../update-creator.md`
 2. Place in `in-progress/`
-3. Execute using `../update-protocol.txt`
+3. Execute using `../update-protocol.md`
 4. Move to `closed/` when complete
 
 ## Principles
@@ -31,6 +31,6 @@ Update specifications and records for FloatPrompt system changes.
 - Maintain rollback capability
 - Archaeological record of all changes
 
-See parent folder for update-creator.txt and update-protocol.txt tools.
+See parent folder for update-creator.md and update-protocol.md tools.
 
 <!-- AI: Update this file when updates are added or moved between in-progress and closed. -->

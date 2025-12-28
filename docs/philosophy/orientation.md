@@ -3,7 +3,7 @@ title: System Orientation
 type: guide
 status: complete
 created: 2025-06
-related: ../fp.md, ../mds-method.md
+related: ../floatprompt.md, ../mds-method.md
 
 human_author: MDS
 human_intent: Quick start guide - what FloatPrompt is, how to use it
@@ -26,7 +26,7 @@ ai_notes: Added FloatDoc frontmatter
 
 **Immediate Action:**
 
-1. **Upload `floatprompt.txt`** to any AI system → activate floatprompt creation mode
+1. **Upload `floatprompt.md`** to any AI system → activate floatprompt creation mode
 2. **Say "float [anything]"** → AI creates custom collaboration tools through conversation  
 3. **Experience enhanced collaboration** with voice preservation and systematic intelligence
 
@@ -36,7 +36,7 @@ ai_notes: Added FloatDoc frontmatter
 
 ### **Main Template:**
 
-**`floatprompt.txt` (3KB)** - Universal template and system definition
+**`floatprompt.md` (3KB)** - Universal template and system definition
 - Complete floatprompt creation protocol with collaboration model
 - Self-referential template that teaches AI how to create new floatprompts
 - Comprehensive system context and voice preservation protocols
@@ -44,7 +44,7 @@ ai_notes: Added FloatDoc frontmatter
 
 ### **Legacy/Experimental:**
 **`experimental/`** - Archive of previous build system and OS versions
-- Contains the original complex build system and floatprompt-os.txt
+- Contains the original complex build system and floatprompt-os.md
 - Preserved for reference and advanced use cases
 
 ## Core Concepts
@@ -104,7 +104,7 @@ For basic, one-time AI interactions, standard prompting may be more appropriate.
 **Explore the System:**
 - **[Use Cases](use.md)** - Practical applications and examples
 - **[Value Proposition](value.md)** - Business benefits and ROI
-- **[Format Specification](fp.md)** - Technical file format details
+- **[Format Specification](floatprompt.md)** - Technical file format details
 - **[MDS Methodology](mds-method.md)** - Complete collaboration methodology
 
-**Start Simple:** Upload `floatprompt.txt` to your preferred AI system and say "float [anything]" to create custom collaboration tools. The system will guide you through enhanced AI partnership naturally.
+**Start Simple:** Upload `floatprompt.md` to your preferred AI system and say "float [anything]" to create custom collaboration tools. The system will guide you through enhanced AI partnership naturally.

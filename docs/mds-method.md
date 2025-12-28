@@ -3,7 +3,7 @@ title: MDS Method
 type: methodology, documentation
 status: complete
 created: 2025-06
-related: fp.md
+related: floatprompt.md
 
 human_author: MDS
 human_intent: Define the Map → Decide → Structure workflow for building floatprompts
@@ -58,7 +58,7 @@ A three-phase workflow for building floatprompts through conversation.
 
 - Write the JSON behavioral specification
 - Write the markdown methodology
-- Follow the [file format](fp.md)
+- Follow the [file format](floatprompt.md)
 - Test and refine
 
 **Output:** A working floatprompt file.

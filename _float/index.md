@@ -31,8 +31,8 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 
 | File | Purpose |
 |------|---------|
-| **floatprompt.txt** | The template (3KB) — creates more floatprompts |
-| **floatprompt-os.txt** | The full system (35KB) — guided tool creation |
+| **floatprompt.md** | The template (3KB) — creates more floatprompts |
+| **floatprompt-os.md** | The full system (35KB) — guided tool creation |
 | **README.md** | Public-facing documentation |
 
 ### Folders
@@ -57,15 +57,17 @@ floatprompt/
 │   └── logs/                # Session logs
 │       └── YYYY-MM-DD.md
 │
-├── floatprompt.txt          # The template (3KB)
-├── floatprompt-os.txt       # The full system (35KB)
+├── floatprompt.md           # The template (3KB)
+├── floatprompt-os.md        # The full system (35KB)
 ├── README.md                # Public-facing documentation
 │
 ├── docs/                    # Core documentation
 │   ├── _float/
 │   │   └── index.md         # Folder navigation
-│   ├── fp.md                # File format specification
-│   ├── mds-method.md        # MDS methodology (Map → Decide → Structure)
+│   ├── floatprompt.md        # FloatPrompt file format
+│   ├── floatdoc.md           # FloatDoc format
+│   ├── floatsystem.md        # FloatSystem architecture
+│   ├── mds-method.md         # MDS methodology (Map → Decide → Structure)
 │   ├── use.md               # What you can build
 │   ├── goals.md             # Three-tier goal hierarchy
 │   ├── principles.md        # Core principles
@@ -83,13 +85,13 @@ floatprompt/
 ├── context/                 # Onboarding
 │   ├── _float/
 │   │   └── index.md
-│   └── floatprompt-context.txt
+│   └── floatprompt-context.md
 │
 ├── dev/                     # Development tools
 │   ├── _float/
 │   │   └── index.md
-│   ├── update-creator.txt
-│   ├── update-protocol.txt
+│   ├── update-creator.md
+│   ├── update-protocol.md
 │   └── updates/
 │       └── _float/
 │           └── index.md
@@ -241,7 +243,7 @@ AI defaults to rewriting everything into generic, polished output. Floatprompts 
 
 ## Natural Language Triggers
 
-When `floatprompt.txt` is uploaded:
+When `floatprompt.md` is uploaded:
 - `float map` — Assess content territory
 - `float build` — Create a tool through conversation
 - `float [anything]` — Custom floatprompt for any use case
@@ -262,12 +264,13 @@ npm run build-all    # Build everything
 ## Key Files to Read First
 
 1. **_float/system.md** — Boot loader (this repo's behavioral protocol)
-2. **floatprompt.txt** — The template itself
-3. **docs/fp.md** — File format specification
-4. **docs/mds-method.md** — The methodology
-5. **docs/goals.md** — Goal hierarchy
-6. **docs/principles.md** — Core principles
-7. **docs/voice.md** — Voice preservation
+2. **floatprompt.md** — The template itself
+3. **docs/floatprompt.md** — FloatPrompt file format
+4. **docs/floatdoc.md** — FloatDoc format (document context)
+5. **docs/mds-method.md** — The methodology
+6. **docs/goals.md** — Goal hierarchy
+7. **docs/principles.md** — Core principles
+8. **docs/voice.md** — Voice preservation
 
 For historical context: `artifacts/2025/_float/index.md` has a comprehensive TOC of 113 files documenting the evolution of FloatPrompt throughout 2025.
 
