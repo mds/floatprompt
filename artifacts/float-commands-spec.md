@@ -137,8 +137,13 @@ Fix issues found by verify. Spawns agents for each task type.
 |-------|---------|-----------|
 | **Index Agent** | Add/remove file rows in tables | No |
 | **System Agent** | Update structure map | No |
-| **Describe Agent** | Write descriptions for new files | Yes |
+| **Describe Agent** | Write descriptions for new files | Yes (Haiku) |
 | **Scaffold Agent** | Create missing `_float/index.md` files | Minimal |
+
+**Describe Agent notes:**
+- Model: Haiku (fast, cheap, sufficient for descriptions)
+- Skip config files: `.json`, `.yaml`, `.env`, `package.json`, etc.
+- Show proposed description, allow edit before apply
 
 ### Output Format
 
@@ -150,6 +155,7 @@ Proposed changes:
 
 docs/_float/index.md:
   + Add: new-feature.md — [needs description]
+  + Add: config.json — [skip description]
   - Remove: api.md (file deleted)
 
 examples/_float/index.md:
@@ -159,6 +165,10 @@ _float/system.md:
   ~ Update structure map (new folder: examples/new-example/)
 
 Apply changes? (y/n): y
+
+Generating descriptions...
+  new-feature.md → "Feature documentation for user authentication flow"
+  [accept/edit/skip]: accept
 
 Spawning agents...
   ✓ Index Agent: Updated docs/_float/index.md
