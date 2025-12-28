@@ -55,7 +55,7 @@
 <md>
 # FloatSystem: FloatPrompt
 
-**The invisible OS for AI — practicing what we preach.**
+**The invisible OS for AI**
 
 This repository contains FloatPrompt, a structured text format for portable AI collaboration. This `_float/system.md` file is the boot loader that gives any AI instant awareness of the project.
 
