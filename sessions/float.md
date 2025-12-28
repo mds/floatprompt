@@ -1,33 +1,41 @@
 ---
-title: Session Logs
+title: Sessions
 type: float
 status: current
 ai_updated: 2025-12-28
 ---
 
-# Session Logs
+# Sessions
 
 Activity history for the FloatPrompt project.
 
-## Purpose
+---
 
-- **Audit trail** — What happened, when, by which AI
-- **Handoff context** — New AI sessions can see recent activity
-- **History** — Long-term record of project evolution
-- **Accountability** — Human can review AI actions
+## Contents
 
-## Recent Sessions
-
-| Date | AI Model | Summary |
-|------|----------|---------|
-| 2025-12-28 | Claude Opus 4 | FloatSystem implementation — first session on new branch |
-
-## Statistics
-
-- Total sessions: 1
-- Files created: 14 (system.md, float.md, 12 subfolder float.md files)
-- Branch: `floatsystem`
+| File | Purpose |
+|------|---------|
+| **log.md** | Changelog of all AI session activity (newest first) |
 
 ---
 
-AI maintains this file after each session.
+## Purpose
+
+- **Handoff context** — New AI sessions see recent activity
+- **Audit trail** — What happened, when, which AI
+- **History** — Long-term record of project evolution
+
+---
+
+## Format
+
+Changelog-style. Each entry:
+- Timestamp + short title
+- Commit hash (ties to git)
+- Brief bullets (the "why" git doesn't capture)
+
+Newest entries at top, like `git log`.
+
+---
+
+AI appends to log.md after significant activity.
