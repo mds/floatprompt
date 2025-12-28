@@ -18,7 +18,20 @@ Historical archive and active specifications for FloatPrompt evolution.
 | **floatstructure-specification.md** | Root OS architecture, pilot principle |
 | **floatdoc-specification.md** | YAML frontmatter format for documents |
 | **floatlog-specification.md** | Session logging format |
+| **float-folder-architecture-exploration.md** | _float/ container folder architecture exploration |
+| **floatprompt-npm-scaffold-spec.md** | npm package scaffold specification |
+
+## Session Handoffs
+
+| File | Purpose |
+|------|---------|
 | **floatsystem-session-2025-12-28.md** | Genesis session handoff document |
+| **floatsystem-session-2025-12-28-continuation.md** | Architecture migration handoff |
+
+## Explorations
+
+| File | Purpose |
+|------|---------|
 | **float-doc-exploration.md** | Field exploration and stress testing |
 
 ## Subfolders
