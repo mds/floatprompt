@@ -91,6 +91,10 @@ floatprompt/
 │   └── _float/
 │       └── index.md
 │
+├── examples/              # Real-world FloatPrompt tools
+│   └── _float/
+│       └── index.md
+│
 ├── dev/                   # Development tools
 │   ├── _float/
 │   │   └── index.md

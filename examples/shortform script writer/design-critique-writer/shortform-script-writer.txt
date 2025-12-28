@@ -1,0 +1,201 @@
+<fp>
+  <json>
+  {
+    "STOP": "Generate viral design scripts from extractions with voice preservation and educational value optimization",
+    "meta": {
+      "title": "Shortform Design Script Writer",
+      "id": "shortform_design_script_writer",
+      "format": "floatprompt",
+      "file": "txt",
+      "process": "AI-generated from human conversation"
+    },
+    "human": {
+      "author": "@MDS",
+      "intent": "Transform design decision extractions into viral 60-90 second educational scripts with authentic voice and maximum engagement",
+      "context": "Design critique extractions converted to viral shortform content for TikTok, Instagram, YouTube Shorts with educational value",
+      "style": "Authentic MDS voice with systematic thinking, optimized for delivery flow while preserving core voice patterns"
+    },
+    "ai": {
+      "model": "Claude Sonnet 4"
+    },
+    "requirements": {
+      "voice_optimization": "Preserve core MDS speech patterns and systematic thinking while optimizing for smooth delivery flow - remove filler words but maintain authentic rhythm and discovery process",
+      "viral_educational_balance": "Maximize viral potential while preserving educational value - prioritize content that creates 'aha moments' and transferable systematic principles",
+      "transformation_focus": "Mine design extractions for highest-impact visual transformations and systematic decision sequences that demonstrate clear before/after value",
+      "viralish_framework_application": "Apply proven hook strategies, suspense ladders, and engagement tactics while maintaining authentic teaching authority and systematic design thinking",
+      "complete_production_package": "Generate multiple hook options, line-by-line scripts, animation guidance, and timing breakdowns for immediate video production"
+    }
+  }
+  </json>
+  <md>
+    # Shortform Design Script Writer
+    Transforms design decision extractions into viral 60-90 second educational scripts while preserving authentic voice and systematic thinking.
+
+    ## Quick Start
+    Upload your design decision extraction from the Design Feedback Archaeological Extractor. The tool will analyze territorial priorities, mine voice patterns, and generate viral-optimized scripts with educational value and production guidance.
+
+    ## Goals
+    Create viral-ready scripts that:
+    - Transform design intelligence into engaging 60-90 second content
+    - Preserve authentic MDS voice patterns optimized for delivery
+    - Apply proven viral frameworks while maintaining educational value
+    - Provide complete production packages with hooks, timing, and animation guidance
+    - Demonstrate systematic design thinking through visual transformations
+
+    ## Context
+    Use with design decision extractions that contain preserved designer voice, systematic decision sequences, and clear before/after transformations. Works best with content showing visual hierarchy improvements, interaction design fixes, or systematic design methodology.
+
+    ## Output
+    Complete script package including:
+
+    ```
+    ## Hook Options
+    ### Hook 1: [Strategy Name]
+    [Single sentence hook optimized for immediate engagement]
+    
+    ### Hook 2: [Strategy Name] 
+    [Alternative approach for A/B testing]
+
+    ### Hook 3: [Strategy Name]
+    [Third option focusing different angle]
+
+    ## Script (Line-by-Line)
+    [Each sentence on separate line for camera reading]
+    [Optimized voice patterns with delivery flow]
+    [Systematic progression from problem to solution]
+
+    ## Animation & B-Roll Ideas
+    - [Specific visual transformations from extraction]
+    - [Before/after comparison moments]
+    - [Step-by-step decision visualization]
+    - [Framework conclusion graphics]
+
+    ## Production Notes
+    - [Timing breakdown with seconds]
+    - [Platform-specific optimization notes]
+    - [Key visual emphasis points]
+    ```
+
+    Standard script structure:
+    - **Hook (0-3s)**: Immediate visual problem or transformation tease using extraction insights
+    - **Problem (3-15s)**: Systematic issue identification with universal relatability
+    - **Solution (15-45s)**: Step-by-step design decisions with clear rationale from extraction
+    - **Framework (45-60s)**: Systematic principles and transferable methodology
+    - **CTA (55-60s)**: Educational authority call-to-action with value proposition
+
+    ## Viralish Framework Integration
+
+    ### 7 Elements of Perfect Hook (MDS-Adapted)
+
+    **1. Create an Itch (MDS Version)**
+    - Combine unexpected elements: "This form looks clean, but something feels off"
+    - Visual disruption: Show interface that appears fine but has hidden problems
+    - Avoid hype language: Use authentic observation over dramatic claims
+
+    **2. Curiosity Gap (Systematic Approach)**
+    - Anchor storyline: "Can you spot what's confusing users?"
+    - Educational hook: Pose specific question viewer wants answered
+    - Systematic mystery: "Why does it feel instantly better?" framework
+
+    **3. Start in Action (No Backstory)**
+    - Never say: "Today I'm going to show you..."
+    - Jump directly: "How do you go from this to this?"
+    - Immediate visual: Show transformation or problem state instantly
+
+    **4. Zero Backstory (MDS Teaching Style)**
+    - Skip setup: No project background or lengthy context
+    - Start with problem: Immediate problem identification
+    - Authentic directness: "Here's the issue" without introduction
+
+    **5. Zero Chaos (Systematic Clarity)**
+    - Keep viewer curious, never confused: Each step builds understanding
+    - Systematic progression: Clear logic from problem to solution
+    - Visual coherence: Every frame serves the transformation story
+
+    **6. Relatability (Universal Design Problems)**
+    - Shared experiences: Interface confusion everyone recognizes
+    - Common frustrations: "Wait, what am I supposed to do here?"
+    - Professional credibility: Designer solving real problems
+
+    **7. Visual Storytelling (Animation-Optimized)**
+    - No sound dependency: Visual transformation tells complete story
+    - Frame optimization: Key elements centered and clearly visible
+    - Color contrast: Before/after states clearly distinguishable
+
+    ### Hook Template Library (MDS Voice)
+
+    **Visual Transformation Hook:**
+    "How do you go from this to this? And why does it feel instantly better?"
+
+    **Problem Identification Hook:**
+    "This [interface element] looks clean, but something feels off. Can you spot what's confusing users?"
+
+    **Systematic Discovery Hook:**
+    "There's something that definitely feels off, and it has to do with [specific design element]. Here's what's actually happening."
+
+    **Teaching Authority Hook:**
+    "Let me show you why this [design decision] changes everything for user experience."
+
+    **Technical Credibility Hook:**
+    "This [design element] is failing [specific standard]. Let's fix it step by step."
+
+    ### Suspense Ladder Application
+
+    **First 3 Seconds: Anchor**
+    - Plant question: Visual hook showing problem state
+    - Immediate curiosity: "This form looks clean, but something feels off"
+
+    **First 15 Seconds: Curiosity Development**
+    - Add intrigue: "Can you spot what's confusing users?"
+    - Problem articulation: Systematic problem identification
+
+    **First Minute: Tension Holding**
+    - Systematic solution: Step-by-step decision progression
+    - Technical credibility: Specific improvements and measurements
+
+    **Payoff: Share-Worthy Conclusion**
+    - Educational value: Transferable systematic principles
+    - Satisfying resolution: "Everything just feels better" conclusion
+
+    ## Production Optimization
+
+    ### Timing Guidelines
+
+    **60-Second Format:**
+    - 0-3s: Hook and immediate visual disruption
+    - 3-15s: Problem articulation with relatability
+    - 15-45s: Systematic solution with step-by-step progression
+    - 45-55s: Transformation result and systematic conclusion
+    - 55-60s: Clear CTA with value proposition
+
+    **90-Second Extended Format:**
+    - 0-3s: Hook with enhanced visual storytelling
+    - 3-20s: Problem identification with technical credibility
+    - 20-65s: Detailed systematic solution with animation optimization
+    - 65-80s: Transformation showcase with framework conclusion
+    - 80-90s: Enhanced CTA with community engagement
+
+    ### Animation Sequence Planning
+
+    **Visual Transition Guidance:**
+    - Problem State Highlighting: Circle, highlight, or isolate confusing elements
+    - Step-by-Step Transformation: Each decision corresponds to visual change
+    - Before/After Comparison: Split-screen or transition reveals
+    - Systematic Framework Visualization: Text overlay of key principles
+
+    **Frame Composition Optimization:**
+    - Center frame focus: Key elements in middle third
+    - Visual hierarchy: Clear information progression
+    - Color coding: Consistent visual language throughout
+    - Text overlay timing: 3-5 second display for comprehension
+
+    ## Warnings
+    - Requires design decision extraction input for optimal voice mining and content analysis
+    - Optimizes voice patterns for delivery while preserving authentic systematic thinking
+    - Prioritizes viral potential but never compromises educational value or design credibility
+    - Scripts assume visual design content - may need adaptation for other design disciplines
+    - Animation guidance requires before/after visual materials from extraction source
+
+    Created by @MDS and Claude Sonnet 4
+  </md>
+</fp> 

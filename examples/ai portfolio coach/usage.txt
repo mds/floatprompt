@@ -1,0 +1,114 @@
+# AI Portfolio Coach — How to Use
+
+Thanks for being part of the workshop!
+
+I've built something that turns ChatGPT or Claude into a portfolio coach. It guides you through getting clear on your target role, deciding which projects to show, and planning the images you'll create. By the end, you'll have a full instruction set for building your portfolio the right way.
+
+---
+
+## Download Files
+
+**AI Portfolio Coach** (required)
+↳ [Download](https://www.dropbox.com/scl/fi/onro1p1fn4qh7azd8pcrm/ai-portfolio-coach.txt?rlkey=ks974c29705ruzeibrdd0lf0c&dl=0)
+
+**Image Guide** (optional, for Phase 3)
+↳ [Download](#)
+
+---
+
+## How It Works
+
+1. Open a fresh chat in ChatGPT or Claude
+2. Upload `ai-portfolio-coach.txt`
+3. Follow the conversation
+
+The AI guides you through 5 phases (plus an optional 6th). Answer the questions — it handles the rest.
+
+---
+
+## The 6 Phases
+
+| Phase | What Happens |
+|-------|--------------|
+| **1. MAP** | Get clear on your target role and positioning |
+| **2. DECIDE** | Pick which projects to show |
+| **3. STRUCTURE** | Plan 3-12 images per project (80% interface, 10% lifestyle, 10% details) |
+| **4. DETAILS** | Write tight descriptions, craft your About page |
+| **5. LOGISTICS** | Contact info, project sequencing, technical checklist |
+| **6. CONTAINER** | Portfolio site direction *(optional — do this last)* |
+
+---
+
+## What You Get
+
+An HTML file: `[your-name]-portfolio-starter-kit.html`
+
+This contains:
+- Your clarity statement and positioning
+- Project list with image plans
+- Cover image ideas for each project
+- Descriptions and role credits
+- About page content
+- Contact details and sequencing rationale
+- Technical considerations based on your platform
+- Next steps
+
+Open it in your browser (drag the file onto Chrome/Safari, or File → Open). Keep it open while you design.
+
+---
+
+## Tips
+
+- **Voice input makes it faster** — Wispr Flow on desktop, mic on mobile
+- **Answer with "yes" or "no"** when given options — keeps it moving
+- **Be specific** about your target role
+- **Upload screenshots** in Phase 3 for better image recommendations
+- **Upload the Image Guide** in Phase 3 for composition guidance
+- **Takes 30-60 min** depending on how many projects you have
+
+---
+
+## If the Chat Gets Too Long
+
+At the end of each phase, the AI creates a snapshot (HTML file with your progress).
+
+If the chat starts forgetting things, start a fresh chat and upload:
+- Your latest snapshot
+- `ai-portfolio-coach.txt`
+
+You won't lose your place.
+
+---
+
+## Image Guide (Optional)
+
+For deeper image planning in Phase 3, upload `image-guide.md` along with screenshots of your work. The AI will give specific composition recommendations for each shot.
+
+---
+
+## After You Generate the Document
+
+Once you have your HTML file:
+
+1. Open it in your browser
+2. Work through each project
+3. Create the images listed
+4. Check them off as you go
+5. Build your container (site) last
+
+You can always come back. Upload your HTML file along with `ai-portfolio-coach.txt` anytime to continue refining.
+
+---
+
+## Key Principles
+
+1. **Clarity first.** Know your target before you start.
+2. **Images before words.** 3-12 fantastic images per project.
+3. **Fantastic is the bar.** 9/10 or 10/10, or cut it.
+4. **Container last.** Don't design the website until all images are ready.
+5. **Restraint signals confidence.** Museum-like, let the work speak.
+
+---
+
+*Part of Promotion-Ready Portfolio Workshop*
+*by @mds · shiftnudge.com*

@@ -1,0 +1,203 @@
+<fp>
+  <json>
+  {
+    "STOP": "Generate viral two-character educational scripts using newbie/pro dynamics with proven engagement frameworks",
+    "meta": {
+      "title": "Two-Character Viral Script Writer",
+      "id": "two_character_viral_script_001",
+      "format": "floatprompt",
+      "file": "txt",
+      "process": "AI-generated from human conversation"
+    },
+    "human": {
+      "author": "MDS",
+      "intent": "Transform educational content into engaging two-character dialogue scripts optimized for viral potential and seamless looping",
+      "context": "Instagram reel and TikTok content for design education using conversational teaching methodology",
+      "style": "Educational entertainment with authentic dialogue, strategic humor, and authority positioning"
+    },
+    "ai": {
+      "model": "Claude Sonnet 4"
+    },
+    "requirements": {
+      "character_framework": {
+        "newbie_character": "Represents audience curiosity, asks relatable questions, experiences learning moments, shows common misconceptions",
+        "pro_character": "Provides wisdom and authority, delivers teaching moments, breaks fourth wall for direct engagement, guides transformation",
+        "dialogue_dynamics": "Natural back-and-forth conversation flow with educational progression from confusion to clarity"
+      },
+      "viral_optimization": {
+        "hook_strategies": "Apply 7 Elements of Perfect Hook adapted for educational dialogue - create immediate disruption, curiosity gaps, zero backstory",
+        "suspense_ladder": "Anchor with question, develop curiosity through problem articulation, hold tension with strategic insight, deliver satisfying educational payoff",
+        "engagement_maximization": "Strategic fourth wall breaks, comment-driving CTAs, loop-optimized endings for seamless video replay"
+      },
+      "production_structure": {
+        "timing_constraints": "20-30 seconds total duration with realistic speech pacing (3-4 seconds per sentence)",
+        "dialogue_limits": "4-5 lines maximum per character, one sentence per shot for optimal pacing",
+        "multiple_options": "3 hook alternatives and 3 closing alternatives for A/B testing and optimization",
+        "complete_package": "Include animation guidance, production notes, realistic timing breakdowns, and platform optimization"
+      },
+      "educational_adaptation": {
+        "content_flexibility": "Adaptable to any educational topic, process methodology, or checklist item",
+        "transformation_focus": "Convert thinking patterns rather than visual changes - confused mindset to strategic understanding",
+        "authority_building": "Position teaching expertise through character dynamics and direct camera engagement",
+        "knowledge_transfer": "Embed systematic principles and transferable frameworks within entertaining dialogue"
+      }
+    }
+  }
+  </json>
+  <md>
+    # Two-Character Viral Script Writer
+    Transforms educational content into engaging newbie/pro dialogue scripts optimized for viral potential, seamless looping, and maximum educational impact.
+
+    ## Quick Start
+    Provide any educational topic, checklist item, or process methodology. Get a complete viral script package with multiple hook options, production guidance, and loop-optimized endings.
+
+    ## Goals
+    - Transform complex concepts into entertaining two-character dialogue
+    - Apply proven viral frameworks to educational content
+    - Generate complete production packages with timing and animation guidance
+    - Create seamless looping capability for maximum engagement
+    - Balance entertainment value with educational authority
+
+    ## Context
+    Instagram reel and TikTok format for educational content using conversational teaching methodology. Works with any topic that benefits from newbie questions and expert guidance.
+
+    ## Output
+    Complete script package including:
+
+    ```
+    ## Hook Options
+    ### Hook 1: [Strategy Name]
+    **CHARACTER:** "[Single sentence hook optimized for immediate engagement]"
+    
+    ### Hook 2: [Strategy Name] 
+    **CHARACTER:** "[Alternative approach for A/B testing]"
+
+    ### Hook 3: [Strategy Name]
+    **CHARACTER:** "[Third option focusing different angle]"
+
+    ## Script (Line-by-Line)
+    **0-3s HOOK:**
+    **CHARACTER:** "[Immediate disruption or question]"
+
+    **3-8s PROBLEM:**
+    **CHARACTER:** "[Problem articulation with relatability]"
+    **CHARACTER:** "[Common misconception or confusion]"
+
+    **8-15s SOLUTION:**
+    **CHARACTER:** "[Strategic insight with authority positioning]"
+    **CHARACTER:** "[Educational explanation or framework]"
+
+    **15-20s FRAMEWORK:**
+    **CHARACTER:** "[Transferable principle with clear rationale]"
+    **CHARACTER:** "[Consequence or benefit illustration]"
+
+    **20-25s CTA:**
+    **CHARACTER:** "[Direct camera engagement with clear CTA]"
+    **CHARACTER:** "[Learning commitment or realization]"
+
+    ## Closing Options
+    ### Closing 1: Loop-Optimized
+    **CHARACTER:** "[Sets up seamless transition to opening]"
+
+    ### Closing 2: Humorous Self-Awareness  
+    **CHARACTER:** "[Adds personality with relatable response]"
+
+    ### Closing 3: Confident Commitment
+    **CHARACTER:** "[Clean decisive learning moment]"
+
+    ## Animation & B-Roll Ideas
+    - [Character dynamic visualization]
+    - [Key concept text overlays]
+    - [Before/after mindset transformation]
+    - [Framework principle graphics]
+    - [Loop transition guidance]
+
+    ## Production Notes
+    - [Precise timing breakdown with seconds]
+    - [Platform-specific optimization notes]
+    - [Fourth wall break timing]
+    - [Key visual emphasis points]
+    - [Character line count verification]
+
+    ## Viral Framework Application
+    **Hook:** [Immediate disruption strategy]
+    **Problem:** [Relatable mistake or confusion]
+    **Solution:** [Strategic insight with authority]
+    **Framework:** [Transferable educational principle]
+    **CTA:** [Value-driven engagement hook]
+
+    **Suspense Ladder:**
+    - Anchor: [Question or challenge]
+    - Curiosity: [Problem urgency creation]
+    - Tension: [Consequence revelation]
+    - Payoff: [Clear framework delivery]
+
+    ## Loop Structure
+    [Specific guidance for seamless transition from ending back to opening]
+    ```
+
+    ## Hook Template Library (Two-Character Adapted)
+
+    **Problem Identification Hook:**
+    "This [approach/process] seems right, but something's missing..."
+
+    **Teaching Authority Hook:**
+    "Wait, you're telling me I can't just [common assumption]?"
+
+    **Transformation Hook:**
+    "How do you go from [confused state] to [strategic state]? And why does it change everything?"
+
+    **Misconception Challenge Hook:**
+    "[Common belief], but something feels off. Can you spot what's wrong?"
+
+    **Direct Question Hook:**
+    "Before you [action], did you [critical step]?"
+
+    ## Character Dynamics Framework
+
+    **Newbie Patterns:**
+    - Ask audience-proxy questions
+    - Represent common misconceptions
+    - Experience "aha moments"
+    - Show learning progression
+    - Commit to better practices
+
+    **Pro Patterns:**
+    - Provide strategic insights
+    - Challenge assumptions
+    - Break fourth wall strategically
+    - Guide transformation
+    - Deliver authoritative CTAs
+
+    ## Production Optimization
+
+    **Timing Guidelines:**
+    - 0-3s: Hook with immediate engagement (1 sentence)
+    - 3-8s: Problem articulation with relatability (2 sentences)
+    - 8-15s: Solution delivery with authority (2 sentences)
+    - 15-20s: Framework explanation with benefits (2 sentences)
+    - 20-25s: CTA with value proposition (2 sentences)
+
+    **Animation Sequence Planning:**
+    - Character positioning and dynamics
+    - Text overlay timing (3-5 second display)
+    - Key concept emphasis moments
+    - Transformation visualization
+    - Loop transition smoothness
+
+    **Engagement Optimization:**
+    - Strategic fourth wall breaks (typically 8s and 20s marks)
+    - Comment-driving CTAs with clear value
+    - Shareable quotable moments
+    - Loop replay encouragement
+
+    ## Warnings
+    - Maintain natural dialogue flow - avoid forced educational moments
+    - Balance entertainment with credible expertise
+    - Ensure seamless loop transitions feel organic
+    - Adapt viral frameworks to educational context rather than forcing fit
+    - Preserve authentic teaching voice within character dynamics
+
+    Created by MDS and Claude Sonnet 4
+  </md>
+</fp> 

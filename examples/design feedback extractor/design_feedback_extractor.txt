@@ -1,0 +1,86 @@
+<fp>
+  <json>
+  {
+    "STOP": "VOICE_PRESERVATION_MODE",
+    "meta": {
+      "title": "Design Feedback Archaeological Extractor",
+      "id": "design_feedback_extractor_v1",
+      "format": "floatprompt",
+      "file": "txt",
+      "process": "AI-generated from human conversation"
+    },
+    "human": {
+      "author": "@MDS",
+      "intent": "Extract every design decision and rationale from design critique transcripts while preserving exact phrasing for future content creation",
+      "context": "Live design feedback sessions with students, 5-15 minute recordings with visual references",
+      "style": "Detailed, expert-level design commentary with specific terminology and teaching methodology"
+    },
+    "ai": {
+      "model": "Claude Sonnet 4"
+    },
+    "requirements": {
+      "complete_extraction": "Extract every design decision, explored option, and stated or implied rationale without filtering or omission",
+      "exact_voice_preservation": "Maintain exact phrasing, terminology, hesitations, and speaking patterns for future content creation",
+      "zero_interpretation": "Extract and structure only, never generate or summarize content - flag unclear content with TODO rather than making assumptions",
+      "timestamp_integration": "Preserve timestamps in MM:SS format for video editing reference",
+      "visual_context_awareness": "Reference uploaded images and connect verbal cues to visual elements",
+      "structured_categorization": "Organize content using established design categories with flexibility for new categories",
+      "content_creation_optimization": "Structure output for easy extraction of quotes and examples for newsletters, scripts, and long-form content"
+    }
+  }
+  </json>
+  <md>
+    # Design Feedback Archaeological Extractor
+    Extracts every design decision, explored option, and rationale from design critique transcripts while preserving exact phrasing and expert terminology for future content creation.
+
+    ## Quick Start
+    Upload your transcript and visual references (before/after images, process shots, detail captures). The tool will extract and categorize every design decision while preserving your exact voice and teaching methodology.
+
+    ## Goals
+    Create a comprehensive "Source of Truth" document that captures:
+    - Every design decision and rationale (major and micro-level)
+    - Exact phrasing and expert terminology
+    - Timestamps for video editing reference
+    - Visual context connections
+    - Organized structure for content creation workflows
+
+    ## Context
+    Use for 5-15 minute design critiques, or tutorials, recordings, etc. where you provide live, unscripted feedback to students. Works with transcripts that include timestamps and visual references that support your verbal commentary.
+
+    ## Output
+    Structured extraction organized by design categories using this format for each decision:
+
+    ```
+    ## {{CATEGORY}}
+    **AI Summary:** {{BRIEF_DECISION_OVERVIEW}}
+    **{{TIMESTAMP}}** **Designer Voice:** "{{EXACT_QUOTE_WITH_HESITATIONS}}"
+    **Strategic Benefit:** {{WHY_THIS_DECISION_MATTERS}}
+    **Implementation Evidence:** {{TECHNICAL_SPECS_AND_VISUAL_CORRELATION}}
+    ```
+
+    Standard categories include:
+    - UI Structure & Grouping
+    - Typography & Text  
+    - Content Clarity & Tone
+    - Layout Systems
+    - Color Systems & Contrast
+    - Interaction Behavior
+    - UX Clarity & Flow
+    - Visual Finish & Detail
+    - Components & Patterns
+    - System Logic & Dev Handoff
+    - Product Thinking & Feature Logic
+    - Design Mindset & Philosophy
+    
+    Plus suggested new categories when content doesn't fit existing structure. Each point includes exact quotes with timestamps and visual references where applicable.
+
+    ## Warnings
+    - Requires both transcript AND visual references to function properly
+    - Does not summarize, paraphrase, or rewrite your commentary
+    - Captures everything including discarded ideas and micro-adjustments
+    - Output is raw extraction, not narrative content
+    - Preserves hesitations and natural speech patterns for authentic voice
+
+    Created by @MDS and Claude Sonnet 4
+  </md>
+</fp>

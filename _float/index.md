@@ -42,6 +42,7 @@ Upload a floatprompt to any AI platform (ChatGPT, Claude, Cursor) and it becomes
 |--------|---------|
 | **docs/** | Core documentation (format spec, methodology, principles) |
 | **context/** | Onboarding documents for new AI sessions |
+| **examples/** | Real-world FloatPrompt tools (coaches, extractors, writers) |
 | **dev/** | Development tools and update protocols |
 | **experimental/** | Build system (Node.js, legacy) |
 | **artifacts/** | Historical archive (150+ files documenting evolution) |
@@ -88,6 +89,11 @@ floatprompt/
 │   ├── _float/
 │   │   └── index.md
 │   └── float-context.md
+│
+├── examples/                # Real-world FloatPrompt tools
+│   ├── _float/
+│   │   └── index.md
+│   └── [example projects]
 │
 ├── dev/                     # Development tools
 │   ├── _float/
