@@ -1,6 +1,6 @@
 ---
 title: Experimental
-type: index
+type: float
 status: archived
 ai_updated: 2025-12-28
 ---

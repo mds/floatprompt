@@ -34,11 +34,11 @@ ai_notes: Initial draft. Needs real-world validation.
 ```
 project/
 ├── system.md          # THE root behavioral protocol
-├── index.md           # Root folder navigation
+├── float.md           # Root folder navigation
 ├── docs/
-│   └── index.md
+│   └── float.md
 ├── tools/
-│   └── index.md
+│   └── float.md
 ```
 
 ## Format
@@ -94,16 +94,16 @@ project/
 ```
 project/
 ├── system.md              # This file (behavioral protocol)
-├── index.md               # Root navigation
+├── float.md               # Root navigation
 ├── docs/                  # Documentation
-│   ├── index.md           # Folder navigation
+│   ├── float.md           # Folder navigation
 │   ├── spec.md            # Specifications
 │   └── guide.md           # Guides
 ├── tools/                 # Floatprompt tools
-│   ├── index.md           # Folder navigation
+│   ├── float.md           # Folder navigation
 │   └── coach.md           # Example tool
 └── artifacts/             # Historical/reference
-    └── index.md           # Folder navigation
+    └── float.md           # Folder navigation
 ```
 
 ## Behavioral Files
@@ -121,17 +121,17 @@ These files map folder contents (floatindex):
 
 | File | Location | Status |
 |------|----------|--------|
-| `index.md` | `/` | |
-| `index.md` | `/docs/` | |
-| `index.md` | `/tools/` | |
-| `index.md` | `/artifacts/` | |
+| `float.md` | `/` | |
+| `float.md` | `/docs/` | |
+| `float.md` | `/tools/` | |
+| `float.md` | `/artifacts/` | |
 
 ## File Conventions
 
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
 | `system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol |
-| `index.md` | FloatIndex | YAML frontmatter | Folder navigation |
+| `float.md` | FloatIndex | YAML frontmatter | Folder navigation |
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral |
 
@@ -180,8 +180,8 @@ ai_notes:
 
 **Integrity checks:**
 - [ ] All folders in structure map exist
-- [ ] All folders have `index.md`
-- [ ] All `index.md` files list actual contents
+- [ ] All folders have `float.md`
+- [ ] All `float.md` files list actual contents
 - [ ] All floatdocs have required frontmatter fields
 - [ ] No broken internal links
 - [ ] No orphaned files (files not listed in any index)
@@ -191,15 +191,15 @@ ai_notes:
 ```
 ⚠️ FloatSystem Integrity Issues:
 
-1. Missing index.md in /new-folder/
+1. Missing float.md in /new-folder/
 2. Broken link: /docs/old-file.md (file doesn't exist)
 3. Orphaned file: /tools/unused.md (not in index)
 4. Stale ai_updated: /docs/spec.md (90 days old)
 
 Suggested actions:
-- Create /new-folder/index.md
+- Create /new-folder/float.md
 - Remove or fix link to old-file.md
-- Add unused.md to /tools/index.md or delete
+- Add unused.md to /tools/float.md or delete
 - Review spec.md and update ai_notes
 
 Proceed with fixes? (Human approval required)
@@ -217,7 +217,7 @@ Proceed with fixes? (Human approval required)
 When AI modifies a file:
 1. Update `ai_updated` in that file's frontmatter
 2. Update `ai_notes` with what changed
-3. Check if parent `index.md` needs updating
+3. Check if parent `float.md` needs updating
 4. Check if `system.md` structure map needs updating
 5. Propagate changes upward as needed
 
@@ -231,7 +231,7 @@ handoff:
   to_agent: [agent type]
   context:
     system: system.md (always include)
-    folder: [relevant index.md]
+    folder: [relevant float.md]
     files: [specific files for task]
     task: [what to do]
     constraints: [any limitations]
@@ -239,7 +239,7 @@ handoff:
 
 **Minimum handoff context:**
 - Always include `system.md` reference
-- Include relevant `index.md` for scope
+- Include relevant `float.md` for scope
 - Include specific files needed for task
 
 ## Warnings
@@ -261,7 +261,7 @@ Every `system.md` must have:
 1. **STOP directive** — Tells AI this is the root protocol
 2. **Structure Map** — Visual tree of project
 3. **Behavioral Files** — List of all floatprompts
-4. **Navigation Files** — List of all index.md files
+4. **Navigation Files** — List of all float.md files
 5. **File Conventions** — What each pattern means
 6. **Maintenance Protocol** — How AI keeps things healthy
 7. **Agent Handoff** — How to pass context
@@ -272,7 +272,7 @@ AI should check on every session:
 
 | Check | Severity | Action |
 |-------|----------|--------|
-| Missing index.md | High | Create or flag |
+| Missing float.md | High | Create or flag |
 | Broken link | High | Flag to human |
 | Orphaned file | Medium | Flag to human |
 | Stale ai_updated (>30 days) | Low | Suggest review |
@@ -297,12 +297,12 @@ AI should check on every session:
 
 ## Structure
 - `/system.md` — This file
-- `/index.md` — Root nav
-- `/docs/index.md` — Docs nav
+- `/float.md` — Root nav
+- `/docs/float.md` — Docs nav
 
 ## Conventions
 - `system.md` = behavioral protocol
-- `index.md` = folder navigation
+- `float.md` = folder navigation
 - YAML frontmatter = document context
 
 ## Maintenance

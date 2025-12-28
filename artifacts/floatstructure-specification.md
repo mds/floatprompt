@@ -40,7 +40,7 @@ Text files are the binary of AI. The atomic unit of machine understanding.
 | **Sets direction** | ✓ | |
 | **Creates files** | | ✓ |
 | **Writes documentation** | | ✓ |
-| **Maintains index.md** | | ✓ |
+| **Maintains float.md** | | ✓ |
 | **Updates frontmatter** | | ✓ |
 | **Scaffolds folders** | | ✓ |
 | **Logs sessions** | | ✓ |
@@ -52,7 +52,7 @@ Text files are the binary of AI. The atomic unit of machine understanding.
 The human is the decision-maker and pilot, not the file creator or note taker. AI does almost all of the heavy lifting:
 - File creation
 - Documentation
-- Building and maintaining index.md files
+- Building and maintaining float.md files
 - Updating frontmatter
 - Scaffolding new folders
 - Writing behavior.md files
@@ -74,9 +74,9 @@ The human:
 | Component | File/Pattern | Purpose | Format |
 |-----------|--------------|---------|--------|
 | **FloatStructure** | Root architecture | Overall OS | — |
-| **FloatFolder** | Any folder with index.md | Folder pattern | — |
+| **FloatFolder** | Any folder with float.md | Folder pattern | — |
 | **FloatSystem** | `system.md` | Boot loader, root behavioral | `<fp>` tags |
-| **FloatIndex** | `index.md` | Folder navigation | Minimal YAML |
+| **FloatIndex** | `float.md` | Folder navigation | Minimal YAML |
 | **FloatDoc** | `*.md` | Document context | Full YAML frontmatter |
 | **FloatPrompt** | `*.md` | Tools, behavioral modifiers | `<fp>` tags |
 | **FloatLog** | `sessions/` | Activity history | Session YAML |
@@ -94,9 +94,9 @@ Plus:
 ```
 /
 ├── system.md           # Boot loader, root behavioral
-├── index.md            # Root navigation
+├── float.md            # Root navigation
 └── sessions/           # Activity log
-    └── index.md
+    └── float.md
 ```
 
 These three are sacred. Every FloatSystem has them.
@@ -106,9 +106,9 @@ These three are sacred. Every FloatSystem has them.
 ```
 /
 ├── system.md           # Root behavioral (CORE)
-├── index.md            # Root navigation (CORE)
+├── float.md            # Root navigation (CORE)
 ├── sessions/           # Activity log (CORE)
-│   └── index.md
+│   └── float.md
 │
 ├── .float/             # Hidden config (OPTIONAL)
 │   ├── config.md       # Preferences, settings
@@ -118,23 +118,23 @@ These three are sacred. Every FloatSystem has them.
 │       └── research.md
 │
 ├── projects/           # Work folders (SUGGESTED)
-│   ├── index.md
+│   ├── float.md
 │   └── my-project/
-│       ├── index.md
+│       ├── float.md
 │       ├── behavior.md # Folder-specific rules (OPTIONAL)
 │       ├── sessions/   # Project-level logs (OPTIONAL)
 │       └── docs/
-│           └── index.md
+│           └── float.md
 │
 ├── users/              # Team members (SUGGESTED for teams)
-│   ├── index.md
+│   ├── float.md
 │   ├── mds/
-│   │   └── index.md
+│   │   └── float.md
 │   └── lillian/
-│       └── index.md
+│       └── float.md
 │
 └── shared/             # Shared resources (OPTIONAL)
-    ├── index.md
+    ├── float.md
     ├── tools/          # Team floatprompts
     └── assets/         # Common files
 ```
@@ -143,34 +143,34 @@ These three are sacred. Every FloatSystem has them.
 
 ## FloatFolder
 
-**A FloatFolder is any folder with an index.md.**
+**A FloatFolder is any folder with an float.md.**
 
 ```
 any-folder/
-├── index.md           # Required — makes it a FloatFolder
+├── float.md           # Required — makes it a FloatFolder
 ├── behavior.md        # Optional — folder-specific rules
 ├── sessions/          # Optional — folder-level logging
 └── [contents]         # Files and subfolders
 ```
 
-**Minimum:** `index.md`
+**Minimum:** `float.md`
 
 **Optional additions:**
 - `behavior.md` — extends/overrides root system.md for this folder
 - `sessions/` — local activity logging (for high-activity folders)
 
-**Every folder in FloatStructure should be a FloatFolder.** AI creates and maintains index.md for each folder.
+**Every folder in FloatStructure should be a FloatFolder.** AI creates and maintains float.md for each folder.
 
-**Nesting:** FloatFolders can contain FloatFolders. Each has its own index.md. Behavior cascades from parent to child.
+**Nesting:** FloatFolders can contain FloatFolders. Each has its own float.md. Behavior cascades from parent to child.
 
 ```
 projects/                    # FloatFolder
-├── index.md
+├── float.md
 └── website-redesign/        # FloatFolder (nested)
-    ├── index.md
+    ├── float.md
     ├── behavior.md          # Optional local rules
     └── docs/                # FloatFolder (nested)
-        └── index.md
+        └── float.md
 ```
 
 ---
@@ -213,7 +213,7 @@ One per project. Lives at root. Boot loader for AI.
 - Maintenance protocol
 - Boot sequence
 
-### index.md (Folder Navigation)
+### float.md (Folder Navigation)
 
 One per folder. Minimal. Just enough to map contents.
 
@@ -304,7 +304,7 @@ One at root (required). Optional in subfolders for project-level logging.
 **Structure:**
 ```
 sessions/
-├── index.md
+├── float.md
 ├── 2025-12-28.md
 └── 2025-12-29.md
 ```
@@ -361,7 +361,7 @@ When AI receives `system.md`:
    → Understand behavioral rules
    → Load structure map
 
-2. Follow map to each index.md
+2. Follow map to each float.md
    → Understand folder purposes
    → See file listings
 
@@ -389,7 +389,7 @@ When AI receives `system.md`:
 
 8. Log session before ending
    → Record activity
-   → Update sessions/index.md
+   → Update sessions/float.md
    → Leave handoff notes
 ```
 
@@ -404,14 +404,14 @@ Structure IS compression.
 | Component | Tokens (approx) |
 |-----------|-----------------|
 | system.md | 300-500 |
-| index.md (per folder) | 30-50 |
+| float.md (per folder) | 30-50 |
 | floatdoc frontmatter | 40-60 |
 | session log (recent) | 50-150 |
 | behavior.md | 50-100 |
 
 **Example: 10-folder project, 50 files**
 - 1 system.md: 400 tokens
-- 10 index.md: 400 tokens
+- 10 float.md: 400 tokens
 - 50 frontmatters: 2000 tokens (skimmed)
 - 3 recent sessions: 300 tokens
 
@@ -429,11 +429,11 @@ AI creates folder structures on human request.
 
 **AI:**
 1. Creates `/projects/website-redesign/`
-2. Creates `index.md` with frontmatter
+2. Creates `float.md` with frontmatter
 3. Creates suggested subfolders (docs/, assets/, archive/)
-4. Creates `index.md` in each subfolder
+4. Creates `float.md` in each subfolder
 5. Logs activity in `/sessions/`
-6. Updates root `index.md`
+6. Updates root `float.md`
 7. Reports back: "Project scaffolded. Ready to use."
 
 **Human approves.** AI executes.
@@ -458,7 +458,7 @@ type: template
 - sessions/ (optional, for project-level logging)
 
 ## Files
-- index.md (in each folder)
+- float.md (in each folder)
 - behavior.md (optional)
 
 ## Conventions
@@ -478,20 +478,20 @@ For teams, suggested structure:
 ```
 /
 ├── system.md
-├── index.md
+├── float.md
 ├── sessions/
 │
 ├── users/
-│   ├── index.md
+│   ├── float.md
 │   ├── mds/
-│   │   ├── index.md
+│   │   ├── float.md
 │   │   └── drafts/
 │   └── lillian/
-│       ├── index.md
+│       ├── float.md
 │       └── drafts/
 │
 ├── projects/           # Shared projects
-│   └── index.md
+│   └── float.md
 │
 └── shared/             # Shared resources
     ├── tools/          # Team floatprompts
@@ -559,8 +559,8 @@ More specific wins. But root rules always provide the foundation.
 5. Log session before ending
 
 **Integrity checks:**
-- All folders have index.md
-- All index.md files reflect actual contents
+- All folders have float.md
+- All float.md files reflect actual contents
 - No broken internal links
 - No orphaned files
 - Structure map matches reality
@@ -570,14 +570,14 @@ More specific wins. But root rules always provide the foundation.
 ```
 ⚠️ FloatSystem Integrity Issues:
 
-1. Missing index.md in /new-folder/
+1. Missing float.md in /new-folder/
 2. Stale: /docs/old.md (90 days)
 3. Orphaned: /assets/unused.png not in any index
 
 Suggested fixes:
-- Create /new-folder/index.md
+- Create /new-folder/float.md
 - Review /docs/old.md
-- Add unused.png to /assets/index.md or delete
+- Add unused.png to /assets/float.md or delete
 
 Proceed with fixes? (Human approval required)
 ```
@@ -597,7 +597,7 @@ Proceed with fixes? (Human approval required)
 
 **Core (always):**
 - `system.md` — boot loader
-- `index.md` — navigation (every folder)
+- `float.md` — navigation (every folder)
 - `sessions/` — activity log
 
 **Optional:**

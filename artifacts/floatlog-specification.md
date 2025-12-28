@@ -26,7 +26,7 @@ FloatLog is the session logging component of FloatSystem. It records AI activity
 | Component | File | Purpose |
 |-----------|------|---------|
 | FloatSystem | `system.md` | Boot loader, behavioral protocol |
-| FloatIndex | `index.md` | Folder navigation |
+| FloatIndex | `float.md` | Folder navigation |
 | FloatDoc | frontmatter | Document context |
 | FloatPrompt | `<fp>` tags | Tools, behavioral modifiers |
 | **FloatLog** | `sessions/` | Activity history |
@@ -48,9 +48,9 @@ FloatLog is the session logging component of FloatSystem. It records AI activity
 ```
 project/
 ├── system.md
-├── index.md
+├── float.md
 ├── sessions/
-│   ├── index.md              # Session navigation
+│   ├── float.md              # Session navigation
 │   ├── 2025-12-28.md         # Daily log
 │   ├── 2025-12-29.md
 │   └── 2025-12-30.md
@@ -61,13 +61,13 @@ project/
 ```
 project/
 ├── sessions/
-│   ├── index.md              # Session navigation
+│   ├── float.md              # Session navigation
 │   ├── 2025-12/
-│   │   ├── index.md          # Month navigation
+│   │   ├── float.md          # Month navigation
 │   │   ├── 2025-12-28.md
 │   │   └── 2025-12-29.md
 │   └── 2025-11/
-│       ├── index.md
+│       ├── float.md
 │       └── ...
 ```
 
@@ -76,9 +76,9 @@ project/
 ```
 project/
 ├── sessions/
-│   ├── index.md
+│   ├── float.md
 │   ├── 2025-12-28/
-│   │   ├── index.md          # Day navigation
+│   │   ├── float.md          # Day navigation
 │   │   ├── 0900-scan.md      # Morning scan
 │   │   └── 1400-update.md    # Afternoon work
 ```
@@ -124,14 +124,14 @@ Brief description of what happened this session.
 
 - [x] Scanned system (boot sequence complete)
 - [x] Found 3 integrity issues
-- [x] Updated `/docs/index.md`
+- [x] Updated `/docs/float.md`
 - [ ] Flagged `/tools/old.md` for review (pending human)
 
 ## Files Modified
 
 | File | Action | Notes |
 |------|--------|-------|
-| `/docs/index.md` | Updated | Added new file listing |
+| `/docs/float.md` | Updated | Added new file listing |
 | `/docs/guide.md` | Updated | Refreshed ai_notes |
 
 ## Issues Surfaced
@@ -139,7 +139,7 @@ Brief description of what happened this session.
 | File | Issue | Severity | Status |
 |------|-------|----------|--------|
 | `/tools/old.md` | 90 days stale | Low | Pending review |
-| `/new-folder/` | Missing index.md | High | Created |
+| `/new-folder/` | Missing float.md | High | Created |
 
 ## Handoff Notes
 
@@ -171,7 +171,7 @@ Context for next session or agent:
 | **Issues Surfaced** | If any | Table of problems found |
 | **Handoff Notes** | No | Context for next session |
 
-## sessions/index.md
+## sessions/float.md
 
 The sessions folder needs its own index:
 
@@ -249,7 +249,7 @@ Step 8 added: Log activity before session ends.
 
 **AI responsibilities:**
 - Create session log at end of each working session
-- Update sessions/index.md with new entry
+- Update sessions/float.md with new entry
 - Keep handoff notes current
 - Archive old sessions (optional, by month/quarter)
 

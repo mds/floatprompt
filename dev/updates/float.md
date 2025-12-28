@@ -1,6 +1,6 @@
 ---
 title: Updates
-type: index
+type: float
 status: current
 ai_updated: 2025-12-28
 ---

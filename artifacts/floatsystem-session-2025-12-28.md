@@ -75,7 +75,7 @@ ai_ = AI attribution
 
 ### 4. Simple File Names
 
-**Decision:** `system.md`, `index.md` — no underscores, no prefixes
+**Decision:** `system.md`, `float.md` — no underscores, no prefixes
 
 **Why:**
 - Next.js uses `index.tsx` not `_index.tsx`
@@ -113,9 +113,9 @@ This is the core contract. AI does almost all heavy lifting. Human steers.
 | Component | File | Purpose |
 |-----------|------|---------|
 | FloatStructure | (architecture) | Overall OS |
-| FloatFolder | folder + index.md | Folder pattern |
+| FloatFolder | folder + float.md | Folder pattern |
 | FloatSystem | `system.md` | Boot loader |
-| FloatIndex | `index.md` | Navigation |
+| FloatIndex | `float.md` | Navigation |
 | FloatDoc | YAML frontmatter | Document context |
 | FloatPrompt | `<fp>` tags | Behavioral tools |
 | FloatLog | `sessions/` | Activity history |
@@ -125,7 +125,7 @@ This is the core contract. AI does almost all heavy lifting. Human steers.
 When AI receives `system.md`:
 
 1. Read system.md → behavioral rules, structure map
-2. Follow map to each index.md → folder purposes
+2. Follow map to each float.md → folder purposes
 3. Skim floatdoc frontmatter → document understanding
 4. Read recent session logs → recent activity, handoff context
 5. Build mental model → full project awareness
@@ -166,7 +166,7 @@ These concepts exist but don't need immediate implementation:
 - FloatStructure as a named/marketed concept
 - Templates system
 
-The core (system.md, index.md, floatdoc frontmatter, sessions/) is solid and complete.
+The core (system.md, float.md, floatdoc frontmatter, sessions/) is solid and complete.
 
 ## Stress Tests Passed
 
@@ -188,7 +188,7 @@ All scenarios handled cleanly with the 10-field format.
 | Component | Tokens |
 |-----------|--------|
 | system.md | 300-500 |
-| index.md (per folder) | 30-50 |
+| float.md (per folder) | 30-50 |
 | floatdoc frontmatter | 40-60 |
 | session log | 50-150 |
 

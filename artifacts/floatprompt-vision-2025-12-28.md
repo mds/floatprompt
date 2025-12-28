@@ -46,9 +46,9 @@ FloatPrompt defines the instruction set:
 | Component | File/Pattern | Purpose | Format |
 |-----------|--------------|---------|--------|
 | **FloatStructure** | Root architecture | Overall OS | — |
-| **FloatFolder** | Any folder + index.md | Folder pattern | — |
+| **FloatFolder** | Any folder + float.md | Folder pattern | — |
 | **FloatSystem** | `system.md` | Boot loader, behavioral protocol | `<fp>` tags |
-| **FloatIndex** | `index.md` | Folder navigation | Minimal YAML |
+| **FloatIndex** | `float.md` | Folder navigation | Minimal YAML |
 | **FloatDoc** | `*.md` | Document context | Full YAML frontmatter |
 | **FloatPrompt** | `*.md` | Tools, behavioral modifiers | `<fp>` tags |
 | **FloatLog** | `sessions/` | Activity history | Session YAML |
@@ -58,19 +58,19 @@ FloatPrompt defines the instruction set:
 ```
 project/
 ├── system.md          # THE root (behavioral, read first)
-├── index.md           # Root folder navigation
+├── float.md           # Root folder navigation
 ├── sessions/          # Activity history
-│   ├── index.md       # Session navigation
+│   ├── float.md       # Session navigation
 │   └── 2025-12-28.md  # Daily session log
 ├── docs/
-│   ├── index.md       # Folder navigation
+│   ├── float.md       # Folder navigation
 │   ├── guide.md       # FloatDoc (frontmatter)
 │   └── spec.md        # FloatDoc (frontmatter)
 ├── tools/
-│   ├── index.md       # Folder navigation
+│   ├── float.md       # Folder navigation
 │   └── coach.md       # FloatPrompt tool (<fp> tags)
 └── artifacts/
-    ├── index.md       # Folder navigation
+    ├── float.md       # Folder navigation
     └── notes.md       # FloatDoc (frontmatter)
 ```
 
@@ -83,7 +83,7 @@ When AI receives `system.md`:
    → Understand behavioral rules
    → Load structure map
 
-2. Follow map to each index.md
+2. Follow map to each float.md
    → Understand folder purposes
    → See file listings
 
@@ -111,7 +111,7 @@ When AI receives `system.md`:
 
 8. Log session before ending
    → Record activity
-   → Update sessions/index.md
+   → Update sessions/float.md
    → Leave handoff notes
 ```
 
@@ -126,13 +126,13 @@ Structure IS compression. Conventions eliminate verbosity.
 | Component | Tokens |
 |-----------|--------|
 | system.md | 300-500 |
-| index.md (per folder) | 30-50 |
+| float.md (per folder) | 30-50 |
 | floatdoc frontmatter | 40-60 |
 | session log (recent) | 50-150 |
 
 **Example: 10-folder project, 50 files**
 - 1 system.md: 400 tokens
-- 10 index.md: 400 tokens
+- 10 float.md: 400 tokens
 - 50 frontmatters: 2000 tokens (skimmed)
 - 3 recent sessions: 300 tokens
 
@@ -165,7 +165,7 @@ Uses `<fp>` tags. Behavioral modifier. No YAML frontmatter needed—the JSON han
 </fp>
 ```
 
-### index.md (Folder Navigation)
+### float.md (Folder Navigation)
 
 Minimal YAML. Just enough to map the folder.
 
@@ -187,7 +187,7 @@ ai_updated:
 
 Skips: created, human_author, human_intent, human_context, ai_model, ai_notes
 
-Why: index.md is navigation, not content. Keep it lean.
+Why: float.md is navigation, not content. Keep it lean.
 
 ### floatdoc (Document Context)
 
@@ -247,8 +247,8 @@ No YAML frontmatter—the JSON contains all metadata.
 3. Surface issues before proceeding
 
 **Integrity checks:**
-- All folders have index.md
-- All index.md files reflect actual contents
+- All folders have float.md
+- All float.md files reflect actual contents
 - No broken internal links
 - No orphaned files
 - Structure map matches reality
@@ -257,7 +257,7 @@ No YAML frontmatter—the JSON contains all metadata.
 ```
 ⚠️ FloatSystem Integrity Issues:
 
-1. Missing index.md in /new-folder/
+1. Missing float.md in /new-folder/
 2. Stale: /docs/old.md not in index
 3. Broken link: references deleted file
 
@@ -276,7 +276,7 @@ Proceed? (Human approval required)
 
 When AI modifies a file:
 1. Update ai_updated
-2. Check if index.md needs updating
+2. Check if float.md needs updating
 3. Check if system.md structure map needs updating
 4. Propagate changes upward
 
@@ -290,7 +290,7 @@ handoff:
   to: [agent]
   context:
     system: system.md (always)
-    scope: [relevant index.md files]
+    scope: [relevant float.md files]
     files: [specific files for task]
     task: [what to do]
 ```
@@ -304,7 +304,7 @@ All files are `.md` for universal compatibility.
 | Name | Purpose |
 |------|---------|
 | `system.md` | Root behavioral protocol (one per project) |
-| `index.md` | Folder navigation (one per folder) |
+| `float.md` | Folder navigation (one per folder) |
 | `*.md` with frontmatter | Documents (floatdocs) |
 | `*.md` with `<fp>` tags | Tools (floatprompts) |
 
@@ -327,9 +327,9 @@ Differentiation by content, not file extension.
 ```
 FloatPrompt (trademark, umbrella)
 └── FloatStructure (the OS architecture)
-    └── FloatFolder (any folder with index.md)
+    └── FloatFolder (any folder with float.md)
         ├── FloatSystem → system.md (boot loader, root only)
-        ├── FloatIndex → index.md (navigation)
+        ├── FloatIndex → float.md (navigation)
         ├── FloatDoc → *.md (document context)
         ├── FloatPrompt → *.md (tools)
         ├── FloatLog → sessions/ (activity log)

@@ -57,9 +57,9 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 ```
 floatprompt/
 ├── system.md              # This file (boot loader, read first)
-├── index.md               # Root navigation
+├── float.md               # Root navigation
 ├── sessions/              # Activity history
-│   └── index.md
+│   └── float.md
 │
 ├── floatprompt.txt        # The template (3KB) - creates floatprompts
 ├── floatprompt-os.txt     # The full system (35KB) - guided tool creation
@@ -67,7 +67,7 @@ floatprompt/
 ├── CLAUDE.md              # Claude Code specific guidance
 │
 ├── docs/                  # Core documentation
-│   ├── index.md           # Folder navigation
+│   ├── float.md           # Folder navigation
 │   ├── fp.md              # File format specification
 │   ├── mds-method.md      # MDS methodology
 │   ├── goals.md           # Goal hierarchy
@@ -76,23 +76,23 @@ floatprompt/
 │   ├── use.md             # What you can build
 │   ├── safety.md          # Safety guidelines
 │   ├── philosophy/        # Background thinking
-│   │   └── index.md
+│   │   └── float.md
 │   └── reference/         # Template references
-│       └── index.md
+│       └── float.md
 │
 ├── context/               # Onboarding
-│   └── index.md
+│   └── float.md
 │
 ├── dev/                   # Development tools
-│   └── index.md
+│   └── float.md
 │
 ├── experimental/          # Build system (legacy)
-│   └── index.md
+│   └── float.md
 │
 └── artifacts/             # Historical archive
-    ├── index.md
+    ├── float.md
     └── 2025/              # 113+ files documenting evolution
-        └── index.md
+        └── float.md
 ```
 
 ## File Conventions
@@ -100,7 +100,7 @@ floatprompt/
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
 | `system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol (this file) |
-| `index.md` | FloatIndex | Minimal YAML | Folder navigation |
+| `float.md` | FloatNav | Minimal YAML | Folder navigation |
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
 | `*.txt` with `<fp>` tags | FloatPrompt | `<fp>` tags | Portable tools |
@@ -125,12 +125,12 @@ ai_notes:
 ---
 ```
 
-### FloatIndex Frontmatter (Minimal)
+### FloatNav Frontmatter (float.md)
 
 ```yaml
 ---
 title:
-type: index
+type: float
 status:
 ai_updated:
 ---
@@ -156,8 +156,8 @@ ai_updated:
 5. Log session before ending
 
 **Integrity checks:**
-- [ ] All folders have `index.md`
-- [ ] All `index.md` files reflect actual contents
+- [ ] All folders have `float.md`
+- [ ] All `float.md` files reflect actual contents
 - [ ] No broken internal links
 - [ ] No orphaned files
 - [ ] Structure map matches reality
@@ -166,8 +166,8 @@ ai_updated:
 ```
 FloatSystem Integrity Issues:
 
-1. Missing index.md in /new-folder/
-2. Stale: /docs/old.md (not in index)
+1. Missing float.md in /new-folder/
+2. Stale: /docs/old.md (not in float.md)
 3. Broken link: references deleted file
 
 Suggested fixes: [list]
@@ -185,7 +185,7 @@ Proceed? (Human approval required)
 
 When AI modifies a file:
 1. Update `ai_updated` in frontmatter
-2. Check if `index.md` needs updating
+2. Check if `float.md` needs updating
 3. Check if structure map needs updating
 4. Propagate changes upward
 
@@ -214,7 +214,7 @@ handoff:
   to_agent: [agent type]
   context:
     system: system.md (always include)
-    folder: [relevant index.md]
+    folder: [relevant float.md]
     files: [specific files for task]
     task: [what to do]
 ```

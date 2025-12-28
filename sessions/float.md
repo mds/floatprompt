@@ -1,6 +1,6 @@
 ---
 title: Session Logs
-type: index
+type: float
 status: current
 ai_updated: 2025-12-28
 ---
@@ -25,9 +25,9 @@ Activity history for the FloatPrompt project.
 ## Statistics
 
 - Total sessions: 1
-- Files created: 14 (system.md, index.md, 12 subfolder index.md files)
+- Files created: 14 (system.md, float.md, 12 subfolder float.md files)
 - Branch: `floatsystem`
 
 ---
 
-AI maintains this index after each session.
+AI maintains this file after each session.
