@@ -13,7 +13,9 @@ Historical archive and active specifications for FloatPrompt evolution.
 
 | File | Purpose |
 |------|---------|
+| **float-commands-spec.md** | Float Commands — slash commands for on-demand FloatSystem maintenance (lighter alternative) |
 | **float-buoys-spec.md** | Float Buoys daemon — background file watcher that keeps `_float/` files accurate |
+| **float-buoys-context.md** | Strategic context and decision rationale for Float Buoys spec |
 | **floatprompt-npm-scaffold-spec.md** | npm package scaffold specification (uses `_float/` architecture) |
 
 ## Session Summaries
