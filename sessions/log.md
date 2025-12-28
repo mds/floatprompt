@@ -11,6 +11,17 @@ Changelog of AI session activity. Newest entries first.
 
 ---
 
+## 2025-12-28 18:00 — Add explicit penetration sequence
+commit: d4a25e5
+
+- Boot sequence now explicitly instructs AI to traverse ALL float.md files
+- Added steps: read sessions/log.md, skim key docs, build mental model
+- Updated structure map to include sessions/log.md and dev/updates/
+- Goal: AI has full project context before taking any action
+- Penetration order: system.md → float.md files → session log → key docs → ready
+
+---
+
 ## 2025-12-28 17:30 — Add distributed AI hooks
 commit: e70e06f
 
