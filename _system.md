@@ -26,7 +26,7 @@
     "boot_sequence": {
       "1": "Read this file completely",
       "2": "Load structure map into memory",
-      "3": "Traverse ALL _float.md files to understand each folder",
+      "3": "Traverse ALL _float.md files. Verify each Contents table matches actual folder contents. Flag discrepancies.",
       "4": "Read today's session log (sessions/log-YYYY-MM-DD.md) for recent activity",
       "5": "Skim key docs: docs/fp.md, docs/goals.md, docs/principles.md",
       "6": "Build mental model of what exists and what happened",
@@ -152,7 +152,7 @@ ai_updated:
 
 **Every session (penetration sequence):**
 1. Read `_system.md` first (this file)
-2. Traverse ALL `_float.md` files (understand each folder)
+2. Traverse ALL `_float.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
 3. Read today's session log `sessions/log-YYYY-MM-DD.md` (recent activity, handoff context)
 4. Skim key docs: `docs/fp.md`, `docs/goals.md`, `docs/principles.md`
 5. Build mental model (what exists, what happened, current state)
