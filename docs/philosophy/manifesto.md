@@ -7,6 +7,10 @@ created: 2025-06
 human_author: MDS
 human_intent: Articulate the vision - "Start where you left off"
 human_context: Foundational document - why FloatPrompt exists, the core promise
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # FloatPrompt Manifesto

@@ -3,11 +3,15 @@ title: MDS Method
 type: methodology, documentation
 status: complete
 created: 2025-06
+related: fp.md
 
 human_author: MDS
 human_intent: Define the Map → Decide → Structure workflow for building floatprompts
 human_context: Three-phase collaboration process - depth scales with complexity
-related: fp.md
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # MDS Method

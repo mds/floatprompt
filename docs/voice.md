@@ -3,11 +3,15 @@ title: Voice Preservation
 type: documentation
 status: complete
 created: 2025-06
+related: goals.md, principles.md
 
 human_author: MDS
 human_intent: Define voice preservation rules - what to preserve, what to avoid
 human_context: Fight AI's default rewriting behavior - preserve authentic human expression
-related: goals.md, principles.md
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # Voice Preservation

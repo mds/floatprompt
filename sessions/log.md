@@ -11,6 +11,17 @@ Changelog of AI session activity. Newest entries first.
 
 ---
 
+## 2025-12-28 18:30 — Add FloatDoc frontmatter to all docs
+commit: 7d3a736
+
+- Added full FloatDoc YAML frontmatter to all 13 documentation files
+- Includes both human_ fields (author, intent, context) and ai_ fields (model, updated, notes)
+- Updated FloatDoc spec: `float.md` naming, `related` field, multiple types
+- Standardized on FloatNav naming across all 5 artifact specs
+- Updated docs/float.md and docs/philosophy/float.md with Intent column
+
+---
+
 ## 2025-12-28 18:00 — Add explicit penetration sequence
 commit: d4a25e5
 

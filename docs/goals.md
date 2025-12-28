@@ -3,11 +3,15 @@ title: Goals
 type: documentation
 status: complete
 created: 2025-06
+related: principles.md, voice.md
 
 human_author: MDS
 human_intent: Establish the three-tier goal hierarchy (voice > behavior > artifacts)
 human_context: Core principle - the hierarchy is strict, never compromise voice
-related: principles.md, voice.md
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # Goals

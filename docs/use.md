@@ -3,11 +3,15 @@ title: What You Can Build
 type: documentation, guide
 status: complete
 created: 2025-06
+related: fp.md, mds-method.md
 
 human_author: MDS
 human_intent: Show practical applications - coaches, writers, extractors, assistants
 human_context: Concrete examples of what floatprompts can do
-related: fp.md, mds-method.md
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # What You Can Build

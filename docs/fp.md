@@ -3,11 +3,15 @@ title: File Format
 type: specification
 status: complete
 created: 2025-06
+related: goals.md, principles.md
 
 human_author: MDS
 human_intent: Define the <fp><json><md></fp> file structure
 human_context: Core format specification - how floatprompt files are structured
-related: goals.md, principles.md
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # File Format

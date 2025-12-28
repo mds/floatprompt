@@ -7,6 +7,10 @@ created: 2025-06
 human_author: MDS
 human_intent: Document empirical findings about FloatPrompt's cognitive benefits
 human_context: Research insights - information architecture, compression ratios, efficiency
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # FloatPrompt Discovery Log

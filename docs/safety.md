@@ -7,6 +7,10 @@ created: 2025-06
 human_author: MDS
 human_intent: Establish safety guidelines - human oversight, no weaponization
 human_context: Floatprompts empower human intelligence, never compromise well-being
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # Safety

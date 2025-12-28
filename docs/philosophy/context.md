@@ -7,6 +7,10 @@ created: 2025-06
 human_author: MDS
 human_intent: Explain contextual anchoring - when FloatPrompt adds value vs standard AI
 human_context: Strategic evaluation framework for adoption decisions
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # FloatPrompt Context Anchoring Guide

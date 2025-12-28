@@ -7,6 +7,10 @@ created: 2025-06
 human_author: MDS
 human_intent: Explain business value - three-layer architecture, ROI, use cases
 human_context: Strategic intelligence preservation, cross-platform reliability
+
+ai_model: Claude Opus 4
+ai_updated: 2025-12-28
+ai_notes: Added FloatDoc frontmatter
 ---
 
 # FloatPrompt Value Proposition
