@@ -76,7 +76,7 @@ The human:
 | **FloatStructure** | Root architecture | Overall OS | — |
 | **FloatFolder** | Any folder with float.md | Folder pattern | — |
 | **FloatSystem** | `system.md` | Boot loader, root behavioral | `<fp>` tags |
-| **FloatIndex** | `float.md` | Folder navigation | Minimal YAML |
+| **FloatNav** | `float.md` | Folder navigation | Minimal YAML |
 | **FloatDoc** | `*.md` | Document context | Full YAML frontmatter |
 | **FloatPrompt** | `*.md` | Tools, behavioral modifiers | `<fp>` tags |
 | **FloatLog** | `sessions/` | Activity history | Session YAML |

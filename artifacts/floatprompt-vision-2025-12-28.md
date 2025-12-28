@@ -48,7 +48,7 @@ FloatPrompt defines the instruction set:
 | **FloatStructure** | Root architecture | Overall OS | — |
 | **FloatFolder** | Any folder + float.md | Folder pattern | — |
 | **FloatSystem** | `system.md` | Boot loader, behavioral protocol | `<fp>` tags |
-| **FloatIndex** | `float.md` | Folder navigation | Minimal YAML |
+| **FloatNav** | `float.md` | Folder navigation | Minimal YAML |
 | **FloatDoc** | `*.md` | Document context | Full YAML frontmatter |
 | **FloatPrompt** | `*.md` | Tools, behavioral modifiers | `<fp>` tags |
 | **FloatLog** | `sessions/` | Activity history | Session YAML |
@@ -329,7 +329,7 @@ FloatPrompt (trademark, umbrella)
 └── FloatStructure (the OS architecture)
     └── FloatFolder (any folder with float.md)
         ├── FloatSystem → system.md (boot loader, root only)
-        ├── FloatIndex → float.md (navigation)
+        ├── FloatNav → float.md (navigation)
         ├── FloatDoc → *.md (document context)
         ├── FloatPrompt → *.md (tools)
         ├── FloatLog → sessions/ (activity log)

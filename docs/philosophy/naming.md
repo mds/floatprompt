@@ -1,3 +1,14 @@
+---
+title: Naming Convention
+type: reference
+status: complete
+created: 2025-06
+
+human_author: MDS
+human_intent: Define naming standards - FloatPrompt capitalization, file extensions
+human_context: Brand consistency, never plural, .txt adoption strategy
+---
+
 # FloatPrompt Naming Convention
 
 **Clear naming standards for FloatPrompt system components, files, and brand references**

@@ -15,25 +15,25 @@ Core documentation for FloatPrompt. Start here to understand the system.
 
 ### Essential (Read First)
 
-| File | Purpose |
-|------|---------|
-| **fp.md** | File format specification — the `<fp><json><md></fp>` structure |
-| **mds-method.md** | The methodology — Map → Decide → Structure |
-| **goals.md** | Three-tier goal hierarchy (voice > behavior > artifacts) |
+| File | Intent | Purpose |
+|------|--------|---------|
+| **fp.md** | Define the `<fp><json><md></fp>` file structure | File format specification |
+| **mds-method.md** | Explain Map → Decide → Structure methodology | The core methodology |
+| **goals.md** | Define three-tier goal hierarchy | Voice > behavior > artifacts |
 
 ### Principles
 
-| File | Purpose |
-|------|---------|
-| **principles.md** | Recognition before action. Slow is smooth. Anti-patterns. |
-| **voice.md** | Voice preservation rules. What to preserve, what to avoid. |
-| **safety.md** | Safety guidelines. Human oversight, no weaponization. |
+| File | Intent | Purpose |
+|------|--------|---------|
+| **principles.md** | Define core principles | Recognition before action. Slow is smooth. |
+| **voice.md** | Define voice preservation rules | What to preserve, what to avoid. |
+| **safety.md** | Define safety guidelines | Human oversight, no weaponization. |
 
 ### Practical
 
-| File | Purpose |
-|------|---------|
-| **use.md** | What you can build: coaches, writers, extractors, assistants |
+| File | Intent | Purpose |
+|------|--------|---------|
+| **use.md** | Show practical applications | Coaches, writers, extractors, assistants |
 
 ### Subfolders
 
@@ -104,14 +104,14 @@ The hierarchy is strict. Never compromise voice for usefulness.
 
 Background thinking and origin documents. Read for context on why FloatPrompt exists.
 
-| File | Purpose |
-|------|---------|
-| manifesto.md | The core manifesto. "Start where you left off." |
-| orientation.md | System orientation guide |
-| discovery.md | Origin story and evolution |
-| context.md | Context engineering philosophy |
-| value.md | Value proposition and ROI |
-| naming.md | Naming conventions |
+| File | Intent | Purpose |
+|------|--------|---------|
+| manifesto.md | Core manifesto - why human intelligence gets lost | "Start where you left off" |
+| orientation.md | Quick start guide - what FloatPrompt is | System orientation |
+| discovery.md | Document empirical findings | Cognitive benefits research |
+| context.md | Explain contextual anchoring | When FloatPrompt adds value |
+| value.md | Explain business value | Three-layer architecture, ROI |
+| naming.md | Define naming standards | Capitalization, file extensions |
 
 ### reference/
 

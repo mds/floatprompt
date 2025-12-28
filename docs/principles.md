@@ -1,3 +1,15 @@
+---
+title: Principles
+type: documentation
+status: complete
+created: 2025-06
+
+human_author: MDS
+human_intent: Define operating principles - Recognition Before Action, Slow is Smooth, Anti-Patterns
+human_context: Behavioral constraints for all floatprompt tools
+related: goals.md, voice.md
+---
+
 # Principles
 
 ## Recognition Before Action

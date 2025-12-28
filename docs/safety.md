@@ -1,3 +1,14 @@
+---
+title: Safety
+type: documentation
+status: complete
+created: 2025-06
+
+human_author: MDS
+human_intent: Establish safety guidelines - human oversight, no weaponization
+human_context: Floatprompts empower human intelligence, never compromise well-being
+---
+
 # Safety
 
 Floatprompts are tools. Tools can be misused. These guidelines ensure floatprompts serve constructive purposes.

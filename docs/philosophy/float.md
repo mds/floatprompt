@@ -11,14 +11,14 @@ Background thinking and origin documents. Read for context on why FloatPrompt ex
 
 ## Files
 
-| File | Purpose |
-|------|---------|
-| **manifesto.md** | The core manifesto. "Start where you left off." Why human intelligence gets lost in AI translation. |
-| **orientation.md** | System orientation guide. Quick start, architecture overview, core concepts. |
-| **discovery.md** | How FloatPrompt was discovered. The origin story and evolution. |
-| **context.md** | Context engineering philosophy. Why context structure matters for AI collaboration. |
-| **value.md** | Value proposition. Business benefits, ROI, why this matters. |
-| **naming.md** | Naming conventions and decisions. Why things are called what they're called. |
+| File | Intent | Purpose |
+|------|--------|---------|
+| **manifesto.md** | Core manifesto - why human intelligence gets lost | "Start where you left off." The vision. |
+| **orientation.md** | Quick start guide - what FloatPrompt is | Architecture overview, core concepts. |
+| **discovery.md** | Document empirical findings | Cognitive benefits research. |
+| **context.md** | Explain contextual anchoring | When FloatPrompt adds value vs standard AI. |
+| **value.md** | Explain business value | Three-layer architecture, ROI, use cases. |
+| **naming.md** | Define naming standards | Capitalization, file extensions. |
 
 ## Key Themes
 

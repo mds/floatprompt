@@ -115,7 +115,7 @@ This is the core contract. AI does almost all heavy lifting. Human steers.
 | FloatStructure | (architecture) | Overall OS |
 | FloatFolder | folder + float.md | Folder pattern |
 | FloatSystem | `system.md` | Boot loader |
-| FloatIndex | `float.md` | Navigation |
+| FloatNav | `float.md` | Navigation |
 | FloatDoc | YAML frontmatter | Document context |
 | FloatPrompt | `<fp>` tags | Behavioral tools |
 | FloatLog | `sessions/` | Activity history |

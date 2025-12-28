@@ -1,3 +1,15 @@
+---
+title: System Orientation
+type: guide
+status: complete
+created: 2025-06
+
+human_author: MDS
+human_intent: Quick start guide - what FloatPrompt is, how to use it
+human_context: System overview for new users - architecture, concepts, triggers
+related: ../fp.md, ../mds-method.md
+---
+
 # FloatPrompt System Orientation
 
 ## What is FloatPrompt?

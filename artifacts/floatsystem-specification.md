@@ -131,7 +131,7 @@ These files map folder contents (floatindex):
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
 | `system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol |
-| `float.md` | FloatIndex | YAML frontmatter | Folder navigation |
+| `float.md` | FloatNav | YAML frontmatter | Folder navigation |
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral |
 
@@ -317,7 +317,7 @@ Check integrity on each session. Surface issues. Human approves fixes.
 |------|---------|
 | **FloatSystem** (this) | Root behavioral protocol |
 | **FloatDoc** | Document context frontmatter |
-| **FloatIndex** | Folder navigation pattern |
+| **FloatNav** | Folder navigation pattern |
 | **FloatPrompt** | Tool/behavioral specification |
 
 ---

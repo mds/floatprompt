@@ -10,7 +10,11 @@ human_context: Part of FloatPrompt system - floatdoc provides mutual understandi
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
-ai_notes: Initial draft from conversation. Needs validation against real-world usage.
+ai_notes: |
+  Updated _float.md → float.md naming
+  Added related field as optional
+  Clarified type can have multiple comma-separated values
+  Validated against docs/ files - spec covers all cases
 ---
 
 # FloatDoc Specification
@@ -28,7 +32,7 @@ FloatDoc is a lightweight context format within the FloatPrompt system. While fl
 | **FloatSystem** | Organizational layer | Folder structure |
 | **FloatPrompt** | Tools (modify AI behavior) | `<fp><json><md></fp>` in `.txt` |
 | **FloatDoc** | Context (mutual understanding) | YAML frontmatter in `.md` |
-| **FloatIndex** | Navigation (folder map) | `_float.md` |
+| **FloatNav** | Navigation (folder map) | `float.md` |
 
 ## Core Principles
 
@@ -50,6 +54,7 @@ title:
 type:
 status:
 created:
+related:
 
 human_author:
 human_intent:
@@ -70,9 +75,10 @@ ai_notes:
 | Field | Required | Description |
 |-------|----------|-------------|
 | `title` | Yes | Document name |
-| `type` | Yes | What kind of document (emergent) |
+| `type` | Yes | What kind of document (emergent, can be multiple comma-separated) |
 | `status` | Yes | Current state (emergent) |
-| `created` | Yes | Date created (YYYY-MM-DD) |
+| `created` | Yes | Date created (YYYY-MM-DD or YYYY-MM or YYYY) |
+| `related` | No | Related files (comma-separated list) |
 
 ### Human Attribution (human_ prefix)
 
@@ -96,10 +102,13 @@ ai_notes:
 
 `type` and `status` are emergent (freeform). Common values:
 
-**type:**
+**type** (can be multiple, comma-separated):
 - article, notes, transcript, research, email
 - journal, planning, reference, curriculum
 - social, newsletter, documentation, specification
+- methodology, guide, manifesto, philosophy
+
+Example: `type: methodology, documentation`
 
 **status:**
 - draft, complete, published, archived
@@ -237,9 +246,9 @@ ai_notes: |
 ---
 ```
 
-## FloatIndex (`_float.md`)
+## FloatNav (`float.md`)
 
-Every folder can have a `_float.md` file that serves as navigation:
+Every folder has a `float.md` file that serves as navigation:
 
 ```yaml
 ---
@@ -278,7 +287,7 @@ This folder contains historical documentation of FloatPrompt's evolution.
 Active archive. AI maintains catalogue.
 ```
 
-The underscore prefix (`_float.md`) sorts to top of folder.
+The `float.md` naming convention provides clear visibility as the folder's navigation file.
 
 ## Relationship to FloatPrompt
 

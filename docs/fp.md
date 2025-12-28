@@ -1,3 +1,15 @@
+---
+title: File Format
+type: specification
+status: complete
+created: 2025-06
+
+human_author: MDS
+human_intent: Define the <fp><json><md></fp> file structure
+human_context: Core format specification - how floatprompt files are structured
+related: goals.md, principles.md
+---
+
 # File Format
 
 A floatprompt is a text file with two sections: JSON for AI behavior, Markdown for methodology.

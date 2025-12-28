@@ -1,3 +1,15 @@
+---
+title: Voice Preservation
+type: documentation
+status: complete
+created: 2025-06
+
+human_author: MDS
+human_intent: Define voice preservation rules - what to preserve, what to avoid
+human_context: Fight AI's default rewriting behavior - preserve authentic human expression
+related: goals.md, principles.md
+---
+
 # Voice Preservation
 
 When floatprompts process human content, they preserve how people actually think and communicate.
