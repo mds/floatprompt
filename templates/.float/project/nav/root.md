@@ -2,15 +2,15 @@
 title: Root
 type: nav
 status: current
-created: [YYYY-MM-DD]
+created: [scaffold date]
 related: README.md, package.json, .float/system.md
 
-human_author: [from package.json author or project owner]
+human_author: [update to your handle]
 human_intent: Provide orientation to project repository for AI navigation
 human_context: Entry point for understanding project structure
 
-ai_model: [model name]
-ai_updated: [YYYY-MM-DD]
+ai_model: [first AI to update this]
+ai_updated: [scaffold date]
 ai_notes: Scaffolded by npx floatprompt
 ---
 

@@ -1,3 +1,22 @@
+---
+title: FloatPrompt System
+type: system
+status: current
+created: 2025-12-28
+related: .float/meta/meta.md, .float/project/project.md, specs/system.md
+
+human_author: @mds
+human_intent: Boot protocol and behavioral constraints for AI working in this project
+human_context: Read first in any session — defines conventions, boot sequence, maintenance
+
+ai_model: Claude Opus 4.5
+ai_updated: 2025-12-29
+ai_notes: |
+  This is both a floatprompt doc (YAML context) and a FloatPrompt tool (<fp> behavior).
+  YAML gives document context. JSON gives behavioral instructions.
+  Version tracked in JSON meta.version (currently 0.10.0).
+---
+
 <fp>
 <json>
 {

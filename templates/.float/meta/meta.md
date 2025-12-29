@@ -2,16 +2,16 @@
 title: .float/ Structure
 type: nav
 status: current
-created: YYYY-MM-DD
-related: .float/system.md
+created: [scaffold date]
+related: .float/system.md, .float/project/project.md
 
-human_author:
+human_author: [update to your handle]
 human_intent: Quick structural reference for .float/ folder
 human_context: Depth layering — this is "what's here", system.md is "how it works"
 
-ai_model:
-ai_updated:
-ai_notes:
+ai_model: [first AI to update this]
+ai_updated: [scaffold date]
+ai_notes: Scaffolded by npx floatprompt
 ---
 
 # .float/ Structure

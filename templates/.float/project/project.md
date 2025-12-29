@@ -2,16 +2,16 @@
 title: project/ Structure
 type: nav
 status: current
-created: YYYY-MM-DD
+created: [scaffold date]
 related: .float/meta/meta.md, .float/system.md
 
-human_author:
+human_author: [update to your handle]
 human_intent: Quick structural reference for project/ folder
 human_context: Your project's FloatPrompt data — context, nav, logs
 
-ai_model:
-ai_updated:
-ai_notes:
+ai_model: [first AI to update this]
+ai_updated: [scaffold date]
+ai_notes: Scaffolded by npx floatprompt
 ---
 
 # project/ Structure

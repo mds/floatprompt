@@ -1,3 +1,22 @@
+---
+title: FloatPrompt System
+type: system
+status: current
+created: [scaffold date]
+related: .float/meta/meta.md, .float/project/project.md
+
+human_author: [update to your handle]
+human_intent: Boot protocol and behavioral constraints for AI working in this project
+human_context: Read first in any session — defines conventions, boot sequence, maintenance
+
+ai_model: [first AI to update this]
+ai_updated: [scaffold date]
+ai_notes: |
+  Scaffolded by npx floatprompt.
+  This is both a floatprompt doc (YAML context) and a FloatPrompt tool (<fp> behavior).
+  YAML gives document context. JSON gives behavioral instructions.
+---
+
 <fp>
 <json>
 {
