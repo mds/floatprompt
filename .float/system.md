@@ -91,6 +91,7 @@ floatprompt/
 │   │       └── float-enhance.md
 │   │
 │   └── project/               # About YOUR project (your stuff)
+│       ├── project.md         # Structure reference for project/
 │       ├── context/           # AI terrain maps
 │       │   ├── floatprompt.md # This project's terrain map
 │       │   └── decisions.md   # Decision history and rationale
@@ -183,6 +184,7 @@ floatprompt/
 | `meta/floatprompt/` | Core templates (template, doc, os, update) |
 | `meta/tools/` | /float command tools (source of truth) |
 | `project/` | Your project's FloatPrompt data |
+| `project/project.md` | Structure reference — "what's in project/" |
 | `project/context/` | AI terrain maps (includes decisions.md) |
 | `project/nav/` | Centralized folder navigation |
 | `project/logs/` | Session logs folder |
@@ -204,7 +206,7 @@ floatprompt/
 **Centralized pattern:** All navigation lives in `.float/project/nav/`. No scattered files. AI reads one location for complete folder context.
 
 **Depth layering:** The `.float/` folder has two levels of documentation:
-- `meta/meta.md` = "what's here" (quick structural reference)
+- `meta/meta.md` + `project/project.md` = "what's here" (structural reference)
 - `system.md` = "how it works" (full behavioral protocol)
 
 ### Nav File Subfolder Rules

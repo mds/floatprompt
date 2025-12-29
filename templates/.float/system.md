@@ -66,6 +66,7 @@ project/
 │   │       ├── os.md         # Full FloatPrompt OS
 │   │       └── update.md     # Structured update planning
 │   └── project/            # Your project's data
+│       ├── project.md      # Structure reference for project/
 │       ├── nav/            # Centralized navigation
 │       │   └── root.md     # Repository root
 │       ├── context/        # AI terrain maps
