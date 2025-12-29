@@ -51,6 +51,7 @@ The approval gate is critical. Buoys propose, humans decide.
 | **Scan Buoy** | Detect content inconsistencies (stale refs, version drift) |
 | **Related Buoy** | Validate `related` field links, check existence and bidirectional refs |
 | **Trace Buoy** | Follow reference chains, distinguish actionable vs historical |
+| **Frontmatter Buoy** | Check YAML/`<fp>` metadata completeness for files in one nav scope |
 
 ### Fix Phase (After Approval)
 

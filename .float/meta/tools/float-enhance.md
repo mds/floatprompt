@@ -1,19 +1,19 @@
 <fp>
 <json>
 {
-  "STOP": "Float Enhance Tool. Improve content quality — fill placeholders, fix stale descriptions, update references.",
+  "STOP": "Float Enhance Tool. Improve content quality — fill placeholders, complete frontmatter, fix stale descriptions.",
 
   "meta": {
     "title": "/float enhance",
     "id": "float-enhance",
     "format": "floatprompt",
-    "version": "0.9.0"
+    "version": "0.10.0"
   },
 
   "human": {
     "author": "@mds",
     "intent": "Elevate quality of FloatPrompt System content",
-    "context": "Run when /float sync adds placeholders or when content needs improvement"
+    "context": "Run when /float sync adds placeholders, frontmatter is incomplete, or content needs improvement"
   },
 
   "ai": {
@@ -31,6 +31,7 @@
     "status_format": "FloatPrompt enhance complete.\nDirectory: [path]\nStatus: [result]\n\nReady for: human direction",
     "next_step_logic": "Always: Ready for: human direction",
     "buoys": {
+      "frontmatter_buoy": "Check frontmatter completeness for files in one nav scope (parallel)",
       "describe_buoy": "Generate one file description (model: haiku, parallel)",
       "reference_buoy": "Fix stale references in one file"
     }
@@ -40,7 +41,7 @@
 <md>
 # /float enhance — Quality Improvement Tool
 
-**Improve content quality — fill placeholders, fix stale descriptions, update references.**
+**Improve content quality — fill placeholders, complete frontmatter, fix stale descriptions.**
 
 This command replaces `/float describe` with broader quality enhancement.
 
@@ -54,9 +55,10 @@ This command replaces `/float describe` with broader quality enhancement.
 ## What It Enhances
 
 1. **`[needs description]` placeholders** — Generate meaningful descriptions
-2. **Stale descriptions** — Don't match actual file contents
-3. **Outdated references** — Version numbers, file paths that changed
-4. **Weak descriptions** — Too generic, too short, unhelpful
+2. **Incomplete frontmatter** — Missing required/recommended YAML or `<fp>` metadata fields
+3. **Stale descriptions** — Don't match actual file contents
+4. **Outdated references** — Version numbers, file paths that changed
+5. **Weak descriptions** — Too generic, too short, unhelpful
 
 ## Process
 
@@ -68,6 +70,9 @@ Use shell to find enhancement targets:
 # Find placeholder descriptions
 grep -r "\[needs description\]" .float/project/nav/
 
+# Find placeholder frontmatter fields
+grep -r "\[scaffold date\]\|\[update to your handle\]\|\[first AI" .float/
+
 # List nav files for staleness check
 ls .float/project/nav/*.md
 ```
@@ -77,12 +82,29 @@ For each nav file, compare descriptions to actual file contents:
 - Flag descriptions that are generic ("Main file", "Code", etc.)
 - Flag descriptions that reference old names/structure
 
+**Frontmatter discovery via navigation structure:**
+```
+.float/system.md (entry)
+  → .float/meta/meta.md → lists meta/ files
+  → .float/project/project.md → lists project/ structure
+        → project/nav/*.md → each lists files in a project folder
+              → Check frontmatter for each documented file
+```
+
+Spawn Frontmatter Buoys (one per nav scope) to check completeness.
+
 ### 2. Report
 
 Show what needs enhancement:
 
 ```
 Enhancement Targets:
+
+Incomplete frontmatter (4):
+  .float/system.md: missing ai_updated
+  docs/new-guide.md: missing human_author, human_intent, ai_notes
+  specs/api.md: missing related, ai_model
+  context/terrain.md: missing status, created
 
 Placeholders (3):
   nav/docs.md: new-guide.md, api-reference.md
@@ -95,7 +117,7 @@ Weak descriptions (2):
   nav/src.md: index.ts — "Main file" (too generic)
   nav/src.md: types.ts — "Types" (too generic)
 
-Total: 6 items to enhance
+Total: 10 items to enhance
 ```
 
 ### 3. Wait for Approval
@@ -173,6 +195,33 @@ Always: "Ready for: human direction"
 Enhancement is the end of the command chain.
 
 ## Buoy Prompts
+
+### Frontmatter Buoy
+
+```
+Verify frontmatter for files documented in {nav_file}:
+1. Read {nav_file}, extract file paths from Contents table
+2. For each file:
+   - If in floatprompt/ or meta/tools/ → expect <fp> JSON format
+   - Otherwise → expect YAML frontmatter
+3. Check required fields:
+   YAML: title, type, status, created, human_author, human_intent
+   <fp>: STOP, meta.title, meta.id, human.author, human.intent
+4. Check recommended fields:
+   YAML: related, human_context, ai_model, ai_updated, ai_notes
+   <fp>: meta.version, human.context, ai.role, ai.behavior
+5. Return JSON:
+   {
+     scope: string,
+     files_checked: number,
+     complete: string[],
+     partial: [{ file: string, missing_required: string[], missing_recommended: string[] }],
+     none: string[]
+   }
+```
+
+**Scope:** One nav file = one buoy (Goldilocks-sized)
+**Parallelization:** Spawn multiple Frontmatter Buoys for different nav scopes
 
 ### Describe Buoy
 
