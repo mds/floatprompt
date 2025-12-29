@@ -13,12 +13,14 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 | Item | Purpose |
 |------|---------|
 | **system.md** | Boot loader — read first, always |
+| **.version** | Installed floatprompt package version |
 
 ## Subfolders
 
 | Folder | Purpose |
 |--------|---------|
 | **context/** | AI terrain maps for project understanding |
+| **core/** | Local copy of core templates (prompt, doc, os) |
 | **tools/** | FloatPrompt tools for system maintenance |
 | **nav/** | Centralized folder navigation (these files) |
 | **logs/** | Session history (YYYY-MM-DD.md format) |
@@ -27,7 +29,16 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 
 | File | Purpose |
 |------|---------|
-| **project.md** | Project-wide terrain map (auto-generated) |
+| **floatprompt.md** | Project-wide terrain map (auto-generated) |
+| **decisions.md** | Decision history and rationale |
+
+## core/
+
+| File | Purpose |
+|------|---------|
+| **prompt.md** | FloatPrompt template |
+| **doc.md** | floatprompt doc tool |
+| **os.md** | Full FloatPrompt OS |
 
 ## tools/
 
