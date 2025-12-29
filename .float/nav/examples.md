@@ -1,7 +1,7 @@
 ---
 title: Examples
 type: nav
-ai_updated: 2025-12-28
+ai_updated: 2025-12-29
 ---
 
 # Examples
@@ -25,10 +25,11 @@ Each example folder contains:
 - Supporting assets if needed
 - Sometimes nested variants
 
-## shortform script writer/ Subfolders
+## shortform script writer/
 
-| Subfolder | Purpose |
-|-----------|---------|
+| Item | Purpose |
+|------|---------|
+| **shortform-script-mds.txt** | MDS voice guide for script writing |
 | **design-critique-writer/** | Design critique scripts |
 | **design-critique-writer/assets/** | Supporting assets |
 | **midwit-script-writer/** | Midwit meme format scripts |

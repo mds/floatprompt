@@ -120,18 +120,15 @@ floatprompt/
 │   ├── shortform caption writer/
 │   └── shortform script writer/
 │
-├── dev/                   # Development tools
-│   ├── update-creator.md
-│   ├── update-protocol.md
-│   └── updates/           # Update specs
+├── bin/                   # CLI script (npx floatprompt)
+│   └── floatprompt.js
 │
-├── experimental/          # Build system (legacy)
-│   ├── src/
-│   └── scripts/
+├── templates/             # Scaffolding templates
+│   └── .float/
 │
 └── artifacts/             # Historical archive
     ├── floatprompt-npm-scaffold-spec.md
-    └── 2025/              # 150+ files documenting evolution
+    └── 2025/              # 160+ files documenting evolution
 ```
 
 ## File Conventions
@@ -164,8 +161,6 @@ floatprompt/
 | `docs.md` | docs/ folder (includes philosophy/, reference/) |
 | `context.md` | context/ folder |
 | `examples.md` | examples/ folder (includes all subfolders) |
-| `dev.md` | dev/ folder (includes updates/) |
-| `experimental.md` | experimental/ folder |
 | `artifacts.md` | artifacts/ folder (includes 2025/) |
 
 **Centralized pattern:** All navigation lives in `.float/nav/`. No scattered files. AI reads one location for complete folder context.

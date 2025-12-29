@@ -33,7 +33,7 @@ if (args.includes('--version') || args.includes('-v')) {
 
 // Check if already initialized
 const cwd = process.cwd();
-const floatDir = join(cwd, '_float');
+const floatDir = join(cwd, '.float');
 
 if (existsSync(floatDir)) {
   console.log(`FloatPrompt System already initialized.
@@ -43,7 +43,7 @@ Run /float in Claude Code to boot.`);
 
 // Create directory structure
 const dirs = [
-  '_float',
+  '.float',
   '.float/nav',
   '.float/logs',
   '.float/context',
@@ -64,32 +64,32 @@ try {
   }
 
   // Copy template files
-  const templateSystem = join(packageRoot, 'templates', '_float', 'system.md');
-  const templateRoot = join(packageRoot, 'templates', '_float', 'nav', 'root.md');
+  const templateSystem = join(packageRoot, 'templates', '.float', 'system.md');
+  const templateRoot = join(packageRoot, 'templates', '.float', 'nav', 'root.md');
 
-  copyFileSync(templateSystem, join(cwd, '_float', 'system.md'));
+  copyFileSync(templateSystem, join(cwd, '.float', 'system.md'));
   created.push('.float/system.md');
 
-  copyFileSync(templateRoot, join(cwd, '_float', 'nav', 'root.md'));
+  copyFileSync(templateRoot, join(cwd, '.float', 'nav', 'root.md'));
   created.push('.float/nav/root.md');
 
   // Create .gitkeep files for empty directories
-  writeFileSync(join(cwd, '_float', 'logs', '.gitkeep'), '');
+  writeFileSync(join(cwd, '.float', 'logs', '.gitkeep'), '');
   created.push('.float/logs/');
 
-  writeFileSync(join(cwd, '_float', 'context', '.gitkeep'), '');
+  writeFileSync(join(cwd, '.float', 'context', '.gitkeep'), '');
   created.push('.float/context/');
 
   // Copy tools
-  const contextCreator = join(packageRoot, '_float', 'tools', 'context-creator.md');
-  copyFileSync(contextCreator, join(cwd, '_float', 'tools', 'context-creator.md'));
+  const contextCreator = join(packageRoot, '.float', 'tools', 'context-creator.md');
+  copyFileSync(contextCreator, join(cwd, '.float', 'tools', 'context-creator.md'));
   created.push('.float/tools/context-creator.md');
 
   // Copy core files
   const coreFiles = ['prompt.md', 'doc.md', 'os.md'];
   for (const file of coreFiles) {
     const src = join(packageRoot, 'core', file);
-    const dest = join(cwd, '_float', 'core', file);
+    const dest = join(cwd, '.float', 'core', file);
     copyFileSync(src, dest);
     created.push(`.float/core/${file}`);
   }
