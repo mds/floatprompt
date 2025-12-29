@@ -7,7 +7,7 @@
     "title": "/float sync",
     "id": "float-sync",
     "format": "floatprompt",
-    "version": "0.9.0"
+    "version": "0.10.0"
   },
 
   "human": {
@@ -32,6 +32,7 @@
     "next_step_logic": "Changes applied with [needs description] placeholders? → Run /float enhance. Otherwise → Ready for: human direction",
     "buoys": {
       "check_buoy": "Verify one nav file vs folder (parallel, one per nav file)",
+      "structural_buoy": "Create missing meta/meta.md or project/project.md",
       "nav_buoy": "Update file table in one nav file",
       "system_buoy": "Update structure map in system.md",
       "scaffold_buoy": "Create one new nav file",
@@ -56,10 +57,11 @@ This command ensures `.float/project/nav/*.md` files accurately reflect actual f
 
 ## What It Checks
 
-1. **Nav coverage** — Every visible folder has a nav file
-2. **Table accuracy** — Files in nav match actual folder contents
-3. **Subfolder accuracy** — Subfolders in nav match actual subfolders
-4. **Structure map** — system.md structure map matches reality
+1. **Structural references** — `meta/meta.md` and `project/project.md` exist
+2. **Nav coverage** — Every visible project folder has a nav file
+3. **Table accuracy** — Files listed in nav match actual folder contents
+4. **Subfolder accuracy** — Subfolders listed in nav match actual subfolders
+5. **Structure map** — system.md structure map matches reality
 
 ## Process
 
@@ -68,6 +70,10 @@ This command ensures `.float/project/nav/*.md` files accurately reflect actual f
 Use shell commands for fast detection:
 
 ```bash
+# Check structural reference files exist
+test -f .float/meta/meta.md && echo "meta.md OK" || echo "meta.md MISSING"
+test -f .float/project/project.md && echo "project.md OK" || echo "project.md MISSING"
+
 # List actual files in folder
 ls docs/
 
@@ -79,6 +85,7 @@ ls -d */ | grep -v -E '^(node_modules|dist|build|\.git|\.float)/$'
 ```
 
 Compare shell output with nav file contents to identify:
+- **Missing structural refs** — `meta/meta.md` or `project/project.md` doesn't exist
 - **Missing** — In folder but not in nav
 - **Stale** — In nav but not in folder
 - **New folders** — Folders without nav files
@@ -89,6 +96,9 @@ Show issues with details:
 
 ```
 Sync Issues Found:
+
+Structural references:
+  Missing: meta/meta.md
 
 docs/:
   Missing: new-guide.md, api-reference.md
@@ -108,17 +118,19 @@ Offer fixes:
 ```
 Proposed Fixes:
 
-1. Add to nav/docs.md:
+1. Create meta/meta.md (structural reference)
+
+2. Add to nav/docs.md:
    - new-guide.md [needs description]
    - api-reference.md [needs description]
 
-2. Remove from nav/docs.md:
+3. Remove from nav/docs.md:
    - old-doc.md
 
-3. Add to nav/src.md subfolders:
+4. Add to nav/src.md subfolders:
    - utils/
 
-4. Create nav/tests.md
+5. Create nav/tests.md
 
 Apply changes? (y/n):
 ```
@@ -137,6 +149,7 @@ Spawn targeted buoys for fixes:
 
 | Fix Type | Buoy | Task |
 |----------|------|------|
+| Create structural ref | Structural Buoy | Generate meta/meta.md or project/project.md |
 | Update nav table | Nav Buoy | Add/remove rows, preserve existing descriptions |
 | Update structure map | System Buoy | Add/remove folders in system.md |
 | Create new nav file | Scaffold Buoy | Generate nav file with placeholder descriptions |
@@ -205,6 +218,17 @@ Verify .float/project/nav/{folder}.md against actual {folder}/ contents:
      missingSubfolders: string[],
      staleSubfolders: string[]
    }
+```
+
+### Structural Buoy
+
+```
+Create missing structural reference file:
+1. Determine which file is missing: meta/meta.md or project/project.md
+2. Read templates/.float/meta/meta.md or templates/.float/project/project.md
+3. Copy template to appropriate location
+4. Update created date to today
+5. Return confirmation
 ```
 
 ### Nav Buoy
