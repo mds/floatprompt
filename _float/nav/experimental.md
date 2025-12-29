@@ -13,16 +13,19 @@ Legacy build system for FloatPrompt tooling. Currently inactive but preserved fo
 | Item | Purpose |
 |------|---------|
 | **src/** | Source files |
+| **dist/** | Build output (auto-generated) |
 | **scripts/** | Build scripts |
 | **package.json** | Node.js configuration |
 
 ## Source Structure (src/)
 
-| Folder | Purpose |
-|--------|---------|
+| Item | Purpose |
+|------|---------|
 | **experimental/** | Experimental features |
 | **lib/** | Library code |
 | **os/** | OS-related code |
+| **floatprompt-os.txt** | FloatPrompt OS core - foundational AI collaboration protocols with voice preservation and Map/Decide/Structure methodology |
+| **floatprompt.txt** | Universal FloatPrompt template - portable structure for creating new FloatPrompt files |
 
 ## Status
 

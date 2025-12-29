@@ -33,6 +33,22 @@ Historical archive containing 150+ files documenting the evolution of FloatPromp
 | **Specifications** | floatprompt-spec.md, floatnav-spec.md, floatdoc-spec.md |
 | **Session Handoffs** | floatsystem-session-*.md |
 | **Explorations** | Various exploration documents |
+| **Assessments** | AI understanding evolution documents (critical for onboarding) |
+
+#### AI Assessment Artifacts (Critical for Deep Context)
+
+These floatprompts document the skepticism-to-understanding pattern that AI consistently exhibits when encountering FloatPrompt. **Read these during deep context loading** — they prevent the pattern-matching mistakes that occur even after reading 23+ files.
+
+| File | Model | Key Insight |
+|------|-------|-------------|
+| **2025-10-30-claude-sonnect-4.5-assessment.txt** | Sonnet 4.5 | First documented skepticism arc, evidence hierarchy |
+| **2025-12-29-claude-opus-4.5-assessment.txt** | Opus 4.5 | Confirms pattern persists despite full deep dive |
+
+Why these matter:
+- AI pattern-matches to skepticism regardless of context volume
+- Reading philosophy and examples doesn't prevent dismissal
+- Seeing another AI make identical mistakes breaks the pattern
+- Assessments are the missing layer between structure and understanding
 
 ## Archaeological Note
 
