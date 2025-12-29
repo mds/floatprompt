@@ -48,6 +48,8 @@ The approval gate is critical. Buoys propose, humans decide.
 |------|----------------|
 | **Check Buoy** | Verify nav/*.md against actual folder contents |
 | **Context Buoy** | Generate/update terrain map for AI understanding |
+| **Scan Buoy** | Detect content inconsistencies (stale refs, version drift) |
+| **Trace Buoy** | Follow reference chains, distinguish actionable vs historical |
 
 ### Fix Phase (After Approval)
 
@@ -57,6 +59,7 @@ The approval gate is critical. Buoys propose, humans decide.
 | **System Buoy** | Update structure map in system.md |
 | **Describe Buoy** | Generate file descriptions (lightweight model) |
 | **Scaffold Buoy** | Create new nav files for new folders |
+| **Repair Buoy** | Fix stale references, version drift, broken links |
 | **Log Buoy** | Record activity to session logs |
 
 ---
@@ -136,18 +139,20 @@ This pattern ensures:
 
 ## When to Use Buoys
 
+**The 3+ Rule:** Spawn buoys when 3 or more parallel operations are needed. Below that threshold, direct execution is acceptable.
+
 **Use buoys when:**
-- Verifying multiple files/folders
-- Applying changes across multiple locations
-- Work can be parallelized
+- 3+ files need simultaneous work
+- Parallelization provides real benefit
+- Work can be validated independently
 - Human approval is required before changes
 
-**Don't use buoys when:**
-- Single file operation
-- Simple, immediate task
-- No verification needed
+**Direct execution OK when:**
+- 1-2 file operations
+- Simple, obvious changes
+- No parallelization benefit
 
-Buoys add coordination overhead. Use for system maintenance, not simple edits.
+**AI discretion applies.** Buoy specs describe behavior patterns, not enforce them. Outcomes matter, method is flexible.
 
 ---
 

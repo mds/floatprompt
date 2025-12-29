@@ -61,3 +61,8 @@ Captured rationale for project decisions. AI appends entries during context buil
 **Answer:** Clean separation. The orchestrator (`.claude/commands/float.md`) just parses input and routes to the appropriate tool. Tools (`.float/tools/float-*.md`) contain all logic. Single source of truth, easier maintenance, tools can be updated independently.
 **Date:** 2025-12-29
 
+### Buoy spawning is AI discretion, not enforced
+**Question:** Should buoys always be spawned for nav/sync work, or can the orchestrator do small work directly?
+**Answer:** AI discretion. Buoy specs describe behavior, not enforce it. Guardrails: (1) Descriptions — AI judges obvious vs complex, writes directly or uses placeholders; (2) Status — always report what happened with descriptions and next step; (3) Buoys — spawn fleet when 3+ parallel operations, direct execution OK below threshold. Outcomes matter, method is flexible.
+**Date:** 2025-12-29
+

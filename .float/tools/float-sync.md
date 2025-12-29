@@ -269,6 +269,19 @@ These are never flagged as issues:
 - `node_modules/`, `dist/`, `build/`, `.git/`
 - Lock files (`*.lock`, `package-lock.json`)
 
+## AI Discretion
+
+**The 3+ Rule:** Spawn buoys when 3+ parallel operations needed. Below threshold, direct execution OK.
+
+| Operations | Approach |
+|------------|----------|
+| 1-2 | Direct execution acceptable |
+| 3+ | Spawn fleet for parallelization |
+
+**Descriptions:** AI judges obvious vs complex — write directly or use `[needs description]` placeholders.
+
+Outcomes matter, method is flexible.
+
 ## Examples
 
 **Issues found:**
@@ -307,6 +320,6 @@ Ready for: human direction
 
 ---
 
-*Part of the Float Command System — specs/claude/commands.md*
+*[FloatPrompt](https://github.com/mds/floatprompt) — the invisible OS for AI*
 </md>
 </fp>

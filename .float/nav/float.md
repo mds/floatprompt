@@ -8,6 +8,8 @@ ai_updated: 2025-12-29
 
 The `.float/` folder — self-documenting system layer for AI project awareness.
 
+**This is the operational layer.** It ships with `npx floatprompt` and works standalone. Everything outside `.float/` and `.claude/` is source repo context for maintainers only.
+
 ## Contents
 
 | Item | Purpose |
@@ -45,6 +47,7 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 |------|---------|
 | **float.md** | Boot/init tool for /float command |
 | **float-sync.md** | Structure integrity tool for /float sync |
+| **float-fix.md** | Content integrity tool for /float fix |
 | **float-context.md** | Context generation tool for /float context |
 | **float-enhance.md** | Quality improvement tool for /float enhance |
 
@@ -54,11 +57,13 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 |------|-----------|
 | **float.md** | This file (self-documentation) |
 | **root.md** | Repository root |
+| **bin.md** | bin/ folder (CLI) |
 | **core.md** | core/ folder |
 | **specs.md** | specs/ folder (specifications) |
 | **docs.md** | docs/ folder |
 | **context.md** | context/ folder (onboarding) |
 | **examples.md** | examples/ folder |
+| **templates.md** | templates/ folder (scaffolding) |
 | **artifacts.md** | artifacts/ folder |
 
 ## logs/

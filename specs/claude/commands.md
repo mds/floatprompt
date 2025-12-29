@@ -18,13 +18,14 @@ ai_notes: |
 
 # Float Command System
 
-Specification for the `/float` command family in Claude Code. Four commands that progress from awareness to quality.
+Specification for the `/float` command family in Claude Code. Five commands that progress from awareness to quality.
 
 ## Command Progression
 
 ```
 /float           Awareness   (boot/init)
 /float sync      Structure   (nav ↔ folders)
+/float fix       Content     (references ↔ reality)
 /float context   Meaning     (terrain map)
 /float enhance   Quality     (make it better)
 ```
@@ -71,12 +72,13 @@ The orchestrator routes to tool floatprompts. Tools are the source of truth.
         ↓
 .float/tools/float.md               Boot/init tool
 .float/tools/float-sync.md          Structure integrity tool
+.float/tools/float-fix.md           Content integrity tool
 .float/tools/float-context.md       Meaning generation tool
 .float/tools/float-enhance.md       Quality improvement tool
 ```
 
 **Orchestrator responsibilities:**
-1. Parse input (`/float`, `/float sync`, `/float context`, `/float enhance`)
+1. Parse input (`/float`, `/float sync`, `/float fix`, `/float context`, `/float enhance`)
 2. Read the appropriate tool from `.float/tools/float-{command}.md`
 3. Execute according to tool's instructions
 4. Report status + next step
@@ -99,6 +101,8 @@ Each command handles two states of the same concern.
 | `/float` | Has `.float/` | Boot: read files, quick health check |
 | `/float sync` | Issues found | Show details, propose fixes, apply with approval |
 | `/float sync` | Clean | Report OK |
+| `/float fix` | Issues found | Report targets, propose fixes, apply with approval |
+| `/float fix` | Clean | Report OK |
 | `/float context` | No context file | Generate terrain map |
 | `/float context` | Has context file | Load deep, follow reading order |
 | `/float enhance` | Weak/stale content | Improve with approval |

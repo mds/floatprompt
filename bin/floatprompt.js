@@ -56,9 +56,13 @@ if (args.includes('--update') || args.includes('-u')) {
     }
 
     // Update tools
-    const contextCreator = join(packageRoot, '.float', 'tools', 'context-creator.md');
-    copyFileSync(contextCreator, join(cwd, '.float', 'tools', 'context-creator.md'));
-    updated.push('.float/tools/context-creator.md');
+    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md'];
+    for (const file of toolFiles) {
+      const src = join(packageRoot, '.float', 'tools', file);
+      const dest = join(cwd, '.float', 'tools', file);
+      copyFileSync(src, dest);
+      updated.push(`.float/tools/${file}`);
+    }
 
     // Update core files
     const coreFiles = ['prompt.md', 'doc.md', 'os.md'];
@@ -186,9 +190,13 @@ Captured rationale for project decisions. AI appends entries during context buil
   created.push('.float/context/');
 
   // Copy tools
-  const contextCreator = join(packageRoot, '.float', 'tools', 'context-creator.md');
-  copyFileSync(contextCreator, join(cwd, '.float', 'tools', 'context-creator.md'));
-  created.push('.float/tools/context-creator.md');
+  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md'];
+  for (const file of toolFiles) {
+    const src = join(packageRoot, '.float', 'tools', file);
+    const dest = join(cwd, '.float', 'tools', file);
+    copyFileSync(src, dest);
+    created.push(`.float/tools/${file}`);
+  }
 
   // Copy core files
   const coreFiles = ['prompt.md', 'doc.md', 'os.md'];

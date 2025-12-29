@@ -291,6 +291,6 @@ Ready for: human direction
 
 ---
 
-*Part of the Float Command System — specs/claude/commands.md*
+*[FloatPrompt](https://github.com/mds/floatprompt) — the invisible OS for AI*
 </md>
 </fp>

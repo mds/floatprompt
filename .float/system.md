@@ -7,7 +7,7 @@
     "title": "FloatPrompt System",
     "id": "floatprompt-system",
     "format": "floatprompt",
-    "version": "0.7.0"
+    "version": "0.8.0"
   },
 
   "human": {
@@ -70,6 +70,9 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 
 ```
 floatprompt/
+│
+│ ─── OPERATIONAL (ships with npx floatprompt) ───────────────
+│
 ├── .float/                # FloatPrompt System (read first)
 │   ├── system.md          # This file (boot loader)
 │   ├── context/           # AI terrain maps
@@ -82,22 +85,32 @@ floatprompt/
 │   ├── tools/             # System tools (source of truth for /float commands)
 │   │   ├── float.md
 │   │   ├── float-sync.md
+│   │   ├── float-fix.md
 │   │   ├── float-context.md
 │   │   └── float-enhance.md
 │   ├── nav/               # Centralized navigation
 │   │   ├── float.md       # This folder (self-documentation)
 │   │   ├── root.md        # Repository root
+│   │   ├── bin.md         # CLI folder
 │   │   ├── core.md        # Core templates
+│   │   ├── specs.md       # Specifications
 │   │   ├── docs.md        # Documentation
 │   │   ├── context.md     # Onboarding files
 │   │   ├── examples.md    # Example tools
+│   │   ├── templates.md   # Scaffolding templates
 │   │   └── artifacts.md   # Historical archive
 │   └── logs/              # Activity history
 │       └── YYYY-MM-DD.md  # Daily session logs
 │
+├── .claude/               # Claude Code integration
+│   └── commands/
+│       └── float.md       # /float command router
+│
+│ ─── SOURCE (maintainers only) ──────────────────────────────
+│
 ├── README.md              # Public-facing documentation
 │
-├── core/                  # Essential templates (ships with npx floatprompt)
+├── core/                  # Essential templates (copied to .float/core/)
 │   ├── prompt.md          # FloatPrompt template
 │   ├── doc.md             # floatprompt doc tool
 │   └── os.md              # Full FloatPrompt OS
@@ -171,11 +184,13 @@ floatprompt/
 |------|-----------|
 | `float.md` | .float/ folder (self-documentation) |
 | `root.md` | Repository root |
+| `bin.md` | bin/ folder (CLI) |
 | `core.md` | core/ folder |
 | `specs.md` | specs/ folder (includes claude/) |
 | `docs.md` | docs/ folder (includes philosophy/, reference/) |
 | `context.md` | context/ folder |
 | `examples.md` | examples/ folder (includes all subfolders) |
+| `templates.md` | templates/ folder |
 | `artifacts.md` | artifacts/ folder (includes 2025/) |
 
 **Centralized pattern:** All navigation lives in `.float/nav/`. No scattered files. AI reads one location for complete folder context.
@@ -233,7 +248,7 @@ ai_updated:
 | File | Location | Purpose |
 |------|----------|---------|
 | `system.md` | `.float/` | Root protocol (this file) |
-| `context-creator.md` | `.float/tools/` | Tool for generating terrain maps |
+| `float-context.md` | `.float/tools/` | Tool for generating terrain maps |
 | `prompt.md` | `core/` | Template for creating floatprompts |
 | `doc.md` | `core/` | Tool for adding context frontmatter |
 | `os.md` | `core/` | Full OS with guided creation |
@@ -348,6 +363,29 @@ handoff:
 - Always surface integrity issues before proceeding
 - Keep structure map in sync with reality
 - When uncertain, ask rather than assume
+
+## FloatPrompt Source
+
+This system was scaffolded by [floatprompt](https://github.com/mds/floatprompt).
+
+For full documentation, specs, and examples:
+- GitHub: https://github.com/mds/floatprompt
+- Docs: https://floatprompt.com
+
+## Architecture: Operational vs Source
+
+This repository has two layers:
+
+| Layer | Ships with npx | Purpose |
+|-------|----------------|---------|
+| **Operational** | ✅ Yes | `.float/`, `.claude/` — what users interact with |
+| **Source** | ❌ No | Everything else — specs, docs, examples for maintainers |
+
+**Operational files** work standalone. They reference the source repo for deeper context but don't require it.
+
+**Source files** (specs/, docs/, examples/) exist only in the floatprompt repo. Users who run `npx floatprompt` won't have these.
+
+When modifying tools, ask: "Will this work for npx users who only have `.float/` and `.claude/`?"
 
 ---
 

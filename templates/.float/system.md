@@ -59,7 +59,10 @@ project/
 │   │   ├── {name}.md  # Project context (named for project)
 │   │   └── decisions.md # Decision history and rationale
 │   ├── tools/         # System tools
-│   │   └── context-creator.md
+│   │   ├── float.md
+│   │   ├── float-sync.md
+│   │   ├── float-context.md
+│   │   └── float-enhance.md
 │   └── core/          # FloatPrompt templates
 │       ├── prompt.md  # Tool creation template
 │       ├── doc.md     # Document context tool
@@ -104,6 +107,14 @@ AI maintains this system. Human approves changes.
 Use `.float/core/prompt.md` as template for new FloatPrompt tools.
 Use `.float/core/doc.md` to add context frontmatter to documents.
 Use `.float/core/os.md` for guided tool creation with voice preservation.
+
+## FloatPrompt Source
+
+This system was scaffolded by [floatprompt](https://github.com/mds/floatprompt).
+
+For full documentation, specs, and examples:
+- GitHub: https://github.com/mds/floatprompt
+- Docs: https://floatprompt.com
 
 </md>
 </fp>

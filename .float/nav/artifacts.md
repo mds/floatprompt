@@ -6,62 +6,90 @@ ai_updated: 2025-12-29
 
 # Artifacts
 
-Historical archive of specifications, session handoffs, and explorations.
+Working folder for specifications, explorations, and project artifacts.
 
-## Contents
+## Workflow (Kanban)
 
-| File | Purpose |
-|------|---------|
-| **floatprompt-npm-scaffold-spec.md** | Current npm tool specification (active) |
+| Status | Location | Example |
+|--------|----------|---------|
+| **Active** | root level | `2025-12-29-float-command-plan.md` |
+| **Archived** | `archive/YYYY/MM-mon/` | `archive/2025/12-dec/2025-12-28-done.md` |
 
-All other specs have been dated and archived to `2025/`.
+### Rules
 
-## Subfolders
+1. **All files**: `YYYY-MM-DD-description.md` (no exceptions)
+2. **Root** = active work (in progress OR current reference)
+3. **Archive** = completed, superseded, or no longer actively referenced
+4. **Folder convention**: `archive/YYYY/MM-mon/` — zero-padded month + lowercase abbrev (e.g., `01-jan`, `06-jun`, `12-dec`)
+5. **Never add to `undated/`** — that's legacy only
 
-### 2025/
+### Creating New Artifacts
 
-Historical archive containing 160+ files documenting the evolution of FloatPrompt.
+```bash
+# Always at root, always dated
+touch artifacts/2025-12-29-my-new-spec.md
+```
 
-| Category | Examples |
-|----------|----------|
-| **Specifications** | floatprompt-spec.md, floatnav-spec.md, floatdoc-spec.md |
-| **Session Handoffs** | floatsystem-session-*.md |
-| **Explorations** | Various exploration documents |
-| **Assessments** | AI understanding evolution documents (critical for onboarding) |
+Use the file's creation date, not the subject date.
 
-**December 2025 additions:**
+### Archiving
 
-| File | Purpose |
-|------|---------|
-| **2025-12-28-float-buoys-commands-spec.md** | /float and /float sync commands |
-| **2025-12-28-float-buoys-daemon-spec.md** | Background daemon concept |
-| **2025-12-28-float-buoys-context.md** | Strategic thinking behind Float Buoys |
-| **2025-12-28-float-buoys-test.md** | /float command validation |
-| **2025-12-28-float-linking-spec.md** | Wikilinks/backlinks (shot down) |
-| **2025-12-29-float-context-spec.md** | Context layer specification |
-| **2025-12-28-cursor-context-build-path.md** | AI 24-file read sequence |
-| **2025-12-28-cursor-summary.md** | AI context state after activation |
+When work is complete or superseded:
+```bash
+# Create month folder if needed, then move
+mkdir -p artifacts/archive/2025/12-dec
+mv artifacts/2025-12-28-thing.md artifacts/archive/2025/12-dec/
+```
 
-#### AI Assessment Artifacts (Critical for Deep Context)
+**When to archive:**
+- Spec is superseded by newer version
+- Exploration led to a decision (decision lives elsewhere)
+- Work is complete and no longer actively referenced
 
-These floatprompts document the skepticism-to-understanding pattern that AI consistently exhibits when encountering FloatPrompt. **Read these during deep context loading** — they prevent the pattern-matching mistakes that occur even after reading 23+ files.
+## Contents (Active)
 
-| File | Model | Key Insight |
-|------|-------|-------------|
-| **2025-10-30-claude-sonnect-4.5-assessment.txt** | Sonnet 4.5 | First documented skepticism arc, evidence hierarchy |
-| **2025-12-29-claude-opus-4.5-assessment.txt** | Opus 4.5 | Confirms pattern persists despite full deep dive |
+Check `artifacts/` root for current active files. All follow `YYYY-MM-DD-description.md` naming.
 
-Why these matter:
-- AI pattern-matches to skepticism regardless of context volume
-- Reading philosophy and examples doesn't prevent dismissal
-- Seeing another AI make identical mistakes breaks the pattern
-- Assessments are the missing layer between structure and understanding
+**As of 2025-12-29:**
+- Float command retrospective and update plan
+- npm scaffold specification
 
-## Archaeological Note
+## Archive Structure
 
-Files in `2025/` represent the thinking and iteration that led to current FloatPrompt. They have historical value but may not reflect current specifications.
+```
+archive/2025/
+├── 01-jan/     # 1 file
+├── 06-jun/     # 126 files (peak activity)
+├── 07-jul/     # 5 files
+├── 10-oct/     # 2 files (AI assessments)
+├── 12-dec/     # 14 files
+├── undated/    # Legacy files without date prefix
+├── dev/        # Archived dev folder
+└── experimental/  # Archived build system
+```
 
-**Current specs live in `docs/`**. Artifacts are for understanding how we got here.
+### Month Folders
+
+| Folder | Count | Notable Contents |
+|--------|-------|------------------|
+| `01-jan/` | 1 | File extension decision |
+| `06-jun/` | 126 | Core development, specs, explorations |
+| `07-jul/` | 5 | System analysis, restructuring |
+| `10-oct/` | 2 | AI assessment artifacts |
+| `12-dec/` | 14 | Float Buoys, context specs, cursor docs |
+| `undated/` | ~20 | Legacy specs without date prefix |
+
+### AI Assessment Artifacts (Critical for Deep Context)
+
+Search for `*assessment*` in archive. Key files:
+
+| Location | File | Insight |
+|----------|------|---------|
+| `10-oct/` | `2025-10-06-claude-sonnect-4.5-assessment.txt` | First skepticism arc |
+| `10-oct/` | `2025-10-30-claude-sonnect-4.5-assessment.txt` | Evidence hierarchy |
+| `12-dec/` | `2025-12-29-claude-opus-4.5-assessment.txt` | Pattern persists in Opus |
+
+These document the skepticism-to-understanding pattern AI exhibits with FloatPrompt. Read during deep context loading to prevent pattern-matching mistakes.
 
 ## When to Reference
 
@@ -69,3 +97,9 @@ Files in `2025/` represent the thinking and iteration that led to current FloatP
 - Seeing evolution of concepts
 - Finding original rationale for features
 - Session handoff context
+
+## Archaeological Note
+
+Files in `archive/` represent the thinking and iteration that led to current FloatPrompt. Historical value but may not reflect current specifications.
+
+**Current specs live in `specs/`**. Artifacts are for understanding how we got here.
