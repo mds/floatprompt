@@ -21,11 +21,11 @@ Captured rationale for project decisions. AI appends entries during context buil
 
 <!-- Entries below -->
 
-### .float/ self-doc via nav/float.md
-**Question:** Why does the `.float/` folder self-document with its own nav file?
-**Answer:** Two reasons: (1) Consistency — every navigable folder uses a nav file, `.float/` is no exception. (2) Depth layering — nav/float.md is the quick structural reference (88 lines, "what's here"), system.md is the full behavioral protocol (400 lines, "how it works"). They serve different depths, not duplication. Same pattern as float-map.md vs float-deepdive.md.
+### .float/ self-doc via meta/meta.md
+**Question:** Why does the `.float/` folder self-document with its own structural reference?
+**Answer:** Depth layering — `meta/meta.md` is "what's here" (quick structural reference), `system.md` is "how it works" (full behavioral protocol). Different depths for different needs. Originally lived in `project/nav/float.md` but moved to `meta/` because `.float/` structure is system documentation, not project documentation. `project/nav/*.md` is now purely for project folders.
 **Date:** 2025-12-29
-**Refined:** 2025-12-29 (added depth layering rationale)
+**Refined:** 2025-12-29 (moved from project/nav/float.md to meta/meta.md)
 
 ### Context file naming (no generic project.md)
 **Question:** Why must the context file use a project-specific name instead of `project.md`?

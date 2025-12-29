@@ -118,12 +118,10 @@ related: system.md, context/floatprompt.md, tools/float.md
 ```
 Scanning related fields...
 
-nav/float.md relates to:
+meta/meta.md relates to:
   ✓ system.md (exists)
-  ✓ context/floatprompt.md (exists)
-  ✗ tools/context-creator.md (MISSING — renamed to float-context.md)
 
-Proposed fix: Update related field
+Proposed fix: None needed
 ```
 
 **Best practices:**

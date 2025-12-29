@@ -1,24 +1,26 @@
 ---
-title: FloatPrompt System
+title: .float/ Structure
 type: nav
 status: current
 created: 2025-12-29
-related: .float/system.md, .float/project/context/floatprompt.md
+related: .float/system.md
 
 human_author: @mds
-human_intent: Document .float/ folder structure for AI navigation
-human_context: Self-documentation of the FloatPrompt System operational layer
+human_intent: Quick structural reference for .float/ folder
+human_context: Depth layering — this is "what's here", system.md is "how it works"
 
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
-ai_notes: Updated for v0.9.0 meta/project structure
+ai_notes: Moved from project/nav/float.md to meta/meta.md (v0.10.0)
 ---
 
-# FloatPrompt System
+# .float/ Structure
 
-The `.float/` folder — self-documenting system layer for AI project awareness.
+Quick structural reference for the `.float/` folder.
 
-**This is the operational layer.** It ships with `npx floatprompt` and works standalone.
+**Depth layering:**
+- `meta.md` (this file) = "what's here" (structure)
+- `system.md` = "how it works" (behavior)
 
 ## Structure
 
@@ -27,26 +29,25 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 ├── system.md           # Boot loader (read first)
 │
 ├── meta/               # FloatPrompt internals (don't modify)
+│   ├── meta.md         # This file (structure reference)
 │   ├── floatprompt/    # Core templates
 │   └── tools/          # /float command tools
 │
 └── project/            # Your project's data
     ├── context/        # Terrain maps, decisions
-    ├── nav/            # Folder navigation (these files)
+    ├── nav/            # Project folder navigation
     └── logs/           # Session history
 ```
-
-## Contents
-
-| Item | Purpose |
-|------|---------|
-| **system.md** | Boot loader — read first, always |
-| **meta/** | FloatPrompt system internals (don't touch) |
-| **project/** | Your project's FloatPrompt data |
 
 ## meta/
 
 System internals. Don't modify unless you're updating FloatPrompt itself.
+
+| Item | Purpose |
+|------|---------|
+| **meta.md** | This file — structural reference |
+| **floatprompt/** | Core templates |
+| **tools/** | /float command tools |
 
 ### meta/floatprompt/
 
@@ -69,7 +70,13 @@ System internals. Don't modify unless you're updating FloatPrompt itself.
 
 ## project/
 
-Your project's FloatPrompt data. This is where project-specific context lives.
+Your project's FloatPrompt data. Project-specific, varies per repo.
+
+| Item | Purpose |
+|------|---------|
+| **context/** | Terrain maps, decisions |
+| **nav/** | Project folder navigation |
+| **logs/** | Session history |
 
 ### project/context/
 
@@ -80,18 +87,9 @@ Your project's FloatPrompt data. This is where project-specific context lives.
 
 ### project/nav/
 
-| File | Describes |
-|------|-----------|
-| **float.md** | This file (self-documentation) |
-| **root.md** | Repository root |
-| **bin.md** | bin/ folder (CLI) |
-| **floatprompt.md** | floatprompt/ folder (templates) |
-| **specs.md** | specs/ folder (specifications) |
-| **docs.md** | docs/ folder |
-| **context.md** | context/ folder (onboarding) |
-| **examples.md** | examples/ folder |
-| **templates.md** | templates/ folder (scaffolding) |
-| **artifacts.md** | artifacts/ folder |
+One file per major project folder. Contents vary by project.
+
+Example: `root.md`, `src.md`, `docs.md`, `tests.md`...
 
 ### project/logs/
 

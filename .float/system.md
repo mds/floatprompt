@@ -77,6 +77,7 @@ floatprompt/
 │   ├── system.md              # This file (boot loader)
 │   │
 │   ├── meta/                  # About FloatPrompt itself (system internals)
+│   │   ├── meta.md            # Quick structural reference (what's here)
 │   │   ├── floatprompt/       # Core templates
 │   │   │   ├── template.md
 │   │   │   ├── doc.md
@@ -93,8 +94,7 @@ floatprompt/
 │       ├── context/           # AI terrain maps
 │       │   ├── floatprompt.md # This project's terrain map
 │       │   └── decisions.md   # Decision history and rationale
-│       ├── nav/               # Centralized navigation
-│       │   ├── float.md       # .float/ folder (self-documentation)
+│       ├── nav/               # Centralized navigation (project folders only)
 │       │   ├── root.md        # Repository root
 │       │   ├── bin.md         # CLI folder
 │       │   ├── floatprompt.md  # FloatPrompt templates
@@ -177,8 +177,9 @@ floatprompt/
 
 | Item | Purpose |
 |------|---------|
-| `system.md` | Boot loader (this file) |
+| `system.md` | Boot loader (this file) — "how it works" |
 | `meta/` | FloatPrompt system internals (don't modify) |
+| `meta/meta.md` | Structural reference — "what's here" |
 | `meta/floatprompt/` | Core templates (template, doc, os, update) |
 | `meta/tools/` | /float command tools (source of truth) |
 | `project/` | Your project's FloatPrompt data |
@@ -190,7 +191,6 @@ floatprompt/
 
 | File | Describes |
 |------|-----------|
-| `float.md` | .float/ folder (self-documentation) |
 | `root.md` | Repository root |
 | `bin.md` | bin/ folder (CLI) |
 | `floatprompt.md` | floatprompt/ folder (templates) |
@@ -203,7 +203,9 @@ floatprompt/
 
 **Centralized pattern:** All navigation lives in `.float/project/nav/`. No scattered files. AI reads one location for complete folder context.
 
-**Self-documentation:** The `.float/` folder documents itself via `project/nav/float.md`. This provides both quick structural reference (nav file) and full protocol (system.md) — different depths for different needs.
+**Depth layering:** The `.float/` folder has two levels of documentation:
+- `meta/meta.md` = "what's here" (quick structural reference)
+- `system.md` = "how it works" (full behavioral protocol)
 
 ### Nav File Subfolder Rules
 

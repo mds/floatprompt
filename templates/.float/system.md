@@ -6,7 +6,7 @@
   "meta": {
     "title": "FloatPrompt System",
     "format": "floatprompt",
-    "version": "0.9.0"
+    "version": "0.10.0"
   },
 
   "human": {
@@ -51,8 +51,9 @@
 ```
 project/
 ├── .float/
-│   ├── system.md           # This file (boot loader)
+│   ├── system.md           # This file (boot loader) — "how it works"
 │   ├── meta/               # FloatPrompt internals (don't modify)
+│   │   ├── meta.md         # Structural reference — "what's here"
 │   │   ├── tools/          # System tools
 │   │   │   ├── float.md
 │   │   │   ├── float-sync.md

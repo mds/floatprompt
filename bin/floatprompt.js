@@ -73,6 +73,11 @@ if (args.includes('--update') || args.includes('-u')) {
       updated.push(`.float/meta/floatprompt/${file}`);
     }
 
+    // Update meta.md (structural reference)
+    const metaSrc = join(packageRoot, 'templates', '.float', 'meta', 'meta.md');
+    copyFileSync(metaSrc, join(cwd, '.float', 'meta', 'meta.md'));
+    updated.push('.float/meta/meta.md');
+
     // Update Claude command
     const floatCommand = join(packageRoot, '.claude', 'commands', 'float.md');
     copyFileSync(floatCommand, join(cwd, '.claude', 'commands', 'float.md'));
@@ -205,6 +210,11 @@ Captured rationale for project decisions. AI appends entries during context buil
     copyFileSync(src, dest);
     created.push(`.float/meta/floatprompt/${file}`);
   }
+
+  // Copy meta.md (structural reference)
+  const metaSrc = join(packageRoot, 'templates', '.float', 'meta', 'meta.md');
+  copyFileSync(metaSrc, join(cwd, '.float', 'meta', 'meta.md'));
+  created.push('.float/meta/meta.md');
 
   // Copy Claude command
   const floatCommand = join(packageRoot, '.claude', 'commands', 'float.md');
