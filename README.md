@@ -68,9 +68,20 @@ Start with the OS if you're new. Graduate to the template when you know what you
 4. Collaborate through conversation
 5. Receive a custom floatprompt for your use case
 
-**Claude Code:**
+**Any project (FloatPrompt System):**
+```
+npx floatprompt
+```
+Creates `.float/` folder with system.md, nav files, and the `/float` command for Claude Code.
+
+Update an existing install:
+```
+npx floatprompt --update
+```
+
+**Claude Code (this repo):**
 1. Clone this repo
-2. Run `/float` — boots the system or inits a new project
+2. Run `/float` — boots the system
 
 ---
 
@@ -114,11 +125,12 @@ The template (`core/prompt.md`, 3KB) teaches AI how to create tools. The full sy
 
 **Boot sequence:** AI reads system.md, reads all nav/*.md files, builds mental model, checks integrity, then executes.
 
-**Claude Code users:** Clone this repo and run `/float` to:
-- **Boot** an existing FloatPrompt System (reads `.float/system.md`, runs full orientation)
-- **Init** a new project (fetches spec from this repo, creates `.float/` architecture)
+**Get started:** Run `npx floatprompt` in any project to create a `.float/` folder with everything you need.
 
-The command is auto-available — no installation needed.
+**Claude Code commands:**
+- `/float` — Boot the system (reads `.float/system.md`, runs full orientation)
+- `/float sync` — Check integrity, fix drift, update nav files
+- `/float context` — Generate AI terrain map for deeper understanding
 
 ---
 
