@@ -7,7 +7,7 @@
     "title": "/float sync",
     "id": "float-sync",
     "format": "floatprompt",
-    "version": "0.8.0"
+    "version": "0.9.0"
   },
 
   "human": {
@@ -45,7 +45,7 @@
 
 **Verify nav files match reality and fix discrepancies.**
 
-This command ensures `.float/nav/*.md` files accurately reflect actual folder contents.
+This command ensures `.float/project/nav/*.md` files accurately reflect actual folder contents.
 
 ## Duality
 
@@ -72,7 +72,7 @@ Use shell commands for fast detection:
 ls docs/
 
 # Parse nav file entries
-grep "^\| \*\*" .float/nav/docs.md
+grep "^\| \*\*" .float/project/nav/docs.md
 
 # Find missing nav files
 ls -d */ | grep -v -E '^(node_modules|dist|build|\.git|\.float)/$'
@@ -192,7 +192,7 @@ Changes applied?
 ### Check Buoy
 
 ```
-Verify .float/nav/{folder}.md against actual {folder}/ contents:
+Verify .float/project/nav/{folder}.md against actual {folder}/ contents:
 1. Read the nav file and parse the Contents table
 2. List actual files in {folder}/ (exclude: dotfiles, node_modules, .git, dist, build)
 3. List actual subfolders in {folder}/
@@ -210,7 +210,7 @@ Verify .float/nav/{folder}.md against actual {folder}/ contents:
 ### Nav Buoy
 
 ```
-Update .float/nav/{folder}.md:
+Update .float/project/nav/{folder}.md:
 1. Add these files to Contents table: [list]
 2. Remove these files from Contents table: [list]
 3. Add these subfolders: [list]
@@ -236,7 +236,7 @@ Update structure map in .float/system.md:
 ### Scaffold Buoy
 
 ```
-Create .float/nav/{folder}.md for a new folder:
+Create .float/project/nav/{folder}.md for a new folder:
 1. List all files in {folder}/ (exclude dotfiles, etc.)
 2. List all subfolders in {folder}/
 3. Create nav file with full floatprompt doc metadata:
@@ -268,7 +268,7 @@ Note: human_author defaults to @mds. Override from package.json author if availa
 ### Log Buoy
 
 ```
-Append to .float/logs/{date}.md:
+Append to .float/project/logs/{date}.md:
 1. Create file if it doesn't exist (with date header)
 2. Add entry at top (newest first):
    ## HH:MM — {action}

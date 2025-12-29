@@ -67,8 +67,8 @@ Loop 5: Complete
 | # | File | What You'll Learn |
 |---|------|-------------------|
 | 1 | `.float/system.md` | Boot protocol, structure map, behavioral constraints |
-| 2 | `.float/nav/root.md` | Repository structure, file format overview |
-| 3 | `.float/logs/YYYY-MM-DD.md` | Current project state, recent activity |
+| 2 | `.float/project/nav/root.md` | Repository structure, file format overview |
+| 3 | `.float/project/logs/YYYY-MM-DD.md` | Current project state, recent activity |
 
 **Outcome:** Understood boot protocol and current state.
 
@@ -76,17 +76,17 @@ Loop 5: Complete
 
 ## Loop 2: Verify (8 files)
 
-Read all `.float/nav/*.md` files (centralized navigation):
+Read all `.float/project/nav/*.md` files (centralized navigation):
 
 | # | File | What You'll Learn |
 |---|------|-------------------|
-| 4 | `.float/nav/docs.md` | Reading order, key concepts |
-| 5 | `.float/nav/context.md` | Onboarding document purpose |
-| 6 | `.float/nav/dev.md` | Update workflow |
-| 7 | `.float/nav/experimental.md` | Legacy build system |
-| 8 | `.float/nav/artifacts.md` | Historical archive |
-| 9 | `.float/nav/core.md` | Core template files |
-| 10 | `.float/nav/examples.md` | Real examples |
+| 4 | `.float/project/nav/docs.md` | Reading order, key concepts |
+| 5 | `.float/project/nav/context.md` | Onboarding document purpose |
+| 6 | `.float/project/nav/specs.md` | Specifications |
+| 7 | `.float/project/nav/templates.md` | Scaffolding templates |
+| 8 | `.float/project/nav/artifacts.md` | Historical archive |
+| 9 | `.float/project/nav/core.md` | Core template files |
+| 10 | `.float/project/nav/examples.md` | Real examples |
 
 **Outcome:** Verified structure, confirmed integrity.
 

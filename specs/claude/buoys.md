@@ -46,7 +46,7 @@ The approval gate is critical. Buoys propose, humans decide.
 
 | Buoy | Responsibility |
 |------|----------------|
-| **Check Buoy** | Verify nav/*.md against actual folder contents |
+| **Check Buoy** | Verify project/nav/*.md against actual folder contents |
 | **Context Buoy** | Generate/update terrain map for AI understanding |
 | **Scan Buoy** | Detect content inconsistencies (stale refs, version drift) |
 | **Related Buoy** | Validate `related` field links, check existence and bidirectional refs |
@@ -56,7 +56,7 @@ The approval gate is critical. Buoys propose, humans decide.
 
 | Buoy | Responsibility |
 |------|----------------|
-| **Nav Buoy** | Add/remove rows in nav/*.md tables |
+| **Nav Buoy** | Add/remove rows in project/nav/*.md tables |
 | **System Buoy** | Update structure map in system.md |
 | **Describe Buoy** | Generate file descriptions (lightweight model) |
 | **Scaffold Buoy** | Create new nav files for new folders |
@@ -200,9 +200,9 @@ Buoys maintain the system, they don't define it:
 | Component | Purpose |
 |-----------|---------|
 | `.float/system.md` | Boot protocol |
-| `.float/context/*.md` | AI understanding |
-| `.float/nav/*.md` | Structure navigation |
-| `.float/logs/*.md` | Session history |
+| `.float/project/context/*.md` | AI understanding |
+| `.float/project/nav/*.md` | Structure navigation |
+| `.float/project/logs/*.md` | Session history |
 | **Buoys** | Keep all of the above in sync |
 
 Buoys are the maintenance crew, not the architecture.

@@ -120,10 +120,10 @@ The template (`core/prompt.md`, 3KB) teaches AI how to create tools. The full sy
 `.float/` folders that give AI instant awareness of entire directories.
 
 - `.float/system.md` — Boot loader (read first)
-- `.float/nav/*.md` — Centralized navigation
-- `.float/logs/` — Session continuity
+- `.float/meta/` — FloatPrompt internals (templates, tools)
+- `.float/project/` — Your project's data (nav, context, logs)
 
-**Boot sequence:** AI reads system.md, reads all nav/*.md files, builds mental model, checks integrity, then executes.
+**Boot sequence:** AI reads system.md, reads all project/nav/*.md files, builds mental model, checks integrity, then executes.
 
 **Get started:** Run `npx floatprompt` in any project to create a `.float/` folder with everything you need.
 

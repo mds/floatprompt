@@ -47,7 +47,7 @@ if (args.includes('--update') || args.includes('-u')) {
 
   try {
     // Ensure directories exist
-    const dirs = ['.float/tools', '.float/core', '.claude/commands'];
+    const dirs = ['.float/meta/tools', '.float/meta/core', '.claude/commands'];
     for (const dir of dirs) {
       const fullPath = join(cwd, dir);
       if (!existsSync(fullPath)) {
@@ -56,21 +56,21 @@ if (args.includes('--update') || args.includes('-u')) {
     }
 
     // Update tools
-    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md'];
+    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md'];
     for (const file of toolFiles) {
-      const src = join(packageRoot, '.float', 'tools', file);
-      const dest = join(cwd, '.float', 'tools', file);
+      const src = join(packageRoot, '.float', 'meta', 'tools', file);
+      const dest = join(cwd, '.float', 'meta', 'tools', file);
       copyFileSync(src, dest);
-      updated.push(`.float/tools/${file}`);
+      updated.push(`.float/meta/tools/${file}`);
     }
 
-    // Update core files
+    // Update core files (source is core/ at package root, dest is .float/meta/core/)
     const coreFiles = ['prompt.md', 'doc.md', 'os.md'];
     for (const file of coreFiles) {
       const src = join(packageRoot, 'core', file);
-      const dest = join(cwd, '.float', 'core', file);
+      const dest = join(cwd, '.float', 'meta', 'core', file);
       copyFileSync(src, dest);
-      updated.push(`.float/core/${file}`);
+      updated.push(`.float/meta/core/${file}`);
     }
 
     // Update Claude command
@@ -87,9 +87,9 @@ Updated:
   ${updated.join('\n  ')}
 
 Preserved:
-  .float/nav/*
-  .float/logs/*
-  .float/context/*
+  .float/project/nav/*
+  .float/project/logs/*
+  .float/project/context/*
   .float/system.md
 
 Run /float in Claude Code to boot.`);
@@ -126,11 +126,13 @@ Run /float in Claude Code to boot.`);
 // Create directory structure
 const dirs = [
   '.float',
-  '.float/nav',
-  '.float/logs',
-  '.float/context',
-  '.float/tools',
-  '.float/core',
+  '.float/meta',
+  '.float/meta/tools',
+  '.float/meta/core',
+  '.float/project',
+  '.float/project/nav',
+  '.float/project/logs',
+  '.float/project/context',
   '.claude',
   '.claude/commands'
 ];
@@ -176,35 +178,32 @@ Captured rationale for project decisions. AI appends entries during context buil
 
 <!-- Entries below -->
 `;
-  writeFileSync(join(cwd, '.float', 'context', 'decisions.md'), decisionsContent);
-  created.push('.float/context/decisions.md');
+  writeFileSync(join(cwd, '.float', 'project', 'context', 'decisions.md'), decisionsContent);
+  created.push('.float/project/context/decisions.md');
 
-  copyFileSync(templateRoot, join(cwd, '.float', 'nav', 'root.md'));
-  created.push('.float/nav/root.md');
+  copyFileSync(templateRoot, join(cwd, '.float', 'project', 'nav', 'root.md'));
+  created.push('.float/project/nav/root.md');
 
   // Create .gitkeep files for empty directories
-  writeFileSync(join(cwd, '.float', 'logs', '.gitkeep'), '');
-  created.push('.float/logs/');
-
-  writeFileSync(join(cwd, '.float', 'context', '.gitkeep'), '');
-  created.push('.float/context/');
+  writeFileSync(join(cwd, '.float', 'project', 'logs', '.gitkeep'), '');
+  created.push('.float/project/logs/');
 
   // Copy tools
-  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md'];
+  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md'];
   for (const file of toolFiles) {
-    const src = join(packageRoot, '.float', 'tools', file);
-    const dest = join(cwd, '.float', 'tools', file);
+    const src = join(packageRoot, '.float', 'meta', 'tools', file);
+    const dest = join(cwd, '.float', 'meta', 'tools', file);
     copyFileSync(src, dest);
-    created.push(`.float/tools/${file}`);
+    created.push(`.float/meta/tools/${file}`);
   }
 
-  // Copy core files
+  // Copy core files (source is core/ at package root, dest is .float/meta/core/)
   const coreFiles = ['prompt.md', 'doc.md', 'os.md'];
   for (const file of coreFiles) {
     const src = join(packageRoot, 'core', file);
-    const dest = join(cwd, '.float', 'core', file);
+    const dest = join(cwd, '.float', 'meta', 'core', file);
     copyFileSync(src, dest);
-    created.push(`.float/core/${file}`);
+    created.push(`.float/meta/core/${file}`);
   }
 
   // Copy Claude command

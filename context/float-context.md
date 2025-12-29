@@ -134,12 +134,17 @@ Structured text format for portable AI tooling. JSON for behavior, markdown for 
 project/
 ├── .float/
 │   ├── system.md      # Boot loader (read first)
-│   ├── nav/           # Centralized navigation
-│   │   ├── root.md    # Repository root
-│   │   ├── src.md     # src/ folder
-│   │   └── docs.md    # docs/ folder
-│   └── logs/          # Session logs
-│       └── 2025-01-15.md
+│   ├── meta/          # FloatPrompt internals
+│   │   ├── core/      # Templates
+│   │   └── tools/     # /float command tools
+│   └── project/       # Your project's data
+│       ├── context/   # Terrain maps
+│       ├── nav/       # Folder navigation
+│       │   ├── root.md
+│       │   ├── src.md
+│       │   └── docs.md
+│       └── logs/      # Session logs
+│           └── 2025-01-15.md
 ├── src/
 └── docs/
 ```
@@ -152,7 +157,7 @@ project/
 
 **FloatPrompt System activates full project understanding.** The boot sequence:
 1. Read `.float/system.md` (boot loader)
-2. Read all `.float/nav/*.md` files (centralized navigation)
+2. Read all `.float/project/nav/*.md` files (centralized navigation)
 3. Verify contents match actual folder structure
 4. Read session logs for recent activity
 5. Build mental model, execute requests, log session
@@ -282,7 +287,7 @@ All FloatPrompt system files use `.md` for universal compatibility:
 - `core/doc.md` — floatprompt doc tool
 - `core/os.md` — Full system
 - `.float/system.md` — Boot loader
-- `.float/nav/*.md` — Navigation
+- `.float/project/nav/*.md` — Navigation
 
 ---
 

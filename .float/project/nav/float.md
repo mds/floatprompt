@@ -3,7 +3,7 @@ title: FloatPrompt System
 type: nav
 status: current
 created: 2025-12-29
-related: .float/system.md, .float/context/floatprompt.md
+related: .float/system.md, .float/project/context/floatprompt.md
 
 human_author: @mds
 human_intent: Document .float/ folder structure for AI navigation
@@ -11,39 +11,44 @@ human_context: Self-documentation of the FloatPrompt System operational layer
 
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
-ai_notes: Added /float fix tool, full metadata per specs/doc.md
+ai_notes: Updated for v0.9.0 meta/project structure
 ---
 
 # FloatPrompt System
 
 The `.float/` folder — self-documenting system layer for AI project awareness.
 
-**This is the operational layer.** It ships with `npx floatprompt` and works standalone. Everything outside `.float/` and `.claude/` is source repo context for maintainers only.
+**This is the operational layer.** It ships with `npx floatprompt` and works standalone.
+
+## Structure
+
+```
+.float/
+├── system.md           # Boot loader (read first)
+│
+├── meta/               # FloatPrompt internals (don't modify)
+│   ├── core/           # Templates
+│   └── tools/          # /float command tools
+│
+└── project/            # Your project's data
+    ├── context/        # Terrain maps, decisions
+    ├── nav/            # Folder navigation (these files)
+    └── logs/           # Session history
+```
 
 ## Contents
 
 | Item | Purpose |
 |------|---------|
 | **system.md** | Boot loader — read first, always |
+| **meta/** | FloatPrompt system internals (don't touch) |
+| **project/** | Your project's FloatPrompt data |
 
-## Subfolders
+## meta/
 
-| Folder | Purpose |
-|--------|---------|
-| **context/** | AI terrain maps for project understanding |
-| **core/** | Local copy of core templates (prompt, doc, os) |
-| **tools/** | FloatPrompt tools for system maintenance |
-| **nav/** | Centralized folder navigation (these files) |
-| **logs/** | Session history (YYYY-MM-DD.md format) |
+System internals. Don't modify unless you're updating FloatPrompt itself.
 
-## context/
-
-| File | Purpose |
-|------|---------|
-| **floatprompt.md** | Project-wide terrain map (auto-generated) |
-| **decisions.md** | Decision history and rationale |
-
-## core/
+### meta/core/
 
 | File | Purpose |
 |------|---------|
@@ -51,7 +56,7 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 | **doc.md** | floatprompt doc tool |
 | **os.md** | Full FloatPrompt OS |
 
-## tools/
+### meta/tools/
 
 | File | Purpose |
 |------|---------|
@@ -61,7 +66,18 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 | **float-context.md** | Context generation tool for /float context |
 | **float-enhance.md** | Quality improvement tool for /float enhance |
 
-## nav/
+## project/
+
+Your project's FloatPrompt data. This is where project-specific context lives.
+
+### project/context/
+
+| File | Purpose |
+|------|---------|
+| **{project}.md** | Project-wide terrain map (auto-generated) |
+| **decisions.md** | Decision history and rationale |
+
+### project/nav/
 
 | File | Describes |
 |------|-----------|
@@ -76,7 +92,7 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 | **templates.md** | templates/ folder (scaffolding) |
 | **artifacts.md** | artifacts/ folder |
 
-## logs/
+### project/logs/
 
 Session logs use date-based naming: `YYYY-MM-DD.md`
 

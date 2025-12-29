@@ -7,7 +7,7 @@
     "title": "FloatPrompt System",
     "id": "floatprompt-system",
     "format": "floatprompt",
-    "version": "0.8.0"
+    "version": "0.9.0"
   },
 
   "human": {
@@ -26,15 +26,15 @@
     "boot_sequence": {
       "1": "Read this file completely (.float/system.md)",
       "2": "Load structure map into memory",
-      "3": "Read .float/context/decisions.md for decision history (if exists)",
-      "4": "Read .float/context/*.md for terrain maps and relationships (if exists)",
-      "5": "Read ALL nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
-      "6": "Read today's session log (.float/logs/YYYY-MM-DD.md) for recent activity",
+      "3": "Read .float/project/context/decisions.md for decision history (if exists)",
+      "4": "Read .float/project/context/*.md for terrain maps and relationships (if exists)",
+      "5": "Read ALL .float/project/nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
+      "6": "Read today's session log (.float/project/logs/YYYY-MM-DD.md) for recent activity",
       "7": "Choose context depth based on task complexity (see context/ folder)",
       "8": "Build mental model (what exists, what happened, current state)",
       "9": "Check for integrity issues, report gaps before proceeding",
       "10": "Execute human requests",
-      "11": "Log session before ending (append to .float/logs/YYYY-MM-DD.md)"
+      "11": "Log session before ending (append to .float/project/logs/YYYY-MM-DD.md)"
     },
     "context_depth": {
       "principle": "Depth scales with complexity",
@@ -73,38 +73,42 @@ floatprompt/
 │
 │ ─── OPERATIONAL (ships with npx floatprompt) ───────────────
 │
-├── .float/                # FloatPrompt System (read first)
-│   ├── system.md          # This file (boot loader)
-│   ├── context/           # AI terrain maps
-│   │   ├── floatprompt.md # This project's terrain map
-│   │   └── decisions.md   # Decision history and rationale
-│   ├── core/              # Local copy of core templates
-│   │   ├── prompt.md
-│   │   ├── doc.md
-│   │   └── os.md
-│   ├── tools/             # System tools (source of truth for /float commands)
-│   │   ├── float.md
-│   │   ├── float-sync.md
-│   │   ├── float-fix.md
-│   │   ├── float-context.md
-│   │   └── float-enhance.md
-│   ├── nav/               # Centralized navigation
-│   │   ├── float.md       # This folder (self-documentation)
-│   │   ├── root.md        # Repository root
-│   │   ├── bin.md         # CLI folder
-│   │   ├── core.md        # Core templates
-│   │   ├── specs.md       # Specifications
-│   │   ├── docs.md        # Documentation
-│   │   ├── context.md     # Onboarding files
-│   │   ├── examples.md    # Example tools
-│   │   ├── templates.md   # Scaffolding templates
-│   │   └── artifacts.md   # Historical archive
-│   └── logs/              # Activity history
-│       └── YYYY-MM-DD.md  # Daily session logs
+├── .float/                    # FloatPrompt System (read first)
+│   ├── system.md              # This file (boot loader)
+│   │
+│   ├── meta/                  # About FloatPrompt itself (system internals)
+│   │   ├── core/              # Local copy of core templates
+│   │   │   ├── prompt.md
+│   │   │   ├── doc.md
+│   │   │   └── os.md
+│   │   └── tools/             # System tools (source of truth for /float commands)
+│   │       ├── float.md
+│   │       ├── float-sync.md
+│   │       ├── float-fix.md
+│   │       ├── float-context.md
+│   │       └── float-enhance.md
+│   │
+│   └── project/               # About YOUR project (your stuff)
+│       ├── context/           # AI terrain maps
+│       │   ├── floatprompt.md # This project's terrain map
+│       │   └── decisions.md   # Decision history and rationale
+│       ├── nav/               # Centralized navigation
+│       │   ├── float.md       # .float/ folder (self-documentation)
+│       │   ├── root.md        # Repository root
+│       │   ├── bin.md         # CLI folder
+│       │   ├── core.md        # Core templates
+│       │   ├── specs.md       # Specifications
+│       │   ├── docs.md        # Documentation
+│       │   ├── context.md     # Onboarding files
+│       │   ├── examples.md    # Example tools
+│       │   ├── templates.md   # Scaffolding templates
+│       │   └── artifacts.md   # Historical archive
+│       └── logs/              # Activity history
+│           └── YYYY-MM-DD.md  # Daily session logs
 │
-├── .claude/               # Claude Code integration
+├── .claude/                   # Claude Code integration
 │   └── commands/
-│       └── float.md       # /float command router
+│       └── float.md           # /float command router
 │
 │ ─── SOURCE (maintainers only) ──────────────────────────────
 │
@@ -162,8 +166,8 @@ floatprompt/
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
 | `.float/system.md` | FloatPrompt System | `<fp>` tags | Root behavioral protocol (this file) |
-| `.float/nav/*.md` | Nav files | Minimal YAML | Folder navigation (centralized) |
-| `.float/logs/*.md` | FloatLog | Minimal YAML | Session logs |
+| `.float/project/nav/*.md` | Nav files | Minimal YAML | Folder navigation (centralized) |
+| `.float/project/logs/*.md` | FloatLog | Minimal YAML | Session logs |
 | `*.md` with frontmatter | floatprompt doc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
 
@@ -172,13 +176,15 @@ floatprompt/
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader (this file) |
-| `context/` | AI terrain maps (includes decisions.md) |
-| `core/` | Local copy of core templates (prompt, doc, os) |
-| `tools/` | /float command tools (source of truth) |
-| `nav/` | Centralized folder navigation |
-| `logs/` | Session logs folder |
+| `meta/` | FloatPrompt system internals (don't modify) |
+| `meta/core/` | Local copy of core templates (prompt, doc, os) |
+| `meta/tools/` | /float command tools (source of truth) |
+| `project/` | Your project's FloatPrompt data |
+| `project/context/` | AI terrain maps (includes decisions.md) |
+| `project/nav/` | Centralized folder navigation |
+| `project/logs/` | Session logs folder |
 
-### Navigation: `nav/*.md` files
+### Navigation: `project/nav/*.md` files
 
 | File | Describes |
 |------|-----------|
@@ -193,9 +199,9 @@ floatprompt/
 | `templates.md` | templates/ folder |
 | `artifacts.md` | artifacts/ folder (includes 2025/) |
 
-**Centralized pattern:** All navigation lives in `.float/nav/`. No scattered files. AI reads one location for complete folder context.
+**Centralized pattern:** All navigation lives in `.float/project/nav/`. No scattered files. AI reads one location for complete folder context.
 
-**Self-documentation:** The `.float/` folder documents itself via `nav/float.md`. This is the one exception to "nav/ describes project folders" — it describes the FloatPrompt System itself.
+**Self-documentation:** The `.float/` folder documents itself via `project/nav/float.md`. This provides both quick structural reference (nav file) and full protocol (system.md) — different depths for different needs.
 
 ### Nav File Subfolder Rules
 
@@ -248,7 +254,7 @@ ai_updated:
 | File | Location | Purpose |
 |------|----------|---------|
 | `system.md` | `.float/` | Root protocol (this file) |
-| `float-context.md` | `.float/tools/` | Tool for generating terrain maps |
+| `float-context.md` | `.float/meta/tools/` | Tool for generating terrain maps |
 | `prompt.md` | `core/` | Template for creating floatprompts |
 | `doc.md` | `core/` | Tool for adding context frontmatter |
 | `os.md` | `core/` | Full OS with guided creation |
@@ -259,15 +265,15 @@ ai_updated:
 
 **Every session (boot sequence):**
 1. Read `.float/system.md` first (this file)
-2. Read `.float/context/decisions.md` for decision history (if exists)
-3. Read `.float/context/*.md` for terrain maps and relationships (if exists)
-4. Read ALL `.float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
-5. Read today's session log `.float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
+2. Read `.float/project/context/decisions.md` for decision history (if exists)
+3. Read `.float/project/context/*.md` for terrain maps and relationships (if exists)
+4. Read ALL `.float/project/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
+5. Read today's session log `.float/project/logs/YYYY-MM-DD.md` (recent activity, handoff context)
 6. Choose context depth based on task complexity (see below)
 7. Build mental model (what exists, what happened, current state)
 8. Check integrity, surface issues before proceeding
 9. Execute human requests
-10. Log session before ending (append to `.float/logs/YYYY-MM-DD.md`)
+10. Log session before ending (append to `.float/project/logs/YYYY-MM-DD.md`)
 
 **Context depth (choose based on task):**
 
@@ -292,7 +298,7 @@ commit: [hash]
 ```
 
 **Integrity checks:**
-- [ ] All nav/*.md files reflect actual folder contents
+- [ ] All project/nav/*.md files reflect actual folder contents
 - [ ] No broken internal links
 - [ ] No orphaned files
 - [ ] Structure map matches reality
@@ -320,7 +326,7 @@ Proceed? (Human approval required)
 
 When AI modifies a file:
 1. Update `ai_updated` in frontmatter
-2. Check if relevant nav/*.md needs updating
+2. Check if relevant project/nav/*.md needs updating
 3. Check if structure map needs updating
 4. Propagate changes upward
 

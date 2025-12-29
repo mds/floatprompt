@@ -7,7 +7,7 @@
     "title": "/float",
     "id": "float-boot",
     "format": "floatprompt",
-    "version": "0.8.0"
+    "version": "0.9.0"
   },
 
   "human": {
@@ -54,21 +54,24 @@ When no FloatPrompt System exists:
 1. **Create `.float/` folder structure:**
    ```
    .float/
-   ├── system.md      # Boot loader
-   ├── context/       # Terrain maps (empty initially)
-   ├── tools/         # System tools
-   ├── nav/           # Folder navigation
-   └── logs/          # Session logs
+   ├── system.md           # Boot loader
+   ├── meta/               # System internals
+   │   ├── core/           # Templates
+   │   └── tools/          # /float command tools
+   └── project/            # Project data
+       ├── context/        # Terrain maps (empty initially)
+       ├── nav/            # Folder navigation
+       └── logs/           # Session logs
    ```
 
 2. **Create `system.md`** — Boot loader with structure map
 
-3. **Create `nav/*.md`** for each visible folder:
+3. **Create `project/nav/*.md`** for each visible folder:
    - Use shell to detect all folders: `ls -d */`
    - Exclude: `.git/`, `node_modules/`, `dist/`, `build/`, `.float/`
    - Create one nav file per folder with placeholder descriptions
 
-4. **Create `logs/` directory** — Ready for session logs
+4. **Create `project/logs/` directory** — Ready for session logs
 
 5. **Auto-boot** — Execute boot sequence on newly created system
 
@@ -77,9 +80,9 @@ When no FloatPrompt System exists:
 When FloatPrompt System exists:
 
 1. **Read `.float/system.md`** — Load boot protocol
-2. **Read `.float/context/decisions.md`** (if exists) — Load decision history
-3. **Read `.float/context/*.md`** (if exists) — Load terrain maps
-4. **Read ALL `.float/nav/*.md`** — Load folder navigation
+2. **Read `.float/project/context/decisions.md`** (if exists) — Load decision history
+3. **Read `.float/project/context/*.md`** (if exists) — Load terrain maps
+4. **Read ALL `.float/project/nav/*.md`** — Load folder navigation
 5. **Read today's session log** (if exists) — Load recent activity
 6. **Quick integrity check** — Count issues only, no details
 7. **Report status + next step**
@@ -93,7 +96,7 @@ Boot is designed to be fast. Use shell commands where possible:
 test -f .float/system.md
 
 # Count nav files
-ls .float/nav/*.md 2>/dev/null | wc -l
+ls .float/project/nav/*.md 2>/dev/null | wc -l
 
 # List folders for init
 ls -d */ | grep -v -E '^(node_modules|dist|build|\.git)/$'
@@ -139,9 +142,10 @@ Status: No issues found
 
 Created:
 - .float/system.md
-- .float/nav/src.md
-- .float/nav/tests.md
-- .float/nav/docs.md
+- .float/meta/
+- .float/project/nav/src.md
+- .float/project/nav/tests.md
+- .float/project/nav/docs.md
 
 Next: Run /float context to generate terrain map
 ```

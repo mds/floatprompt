@@ -37,12 +37,17 @@ The FloatPrompt System gives AI instant awareness through a centralized pattern:
 any-project/
 ├── .float/                  # FloatPrompt System
 │   ├── system.md            # Boot loader (read first)
-│   ├── nav/                 # Centralized navigation
-│   │   ├── root.md          # Describes project root
-│   │   ├── src.md           # Describes src/
-│   │   └── docs.md          # Describes docs/
-│   └── logs/                # Session history
-│       └── YYYY-MM-DD.md
+│   ├── meta/                # FloatPrompt internals
+│   │   ├── core/            # Templates
+│   │   └── tools/           # /float command tools
+│   └── project/             # Your project's data
+│       ├── context/         # Terrain maps
+│       ├── nav/             # Folder navigation
+│       │   ├── root.md
+│       │   ├── src.md
+│       │   └── docs.md
+│       └── logs/            # Session history
+│           └── YYYY-MM-DD.md
 │
 ├── src/
 ├── docs/
@@ -55,7 +60,7 @@ any-project/
 
 1. AI reads `.float/system.md`
 2. Loads structure map into memory
-3. Reads all `.float/nav/*.md` files
+3. Reads all `.float/project/nav/*.md` files
 4. Reads today's session log
 5. Builds mental model of project
 6. Ready to work with full context
@@ -64,17 +69,32 @@ any-project/
 
 ## File Structure
 
-Centralized pattern: all navigation in `.float/nav/`.
+Centralized pattern: meta for system internals, project for your data.
 
 ### The `.float/` folder
 
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader — behavioral protocol |
-| `nav/` | Folder navigation files |
-| `logs/` | Session history folder |
+| `meta/` | FloatPrompt internals (don't modify) |
+| `project/` | Your project's FloatPrompt data |
 
-### Navigation: `nav/*.md`
+### meta/
+
+| Item | Purpose |
+|------|---------|
+| `core/` | Templates (prompt.md, doc.md, os.md) |
+| `tools/` | /float command tools |
+
+### project/
+
+| Item | Purpose |
+|------|---------|
+| `context/` | Terrain maps, decisions |
+| `nav/` | Folder navigation files |
+| `logs/` | Session history |
+
+### Navigation: `project/nav/*.md`
 
 | File | Describes |
 |------|-----------|
@@ -83,20 +103,25 @@ Centralized pattern: all navigation in `.float/nav/`.
 | `docs.md` | docs/ folder |
 | `[folder].md` | Any folder... |
 
-**Why centralized?** AI reads one location for all folder context. No hunting for scattered files. Clean project folders.
+**Why this structure?** meta = don't touch (system files). project = your stuff. Instant clarity from folder names.
 
 ### Example
 
 ```
 my-project/
-├── .float/                # All system files here
+├── .float/                # FloatPrompt System
 │   ├── system.md          # Boot loader
-│   ├── nav/               # All navigation
-│   │   ├── root.md
-│   │   ├── src.md
-│   │   └── docs.md
-│   └── logs/              # Session history
-│       └── 2025-12-28.md
+│   ├── meta/              # System internals
+│   │   ├── core/          # Templates
+│   │   └── tools/         # Command tools
+│   └── project/           # Your project's data
+│       ├── context/       # Terrain maps
+│       ├── nav/           # Navigation files
+│       │   ├── root.md
+│       │   ├── src.md
+│       │   └── docs.md
+│       └── logs/          # Session history
+│           └── 2025-12-28.md
 │
 ├── src/                   # Clean — no _float.md
 ├── docs/                  # Clean — no _float.md
@@ -108,8 +133,8 @@ my-project/
 | Pattern | Type | Purpose |
 |---------|------|---------|
 | `.float/system.md` | FloatPrompt System | Boot loader, behavioral protocol |
-| `.float/nav/*.md` | Nav files | Folder navigation (centralized) |
-| `.float/logs/*.md` | Logs | Session history |
+| `.float/project/nav/*.md` | Nav files | Folder navigation (centralized) |
+| `.float/project/logs/*.md` | Logs | Session history |
 | `*.md` with frontmatter | floatprompt doc | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | Tools, behavioral modifiers |
 
@@ -133,9 +158,9 @@ AI does the heavy lifting. Human stays in control.
 Create the structure yourself:
 
 ```bash
-mkdir -p .float/nav .float/logs
+mkdir -p .float/meta/tools .float/meta/core .float/project/nav .float/project/logs .float/project/context
 touch .float/system.md
-touch .float/nav/root.md
+touch .float/project/nav/root.md
 ```
 
 ### Option 2: npm (coming soon)

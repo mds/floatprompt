@@ -31,7 +31,7 @@ Claude Code integration for the FloatPrompt System.
 The FloatPrompt System uses a centralized `.float/` folder to maintain AI-readable context about your project. This integration:
 
 1. **Boots** the FloatPrompt System at session start
-2. **Syncs** `.float/nav/` files when they drift from reality
+2. **Syncs** `.float/project/nav/` files when they drift from reality
 
 No daemon. No npm install. Just slash commands.
 
@@ -49,7 +49,7 @@ Boot the FloatPrompt System and run a quick health check.
 
 **What it does:**
 1. Reads `.float/system.md` (boot protocol)
-2. Reads all `.float/nav/*.md` files (centralized navigation)
+2. Reads all `.float/project/nav/*.md` files (centralized navigation)
 3. Builds mental model of the project
 4. Counts any integrity issues
 5. Reports status
@@ -77,10 +77,10 @@ FloatPrompt initialized.
 Directory: /path/to/project
 Created:
   - .float/system.md
-  - .float/nav/root.md
-  - .float/nav/src.md
-  - .float/nav/docs.md
-  - .float/logs/
+  - .float/project/nav/root.md
+  - .float/project/nav/src.md
+  - .float/project/nav/docs.md
+  - .float/project/logs/
   ...
 
 FloatPrompt operational.
@@ -99,7 +99,7 @@ Full integrity check with fix capability. Shows issues, proposes changes, applie
 ```
 
 **What it does:**
-1. Checks all `.float/nav/*.md` tables against actual folder contents
+1. Checks all `.float/project/nav/*.md` tables against actual folder contents
 2. Checks subfolder tables against actual subfolders
 3. Checks structure map in `.float/system.md`
 4. Shows detailed issues
@@ -116,8 +116,8 @@ Directory: /path/to/project
 Checking integrity...
 
 ✓ .float/system.md — OK
-✓ .float/nav/root.md — OK
-✗ .float/nav/docs.md — 2 issues
+✓ .float/project/nav/root.md — OK
+✗ .float/project/nav/docs.md — 2 issues
   - Missing: docs/new-feature.md (file exists, not in table)
   - Stale: docs/api.md (file deleted, still in table)
 
@@ -125,7 +125,7 @@ Found 2 issues in 1 file.
 
 Proposed changes:
 
-.float/nav/docs.md:
+.float/project/nav/docs.md:
   + Add: new-feature.md — [needs description]
   - Remove: api.md (file deleted)
 
@@ -148,19 +148,19 @@ Fill in descriptions now? (y/n):
 ```
 
 If 'y': Describe Buoys read each file and generate descriptions.
-If 'n': "Descriptions skipped. Run /float describe anytime to fill them in."
+If 'n': "Descriptions skipped. Run /float enhance anytime to fill them in."
 
 ---
 
-### /float describe
+### /float enhance
 
-Fill in `[needs description]` placeholders in nav files.
+Fill in `[needs description]` placeholders and improve content quality.
 
 ```
-/float describe
+/float enhance
 ```
 
-Scans all `.float/nav/*.md` files for `[needs description]`, spawns Describe Buoys to read each file and generate a one-line description, then updates the nav tables.
+Scans all `.float/project/nav/*.md` files for `[needs description]` and weak content, spawns Describe Buoys to read each file and generate descriptions, then updates the nav tables.
 
 Can be run independently anytime — not just after sync.
 
@@ -172,9 +172,9 @@ Can be run independently anytime — not just after sync.
 
 | Buoy | Purpose | Model |
 |------|---------|-------|
-| **Nav Buoy** | Add/remove rows in nav/*.md tables | general-purpose |
+| **Nav Buoy** | Add/remove rows in project/nav/*.md tables | general-purpose |
 | **System Buoy** | Update structure map | general-purpose |
-| **Scaffold Buoy** | Create missing `.float/nav/*.md` | general-purpose |
+| **Scaffold Buoy** | Create missing `.float/project/nav/*.md` | general-purpose |
 | **Describe Buoy** | Generate file descriptions | haiku |
 | **Log Buoy** | Record activity to logs | general-purpose |
 
@@ -220,7 +220,7 @@ Two commands. Simple.
 
 | Check | Description |
 |-------|-------------|
-| Nav coverage | Every major folder has a `nav/*.md` file |
+| Nav coverage | Every major folder has a `project/nav/*.md` file |
 | Table accuracy | File tables match actual folder contents |
 | Subfolder accuracy | Subfolder tables match actual subfolders |
 | Structure map | `.float/system.md` structure map matches reality |
@@ -237,24 +237,28 @@ Two commands. Simple.
 
 ## Architecture
 
-The FloatPrompt System (v0.6.0) uses **centralized navigation**:
+The FloatPrompt System (v0.9.0) uses **meta/project separation**:
 
 ```
 .float/
 ├── system.md          # Boot loader
-├── nav/               # All folder navigation here
-│   ├── root.md        # Repository root
-│   ├── docs.md        # docs/ folder (includes subfolders)
-│   ├── src.md         # src/ folder
-│   └── ...            # One file per major folder
-└── logs/
-    └── YYYY-MM-DD.md  # Session logs
+├── meta/              # FloatPrompt internals (don't modify)
+│   ├── core/          # Templates
+│   └── tools/         # /float command tools
+└── project/           # Your project's data
+    ├── context/       # Terrain maps
+    ├── nav/           # Folder navigation
+    │   ├── root.md
+    │   ├── docs.md
+    │   └── src.md
+    └── logs/          # Session logs
+        └── YYYY-MM-DD.md
 ```
 
-**Why centralized?**
-- AI reads one location for complete context
-- Project folders stay clean (no scattered `_float.md` files)
-- Easier to maintain (all nav in one place)
+**Why this structure?**
+- meta = don't touch (system files)
+- project = your stuff
+- Instant clarity from folder names
 
 ---
 

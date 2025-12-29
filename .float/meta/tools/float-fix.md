@@ -7,7 +7,7 @@
     "title": "/float fix",
     "id": "float-fix",
     "format": "floatprompt",
-    "version": "0.8.0"
+    "version": "0.9.0"
   },
 
   "human": {
@@ -82,7 +82,7 @@ grep -r "version.*0\." .float/
 grep -r "\.md" .float/ | grep -v "^Binary"
 
 # Extract related fields from frontmatter
-grep -r "^related:" .float/
+grep -r "^related:" .float/project/
 ```
 
 Spawn Scan Buoys for semantic analysis:
@@ -97,8 +97,8 @@ The `related` field in floatprompt doc frontmatter creates a link graph. Scan it
 
 **1. Existence check** — Do related files exist?
 ```
-nav/float.md:
-  related: .float/system.md, .float/context/floatprompt.md
+project/nav/float.md:
+  related: .float/system.md, .float/project/context/floatprompt.md
            ✓ exists          ✓ exists
 ```
 
@@ -111,7 +111,7 @@ specs/doc.md relates to: floatprompt.md, system.md
 
 **3. Stale path check** — Were related files renamed/moved?
 ```
-related: .float/tools/context-creator.md
+related: .float/meta/tools/context-creator.md
          ✗ MISSING — was renamed to float-context.md
 ```
 
@@ -288,7 +288,7 @@ Apply fix to {file_path}:
 
 **Historical detection:** AI judges what's historical (logs, artifacts, changelogs) vs actionable (docs, tables, structure). When uncertain, ask.
 
-**Scope:** `/float fix` focuses on `.float/` and `.claude/` by default. Can be extended to project files on request.
+**Scope:** `/float fix` focuses on `.float/project/` and `.claude/` by default. Can be extended to project files on request.
 
 ## Difference from /float sync
 

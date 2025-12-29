@@ -3,7 +3,7 @@ title: Core Templates
 type: nav
 status: current
 created: 2025-12-28
-related: core/prompt.md, core/doc.md, core/os.md, bin/floatprompt.js
+related: core/prompt.md, core/doc.md, core/os.md, core/update.md, bin/floatprompt.js
 
 human_author: @mds
 human_intent: Document core templates that ship with npx floatprompt
@@ -25,6 +25,7 @@ The essential FloatPrompt files that ship with `npx floatprompt`.
 | **prompt.md** | Basic FloatPrompt template for creating AI tools |
 | **doc.md** | floatprompt doc tool for adding YAML frontmatter context |
 | **os.md** | Full FloatPrompt Operating System with advanced features |
+| **update.md** | Structured planning tool for significant changes |
 
 ## What Ships
 
@@ -40,3 +41,6 @@ A FloatPrompt tool that helps add context frontmatter to any markdown file. Uplo
 
 ### os.md
 The complete FloatPrompt Operating System with guided tool creation, voice preservation, and advanced features.
+
+### update.md
+A FloatPrompt tool for planning significant changes. Creates structured update plans with impact assessments, phased checklists, and validation frameworks. For human+AI collaboration on complex changes.

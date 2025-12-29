@@ -7,7 +7,7 @@
     "title": "/float enhance",
     "id": "float-enhance",
     "format": "floatprompt",
-    "version": "0.8.0"
+    "version": "0.9.0"
   },
 
   "human": {
@@ -66,10 +66,10 @@ Use shell to find enhancement targets:
 
 ```bash
 # Find placeholder descriptions
-grep -r "\[needs description\]" .float/nav/
+grep -r "\[needs description\]" .float/project/nav/
 
 # List nav files for staleness check
-ls .float/nav/*.md
+ls .float/project/nav/*.md
 ```
 
 For each nav file, compare descriptions to actual file contents:

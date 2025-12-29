@@ -7,7 +7,7 @@
     "title": "/float context",
     "id": "float-context",
     "format": "floatprompt",
-    "version": "0.8.0"
+    "version": "0.9.0"
   },
 
   "human": {
@@ -41,7 +41,7 @@
 
 **Generate or load project context for deep understanding.**
 
-This command creates `.float/context/{project-name}.md` — the understanding layer that complements nav/*.md structure files.
+This command creates `.float/project/context/{project-name}.md` — the understanding layer that complements project/nav/*.md structure files.
 
 ## Duality
 
@@ -68,7 +68,7 @@ When no context file exists:
 
 Read and analyze:
 - `.float/system.md` — Boot protocol
-- `.float/nav/*.md` — All navigation files
+- `.float/project/nav/*.md` — All navigation files
 - `README.md` — Project overview
 - Key entry points (main files, index files, core modules)
 
@@ -146,7 +146,7 @@ For new AI sessions:
 After generating context:
 
 ```
-Context generated: .float/context/{project-name}.md
+Context generated: .float/project/context/{project-name}.md
 
 Build deeper context? (Capture key decisions)
 (y/n):
@@ -158,7 +158,7 @@ If yes: prompt for decisions, save to `decisions.md`
 
 When context file exists:
 
-1. **Read `.float/context/*.md`** — All context files
+1. **Read `.float/project/context/*.md`** — All context files
 2. **Follow reading order** — As specified in terrain map
 3. **Read files in order** — Build rich mental model
 4. **Report understanding depth**
@@ -166,7 +166,7 @@ When context file exists:
 ## Output Location
 
 ```
-.float/context/{meaningful-name}.md
+.float/project/context/{meaningful-name}.md
 ```
 
 **CRITICAL — Choose a meaningful filename:**
@@ -205,7 +205,7 @@ Generated new context?
 ```
 Generate context file for this project:
 1. Read .float/system.md for project overview
-2. Read all .float/nav/*.md files for structure
+2. Read all .float/project/nav/*.md files for structure
 3. Read README.md for public description
 4. Identify key files that define the project
 5. Determine logical reading order for understanding

@@ -1,7 +1,7 @@
 ---
 title: Float Command System
 type: spec
-version: 0.8.0
+version: 0.9.0
 created: 2025-12-29
 
 human_author: @mds
@@ -70,16 +70,16 @@ The orchestrator routes to tool floatprompts. Tools are the source of truth.
 ```
 .claude/commands/float.md           Orchestrator (routes based on input)
         ↓
-.float/tools/float.md               Boot/init tool
-.float/tools/float-sync.md          Structure integrity tool
-.float/tools/float-fix.md           Content integrity tool
-.float/tools/float-context.md       Meaning generation tool
-.float/tools/float-enhance.md       Quality improvement tool
+.float/meta/tools/float.md               Boot/init tool
+.float/meta/tools/float-sync.md          Structure integrity tool
+.float/meta/tools/float-fix.md           Content integrity tool
+.float/meta/tools/float-context.md       Meaning generation tool
+.float/meta/tools/float-enhance.md       Quality improvement tool
 ```
 
 **Orchestrator responsibilities:**
 1. Parse input (`/float`, `/float sync`, `/float fix`, `/float context`, `/float enhance`)
-2. Read the appropriate tool from `.float/tools/float-{command}.md`
+2. Read the appropriate tool from `.float/meta/tools/float-{command}.md`
 3. Execute according to tool's instructions
 4. Report status + next step
 
@@ -255,17 +255,17 @@ If user says 'n':
 - Has `.float/system.md` → Boot sequence
 
 **Init sequence:**
-1. Create `.float/` folder structure
+1. Create `.float/` folder structure (meta/ and project/ subdirectories)
 2. Create `system.md` boot loader
-3. Create `nav/*.md` for each visible folder (shell detects all, excluding standard exclusions)
-4. Create `logs/` directory
+3. Create `project/nav/*.md` for each visible folder (shell detects all, excluding standard exclusions)
+4. Create `project/logs/` directory
 5. Auto-boot the newly created system
 
 **Boot sequence:**
 1. Read `.float/system.md`
-2. Read `.float/context/decisions.md` (if exists)
-3. Read `.float/context/*.md` (if exists)
-4. Read ALL `.float/nav/*.md` files
+2. Read `.float/project/context/decisions.md` (if exists)
+3. Read `.float/project/context/*.md` (if exists)
+4. Read ALL `.float/project/nav/*.md` files
 5. Read today's session log (if exists)
 6. Quick integrity check (count issues only, no details)
 7. Report status + next step
@@ -273,13 +273,13 @@ If user says 'n':
 **Shell optimization (future):**
 ```bash
 # Could replace AI file counting with:
-ls .float/nav/*.md | wc -l          # count nav files
-ls docs/ | wc -l                     # count folder contents
+ls .float/project/nav/*.md | wc -l   # count nav files
+ls docs/ | wc -l                      # count folder contents
 ```
 
 **Buoys:** None (fast operation, no spawning)
 
-**Tool:** `.float/tools/float.md`
+**Tool:** `.float/meta/tools/float.md`
 
 ---
 
@@ -311,7 +311,7 @@ ls docs/ | wc -l                     # count folder contents
 
 **Buoys:** See Buoy Assignments section
 
-**Tool:** `.float/tools/float-sync.md`
+**Tool:** `.float/meta/tools/float-sync.md`
 
 ---
 
@@ -328,12 +328,12 @@ ls docs/ | wc -l                     # count folder contents
 **Generate sequence:**
 1. Scan system.md, nav/*.md, README, key entry points
 2. Ask clarifying questions if uncertain (1-3 max)
-3. Generate `.float/context/{project-name}.md` with meaningful name
+3. Generate `.float/project/context/{project-name}.md` with meaningful name
 4. Offer decision capture ("Build deeper context?")
 5. If yes: prompt for decisions, save to `decisions.md`
 
 **Load sequence:**
-1. Read `.float/context/*.md` files
+1. Read `.float/project/context/*.md` files
 2. Follow reading order specified in terrain map
 3. Read files in order to build rich mental model
 4. Report understanding depth
@@ -345,7 +345,7 @@ ls docs/ | wc -l                     # count folder contents
 **Buoys:**
 - Context Buoy (generate terrain map)
 
-**Tool:** `.float/tools/float-context.md`
+**Tool:** `.float/meta/tools/float-context.md`
 
 ---
 
@@ -365,7 +365,7 @@ ls docs/ | wc -l                     # count folder contents
 
 **Process:**
 1. **Scan** (shell-assisted)
-   - `grep -r "\[needs description\]" .float/nav/` for placeholders
+   - `grep -r "\[needs description\]" .float/project/nav/` for placeholders
    - Compare descriptions to file contents for staleness
 2. **Report** what needs enhancement
 3. **Wait** for approval
@@ -378,7 +378,7 @@ ls docs/ | wc -l                     # count folder contents
 - Describe Buoy (generate descriptions, model: haiku)
 - Reference Buoy (fix stale references)
 
-**Tool:** `.float/tools/float-enhance.md`
+**Tool:** `.float/meta/tools/float-enhance.md`
 
 ---
 
@@ -470,18 +470,18 @@ This pattern ensures:
 
 | Buoy | Prompt Location |
 |------|-----------------|
-| Check Buoy | `.float/tools/float-sync.md` |
-| Nav Buoy | `.float/tools/float-sync.md` |
-| System Buoy | `.float/tools/float-sync.md` |
-| Scaffold Buoy | `.float/tools/float-sync.md` |
-| Log Buoy | `.float/tools/float-sync.md` |
-| Scan Buoy | `.float/tools/float-fix.md` |
-| Related Buoy | `.float/tools/float-fix.md` |
-| Trace Buoy | `.float/tools/float-fix.md` |
-| Repair Buoy | `.float/tools/float-fix.md` |
-| Context Buoy | `.float/tools/float-context.md` |
-| Describe Buoy | `.float/tools/float-enhance.md` |
-| Reference Buoy | `.float/tools/float-enhance.md` |
+| Check Buoy | `.float/meta/tools/float-sync.md` |
+| Nav Buoy | `.float/meta/tools/float-sync.md` |
+| System Buoy | `.float/meta/tools/float-sync.md` |
+| Scaffold Buoy | `.float/meta/tools/float-sync.md` |
+| Log Buoy | `.float/meta/tools/float-sync.md` |
+| Scan Buoy | `.float/meta/tools/float-fix.md` |
+| Related Buoy | `.float/meta/tools/float-fix.md` |
+| Trace Buoy | `.float/meta/tools/float-fix.md` |
+| Repair Buoy | `.float/meta/tools/float-fix.md` |
+| Context Buoy | `.float/meta/tools/float-context.md` |
+| Describe Buoy | `.float/meta/tools/float-enhance.md` |
+| Reference Buoy | `.float/meta/tools/float-enhance.md` |
 
 ---
 
@@ -510,7 +510,7 @@ Each tool follows this structure:
     "title": "/float [command]",
     "id": "float-[command]",
     "format": "floatprompt",
-    "version": "0.8.0"
+    "version": "0.9.0"
   },
 
   "human": {
@@ -562,6 +562,7 @@ Each tool follows this structure:
 | Version | Date | Changes |
 |---------|------|---------|
 | 0.8.0 | 2025-12-29 | Initial spec. Replaces /float describe with /float enhance. Adds spectrum concept, buoy sizing, error handling. |
+| 0.9.0 | 2025-12-29 | Updated paths for meta/project structure. Tools now at `.float/meta/tools/`. |
 
 ---
 

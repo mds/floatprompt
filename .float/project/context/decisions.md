@@ -67,3 +67,16 @@ Captured rationale for project decisions. AI appends entries during context buil
 **Answer:** AI discretion. Buoy specs describe behavior, not enforce it. Guardrails: (1) Descriptions — AI judges obvious vs complex, writes directly or uses placeholders; (2) Status — always report what happened with descriptions and next step; (3) Buoys — spawn fleet when 3+ parallel operations, direct execution OK below threshold. Outcomes matter, method is flexible.
 **Date:** 2025-12-29
 
+### /float fix migration mode (future enhancement)
+**Question:** Could /float fix handle path migrations (like meta/project restructure)?
+**Answer:** Yes, potentially. After folder moves, broken paths become "broken links" — exactly what /float fix finds. Gap: current implementation finds breaks but doesn't know the old→new mapping. Future enhancement: `/float fix --migrate old/path new/path` or teach it to infer mappings from structure. For now, checklist approach is safer for one-time structural changes.
+**Date:** 2025-12-29
+**Status:** Future enhancement, not blocking
+
+### meta/ and project/ structure (v0.9.0)
+**Question:** How should .float/ be organized for instant human clarity?
+**Answer:** Split into `meta/` (FloatPrompt system internals) and `project/` (your project's data). Inspired by Next.js conventions where folder names communicate purpose instantly. When AI handles 90% of implementation, humans need to glance at a path and know immediately what it is. `meta/` = don't touch, system files. `project/` = your stuff. See docs/structure.md for philosophy.
+**Date:** 2025-12-29
+**Version:** 0.9.0
+**Note:** Decisions above this entry reference pre-0.9.0 paths (e.g., `.float/tools/` is now `.float/meta/tools/`)
+
