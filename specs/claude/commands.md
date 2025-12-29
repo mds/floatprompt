@@ -300,7 +300,7 @@ ls docs/ | wc -l                     # count folder contents
 7. **Log** activity to session log
 
 **What it checks:**
-- Nav coverage (every major folder has nav file)
+- Nav coverage (every visible folder has nav file)
 - Table accuracy (files in nav match actual folder)
 - Subfolder accuracy (subfolders in nav match actual)
 - Structure map accuracy (system.md matches reality)
@@ -450,120 +450,18 @@ This pattern ensures:
 
 ## Buoy Prompts
 
-### Check Buoy
-```
-Verify .float/nav/{folder}.md against actual {folder}/ contents:
-1. Read the nav file and parse the Contents table
-2. List actual files in {folder}/ (exclude: dotfiles, node_modules, .git, dist, build)
-3. List actual subfolders in {folder}/
-4. Compare nav entries to actual contents
-5. Return JSON: {
-     navFile: string,
-     status: "ok" | "issues",
-     missing: string[],    // in folder but not in nav
-     stale: string[],      // in nav but not in folder
-     missingSubfolders: string[],
-     staleSubfolders: string[]
-   }
-```
+**Tools are the source of truth for buoy prompts.** See:
 
-### Nav Buoy
-```
-Update .float/nav/{folder}.md:
-1. Add these files to Contents table: [list]
-2. Remove these files from Contents table: [list]
-3. Add these subfolders: [list]
-4. Remove these subfolders: [list]
-5. Preserve existing descriptions for unchanged rows
-6. Use "[needs description]" for new entries
-7. Maintain alphabetical order
-8. Update ai_updated timestamp
-9. Return the updated file content
-```
-
-### System Buoy
-```
-Update structure map in .float/system.md:
-1. Add these folders to structure map: [list]
-2. Remove these folders: [list]
-3. Preserve existing annotations and comments
-4. Maintain tree formatting
-5. Return the updated structure map section
-```
-
-### Scaffold Buoy
-```
-Create .float/nav/{folder}.md for a new folder:
-1. List all files in {folder}/ (exclude dotfiles, etc.)
-2. List all subfolders in {folder}/
-3. Create nav file with:
-   - YAML frontmatter (title, type: nav, ai_updated)
-   - Brief description of folder purpose
-   - Contents table with "[needs description]" for each file
-   - Subfolders table if subfolders exist
-4. Return the complete nav file content
-```
-
-### Context Buoy
-```
-Generate context file for this project:
-1. Read .float/system.md for project overview
-2. Read all .float/nav/*.md files for structure
-3. Read README.md for public description
-4. Identify key files that define the project
-5. Determine logical reading order for understanding
-6. Map domain relationships
-7. Choose meaningful filename based on project identity (NOT 'project.md')
-8. Generate terrain map with:
-   - Project summary
-   - Key files table
-   - Reading order
-   - Domain map
-   - Core patterns
-   - Conventions
-9. Return: { filename: string, content: string }
-```
-
-### Describe Buoy
-```
-Generate description for {file_path}:
-1. Read the file content
-2. Understand what the file DOES (not implementation details)
-3. Generate one-line description (under 80 characters)
-4. Focus on purpose and function
-5. Return: { file: string, description: string }
-
-Skip and return null for:
-- Config files (package.json, tsconfig.json, etc.)
-- Lock files
-- Generated files
-```
-
-### Reference Buoy
-```
-Fix stale references in {file_path}:
-1. Read the file content
-2. Find references that don't match reality:
-   - Version numbers that are outdated
-   - File paths that no longer exist
-   - Descriptions that don't match file contents
-3. Propose specific fixes
-4. Return: { file: string, fixes: [{line: number, old: string, new: string}] }
-```
-
-### Log Buoy
-```
-Append to .float/logs/{date}.md:
-1. Create file if it doesn't exist (with date header)
-2. Add entry at top (newest first):
-   ## HH:MM — {action}
-   commit: {hash or "uncommitted"}
-
-   - {change 1}
-   - {change 2}
-3. Keep entries concise (one line per change)
-4. Return confirmation
-```
+| Buoy | Prompt Location |
+|------|-----------------|
+| Check Buoy | `.float/tools/float-sync.md` |
+| Nav Buoy | `.float/tools/float-sync.md` |
+| System Buoy | `.float/tools/float-sync.md` |
+| Scaffold Buoy | `.float/tools/float-sync.md` |
+| Log Buoy | `.float/tools/float-sync.md` |
+| Context Buoy | `.float/tools/float-context.md` |
+| Describe Buoy | `.float/tools/float-enhance.md` |
+| Reference Buoy | `.float/tools/float-enhance.md` |
 
 ---
 
