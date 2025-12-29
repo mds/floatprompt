@@ -39,7 +39,12 @@
       "principle": "Depth scales with complexity",
       "quick": "context/float-map.md — 6 files, ~5 min, one MDS loop",
       "standard": "context/float-context.md — conceptual overview, ~2 min",
-      "full": "context/float-deepdive.md — 24+ files, ~15 min, 5 MDS loops"
+      "full": "context/float-deepdive.md — 24+ files, ~15 min, 5 MDS loops",
+      "deep_understanding": {
+        "assessments": "artifacts/2025/*-assessment.txt",
+        "purpose": "Prevent AI skepticism pattern that persists even after full deep dive",
+        "note": "Read these to understand why AI misunderstands FloatPrompt and what corrects it"
+      }
     },
     "maintenance": {
       "recursive": true,
@@ -71,6 +76,7 @@ floatprompt/
 │   ├── tools/             # System tools
 │   │   └── context-creator.md
 │   ├── nav/               # Centralized navigation
+│   │   ├── float.md       # This folder (self-documentation)
 │   │   ├── root.md        # Repository root
 │   │   ├── core.md        # Core templates
 │   │   ├── docs.md        # Documentation
@@ -152,6 +158,7 @@ floatprompt/
 
 | File | Describes |
 |------|-----------|
+| `float.md` | _float/ folder (self-documentation) |
 | `root.md` | Repository root |
 | `core.md` | core/ folder |
 | `docs.md` | docs/ folder (includes philosophy/, reference/) |
@@ -162,6 +169,8 @@ floatprompt/
 | `artifacts.md` | artifacts/ folder (includes 2025/) |
 
 **Centralized pattern:** All navigation lives in `_float/nav/`. No scattered files. AI reads one location for complete folder context.
+
+**Self-documentation:** The `_float/` folder documents itself via `nav/float.md`. This is the one exception to "nav/ describes project folders" — it describes the FloatPrompt System itself.
 
 ### Nav File Subfolder Rules
 
@@ -241,8 +250,11 @@ ai_updated:
 | Quick | `context/float-map.md` | 6 files, ~5 min | Simple tasks, quick questions |
 | Standard | `context/float-context.md` | Conceptual, ~2 min | Need system understanding |
 | Full | `context/float-deepdive.md` | 24+ files, ~15 min | Complex work, system evolution |
+| Deep | `artifacts/2025/*-assessment.txt` | Pattern correction | Prevent skepticism, true understanding |
 
 **Depth scales with complexity.** Quick tasks need quick context. Deep work needs deep context.
+
+**Assessment artifacts:** AI consistently pattern-matches to skepticism even after full deep dive. The assessment files document this pattern and provide evidence that corrects it. Read these for true understanding, not just file loading.
 
 **Session log format** (changelog-style, newest first):
 ```markdown

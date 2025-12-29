@@ -1,7 +1,7 @@
 ---
 title: Root
 type: nav
-ai_updated: 2025-12-28
+ai_updated: 2025-12-29
 ---
 
 # Root
@@ -17,8 +17,6 @@ FloatPrompt repository root — the invisible OS for AI.
 | **docs/** | Core documentation |
 | **context/** | Onboarding context files |
 | **examples/** | Real-world FloatPrompt tools |
-| **dev/** | Development tools and update specs |
-| **experimental/** | Legacy build system |
 | **artifacts/** | Historical archive |
 
 ## What Is This

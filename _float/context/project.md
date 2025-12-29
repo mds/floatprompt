@@ -32,7 +32,7 @@ For new AI sessions, read in this order:
 
 1. `_float/system.md` — Boot protocol, structure map, behavioral constraints
 2. `_float/context/project.md` — This file (terrain map, relationships)
-3. `_float/nav/*.md` — All 8 navigation files for folder structure
+3. `_float/nav/*.md` — All 9 navigation files for folder structure
 4. `docs/goals.md` — Goal hierarchy (strict: voice > behavior > artifacts)
 5. `docs/principles.md` — Core principles (recognition, slowness, archaeology)
 6. `core/prompt.md` — The template (see how tools are built)
@@ -72,6 +72,7 @@ System (meta layer)
 ├── _float/system.md                — Boot loader
 ├── _float/context/project.md       — This terrain map
 ├── _float/tools/context-creator.md — Tool for generating context
+├── _float/nav/float.md             — Self-documentation (describes _float/)
 ├── _float/nav/*.md                 — Folder navigation
 └── _float/logs/*.md                — Session history
 

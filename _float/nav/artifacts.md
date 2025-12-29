@@ -12,21 +12,15 @@ Historical archive of specifications, session handoffs, and explorations.
 
 | File | Purpose |
 |------|---------|
-| **floatprompt-npm-scaffold-spec.md** | Current npm tool specification |
-| **float-buoys-commands-spec.md** | On-demand /float and /float sync commands |
-| **float-buoys-daemon-spec.md** | Background daemon to auto-maintain floatsystem files |
-| **float-buoys-context.md** | Strategic thinking behind Float Buoys specification |
-| **float-buoys-test.md** | Step-by-step validation of /float commands |
-| **float-linking-spec.md** | Wikilinks, tags, and backlinks for the floatsystem |
-| **float-context-spec.md** | Auto-generated context file for AI terrain mapping |
-| **2025-12-28-cursor-context-build-path.md** | AI agent's 24-file read sequence for context |
-| **2025-12-28-cursor-summary.md** | AI context state after floatsystem activation |
+| **floatprompt-npm-scaffold-spec.md** | Current npm tool specification (active) |
+
+All other specs have been dated and archived to `2025/`.
 
 ## Subfolders
 
 ### 2025/
 
-Historical archive containing 150+ files documenting the evolution of FloatPrompt.
+Historical archive containing 160+ files documenting the evolution of FloatPrompt.
 
 | Category | Examples |
 |----------|----------|
@@ -34,6 +28,19 @@ Historical archive containing 150+ files documenting the evolution of FloatPromp
 | **Session Handoffs** | floatsystem-session-*.md |
 | **Explorations** | Various exploration documents |
 | **Assessments** | AI understanding evolution documents (critical for onboarding) |
+
+**December 2025 additions:**
+
+| File | Purpose |
+|------|---------|
+| **2025-12-28-float-buoys-commands-spec.md** | /float and /float sync commands |
+| **2025-12-28-float-buoys-daemon-spec.md** | Background daemon concept |
+| **2025-12-28-float-buoys-context.md** | Strategic thinking behind Float Buoys |
+| **2025-12-28-float-buoys-test.md** | /float command validation |
+| **2025-12-28-float-linking-spec.md** | Wikilinks/backlinks (shot down) |
+| **2025-12-29-float-context-spec.md** | Context layer specification |
+| **2025-12-28-cursor-context-build-path.md** | AI 24-file read sequence |
+| **2025-12-28-cursor-summary.md** | AI context state after activation |
 
 #### AI Assessment Artifacts (Critical for Deep Context)
 
