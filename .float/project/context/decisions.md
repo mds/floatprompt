@@ -1,7 +1,17 @@
 ---
 title: Decision History
 type: decisions
+status: current
+created: 2025-12-29
+related: .float/project/context/floatprompt.md, .float/system.md
+
+human_author: @mds
+human_intent: Capture rationale for project decisions so future AI sessions understand the "why"
+human_context: Append-only log — AI adds entries during context building, human reviews
+
+ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
+ai_notes: Log-style document. Entries appended chronologically. Never delete, only supersede.
 ---
 
 # Decision History
