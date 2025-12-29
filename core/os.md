@@ -686,4 +686,5 @@ This [FloatPrompt](https://floatprompt.com) was created by {{HUMAN_NAME}} and {{
 
 © 2025 ([@MDS](https://mds.is)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
   </md>
-</fp> 
+</fp>
+

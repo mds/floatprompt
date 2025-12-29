@@ -40,17 +40,17 @@ That's a floatprompt. A text file that becomes a tool.
 
 ## Which File?
 
-**[`floatprompt.md`](floatprompt.md)** (3KB) — The template
+**[`core/prompt.md`](core/prompt.md)** (3KB) — The template
 - Use when: Building a floatprompt through conversation
 - What it does: Teaches AI how to create floatprompts
 - Best for: Experienced users who know what they want to build
 
-**[`floatdoc.md`](floatdoc.md)** — FloatDoc tool
+**[`core/doc.md`](core/doc.md)** — FloatDoc tool
 - Use when: Adding context frontmatter to any document
 - What it does: Generates YAML frontmatter for mutual understanding
 - Best for: Documenting what files ARE (not modifying behavior)
 
-**[`floatprompt-os.md`](floatprompt-os.md)** (35KB) — The full system
+**[`core/os.md`](core/os.md)** (35KB) — The full system
 - Use when: You want guided tool creation
 - What it does: Boot sequence, friction scoring, step-by-step methodology
 - Best for: First-time users, complex tools, when you want more structure
@@ -62,7 +62,7 @@ Start with the OS if you're new. Graduate to the template when you know what you
 ## Quick Start
 
 **Any AI platform:**
-1. Download [`floatprompt-os.md`](floatprompt-os.md) (full system) or [`floatprompt.md`](floatprompt.md) (template only)
+1. Download [`core/os.md`](core/os.md) (full system) or [`core/prompt.md`](core/prompt.md) (template only)
 2. Upload to ChatGPT, Claude, Cursor, or any AI
 3. Follow the guided flow (OS) or say "float build [what you need]" (template)
 4. Collaborate through conversation
@@ -102,17 +102,17 @@ Universal structure for portable AI tooling. JSON for behavior, markdown for met
 </fp>
 ```
 
-The template (`floatprompt.md`, 3KB) teaches AI how to create tools. The full system (`floatprompt-os.md`, 35KB) adds guided creation for deep knowledge work.
+The template (`core/prompt.md`, 3KB) teaches AI how to create tools. The full system (`core/os.md`, 35KB) adds guided creation for deep knowledge work.
 
 ### FloatSystem — Project Awareness
 
 `_float/` folders that give AI instant awareness of entire directories.
 
 - `_float/system.md` — Boot loader (read first)
-- `_float/index.md` — Navigation and context
+- `_float/nav/*.md` — Centralized navigation
 - `_float/logs/` — Session continuity
 
-**Boot sequence:** AI reads system.md, traverses all index files, builds mental model, checks integrity, then executes.
+**Boot sequence:** AI reads system.md, reads all nav/*.md files, builds mental model, checks integrity, then executes.
 
 **Claude Code users:** Clone this repo and run `/float` to:
 - **Boot** an existing FloatSystem (reads `_float/system.md`, runs full orientation)
@@ -130,6 +130,8 @@ Real floatprompts solving real problems:
 |---------|------|-------|--------------|
 | [AI Portfolio Coach](examples/ai%20portfolio%20coach/) | Coach | 729 | Multi-phase guidance producing HTML artifacts |
 | [Design Feedback Extractor](examples/design%20feedback%20extractor/) | Extractor | 86 | Archaeological extraction preserving voice |
+| [MDS Voice Guide](examples/mds%20voice%20guide/) | Voice | — | Voice preservation and calibration system |
+| [Shortform Caption Writer](examples/shortform%20caption%20writer/) | Writer | — | Social media caption generation |
 | [Shortform Script Writer](examples/shortform%20script%20writer/) | Writer | 200 | Transforms extractions into viral scripts |
 
 Study these to see the format in action. Depth scales with complexity.

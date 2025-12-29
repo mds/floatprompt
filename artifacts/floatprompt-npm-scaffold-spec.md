@@ -6,66 +6,80 @@ created: 2025-12-28
 
 human_author: MDS
 human_intent: Define what the npm scaffolding tool creates and naming conventions
-human_context: Simple tool to create _float/ structure, then AI takes over
+human_context: Simple tool to create full FloatPrompt structure, then AI takes over
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
 ai_notes: |
   Scaffolding only. No AI work in the npm tool.
   AI traverses and maintains after structure exists.
+  Updated to include .claude/commands and .floatprompt templates.
 ---
 
 # FloatPrompt npm Scaffold Specification
 
 ## Purpose
 
-A simple scaffolding tool that creates the `_float/` structure in any project. The tool creates files. AI does everything else.
+A simple scaffolding tool that creates the complete FloatPrompt structure in any project. The tool creates files. AI does everything else.
 
 **What the npm tool does:** Creates structure
 **What the npm tool does NOT do:** AI work, scanning, generating content
-
-## Installation
-
-```bash
-npm install -g floatprompt
-```
 
 ## Usage
 
 ```bash
 cd any-project
-npx floatprompt init
+npx floatprompt
 ```
 
-## What `init` Creates
+One command. No subcommands needed.
+
+## What It Creates
 
 ```
 any-project/
-└── _float/
-    ├── system.md       # Boot loader (template)
-    ├── index.md        # Root navigation (empty template)
-    └── logs/           # Session history folder
+├── _float/
+│   ├── system.md          # Boot loader (template)
+│   ├── index.md           # Root navigation (empty template)
+│   └── logs/              # Session history folder
+├── .claude/
+│   └── commands/
+│       └── float.md       # /float command for Claude Code
+└── .floatprompt/
+    ├── prompt.md          # FloatPrompt template
+    ├── doc.md             # FloatDoc tool
+    └── os.md              # FloatPrompt OS (full system)
 ```
 
-That's it. Three things.
+**Six files.** One command. Done.
+
+## Source Mapping
+
+| Source Repo | Scaffolds To |
+|-------------|--------------|
+| `_float/system.md` (template) | `_float/system.md` |
+| `_float/index.md` (template) | `_float/index.md` |
+| `.claude/commands/float.md` | `.claude/commands/float.md` |
+| `core/prompt.md` | `.floatprompt/prompt.md` |
+| `core/doc.md` | `.floatprompt/doc.md` |
+| `core/os.md` | `.floatprompt/os.md` |
+
+Names match 1:1 — no renaming during scaffold.
 
 ## After Scaffolding
 
-Human opens their AI of choice:
-- Claude Code
-- Cursor
-- ChatGPT
-- Codex
-- Any AI
+**For Claude Code users:**
+```bash
+npx floatprompt
+/float
+```
 
-Human gives AI the `_float/system.md` file. AI takes over:
-1. Reads boot sequence
-2. Traverses project
-3. Creates `_float/index.md` files in subfolders
-4. Builds mental model
-5. Maintains everything going forward
+Two commands. FloatSystem boots automatically.
 
-**The npm tool scaffolds. AI operates.**
+**For other AI platforms:**
+1. Open AI of choice (Cursor, ChatGPT, etc.)
+2. Give AI the `_float/system.md` file
+3. AI takes over: traverses, understands, maintains
 
 ## File Templates
 
@@ -155,7 +169,7 @@ AI maintains this system. Human approves changes.
 ```markdown
 ---
 title: Project Root
-type: index
+type: float
 status: current
 ai_updated:
 ---
@@ -177,6 +191,41 @@ Project description.
 
 Created empty. AI creates log files as needed.
 
+### `.claude/commands/float.md`
+
+The `/float` command for Claude Code. Enables:
+- `/float` — Boot or init FloatSystem
+- `/float sync` — Check integrity and fix issues
+
+See source repo for full command specification.
+
+### `.floatprompt/prompt.md`
+
+The core FloatPrompt template. Used to create new AI tools.
+
+### `.floatprompt/doc.md`
+
+The FloatDoc tool. Adds YAML frontmatter context to any document.
+
+### `.floatprompt/os.md`
+
+The full FloatPrompt Operating System. Advanced tool creation with voice preservation and archaeological extraction.
+
+## Behavior
+
+```javascript
+// Pseudocode
+if (floatSystemExists()) {
+  console.log('FloatSystem already initialized.');
+  console.log('Run /float in Claude Code to boot.');
+} else {
+  createFloatSystem();
+  createClaudeCommands();
+  createFloatPromptTemplates();
+  console.log('FloatSystem initialized. Run /float to boot.');
+}
+```
+
 ## Naming Conventions
 
 ### Log Files (`_float/logs/`)
@@ -194,8 +243,6 @@ One file per day. Multiple sessions append to same file.
 ```markdown
 ## HH:MM — Short title
 
-commit: [hash] (if applicable)
-
 - What changed
 - Brief bullets
 ```
@@ -212,44 +259,21 @@ docs/_float/index.md     # Describes docs/ contents
 tests/_float/index.md    # Describes tests/ contents
 ```
 
-### Artifact Files (Optional Convention)
-
-For projects using `artifacts/` folder:
-
-```
-YYYY-MM-DD-short-description.md
-```
-
-Example: `2025-12-28-api-refactor-notes.md`
-
-Freeform also acceptable. This is human workspace.
-
-## Optional Commands (Future)
-
-```bash
-npx floatprompt version    # Show version
-npx floatprompt help       # Show help
-```
-
-No scan. No generate. AI does that work.
-
 ## What This Is NOT
 
 - **Not a CLI for AI operations** — AI reads files, not CLI output
 - **Not a scanner** — AI scans the project
 - **Not a generator** — AI generates navigation files
-- **Not required** — Human can create `_float/` structure manually
+- **Not required** — Human can create structure manually
 
 The npm tool is convenience, not necessity.
 
 ## Summary
 
 ```
-Human installs: npm install -g floatprompt
-Human scaffolds: npx floatprompt init
-Human opens AI: claude, cursor, chatgpt, etc.
-Human provides: _float/system.md
-AI takes over: traverses, understands, maintains
+Human runs:     npx floatprompt
+Human runs:     /float
+AI takes over:  traverses, understands, maintains
 ```
 
 **Text files are the binary of AI. This tool just creates the initial files.**

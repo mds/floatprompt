@@ -10,14 +10,14 @@ human_context: The invisible OS for AI — instant project awareness from a sing
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
-ai_notes: Created after migrating to _float/ container architecture
+ai_notes: Updated to centralized architecture — all navigation in _float/nav/, no scattered files
 ---
 
 # FloatSystem
 
 **The invisible OS for AI.**
 
-Feed a single `_float/system.md` file to any AI. It boots up, traverses the folder structure, builds rich context, and becomes aware of everything—what exists, how it connects, what needs attention.
+Feed a single `_float/system.md` file to any AI. It boots up, reads centralized navigation, builds rich context, and becomes aware of everything—what exists, how it connects, what needs attention.
 
 **One file turns the lights on.**
 
@@ -31,24 +31,21 @@ Without structure, AI starts every session blind:
 
 ## The Solution
 
-FloatSystem gives AI instant awareness through a simple folder convention:
+FloatSystem gives AI instant awareness through a centralized pattern:
 
 ```
 any-project/
 ├── _float/                  # FloatSystem container
 │   ├── system.md            # Boot loader (read first)
-│   ├── index.md             # Root navigation
+│   ├── nav/                 # Centralized navigation
+│   │   ├── root.md          # Describes project root
+│   │   ├── src.md           # Describes src/
+│   │   └── docs.md          # Describes docs/
 │   └── logs/                # Session history
 │       └── YYYY-MM-DD.md
 │
 ├── src/
-│   └── _float/
-│       └── index.md         # Describes src/
-│
 ├── docs/
-│   └── _float/
-│       └── index.md         # Describes docs/
-│
 └── [project files]
 ```
 
@@ -58,71 +55,60 @@ any-project/
 
 1. AI reads `_float/system.md`
 2. Loads structure map into memory
-3. Traverses all `_float/index.md` files
+3. Reads all `_float/nav/*.md` files
 4. Reads today's session log
 5. Builds mental model of project
 6. Ready to work with full context
 
-**Result:** Rich awareness from minimal files.
+**Result:** Rich awareness from one location.
 
-## The `_float/` Folder
+## File Structure
 
-Every directory can have a `_float/` subfolder. The root `_float/` has the most, subfolders are minimal.
+Centralized pattern: all navigation in `_float/nav/`.
 
-### Core (Always)
+### The `_float/` folder
 
-| File | Purpose |
+| Item | Purpose |
 |------|---------|
-| `system.md` | Boot loader (root only) |
-| `index.md` | Navigation for parent folder |
-| `logs/` | Session history (root only) |
+| `system.md` | Boot loader — behavioral protocol |
+| `nav/` | Folder navigation files |
+| `logs/` | Session history folder |
 
-### Optional (As Needed)
+### Navigation: `nav/*.md`
 
-| Folder | Purpose | When to use |
-|--------|---------|-------------|
-| `prompts/` | Project-specific FloatPrompt tools | When you have AI tools for this project |
-| `context/` | Context files for AI sessions | When AI needs domain knowledge, conventions |
-| `docs/` | AI-specific documentation | When you need FloatDocs for AI consumption |
+| File | Describes |
+|------|-----------|
+| `root.md` | Project root |
+| `src.md` | src/ folder |
+| `docs.md` | docs/ folder |
+| `[folder].md` | Any folder... |
 
-### Example: Full Structure
+**Why centralized?** AI reads one location for all folder context. No hunting for scattered files. Clean project folders.
+
+### Example
 
 ```
-_float/
-├── system.md              # Boot loader
-├── index.md               # Root navigation
-├── logs/                  # Session history
-│   └── 2025-12-28.md
+my-project/
+├── _float/                # All system files here
+│   ├── system.md          # Boot loader
+│   ├── nav/               # All navigation
+│   │   ├── root.md
+│   │   ├── src.md
+│   │   └── docs.md
+│   └── logs/              # Session history
+│       └── 2025-12-28.md
 │
-├── prompts/               # Project-specific AI tools
-│   ├── code-reviewer.txt
-│   └── doc-generator.txt
-│
-├── context/               # AI context files
-│   ├── project.md         # What this project is
-│   └── conventions.md     # Patterns, style guides
-│
-└── docs/                  # AI-specific documentation
-    └── api-patterns.md    # Domain knowledge for AI
+├── src/                   # Clean — no _float.md
+├── docs/                  # Clean — no _float.md
+└── README.md
 ```
-
-### Subfolder `_float/`
-
-Subfolders keep it minimal — just `index.md`:
-
-```
-src/_float/
-└── index.md               # Describes src/ contents
-```
-
-**Underscore only on folder** — files inside need no prefix.
 
 ## File Types
 
 | Pattern | Type | Purpose |
 |---------|------|---------|
 | `_float/system.md` | FloatSystem | Boot loader, behavioral protocol |
-| `_float/index.md` | FloatNav | Folder navigation |
+| `_float/nav/*.md` | FloatNav | Folder navigation (centralized) |
 | `_float/logs/*.md` | FloatLog | Session history |
 | `*.md` with frontmatter | FloatDoc | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | Tools, behavioral modifiers |
@@ -146,10 +132,10 @@ AI does the heavy lifting. Human stays in control.
 
 Create the structure yourself:
 
-```
-mkdir -p _float/logs
+```bash
+mkdir -p _float/nav _float/logs
 touch _float/system.md
-touch _float/index.md
+touch _float/nav/root.md
 ```
 
 ### Option 2: npm (coming soon)
@@ -169,18 +155,19 @@ Structure IS compression.
 
 | Component | Tokens |
 |-----------|--------|
-| system.md | 300-500 |
-| index.md (per folder) | 30-50 |
+| _float/system.md | 300-500 |
+| nav/*.md (per file) | 30-50 |
 | Session log | 50-150 |
 
-**10-folder project:** ~1500 tokens for complete awareness.
+**10-folder project:** ~1000 tokens for complete awareness.
 
-## Why `_float/`
+## Why This Pattern
 
-- **Zero collision** — unique namespace, won't conflict with project files
-- **Sorts to top** — underscore prefix
-- **Clear boundaries** — all FloatSystem files in one place
-- **Easy removal** — delete `_float/` folders to uninstall
+- **Centralized** — all navigation in one place
+- **Clean folders** — no scattered `_float.md` files
+- **Sorts to top** — underscore prefix always visible
+- **Clear signal** — "this is a system/meta folder"
+- **Zero collision** — won't conflict with project files
 - **Installable** — `npx floatprompt init` creates structure
 
 ## Relationship to FloatPrompt
@@ -188,7 +175,7 @@ Structure IS compression.
 | | FloatPrompt | FloatSystem |
 |--|-------------|-------------|
 | **Purpose** | Build AI tools | Project awareness |
-| **Format** | `<fp>` tags | `_float/` folders |
+| **Format** | `<fp>` tags | `_float/` folder |
 | **Scope** | Single tool | Entire project |
 | **Use** | Upload to AI | AI reads automatically |
 

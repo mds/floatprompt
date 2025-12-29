@@ -11,7 +11,7 @@ human_context: Three-phase collaboration process - applies to tools, context, le
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
-ai_notes: Expanded to show universal application beyond tool building
+ai_notes: Updated for centralized nav/*.md architecture (v0.6.0)
 ---
 
 # MDS Method
@@ -93,12 +93,12 @@ Map → Decide → Structure → (realize you need more depth) → Map again
 
 ```
 Loop 1: Boot
-├── Map: Read system.md, index.md
+├── Map: Read system.md, nav/root.md
 ├── Decide: Follow boot sequence
 └── Structure: Initial awareness
 
 Loop 2: Verify
-├── Map: Traverse all index files
+├── Map: Read all nav/*.md files
 ├── Decide: Check integrity
 └── Structure: Confirmed project state
 
@@ -144,7 +144,7 @@ Each loop increases depth. You don't need all loops for simple tasks.
 3. Structure: Minimal viable understanding
 
 **Full context (float-deepdive):**
-1. Map: Read all system files, traverse indexes
+1. Map: Read all system files and nav/*.md
 2. Decide: Understand everything, including history
 3. Structure: Complete operational context
 

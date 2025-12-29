@@ -6,7 +6,7 @@ created: 2025-12-28
 
 human_author: MDS
 human_intent: Provide complete context path for full FloatPrompt understanding
-human_context: 24+ files, ~15 minutes, 5 MDS loops
+human_context: 23+ files, ~15 minutes, 5 MDS loops
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
@@ -17,7 +17,7 @@ ai_notes: |
 
 # FloatPrompt Deep Dive
 
-**Complete context for full operational understanding.** 24+ files, ~15 minutes, 5 MDS loops.
+**Complete context for full operational understanding.** 23+ files, ~15 minutes, 5 MDS loops.
 
 ---
 
@@ -67,28 +67,26 @@ Loop 5: Complete
 | # | File | What You'll Learn |
 |---|------|-------------------|
 | 1 | `_float/system.md` | Boot protocol, structure map, behavioral constraints |
-| 2 | `_float/index.md` | Repository structure, file format overview |
+| 2 | `_float/nav/root.md` | Repository structure, file format overview |
 | 3 | `_float/logs/YYYY-MM-DD.md` | Current project state, recent activity |
 
 **Outcome:** Understood boot protocol and current state.
 
 ---
 
-## Loop 2: Verify (9 files)
+## Loop 2: Verify (8 files)
 
-Traverse all `_float/index.md` files:
+Read all `_float/nav/*.md` files (centralized navigation):
 
 | # | File | What You'll Learn |
 |---|------|-------------------|
-| 4 | `docs/_float/index.md` | Reading order, key concepts |
-| 5 | `context/_float/index.md` | Onboarding document purpose |
-| 6 | `dev/_float/index.md` | Update workflow |
-| 7 | `experimental/_float/index.md` | Legacy build system |
-| 8 | `artifacts/_float/index.md` | Historical archive |
-| 9 | `docs/philosophy/_float/index.md` | Philosophy docs exist |
-| 10 | `docs/reference/_float/index.md` | Template complexity levels |
-| 11 | `dev/updates/_float/index.md` | Update structure |
-| 12 | `artifacts/2025/_float/index.md` | Historical documents |
+| 4 | `_float/nav/docs.md` | Reading order, key concepts |
+| 5 | `_float/nav/context.md` | Onboarding document purpose |
+| 6 | `_float/nav/dev.md` | Update workflow |
+| 7 | `_float/nav/experimental.md` | Legacy build system |
+| 8 | `_float/nav/artifacts.md` | Historical archive |
+| 9 | `_float/nav/core.md` | Core template files |
+| 10 | `_float/nav/examples.md` | Real examples |
 
 **Outcome:** Verified structure, confirmed integrity.
 
@@ -101,9 +99,9 @@ Traverse all `_float/index.md` files:
 | 13 | `docs/goals.md` | Goal hierarchy: voice > behavior > artifacts |
 | 14 | `docs/principles.md` | Recognition before action, slow is smooth |
 | 15 | `context/float-context.md` | Three-component distinction |
-| 16 | `floatprompt.md` | The template with placeholders |
+| 16 | `core/prompt.md` | The template with placeholders |
 | 17 | `docs/philosophy/manifesto.md` | *Why* FloatPrompt exists |
-| 18 | `floatprompt-os.md` | Full OS with Map/Decide/Structure modes |
+| 18 | `core/os.md` | Full OS with Map/Decide/Structure modes |
 
 **Outcome:** Understood the template, OS, and philosophical foundation.
 
@@ -129,7 +127,7 @@ Fill remaining gaps:
 
 | # | File | What You'll Learn |
 |---|------|-------------------|
-| 22 | `floatdoc.md` | FloatDoc tool, field ownership model |
+| 22 | `core/doc.md` | FloatDoc tool, field ownership model |
 | 23 | `docs/voice.md` | Voice preservation rules, what to avoid |
 | 24 | `docs/mds-method.md` | Universal methodology, loop structure |
 

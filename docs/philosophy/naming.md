@@ -81,8 +81,10 @@ Provide systematic naming standards for FloatPrompt components, files, and commu
 ### **Current File Structure**
 ```
 floatprompt/
-├── floatprompt.md               # 3KB Universal template
-├── floatprompt-os.md            # 35KB Full system
+├── core/                        # Essential templates
+│   ├── prompt.md                # 3KB Universal template
+│   ├── doc.md                   # FloatDoc tool
+│   └── os.md                    # 35KB Full system
 ├── docs/                        # Documentation
 ├── artifacts/                   # Historical development artifacts
 ├── dev/                         # Development files
@@ -90,8 +92,8 @@ floatprompt/
 ```
 
 ### **Naming Conventions**
-- **Main Template**: `floatprompt.md` (3KB complete system with creation protocol)
-- **Full System**: `floatprompt-os.md` (35KB guided tool creation)
+- **Main Template**: `core/prompt.md` (3KB complete system with creation protocol)
+- **Full System**: `core/os.md` (35KB guided tool creation)
 - **Documentation**: `{topic}.md` for all documentation
 - **Reference Files**: `reference-{type}.md` for structure examples
 - **Tools**: `{tool-name}.md` for floatprompt tools
@@ -122,13 +124,13 @@ floatprompt/
 - "FloatPrompt files maintain voice preservation throughout processing."
 
 **Technical References:**
-- "Upload the floatprompt.md file to activate the collaboration system."
+- "Upload the core/prompt.md file to activate the collaboration system."
 - "Say 'float map' to create a content mapping floatprompt."
-- "The floatprompt.md contains the complete creation protocol."
+- "The core/prompt.md contains the complete creation protocol."
 
 **File Naming:**
-- `floatprompt.md` (3KB template)
-- `floatprompt-os.md` (35KB full system)
+- `core/prompt.md` (3KB template)
+- `core/os.md` (35KB full system)
 - `docs/floatprompt.md` (format specification)
 - `docs/reference-micro.md` (minimal structure example)
 
@@ -158,7 +160,7 @@ floatprompt/
 - **Unified .md extension** for all file references
 
 ### **For File Creation**
-- **Main system**: Always `floatprompt.md`
+- **Main system**: `core/prompt.md`
 - **All files**: Use .md extension
 - **Reference files**: `reference-{type}.md` format
 - **Cross-platform** compatibility through universal .md adoption

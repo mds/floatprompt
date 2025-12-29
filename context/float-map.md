@@ -46,10 +46,10 @@ Read in this order:
 | # | File | What You'll Learn |
 |---|------|-------------------|
 | 1 | `_float/system.md` | Boot protocol, structure map, behavioral constraints |
-| 2 | `_float/index.md` | Repository structure, file format overview |
+| 2 | `_float/nav/root.md` | Repository structure, file format overview |
 | 3 | `docs/goals.md` | Goal hierarchy: voice > behavior > artifacts |
 | 4 | `docs/principles.md` | Recognition before action, slow is smooth |
-| 5 | `floatprompt.md` | The template with placeholders |
+| 5 | `core/prompt.md` | The template with placeholders |
 | 6 | `context/float-context.md` | Conceptual overview of the three components |
 
 ---

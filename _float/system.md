@@ -7,7 +7,7 @@
     "title": "FloatSystem",
     "id": "floatprompt-system",
     "format": "floatprompt",
-    "version": "0.2.0"
+    "version": "0.6.0"
   },
 
   "human": {
@@ -26,7 +26,7 @@
     "boot_sequence": {
       "1": "Read this file completely (_float/system.md)",
       "2": "Load structure map into memory",
-      "3": "Traverse ALL _float/index.md files. Verify each Contents table matches parent folder contents. Flag discrepancies.",
+      "3": "Read ALL nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
       "4": "Read today's session log (_float/logs/YYYY-MM-DD.md) for recent activity",
       "5": "Choose context depth based on task complexity (see context/ folder)",
       "6": "Build mental model (what exists, what happened, current state)",
@@ -63,61 +63,64 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 
 ```
 floatprompt/
-├── _float/                # FloatSystem container (THE entry point)
-│   ├── system.md          # This file (boot loader, read first)
-│   ├── index.md           # Root navigation
+├── _float/                # FloatSystem container (read first)
+│   ├── system.md          # This file (boot loader)
+│   ├── nav/               # Centralized navigation
+│   │   ├── root.md        # Repository root
+│   │   ├── core.md        # Core templates
+│   │   ├── docs.md        # Documentation
+│   │   ├── context.md     # Onboarding files
+│   │   ├── examples.md    # Example tools
+│   │   ├── dev.md         # Development
+│   │   ├── experimental.md # Legacy build system
+│   │   └── artifacts.md   # Historical archive
 │   └── logs/              # Activity history
 │       └── YYYY-MM-DD.md  # Daily session logs
 │
-├── floatprompt.md         # The template (3KB) - creates floatprompts
-├── floatdoc.md            # FloatDoc tool - adds context frontmatter
-├── floatprompt-os.md      # The full system (35KB) - guided tool creation
 ├── README.md              # Public-facing documentation
 │
+├── core/                  # Essential templates (ships with npx floatprompt)
+│   ├── prompt.md          # FloatPrompt template
+│   ├── doc.md             # FloatDoc tool
+│   └── os.md              # Full FloatPrompt OS
+│
 ├── docs/                  # Core documentation
-│   ├── _float/
-│   │   └── index.md       # Folder navigation
-│   ├── floatprompt.md      # FloatPrompt file format
-│   ├── floatdoc.md         # FloatDoc format
-│   ├── floatsystem.md      # FloatSystem architecture
-│   ├── mds-method.md       # MDS methodology
+│   ├── floatprompt.md     # FloatPrompt file format
+│   ├── floatdoc.md        # FloatDoc format
+│   ├── floatsystem.md     # FloatSystem architecture
+│   ├── mds-method.md      # MDS methodology
 │   ├── goals.md           # Goal hierarchy
 │   ├── principles.md      # Core principles
 │   ├── voice.md           # Voice preservation
 │   ├── use.md             # What you can build
 │   ├── safety.md          # Safety guidelines
 │   ├── philosophy/        # Background thinking
-│   │   └── _float/
-│   │       └── index.md
 │   └── reference/         # Template references
-│       └── _float/
-│           └── index.md
 │
 ├── context/               # Onboarding
-│   └── _float/
-│       └── index.md
+│   ├── float-map.md       # Quick context
+│   ├── float-context.md   # Standard context
+│   └── float-deepdive.md  # Full context
 │
 ├── examples/              # Real-world FloatPrompt tools
-│   └── _float/
-│       └── index.md
+│   ├── ai portfolio coach/
+│   ├── design feedback extractor/
+│   ├── mds voice guide/
+│   ├── shortform caption writer/
+│   └── shortform script writer/
 │
 ├── dev/                   # Development tools
-│   ├── _float/
-│   │   └── index.md
-│   └── updates/           # Update specs (in-progress, closed)
-│       └── _float/
-│           └── index.md
+│   ├── update-creator.md
+│   ├── update-protocol.md
+│   └── updates/           # Update specs
 │
 ├── experimental/          # Build system (legacy)
-│   └── _float/
-│       └── index.md
+│   ├── src/
+│   └── scripts/
 │
 └── artifacts/             # Historical archive
-    ├── _float/
-    │   └── index.md
+    ├── floatprompt-npm-scaffold-spec.md
     └── 2025/              # 150+ files documenting evolution
-        └── _float/
-            └── index.md
 ```
 
 ## File Conventions
@@ -125,22 +128,33 @@ floatprompt/
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
 | `_float/system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol (this file) |
-| `_float/index.md` | FloatNav | Minimal YAML | Folder navigation |
+| `_float/nav/*.md` | FloatNav | Minimal YAML | Folder navigation (centralized) |
 | `_float/logs/*.md` | FloatLog | Minimal YAML | Session logs |
 | `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
 
-### `_float/` Folder Convention
+### Root: `_float/` folder
 
-Every directory can have a `_float/` subfolder containing:
-
-| File | Purpose |
+| Item | Purpose |
 |------|---------|
-| `index.md` | Navigation/context for parent folder |
-| `system.md` | Boot loader (root `_float/` only) |
-| `logs/` | Session logs (root `_float/` only) |
+| `system.md` | Boot loader (this file) |
+| `nav/` | Centralized folder navigation |
+| `logs/` | Session logs folder |
 
-Underscore only on folder — files inside need no prefix.
+### Navigation: `nav/*.md` files
+
+| File | Describes |
+|------|-----------|
+| `root.md` | Repository root |
+| `core.md` | core/ folder |
+| `docs.md` | docs/ folder (includes philosophy/, reference/) |
+| `context.md` | context/ folder |
+| `examples.md` | examples/ folder (includes all subfolders) |
+| `dev.md` | dev/ folder (includes updates/) |
+| `experimental.md` | experimental/ folder |
+| `artifacts.md` | artifacts/ folder (includes 2025/) |
+
+**Centralized pattern:** All navigation lives in `_float/nav/`. No scattered files. AI reads one location for complete folder context.
 
 ### FloatDoc Frontmatter
 
@@ -161,13 +175,12 @@ ai_notes:
 ---
 ```
 
-### FloatNav Frontmatter (index.md)
+### FloatNav Frontmatter (nav/*.md)
 
 ```yaml
 ---
 title:
-type: float
-status:
+type: nav
 ai_updated:
 ---
 ```
@@ -177,17 +190,17 @@ ai_updated:
 | File | Location | Purpose |
 |------|----------|---------|
 | `system.md` | `_float/` | Root protocol (this file) |
-| `floatprompt.md` | `/` | Template for creating floatprompts |
-| `floatdoc.md` | `/` | Tool for adding context frontmatter |
-| `floatprompt-os.md` | `/` | Full OS with guided creation |
+| `prompt.md` | `core/` | Template for creating floatprompts |
+| `doc.md` | `core/` | Tool for adding context frontmatter |
+| `os.md` | `core/` | Full OS with guided creation |
 
 ## Maintenance Protocol
 
 ### AI Responsibilities
 
-**Every session (penetration sequence):**
+**Every session (boot sequence):**
 1. Read `_float/system.md` first (this file)
-2. Traverse ALL `_float/index.md` files. Verify Contents tables match parent folder contents. Flag discrepancies.
+2. Read ALL `_float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
 3. Read today's session log `_float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
 4. Choose context depth based on task complexity (see below)
 5. Build mental model (what exists, what happened, current state)
@@ -215,8 +228,7 @@ commit: [hash]
 ```
 
 **Integrity checks:**
-- [ ] All folders have `_float/index.md`
-- [ ] All `_float/index.md` files reflect actual parent folder contents
+- [ ] All nav/*.md files reflect actual folder contents
 - [ ] No broken internal links
 - [ ] No orphaned files
 - [ ] Structure map matches reality
@@ -225,9 +237,9 @@ commit: [hash]
 ```
 FloatSystem Integrity Issues:
 
-1. Missing _float/index.md in /new-folder/
-2. Stale: /docs/old.md (not in _float/index.md)
-3. Broken link: references deleted file
+1. Stale: nav/docs.md missing new file
+2. Broken link: references deleted file
+3. New folder not in nav/
 
 Suggested fixes: [list]
 Proceed? (Human approval required)
@@ -244,18 +256,9 @@ Proceed? (Human approval required)
 
 When AI modifies a file:
 1. Update `ai_updated` in frontmatter
-2. Check if `_float/index.md` needs updating
+2. Check if relevant nav/*.md needs updating
 3. Check if structure map needs updating
 4. Propagate changes upward
-
-### Distributed Hooks
-
-Each `_float/index.md` has a context-specific AI hook at the bottom — a trigger that reminds AI what to maintain locally. The hook points to this protocol for full instructions.
-
-Example hooks:
-- `_float/index.md` (root): "Keep in sync with _float/system.md structure map"
-- `docs/_float/index.md`: "Update when docs added/removed"
-- After significant activity: "Append to _float/logs/YYYY-MM-DD.md"
 
 ## Goal Hierarchy
 
@@ -282,7 +285,7 @@ handoff:
   to_agent: [agent type]
   context:
     system: _float/system.md (always include)
-    folder: [relevant _float/index.md]
+    nav: [relevant nav/*.md files]
     files: [specific files for task]
     task: [what to do]
 ```

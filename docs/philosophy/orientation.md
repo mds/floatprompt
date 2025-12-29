@@ -26,7 +26,7 @@ ai_notes: Added FloatDoc frontmatter
 
 **Immediate Action:**
 
-1. **Upload `floatprompt.md`** to any AI system → activate floatprompt creation mode
+1. **Upload `core/prompt.md`** to any AI system → activate floatprompt creation mode
 2. **Say "float [anything]"** → AI creates custom collaboration tools through conversation  
 3. **Experience enhanced collaboration** with voice preservation and systematic intelligence
 
@@ -34,17 +34,23 @@ ai_notes: Added FloatDoc frontmatter
 
 ## System Architecture
 
-### **Main Template:**
+### **Core Templates:**
 
-**`floatprompt.md` (3KB)** - Universal template and system definition
+**`core/prompt.md` (3KB)** - Universal template and system definition
 - Complete floatprompt creation protocol with collaboration model
 - Self-referential template that teaches AI how to create new floatprompts
 - Comprehensive system context and voice preservation protocols
 - Natural language triggers: "float map", "float extract", "float build", "float [anything]"
 
+**`core/os.md` (35KB)** - Full system with guided creation
+- Boot sequence, friction scoring, step-by-step methodology
+- Best for first-time users, complex tools, when you want more structure
+
+**`core/doc.md`** - FloatDoc tool
+- Generates YAML frontmatter for mutual understanding
+
 ### **Legacy/Experimental:**
-**`experimental/`** - Archive of previous build system and OS versions
-- Contains the original complex build system and floatprompt-os.md
+**`experimental/`** - Archive of previous build system
 - Preserved for reference and advanced use cases
 
 ## Core Concepts
@@ -102,9 +108,9 @@ For basic, one-time AI interactions, standard prompting may be more appropriate.
 ## Next Steps
 
 **Explore the System:**
-- **[Use Cases](use.md)** - Practical applications and examples
+- **[Use Cases](../use.md)** - Practical applications and examples
 - **[Value Proposition](value.md)** - Business benefits and ROI
-- **[Format Specification](floatprompt.md)** - Technical file format details
-- **[MDS Methodology](mds-method.md)** - Complete collaboration methodology
+- **[Format Specification](../floatprompt.md)** - Technical file format details
+- **[MDS Methodology](../mds-method.md)** - Complete collaboration methodology
 
-**Start Simple:** Upload `floatprompt.md` to your preferred AI system and say "float [anything]" to create custom collaboration tools. The system will guide you through enhanced AI partnership naturally.
+**Start Simple:** Upload `core/prompt.md` to your preferred AI system and say "float [anything]" to create custom collaboration tools. The system will guide you through enhanced AI partnership naturally.

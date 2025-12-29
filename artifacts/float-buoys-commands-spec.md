@@ -11,12 +11,9 @@ human_context: Lighter alternative to daemon — on-demand buoys during session
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
 ai_notes: |
-  Active approach — simpler than daemon, no software to build.
-  Merged verify into sync for simpler UX (two commands: boot + sync).
-  Added Buoy Instructions section with detailed behavior for each buoy type.
-  Added Index File Format Reference with canonical structure and variations.
-  Expanded Index Buoy with table format detection, folder table handling, exclusions.
-  Expanded Scaffold Buoy with detailed index creation template and rules.
+  Updated to centralized architecture (v0.6.0).
+  Navigation now lives in _float/nav/*.md instead of scattered _float/index.md files.
+  Renamed Index Buoy to Nav Buoy. Scaffold Buoy creates nav/*.md files.
 ---
 
 # Float Buoys Commands Specification
@@ -27,7 +24,7 @@ ai_notes: |
 
 ## Philosophy
 
-The daemon approach (see `float-buoys-spec.md`) provides real-time sync but adds complexity: Node.js, npm install, background process, API key config.
+The daemon approach (see `float-buoys-daemon-spec.md`) provides real-time sync but adds complexity: Node.js, npm install, background process, API key config.
 
 This spec offers a lighter alternative:
 
@@ -41,6 +38,30 @@ This spec offers a lighter alternative:
 No separate verify step. Sync shows you everything and asks before changing anything. Say 'n' at the approval gate if you just want to see issues.
 
 **Position:** Start here. Graduate to daemon if you need always-on sync.
+
+---
+
+## Architecture: Centralized Navigation
+
+FloatSystem v0.6.0 uses **centralized navigation**:
+
+```
+_float/
+├── system.md          # Boot loader
+├── nav/               # All folder navigation here
+│   ├── root.md        # Repository root
+│   ├── docs.md        # docs/ folder (includes subfolders)
+│   ├── src.md         # src/ folder
+│   └── ...            # One file per major folder
+└── logs/
+    └── YYYY-MM-DD.md  # Session logs
+```
+
+**Why centralized?**
+- AI reads one location for complete context
+- Project folders stay clean (no scattered `_float.md` files)
+- Easier to maintain (all nav in one place)
+- No traversing entire directory tree
 
 ---
 
@@ -67,7 +88,7 @@ Boots FloatSystem and runs a quick integrity check. Surfaces issues without deta
 
 **If `_float/system.md` exists → Boot Sequence:**
 1. Read boot loader
-2. Traverse all index files
+2. Read all `_float/nav/*.md` files
 3. Build mental model
 4. **Run quick integrity check** (lightweight verify)
 5. Report status with issue count
@@ -91,14 +112,14 @@ Run /float sync to see details and fix
 
 **If `_float/system.md` doesn't exist → Init Sequence:**
 - Fetch spec from GitHub
-- Create `_float/` structure
+- Create `_float/` structure with centralized `nav/` folder
 - Auto-boot on newly created structure
 - Report: "INITIALIZED" + "BOOTED" + "No issues found"
 
 **Quick Integrity Check (during boot):**
-- Count files not in index tables
-- Count index references to missing files
-- Count folders without `_float/index.md`
+- Count files not in nav file tables
+- Count nav references to missing files
+- Count major folders without a nav/*.md file
 - Don't report details — just the count
 - Fast: no AI, no full diff, just existence checks
 
@@ -114,47 +135,54 @@ Full integrity check with fix capability. Shows all issues, proposes changes, ap
 
 | Check | Description |
 |-------|-------------|
-| **Index coverage** | Every folder has `_float/index.md` |
+| **Nav coverage** | Every major folder has a `nav/*.md` file |
 | **Table accuracy** | File tables match actual folder contents |
-| **Folder accuracy** | Folder tables match actual subfolders |
+| **Subfolder accuracy** | Subfolder tables match actual subfolders |
 | **Structure map** | `_float/system.md` structure map matches reality |
-| **Orphaned files** | Files exist but aren't in any index |
-| **Missing files** | Index references files that don't exist |
-| **Stale timestamps** | `ai_updated` older than file modification |
+| **Orphaned files** | Files exist but aren't in any nav file |
+| **Missing files** | Nav references files that don't exist |
 
 **Exclusions (don't flag these as issues):**
 - Dotfiles (`.DS_Store`, `.gitignore`, etc.)
-- `_float/` subfolders (they contain the index, not content)
+- `_float/` folder itself
 - `node_modules/`, `dist/`, `build/`, `.git/`
 - Lock files (`*.lock`, `package-lock.json`)
 - Project's ignore patterns
 
-A file is only "orphaned" if it's not in the index AND not in the exclusion list.
+A file is only "orphaned" if it's not in the nav file AND not in the exclusion list.
 
 ### How It Works
 
-1. Run full integrity check
-2. If no issues: report "All clear" and exit
-3. Show detailed issues (same format as old verify)
-4. Categorize fixes:
+1. **Spawn Check Buoys in parallel** (one per nav/*.md file)
+2. Each Check Buoy verifies its nav file against actual folder contents
+3. Aggregate results from all Check Buoys
+4. If no issues: report "All clear" and exit
+5. Show detailed issues (same format as old verify)
+6. Categorize fixes:
    - **Tier 1 (no AI)**: Add/remove rows in tables
    - **Tier 2 (Haiku)**: New files need descriptions
-5. Show proposed changes
-6. Wait for approval
-7. If 'n': exit (user got their inspection)
-8. If 'y': spawn buoys and apply changes
+7. Show proposed changes
+8. Wait for approval
+9. If 'n': exit (user got their inspection)
+10. If 'y': spawn Fix Buoys and apply changes
 
 ### Buoy Types
 
+**Check Phase (parallel verification):**
+
 | Buoy | Handles | AI Needed? |
 |------|---------|-----------|
-| **Index Buoy** | Add/remove file rows in tables | No |
+| **Check Buoy** | Verify one nav/*.md file against actual folder | No |
+
+**Fix Phase (parallel fixes after approval):**
+
+| Buoy | Handles | AI Needed? |
+|------|---------|-----------|
+| **Nav Buoy** | Add/remove file rows in nav/*.md tables | No |
 | **System Buoy** | Update structure map | No |
 | **Describe Buoy** | Write descriptions for new files | Yes (Haiku) |
-| **Scaffold Buoy** | Create missing `_float/index.md` files | Minimal |
+| **Scaffold Buoy** | Create new `_float/nav/*.md` files | Minimal |
 | **Log Buoy** | Record activity to `_float/logs/` | No |
-
-Same buoys as the daemon spec — just spawned on-demand instead of running continuously.
 
 **Describe Buoy notes:**
 - Model: Haiku (fast, cheap, sufficient for descriptions)
@@ -163,21 +191,29 @@ Same buoys as the daemon spec — just spawned on-demand instead of running cont
 
 ### Output Format
 
-**Step 1: Show integrity check results**
+**Step 1: Spawn Check Buoys and show results**
 ```
 FloatSystem Sync
 Directory: /Users/mds/Projects/floatprompt
 
-Checking integrity...
+Scanning _float/nav/*.md...
+Found 8 nav files.
 
+Spawning Check Buoys (8 parallel)...
+  → Check Buoy: nav/root.md vs /
+  → Check Buoy: nav/core.md vs core/
+  → Check Buoy: nav/docs.md vs docs/
+  → ...
+
+Results:
 ✓ _float/system.md — OK
-✓ _float/index.md — OK
-✗ docs/_float/index.md — 2 issues
+✓ _float/nav/root.md — OK
+✗ _float/nav/docs.md — 2 issues
   - Missing: docs/new-feature.md (file exists, not in table)
   - Stale: docs/api.md (file deleted, still in table)
-✗ examples/_float/index.md — 1 issue
-  - Missing: examples/new-example/ (folder has no _float/index.md)
-✓ dev/_float/index.md — OK
+✗ _float/nav/examples.md — 1 issue
+  - Missing: examples/new-example/ (subfolder not in table)
+✓ _float/nav/dev.md — OK
 
 Found 3 issues in 2 files.
 ```
@@ -186,12 +222,12 @@ Found 3 issues in 2 files.
 ```
 Proposed changes:
 
-docs/_float/index.md:
+_float/nav/docs.md:
   + Add: new-feature.md — [needs description]
   - Remove: api.md (file deleted)
 
-examples/_float/index.md:
-  + Create: examples/new-example/_float/index.md
+_float/nav/examples.md:
+  + Add subfolder: new-example/
 
 _float/system.md:
   ~ Update structure map (new folder: examples/new-example/)
@@ -211,8 +247,8 @@ Generating descriptions...
   [accept/edit/skip]: accept
 
 Spawning buoys...
-  ✓ Index Buoy: Updated docs/_float/index.md
-  ✓ Scaffold Buoy: Created examples/new-example/_float/index.md
+  ✓ Nav Buoy: Updated _float/nav/docs.md
+  ✓ Nav Buoy: Updated _float/nav/examples.md
   ✓ Describe Buoy: new-feature.md → "Feature documentation for..."
   ✓ System Buoy: Updated structure map
   ✓ Log Buoy: Recorded activity
@@ -237,9 +273,30 @@ All clear. No issues found.
 
 **Buoys are Task agents.** Each buoy is spawned via Claude Code's Task tool, allowing parallel execution across your directory.
 
-Uses Claude Code's Task tool to spawn buoys in parallel where possible.
+### Two Phases
 
-**Example: 3 new files need descriptions**
+**Phase 1: Check (parallel verification)**
+```
+Scanning _float/nav/*.md...
+Found N nav files.
+
+Spawning Check Buoys (N parallel)...
+  → Check Buoy: nav/{file1}.md vs {folder1}/
+  → Check Buoy: nav/{file2}.md vs {folder2}/
+  → ...
+
+All Check Buoys complete. Aggregating results...
+```
+
+**Phase 2: Fix (parallel fixes after approval)**
+```
+Spawning Fix Buoys...
+  → Nav Buoy (x2): Updating nav files
+  → Describe Buoy (x3): Generating descriptions
+  → System Buoy: Updating structure map
+```
+
+### Example: 3 new files need descriptions
 
 ```
 Spawning Describe Buoys (3 parallel)...
@@ -253,33 +310,33 @@ Results:
   ✓ docs/setup.md → "Setup guide for local development environment"
 ```
 
-Parallel execution keeps sync fast even with multiple files.
+Parallel execution keeps sync fast even with multiple files and folders.
 
 **How buoys are spawned:**
 
 | Buoy | Task Tool Config |
 |------|------------------|
-| Index Buoy | `subagent_type: "general-purpose"` |
+| Check Buoy | `subagent_type: "general-purpose"` |
+| Nav Buoy | `subagent_type: "general-purpose"` |
 | System Buoy | `subagent_type: "general-purpose"` |
 | Describe Buoy | `subagent_type: "general-purpose"`, `model: "haiku"` |
 | Scaffold Buoy | `subagent_type: "general-purpose"` |
 | Log Buoy | `subagent_type: "general-purpose"` |
 
-Multiple buoys of the same type can run simultaneously (e.g., 4 Describe Buoys processing different files).
+Multiple buoys of the same type can run simultaneously (e.g., 8 Check Buoys verifying all nav files at once, or 4 Describe Buoys processing different files).
 
 ---
 
-## Index File Format Reference
+## Nav File Format Reference
 
-Canonical format for `_float/index.md` files. Buoys must understand and preserve this structure.
+Canonical format for `_float/nav/*.md` files. Buoys must understand and preserve this structure.
 
 ### Frontmatter (Required)
 
 ```yaml
 ---
 title: {Folder Name}
-type: float
-status: current
+type: nav
 ai_updated: {YYYY-MM-DD}
 ---
 ```
@@ -293,14 +350,12 @@ ai_updated: {YYYY-MM-DD}
 
 ## Contents
 
-### {Section Name} (optional grouping)
-
 | File | Purpose |
 |------|---------|
 | **filename.md** | Description of file |
 | **another.md** | Description of file |
 
-### Subfolders (if folder contains subfolders)
+## Subfolders
 
 | Folder | Purpose |
 |--------|---------|
@@ -309,14 +364,12 @@ ai_updated: {YYYY-MM-DD}
 
 ---
 
-{Optional footer with copyright or AI hook}
-
-<!-- AI: {maintenance instruction} -->
+<!-- AI: Update this file when contents of {folder} change. -->
 ```
 
 ### Table Format Variations
 
-Different index files may use different column structures:
+Different nav files may use different column structures:
 
 | Format | Columns | Example |
 |--------|---------|---------|
@@ -328,9 +381,9 @@ Different index files may use different column structures:
 
 ### Exclusions
 
-These items are NEVER added to index tables:
-- `_float/` subfolder (it's the container, not content)
-- Dotfiles (`.DS_Store`, `.gitignore`, etc.)
+These items are NEVER added to nav tables:
+- `_float/` folder
+- Dotfiles and hidden files
 - `node_modules/`, `dist/`, `build/`
 - Lock files (`*.lock`, `package-lock.json`)
 - Hidden/system files
@@ -338,10 +391,19 @@ These items are NEVER added to index tables:
 ### Section Logic
 
 When a file is added:
-1. Check if sections exist in the index
+1. Check if sections exist in the nav file
 2. If file type matches a section name (e.g., "Formats", "Tools"), add there
 3. If no clear match, add to the first/main "Contents" or "Files" section
 4. If multiple sections and unclear, flag for human review
+
+### Nested Subfolders
+
+Nav files describe their folder AND nested subfolders. For example, `nav/docs.md` includes:
+- Files directly in `docs/`
+- The `docs/philosophy/` subfolder with its contents
+- The `docs/reference/` subfolder with its contents
+
+This keeps everything for a major folder in one nav file.
 
 ---
 
@@ -349,17 +411,64 @@ When a file is added:
 
 Detailed behavior for each buoy type. These instructions are embedded in the command file and passed to spawned agents.
 
-### Index Buoy
+### Check Buoy
 
-**Purpose:** Add or remove rows in `_float/index.md` file and folder tables.
+**Purpose:** Verify one nav/*.md file against actual folder contents.
 
 **Input:**
-- Path to `_float/index.md` file
+- Path to nav/*.md file (e.g., `_float/nav/docs.md`)
+- Folder it describes (e.g., `docs/`)
+
+**Behavior:**
+
+1. **Read the nav file**
+   - Parse the Contents table (files)
+   - Parse the Subfolders table (if exists)
+   - Parse any nested subfolder sections
+
+2. **Scan the actual folder**
+   - List all files (excluding dotfiles, ignored patterns)
+   - List all subfolders
+   - For nested subfolders in nav file, scan those too
+
+3. **Compare and report**
+   - **Missing in nav:** File/folder exists but not in table
+   - **Stale in nav:** Entry in table but file/folder doesn't exist
+   - **OK:** Everything matches
+
+4. **Return structured result**
+   ```json
+   {
+     "navFile": "_float/nav/docs.md",
+     "status": "issues_found",
+     "issues": [
+       {"type": "missing", "item": "docs/new-file.md", "itemType": "file"},
+       {"type": "stale", "item": "docs/old-file.md", "itemType": "file"}
+     ]
+   }
+   ```
+
+**Exclusions (never flag):**
+- Dotfiles (`.DS_Store`, etc.)
+- `_float/` folder
+- `node_modules/`, `dist/`, `build/`, `.git/`
+- Lock files
+
+**No AI needed.** Pure file comparison.
+
+---
+
+### Nav Buoy
+
+**Purpose:** Add or remove rows in `_float/nav/*.md` file and folder tables.
+
+**Input:**
+- Path to `_float/nav/*.md` file
 - List of changes: `{action: "add"|"remove", type: "file"|"folder", name: string, description?: string}`
 
 **Behavior:**
 
-1. **Read and parse the index file**
+1. **Read and parse the nav file**
    - Parse frontmatter
    - Identify all tables (file tables and folder tables)
    - Detect column structure of each table (2-column, 3-column, etc.)
@@ -374,10 +483,10 @@ Detailed behavior for each buoy type. These instructions are embedded in the com
 3. **Determine target table**
    - For files: find the Files/Contents table
    - For folders: find the Folders/Subfolders table
-   - If sections exist, use section logic (see Index File Format Reference)
+   - If sections exist, use section logic (see Nav File Format Reference)
 
 4. **For each "add" action:**
-   - Check exclusion list first (see Index File Format Reference)
+   - Check exclusion list first (see Nav File Format Reference)
    - Skip if item matches exclusion pattern
    - Insert new row in correct table
    - Maintain alphabetical order within section
@@ -395,7 +504,7 @@ Detailed behavior for each buoy type. These instructions are embedded in the com
 **Exclusions (never add):**
 - `_float/` folder
 - Dotfiles and hidden files
-- Items matching ignore patterns (see Index File Format Reference)
+- Items matching ignore patterns (see Nav File Format Reference)
 
 **No AI needed.** Pure file manipulation with format preservation.
 
@@ -485,31 +594,27 @@ For skipped files, use filename as implicit description or mark as "Configuratio
 
 ### Scaffold Buoy
 
-**Purpose:** Create missing `_float/index.md` files for new folders.
+**Purpose:** Create new `_float/nav/*.md` files for major folders that don't have one.
 
 **Input:**
-- Folder path that needs `_float/index.md`
-- Parent folder's index format (for style consistency)
+- Folder path that needs a nav file
+- Existing nav file format (for style consistency)
 
 **Behavior:**
 
 1. **Scan the folder**
-   - List all files (excluding dotfiles, `_float/`, ignored patterns)
-   - List all subfolders (excluding `_float/`, hidden folders)
+   - List all files (excluding dotfiles, ignored patterns)
+   - List all subfolders
    - Note if folder is empty
 
-2. **Create `_float/` subfolder**
-   - `mkdir -p {folder}/_float/`
-
-3. **Generate `index.md`**
+2. **Generate `nav/{folder}.md`**
 
    Use this template, adapting based on folder contents:
 
 ```markdown
 ---
 title: {Folder Name}
-type: float
-status: current
+type: nav
 ai_updated: {YYYY-MM-DD}
 ---
 
@@ -536,13 +641,13 @@ ai_updated: {YYYY-MM-DD}
 <!-- AI: Update this file when contents of {Folder Name} change. -->
 ```
 
-4. **Template adaptation rules:**
+3. **Template adaptation rules:**
    - **No files?** Omit the Files/Contents table entirely
    - **No subfolders?** Omit the Subfolders table entirely
    - **Empty folder?** Just frontmatter + heading + "Empty folder" note
-   - **Match parent style:** If parent uses 3-column tables, use 3-column
+   - **Match parent style:** If existing nav files use 3-column tables, use 3-column
 
-5. **Folder description generation:**
+4. **Folder description generation:**
    - If folder name is obvious (e.g., `docs/`, `src/`, `tests/`): use standard description
    - Standard descriptions:
      - `docs/` → "Documentation"
@@ -555,12 +660,17 @@ ai_updated: {YYYY-MM-DD}
      - `lib/` → "Library code"
    - If non-obvious: use `[TODO: Add folder description]`
 
-6. **File listing rules:**
+5. **File listing rules:**
    - List files alphabetically
    - Use `**bold**` for filenames
    - Add trailing `/` for folders
    - All purposes start as `[needs description]`
    - Describe Buoy fills these in later (or human)
+
+6. **Nested subfolder handling:**
+   - Include nested subfolders in the same nav file
+   - Use subsections: `### subfolder/`
+   - Example: `nav/docs.md` includes `docs/philosophy/` as a subsection
 
 7. **AI hook comment:**
    - Always add maintenance comment at bottom
@@ -630,6 +740,16 @@ Daily session log. Newest entries first.
 ## File Structure
 
 ```
+_float/
+├── system.md          # Boot loader
+├── nav/               # Centralized navigation
+│   ├── root.md
+│   ├── docs.md
+│   ├── src.md
+│   └── ...
+└── logs/
+    └── YYYY-MM-DD.md
+
 .claude/commands/
 └── float.md           # Handles: /float (boot) and /float sync
 ```
@@ -638,8 +758,8 @@ Single command file routes based on `$ARGUMENTS`. No additional files needed.
 
 **Integration with FloatSystem:**
 - `/float` reads `_float/system.md` for boot protocol
-- `/float` reads all `_float/index.md` files for quick health check
-- `/float sync` modifies `_float/` files via buoys
+- `/float` reads all `_float/nav/*.md` files for context
+- `/float sync` modifies nav files and system.md via buoys
 - Activity logged to `_float/logs/YYYY-MM-DD.md`
 
 ---
@@ -651,8 +771,8 @@ Single command file routes based on `$ARGUMENTS`. No additional files needed.
 ```markdown
 ## 14:32 — /float sync
 
-- Updated: docs/_float/index.md (+1 file, -1 file)
-- Created: examples/new-example/_float/index.md
+- Updated: _float/nav/docs.md (+1 file, -1 file)
+- Updated: _float/nav/examples.md (+1 subfolder)
 - Described: new-feature.md → "Feature documentation for..."
 - Updated: _float/system.md (structure map)
 ```
@@ -698,7 +818,7 @@ Uses same logic as daemon spec for consistency.
 2. `/float sync` shows detailed issues
 3. `/float sync` fixes issues with approval gate
 4. New files get meaningful descriptions (via Describe Buoy)
-5. Missing `_float/index.md` files are created (via Scaffold Buoy)
+5. New major folders get nav files (via Scaffold Buoy)
 6. Activity logged to `_float/logs/` (via Log Buoy)
 7. No manual file editing required after sync
 
@@ -719,9 +839,9 @@ The specs are designed to be compatible.
 
 ## Next Steps
 
-1. ✅ Update `/float` command to handle `sync` subcommand
-2. ✅ Implement boot with quick health check
-3. ✅ Implement `sync` with full integrity check + fix
+1. ✅ Update `/float` command for centralized architecture
+2. ✅ Update spec for centralized architecture
+3. ✅ Rename Index Buoy → Nav Buoy
 4. Test on floatprompt repo
 5. Iterate based on real usage
 

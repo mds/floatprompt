@@ -123,8 +123,8 @@ Structured text format for portable AI tooling. JSON for behavior, markdown for 
 **FloatPrompt DOES modify AI behavior.** It transforms the AI into a specialized tool.
 
 **Two versions:**
-- `floatprompt.md` (3KB) — The template, teaches AI how to create tools
-- `floatprompt-os.md` (35KB) — Full system with guided creation for deep knowledge work
+- `core/prompt.md` (3KB) — The template, teaches AI how to create tools
+- `core/os.md` (35KB) — Full system with guided creation for deep knowledge work
 
 ### FloatSystem — Project Awareness
 
@@ -134,15 +134,14 @@ Structured text format for portable AI tooling. JSON for behavior, markdown for 
 project/
 ├── _float/
 │   ├── system.md      # Boot loader (read first)
-│   ├── index.md       # Navigation and context
+│   ├── nav/           # Centralized navigation
+│   │   ├── root.md    # Repository root
+│   │   ├── src.md     # src/ folder
+│   │   └── docs.md    # docs/ folder
 │   └── logs/          # Session logs
 │       └── 2025-01-15.md
 ├── src/
-│   └── _float/
-│       └── index.md   # Folder navigation
 └── docs/
-    └── _float/
-        └── index.md   # Folder navigation
 ```
 
 **Use FloatSystem when:**
@@ -153,7 +152,7 @@ project/
 
 **FloatSystem activates full project understanding.** The boot sequence:
 1. Read `_float/system.md` (boot loader)
-2. Traverse all `_float/index.md` files
+2. Read all `_float/nav/*.md` files (centralized navigation)
 3. Verify contents match actual folder structure
 4. Read session logs for recent activity
 5. Build mental model, execute requests, log session
@@ -279,11 +278,11 @@ They complement each other.
 ## File Extensions
 
 All FloatPrompt system files use `.md` for universal compatibility:
-- `floatprompt.md` — Template
-- `floatdoc.md` — FloatDoc tool
-- `floatprompt-os.md` — Full system
+- `core/prompt.md` — Template
+- `core/doc.md` — FloatDoc tool
+- `core/os.md` — Full system
 - `_float/system.md` — Boot loader
-- `_float/index.md` — Navigation
+- `_float/nav/*.md` — Navigation
 
 ---
 
