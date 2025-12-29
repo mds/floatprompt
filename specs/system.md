@@ -83,7 +83,7 @@ Centralized pattern: meta for system internals, project for your data.
 
 | Item | Purpose |
 |------|---------|
-| `floatprompt/` | Core templates (floatprompt-template.md, floatprompt-doc.md, floatprompt-os.md, floatprompt-update.md) |
+| `floatprompt/` | Core templates (template.md, doc.md, os.md, update.md) |
 | `tools/` | /float command tools |
 
 ### project/

@@ -80,9 +80,9 @@ Captured rationale for project decisions. AI appends entries during context buil
 **Version:** 0.9.0
 **Note:** Decisions above this entry reference pre-0.9.0 paths (e.g., `.float/tools/` is now `.float/meta/tools/`)
 
-### floatprompt/ folder and floatprompt-*.md naming (v0.10.0)
+### floatprompt/ folder naming (v0.10.0)
 **Question:** How should core templates be named for clarity and consistency?
-**Answer:** Renamed `core/` to `floatprompt/` and files to `floatprompt-{function}.md` pattern. Rationale: (1) "floatprompt" is never pluralized (like "JavaScript" not "JavaScripts"); (2) Consistent prefix makes files searchable and clearly identifies them; (3) `floatprompt-template.md` describes purpose better than `prompt.md`. Files: floatprompt-template.md, floatprompt-doc.md, floatprompt-os.md, floatprompt-update.md.
+**Answer:** Renamed `core/` to `floatprompt/`. Files keep simple names (template.md, doc.md, os.md, update.md) — the folder provides the namespace. Rationale: (1) "floatprompt" is never pluralized (like "JavaScript" not "JavaScripts"); (2) Folder name documents what's inside; (3) `floatprompt/floatprompt-template.md` stutters — redundant prefix removed; (4) `template.md` describes purpose better than `prompt.md`.
 **Date:** 2025-12-29
 **Version:** 0.10.0
 

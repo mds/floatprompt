@@ -49,7 +49,7 @@ Read in this order:
 | 2 | `.float/project/nav/root.md` | Repository structure, file format overview |
 | 3 | `docs/goals.md` | Goal hierarchy: voice > behavior > artifacts |
 | 4 | `docs/principles.md` | Recognition before action, slow is smooth |
-| 5 | `floatprompt/floatprompt-template.md` | The template with placeholders |
+| 5 | `floatprompt/template.md` | The template with placeholders |
 | 6 | `context/float-context.md` | Conceptual overview of the three components |
 
 ---

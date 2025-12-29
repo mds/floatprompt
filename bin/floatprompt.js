@@ -65,7 +65,7 @@ if (args.includes('--update') || args.includes('-u')) {
     }
 
     // Update floatprompt files (source is floatprompt/ at package root, dest is .float/meta/floatprompt/)
-    const floatpromptFiles = ['floatprompt-template.md', 'floatprompt-doc.md', 'floatprompt-os.md', 'floatprompt-update.md'];
+    const floatpromptFiles = ['template.md', 'doc.md', 'os.md', 'update.md'];
     for (const file of floatpromptFiles) {
       const src = join(packageRoot, 'floatprompt', file);
       const dest = join(cwd, '.float', 'meta', 'floatprompt', file);
@@ -198,7 +198,7 @@ Captured rationale for project decisions. AI appends entries during context buil
   }
 
   // Copy floatprompt files (source is floatprompt/ at package root, dest is .float/meta/floatprompt/)
-  const floatpromptFiles = ['floatprompt-template.md', 'floatprompt-doc.md', 'floatprompt-os.md', 'floatprompt-update.md'];
+  const floatpromptFiles = ['template.md', 'doc.md', 'os.md', 'update.md'];
   for (const file of floatpromptFiles) {
     const src = join(packageRoot, 'floatprompt', file);
     const dest = join(cwd, '.float', 'meta', 'floatprompt', file);

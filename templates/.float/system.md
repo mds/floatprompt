@@ -60,10 +60,10 @@ project/
 │   │   │   ├── float-context.md
 │   │   │   └── float-enhance.md
 │   │   └── floatprompt/    # FloatPrompt templates
-│   │       ├── floatprompt-template.md  # Tool creation template
-│   │       ├── floatprompt-doc.md       # Document context tool
-│   │       ├── floatprompt-os.md        # Full FloatPrompt OS
-│   │       └── floatprompt-update.md    # Structured update planning
+│   │       ├── template.md   # Tool creation template
+│   │       ├── doc.md        # Document context tool
+│   │       ├── os.md         # Full FloatPrompt OS
+│   │       └── update.md     # Structured update planning
 │   └── project/            # Your project's data
 │       ├── nav/            # Centralized navigation
 │       │   └── root.md     # Repository root
@@ -107,10 +107,10 @@ AI maintains this system. Human approves changes.
 
 ## Creating Tools
 
-Use `.float/meta/floatprompt/floatprompt-template.md` as template for new FloatPrompt tools.
-Use `.float/meta/floatprompt/floatprompt-doc.md` to add context frontmatter to documents.
-Use `.float/meta/floatprompt/floatprompt-os.md` for guided tool creation with voice preservation.
-Use `.float/meta/floatprompt/floatprompt-update.md` for planning significant changes.
+Use `.float/meta/floatprompt/template.md` as template for new FloatPrompt tools.
+Use `.float/meta/floatprompt/doc.md` to add context frontmatter to documents.
+Use `.float/meta/floatprompt/os.md` for guided tool creation with voice preservation.
+Use `.float/meta/floatprompt/update.md` for planning significant changes.
 
 ## FloatPrompt Source
 

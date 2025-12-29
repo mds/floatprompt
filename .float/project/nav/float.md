@@ -52,10 +52,10 @@ System internals. Don't modify unless you're updating FloatPrompt itself.
 
 | File | Purpose |
 |------|---------|
-| **floatprompt-template.md** | FloatPrompt template |
-| **floatprompt-doc.md** | floatprompt doc tool |
-| **floatprompt-os.md** | Full FloatPrompt OS |
-| **floatprompt-update.md** | Structured update planning |
+| **template.md** | FloatPrompt template |
+| **doc.md** | floatprompt doc tool |
+| **os.md** | Full FloatPrompt OS |
+| **update.md** | Structured update planning |
 
 ### meta/tools/
 

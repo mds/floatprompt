@@ -78,10 +78,10 @@ floatprompt/
 │   │
 │   ├── meta/                  # About FloatPrompt itself (system internals)
 │   │   ├── floatprompt/       # Core templates
-│   │   │   ├── floatprompt-template.md
-│   │   │   ├── floatprompt-doc.md
-│   │   │   ├── floatprompt-os.md
-│   │   │   └── floatprompt-update.md
+│   │   │   ├── template.md
+│   │   │   ├── doc.md
+│   │   │   ├── os.md
+│   │   │   └── update.md
 │   │   └── tools/             # System tools (source of truth for /float commands)
 │   │       ├── float.md
 │   │       ├── float-sync.md
@@ -116,10 +116,10 @@ floatprompt/
 ├── README.md              # Public-facing documentation
 │
 ├── floatprompt/           # Core templates (copied to .float/meta/floatprompt/)
-│   ├── floatprompt-template.md  # FloatPrompt template
-│   ├── floatprompt-doc.md       # floatprompt doc tool
-│   ├── floatprompt-os.md        # Full FloatPrompt OS
-│   └── floatprompt-update.md    # Structured update planning
+│   ├── template.md        # FloatPrompt template
+│   ├── doc.md             # floatprompt doc tool
+│   ├── os.md              # Full FloatPrompt OS
+│   └── update.md          # Structured update planning
 │
 ├── specs/                 # Formal specifications
 │   ├── floatprompt.md     # FloatPrompt file format
@@ -179,7 +179,7 @@ floatprompt/
 |------|---------|
 | `system.md` | Boot loader (this file) |
 | `meta/` | FloatPrompt system internals (don't modify) |
-| `meta/floatprompt/` | Core templates (floatprompt-template, floatprompt-doc, floatprompt-os, floatprompt-update) |
+| `meta/floatprompt/` | Core templates (template, doc, os, update) |
 | `meta/tools/` | /float command tools (source of truth) |
 | `project/` | Your project's FloatPrompt data |
 | `project/context/` | AI terrain maps (includes decisions.md) |
@@ -257,10 +257,10 @@ ai_updated:
 |------|----------|---------|
 | `system.md` | `.float/` | Root protocol (this file) |
 | `float-context.md` | `.float/meta/tools/` | Tool for generating terrain maps |
-| `floatprompt-template.md` | `floatprompt/` | Template for creating floatprompts |
-| `floatprompt-doc.md` | `floatprompt/` | Tool for adding context frontmatter |
-| `floatprompt-os.md` | `floatprompt/` | Full OS with guided creation |
-| `floatprompt-update.md` | `floatprompt/` | Structured update planning |
+| `template.md` | `floatprompt/` | Template for creating floatprompts |
+| `doc.md` | `floatprompt/` | Tool for adding context frontmatter |
+| `os.md` | `floatprompt/` | Full OS with guided creation |
+| `update.md` | `floatprompt/` | Structured update planning |
 
 ## Maintenance Protocol
 
