@@ -72,7 +72,6 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 floatprompt/
 ├── .float/                # FloatPrompt System (read first)
 │   ├── system.md          # This file (boot loader)
-│   ├── .version           # Installed floatprompt package version
 │   ├── context/           # AI terrain maps
 │   │   ├── floatprompt.md # This project's terrain map
 │   │   └── decisions.md   # Decision history and rationale
@@ -80,8 +79,11 @@ floatprompt/
 │   │   ├── prompt.md
 │   │   ├── doc.md
 │   │   └── os.md
-│   ├── tools/             # System tools
-│   │   └── context-creator.md
+│   ├── tools/             # System tools (source of truth for /float commands)
+│   │   ├── float.md
+│   │   ├── float-sync.md
+│   │   ├── float-context.md
+│   │   └── float-enhance.md
 │   ├── nav/               # Centralized navigation
 │   │   ├── float.md       # This folder (self-documentation)
 │   │   ├── root.md        # Repository root
@@ -157,10 +159,9 @@ floatprompt/
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader (this file) |
-| `.version` | Installed floatprompt package version |
 | `context/` | AI terrain maps (includes decisions.md) |
 | `core/` | Local copy of core templates (prompt, doc, os) |
-| `tools/` | System tools |
+| `tools/` | /float command tools (source of truth) |
 | `nav/` | Centralized folder navigation |
 | `logs/` | Session logs folder |
 

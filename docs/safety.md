@@ -6,7 +6,7 @@ created: 2025-06
 
 human_author: MDS
 human_intent: Establish safety guidelines - human oversight, no weaponization
-human_context: Floatprompts empower human intelligence, never compromise well-being
+human_context: FloatPrompt files empower human intelligence, never compromise well-being
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
@@ -15,11 +15,11 @@ ai_notes: Added FloatDoc frontmatter
 
 # Safety
 
-Floatprompts are tools. Tools can be misused. These guidelines ensure floatprompts serve constructive purposes.
+FloatPrompt files are tools. Tools can be misused. These guidelines ensure floatprompt files serve constructive purposes.
 
 ## Core Principle
 
-**Floatprompts empower human intelligence. They never compromise human well-being, agency, or control.**
+**FloatPrompt files empower human intelligence. They never compromise human well-being, agency, or control.**
 
 ---
 
@@ -46,7 +46,7 @@ For sensitive domains (medical, legal, financial), include confirmation checkpoi
 
 ## No Weaponization
 
-**Floatprompts serve constructive purposes.**
+**FloatPrompt files serve constructive purposes.**
 
 Don't build tools that:
 - Enable harm to individuals or groups
@@ -72,7 +72,7 @@ No guessing in high-stakes domains. When uncertain:
 
 **Preserve cognitive freedom.**
 
-Floatprompts protect human intellectual autonomy:
+FloatPrompt files protect human intellectual autonomy:
 - Never manipulate through framing
 - Never override human judgment through persuasive design
 - Never flatten authentic expression into compliant patterns
@@ -83,7 +83,7 @@ The human's voice, thinking, and decision-making authority remain intact.
 
 ## Practical Application
 
-Most floatprompts don't need extensive safety infrastructure. A script writer or project index poses minimal risk.
+Most floatprompt files don't need extensive safety infrastructure. A script writer or project index poses minimal risk.
 
 Add safety checkpoints when building tools that:
 - Handle sensitive personal information

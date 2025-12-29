@@ -36,8 +36,28 @@ Captured rationale for project decisions. AI appends entries during context buil
 **Answer:** Decisions capture rationale (the “why”) and belong with other context assets. Housing it in `context/` keeps structure (nav), meaning (context), and rationale (decisions) together instead of scattering files at root.
 **Date:** 2025-12-29
 
-### Track installed package version (.version)
+### Track installed package version (.version) — SUPERSEDED
 **Question:** Why is `.float/.version` part of the structure map?
-**Answer:** It records the installed `floatprompt` package version for update checks and reproducibility. Keeps local system files in sync with CLI expectations without touching user-authored content.
+**Answer:** Originally recorded the installed `floatprompt` package version. **Removed in v0.8.0** — redundant with `package.json`. Single source of truth is better.
+**Date:** 2025-12-29
+
+### /float enhance replaces /float describe
+**Question:** Why rename describe to enhance?
+**Answer:** Broader scope. `/float describe` only filled placeholder descriptions. `/float enhance` covers descriptions, stale references, weak content, and future quality improvements. The progression is now: awareness → structure → meaning → quality.
+**Date:** 2025-12-29
+
+### Tools live in .float/tools/
+**Question:** Why put tool floatprompts in `.float/tools/` instead of elsewhere?
+**Answer:** Tools are system files, not user content. Keeping them in `.float/` groups all system components. Each tool (`float.md`, `float-sync.md`, `float-context.md`, `float-enhance.md`) is the source of truth for its command.
+**Date:** 2025-12-29
+
+### specs/ split from docs/
+**Question:** Why separate specs from docs?
+**Answer:** Different audiences, different purposes. `specs/` contains formal definitions (what the system IS). `docs/` contains guides and philosophy (how to USE it). Cleaner organization, easier navigation.
+**Date:** 2025-12-29
+
+### Orchestrator routes to tools (Option B)
+**Question:** Why is the orchestrator a slim router instead of containing all logic?
+**Answer:** Clean separation. The orchestrator (`.claude/commands/float.md`) just parses input and routes to the appropriate tool. Tools (`.float/tools/float-*.md`) contain all logic. Single source of truth, easier maintenance, tools can be updated independently.
 **Date:** 2025-12-29
 

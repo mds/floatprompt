@@ -13,7 +13,6 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 | Item | Purpose |
 |------|---------|
 | **system.md** | Boot loader — read first, always |
-| **.version** | Installed floatprompt package version |
 
 ## Subfolders
 
