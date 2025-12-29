@@ -8,9 +8,9 @@ human_author: MDS
 human_intent: Document the FloatPrompt System architecture for project awareness
 human_context: The invisible OS for AI — instant project awareness from a single entry point
 
-ai_model: Claude Opus 4
-ai_updated: 2025-12-28
-ai_notes: Updated to centralized architecture — all navigation in _float/nav/, no scattered files
+ai_model: Claude Opus 4.5
+ai_updated: 2025-12-29
+ai_notes: Added subsystems documentation for nested _float/ folders in large projects
 ---
 
 # FloatPrompt System
@@ -183,6 +183,37 @@ FloatPrompt = tools you build.
 FloatPrompt System = awareness AI gains.
 
 They work together. The FloatPrompt System can contain FloatPrompt tools.
+
+## Subsystems
+
+Large projects may have subfolders complex enough to be their own projects. These can have their own `_float/` folders.
+
+```
+monorepo/
+├── _float/                  # Root system
+├── packages/
+│   ├── frontend/
+│   │   └── _float/          # Subsystem
+│   └── backend/
+│       └── _float/          # Subsystem
+```
+
+**Behavior:**
+- Each `_float/` is independent — not nested or inherited
+- When working in a subfolder, check for local `_float/`
+- If found, boot that system for local context
+- Root and subsystem contexts don't merge
+
+**When to use subsystems:**
+- Subfolder is essentially its own project
+- Has distinct structure worth documenting
+- Would benefit from its own nav files and context
+
+**When NOT to use:**
+- Simple subfolders (just use root nav)
+- Folders that are part of a unified structure
+
+Subsystems are optional. Most projects need only root `_float/`.
 
 ## Learn More
 
