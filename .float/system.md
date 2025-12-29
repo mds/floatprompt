@@ -73,7 +73,7 @@ floatprompt/
 ├── .float/                # FloatPrompt System (read first)
 │   ├── system.md          # This file (boot loader)
 │   ├── context/           # AI terrain maps
-│   │   ├── {name}.md      # Project context (named for project, not generic)
+│   │   ├── floatprompt.md # This project's terrain map
 │   │   └── decisions.md   # Decision history and rationale
 │   ├── tools/             # System tools
 │   │   └── context-creator.md

@@ -3,12 +3,13 @@ title: FloatPrompt Context
 type: context
 generated: 2025-12-29 15:00
 generator: context-creator
+renamed: 2025-12-29
 
 human_refinements: |
   (none yet)
 ---
 
-# FloatPrompt Context
+# FloatPrompt
 
 FloatPrompt is the invisible OS for AI — a structured text format for portable AI collaboration. Three components work together: **floatprompt doc** (YAML frontmatter for document context), **FloatPrompt** (tools that modify AI behavior via `<fp>` tags), and **FloatPrompt System** (`.float/` folders for project-wide awareness). The goal: preserve human voice and intelligence while enabling reliable AI collaboration across any platform.
 
@@ -17,7 +18,7 @@ FloatPrompt is the invisible OS for AI — a structured text format for portable
 | File | Why It Matters |
 |------|----------------|
 | `.float/system.md` | Boot protocol — read first, always. Defines all conventions. |
-| `.float/context/project.md` | This file — terrain map for AI understanding |
+| `.float/context/floatprompt.md` | This file — terrain map for AI understanding |
 | `core/os.md` | Full FloatPrompt OS (35KB) — the complete system with guided creation |
 | `core/prompt.md` | Template for creating new FloatPrompt tools |
 | `core/doc.md` | Tool for adding YAML frontmatter to documents |
@@ -31,7 +32,7 @@ FloatPrompt is the invisible OS for AI — a structured text format for portable
 For new AI sessions, read in this order:
 
 1. `.float/system.md` — Boot protocol, structure map, behavioral constraints
-2. `.float/context/project.md` — This file (terrain map, relationships)
+2. `.float/context/floatprompt.md` — This file (terrain map, relationships)
 3. `.float/nav/*.md` — All 9 navigation files for folder structure
 4. `docs/goals.md` — Goal hierarchy (strict: voice > behavior > artifacts)
 5. `docs/principles.md` — Core principles (recognition, slowness, archaeology)
@@ -70,7 +71,7 @@ Examples (proof it works)
 
 System (meta layer)
 ├── .float/system.md                — Boot loader
-├── .float/context/project.md       — This terrain map
+├── .float/context/floatprompt.md   — This terrain map
 ├── .float/tools/context-creator.md — Tool for generating context
 ├── .float/nav/float.md             — Self-documentation (describes .float/)
 ├── .float/nav/*.md                 — Folder navigation
