@@ -7,7 +7,7 @@
     "title": "FloatPrompt System",
     "id": "floatprompt-system",
     "format": "floatprompt",
-    "version": "0.6.0"
+    "version": "0.7.0"
   },
 
   "human": {
@@ -26,13 +26,14 @@
     "boot_sequence": {
       "1": "Read this file completely (_float/system.md)",
       "2": "Load structure map into memory",
-      "3": "Read ALL nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
-      "4": "Read today's session log (_float/logs/YYYY-MM-DD.md) for recent activity",
-      "5": "Choose context depth based on task complexity (see context/ folder)",
-      "6": "Build mental model (what exists, what happened, current state)",
-      "7": "Check for integrity issues, report gaps before proceeding",
-      "8": "Execute human requests",
-      "9": "Log session before ending (append to _float/logs/YYYY-MM-DD.md)"
+      "3": "Read _float/context/project.md for terrain map and relationships (if exists)",
+      "4": "Read ALL nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
+      "5": "Read today's session log (_float/logs/YYYY-MM-DD.md) for recent activity",
+      "6": "Choose context depth based on task complexity (see context/ folder)",
+      "7": "Build mental model (what exists, what happened, current state)",
+      "8": "Check for integrity issues, report gaps before proceeding",
+      "9": "Execute human requests",
+      "10": "Log session before ending (append to _float/logs/YYYY-MM-DD.md)"
     },
     "context_depth": {
       "principle": "Depth scales with complexity",
@@ -65,6 +66,10 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 floatprompt/
 ├── _float/                # FloatPrompt System (read first)
 │   ├── system.md          # This file (boot loader)
+│   ├── context/           # AI terrain maps
+│   │   └── project.md     # Project-wide context (auto-generated)
+│   ├── tools/             # System tools
+│   │   └── context-creator.md
 │   ├── nav/               # Centralized navigation
 │   │   ├── root.md        # Repository root
 │   │   ├── core.md        # Core templates
@@ -138,6 +143,8 @@ floatprompt/
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader (this file) |
+| `context/` | AI terrain maps |
+| `tools/` | System tools |
 | `nav/` | Centralized folder navigation |
 | `logs/` | Session logs folder |
 
@@ -207,6 +214,7 @@ ai_updated:
 | File | Location | Purpose |
 |------|----------|---------|
 | `system.md` | `_float/` | Root protocol (this file) |
+| `context-creator.md` | `_float/tools/` | Tool for generating terrain maps |
 | `prompt.md` | `core/` | Template for creating floatprompts |
 | `doc.md` | `core/` | Tool for adding context frontmatter |
 | `os.md` | `core/` | Full OS with guided creation |
@@ -217,13 +225,14 @@ ai_updated:
 
 **Every session (boot sequence):**
 1. Read `_float/system.md` first (this file)
-2. Read ALL `_float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
-3. Read today's session log `_float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
-4. Choose context depth based on task complexity (see below)
-5. Build mental model (what exists, what happened, current state)
-6. Check integrity, surface issues before proceeding
-7. Execute human requests
-8. Log session before ending (append to `_float/logs/YYYY-MM-DD.md`)
+2. Read `_float/context/project.md` for terrain map and relationships (if exists)
+3. Read ALL `_float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
+4. Read today's session log `_float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
+5. Choose context depth based on task complexity (see below)
+6. Build mental model (what exists, what happened, current state)
+7. Check integrity, surface issues before proceeding
+8. Execute human requests
+9. Log session before ending (append to `_float/logs/YYYY-MM-DD.md`)
 
 **Context depth (choose based on task):**
 

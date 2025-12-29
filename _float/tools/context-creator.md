@@ -1,0 +1,205 @@
+<fp>
+<json>
+{
+  "STOP": "Context Creator Mode. Generate or update _float/context/project.md for this project. Discover what matters, identify relationships, create a terrain map for AI understanding. Output is emergent based on what you find. Filename is 'project.md' by default but can be changed if project suggests better name.",
+
+  "meta": {
+    "title": "FloatPrompt Context Creator",
+    "id": "floatprompt-context-creator",
+    "format": "floatprompt",
+    "version": "0.1.0"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Generate terrain maps that give AI instant understanding of any project",
+    "context": "System file for FloatPrompt System — used by Context Buoy or standalone"
+  },
+
+  "ai": {
+    "role": "Project archaeologist and cartographer",
+    "behavior": "Discover patterns, relationships, and meaning. Generate emergent context based on what you find, not prescribed templates."
+  },
+
+  "requirements": {
+    "discovery_first": {
+      "principle": "Understand before documenting",
+      "scan": "Read system.md, all nav/*.md, README, and key entry points",
+      "identify": "Patterns, conventions, relationships, reading order",
+      "note": "What makes this project unique? What would confuse a new AI?"
+    },
+    "emergent_output": {
+      "principle": "Let the project shape the content",
+      "no_templates": "Don't force sections that don't apply",
+      "add_sections": "Create sections for what you discover",
+      "minimum": ["what this IS", "key files", "reading order", "domain relationships"]
+    },
+    "preserve_human": {
+      "check": "If _float/context/project.md exists, read it first",
+      "preserve": "Sections marked as human-added or in human_refinements",
+      "merge": "Integrate new discoveries with existing human context"
+    },
+    "depth_scaling": {
+      "default": "Standard terrain map — enough for operational understanding",
+      "deep": "If human requests deeper context, expand specific areas",
+      "focused": "If human specifies area, go deep on that domain only"
+    }
+  }
+}
+</json>
+<md>
+# FloatPrompt Context Creator
+
+**Generate terrain maps for AI understanding.**
+
+This tool creates `_float/context/project.md` — the understanding layer that complements nav/*.md structure files.
+
+## Quick Start
+
+**Auto-generate context:**
+```
+Create context for this project
+```
+
+**Update existing context:**
+```
+Update the project context
+```
+
+**Go deeper on specific area:**
+```
+Add deeper context for the API layer
+```
+
+## What It Creates
+
+A terrain map that answers:
+- What IS this project? (one paragraph)
+- Which files matter most and why?
+- What order should AI read files?
+- How do domains/folders relate?
+- What patterns and conventions exist?
+
+## Process
+
+### 1. Discover
+
+Read and analyze:
+- `_float/system.md` — Boot protocol
+- `_float/nav/*.md` — All navigation files
+- `README.md` — Project overview
+- Key entry points (main files, index files, core modules)
+
+Look for:
+- Patterns in naming, structure, organization
+- Relationships between folders
+- Central concepts and terminology
+- What makes this project unique
+
+### 2. Generate
+
+Create emergent sections based on discovery:
+
+```markdown
+---
+title: {Project} Context
+type: context
+generated: YYYY-MM-DD HH:MM
+generator: context-creator
+
+human_refinements: |
+  {preserved from previous version if exists}
+---
+
+# {Project} Context
+
+{One paragraph: what this project IS, its purpose, its shape}
+
+## Key Files
+
+| File | Why It Matters |
+|------|----------------|
+| `path/file` | {significance} |
+
+## Reading Order
+
+For new AI sessions:
+
+1. `_float/system.md` — {why}
+2. `{next file}` — {why}
+...
+
+## Domain Map
+
+{How folders/concepts relate — emergent format}
+
+## {Emergent Sections}
+
+{Whatever else matters for this project}
+```
+
+### 3. Preserve
+
+If updating existing context:
+- Keep sections marked as human-added
+- Preserve `human_refinements` frontmatter
+- Merge new discoveries with existing context
+- Note what changed
+
+## Output Location
+
+```
+_float/context/project.md
+```
+
+Default filename is `project.md`. Context Buoy may choose a different name if the project suggests one (emergent naming).
+
+Future: Additional domain-specific context files as siblings (e.g., `frontend.md`, `api.md`).
+
+## Depth Modes
+
+**Standard (default):**
+- Enough for operational understanding
+- Key files, reading order, domain map
+- ~50-100 lines
+
+**Deep (on request):**
+- Expanded analysis of specific areas
+- More relationships and patterns
+- Historical context if available
+
+**Focused (on request):**
+- Deep dive on one domain only
+- Useful for complex subsystems
+
+## What NOT to Include
+
+- File lists (that's nav/*.md)
+- Implementation details
+- Exhaustive documentation
+- Duplicated content from other files
+
+**Context is a map, not an atlas.**
+
+## Integration
+
+Used by:
+- **Context Buoy** — During `/float` and `/float sync`
+- **Humans directly** — Upload this file, request context creation
+- **Other AI sessions** — Reference for context generation
+
+## The Test
+
+After generating, ask:
+
+> "Could a new AI session read this and understand the project's shape, not just its structure?"
+
+If yes, context is complete. If no, discover more.
+
+---
+
+*The invisible OS for AI*
+
+Created by @mds and Claude Opus 4.5
+</md>
+</fp>

@@ -1,7 +1,7 @@
 ---
 title: Artifacts
 type: nav
-ai_updated: 2025-12-28
+ai_updated: 2025-12-29
 ---
 
 # Artifacts
@@ -18,6 +18,7 @@ Historical archive of specifications, session handoffs, and explorations.
 | **float-buoys-context.md** | Strategic thinking behind Float Buoys specification |
 | **float-buoys-test.md** | Step-by-step validation of /float commands |
 | **float-linking-spec.md** | Wikilinks, tags, and backlinks for the floatsystem |
+| **float-context-spec.md** | Auto-generated context file for AI terrain mapping |
 | **2025-12-28-cursor-context-build-path.md** | AI agent's 24-file read sequence for context |
 | **2025-12-28-cursor-summary.md** | AI context state after floatsystem activation |
 

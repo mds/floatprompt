@@ -26,12 +26,13 @@ Look for `_float/system.md` in the current working directory.
 Execute the full orientation using local files:
 
 1. **Read `_float/system.md`** — Load boot protocol, structure map, behavioral constraints
-2. **Read ALL `_float/nav/*.md` files** — Understand folder structure (centralized navigation)
-3. **Read today's session log** (`_float/logs/YYYY-MM-DD.md`) if it exists
-4. **Choose context depth** based on task complexity (if context/ folder exists)
-5. **Build mental model** — What exists, what happened, current state
-6. **Quick integrity check** — Count issues only (see below)
-7. **Report ready** — Summarize with issue count
+2. **Read `_float/context/project.md`** — Load terrain map and relationships (if exists)
+3. **Read ALL `_float/nav/*.md` files** — Understand folder structure (centralized navigation)
+4. **Read today's session log** (`_float/logs/YYYY-MM-DD.md`) if it exists
+5. **Choose context depth** based on task complexity (if context/ folder exists)
+6. **Build mental model** — What exists, what happened, current state
+7. **Quick integrity check** — Count issues only (see below)
+8. **Report ready** — Summarize with issue count
 
 **Quick Integrity Check (fast, no AI):**
 - Count files in folders but not in corresponding nav/*.md tables
@@ -40,10 +41,15 @@ Execute the full orientation using local files:
 - Skip: dotfiles, `_float/`, `node_modules/`, `.git/`, build folders
 - Result: issue count only, no details
 
+**If `_float/context/project.md` is missing:**
+- Spawn Context Buoy to generate it
+- Report: "Context: Generated _float/context/project.md"
+
 **Boot Output (healthy):**
 ```
 FloatPrompt operational.
 Directory: [path]
+Context: Loaded (or "Generated" if new)
 Status: No issues found
 Ready for: [human direction]
 ```
@@ -269,6 +275,12 @@ Activity logged to _float/logs/2025-12-28.md
 
 ### Buoy Types
 
+**Boot Phase:**
+
+| Buoy | Task | Spawned Via |
+|------|------|-------------|
+| **Context Buoy** | Generate/update `_float/context/project.md` terrain map | `Task` tool, uses `_float/tools/context-creator.md` |
+
 **Check Phase (parallel verification):**
 
 | Buoy | Task | Spawned Via |
@@ -311,6 +323,18 @@ Sync complete. 15 changes applied.
 ### Buoy Instructions
 
 Each buoy receives specific instructions when spawned:
+
+**Context Buoy prompt:**
+```
+Generate or update _float/context/project.md for this project:
+1. Read _float/system.md and all _float/nav/*.md files
+2. Read _float/tools/context-creator.md for generation protocol
+3. Identify key files, reading order, domain relationships
+4. Generate emergent context based on what you discover
+5. If project.md exists, preserve human_refinements sections
+6. Filename is 'project.md' by default, but choose better name if project suggests one
+Output: _float/context/project.md with terrain map for AI understanding
+```
 
 **Check Buoy prompt:**
 ```
@@ -402,8 +426,11 @@ FloatPrompt System is now in sync
 ## Reference
 
 Full specification: `artifacts/float-buoys-commands-spec.md`
+Context specification: `artifacts/float-context-spec.md`
 
 Key conventions:
 - `_float/system.md` — Boot loader (root only)
+- `_float/context/project.md` — AI terrain map (auto-generated)
+- `_float/tools/context-creator.md` — Tool for generating context
 - `_float/nav/*.md` — Centralized folder navigation
 - `_float/logs/YYYY-MM-DD.md` — Session logs (root only)
