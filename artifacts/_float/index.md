@@ -13,7 +13,8 @@ Historical archive and active specifications for FloatPrompt evolution.
 
 | File | Purpose |
 |------|---------|
-| **float-buoys-commands-spec.md** | Float Buoys via Claude Code — `/float verify` and `/float sync` slash commands (active) |
+| **float-buoys-commands-spec.md** | Float Buoys via Claude Code — `/float` and `/float sync` commands (active) |
+| **float-buoys-test.md** | Step-by-step test plan for validating the buoy system |
 | **float-buoys-daemon-spec.md** | Float Buoys via Node.js daemon — background file watcher (tabled for now) |
 | **float-buoys-context.md** | Strategic context and decision rationale for both specs |
 | **floatprompt-npm-scaffold-spec.md** | npm package scaffold specification (uses `_float/` architecture) |

@@ -41,6 +41,7 @@ Core documentation for FloatPrompt. Start here to understand the system.
 | File | Intent | Purpose |
 |------|--------|---------|
 | **use.md** | Show practical applications | Coaches, writers, extractors, assistants |
+| **floatclaude.md** | Document Claude Code integration | `/float` and `/float sync` commands |
 
 ### Subfolders
 
@@ -69,6 +70,7 @@ Core documentation for FloatPrompt. Start here to understand the system.
 
 **Practical:**
 9. **use.md** - What you can build: coaches, writers, extractors, assistants
+10. **floatclaude.md** - Claude Code integration: `/float` and `/float sync` commands
 
 ---
 
