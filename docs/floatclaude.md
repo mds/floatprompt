@@ -126,23 +126,35 @@ Apply changes? (y/n):
 
 **If you say 'n':** No changes made. You got your inspection.
 
-**If you say 'y':** Buoys apply changes, descriptions generated, activity logged.
+**If you say 'y':** Buoys spawn in parallel, apply changes, log activity.
 
 ---
 
-## Buoys
+## Buoy Orchestration
 
-Sync spawns specialized agents called "buoys" for each task type:
+**Buoys are Task agents.** Each buoy is spawned via Claude Code's Task tool, allowing parallel execution across your directory.
 
-| Buoy | Purpose | AI? |
-|------|---------|-----|
-| **Index Buoy** | Add/remove rows in file tables | No |
-| **System Buoy** | Update structure map | No |
-| **Scaffold Buoy** | Create missing `_float/index.md` | Minimal |
-| **Describe Buoy** | Generate file descriptions | Yes (Haiku) |
-| **Log Buoy** | Record activity to logs | No |
+| Buoy | Purpose | Model |
+|------|---------|-------|
+| **Index Buoy** | Add/remove rows in file tables | general-purpose |
+| **System Buoy** | Update structure map | general-purpose |
+| **Scaffold Buoy** | Create missing `_float/index.md` | general-purpose |
+| **Describe Buoy** | Generate file descriptions | haiku |
+| **Log Buoy** | Record activity to logs | general-purpose |
 
-Most operations are pure file manipulation. AI is only used for generating descriptions of new files.
+**Parallel execution:** Multiple buoys spawn simultaneously. If 10 files need descriptions, multiple Describe Buoys work in parallel.
+
+```
+Spawning buoys...
+  → Index Buoy (x3): docs/, src/, tests/
+  → Describe Buoy (x4): batch of files
+  → Scaffold Buoy: new folder
+
+All buoys complete.
+  → Log Buoy: Recording activity
+
+Sync complete.
+```
 
 ---
 

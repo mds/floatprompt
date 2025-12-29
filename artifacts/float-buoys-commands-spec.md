@@ -21,7 +21,7 @@ ai_notes: |
 
 # Float Buoys Commands Specification
 
-**On-demand FloatSystem maintenance via Claude Code slash commands.** No daemon, no install, no background process. Just commands that spawn buoys when you need them.
+**On-demand FloatSystem maintenance via Claude Code slash commands.** No daemon, no install, no background process. Just commands that spawn buoys — specialized Task agents that work in parallel on your directory.
 
 ---
 
@@ -235,6 +235,8 @@ All clear. No issues found.
 
 ## Buoy Spawning
 
+**Buoys are Task agents.** Each buoy is spawned via Claude Code's Task tool, allowing parallel execution across your directory.
+
 Uses Claude Code's Task tool to spawn buoys in parallel where possible.
 
 **Example: 3 new files need descriptions**
@@ -252,6 +254,18 @@ Results:
 ```
 
 Parallel execution keeps sync fast even with multiple files.
+
+**How buoys are spawned:**
+
+| Buoy | Task Tool Config |
+|------|------------------|
+| Index Buoy | `subagent_type: "general-purpose"` |
+| System Buoy | `subagent_type: "general-purpose"` |
+| Describe Buoy | `subagent_type: "general-purpose"`, `model: "haiku"` |
+| Scaffold Buoy | `subagent_type: "general-purpose"` |
+| Log Buoy | `subagent_type: "general-purpose"` |
+
+Multiple buoys of the same type can run simultaneously (e.g., 4 Describe Buoys processing different files).
 
 ---
 

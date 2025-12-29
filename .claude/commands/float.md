@@ -214,37 +214,125 @@ Apply changes? (y/n):
 
 **If 'n':** "No changes made."
 
-**If 'y':** Generate descriptions, spawn buoys, apply changes, log activity.
+**If 'y':** Spawn agents in parallel, apply changes, log activity.
+
+```
+Spawning agents...
+  → Index Agent: Updating docs/_float/index.md
+  → Scaffold Agent: Creating examples/new-example/_float/index.md
+  → System Agent: Updating structure map
+  → Describe Agent: Generating description for new-feature.md
+
+Describe Agent complete:
+  new-feature.md → "Feature documentation for user authentication flow"
+  [accept/edit/skip]: accept
+
+All agents complete.
+  → Log Agent: Recording activity
+
+Sync complete. 4 changes applied.
+Activity logged to _float/logs/2025-12-28.md
+```
 
 ---
 
-## Buoy Behavior
+## Buoy Orchestration
 
-Sync spawns specialized buoys (via Task tool) for each task type:
+**Buoys are Task agents.** Each buoy is spawned via Claude Code's Task tool, allowing parallel execution across your directory.
 
-### Index Buoy (No AI)
-- Add/remove rows in file and folder tables
-- Detect and preserve table format (2-column vs 3-column)
+### How It Works
+
+1. Main Claude runs integrity check and shows proposed changes
+2. User approves
+3. Main Claude spawns buoys in parallel:
+   ```
+   Spawning buoys...
+   → Index Buoy: Updating 3 index files...
+   → System Buoy: Updating structure map...
+   → Describe Buoy (x4): Generating descriptions...
+   → Scaffold Buoy: Creating 2 new index files...
+   ```
+4. Buoys work in parallel, report back
+5. Log Buoy records all activity
+6. Main Claude reports completion
+
+### Buoy Types
+
+| Buoy | Task | Spawned Via |
+|------|------|-------------|
+| **Index Buoy** | Add/remove rows in index tables | `Task` tool, general-purpose |
+| **System Buoy** | Update structure map in system.md | `Task` tool, general-purpose |
+| **Describe Buoy** | Generate file descriptions | `Task` tool, model: haiku |
+| **Scaffold Buoy** | Create new `_float/index.md` files | `Task` tool, general-purpose |
+| **Log Buoy** | Record activity to logs | `Task` tool, general-purpose |
+
+### Parallelization
+
+- **Multiple files need descriptions?** Spawn multiple Describe Buoys in parallel
+- **Multiple index files need updates?** Spawn multiple Index Buoys in parallel
+- **Multiple folders need scaffolding?** Spawn multiple Scaffold Buoys in parallel
+
+Example with 10 new files across 3 folders:
+```
+Spawning buoys (8 parallel)...
+  → Index Buoy (x3): docs/, src/, tests/
+  → Describe Buoy (x4): batch 1 of files
+  → Scaffold Buoy (x1): new folder
+
+[Describe Buoys complete, spawning batch 2...]
+  → Describe Buoy (x4): batch 2 of files
+
+[All buoys complete]
+  → Log Buoy: Recording activity
+
+Sync complete. 15 changes applied.
+```
+
+### Buoy Instructions
+
+Each buoy receives specific instructions when spawned:
+
+**Index Buoy prompt:**
+```
+Update the file table in [path]/_float/index.md:
+- Add rows: [list of files to add]
+- Remove rows: [list of files to remove]
+- Preserve existing table format (column count, headers)
 - Maintain alphabetical order
-- Update `ai_updated` timestamp
+- Update ai_updated timestamp
+```
 
-### System Buoy (No AI)
-- Update structure map in `_float/system.md`
-- Add/remove folders from tree
+**Describe Buoy prompt:**
+```
+Read [file_path] and generate a one-line description (under 80 chars).
+Focus on what the file DOES, not implementation details.
+Skip if config file. Return description for approval.
+```
 
-### Scaffold Buoy (Minimal AI)
-- Create `_float/index.md` for new folders
-- Use standard descriptions for obvious folders (`docs/`, `src/`, etc.)
-- Mark non-obvious as `[TODO: Add description]`
+**Scaffold Buoy prompt:**
+```
+Create _float/index.md for [folder_path]:
+- List all files and subfolders
+- Use standard descriptions for obvious folders
+- Mark others as [needs description]
+- Follow Index File Format template
+```
 
-### Describe Buoy (Haiku)
-- Generate one-line descriptions (under 80 chars)
-- Skip config files (`.json`, `.yaml`, `.env`, etc.)
-- Return for human approval: `[accept/edit/skip]`
+**System Buoy prompt:**
+```
+Update structure map in _float/system.md:
+- Add folders: [list]
+- Remove folders: [list]
+- Preserve existing annotations
+```
 
-### Log Buoy (No AI)
-- Append activity to `_float/logs/YYYY-MM-DD.md`
-- Create log file if doesn't exist
+**Log Buoy prompt:**
+```
+Append to _float/logs/YYYY-MM-DD.md:
+- Record all changes made by other buoys
+- Use format: ## HH:MM — /float sync
+- One line per action
+```
 
 ---
 
@@ -255,7 +343,7 @@ User runs /float
     ↓
 Boot sequence executes
     ↓
-Quick health check: "3 issues detected"
+Quick health check: "3 issues found"
     ↓
 User runs /float sync
     ↓
@@ -265,7 +353,11 @@ Proposed changes shown
     ↓
 User approves (y) or declines (n)
     ↓
-If approved: Buoys spawn, changes apply, activity logged
+If approved:
+    ↓
+Agents spawn in parallel (Index, System, Describe, Scaffold)
+    ↓
+Agents complete, Log Agent records activity
     ↓
 FloatSystem is now in sync
 ```
