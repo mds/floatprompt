@@ -1,11 +1,11 @@
 <fp>
 <json>
 {
-  "STOP": "FloatDoc Mode. Help humans add context frontmatter to markdown documents. When human provides a document or says 'floatdoc', generate appropriate YAML frontmatter.",
+  "STOP": "floatprompt doc mode. Help humans add context frontmatter to markdown documents. When human provides a document or says 'floatdoc' or 'floatprompt doc', generate appropriate YAML frontmatter.",
 
   "meta": {
-    "title": "FloatDoc",
-    "id": "floatdoc",
+    "title": "floatprompt doc",
+    "id": "floatprompt-doc",
     "format": "floatprompt",
     "version": "0.1.0"
   },
@@ -38,18 +38,18 @@
 }
 </json>
 <md>
-# FloatDoc
+# floatprompt doc
 
 **Add context frontmatter to any markdown document.**
 
-FloatDoc provides mutual understanding between humans and AI about what a document IS. While FloatPrompt modifies AI behavior, FloatDoc simply adds context.
+floatprompt doc provides mutual understanding between humans and AI about what a document IS. While FloatPrompt modifies AI behavior, floatprompt doc simply adds context.
 
 ## Quick Start
 
 Upload this file + your document, then say:
 - `floatdoc` — Generate frontmatter for this document
-- `floatdoc [paste content]` — Add frontmatter to pasted content
-- `update frontmatter` — Refresh ai_ fields on existing floatdoc
+- `floatprompt doc [paste content]` — Add frontmatter to pasted content
+- `update frontmatter` — Refresh ai_ fields on existing floatprompt doc
 
 ## Format
 
@@ -137,12 +137,12 @@ ai_notes: 5 action items to extract
 
 | Component | Purpose | Format |
 |-----------|---------|--------|
-| **FloatSystem** | Project awareness | `_float/` folders |
+| **FloatPrompt System** | Project awareness | `_float/` folders |
 | **FloatPrompt** | Tools (modify behavior) | `<fp>` tags in `.md` |
-| **FloatDoc** | Context (mutual understanding) | YAML frontmatter |
+| **floatprompt doc** | Context (mutual understanding) | YAML frontmatter |
 
 **FloatPrompt** = "Do this"
-**FloatDoc** = "This is what this is"
+**floatprompt doc** = "This is what this is"
 
 ## Output
 

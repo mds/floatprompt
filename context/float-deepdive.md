@@ -127,7 +127,7 @@ Fill remaining gaps:
 
 | # | File | What You'll Learn |
 |---|------|-------------------|
-| 22 | `core/doc.md` | FloatDoc tool, field ownership model |
+| 22 | `core/doc.md` | floatprompt doc tool, field ownership model |
 | 23 | `docs/voice.md` | Voice preservation rules, what to avoid |
 | 24 | `docs/mds-method.md` | Universal methodology, loop structure |
 
@@ -165,7 +165,7 @@ After each loop, ask:
 
 After all 5 loops, you have:
 
-- **Full architecture understanding** (FloatDoc, FloatPrompt, FloatSystem)
+- **Full architecture understanding** (floatprompt doc, FloatPrompt, FloatPrompt System)
 - **Deep philosophy** (why it exists, what it protects)
 - **Methodology mastery** (MDS loops, friction pipeline)
 - **Voice preservation rules** (what to preserve, what to avoid)

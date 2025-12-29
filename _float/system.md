@@ -1,10 +1,10 @@
 <fp>
 <json>
 {
-  "STOP": "FloatSystem Protocol. You are entering a self-documenting, recursive file system. Read this file completely before any action. This defines all conventions, behaviors, and maintenance protocols for the FloatPrompt project.",
+  "STOP": "FloatPrompt System Protocol. You are entering a self-documenting, recursive file system. Read this file completely before any action. This defines all conventions, behaviors, and maintenance protocols for the FloatPrompt project.",
 
   "meta": {
-    "title": "FloatSystem",
+    "title": "FloatPrompt System",
     "id": "floatprompt-system",
     "format": "floatprompt",
     "version": "0.6.0"
@@ -53,7 +53,7 @@
 }
 </json>
 <md>
-# FloatSystem: FloatPrompt
+# FloatPrompt System
 
 **The invisible OS for AI**
 
@@ -63,7 +63,7 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 
 ```
 floatprompt/
-├── _float/                # FloatSystem container (read first)
+├── _float/                # FloatPrompt System (read first)
 │   ├── system.md          # This file (boot loader)
 │   ├── nav/               # Centralized navigation
 │   │   ├── root.md        # Repository root
@@ -81,13 +81,13 @@ floatprompt/
 │
 ├── core/                  # Essential templates (ships with npx floatprompt)
 │   ├── prompt.md          # FloatPrompt template
-│   ├── doc.md             # FloatDoc tool
+│   ├── doc.md             # floatprompt doc tool
 │   └── os.md              # Full FloatPrompt OS
 │
 ├── docs/                  # Core documentation
 │   ├── floatprompt.md     # FloatPrompt file format
-│   ├── floatdoc.md        # FloatDoc format
-│   ├── floatsystem.md     # FloatSystem architecture
+│   ├── doc.md             # floatprompt doc format
+│   ├── system.md          # FloatPrompt System architecture
 │   ├── mds-method.md      # MDS methodology
 │   ├── goals.md           # Goal hierarchy
 │   ├── principles.md      # Core principles
@@ -127,10 +127,10 @@ floatprompt/
 
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
-| `_float/system.md` | FloatSystem | `<fp>` tags | Root behavioral protocol (this file) |
-| `_float/nav/*.md` | FloatNav | Minimal YAML | Folder navigation (centralized) |
+| `_float/system.md` | FloatPrompt System | `<fp>` tags | Root behavioral protocol (this file) |
+| `_float/nav/*.md` | Nav files | Minimal YAML | Folder navigation (centralized) |
 | `_float/logs/*.md` | FloatLog | Minimal YAML | Session logs |
-| `*.md` with frontmatter | FloatDoc | YAML frontmatter | Document context |
+| `*.md` with frontmatter | floatprompt doc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
 
 ### Root: `_float/` folder
@@ -156,7 +156,24 @@ floatprompt/
 
 **Centralized pattern:** All navigation lives in `_float/nav/`. No scattered files. AI reads one location for complete folder context.
 
-### FloatDoc Frontmatter
+### Nav File Subfolder Rules
+
+**List in nav files:**
+- Subfolders users need to navigate
+- Folders with distinct purposes
+
+**Skip in nav files:**
+- Build outputs: `dist/`, `build/`, `node_modules/`
+- Archives: `_archive/`, `archive/`
+- Deprecated patterns: nested `_float/` subfolders (use root `_float/` only)
+- Generated content
+
+**When to split into separate nav file:**
+- Subfolder has 10+ navigable items
+- Subfolder has complex internal structure
+- Subfolder serves a different audience
+
+### floatprompt doc Frontmatter
 
 ```yaml
 ---
@@ -175,7 +192,7 @@ ai_notes:
 ---
 ```
 
-### FloatNav Frontmatter (nav/*.md)
+### Nav File Frontmatter (nav/*.md)
 
 ```yaml
 ---
@@ -235,7 +252,7 @@ commit: [hash]
 
 **When issues found:**
 ```
-FloatSystem Integrity Issues:
+FloatPrompt System Integrity Issues:
 
 1. Stale: nav/docs.md missing new file
 2. Broken link: references deleted file

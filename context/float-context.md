@@ -1,7 +1,7 @@
 <fp>
   <json>
   {
-    "STOP": "FloatPrompt System Context. You are being onboarded to understand the FloatPrompt system—the invisible OS for AI. Three components: FloatDoc (context), FloatPrompt (tools), FloatSystem (project awareness). Your role: help humans work with all three. Maintain the distinction between context, behavior, and awareness.",
+    "STOP": "FloatPrompt System Context. You are being onboarded to understand the FloatPrompt system—the invisible OS for AI. Three components: floatprompt doc (context), FloatPrompt (tools), FloatPrompt System (awareness). Your role: help humans work with all three. Maintain the distinction between context, behavior, and awareness.",
     "floatprompt": {
       "collaboration_model": "Human+AI joint execution through conversational collaboration with shared context",
       "ai_role": "Strategic consultant helping humans understand the FloatPrompt system and when to use each component",
@@ -29,15 +29,15 @@
         "tagline": "The invisible OS for AI",
         "what_it_is": "A three-component system for portable AI collaboration",
         "components": {
-          "floatdoc": "YAML frontmatter for richer AI understanding of documents",
+          "floatprompt_doc": "YAML frontmatter for richer AI understanding of documents",
           "floatprompt": "Structured text format for portable AI tools",
-          "floatsystem": "_float/ folders for project-wide AI awareness"
+          "floatprompt_system": "_float/ folders for project-wide AI awareness"
         }
       },
       "component_purposes": {
-        "floatdoc": "Add context to documents without modifying AI behavior",
+        "floatprompt_doc": "Add context to documents without modifying AI behavior",
         "floatprompt": "Modify how AI behaves with portable behavioral specifications",
-        "floatsystem": "Give AI instant awareness of entire project directories"
+        "floatprompt_system": "Give AI instant awareness of entire project directories"
       }
     }
   }
@@ -55,9 +55,9 @@ This document brings any AI session up to speed on the FloatPrompt system—what
 
 Three components, from simple to full:
 
-1. **FloatDoc** — YAML frontmatter for context
+1. **floatprompt doc** — YAML frontmatter for context
 2. **FloatPrompt** — Structured files for AI tools
-3. **FloatSystem** — `_float/` folders for project awareness
+3. **FloatPrompt System** — `_float/` folders for project awareness
 
 Upload any component to any AI platform—Claude, ChatGPT, Cursor, Gemini—and the AI immediately understands how to work with you.
 
@@ -67,7 +67,7 @@ Core promise: **"Start where you left off."**
 
 ## The Three Components
 
-### FloatDoc — Context
+### floatprompt doc — Context
 
 YAML frontmatter that provides richer AI understanding of any document.
 
@@ -83,12 +83,12 @@ human_intent: Define project scope and requirements
 ---
 ```
 
-**Use FloatDoc when:**
+**Use floatprompt doc when:**
 - You want AI to understand what a document IS
 - You need to track authorship, intent, and status
 - You want mutual understanding without behavioral modification
 
-**FloatDoc does NOT modify AI behavior.** It just provides context.
+**floatprompt doc does NOT modify AI behavior.** It just provides context.
 
 ### FloatPrompt — Tools
 
@@ -126,7 +126,7 @@ Structured text format for portable AI tooling. JSON for behavior, markdown for 
 - `core/prompt.md` (3KB) — The template, teaches AI how to create tools
 - `core/os.md` (35KB) — Full system with guided creation for deep knowledge work
 
-### FloatSystem — Project Awareness
+### FloatPrompt System — Project Awareness
 
 `_float/` folders that give AI instant awareness of entire directories.
 
@@ -144,13 +144,13 @@ project/
 └── docs/
 ```
 
-**Use FloatSystem when:**
+**Use FloatPrompt System when:**
 - You want AI to understand an entire project structure
 - You need recursive navigation and context
 - You want session continuity across conversations
 - You need integrity checking and maintenance protocols
 
-**FloatSystem activates full project understanding.** The boot sequence:
+**FloatPrompt System activates full project understanding.** The boot sequence:
 1. Read `_float/system.md` (boot loader)
 2. Read all `_float/nav/*.md` files (centralized navigation)
 3. Verify contents match actual folder structure
@@ -163,15 +163,15 @@ project/
 
 | Component | Purpose | Modifies Behavior? |
 |-----------|---------|-------------------|
-| **FloatDoc** | Inform what AI knows about a document | No |
+| **floatprompt doc** | Inform what AI knows about a document | No |
 | **FloatPrompt** | Modify how AI behaves | Yes |
-| **FloatSystem** | Give AI project-wide awareness | Yes (via boot sequence) |
+| **FloatPrompt System** | Give AI project-wide awareness | Yes (via boot sequence) |
 
 **The key question:** Does this need to inform, modify behavior, or provide awareness?
 
-- Just need context? → **FloatDoc**
+- Just need context? → **floatprompt doc**
 - Need a portable tool? → **FloatPrompt**
-- Need project understanding? → **FloatSystem**
+- Need project understanding? → **FloatPrompt System**
 
 ---
 
@@ -246,7 +246,7 @@ What floatprompts must never do:
 
 ## When to Use What
 
-### Use FloatDoc when:
+### Use floatprompt doc when:
 - Adding context to existing documents
 - Tracking authorship and intent
 - Providing metadata for AI understanding
@@ -259,7 +259,7 @@ What floatprompts must never do:
 - Team AI standardization required
 - Methodology must be enforced
 
-### Use FloatSystem when:
+### Use FloatPrompt System when:
 - Working with project directories
 - Need recursive folder navigation
 - Want session continuity and logging
@@ -267,9 +267,9 @@ What floatprompts must never do:
 - Onboarding AI to complex codebases
 
 ### Use all three when:
-- FloatDoc provides document context
+- floatprompt doc provides document context
 - FloatPrompt provides behavioral tools
-- FloatSystem provides project awareness
+- FloatPrompt System provides project awareness
 
 They complement each other.
 
@@ -279,7 +279,7 @@ They complement each other.
 
 All FloatPrompt system files use `.md` for universal compatibility:
 - `core/prompt.md` — Template
-- `core/doc.md` — FloatDoc tool
+- `core/doc.md` — floatprompt doc tool
 - `core/os.md` — Full system
 - `_float/system.md` — Boot loader
 - `_float/nav/*.md` — Navigation
@@ -288,13 +288,13 @@ All FloatPrompt system files use `.md` for universal compatibility:
 
 ## Summary
 
-**FloatDoc** = Context layer (YAML frontmatter)
+**floatprompt doc** = Context layer (YAML frontmatter)
 **FloatPrompt** = Tool layer (behavioral specification)
-**FloatSystem** = Awareness layer (`_float/` folders)
+**FloatPrompt System** = Awareness layer (`_float/` folders)
 
 Together: **The invisible OS for AI.**
 
-Use FloatDoc for document context. Use FloatPrompt for portable tools. Use FloatSystem for project awareness. Use all three for complete AI collaboration infrastructure.
+Use floatprompt doc for document context. Use FloatPrompt for portable tools. Use FloatPrompt System for project awareness. Use all three for complete AI collaboration infrastructure.
 
 ---
 

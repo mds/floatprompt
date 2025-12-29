@@ -14,12 +14,12 @@ Historical archive of specifications, session handoffs, and explorations.
 |------|---------|
 | **floatprompt-npm-scaffold-spec.md** | Current npm tool specification |
 | **float-buoys-commands-spec.md** | On-demand /float and /float sync commands |
-| **float-buoys-daemon-spec.md** | Background daemon to auto-maintain FloatSystem files |
+| **float-buoys-daemon-spec.md** | Background daemon to auto-maintain floatsystem files |
 | **float-buoys-context.md** | Strategic thinking behind Float Buoys specification |
 | **float-buoys-test.md** | Step-by-step validation of /float commands |
-| **float-linking-spec.md** | Wikilinks, tags, and backlinks for FloatSystem |
+| **float-linking-spec.md** | Wikilinks, tags, and backlinks for the floatsystem |
 | **2025-12-28-cursor-context-build-path.md** | AI agent's 24-file read sequence for context |
-| **2025-12-28-cursor-summary.md** | AI context state after FloatSystem activation |
+| **2025-12-28-cursor-summary.md** | AI context state after floatsystem activation |
 
 ## Subfolders
 

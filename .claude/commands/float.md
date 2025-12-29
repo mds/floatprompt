@@ -1,6 +1,6 @@
-# /float — FloatSystem Boot and Sync
+# /float — FloatPrompt Boot and Sync
 
-The complete FloatSystem maintenance command. Two modes: boot (default) and sync.
+The complete FloatPrompt System maintenance command. Two modes: boot (default) and sync.
 
 ## Routing
 
@@ -15,13 +15,13 @@ Parse `$ARGUMENTS` to determine action:
 
 ## /float (Boot + Health Check)
 
-**Step 1: Check for existing FloatSystem**
+**Step 1: Check for existing FloatPrompt System**
 
 Look for `_float/system.md` in the current working directory.
 
 ---
 
-### If `_float/system.md` EXISTS → Boot Sequence
+### If `_float/system.md` EXISTS → Boot FloatPrompt System
 
 Execute the full orientation using local files:
 
@@ -42,7 +42,7 @@ Execute the full orientation using local files:
 
 **Boot Output (healthy):**
 ```
-FloatSystem: BOOTED
+FloatPrompt operational.
 Directory: [path]
 Status: No issues found
 Ready for: [human direction]
@@ -50,7 +50,7 @@ Ready for: [human direction]
 
 **Boot Output (issues detected):**
 ```
-FloatSystem: BOOTED
+FloatPrompt operational.
 Directory: [path]
 Status: [N] issues found
 
@@ -61,12 +61,12 @@ Run /float sync to see details and fix
 
 ### If `_float/system.md` DOES NOT EXIST → Init Sequence
 
-Fetch the FloatSystem spec from GitHub, then create the architecture, then auto-boot.
+Fetch the FloatPrompt System spec from GitHub, then create the architecture, then auto-boot.
 
 1. **Fetch the spec** — Read these files from `https://github.com/mds/floatprompt`:
    - `_float/system.md` — Boot loader format and conventions
    - `_float/nav/root.md` — Navigation format example
-   - `docs/floatsystem.md` — Full architecture documentation
+   - `docs/floatsystem.md` — Full FloatPrompt System architecture
 
 2. **Scan the current repository** — Understand existing structure, identify all major directories
 
@@ -87,7 +87,7 @@ Fetch the FloatSystem spec from GitHub, then create the architecture, then auto-
 
 **Init Output:**
 ```
-FloatSystem: INITIALIZED
+FloatPrompt initialized.
 Directory: [path]
 Created:
   - _float/system.md
@@ -97,7 +97,7 @@ Created:
   - _float/logs/
   ...
 
-FloatSystem: BOOTED
+FloatPrompt operational.
 Status: No issues found
 Ready for: [human direction]
 ```
@@ -179,15 +179,15 @@ Full integrity check with fix capability. Shows all issues, proposes changes, ap
 
 ### Output Format
 
-**Step 1: Spawn Check Buoys and show results**
+**Step 1: Spawn fleet and show results**
 ```
-FloatSystem Sync
+FloatPrompt sync
 Directory: [path]
 
 Scanning _float/nav/*.md...
 Found N nav files.
 
-Spawning Check Buoys (N parallel)...
+Spawning fleet (N buoys)...
   → Check Buoy: nav/root.md vs /
   → Check Buoy: nav/docs.md vs docs/
   → Check Buoy: nav/src.md vs src/
@@ -225,21 +225,21 @@ Apply changes? (y/n):
 
 **If 'n':** "No changes made."
 
-**If 'y':** Spawn agents in parallel, apply changes, log activity.
+**If 'y':** Spawn fleet, apply changes, log activity.
 
 ```
-Spawning agents...
-  → Nav Agent: Updating _float/nav/docs.md
-  → Nav Agent: Updating _float/nav/examples.md
-  → System Agent: Updating structure map
-  → Describe Agent: Generating description for new-feature.md
+Spawning fleet...
+  → Nav Buoy: Updating _float/nav/docs.md
+  → Nav Buoy: Updating _float/nav/examples.md
+  → System Buoy: Updating structure map
+  → Describe Buoy: Generating description for new-feature.md
 
-Describe Agent complete:
+Describe Buoy complete:
   new-feature.md → "Feature documentation for user authentication flow"
   [accept/edit/skip]: accept
 
-All agents complete.
-  → Log Agent: Recording activity
+Fleet complete.
+  → Log Buoy: Recording activity
 
 Sync complete. 4 changes applied.
 Activity logged to _float/logs/2025-12-28.md
@@ -394,7 +394,7 @@ Phase 2: Fix Buoys spawn in parallel (Nav, System, Describe, Scaffold)
     ↓
 Fix Buoys complete, Log Buoy records activity
     ↓
-FloatSystem is now in sync
+FloatPrompt System is now in sync
 ```
 
 ---

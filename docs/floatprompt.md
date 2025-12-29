@@ -3,7 +3,7 @@ title: FloatPrompt Format
 type: specification
 status: complete
 created: 2025-06
-related: floatdoc.md, floatsystem.md, goals.md, principles.md
+related: doc.md, system.md, goals.md, principles.md
 
 human_author: MDS
 human_intent: Define the <fp><json><md></fp> file structure

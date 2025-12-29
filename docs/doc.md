@@ -1,12 +1,12 @@
 ---
-title: FloatDoc Format
+title: floatprompt doc Format
 type: specification
 status: complete
 created: 2025-12-28
-related: floatprompt.md, floatsystem.md
+related: floatprompt.md, system.md
 
 human_author: MDS
-human_intent: Define the FloatDoc YAML frontmatter format for document context
+human_intent: Define the floatprompt doc YAML frontmatter format for document context
 human_context: Lightweight context format - mutual understanding, not behavioral modification
 
 ai_model: Claude Opus 4
@@ -14,12 +14,12 @@ ai_updated: 2025-12-28
 ai_notes: Created from artifacts/2025/floatdoc-specification.md, cleaned up for official docs
 ---
 
-# FloatDoc Format
+# floatprompt doc Format
 
-A FloatDoc is any markdown file with YAML frontmatter that provides context about what the document IS.
+A floatprompt doc is any markdown file with YAML frontmatter that provides context about what the document IS.
 
 **FloatPrompt** = "Do this" (modifies AI behavior)
-**FloatDoc** = "This is what this is" (provides context)
+**floatprompt doc** = "This is what this is" (provides context)
 
 ## Format
 
@@ -122,7 +122,7 @@ human_context: Core principle - the hierarchy is strict
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
-ai_notes: Added FloatDoc frontmatter
+ai_notes: Added floatprompt doc frontmatter
 ---
 ```
 
@@ -164,7 +164,7 @@ human_context: Personal, not for publication
 
 ## Relationship to FloatPrompt
 
-| Aspect | FloatPrompt | FloatDoc |
+| Aspect | FloatPrompt | floatprompt doc |
 |--------|-------------|----------|
 | Purpose | Modify AI behavior | Provide context |
 | Format | `<fp><json><md></fp>` | YAML frontmatter |
@@ -174,7 +174,7 @@ human_context: Personal, not for publication
 
 ## Validation
 
-A valid FloatDoc:
+A valid floatprompt doc:
 
 1. Begins with `---` and ends section with `---`
 2. Has required fields: title, type, status, created, human_author, human_intent
@@ -183,4 +183,4 @@ A valid FloatDoc:
 
 ---
 
-See also: [FloatPrompt Format](floatprompt.md) | [FloatSystem](floatsystem.md)
+See also: [FloatPrompt Format](floatprompt.md) | [FloatPrompt System](system.md)

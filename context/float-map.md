@@ -88,9 +88,9 @@ If no → Read more files or use `float-deepdive.md`
 ## Quick Reference
 
 **Three components:**
-- **FloatDoc** — YAML frontmatter for context (doesn't modify behavior)
+- **floatprompt doc** — YAML frontmatter for context (doesn't modify behavior)
 - **FloatPrompt** — `<fp>` tags for tools (modifies behavior)
-- **FloatSystem** — `_float/` folders for project awareness
+- **FloatPrompt System** — `_float/` folders for project awareness
 
 **Goal hierarchy (strict):**
 1. Human Voice & Agency (primary)

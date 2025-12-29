@@ -26,15 +26,15 @@ FloatPrompt repository root — the invisible OS for AI.
 FloatPrompt is a structured text format for portable AI collaboration. This repository contains:
 
 1. **The Format** — `<fp>` tags with JSON metadata and markdown content
-2. **The System** — FloatSystem for project awareness via `_float/`
+2. **The System** — FloatPrompt System for project awareness via `_float/`
 3. **The Examples** — Real tools built with the format
 4. **The Philosophy** — Why this approach works
 
 ## Key Concepts
 
 - **FloatPrompt**: Structured prompt format with `<fp><json>` + `<md>` sections
-- **FloatSystem**: Project awareness through `_float/` folder
-- **FloatDoc**: Document context via YAML frontmatter
+- **FloatPrompt System**: Project awareness through `_float/` folder
+- **floatprompt doc**: Document context via YAML frontmatter
 - **FloatNav**: Folder navigation (these nav/*.md files)
 
 ## MDS Methodology

@@ -45,7 +45,7 @@ That's a floatprompt. A text file that becomes a tool.
 - What it does: Teaches AI how to create floatprompts
 - Best for: Experienced users who know what they want to build
 
-**[`core/doc.md`](core/doc.md)** — FloatDoc tool
+**[`core/doc.md`](core/doc.md)** — floatprompt doc tool
 - Use when: Adding context frontmatter to any document
 - What it does: Generates YAML frontmatter for mutual understanding
 - Best for: Documenting what files ARE (not modifying behavior)
@@ -78,7 +78,7 @@ Start with the OS if you're new. Graduate to the template when you know what you
 
 Three components, from simple to full:
 
-### FloatDoc — Context
+### floatprompt doc — Context
 
 YAML frontmatter for richer AI understanding of any document.
 
@@ -104,7 +104,7 @@ Universal structure for portable AI tooling. JSON for behavior, markdown for met
 
 The template (`core/prompt.md`, 3KB) teaches AI how to create tools. The full system (`core/os.md`, 35KB) adds guided creation for deep knowledge work.
 
-### FloatSystem — Project Awareness
+### FloatPrompt System — Project Awareness
 
 `_float/` folders that give AI instant awareness of entire directories.
 
@@ -115,7 +115,7 @@ The template (`core/prompt.md`, 3KB) teaches AI how to create tools. The full sy
 **Boot sequence:** AI reads system.md, reads all nav/*.md files, builds mental model, checks integrity, then executes.
 
 **Claude Code users:** Clone this repo and run `/float` to:
-- **Boot** an existing FloatSystem (reads `_float/system.md`, runs full orientation)
+- **Boot** an existing FloatPrompt System (reads `_float/system.md`, runs full orientation)
 - **Init** a new project (fetches spec from this repo, creates `_float/` architecture)
 
 The command is auto-available — no installation needed.
@@ -203,8 +203,8 @@ Choose how deep to go:
 
 - [What You Can Build](docs/use.md)
 - [FloatPrompt Format](docs/floatprompt.md)
-- [FloatDoc Format](docs/floatdoc.md)
-- [FloatSystem Architecture](docs/floatsystem.md)
+- [floatprompt doc Format](docs/doc.md)
+- [FloatPrompt System Architecture](docs/system.md)
 - [MDS Methodology](docs/mds-method.md) (Map → Decide → Structure)
 - [Goals](docs/goals.md) | [Principles](docs/principles.md) | [Voice](docs/voice.md) | [Safety](docs/safety.md)
 

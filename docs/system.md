@@ -1,11 +1,11 @@
 ---
-title: FloatSystem
+title: FloatPrompt System
 type: documentation
 status: current
 created: 2025-12-28
 
 human_author: MDS
-human_intent: Document the FloatSystem architecture for project awareness
+human_intent: Document the FloatPrompt System architecture for project awareness
 human_context: The invisible OS for AI — instant project awareness from a single entry point
 
 ai_model: Claude Opus 4
@@ -13,7 +13,7 @@ ai_updated: 2025-12-28
 ai_notes: Updated to centralized architecture — all navigation in _float/nav/, no scattered files
 ---
 
-# FloatSystem
+# FloatPrompt System
 
 **The invisible OS for AI.**
 
@@ -31,11 +31,11 @@ Without structure, AI starts every session blind:
 
 ## The Solution
 
-FloatSystem gives AI instant awareness through a centralized pattern:
+The FloatPrompt System gives AI instant awareness through a centralized pattern:
 
 ```
 any-project/
-├── _float/                  # FloatSystem container
+├── _float/                  # FloatPrompt System
 │   ├── system.md            # Boot loader (read first)
 │   ├── nav/                 # Centralized navigation
 │   │   ├── root.md          # Describes project root
@@ -107,10 +107,10 @@ my-project/
 
 | Pattern | Type | Purpose |
 |---------|------|---------|
-| `_float/system.md` | FloatSystem | Boot loader, behavioral protocol |
-| `_float/nav/*.md` | FloatNav | Folder navigation (centralized) |
-| `_float/logs/*.md` | FloatLog | Session history |
-| `*.md` with frontmatter | FloatDoc | Document context |
+| `_float/system.md` | FloatPrompt System | Boot loader, behavioral protocol |
+| `_float/nav/*.md` | Nav files | Folder navigation (centralized) |
+| `_float/logs/*.md` | Logs | Session history |
+| `*.md` with frontmatter | floatprompt doc | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | Tools, behavioral modifiers |
 
 ## The Pilot Principle
@@ -172,17 +172,17 @@ Structure IS compression.
 
 ## Relationship to FloatPrompt
 
-| | FloatPrompt | FloatSystem |
-|--|-------------|-------------|
+| | FloatPrompt | FloatPrompt System |
+|--|-------------|---------------------|
 | **Purpose** | Build AI tools | Project awareness |
 | **Format** | `<fp>` tags | `_float/` folder |
 | **Scope** | Single tool | Entire project |
 | **Use** | Upload to AI | AI reads automatically |
 
 FloatPrompt = tools you build.
-FloatSystem = awareness AI gains.
+FloatPrompt System = awareness AI gains.
 
-They work together. FloatSystem can contain FloatPrompt tools.
+They work together. The FloatPrompt System can contain FloatPrompt tools.
 
 ## Learn More
 

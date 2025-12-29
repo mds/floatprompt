@@ -1,29 +1,29 @@
 ---
-title: FloatClaude
+title: Claude Code Integration
 type: reference
 status: active
 created: 2025-12-28
 
 human_author: MDS
-human_intent: Document the Claude Code integration for FloatSystem maintenance
-human_context: How /float commands work with FloatSystem
+human_intent: Document the Claude Code integration for FloatPrompt System maintenance
+human_context: How /float commands work with the FloatPrompt System
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
 ai_notes: Updated for centralized architecture (v0.6.0) — nav/*.md instead of scattered _float.md
 ---
 
-# FloatClaude
+# Claude Code Integration
 
-Claude Code integration for FloatSystem. Two commands that keep your `_float/` files accurate.
+Claude Code integration for the FloatPrompt System. Two commands that keep your `_float/` files accurate.
 
 ---
 
 ## Overview
 
-FloatSystem uses a centralized `_float/` folder to maintain AI-readable context about your project. FloatClaude is the Claude Code integration that:
+The FloatPrompt System uses a centralized `_float/` folder to maintain AI-readable context about your project. This integration:
 
-1. **Boots** FloatSystem at session start
+1. **Boots** the FloatPrompt System at session start
 2. **Syncs** `_float/nav/` files when they drift from reality
 
 No daemon. No npm install. Just slash commands.
@@ -34,7 +34,7 @@ No daemon. No npm install. Just slash commands.
 
 ### /float
 
-Boot FloatSystem and run a quick health check.
+Boot the FloatPrompt System and run a quick health check.
 
 ```
 /float
@@ -49,7 +49,7 @@ Boot FloatSystem and run a quick health check.
 
 **Output (healthy):**
 ```
-FloatSystem: BOOTED
+FloatPrompt operational.
 Directory: /path/to/project
 Status: No issues found
 Ready for: [human direction]
@@ -57,16 +57,16 @@ Ready for: [human direction]
 
 **Output (issues detected):**
 ```
-FloatSystem: BOOTED
+FloatPrompt operational.
 Directory: /path/to/project
 Status: 3 issues found
 
 Run /float sync to see details and fix
 ```
 
-**Output (new project — no FloatSystem yet):**
+**Output (new project — no FloatPrompt System yet):**
 ```
-FloatSystem: INITIALIZED
+FloatPrompt initialized.
 Directory: /path/to/project
 Created:
   - _float/system.md
@@ -76,7 +76,7 @@ Created:
   - _float/logs/
   ...
 
-FloatSystem: BOOTED
+FloatPrompt operational.
 Status: No issues found
 Ready for: [human direction]
 ```
@@ -98,12 +98,12 @@ Full integrity check with fix capability. Shows issues, proposes changes, applie
 4. Shows detailed issues
 5. Proposes fixes
 6. Waits for approval
-7. Spawns "buoys" to apply changes
+7. Spawns buoys (fleet) to apply changes
 8. Logs activity
 
 **Output:**
 ```
-FloatSystem Sync
+FloatPrompt sync
 Directory: /path/to/project
 
 Checking integrity...
@@ -127,13 +127,13 @@ Apply changes? (y/n):
 
 **If you say 'n':** No changes made. You got your inspection.
 
-**If you say 'y':** Buoys spawn in parallel, apply changes, log activity.
+**If you say 'y':** Fleet spawns in parallel, buoys apply changes, log activity.
 
 ---
 
 ## Buoy Orchestration
 
-**Buoys are Task agents.** Each buoy is spawned via Claude Code's Task tool, allowing parallel execution across your directory.
+**Buoys are Task agents.** Each buoy is spawned via Claude Code's Task tool, allowing parallel execution across your directory. A collection of buoys working together is a **fleet**.
 
 | Buoy | Purpose | Model |
 |------|---------|-------|
@@ -146,12 +146,12 @@ Apply changes? (y/n):
 **Parallel execution:** Multiple buoys spawn simultaneously. If 10 files need descriptions, multiple Describe Buoys work in parallel.
 
 ```
-Spawning buoys...
+Spawning fleet...
   → Nav Buoy (x3): nav/docs.md, nav/src.md, nav/tests.md
   → Describe Buoy (x4): batch of files
   → Scaffold Buoy: creating nav/newfeature.md
 
-All buoys complete.
+Fleet complete.
   → Log Buoy: Recording activity
 
 Sync complete.
@@ -164,7 +164,7 @@ Sync complete.
 ```
 /float        → Boot → "3 issues detected"
                           ↓
-/float sync   → Details → Approval → Buoys → Done
+/float sync   → Details → Approval → Fleet → Done
 ```
 
 Two commands. Simple.
@@ -202,7 +202,7 @@ Two commands. Simple.
 
 ## Architecture
 
-FloatSystem v0.6.0 uses **centralized navigation**:
+The FloatPrompt System (v0.6.0) uses **centralized navigation**:
 
 ```
 _float/
@@ -238,8 +238,8 @@ _float/
 
 ## Related
 
-- **floatsystem.md** — Full FloatSystem architecture
-- **floatdoc.md** — FloatDoc YAML frontmatter format
+- **system.md** — Full FloatPrompt System architecture
+- **doc.md** — floatprompt doc YAML frontmatter format
 - **floatprompt.md** — FloatPrompt tool format
 
 ---

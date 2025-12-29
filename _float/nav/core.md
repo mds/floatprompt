@@ -13,7 +13,7 @@ The essential FloatPrompt files that ship with `npx floatprompt`.
 | File | Purpose |
 |------|---------|
 | **prompt.md** | Basic FloatPrompt template for creating AI tools |
-| **doc.md** | FloatDoc tool for adding YAML frontmatter context |
+| **doc.md** | floatprompt doc tool for adding YAML frontmatter context |
 | **os.md** | Full FloatPrompt Operating System with advanced features |
 
 ## What Ships

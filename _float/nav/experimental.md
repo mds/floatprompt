@@ -1,7 +1,7 @@
 ---
 title: Experimental
 type: nav
-ai_updated: 2025-12-28
+ai_updated: 2025-12-29
 ---
 
 # Experimental
@@ -15,7 +15,6 @@ Legacy build system for FloatPrompt tooling. Currently inactive but preserved fo
 | **src/** | Source files |
 | **scripts/** | Build scripts |
 | **package.json** | Node.js configuration |
-| **tsconfig.json** | TypeScript configuration |
 
 ## Source Structure (src/)
 

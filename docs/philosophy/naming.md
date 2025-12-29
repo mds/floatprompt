@@ -1,172 +1,167 @@
 ---
 title: Naming Convention
 type: reference
-status: complete
+status: current
 created: 2025-06
 
 human_author: MDS
-human_intent: Define naming standards - FloatPrompt capitalization, file extensions
-human_context: Brand consistency, never plural, unified .md extension
+human_intent: Define naming standards - FloatPrompt as the brand, everything else under it
+human_context: Brand consistency, FloatPrompt [X] pattern, casual shorthand allowed
 
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
-ai_notes: Added FloatDoc frontmatter
+ai_notes: Final revision - FloatPrompt is the namespace, everything lives under it
 ---
 
 # FloatPrompt Naming Convention
 
-**Clear naming standards for FloatPrompt system components, files, and brand references**
+**FloatPrompt is the brand. Everything lives under it.**
 
-*Consistent naming conventions with unified .md extension for all files.*
+*Official naming uses "FloatPrompt [descriptor]". Casual shorthand is allowed but not in documentation.*
 
-## Purpose
+## The Core Principle
 
-Provide systematic naming standards for FloatPrompt components, files, and communications that maintain brand consistency with a unified .md extension for all files.
+**FloatPrompt** is the only proper noun. Everything else is either:
+- **FloatPrompt + descriptor** for official naming
+- **Lowercase shorthand** for casual use
 
-## **Naming Rules**
+## Official Naming (docs, README, external)
 
-| **Context** | **Format** | **Example** |
-|-------------|------------|-------------|
-| **Document titles & headers** | `FloatPrompt` | "# FloatPrompt System Goals" |
-| **Sentence beginnings** | `FloatPrompt` | "FloatPrompt enables systematic collaboration..." |
-| **Mid-sentence technical refs** | `floatprompt` | "Upload the floatprompt.md file..." |
-| **Filenames** | `floatprompt` | `floatprompt.md`, `floatprompt-goals.md` |
-| **Brand references** | `FloatPrompt` | "The FloatPrompt system serves humans" |
-| **Plural references** | `FloatPrompt files` | "Multiple FloatPrompt files can be coordinated" |
+| Thing | Official Name | Pattern |
+|-------|---------------|---------|
+| The brand/ecosystem | **FloatPrompt** | Proper noun, trademark |
+| The `_float/` architecture | **FloatPrompt System** | FloatPrompt + descriptor |
+| A specific tool | **FloatPrompt [ToolName]** | FloatPrompt Voice Guide |
+| A doc with YAML frontmatter | **floatprompt doc** | lowercase + descriptor |
+| Nav files | **nav files** | just descriptive |
+| Session logs | **session logs** | just descriptive |
+| Parallel agents | **buoys** | nautical vocabulary |
+| Collection of buoys | **fleet** | nautical vocabulary |
 
-## **File Extension Strategy**
+### Tool Naming
 
-### **Unified .md Extension**
+Specific tools use the pattern **FloatPrompt [ToolName]**:
 
-| **File Type** | **Extension** | **Example** |
-|---------------|---------------|-------------|
-| **Main System Template** | `.md` | `floatprompt.md` |
-| **Full System** | `.md` | `floatprompt-os.md` |
-| **Documentation** | `.md` | `floatdoc.md`, `goals.md` |
-| **Reference Files** | `.md` | `reference-micro.md`, `reference-mini.md` |
-| **Tools** | `.md` | `update-creator.md`, `update-protocol.md` |
+| Tool | Official Name |
+|------|---------------|
+| AI Portfolio Coach | FloatPrompt Portfolio Coach |
+| Design Feedback Extractor | FloatPrompt Feedback Extractor |
+| MDS Voice Guide | FloatPrompt Voice Guide |
+| Shortform Script Writer | FloatPrompt Script Writer |
 
-### **File Extension Rationale**
+### Heading Examples
 
-**Why .md for everything:**
-- **Universal compatibility** — .md is plain text, works on all AI platforms
-- **One extension to explain** — no confusion between .txt and .md
-- **Better rendering** — GitHub, editors, and tools render .md nicely
-- **Same portability** — .md uploads work identically to .txt
+```markdown
+# FloatPrompt System
+# FloatPrompt Voice Guide  
+# floatprompt doc Format
+```
 
-**Future Evolution (.fp):**
-- **Ecosystem maturation** with specialized tooling and enhanced features
-- **Native file support** in development environments and AI platforms
-- **Backward compatibility** maintained
-- **User choice** allowing adoption of .fp benefits when ready
+## Casual Shorthand (conversation, internal)
 
-## **Never Plural Rule**
+Shorthand is allowed in casual use but **not in official documentation**.
 
-**FloatPrompt is never plural** - consistent with technical naming like JavaScript, Python, HTML.
+| Shorthand | Means | When to use |
+|-----------|-------|-------------|
+| "a floatprompt" | A `<fp>` tool file | When context is clear |
+| "floatdoc" | A floatprompt doc | Off the record, casual |
+| "the system" | FloatPrompt System | When context is clear |
+| "floatsystem" | FloatPrompt System | Quick internal reference |
+
+## The Nautical Metaphor
+
+Everything **floats** — surfacing human intelligence to AI.
+
+| Term | What It Means |
+|------|---------------|
+| **float** | Surface context to AI (verb) |
+| **`_float/`** | Floats to top of file structure |
+| **buoy** | A focused parallel agent |
+| **fleet** | A collection of buoys working together |
+
+## Capitalization Rules
+
+| Context | Format | Example |
+|---------|--------|---------|
+| **Brand references** | `FloatPrompt` | "FloatPrompt is the invisible OS for AI" |
+| **System references** | `FloatPrompt System` | "Boot the FloatPrompt System" |
+| **Tool names** | `FloatPrompt [Name]` | "Use FloatPrompt Voice Guide" |
+| **Doc references** | `floatprompt doc` | "Add a floatprompt doc to this file" |
+| **Filenames** | lowercase | `floatprompt.md`, `system.md`, `doc.md` |
+| **Casual shorthand** | lowercase | "a floatprompt", "floatdoc" |
+
+## Never Plural Rule
+
+**FloatPrompt is never plural** — consistent with JavaScript, Python, Markdown.
 
 **✅ Correct:**
-- "FloatPrompt files"
-- "multiple FloatPrompt files" 
-- "several FloatPrompt documents"
-- "two FloatPrompt tools"
+- "FloatPrompt tools"
+- "multiple floatprompt docs"
+- "several FloatPrompt files"
 
 **❌ Incorrect:**
 - "FloatPrompts"
-- "floatprompts" 
+- "floatprompts"
 - "multiple FloatPrompts"
-- "several floatprompts"
 
-## **System Architecture Naming**
+## File Extension Strategy
 
-### **Current File Structure**
+### Unified .md Extension
+
+| File Type | Extension | Example |
+|-----------|-----------|---------|
+| Core templates | `.md` | `core/prompt.md`, `core/os.md` |
+| Documentation | `.md` | `floatprompt.md`, `system.md`, `doc.md` |
+| Nav files | `.md` | `nav/root.md`, `nav/docs.md` |
+| Session logs | `.md` | `2025-12-28.md` |
+
+**Why .md:** Universal compatibility, better rendering, one extension to explain.
+
+## Current File Structure
+
 ```
 floatprompt/
+├── _float/                      # FloatPrompt System
+│   ├── system.md                # Boot loader
+│   ├── nav/                     # Navigation files
+│   └── logs/                    # Session logs
 ├── core/                        # Essential templates
-│   ├── prompt.md                # 3KB Universal template
-│   ├── doc.md                   # FloatDoc tool
-│   └── os.md                    # 35KB Full system
+│   ├── prompt.md                # Template (creates floatprompt tools)
+│   ├── doc.md                   # Creates floatprompt docs
+│   └── os.md                    # Full system
 ├── docs/                        # Documentation
-├── artifacts/                   # Historical development artifacts
-├── dev/                         # Development files
-└── experimental/                # Archived legacy system
+└── examples/                    # FloatPrompt [ToolName] examples
 ```
 
-### **Naming Conventions**
-- **Main Template**: `core/prompt.md` (3KB complete system with creation protocol)
-- **Full System**: `core/os.md` (35KB guided tool creation)
-- **Documentation**: `{topic}.md` for all documentation
-- **Reference Files**: `reference-{type}.md` for structure examples
-- **Tools**: `{tool-name}.md` for floatprompt tools
+## Validation Examples
 
-## **Brand Positioning Language**
+### ✅ Correct
 
-### **Primary Positioning**
-- **"Complete AI collaboration system in one file"** - Core value proposition
-- **"Conversational emergence"** - Natural tool creation through dialogue
-- **"Human+AI collaboration model"** - Partnership approach vs. autonomous execution
-- **"Archaeological voice preservation"** - Unique methodology advantage
-- **"Cross-platform compatibility"** - Universal deployment capability
-
-### **Technical Terminology**
-- **"Float triggers"** - Natural language activation ("float map", "float extract", "float build", "float [anything]")
-- **"Dual architecture"** - JSON for AI behavior, markdown for human comprehension
-- **"Self-referential template"** - Template that teaches AI how to create more floatprompts
-- **"Conversational emergence"** - Tool development through collaborative dialogue
-- **"Voice preservation protocols"** - Systematic protection of human thinking patterns
-
-## **Validation Examples**
-
-### **✅ Correct Usage**
-
-**Brand References:**
+**Official:**
 - "FloatPrompt is the invisible OS for AI."
-- "The FloatPrompt system enables enhanced AI collaboration."
-- "FloatPrompt files maintain voice preservation throughout processing."
+- "The FloatPrompt System gives AI project awareness."
+- "Add a floatprompt doc to provide context."
+- "Use FloatPrompt Voice Guide to preserve your style."
 
-**Technical References:**
-- "Upload the core/prompt.md file to activate the collaboration system."
-- "Say 'float map' to create a content mapping floatprompt."
-- "The core/prompt.md contains the complete creation protocol."
+**Casual:**
+- "Boot the system and add a floatdoc."
+- "That floatprompt needs voice preservation."
 
-**File Naming:**
-- `core/prompt.md` (3KB template)
-- `core/os.md` (35KB full system)
-- `docs/floatprompt.md` (format specification)
-- `docs/reference-micro.md` (minimal structure example)
+### ❌ Incorrect
 
-### **❌ Incorrect Usage**
+- "FloatSystem gives AI awareness." (use "FloatPrompt System")
+- "Add a FloatDoc to the file." (use "floatprompt doc" or casual "floatdoc")
+- "Multiple FloatPrompts can work together." (never plural)
 
-**Brand References:**
-- "Float Prompt is a portable AI instruction set." (two words)
-- "The floatprompt system enables..." (brand reference should be title case)
-- "Multiple FloatPrompts can be coordinated..." (never plural)
+## Summary
 
-**Technical References:**
-- "Upload the FloatPrompt file to activate..." (wrong context for filename)
-- "The main FloatPrompt.txt contains..." (wrong capitalization)
-- "Several floatprompts were created..." (never plural)
+| Term | Official | Casual | Notes |
+|------|----------|--------|-------|
+| **The brand** | FloatPrompt | — | Always capitalized |
+| **The architecture** | FloatPrompt System | "the system", "floatsystem" | |
+| **A tool file** | FloatPrompt [Name] | "a floatprompt" | |
+| **A doc with frontmatter** | floatprompt doc | "floatdoc" | lowercase official |
+| **Parallel agents** | buoys | buoys | nautical |
+| **Agent collection** | fleet | fleet | nautical |
 
-**File Naming:**
-- `FloatPrompt.md` (wrong capitalization)
-- `floatprompt.fp` (current standard is .md)
-- `floatprompt-template.md` (main file is just floatprompt.md)
-
-## **Implementation Guidelines**
-
-### **For Documentation**
-- **Title case** for brand references and document titles
-- **Lowercase** for technical references and file mentions
-- **Never plural** in any context or usage
-- **Unified .md extension** for all file references
-
-### **For File Creation**
-- **Main system**: `core/prompt.md`
-- **All files**: Use .md extension
-- **Reference files**: `reference-{type}.md` format
-- **Cross-platform** compatibility through universal .md adoption
-
-### **For Communications**
-- **Brand consistency** with FloatPrompt capitalization rules
-- **Technical accuracy** reflecting current .md implementation
-- **Future awareness** acknowledging .fp evolution without premature adoption
-- **Universal accessibility** emphasizing immediate usability across all platforms
+**One brand. Everything under it. Shorthand for casual use only.**

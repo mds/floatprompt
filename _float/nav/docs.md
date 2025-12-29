@@ -6,16 +6,16 @@ ai_updated: 2025-12-28
 
 # Documentation
 
-Core documentation for FloatPrompt, FloatSystem, and the MDS methodology.
+Core documentation for FloatPrompt, the FloatPrompt System, and the MDS methodology.
 
 ## Contents
 
 | File | Purpose | Intent |
 |------|---------|--------|
-| **floatclaude.md** | Claude Code integration | Boot and sync FloatSystem context files |
+| **claude.md** | Claude Code integration | Boot and sync FloatPrompt System context files |
 | **floatprompt.md** | FloatPrompt file format specification | Define the `<fp>` tag structure |
-| **floatdoc.md** | FloatDoc format specification | Define YAML frontmatter for documents |
-| **floatsystem.md** | FloatSystem architecture | Document the `_float/` awareness system |
+| **doc.md** | floatprompt doc format specification | Define YAML frontmatter for documents |
+| **system.md** | FloatPrompt System architecture | Document the `_float/` awareness system |
 | **mds-method.md** | MDS methodology | Explain Map → Do → Summarize → Loop |
 | **goals.md** | Goal hierarchy | Define PRIMARY/SECONDARY/TERTIARY goals |
 | **principles.md** | Core principles | Recognition, Slowness, Archaeology, Pilot |
@@ -52,7 +52,7 @@ Template references and examples.
 
 For new context:
 1. `floatprompt.md` — Understand the format
-2. `floatsystem.md` — Understand project awareness
+2. `system.md` — Understand project awareness
 3. `mds-method.md` — Understand the methodology
 4. `goals.md` + `principles.md` — Understand the philosophy
 
