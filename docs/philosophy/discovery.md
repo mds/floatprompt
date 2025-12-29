@@ -4,7 +4,7 @@ type: research
 status: living
 created: 2025-06
 
-human_author: MDS
+human_author: @mds
 human_intent: Document empirical findings about FloatPrompt's cognitive benefits
 human_context: Research insights - information architecture, compression ratios, efficiency
 

@@ -4,7 +4,7 @@ type: documentation
 status: complete
 created: 2025-06
 
-human_author: MDS
+human_author: @mds
 human_intent: Explain business value - three-layer architecture, ROI, use cases
 human_context: Strategic intelligence preservation, cross-platform reliability
 

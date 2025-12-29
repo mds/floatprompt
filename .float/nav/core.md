@@ -1,7 +1,17 @@
 ---
 title: Core Templates
 type: nav
-ai_updated: 2025-12-28
+status: current
+created: 2025-12-28
+related: core/prompt.md, core/doc.md, core/os.md, bin/floatprompt.js
+
+human_author: @mds
+human_intent: Document core templates that ship with npx floatprompt
+human_context: Minimum viable FloatPrompt setup for new projects
+
+ai_model: Claude Opus 4.5
+ai_updated: 2025-12-29
+ai_notes: Added full metadata per specs/doc.md requirements
 ---
 
 # Core Templates

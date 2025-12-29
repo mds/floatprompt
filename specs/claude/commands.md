@@ -4,7 +4,7 @@ type: spec
 version: 0.8.0
 created: 2025-12-29
 
-human_author: MDS
+human_author: @mds
 human_intent: Define the /float command system for Claude Code integration
 human_context: Formal specification that tools implement
 
@@ -435,6 +435,18 @@ This pattern ensures:
 
 **Parallelization:** Check Buoys run in parallel (one per nav file). Fix Buoys run in parallel where independent.
 
+### /float fix
+
+| Phase | Buoy | Task | Model |
+|-------|------|------|-------|
+| Check | Scan Buoy | Detect inconsistencies in one file | general-purpose |
+| Check | Related Buoy | Validate related field links in one file | general-purpose |
+| Check | Trace Buoy | Follow reference chains for one pattern | general-purpose |
+| Fix | Repair Buoy | Apply approved fix to one file | general-purpose |
+| Log | Log Buoy | Append to session log | general-purpose |
+
+**Parallelization:** Scan/Related Buoys run in parallel (one per target file). Repair Buoys run in parallel for independent files.
+
 ### /float context
 
 | Phase | Buoy | Task | Model |
@@ -463,6 +475,10 @@ This pattern ensures:
 | System Buoy | `.float/tools/float-sync.md` |
 | Scaffold Buoy | `.float/tools/float-sync.md` |
 | Log Buoy | `.float/tools/float-sync.md` |
+| Scan Buoy | `.float/tools/float-fix.md` |
+| Related Buoy | `.float/tools/float-fix.md` |
+| Trace Buoy | `.float/tools/float-fix.md` |
+| Repair Buoy | `.float/tools/float-fix.md` |
 | Context Buoy | `.float/tools/float-context.md` |
 | Describe Buoy | `.float/tools/float-enhance.md` |
 | Reference Buoy | `.float/tools/float-enhance.md` |

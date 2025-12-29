@@ -5,7 +5,7 @@ status: complete
 created: 2025-06
 related: floatprompt.md
 
-human_author: MDS
+human_author: @mds
 human_intent: Define the Map → Decide → Structure workflow as a universal methodology
 human_context: Three-phase collaboration process - applies to tools, context, learning, problem-solving
 

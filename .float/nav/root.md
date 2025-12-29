@@ -1,7 +1,17 @@
 ---
 title: Root
 type: nav
+status: current
+created: 2025-12-28
+related: README.md, package.json, .float/system.md
+
+human_author: @mds
+human_intent: Provide orientation to FloatPrompt repository for AI navigation
+human_context: Entry point for understanding project structure and philosophy
+
+ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
+ai_notes: Added full metadata per specs/doc.md requirements
 ---
 
 # Root

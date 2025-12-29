@@ -5,7 +5,7 @@ status: complete
 created: 2025-06
 related: principles.md, voice.md
 
-human_author: MDS
+human_author: @mds
 human_intent: Establish the three-tier goal hierarchy (voice > behavior > artifacts)
 human_context: Core principle - the hierarchy is strict, never compromise voice
 

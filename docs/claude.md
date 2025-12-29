@@ -4,7 +4,7 @@ type: reference
 status: active
 created: 2025-12-28
 
-human_author: MDS
+human_author: @mds
 human_intent: Document the Claude Code integration for FloatPrompt System maintenance
 human_context: How /float commands work with the FloatPrompt System
 

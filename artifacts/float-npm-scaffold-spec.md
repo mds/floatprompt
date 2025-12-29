@@ -4,7 +4,7 @@ type: specification
 status: draft
 created: 2025-12-28
 
-human_author: MDS
+human_author: @mds
 human_intent: Define what the npm scaffolding tool creates and naming conventions
 human_context: Simple tool to create full FloatPrompt structure, then AI takes over
 

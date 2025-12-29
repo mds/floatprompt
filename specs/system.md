@@ -4,7 +4,7 @@ type: documentation
 status: current
 created: 2025-12-28
 
-human_author: MDS
+human_author: @mds
 human_intent: Document the FloatPrompt System architecture for project awareness
 human_context: The invisible OS for AI — instant project awareness from a single entry point
 

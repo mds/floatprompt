@@ -5,7 +5,7 @@ status: complete
 created: 2025-06
 related: floatprompt.md, mds-method.md
 
-human_author: MDS
+human_author: @mds
 human_intent: Show practical applications - coaches, writers, extractors, assistants
 human_context: Concrete examples of what floatprompts can do
 

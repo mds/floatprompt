@@ -32,6 +32,7 @@
     "next_step_logic": "Always: Ready for: human direction",
     "buoys": {
       "scan_buoy": "Detect inconsistencies in one file (parallel, one per target)",
+      "related_buoy": "Validate related field links, check existence and bidirectional refs",
       "trace_buoy": "Follow reference chains to find related mentions",
       "repair_buoy": "Apply approved fixes to one file"
     }
@@ -57,6 +58,8 @@ This command finds content drift that `/float sync` doesn't catch — renamed fi
 | Issue Type | Example |
 |------------|---------|
 | **Stale references** | `context-creator.md` renamed to `float-context.md` but old name still referenced |
+| **Broken related links** | `related: tools/old-name.md` but file was renamed |
+| **Missing bidirectional** | A relates to B, but B doesn't relate back to A |
 | **Version drift** | system.md says 0.7.0, context file says 0.8.0 |
 | **Incomplete tables** | Structure map lists 7 nav files, reality has 10 |
 | **Dead links** | References to deleted files or folders |
@@ -77,12 +80,47 @@ grep -r "version.*0\." .float/
 
 # Find file references
 grep -r "\.md" .float/ | grep -v "^Binary"
+
+# Extract related fields from frontmatter
+grep -r "^related:" .float/
 ```
 
 Spawn Scan Buoys for semantic analysis:
 - Compare tables against reality
 - Check cross-references between files
 - Validate version consistency
+- **Scan `related` fields for link integrity**
+
+### Related Field Scanning
+
+The `related` field in floatprompt doc frontmatter creates a link graph. Scan it for:
+
+**1. Existence check** — Do related files exist?
+```
+nav/float.md:
+  related: .float/system.md, .float/context/floatprompt.md
+           ✓ exists          ✓ exists
+```
+
+**2. Bidirectional check** — If A relates to B, should B relate to A?
+```
+specs/doc.md relates to: floatprompt.md, system.md
+  floatprompt.md relates back? → Check
+  system.md relates back? → Check
+```
+
+**3. Stale path check** — Were related files renamed/moved?
+```
+related: .float/tools/context-creator.md
+         ✗ MISSING — was renamed to float-context.md
+```
+
+**Report format for related issues:**
+```
+Related Field Issues (2):
+  nav/float.md:6 — related: tools/context-creator.md → float-context.md
+  specs/doc.md:6 — floatprompt.md doesn't relate back (bidirectional gap)
+```
 
 ### 2. Trace (Trace Buoys)
 
@@ -192,6 +230,25 @@ Scan {file_path} for content inconsistencies:
        current: string,
        expected: string | null,
        context: string
+     }]
+   }
+```
+
+### Related Buoy
+
+```
+Validate related field in {file_path}:
+1. Parse the related field from YAML frontmatter
+2. For each related file:
+   a. Check if file exists (existence)
+   b. If exists, check if it relates back (bidirectional)
+3. Return JSON: {
+     file: string,
+     related_field: string,
+     issues: [{
+       type: "missing" | "not_bidirectional",
+       target: string,
+       suggestion: string | null
      }]
    }
 ```

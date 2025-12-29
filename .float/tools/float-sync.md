@@ -239,12 +239,30 @@ Update structure map in .float/system.md:
 Create .float/nav/{folder}.md for a new folder:
 1. List all files in {folder}/ (exclude dotfiles, etc.)
 2. List all subfolders in {folder}/
-3. Create nav file with:
-   - YAML frontmatter (title, type: nav, ai_updated)
-   - Brief description of folder purpose
-   - Contents table with "[needs description]" for each file
-   - Subfolders table if subfolders exist
-4. Return the complete nav file content
+3. Create nav file with full floatprompt doc metadata:
+
+   ---
+   title: {Folder Name}
+   type: nav
+   status: current
+   created: {YYYY-MM-DD}
+   related: {folder}/
+
+   human_author: @mds
+   human_intent: Document {folder}/ contents for AI navigation
+   human_context: [needs description]
+
+   ai_model: Claude Opus 4.5
+   ai_updated: {YYYY-MM-DD}
+   ai_notes: Scaffolded by /float sync
+   ---
+
+4. Add heading and description of folder purpose
+5. Add Contents table with "[needs description]" for each file
+6. Add Subfolders table if subfolders exist
+7. Return the complete nav file content
+
+Note: human_author defaults to @mds. Override from package.json author if available.
 ```
 
 ### Log Buoy

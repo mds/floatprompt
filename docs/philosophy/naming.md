@@ -4,7 +4,7 @@ type: reference
 status: current
 created: 2025-06
 
-human_author: MDS
+human_author: @mds
 human_intent: Define naming standards - FloatPrompt as the brand, everything else under it
 human_context: Brand consistency, FloatPrompt [X] pattern, casual shorthand allowed
 

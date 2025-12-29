@@ -4,7 +4,7 @@ type: context
 status: current
 created: 2025-12-28
 
-human_author: MDS
+human_author: @mds
 human_intent: Provide minimal context for quick orientation to FloatPrompt
 human_context: 6 files, ~5 minutes, one MDS loop
 

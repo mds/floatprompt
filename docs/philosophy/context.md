@@ -4,7 +4,7 @@ type: philosophy
 status: complete
 created: 2025-06
 
-human_author: MDS
+human_author: @mds
 human_intent: Explain contextual anchoring - when FloatPrompt adds value vs standard AI
 human_context: Strategic evaluation framework for adoption decisions
 

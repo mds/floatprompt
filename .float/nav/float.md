@@ -1,7 +1,17 @@
 ---
 title: FloatPrompt System
 type: nav
+status: current
+created: 2025-12-29
+related: .float/system.md, .float/context/floatprompt.md
+
+human_author: @mds
+human_intent: Document .float/ folder structure for AI navigation
+human_context: Self-documentation of the FloatPrompt System operational layer
+
+ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
+ai_notes: Added /float fix tool, full metadata per specs/doc.md
 ---
 
 # FloatPrompt System

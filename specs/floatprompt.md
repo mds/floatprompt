@@ -5,7 +5,7 @@ status: complete
 created: 2025-06
 related: doc.md, system.md, goals.md, principles.md
 
-human_author: MDS
+human_author: @mds
 human_intent: Define the <fp><json><md></fp> file structure
 human_context: Core format specification - how floatprompt files are structured
 

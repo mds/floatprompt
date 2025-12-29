@@ -1,8 +1,17 @@
 ---
 title: Documentation
 type: nav
+status: current
+created: 2025-12-28
+related: docs/mds-method.md, docs/goals.md, docs/principles.md, specs/
+
+human_author: @mds
+human_intent: Document guides and philosophy for FloatPrompt
+human_context: Explanatory content for understanding FloatPrompt approach
+
+ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
-ai_notes: Specs moved to specs/ folder. This folder now contains guides and philosophy only.
+ai_notes: Specs moved to specs/ folder. Full metadata per specs/doc.md requirements.
 ---
 
 # Documentation

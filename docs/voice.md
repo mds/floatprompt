@@ -5,7 +5,7 @@ status: complete
 created: 2025-06
 related: goals.md, principles.md
 
-human_author: MDS
+human_author: @mds
 human_intent: Define voice preservation rules - what to preserve, what to avoid
 human_context: Fight AI's default rewriting behavior - preserve authentic human expression
 

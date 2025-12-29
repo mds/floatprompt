@@ -4,7 +4,7 @@ type: context
 status: current
 created: 2025-12-28
 
-human_author: MDS
+human_author: @mds
 human_intent: Provide complete context path for full FloatPrompt understanding
 human_context: 23+ files, ~15 minutes, 5 MDS loops
 

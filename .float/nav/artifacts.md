@@ -1,7 +1,17 @@
 ---
 title: Artifacts
 type: nav
+status: current
+created: 2025-12-28
+related: artifacts/, artifacts/archive/
+
+human_author: @mds
+human_intent: Document historical artifacts and kanban workflow
+human_context: Archaeological record of FloatPrompt evolution
+
+ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
+ai_notes: Added full metadata per specs/doc.md requirements
 ---
 
 # Artifacts

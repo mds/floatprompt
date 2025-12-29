@@ -4,7 +4,7 @@ type: documentation
 status: complete
 created: 2025-06
 
-human_author: MDS
+human_author: @mds
 human_intent: Establish safety guidelines - human oversight, no weaponization
 human_context: FloatPrompt files empower human intelligence, never compromise well-being
 

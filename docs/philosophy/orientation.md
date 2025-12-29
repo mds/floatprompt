@@ -5,7 +5,7 @@ status: complete
 created: 2025-06
 related: ../floatprompt.md, ../mds-method.md
 
-human_author: MDS
+human_author: @mds
 human_intent: Quick start guide - what FloatPrompt is, how to use it
 human_context: System overview for new users - architecture, concepts, triggers
 

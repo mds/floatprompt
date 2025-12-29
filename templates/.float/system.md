@@ -61,6 +61,7 @@ project/
 │   ├── tools/         # System tools
 │   │   ├── float.md
 │   │   ├── float-sync.md
+│   │   ├── float-fix.md
 │   │   ├── float-context.md
 │   │   └── float-enhance.md
 │   └── core/          # FloatPrompt templates

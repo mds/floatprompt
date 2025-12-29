@@ -5,7 +5,7 @@ status: complete
 created: 2025-06
 related: goals.md, voice.md
 
-human_author: MDS
+human_author: @mds
 human_intent: Define operating principles - Recognition Before Action, Slow is Smooth, Anti-Patterns
 human_context: Behavioral constraints for all floatprompt tools
 

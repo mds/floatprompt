@@ -4,7 +4,7 @@ type: manifesto
 status: complete
 created: 2025-06
 
-human_author: MDS
+human_author: @mds
 human_intent: Articulate the vision - "Start where you left off"
 human_context: Foundational document - why FloatPrompt exists, the core promise
 

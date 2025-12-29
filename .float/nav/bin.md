@@ -1,7 +1,17 @@
 ---
 title: CLI
 type: nav
+status: current
+created: 2025-12-29
+related: bin/floatprompt.js, package.json, core/
+
+human_author: @mds
+human_intent: Document CLI scaffolding tool for npx floatprompt
+human_context: Entry point for users creating FloatPrompt System in their projects
+
+ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
+ai_notes: Added full metadata per specs/doc.md requirements
 ---
 
 # CLI

@@ -4,7 +4,7 @@ type: plan
 status: active
 created: 2025-12-29
 
-human_author: MDS
+human_author: @mds
 human_intent: Restructure docs/specs and implement formal /float command system
 human_context: Conversation-derived plan for Phase 1 (structure) and Phase 2 (commands)
 

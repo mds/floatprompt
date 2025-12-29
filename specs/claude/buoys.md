@@ -3,7 +3,7 @@ title: Float Buoys
 type: doc
 version: 1.0.0
 
-human_author: MDS
+human_author: @mds
 human_intent: Document the buoy pattern for parallel task agents
 human_context: Platform-agnostic concept, implementation varies by platform
 
@@ -49,6 +49,7 @@ The approval gate is critical. Buoys propose, humans decide.
 | **Check Buoy** | Verify nav/*.md against actual folder contents |
 | **Context Buoy** | Generate/update terrain map for AI understanding |
 | **Scan Buoy** | Detect content inconsistencies (stale refs, version drift) |
+| **Related Buoy** | Validate `related` field links, check existence and bidirectional refs |
 | **Trace Buoy** | Follow reference chains, distinguish actionable vs historical |
 
 ### Fix Phase (After Approval)
