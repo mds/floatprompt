@@ -1,7 +1,7 @@
 ---
 title: Documentation
 type: nav
-ai_updated: 2025-12-28
+ai_updated: 2025-12-29
 ---
 
 # Documentation
@@ -22,6 +22,7 @@ Core documentation for FloatPrompt, the FloatPrompt System, and the MDS methodol
 | **voice.md** | Voice preservation | How to maintain human voice in AI collaboration |
 | **use.md** | Use cases | What you can build with FloatPrompt |
 | **safety.md** | Safety guidelines | Responsible AI tool creation |
+| **buoys.md** | Float Buoys pattern | Parallel task agents for system maintenance |
 
 ## Subfolders
 
