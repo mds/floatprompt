@@ -12,6 +12,7 @@ ai_updated: 2025-12-29
 ai_notes: |
   Extracted from Claude Code implementation to document the pattern.
   Implementations may use Task tool, API calls, or custom software.
+  Added Goldilocks Rule, task sizing guidelines, and orchestration pattern.
 ---
 
 # Float Buoys
@@ -94,6 +95,42 @@ Each buoy has a focused scope:
 - Describe Buoy: one file's description
 
 Narrow scope enables parallelization and reduces conflicts.
+
+### The Goldilocks Rule
+
+**Too narrow:** "Read line 5 of file X" — wasteful overhead, no useful context
+**Too wide:** "Fix all problems in the project" — unpredictable, unfocused, hard to validate
+**Just right:** "Read this file, return one-line description" — clear input, clear output, bounded scope
+
+### Task Sizing Guidelines
+
+| Good Buoy Task | Bad Buoy Task |
+|----------------|---------------|
+| Single clear objective | Multiple unrelated objectives |
+| Bounded scope (1-3 files) | Unbounded scope |
+| Predictable output format | Freeform output |
+| Can be validated | Can't tell if it succeeded |
+
+### Orchestration Pattern
+
+**Two workers + one checker:**
+
+```
+Shell gathers raw data (fast, mechanical)
+           ↓
+    ┌──────┴──────┐
+Buoy 1          Buoy 2    (parallel work)
+    └──────┬──────┘
+           ↓
+   Orchestrator validates
+           ↓
+      Apply if valid
+```
+
+This pattern ensures:
+- Speed where possible (shell)
+- Parallelism where beneficial (buoys)
+- Quality control before changes (validation)
 
 ---
 
