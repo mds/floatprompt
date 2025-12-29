@@ -66,9 +66,9 @@ Loop 5: Complete
 
 | # | File | What You'll Learn |
 |---|------|-------------------|
-| 1 | `_float/system.md` | Boot protocol, structure map, behavioral constraints |
-| 2 | `_float/nav/root.md` | Repository structure, file format overview |
-| 3 | `_float/logs/YYYY-MM-DD.md` | Current project state, recent activity |
+| 1 | `.float/system.md` | Boot protocol, structure map, behavioral constraints |
+| 2 | `.float/nav/root.md` | Repository structure, file format overview |
+| 3 | `.float/logs/YYYY-MM-DD.md` | Current project state, recent activity |
 
 **Outcome:** Understood boot protocol and current state.
 
@@ -76,17 +76,17 @@ Loop 5: Complete
 
 ## Loop 2: Verify (8 files)
 
-Read all `_float/nav/*.md` files (centralized navigation):
+Read all `.float/nav/*.md` files (centralized navigation):
 
 | # | File | What You'll Learn |
 |---|------|-------------------|
-| 4 | `_float/nav/docs.md` | Reading order, key concepts |
-| 5 | `_float/nav/context.md` | Onboarding document purpose |
-| 6 | `_float/nav/dev.md` | Update workflow |
-| 7 | `_float/nav/experimental.md` | Legacy build system |
-| 8 | `_float/nav/artifacts.md` | Historical archive |
-| 9 | `_float/nav/core.md` | Core template files |
-| 10 | `_float/nav/examples.md` | Real examples |
+| 4 | `.float/nav/docs.md` | Reading order, key concepts |
+| 5 | `.float/nav/context.md` | Onboarding document purpose |
+| 6 | `.float/nav/dev.md` | Update workflow |
+| 7 | `.float/nav/experimental.md` | Legacy build system |
+| 8 | `.float/nav/artifacts.md` | Historical archive |
+| 9 | `.float/nav/core.md` | Core template files |
+| 10 | `.float/nav/examples.md` | Real examples |
 
 **Outcome:** Verified structure, confirmed integrity.
 
@@ -190,7 +190,7 @@ After all 5 loops, you have:
 
 ## Key Insights
 
-1. **Boot sequence works.** Following `_float/system.md` produces comprehensive understanding.
+1. **Boot sequence works.** Following `.float/system.md` produces comprehensive understanding.
 
 2. **Examples ground theory.** The Portfolio Coach (729 lines) shows what "depth scales with complexity" actually means.
 

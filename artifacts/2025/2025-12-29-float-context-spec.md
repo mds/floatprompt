@@ -11,7 +11,7 @@ human_context: Companion to nav/*.md — structure vs understanding
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
 ai_notes: |
-  Updated to v0.7.0 structure with _float/context/ and _float/tools/ subfolders.
+  Updated to v0.7.0 structure with .float/context/ and .float/tools/ subfolders.
   Context Buoy generates terrain map during /float or /float sync.
   Default filename is project.md but emergent naming allowed.
 ---
@@ -26,10 +26,10 @@ ai_notes: |
 
 | File | Purpose | Answers |
 |------|---------|---------|
-| `_float/system.md` | Boot protocol | How should I behave? |
-| `_float/nav/*.md` | Structure | What exists? |
-| `_float/context/project.md` | Understanding | Why does it exist? How does it connect? |
-| `_float/logs/*.md` | State | What happened recently? |
+| `.float/system.md` | Boot protocol | How should I behave? |
+| `.float/nav/*.md` | Structure | What exists? |
+| `.float/context/project.md` | Understanding | Why does it exist? How does it connect? |
+| `.float/logs/*.md` | State | What happened recently? |
 
 **nav/*.md** = Index (files and folders)
 **context/project.md** = Terrain map (meaning and relationships)
@@ -61,19 +61,19 @@ The format adapts to what the buoy finds.
 
 ### Organized for Growth
 
-Lives at `_float/context/project.md`. Default is one file for the whole project.
+Lives at `.float/context/project.md`. Default is one file for the whole project.
 
 For larger projects, additional domain-specific context files can be added as siblings:
-- `_float/context/frontend.md`
-- `_float/context/api.md`
-- `_float/context/infrastructure.md`
+- `.float/context/frontend.md`
+- `.float/context/api.md`
+- `.float/context/infrastructure.md`
 
 ---
 
 ## File Location
 
 ```
-_float/
+.float/
 ├── system.md      # Boot protocol
 ├── context/       # Terrain maps
 │   └── project.md # Project-wide context (default)
@@ -91,7 +91,7 @@ _float/
 
 ## Context Buoy
 
-A buoy type that generates `_float/context/project.md` using `_float/tools/context-creator.md`.
+A buoy type that generates `.float/context/project.md` using `.float/tools/context-creator.md`.
 
 ### When It Runs
 
@@ -112,10 +112,10 @@ A buoy type that generates `_float/context/project.md` using `_float/tools/conte
 ### Buoy Prompt
 
 ```
-Generate _float/context/project.md for this project:
+Generate .float/context/project.md for this project:
 
-1. Read _float/system.md and all _float/nav/*.md files
-2. Read _float/tools/context-creator.md for generation protocol
+1. Read .float/system.md and all .float/nav/*.md files
+2. Read .float/tools/context-creator.md for generation protocol
 3. Identify key files that define the project (README, main entry points, core docs)
 4. Discover relationships between folders/files
 5. Determine optimal reading order for new AI sessions
@@ -170,7 +170,7 @@ The Context Buoy generates sections based on what it discovers. Common patterns:
 
 For new AI sessions, read in this order:
 
-1. `_float/system.md` — Boot protocol
+1. `.float/system.md` — Boot protocol
 2. `{key file}` — {why first}
 3. `{key file}` — {why second}
 ...
@@ -204,10 +204,10 @@ For new AI sessions, read in this order:
 With context, the boot sequence becomes:
 
 ```
-1. Read _float/system.md              → Protocol
-2. Read _float/context/project.md     → Understanding
-3. Read _float/nav/*.md               → Structure
-4. Read _float/logs/today.md          → State
+1. Read .float/system.md              → Protocol
+2. Read .float/context/project.md     → Understanding
+3. Read .float/nav/*.md               → Structure
+4. Read .float/logs/today.md          → State
 5. Build mental model
 6. Execute human requests
 ```
@@ -235,7 +235,7 @@ FloatPrompt operational.
 Directory: /path/to/project
 Context: None (generating...)
   → Context Buoy: Scanning project...
-  → Context Buoy: Generated _float/context/project.md
+  → Context Buoy: Generated .float/context/project.md
 Status: No issues found
 Ready for: [human direction]
 ```
@@ -246,7 +246,7 @@ Context Buoy runs alongside Check Buoys:
 
 ```
 Spawning fleet (9 buoys)...
-  → Context Buoy: Updating _float/context/project.md
+  → Context Buoy: Updating .float/context/project.md
   → Check Buoy: nav/root.md vs /
   → Check Buoy: nav/docs.md vs docs/
   ...
@@ -325,13 +325,13 @@ generator: context-buoy
 
 # FloatPrompt Context
 
-FloatPrompt is the invisible OS for AI — a structured text format for portable AI collaboration. Three components: floatprompt doc (YAML frontmatter for context), FloatPrompt (tools that modify AI behavior), and FloatPrompt System (_float/ folders for project awareness).
+FloatPrompt is the invisible OS for AI — a structured text format for portable AI collaboration. Three components: floatprompt doc (YAML frontmatter for context), FloatPrompt (tools that modify AI behavior), and FloatPrompt System (.float/ folders for project awareness).
 
 ## Key Files
 
 | File | Why It Matters |
 |------|----------------|
-| `_float/system.md` | Boot protocol — read first, always |
+| `.float/system.md` | Boot protocol — read first, always |
 | `core/os.md` | Full FloatPrompt OS (35KB) — the complete system |
 | `core/prompt.md` | Template for creating tools |
 | `docs/philosophy/manifesto.md` | The "why" — vision and principles |
@@ -341,8 +341,8 @@ FloatPrompt is the invisible OS for AI — a structured text format for portable
 
 For new AI sessions:
 
-1. `_float/system.md` — Boot protocol, structure map
-2. `_float/nav/*.md` — All navigation files
+1. `.float/system.md` — Boot protocol, structure map
+2. `.float/nav/*.md` — All navigation files
 3. `docs/goals.md` + `docs/principles.md` — Goal hierarchy and constraints
 4. `context/float-context.md` — Three-component distinction
 5. `core/prompt.md` — The template
@@ -355,7 +355,7 @@ Philosophy (why)     → docs/philosophy/, docs/goals.md, docs/principles.md
 Format (what)        → docs/floatprompt.md, docs/doc.md, docs/system.md
 Templates (how)      → core/prompt.md, core/doc.md, core/os.md
 Examples (proof)     → examples/*/
-System (meta)        → _float/
+System (meta)        → .float/
 ```
 
 ## Patterns
@@ -376,8 +376,8 @@ The `artifacts/2025/` folder contains 150+ files documenting evolution. Current 
 
 | Aspect | Decision |
 |--------|----------|
-| Location | `_float/context/project.md` |
-| Tool | `_float/tools/context-creator.md` |
+| Location | `.float/context/project.md` |
+| Tool | `.float/tools/context-creator.md` |
 | Generation | Context Buoy (auto) |
 | Format | Emergent based on discovery |
 | Naming | `project.md` default, emergent allowed |

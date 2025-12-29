@@ -21,7 +21,7 @@ Strategic context and decision rationale for the Float Buoys specification. Read
 
 ## Origin
 
-**The problem:** FloatSystem's `_float/index.md` files go stale. When files change, the indexes don't update automatically. AI drops into a project and gets outdated context.
+**The problem:** FloatSystem's `.float/index.md` files go stale. When files change, the indexes don't update automatically. AI drops into a project and gets outdated context.
 
 **The insight:** "I'd almost want a Dropbox-style system where any file updated would trigger a system update."
 
@@ -162,7 +162,7 @@ Started with the question: "What agents do we actually need?"
 - External tools modifying files
 
 **The solution:** Periodic check (startup + hourly) that:
-- Verifies all folders have `_float/index.md`
+- Verifies all folders have `.float/index.md`
 - Confirms tables match actual contents
 - Validates structure map accuracy
 
@@ -233,7 +233,7 @@ Voice preservation applies to human content. Index metadata is infrastructure.
 - State file (daemon writes, command reads)
 - PID file + signals
 
-**Decision:** State file (`_float/.daemon.json`)
+**Decision:** State file (`.float/.daemon.json`)
 
 **Reasoning:**
 - Simplest to implement
@@ -284,9 +284,9 @@ Build the simple thing. See if it works. Expand later.
 
 1. `npm install -g floatprompt` works
 2. `float` starts watching current directory
-3. Add a file → `_float/index.md` updates automatically
+3. Add a file → `.float/index.md` updates automatically
 4. New file gets description via Tier 2
-5. All activity logged to `_float/logs/`
+5. All activity logged to `.float/logs/`
 6. `/float` shows daemon status
 
 Test case: The floatprompt repo itself. Complex enough to stress test, familiar enough to validate quickly.

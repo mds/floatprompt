@@ -15,16 +15,16 @@ ai_notes: Updated for centralized architecture (v0.6.0) — nav/*.md instead of 
 
 # Claude Code Integration
 
-Claude Code integration for the FloatPrompt System. Two commands that keep your `_float/` files accurate.
+Claude Code integration for the FloatPrompt System. Two commands that keep your `.float/` files accurate.
 
 ---
 
 ## Overview
 
-The FloatPrompt System uses a centralized `_float/` folder to maintain AI-readable context about your project. This integration:
+The FloatPrompt System uses a centralized `.float/` folder to maintain AI-readable context about your project. This integration:
 
 1. **Boots** the FloatPrompt System at session start
-2. **Syncs** `_float/nav/` files when they drift from reality
+2. **Syncs** `.float/nav/` files when they drift from reality
 
 No daemon. No npm install. Just slash commands.
 
@@ -41,8 +41,8 @@ Boot the FloatPrompt System and run a quick health check.
 ```
 
 **What it does:**
-1. Reads `_float/system.md` (boot protocol)
-2. Reads all `_float/nav/*.md` files (centralized navigation)
+1. Reads `.float/system.md` (boot protocol)
+2. Reads all `.float/nav/*.md` files (centralized navigation)
 3. Builds mental model of the project
 4. Counts any integrity issues
 5. Reports status
@@ -69,11 +69,11 @@ Run /float sync to see details and fix
 FloatPrompt initialized.
 Directory: /path/to/project
 Created:
-  - _float/system.md
-  - _float/nav/root.md
-  - _float/nav/src.md
-  - _float/nav/docs.md
-  - _float/logs/
+  - .float/system.md
+  - .float/nav/root.md
+  - .float/nav/src.md
+  - .float/nav/docs.md
+  - .float/logs/
   ...
 
 FloatPrompt operational.
@@ -92,9 +92,9 @@ Full integrity check with fix capability. Shows issues, proposes changes, applie
 ```
 
 **What it does:**
-1. Checks all `_float/nav/*.md` tables against actual folder contents
+1. Checks all `.float/nav/*.md` tables against actual folder contents
 2. Checks subfolder tables against actual subfolders
-3. Checks structure map in `_float/system.md`
+3. Checks structure map in `.float/system.md`
 4. Shows detailed issues
 5. Proposes fixes
 6. Waits for approval
@@ -108,9 +108,9 @@ Directory: /path/to/project
 
 Checking integrity...
 
-✓ _float/system.md — OK
-✓ _float/nav/root.md — OK
-✗ _float/nav/docs.md — 2 issues
+✓ .float/system.md — OK
+✓ .float/nav/root.md — OK
+✗ .float/nav/docs.md — 2 issues
   - Missing: docs/new-feature.md (file exists, not in table)
   - Stale: docs/api.md (file deleted, still in table)
 
@@ -118,7 +118,7 @@ Found 2 issues in 1 file.
 
 Proposed changes:
 
-_float/nav/docs.md:
+.float/nav/docs.md:
   + Add: new-feature.md — [needs description]
   - Remove: api.md (file deleted)
 
@@ -139,7 +139,7 @@ Apply changes? (y/n):
 |------|---------|-------|
 | **Nav Buoy** | Add/remove rows in nav/*.md tables | general-purpose |
 | **System Buoy** | Update structure map | general-purpose |
-| **Scaffold Buoy** | Create missing `_float/nav/*.md` | general-purpose |
+| **Scaffold Buoy** | Create missing `.float/nav/*.md` | general-purpose |
 | **Describe Buoy** | Generate file descriptions | haiku |
 | **Log Buoy** | Record activity to logs | general-purpose |
 
@@ -188,13 +188,13 @@ Two commands. Simple.
 | Nav coverage | Every major folder has a `nav/*.md` file |
 | Table accuracy | File tables match actual folder contents |
 | Subfolder accuracy | Subfolder tables match actual subfolders |
-| Structure map | `_float/system.md` structure map matches reality |
+| Structure map | `.float/system.md` structure map matches reality |
 | Orphaned files | Files exist but aren't in any nav file |
 | Missing files | Nav references files that don't exist |
 
 **Exclusions (not flagged as issues):**
 - Dotfiles (`.DS_Store`, `.gitignore`, etc.)
-- `_float/` folder itself
+- `.float/` folder itself
 - `node_modules/`, `dist/`, `build/`, `.git/`
 - Lock files
 
@@ -205,7 +205,7 @@ Two commands. Simple.
 The FloatPrompt System (v0.6.0) uses **centralized navigation**:
 
 ```
-_float/
+.float/
 ├── system.md          # Boot loader
 ├── nav/               # All folder navigation here
 │   ├── root.md        # Repository root

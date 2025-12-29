@@ -45,8 +45,8 @@ Read in this order:
 
 | # | File | What You'll Learn |
 |---|------|-------------------|
-| 1 | `_float/system.md` | Boot protocol, structure map, behavioral constraints |
-| 2 | `_float/nav/root.md` | Repository structure, file format overview |
+| 1 | `.float/system.md` | Boot protocol, structure map, behavioral constraints |
+| 2 | `.float/nav/root.md` | Repository structure, file format overview |
 | 3 | `docs/goals.md` | Goal hierarchy: voice > behavior > artifacts |
 | 4 | `docs/principles.md` | Recognition before action, slow is smooth |
 | 5 | `core/prompt.md` | The template with placeholders |
@@ -90,7 +90,7 @@ If no → Read more files or use `float-deepdive.md`
 **Three components:**
 - **floatprompt doc** — YAML frontmatter for context (doesn't modify behavior)
 - **FloatPrompt** — `<fp>` tags for tools (modifies behavior)
-- **FloatPrompt System** — `_float/` folders for project awareness
+- **FloatPrompt System** — `.float/` folders for project awareness
 
 **Goal hierarchy (strict):**
 1. Human Voice & Agency (primary)

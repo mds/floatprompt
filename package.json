@@ -1,0 +1,38 @@
+{
+  "name": "floatprompt",
+  "version": "0.1.0",
+  "description": "The invisible OS for AI",
+  "bin": {
+    "floatprompt": "./bin/floatprompt.js"
+  },
+  "type": "module",
+  "files": [
+    "bin/",
+    "templates/",
+    "core/",
+    ".claude/",
+    ".float/tools/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mds/floatprompt.git"
+  },
+  "keywords": [
+    "ai",
+    "prompt",
+    "collaboration",
+    "markdown",
+    "portable",
+    "claude",
+    "llm"
+  ],
+  "author": "@mds",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "homepage": "https://github.com/mds/floatprompt#readme",
+  "bugs": {
+    "url": "https://github.com/mds/floatprompt/issues"
+  }
+}

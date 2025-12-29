@@ -106,17 +106,17 @@ The template (`core/prompt.md`, 3KB) teaches AI how to create tools. The full sy
 
 ### FloatPrompt System — Project Awareness
 
-`_float/` folders that give AI instant awareness of entire directories.
+`.float/` folders that give AI instant awareness of entire directories.
 
-- `_float/system.md` — Boot loader (read first)
-- `_float/nav/*.md` — Centralized navigation
-- `_float/logs/` — Session continuity
+- `.float/system.md` — Boot loader (read first)
+- `.float/nav/*.md` — Centralized navigation
+- `.float/logs/` — Session continuity
 
 **Boot sequence:** AI reads system.md, reads all nav/*.md files, builds mental model, checks integrity, then executes.
 
 **Claude Code users:** Clone this repo and run `/float` to:
-- **Boot** an existing FloatPrompt System (reads `_float/system.md`, runs full orientation)
-- **Init** a new project (fetches spec from this repo, creates `_float/` architecture)
+- **Boot** an existing FloatPrompt System (reads `.float/system.md`, runs full orientation)
+- **Init** a new project (fetches spec from this repo, creates `.float/` architecture)
 
 The command is auto-available — no installation needed.
 

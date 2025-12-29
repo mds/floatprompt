@@ -24,16 +24,16 @@
   "requirements": {
     "pilot_principle": "Human decides, AI executes. Human is pilot, AI is crew.",
     "boot_sequence": {
-      "1": "Read this file completely (_float/system.md)",
+      "1": "Read this file completely (.float/system.md)",
       "2": "Load structure map into memory",
-      "3": "Read _float/context/project.md for terrain map and relationships (if exists)",
+      "3": "Read .float/context/project.md for terrain map and relationships (if exists)",
       "4": "Read ALL nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
-      "5": "Read today's session log (_float/logs/YYYY-MM-DD.md) for recent activity",
+      "5": "Read today's session log (.float/logs/YYYY-MM-DD.md) for recent activity",
       "6": "Choose context depth based on task complexity (see context/ folder)",
       "7": "Build mental model (what exists, what happened, current state)",
       "8": "Check for integrity issues, report gaps before proceeding",
       "9": "Execute human requests",
-      "10": "Log session before ending (append to _float/logs/YYYY-MM-DD.md)"
+      "10": "Log session before ending (append to .float/logs/YYYY-MM-DD.md)"
     },
     "context_depth": {
       "principle": "Depth scales with complexity",
@@ -63,13 +63,13 @@
 
 **The invisible OS for AI**
 
-This repository contains FloatPrompt, a structured text format for portable AI collaboration. This `_float/system.md` file is the boot loader that gives any AI instant awareness of the project.
+This repository contains FloatPrompt, a structured text format for portable AI collaboration. This `.float/system.md` file is the boot loader that gives any AI instant awareness of the project.
 
 ## Structure Map
 
 ```
 floatprompt/
-├── _float/                # FloatPrompt System (read first)
+├── .float/                # FloatPrompt System (read first)
 │   ├── system.md          # This file (boot loader)
 │   ├── context/           # AI terrain maps
 │   │   └── project.md     # Project-wide context (auto-generated)
@@ -138,13 +138,13 @@ floatprompt/
 
 | Pattern | Type | Format | Purpose |
 |---------|------|--------|---------|
-| `_float/system.md` | FloatPrompt System | `<fp>` tags | Root behavioral protocol (this file) |
-| `_float/nav/*.md` | Nav files | Minimal YAML | Folder navigation (centralized) |
-| `_float/logs/*.md` | FloatLog | Minimal YAML | Session logs |
+| `.float/system.md` | FloatPrompt System | `<fp>` tags | Root behavioral protocol (this file) |
+| `.float/nav/*.md` | Nav files | Minimal YAML | Folder navigation (centralized) |
+| `.float/logs/*.md` | FloatLog | Minimal YAML | Session logs |
 | `*.md` with frontmatter | floatprompt doc | YAML frontmatter | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
 
-### Root: `_float/` folder
+### Root: `.float/` folder
 
 | Item | Purpose |
 |------|---------|
@@ -158,7 +158,7 @@ floatprompt/
 
 | File | Describes |
 |------|-----------|
-| `float.md` | _float/ folder (self-documentation) |
+| `float.md` | .float/ folder (self-documentation) |
 | `root.md` | Repository root |
 | `core.md` | core/ folder |
 | `docs.md` | docs/ folder (includes philosophy/, reference/) |
@@ -168,9 +168,9 @@ floatprompt/
 | `experimental.md` | experimental/ folder |
 | `artifacts.md` | artifacts/ folder (includes 2025/) |
 
-**Centralized pattern:** All navigation lives in `_float/nav/`. No scattered files. AI reads one location for complete folder context.
+**Centralized pattern:** All navigation lives in `.float/nav/`. No scattered files. AI reads one location for complete folder context.
 
-**Self-documentation:** The `_float/` folder documents itself via `nav/float.md`. This is the one exception to "nav/ describes project folders" — it describes the FloatPrompt System itself.
+**Self-documentation:** The `.float/` folder documents itself via `nav/float.md`. This is the one exception to "nav/ describes project folders" — it describes the FloatPrompt System itself.
 
 ### Nav File Subfolder Rules
 
@@ -181,7 +181,7 @@ floatprompt/
 **Skip in nav files:**
 - Build outputs: `dist/`, `build/`, `node_modules/`
 - Archives: `_archive/`, `archive/`
-- Deprecated patterns: nested `_float/` subfolders (use root `_float/` only)
+- Deprecated patterns: nested `.float/` subfolders (use root `.float/` only)
 - Generated content
 
 **When to split into separate nav file:**
@@ -222,8 +222,8 @@ ai_updated:
 
 | File | Location | Purpose |
 |------|----------|---------|
-| `system.md` | `_float/` | Root protocol (this file) |
-| `context-creator.md` | `_float/tools/` | Tool for generating terrain maps |
+| `system.md` | `.float/` | Root protocol (this file) |
+| `context-creator.md` | `.float/tools/` | Tool for generating terrain maps |
 | `prompt.md` | `core/` | Template for creating floatprompts |
 | `doc.md` | `core/` | Tool for adding context frontmatter |
 | `os.md` | `core/` | Full OS with guided creation |
@@ -233,15 +233,15 @@ ai_updated:
 ### AI Responsibilities
 
 **Every session (boot sequence):**
-1. Read `_float/system.md` first (this file)
-2. Read `_float/context/project.md` for terrain map and relationships (if exists)
-3. Read ALL `_float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
-4. Read today's session log `_float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
+1. Read `.float/system.md` first (this file)
+2. Read `.float/context/project.md` for terrain map and relationships (if exists)
+3. Read ALL `.float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
+4. Read today's session log `.float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
 5. Choose context depth based on task complexity (see below)
 6. Build mental model (what exists, what happened, current state)
 7. Check integrity, surface issues before proceeding
 8. Execute human requests
-9. Log session before ending (append to `_float/logs/YYYY-MM-DD.md`)
+9. Log session before ending (append to `.float/logs/YYYY-MM-DD.md`)
 
 **Context depth (choose based on task):**
 
@@ -322,13 +322,13 @@ handoff:
   from_agent: [agent type]
   to_agent: [agent type]
   context:
-    system: _float/system.md (always include)
+    system: .float/system.md (always include)
     nav: [relevant nav/*.md files]
     files: [specific files for task]
     task: [what to do]
 ```
 
-**Minimum:** Always pass `_float/system.md` reference.
+**Minimum:** Always pass `.float/system.md` reference.
 
 ## Warnings
 

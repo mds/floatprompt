@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "Context Creator Mode. Generate or update _float/context/project.md for this project. Discover what matters, identify relationships, create a terrain map for AI understanding. Output is emergent based on what you find. Filename is 'project.md' by default but can be changed if project suggests better name.",
+  "STOP": "Context Creator Mode. Generate or update .float/context/project.md for this project. Discover what matters, identify relationships, create a terrain map for AI understanding. Output is emergent based on what you find. Filename is 'project.md' by default but can be changed if project suggests better name.",
 
   "meta": {
     "title": "FloatPrompt Context Creator",
@@ -35,7 +35,7 @@
       "minimum": ["what this IS", "key files", "reading order", "domain relationships"]
     },
     "preserve_human": {
-      "check": "If _float/context/project.md exists, read it first",
+      "check": "If .float/context/project.md exists, read it first",
       "preserve": "Sections marked as human-added or in human_refinements",
       "merge": "Integrate new discoveries with existing human context"
     },
@@ -67,7 +67,7 @@
 
 **Generate terrain maps for AI understanding.**
 
-This tool creates `_float/context/project.md` — the understanding layer that complements nav/*.md structure files.
+This tool creates `.float/context/project.md` — the understanding layer that complements nav/*.md structure files.
 
 ## Quick Start
 
@@ -100,8 +100,8 @@ A terrain map that answers:
 ### 1. Discover
 
 Read and analyze:
-- `_float/system.md` — Boot protocol
-- `_float/nav/*.md` — All navigation files
+- `.float/system.md` — Boot protocol
+- `.float/nav/*.md` — All navigation files
 - `README.md` — Project overview
 - Key entry points (main files, index files, core modules)
 
@@ -162,7 +162,7 @@ human_refinements: |
 
 For new AI sessions:
 
-1. `_float/system.md` — {why}
+1. `.float/system.md` — {why}
 2. `{next file}` — {why}
 ...
 
@@ -186,7 +186,7 @@ If updating existing context:
 ## Output Location
 
 ```
-_float/context/project.md
+.float/context/project.md
 ```
 
 Default filename is `project.md`. Context Buoy may choose a different name if the project suggests one (emergent naming).

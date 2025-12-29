@@ -69,9 +69,9 @@ Each loop corresponds to a phase below. The phases document *what* was read; the
 
 | # | File | What I Learned |
 |---|------|----------------|
-| 1 | `_float/index.md` | Repo structure, file format overview, goal hierarchy summary |
-| 2 | `_float/system.md` | 9-step penetration sequence, maintenance protocol, behavioral constraints |
-| 3 | `_float/logs/2025-12-28.md` | Today was FloatSystem genesis day, major architecture migration happened |
+| 1 | `.float/index.md` | Repo structure, file format overview, goal hierarchy summary |
+| 2 | `.float/system.md` | 9-step penetration sequence, maintenance protocol, behavioral constraints |
+| 3 | `.float/logs/2025-12-28.md` | Today was FloatSystem genesis day, major architecture migration happened |
 
 **Outcome:** Understood the boot protocol and current project state.
 
@@ -81,17 +81,17 @@ Each loop corresponds to a phase below. The phases document *what* was read; the
 
 | # | File | What I Learned |
 |---|------|----------------|
-| 4 | `docs/_float/index.md` | Reading order, key concepts summary |
-| 5 | `context/_float/index.md` | Onboarding document purpose |
-| 6 | `dev/_float/index.md` | Update-creator and update-protocol workflow |
-| 7 | `experimental/_float/index.md` | Legacy build system, archived status |
-| 8 | `artifacts/_float/index.md` | 150+ historical evolution documents |
-| 9 | `docs/philosophy/_float/index.md` | Manifesto, orientation, naming docs exist |
-| 10 | `docs/reference/_float/index.md` | Full/mini/micro complexity levels |
-| 11 | `dev/updates/_float/index.md` | Closed vs in-progress update structure |
-| 12 | `artifacts/2025/_float/index.md` | Key breakthrough documents from 2025 |
+| 4 | `docs/.float/index.md` | Reading order, key concepts summary |
+| 5 | `context/.float/index.md` | Onboarding document purpose |
+| 6 | `dev/.float/index.md` | Update-creator and update-protocol workflow |
+| 7 | `experimental/.float/index.md` | Legacy build system, archived status |
+| 8 | `artifacts/.float/index.md` | 150+ historical evolution documents |
+| 9 | `docs/philosophy/.float/index.md` | Manifesto, orientation, naming docs exist |
+| 10 | `docs/reference/.float/index.md` | Full/mini/micro complexity levels |
+| 11 | `dev/updates/.float/index.md` | Closed vs in-progress update structure |
+| 12 | `artifacts/2025/.float/index.md` | Key breakthrough documents from 2025 |
 
-**Outcome:** Verified all `_float/index.md` files, confirmed structure matches reality.
+**Outcome:** Verified all `.float/index.md` files, confirmed structure matches reality.
 
 ---
 
@@ -159,9 +159,9 @@ Each loop corresponds to a phase below. The phases document *what* was read; the
 
 ## Key Insights from the Build
 
-1. **Boot sequence works.** Following `_float/system.md` instructions produced comprehensive understanding.
+1. **Boot sequence works.** Following `.float/system.md` instructions produced comprehensive understanding.
 
-2. **Index traversal catches gaps.** Reading all `_float/index.md` files verified structure and revealed folder purposes.
+2. **Index traversal catches gaps.** Reading all `.float/index.md` files verified structure and revealed folder purposes.
 
 3. **Examples ground theory.** The Portfolio Coach example (729 lines) showed what "depth scales with complexity" actually means.
 
@@ -175,7 +175,7 @@ Each loop corresponds to a phase below. The phases document *what* was read; the
 
 To achieve this context in a new session:
 
-1. Start with `_float/system.md` (boot loader)
+1. Start with `.float/system.md` (boot loader)
 2. Follow the penetration sequence exactly
 3. Read examples after documentation
 4. Fill gaps based on what feels incomplete

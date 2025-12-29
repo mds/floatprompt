@@ -38,4 +38,4 @@ Conceptual overview. Explains what FloatPrompt is and how it works.
 
 ## Usage
 
-Boot sequence in `_float/system.md` references these files. AI chooses appropriate depth based on task.
+Boot sequence in `.float/system.md` references these files. AI chooses appropriate depth based on task.

@@ -17,7 +17,7 @@ ai_notes: Tabled in favor of simpler slash commands approach. Preserved for futu
 
 > **Status: Tabled.** Starting with simpler slash commands approach. See `float-buoys-commands-spec.md`. This spec preserved for future if real-time sync is needed.
 
-**Dropbox for AI context.** A background daemon that keeps `_float/` files accurate so any AI dropping into a project has current, reliable context.
+**Dropbox for AI context.** A background daemon that keeps `.float/` files accurate so any AI dropping into a project has current, reliable context.
 
 ---
 
@@ -38,7 +38,7 @@ npm install -g floatprompt
 float
 ```
 
-The `float` CLI starts a daemon that watches directories containing `_float/system.md`. When files change, the daemon updates relevant `_float/` files automatically.
+The `float` CLI starts a daemon that watches directories containing `.float/system.md`. When files change, the daemon updates relevant `.float/` files automatically.
 
 Human works. Buoys maintain context. AI always has accurate information.
 
@@ -49,18 +49,18 @@ Human works. Buoys maintain context. AI always has accurate information.
 | Buoy | Watches | Does |
 |------|---------|------|
 | **Watch Buoy** | Filesystem | Detects changes, populates watchlist |
-| **Index Buoy** | `_float/index.md` files | Keeps file tables accurate |
-| **System Buoy** | `_float/system.md` | Keeps structure map accurate |
-| **Log Buoy** | `_float/logs/` | Records all buoy activity |
+| **Index Buoy** | `.float/index.md` files | Keeps file tables accurate |
+| **System Buoy** | `.float/system.md` | Keeps structure map accurate |
+| **Log Buoy** | `.float/logs/` | Records all buoy activity |
 | **Integrity Buoy** | Everything | Periodic drift check (startup + hourly) |
 
 ### Integrity Buoy
 
 Runs on daemon startup and periodically (hourly) to catch drift that event-based watching misses:
 
-- All folders have `_float/index.md`?
+- All folders have `.float/index.md`?
 - All index tables match actual folder contents?
-- Structure map in `_float/system.md` matches reality?
+- Structure map in `.float/system.md` matches reality?
 - Any orphaned files not in indexes?
 
 Logs issues, queues fixes for other buoys.
@@ -82,7 +82,7 @@ Instant, free, runs on every file change.
 - Folder deleted
 
 **Actions:**
-- Update `_float/index.md` file tables (add/remove rows)
+- Update `.float/index.md` file tables (add/remove rows)
 - Update `ai_updated` timestamps
 - Add entry to watchlist if Tier 2 needed
 - Log activity via Log Buoy
@@ -100,7 +100,7 @@ Triggered when watchlist updates. Calls Claude API.
 **Actions:**
 - Read changed files, understand meaning
 - Write meaningful descriptions for new files
-- Update structure map in `_float/system.md`
+- Update structure map in `.float/system.md`
 - Flag files for human review (FloatDoc frontmatter)*
 - Log activity via Log Buoy
 
@@ -112,7 +112,7 @@ Triggered when watchlist updates. Calls Claude API.
 
 ## Watchlist
 
-Location: `_float/watchlist.md`
+Location: `.float/watchlist.md`
 
 ```markdown
 ---
@@ -134,7 +134,7 @@ When a row is added with status `pending`, Tier 2 wakes up and processes it.
 
 ## Log Format
 
-Location: `_float/logs/YYYY-MM-DD.md`
+Location: `.float/logs/YYYY-MM-DD.md`
 
 ```markdown
 ---
@@ -145,7 +145,7 @@ date: 2025-12-28
 
 ## 16:45 — Index Buoy
 - Added: docs/api/auth.md
-- Updated: docs/_float/index.md
+- Updated: docs/.float/index.md
 
 ## 16:44 — System Buoy
 - New folder detected: docs/api/
@@ -172,7 +172,7 @@ float process          # Manually trigger Tier 2 processing
 
 ## Configuration
 
-Location: `~/.floatrc` or `_float/config.json`
+Location: `~/.floatrc` or `.float/config.json`
 
 ```json
 {
@@ -190,15 +190,15 @@ Location: `~/.floatrc` or `_float/config.json`
 
 **How does a directory become watched?**
 
-1. User runs `float` in a directory with `_float/system.md`
-2. If no `_float/system.md`, daemon offers to initialize FloatSystem
+1. User runs `float` in a directory with `.float/system.md`
+2. If no `.float/system.md`, daemon offers to initialize FloatSystem
 
 **How does Tier 1 know to escalate to Tier 2?**
 
 - New file (any file created needs description)
 - New folder (needs index.md created, structure map updated)
 - More than 3 files changed in 10 seconds (significant restructure)
-- `_float/system.md` modified externally
+- `.float/system.md` modified externally
 
 ---
 
@@ -217,7 +217,7 @@ coverage/
 .env*
 ```
 
-Configurable via `_float/config.json`:
+Configurable via `.float/config.json`:
 
 ```json
 {
@@ -231,9 +231,9 @@ Configurable via `_float/config.json`:
 
 **Principle: Human authority.** If human and daemon both touch a file, human wins.
 
-When daemon detects external changes to `_float/` files:
+When daemon detects external changes to `.float/` files:
 1. Pause pending updates for that file
-2. Log: "Human edited docs/_float/index.md, skipping daemon update"
+2. Log: "Human edited docs/.float/index.md, skipping daemon update"
 3. Resume watching for next change
 
 The daemon never overwrites human work. Pilot principle applies.
@@ -261,7 +261,7 @@ Failed items stay in watchlist for human review. Daemon continues processing oth
 
 ## Init Flow
 
-When you run `float` in a directory without `_float/system.md`:
+When you run `float` in a directory without `.float/system.md`:
 
 ```
 $ float
@@ -270,14 +270,14 @@ No FloatSystem detected.
 Initialize? (y/n): y
 
 Creating FloatSystem...
-  ✓ _float/system.md (boot loader)
-  ✓ _float/index.md (root navigation)
-  ✓ _float/logs/ (activity logs)
+  ✓ .float/system.md (boot loader)
+  ✓ .float/index.md (root navigation)
+  ✓ .float/logs/ (activity logs)
 
 Scanning folders...
-  ✓ docs/_float/index.md
-  ✓ src/_float/index.md
-  ✓ examples/_float/index.md
+  ✓ docs/.float/index.md
+  ✓ src/.float/index.md
+  ✓ examples/.float/index.md
 
 FloatSystem initialized.
 Watching 23 files.
@@ -287,16 +287,16 @@ Ready.
 ```
 
 **What gets created:**
-- `_float/system.md` — Boot loader with structure map
-- `_float/index.md` — Root navigation with file table
-- `_float/logs/` — Empty directory for logs
-- `{folder}/_float/index.md` — For each non-ignored subfolder
+- `.float/system.md` — Boot loader with structure map
+- `.float/index.md` — Root navigation with file table
+- `.float/logs/` — Empty directory for logs
+- `{folder}/.float/index.md` — For each non-ignored subfolder
 
 ---
 
 ## Daemon State
 
-Location: `_float/.daemon.json`
+Location: `.float/.daemon.json`
 
 ```json
 {
@@ -414,9 +414,9 @@ Daemon flags, human decides.
 
 1. `npm install -g floatprompt` works
 2. `float` starts watching current directory
-3. Add a file → `_float/index.md` updates automatically
+3. Add a file → `.float/index.md` updates automatically
 4. New file gets description via Tier 2
-5. All activity logged to `_float/logs/`
+5. All activity logged to `.float/logs/`
 6. `/float` shows daemon status
 
 ---

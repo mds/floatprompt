@@ -118,7 +118,7 @@ Files that reference this folder:
 
 | File | Context |
 |------|---------|
-| [[_float/index]] | Root navigation mentions this folder |
+| [[.float/index]] | Root navigation mentions this folder |
 | [[docs/floatsystem]] | Architecture overview references examples |
 ```
 
@@ -134,7 +134,7 @@ Files that reference this folder:
 
 | File | Context |
 |------|---------|
-| [[_float/index]] | "Real-world FloatPrompt tools" |
+| [[.float/index]] | "Real-world FloatPrompt tools" |
 | [[docs/use]] | "See examples/ for working tools" |
 | [[README]] | Examples table in documentation |
 ```
@@ -143,7 +143,7 @@ Files that reference this folder:
 
 ### 4. Connection Graph
 
-**Location:** Optional `## Graph` section in `_float/index.md`
+**Location:** Optional `## Graph` section in `.float/index.md`
 
 **Format:** Mermaid diagram
 
@@ -240,10 +240,10 @@ ai_notes:
 
 ### Updated Boot Sequence
 
-Add to step 3 of `_float/system.md`:
+Add to step 3 of `.float/system.md`:
 
 ```
-3. Traverse _float/index.md and ALL _float.md files. 
+3. Traverse .float/index.md and ALL _float.md files. 
    - Verify Contents tables match parent folder contents
    - Verify wikilinks resolve to existing files
    - Flag broken links
@@ -305,7 +305,7 @@ FloatSystem with FloatLinking works in Obsidian out of the box:
 ## Implementation Order
 
 1. **Phase 1: Conventions** (immediate)
-   - Add linking convention to `_float/system.md`
+   - Add linking convention to `.float/system.md`
    - Add `tags` field to FloatDoc spec
    - Update `_float.md` template
 
@@ -347,7 +347,7 @@ FloatSystem with FloatLinking works in Obsidian out of the box:
 
 | File | Context |
 |------|---------|
-| [[_float/index]] | Root navigation |
+| [[.float/index]] | Root navigation |
 | [[core/prompt]] | References format spec |
 ```
 
@@ -369,7 +369,7 @@ FloatSystem with FloatLinking works in Obsidian out of the box:
 | Wikilinks | `[[path]]` | Inline in content | Validated |
 | Tags | `tags: []` | YAML frontmatter | Suggested |
 | Backlinks | Table | `_float.md` | Generated |
-| Graph | Mermaid | `_float/index.md` | Generated |
+| Graph | Mermaid | `.float/index.md` | Generated |
 
 **Text files remain the source of truth. Tools enhance, not require.**
 

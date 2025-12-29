@@ -156,10 +156,10 @@ Buoys maintain the system, they don't define it:
 
 | Component | Purpose |
 |-----------|---------|
-| `_float/system.md` | Boot protocol |
-| `_float/context/*.md` | AI understanding |
-| `_float/nav/*.md` | Structure navigation |
-| `_float/logs/*.md` | Session history |
+| `.float/system.md` | Boot protocol |
+| `.float/context/*.md` | AI understanding |
+| `.float/nav/*.md` | Structure navigation |
+| `.float/logs/*.md` | Session history |
 | **Buoys** | Keep all of the above in sync |
 
 Buoys are the maintenance crew, not the architecture.

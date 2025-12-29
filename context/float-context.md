@@ -31,7 +31,7 @@
         "components": {
           "floatprompt_doc": "YAML frontmatter for richer AI understanding of documents",
           "floatprompt": "Structured text format for portable AI tools",
-          "floatprompt_system": "_float/ folders for project-wide AI awareness"
+          "floatprompt_system": ".float/ folders for project-wide AI awareness"
         }
       },
       "component_purposes": {
@@ -57,7 +57,7 @@ Three components, from simple to full:
 
 1. **floatprompt doc** — YAML frontmatter for context
 2. **FloatPrompt** — Structured files for AI tools
-3. **FloatPrompt System** — `_float/` folders for project awareness
+3. **FloatPrompt System** — `.float/` folders for project awareness
 
 Upload any component to any AI platform—Claude, ChatGPT, Cursor, Gemini—and the AI immediately understands how to work with you.
 
@@ -128,11 +128,11 @@ Structured text format for portable AI tooling. JSON for behavior, markdown for 
 
 ### FloatPrompt System — Project Awareness
 
-`_float/` folders that give AI instant awareness of entire directories.
+`.float/` folders that give AI instant awareness of entire directories.
 
 ```
 project/
-├── _float/
+├── .float/
 │   ├── system.md      # Boot loader (read first)
 │   ├── nav/           # Centralized navigation
 │   │   ├── root.md    # Repository root
@@ -151,8 +151,8 @@ project/
 - You need integrity checking and maintenance protocols
 
 **FloatPrompt System activates full project understanding.** The boot sequence:
-1. Read `_float/system.md` (boot loader)
-2. Read all `_float/nav/*.md` files (centralized navigation)
+1. Read `.float/system.md` (boot loader)
+2. Read all `.float/nav/*.md` files (centralized navigation)
 3. Verify contents match actual folder structure
 4. Read session logs for recent activity
 5. Build mental model, execute requests, log session
@@ -281,8 +281,8 @@ All FloatPrompt system files use `.md` for universal compatibility:
 - `core/prompt.md` — Template
 - `core/doc.md` — floatprompt doc tool
 - `core/os.md` — Full system
-- `_float/system.md` — Boot loader
-- `_float/nav/*.md` — Navigation
+- `.float/system.md` — Boot loader
+- `.float/nav/*.md` — Navigation
 
 ---
 
@@ -290,7 +290,7 @@ All FloatPrompt system files use `.md` for universal compatibility:
 
 **floatprompt doc** = Context layer (YAML frontmatter)
 **FloatPrompt** = Tool layer (behavioral specification)
-**FloatPrompt System** = Awareness layer (`_float/` folders)
+**FloatPrompt System** = Awareness layer (`.float/` folders)
 
 Together: **The invisible OS for AI.**
 

@@ -137,7 +137,7 @@ ai_notes: 5 action items to extract
 
 | Component | Purpose | Format |
 |-----------|---------|--------|
-| **FloatPrompt System** | Project awareness | `_float/` folders |
+| **FloatPrompt System** | Project awareness | `.float/` folders |
 | **FloatPrompt** | Tools (modify behavior) | `<fp>` tags in `.md` |
 | **floatprompt doc** | Context (mutual understanding) | YAML frontmatter |
 

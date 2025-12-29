@@ -29,7 +29,7 @@ Step-by-step validation of the `/float` and `/float sync` commands.
 
 ## Test 1: Boot Existing FloatSystem
 
-**Location:** floatprompt repo (has `_float/system.md`)
+**Location:** floatprompt repo (has `.float/system.md`)
 
 **Steps:**
 
@@ -49,8 +49,8 @@ Run /float sync to see details and fix
 ```
 
 **Verify:**
-- Boot sequence reads `_float/system.md`
-- All `_float/index.md` files traversed
+- Boot sequence reads `.float/system.md`
+- All `.float/index.md` files traversed
 - Issue count reported (not details)
 - Mental model built
 
@@ -76,8 +76,8 @@ Directory: /path/to/floatprompt
 
 Checking integrity...
 
-✓ _float/system.md — OK
-✓ _float/index.md — OK
+✓ .float/system.md — OK
+✓ .float/index.md — OK
 [... list of all index files with ✓ or ✗ ...]
 
 Found [N] issues in [M] files.
@@ -90,7 +90,7 @@ Apply changes? (y/n):
 
 **Verify:**
 - Detailed integrity check shown
-- Each `_float/index.md` file checked
+- Each `.float/index.md` file checked
 - Issues clearly identified
 - Proposed changes make sense
 - Approval gate works
@@ -135,12 +135,12 @@ Run /float sync to see details and fix
 
 **Expected:**
 ```
-✗ docs/_float/index.md — 1 issue
+✗ docs/.float/index.md — 1 issue
   - Missing: docs/test-file.md (file exists, not in table)
 
 Proposed changes:
 
-docs/_float/index.md:
+docs/.float/index.md:
   + Add: test-file.md — [needs description]
 
 Apply changes? (y/n):
@@ -156,8 +156,8 @@ Apply changes? (y/n):
 
 5. Verify:
    ```bash
-   cat docs/_float/index.md | grep test-file
-   cat _float/logs/2025-12-28.md | tail -20
+   cat docs/.float/index.md | grep test-file
+   cat .float/logs/2025-12-28.md | tail -20
    ```
 
 **Pass criteria:** New file detected, description generated, index updated, activity logged
@@ -182,12 +182,12 @@ Apply changes? (y/n):
 
 **Expected:**
 ```
-✗ docs/_float/index.md — 1 issue
+✗ docs/.float/index.md — 1 issue
   - Stale: docs/test-file.md (file deleted, still in table)
 
 Proposed changes:
 
-docs/_float/index.md:
+docs/.float/index.md:
   - Remove: test-file.md (file deleted)
 
 Apply changes? (y/n):
@@ -223,15 +223,15 @@ Apply changes? (y/n):
 
 **Expected:**
 ```
-✗ docs/_float/index.md — 1 issue
-  - Missing: docs/new-section/ (folder has no _float/index.md)
+✗ docs/.float/index.md — 1 issue
+  - Missing: docs/new-section/ (folder has no .float/index.md)
 
 Proposed changes:
 
-docs/_float/index.md:
+docs/.float/index.md:
   + Add folder: new-section/
 
-docs/new-section/_float/index.md:
+docs/new-section/.float/index.md:
   + Create: new index file with 2 files listed
 
 Apply changes? (y/n):
@@ -240,15 +240,15 @@ Apply changes? (y/n):
 3. Say `y`
 
 **Expected:**
-- Scaffold Buoy creates `docs/new-section/_float/index.md`
-- Index Buoy updates parent `docs/_float/index.md` folder table
+- Scaffold Buoy creates `docs/new-section/.float/index.md`
+- Index Buoy updates parent `docs/.float/index.md` folder table
 - System Buoy updates structure map (if applicable)
 - Describe Buoy generates descriptions for new files
 
 4. Verify:
    ```bash
-   cat docs/new-section/_float/index.md
-   cat docs/_float/index.md | grep new-section
+   cat docs/new-section/.float/index.md
+   cat docs/.float/index.md | grep new-section
    ```
 
 **Pass criteria:** Folder detected, index scaffolded, parent updated
@@ -282,28 +282,28 @@ Apply changes? (y/n):
 FloatSystem: INITIALIZED
 Directory: ~/float-test-project
 Created:
-  - _float/system.md
-  - _float/index.md
-  - _float/logs/
-  - src/_float/index.md
-  - docs/_float/index.md
+  - .float/system.md
+  - .float/index.md
+  - .float/logs/
+  - src/.float/index.md
+  - docs/.float/index.md
 
 FloatSystem: BOOTED
 Status: No issues found
 Ready for: [human direction]
 ```
 
-- No `_float/system.md` found → Init sequence triggers
-- Creates `_float/` structure
+- No `.float/system.md` found → Init sequence triggers
+- Creates `.float/` structure
 - Auto-boots on newly created structure
 - Reports "INITIALIZED" then "BOOTED"
 
 4. Verify:
    ```bash
-   ls -la _float/
-   cat _float/system.md
-   cat _float/index.md
-   cat src/_float/index.md
+   ls -la .float/
+   cat .float/system.md
+   cat .float/index.md
+   cat src/.float/index.md
    ```
 
 **Pass criteria:** Full FloatSystem initialized, all folders have index files
@@ -345,7 +345,7 @@ All clear. No issues found.
 
 1. Check existing format:
    ```bash
-   head -30 docs/_float/index.md
+   head -30 docs/.float/index.md
    ```
    (Should show `| File | Intent | Purpose |`)
 
@@ -358,7 +358,7 @@ All clear. No issues found.
 
 4. Verify format preserved:
    ```bash
-   cat docs/_float/index.md | grep format-test
+   cat docs/.float/index.md | grep format-test
    ```
 
 **Expected:** New row uses same 3-column format
@@ -423,7 +423,7 @@ After testing:
 rm -f docs/test-file.md
 rm -rf docs/new-section
 rm -f docs/format-test.md
-git checkout -- docs/_float/index.md
+git checkout -- docs/.float/index.md
 
 # Remove test project
 rm -rf ~/float-test-project

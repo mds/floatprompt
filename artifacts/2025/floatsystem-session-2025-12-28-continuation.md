@@ -12,8 +12,8 @@ ai_model: Claude Opus 4
 ai_updated: 2025-12-28
 ai_notes: |
   Comprehensive handoff from 6+ hour session.
-  Read this + _float/system.md for complete context.
-  Ready to implement new _float/ folder architecture.
+  Read this + .float/system.md for complete context.
+  Ready to implement new .float/ folder architecture.
 ---
 
 # FloatSystem Session Continuation — 2025-12-28
@@ -137,25 +137,25 @@ Structure IS the specification. No verbose per-file hooks needed.
 
 Current structure assumes FloatSystem IS the project. But for `npm install -g floatprompt`, FloatSystem needs to be ADDED to existing projects without collisions.
 
-### The Solution: `_float/` Container Folders
+### The Solution: `.float/` Container Folders
 
-**Every directory gets a `_float/` subfolder containing all FloatSystem files.**
+**Every directory gets a `.float/` subfolder containing all FloatSystem files.**
 
 ```
 any-project/
-├── _float/                     # Root FloatSystem container
+├── .float/                     # Root FloatSystem container
 │   ├── system.md               # Boot loader (THE entry point)
 │   ├── index.md                # Root folder context
 │   └── logs/
 │       └── 2025-12-28.md
 │
 ├── src/
-│   ├── _float/
+│   ├── .float/
 │   │   └── index.md            # Context for src/
 │   └── [project code]
 │
 ├── docs/
-│   ├── _float/
+│   ├── .float/
 │   │   └── index.md            # Context for docs/
 │   └── [doc files]
 │
@@ -164,18 +164,18 @@ any-project/
 
 ### Key Principles
 
-1. **Underscore only on folder** — `_float/` sorts to top, signals "system"
+1. **Underscore only on folder** — `.float/` sorts to top, signals "system"
 2. **No underscores on files inside** — folder IS the namespace
 3. **`index.md`** — familiar convention (like index.html)
-4. **Single entry point** — `_float/system.md` unfurls everything
+4. **Single entry point** — `.float/system.md` unfurls everything
 
-### File Naming Inside `_float/`
+### File Naming Inside `.float/`
 
 | File | Location | Purpose |
 |------|----------|---------|
-| `system.md` | Root `_float/` only | Boot loader, behavioral protocol |
-| `index.md` | Every `_float/` | Context about parent folder |
-| `logs/` | Root `_float/` only | Session history |
+| `system.md` | Root `.float/` only | Boot loader, behavioral protocol |
+| `index.md` | Every `.float/` | Context about parent folder |
+| `logs/` | Root `.float/` only | Session history |
 
 **That's it.** Two file types + one folder. Minimal.
 
@@ -184,10 +184,10 @@ any-project/
 ```json
 {
   "boot_sequence": {
-    "1": "Read _float/system.md completely",
+    "1": "Read .float/system.md completely",
     "2": "Load structure map into memory",
-    "3": "Traverse ALL _float/index.md files. Verify Contents tables match actual folder contents. Flag discrepancies.",
-    "4": "Read today's log (_float/logs/YYYY-MM-DD.md)",
+    "3": "Traverse ALL .float/index.md files. Verify Contents tables match actual folder contents. Flag discrepancies.",
+    "4": "Read today's log (.float/logs/YYYY-MM-DD.md)",
     "5": "Build mental model of project structure",
     "6": "Flag discrepancies before proceeding",
     "7": "Execute human requests",
@@ -199,11 +199,11 @@ any-project/
 ### The Unfurling Pattern
 
 ```
-AI receives: _float/system.md (single entry point)
+AI receives: .float/system.md (single entry point)
       ↓
 Contains: boot sequence, behavior, structure map
       ↓
-Points to: all _float/index.md files
+Points to: all .float/index.md files
       ↓
 Each index.md: describes its parent folder
       ↓
@@ -214,9 +214,9 @@ Full context achieved
 
 | Benefit | Description |
 |---------|-------------|
-| Zero collisions | `_float/` is unique namespace |
-| Clear boundaries | Everything FloatSystem is in `_float/` |
-| Easy removal | Delete all `_float/` folders to uninstall |
+| Zero collisions | `.float/` is unique namespace |
+| Clear boundaries | Everything FloatSystem is in `.float/` |
+| Easy removal | Delete all `.float/` folders to uninstall |
 | Installable | `npx floatprompt init` creates structure |
 | Sorts to top | Underscore prefix |
 | Recursive | Works at any nesting depth |
@@ -229,12 +229,12 @@ From current → new architecture:
 
 | Current | New |
 |---------|-----|
-| `_system.md` | `_float/system.md` |
-| `_float.md` | `_float/index.md` |
-| `sessions/log-*.md` | `_float/logs/*.md` |
+| `_system.md` | `.float/system.md` |
+| `_float.md` | `.float/index.md` |
+| `sessions/log-*.md` | `.float/logs/*.md` |
 | `sessions/_float.md` | (deleted, absorbed into system) |
-| `docs/_float.md` | `docs/_float/index.md` |
-| `artifacts/_float.md` | `artifacts/_float/index.md` |
+| `docs/_float.md` | `docs/.float/index.md` |
+| `artifacts/_float.md` | `artifacts/.float/index.md` |
 | etc. | etc. |
 
 **Clean. Automatable.**
@@ -277,14 +277,14 @@ All 13 docs in `docs/` have FloatDoc frontmatter with `human_intent` surfaced in
 
 ### Immediate (Before Merge)
 
-1. **Migrate to `_float/` architecture** — Restructure this repo
+1. **Migrate to `.float/` architecture** — Restructure this repo
 2. **Update all specs** — Reflect new architecture
 3. **Update README.md** — Public-facing documentation
-4. **Test the boot sequence** — Verify AI can unfurl from `_float/system.md`
+4. **Test the boot sequence** — Verify AI can unfurl from `.float/system.md`
 
 ### Future (Post-Merge)
 
-1. **Build `npx floatprompt init`** — Creates `_float/` structure
+1. **Build `npx floatprompt init`** — Creates `.float/` structure
 2. **Build `npx floatprompt scan`** — Auto-generates index.md files
 3. **Test on external projects** — Add FloatSystem to existing codebases
 4. **Documentation site** — Public docs for adoption
@@ -295,14 +295,14 @@ All 13 docs in `docs/` have FloatDoc frontmatter with `human_intent` surfaced in
 
 ### Your Entry Points
 
-1. **Read `_float/system.md`** (or `_system.md` until migrated) — Boot sequence
+1. **Read `.float/system.md`** (or `_system.md` until migrated) — Boot sequence
 2. **Read this document** — Full session context
 3. **Read `sessions/log-2025-12-28.md`** — Commit history
 
 ### Key Understanding
 
 - FloatSystem = invisible OS for AI
-- `_float/system.md` = single entry point for any project
+- `.float/system.md` = single entry point for any project
 - Structure IS the instruction
 - AI reads → understands → acts → maintains
 
@@ -312,7 +312,7 @@ All 13 docs in `docs/` have FloatDoc frontmatter with `human_intent` surfaced in
 npm install -g floatprompt
 cd any-project
 npx floatprompt init
-# _float/ structure created
+# .float/ structure created
 # AI now has instant awareness of project
 ```
 
@@ -322,12 +322,12 @@ npx floatprompt init
 
 ## Validation Received
 
-Another AI agent validated the `_float/` architecture:
+Another AI agent validated the `.float/` architecture:
 
-> "This is the right evolution if FloatSystem becomes installable tooling. The current flat approach works for 'FloatSystem-native' projects. But for adoption into existing codebases, `_float/` container is essential."
+> "This is the right evolution if FloatSystem becomes installable tooling. The current flat approach works for 'FloatSystem-native' projects. But for adoption into existing codebases, `.float/` container is essential."
 
 Key confirmations:
-- `_float/` is the right folder name
+- `.float/` is the right folder name
 - `index.md` describes parent folder (not siblings)
 - Boot sequence is clear
 - Migration path is clean
@@ -338,12 +338,12 @@ Key confirmations:
 
 **Where we started:** Implementing FloatSystem specs in the floatprompt repo
 
-**Where we are:** Evolved to `_float/` container architecture for installable tooling
+**Where we are:** Evolved to `.float/` container architecture for installable tooling
 
 **What's next:** Migrate this repo to new structure, update docs, prepare for npm publish
 
-**The core insight:** One entry point (`_float/system.md`) → full project awareness
+**The core insight:** One entry point (`.float/system.md`) → full project awareness
 
 ---
 
-*This document provides complete context for session continuation. Read alongside `_float/system.md` (or `_system.md` until migrated) for full understanding.*
+*This document provides complete context for session continuation. Read alongside `.float/system.md` (or `_system.md` until migrated) for full understanding.*

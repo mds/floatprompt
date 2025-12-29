@@ -12,7 +12,7 @@ ai_model: Claude Opus 4
 ai_updated: 2025-12-28
 ai_notes: |
   Updated to centralized architecture (v0.6.0).
-  Navigation now lives in _float/nav/*.md instead of scattered _float/index.md files.
+  Navigation now lives in .float/nav/*.md instead of scattered .float/index.md files.
   Renamed Index Buoy to Nav Buoy. Scaffold Buoy creates nav/*.md files.
 ---
 
@@ -46,7 +46,7 @@ No separate verify step. Sync shows you everything and asks before changing anyt
 FloatSystem v0.6.0 uses **centralized navigation**:
 
 ```
-_float/
+.float/
 ├── system.md          # Boot loader
 ├── nav/               # All folder navigation here
 │   ├── root.md        # Repository root
@@ -86,9 +86,9 @@ Single command file (`.claude/commands/float.md`) handles subcommands via `$ARGU
 
 Boots FloatSystem and runs a quick integrity check. Surfaces issues without details.
 
-**If `_float/system.md` exists → Boot Sequence:**
+**If `.float/system.md` exists → Boot Sequence:**
 1. Read boot loader
-2. Read all `_float/nav/*.md` files
+2. Read all `.float/nav/*.md` files
 3. Build mental model
 4. **Run quick integrity check** (lightweight verify)
 5. Report status with issue count
@@ -110,9 +110,9 @@ Status: 3 issues found
 Run /float sync to see details and fix
 ```
 
-**If `_float/system.md` doesn't exist → Init Sequence:**
+**If `.float/system.md` doesn't exist → Init Sequence:**
 - Fetch spec from GitHub
-- Create `_float/` structure with centralized `nav/` folder
+- Create `.float/` structure with centralized `nav/` folder
 - Auto-boot on newly created structure
 - Report: "INITIALIZED" + "BOOTED" + "No issues found"
 
@@ -138,13 +138,13 @@ Full integrity check with fix capability. Shows all issues, proposes changes, ap
 | **Nav coverage** | Every major folder has a `nav/*.md` file |
 | **Table accuracy** | File tables match actual folder contents |
 | **Subfolder accuracy** | Subfolder tables match actual subfolders |
-| **Structure map** | `_float/system.md` structure map matches reality |
+| **Structure map** | `.float/system.md` structure map matches reality |
 | **Orphaned files** | Files exist but aren't in any nav file |
 | **Missing files** | Nav references files that don't exist |
 
 **Exclusions (don't flag these as issues):**
 - Dotfiles (`.DS_Store`, `.gitignore`, etc.)
-- `_float/` folder itself
+- `.float/` folder itself
 - `node_modules/`, `dist/`, `build/`, `.git/`
 - Lock files (`*.lock`, `package-lock.json`)
 - Project's ignore patterns
@@ -181,8 +181,8 @@ A file is only "orphaned" if it's not in the nav file AND not in the exclusion l
 | **Nav Buoy** | Add/remove file rows in nav/*.md tables | No |
 | **System Buoy** | Update structure map | No |
 | **Describe Buoy** | Write descriptions for new files | Yes (Haiku) |
-| **Scaffold Buoy** | Create new `_float/nav/*.md` files | Minimal |
-| **Log Buoy** | Record activity to `_float/logs/` | No |
+| **Scaffold Buoy** | Create new `.float/nav/*.md` files | Minimal |
+| **Log Buoy** | Record activity to `.float/logs/` | No |
 
 **Describe Buoy notes:**
 - Model: Haiku (fast, cheap, sufficient for descriptions)
@@ -196,7 +196,7 @@ A file is only "orphaned" if it's not in the nav file AND not in the exclusion l
 FloatSystem Sync
 Directory: /Users/mds/Projects/floatprompt
 
-Scanning _float/nav/*.md...
+Scanning .float/nav/*.md...
 Found 8 nav files.
 
 Spawning Check Buoys (8 parallel)...
@@ -206,14 +206,14 @@ Spawning Check Buoys (8 parallel)...
   → ...
 
 Results:
-✓ _float/system.md — OK
-✓ _float/nav/root.md — OK
-✗ _float/nav/docs.md — 2 issues
+✓ .float/system.md — OK
+✓ .float/nav/root.md — OK
+✗ .float/nav/docs.md — 2 issues
   - Missing: docs/new-feature.md (file exists, not in table)
   - Stale: docs/api.md (file deleted, still in table)
-✗ _float/nav/examples.md — 1 issue
+✗ .float/nav/examples.md — 1 issue
   - Missing: examples/new-example/ (subfolder not in table)
-✓ _float/nav/dev.md — OK
+✓ .float/nav/dev.md — OK
 
 Found 3 issues in 2 files.
 ```
@@ -222,14 +222,14 @@ Found 3 issues in 2 files.
 ```
 Proposed changes:
 
-_float/nav/docs.md:
+.float/nav/docs.md:
   + Add: new-feature.md — [needs description]
   - Remove: api.md (file deleted)
 
-_float/nav/examples.md:
+.float/nav/examples.md:
   + Add subfolder: new-example/
 
-_float/system.md:
+.float/system.md:
   ~ Update structure map (new folder: examples/new-example/)
 
 Apply changes? (y/n):
@@ -247,14 +247,14 @@ Generating descriptions...
   [accept/edit/skip]: accept
 
 Spawning buoys...
-  ✓ Nav Buoy: Updated _float/nav/docs.md
-  ✓ Nav Buoy: Updated _float/nav/examples.md
+  ✓ Nav Buoy: Updated .float/nav/docs.md
+  ✓ Nav Buoy: Updated .float/nav/examples.md
   ✓ Describe Buoy: new-feature.md → "Feature documentation for..."
   ✓ System Buoy: Updated structure map
   ✓ Log Buoy: Recorded activity
 
 Sync complete. 4 changes applied.
-Activity logged to _float/logs/2025-12-28.md
+Activity logged to .float/logs/2025-12-28.md
 ```
 
 **If no issues found:**
@@ -277,7 +277,7 @@ All clear. No issues found.
 
 **Phase 1: Check (parallel verification)**
 ```
-Scanning _float/nav/*.md...
+Scanning .float/nav/*.md...
 Found N nav files.
 
 Spawning Check Buoys (N parallel)...
@@ -329,7 +329,7 @@ Multiple buoys of the same type can run simultaneously (e.g., 8 Check Buoys veri
 
 ## Nav File Format Reference
 
-Canonical format for `_float/nav/*.md` files. Buoys must understand and preserve this structure.
+Canonical format for `.float/nav/*.md` files. Buoys must understand and preserve this structure.
 
 ### Frontmatter (Required)
 
@@ -382,7 +382,7 @@ Different nav files may use different column structures:
 ### Exclusions
 
 These items are NEVER added to nav tables:
-- `_float/` folder
+- `.float/` folder
 - Dotfiles and hidden files
 - `node_modules/`, `dist/`, `build/`
 - Lock files (`*.lock`, `package-lock.json`)
@@ -416,7 +416,7 @@ Detailed behavior for each buoy type. These instructions are embedded in the com
 **Purpose:** Verify one nav/*.md file against actual folder contents.
 
 **Input:**
-- Path to nav/*.md file (e.g., `_float/nav/docs.md`)
+- Path to nav/*.md file (e.g., `.float/nav/docs.md`)
 - Folder it describes (e.g., `docs/`)
 
 **Behavior:**
@@ -439,7 +439,7 @@ Detailed behavior for each buoy type. These instructions are embedded in the com
 4. **Return structured result**
    ```json
    {
-     "navFile": "_float/nav/docs.md",
+     "navFile": ".float/nav/docs.md",
      "status": "issues_found",
      "issues": [
        {"type": "missing", "item": "docs/new-file.md", "itemType": "file"},
@@ -450,7 +450,7 @@ Detailed behavior for each buoy type. These instructions are embedded in the com
 
 **Exclusions (never flag):**
 - Dotfiles (`.DS_Store`, etc.)
-- `_float/` folder
+- `.float/` folder
 - `node_modules/`, `dist/`, `build/`, `.git/`
 - Lock files
 
@@ -460,10 +460,10 @@ Detailed behavior for each buoy type. These instructions are embedded in the com
 
 ### Nav Buoy
 
-**Purpose:** Add or remove rows in `_float/nav/*.md` file and folder tables.
+**Purpose:** Add or remove rows in `.float/nav/*.md` file and folder tables.
 
 **Input:**
-- Path to `_float/nav/*.md` file
+- Path to `.float/nav/*.md` file
 - List of changes: `{action: "add"|"remove", type: "file"|"folder", name: string, description?: string}`
 
 **Behavior:**
@@ -502,7 +502,7 @@ Detailed behavior for each buoy type. These instructions are embedded in the com
    - Write file back
 
 **Exclusions (never add):**
-- `_float/` folder
+- `.float/` folder
 - Dotfiles and hidden files
 - Items matching ignore patterns (see Nav File Format Reference)
 
@@ -512,13 +512,13 @@ Detailed behavior for each buoy type. These instructions are embedded in the com
 
 ### System Buoy
 
-**Purpose:** Update the structure map in `_float/system.md`.
+**Purpose:** Update the structure map in `.float/system.md`.
 
 **Input:**
 - List of structural changes: new folders, removed folders, renamed folders
 
 **Behavior:**
-1. Read `_float/system.md`
+1. Read `.float/system.md`
 2. Find the structure map (code block under `## Structure Map`)
 3. Parse the tree structure
 4. Apply changes:
@@ -594,7 +594,7 @@ For skipped files, use filename as implicit description or mark as "Configuratio
 
 ### Scaffold Buoy
 
-**Purpose:** Create new `_float/nav/*.md` files for major folders that don't have one.
+**Purpose:** Create new `.float/nav/*.md` files for major folders that don't have one.
 
 **Input:**
 - Folder path that needs a nav file
@@ -682,13 +682,13 @@ ai_updated: {YYYY-MM-DD}
 
 ### Log Buoy
 
-**Purpose:** Record sync activity to `_float/logs/YYYY-MM-DD.md`.
+**Purpose:** Record sync activity to `.float/logs/YYYY-MM-DD.md`.
 
 **Input:**
 - List of actions taken by other buoys
 
 **Behavior:**
-1. Determine today's log file: `_float/logs/{YYYY-MM-DD}.md`
+1. Determine today's log file: `.float/logs/{YYYY-MM-DD}.md`
 2. If file doesn't exist, create with frontmatter:
 ```markdown
 ---
@@ -740,7 +740,7 @@ Daily session log. Newest entries first.
 ## File Structure
 
 ```
-_float/
+.float/
 ├── system.md          # Boot loader
 ├── nav/               # Centralized navigation
 │   ├── root.md
@@ -757,24 +757,24 @@ _float/
 Single command file routes based on `$ARGUMENTS`. No additional files needed.
 
 **Integration with FloatSystem:**
-- `/float` reads `_float/system.md` for boot protocol
-- `/float` reads all `_float/nav/*.md` files for context
+- `/float` reads `.float/system.md` for boot protocol
+- `/float` reads all `.float/nav/*.md` files for context
 - `/float sync` modifies nav files and system.md via buoys
-- Activity logged to `_float/logs/YYYY-MM-DD.md`
+- Activity logged to `.float/logs/YYYY-MM-DD.md`
 
 ---
 
 ## Logging
 
-`/float sync` logs activity to `_float/logs/YYYY-MM-DD.md`:
+`/float sync` logs activity to `.float/logs/YYYY-MM-DD.md`:
 
 ```markdown
 ## 14:32 — /float sync
 
-- Updated: _float/nav/docs.md (+1 file, -1 file)
-- Updated: _float/nav/examples.md (+1 subfolder)
+- Updated: .float/nav/docs.md (+1 file, -1 file)
+- Updated: .float/nav/examples.md (+1 subfolder)
 - Described: new-feature.md → "Feature documentation for..."
-- Updated: _float/system.md (structure map)
+- Updated: .float/system.md (structure map)
 ```
 
 Same format as daemon logs. Compatible if you upgrade later.
@@ -803,7 +803,7 @@ Uses same logic as daemon spec for consistency.
 - `/float` — boot with quick health check
 - `/float sync` — full integrity check + fix with approval
 - Parallel buoy spawning for descriptions
-- Logging to `_float/logs/`
+- Logging to `.float/logs/`
 
 **Out (for later):**
 - Automatic triggering (that's the daemon)
@@ -819,7 +819,7 @@ Uses same logic as daemon spec for consistency.
 3. `/float sync` fixes issues with approval gate
 4. New files get meaningful descriptions (via Describe Buoy)
 5. New major folders get nav files (via Scaffold Buoy)
-6. Activity logged to `_float/logs/` (via Log Buoy)
+6. Activity logged to `.float/logs/` (via Log Buoy)
 7. No manual file editing required after sync
 
 ---

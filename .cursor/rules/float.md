@@ -1,6 +1,6 @@
 ---
 description: FloatPrompt System boot and sync — say "boot" or "sync" to execute
-globs: ["_float/**"]
+globs: [".float/**"]
 alwaysApply: false
 ---
 
@@ -29,12 +29,12 @@ alwaysApply: false
 
   "requirements": {
     "commands": {
-      "boot": "Read _float/system.md, all nav/*.md, today's log. Report ready.",
+      "boot": "Read .float/system.md, all nav/*.md, today's log. Report ready.",
       "sync": "Full integrity check, show issues, propose fixes, apply on approval."
     },
     "boot_sequence": [
-      "Read _float/system.md",
-      "Read ALL _float/nav/*.md files",
+      "Read .float/system.md",
+      "Read ALL .float/nav/*.md files",
       "Read today's session log if exists",
       "Quick integrity check (count issues only)",
       "Report: 'FloatPrompt operational. [N] issues found.'"
@@ -50,7 +50,7 @@ alwaysApply: false
       "Log activity"
     ],
     "exclusions": [
-      "dotfiles", "_float/", "node_modules/", ".git/", "dist/", "build/", "*.lock"
+      "dotfiles", ".float/", "node_modules/", ".git/", "dist/", "build/", "*.lock"
     ]
   }
 }
@@ -83,9 +83,9 @@ Or shorter if Cursor resolves it:
 
 Orientation + quick health check.
 
-1. Read `_float/system.md` — Load boot protocol
-2. Read ALL `_float/nav/*.md` — Understand folder structure
-3. Read today's log (`_float/logs/YYYY-MM-DD.md`) if exists
+1. Read `.float/system.md` — Load boot protocol
+2. Read ALL `.float/nav/*.md` — Understand folder structure
+3. Read today's log (`.float/logs/YYYY-MM-DD.md`) if exists
 4. Quick integrity check — Count issues only
 5. Report ready
 
@@ -119,25 +119,25 @@ Full integrity check with fix capability.
 | Nav coverage | Every major folder has a nav/*.md file |
 | Table accuracy | File tables match actual folder contents |
 | Subfolder accuracy | Subfolder tables match actual subfolders |
-| Structure map | `_float/system.md` matches reality |
+| Structure map | `.float/system.md` matches reality |
 | Orphaned files | Files exist but aren't in any nav file |
 | Missing files | Nav references files that don't exist |
 
 **Exclusions (don't flag):**
 - Dotfiles (`.DS_Store`, `.gitignore`, etc.)
-- `_float/` folder itself
+- `.float/` folder itself
 - `node_modules/`, `dist/`, `build/`, `.git/`
 - Lock files
 
 **Process:**
 
-1. Scan all `_float/nav/*.md` files
+1. Scan all `.float/nav/*.md` files
 2. Compare each nav file against actual folder contents
 3. Show results with ✓ and ✗ markers
 4. Show proposed changes
 5. Ask for approval
 6. If 'y': Apply changes
-7. Log activity to `_float/logs/YYYY-MM-DD.md`
+7. Log activity to `.float/logs/YYYY-MM-DD.md`
 
 **Output:**
 ```
@@ -145,9 +145,9 @@ FloatPrompt sync
 Directory: [path]
 
 Results:
-✓ _float/system.md — OK
-✓ _float/nav/root.md — OK
-✗ _float/nav/docs.md — 2 issues
+✓ .float/system.md — OK
+✓ .float/nav/root.md — OK
+✗ .float/nav/docs.md — 2 issues
   - Missing: docs/new-feature.md (file exists, not in table)
   - Stale: docs/api.md (file deleted, still in table)
 
@@ -155,7 +155,7 @@ Found 2 issues in 1 file.
 
 Proposed changes:
 
-_float/nav/docs.md:
+.float/nav/docs.md:
   + Add: new-feature.md — [needs description]
   - Remove: api.md (file deleted)
 
@@ -166,10 +166,10 @@ Apply changes? (y/n):
 
 ## Init (No FloatPrompt System Yet)
 
-If `_float/system.md` doesn't exist, boot creates it:
+If `.float/system.md` doesn't exist, boot creates it:
 
 1. Scan repository structure
-2. Create `_float/` folder with:
+2. Create `.float/` folder with:
    - `system.md` — Boot loader
    - `nav/root.md` — Repository root
    - `nav/{folder}.md` — One per major folder
@@ -208,9 +208,9 @@ ai_updated: {YYYY-MM-DD}
 
 ## Reference
 
-- `_float/system.md` — Boot loader
-- `_float/nav/*.md` — Centralized folder navigation  
-- `_float/logs/YYYY-MM-DD.md` — Session logs
+- `.float/system.md` — Boot loader
+- `.float/nav/*.md` — Centralized folder navigation  
+- `.float/logs/YYYY-MM-DD.md` — Session logs
 
 ---
 

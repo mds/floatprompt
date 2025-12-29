@@ -10,14 +10,14 @@ human_refinements: |
 
 # FloatPrompt Context
 
-FloatPrompt is the invisible OS for AI — a structured text format for portable AI collaboration. Three components work together: **floatprompt doc** (YAML frontmatter for document context), **FloatPrompt** (tools that modify AI behavior via `<fp>` tags), and **FloatPrompt System** (`_float/` folders for project-wide awareness). The goal: preserve human voice and intelligence while enabling reliable AI collaboration across any platform.
+FloatPrompt is the invisible OS for AI — a structured text format for portable AI collaboration. Three components work together: **floatprompt doc** (YAML frontmatter for document context), **FloatPrompt** (tools that modify AI behavior via `<fp>` tags), and **FloatPrompt System** (`.float/` folders for project-wide awareness). The goal: preserve human voice and intelligence while enabling reliable AI collaboration across any platform.
 
 ## Key Files
 
 | File | Why It Matters |
 |------|----------------|
-| `_float/system.md` | Boot protocol — read first, always. Defines all conventions. |
-| `_float/context/project.md` | This file — terrain map for AI understanding |
+| `.float/system.md` | Boot protocol — read first, always. Defines all conventions. |
+| `.float/context/project.md` | This file — terrain map for AI understanding |
 | `core/os.md` | Full FloatPrompt OS (35KB) — the complete system with guided creation |
 | `core/prompt.md` | Template for creating new FloatPrompt tools |
 | `core/doc.md` | Tool for adding YAML frontmatter to documents |
@@ -30,9 +30,9 @@ FloatPrompt is the invisible OS for AI — a structured text format for portable
 
 For new AI sessions, read in this order:
 
-1. `_float/system.md` — Boot protocol, structure map, behavioral constraints
-2. `_float/context/project.md` — This file (terrain map, relationships)
-3. `_float/nav/*.md` — All 9 navigation files for folder structure
+1. `.float/system.md` — Boot protocol, structure map, behavioral constraints
+2. `.float/context/project.md` — This file (terrain map, relationships)
+3. `.float/nav/*.md` — All 9 navigation files for folder structure
 4. `docs/goals.md` — Goal hierarchy (strict: voice > behavior > artifacts)
 5. `docs/principles.md` — Core principles (recognition, slowness, archaeology)
 6. `core/prompt.md` — The template (see how tools are built)
@@ -52,7 +52,7 @@ Philosophy (why it exists)
 Format (what it is)
 ├── docs/floatprompt.md             — <fp> tag structure
 ├── docs/doc.md                     — YAML frontmatter format
-└── docs/system.md                  — _float/ folder architecture
+└── docs/system.md                  — .float/ folder architecture
 
 Templates (how to build)
 ├── core/prompt.md                  — Basic template
@@ -69,12 +69,12 @@ Examples (proof it works)
 └── examples/shortform script.../   — Pipeline tool (chains from extractor)
 
 System (meta layer)
-├── _float/system.md                — Boot loader
-├── _float/context/project.md       — This terrain map
-├── _float/tools/context-creator.md — Tool for generating context
-├── _float/nav/float.md             — Self-documentation (describes _float/)
-├── _float/nav/*.md                 — Folder navigation
-└── _float/logs/*.md                — Session history
+├── .float/system.md                — Boot loader
+├── .float/context/project.md       — This terrain map
+├── .float/tools/context-creator.md — Tool for generating context
+├── .float/nav/float.md             — Self-documentation (describes .float/)
+├── .float/nav/*.md                 — Folder navigation
+└── .float/logs/*.md                — Session history
 
 Development
 ├── dev/update-creator.md           — Tool for creating updates
@@ -115,14 +115,14 @@ Depth scales with complexity. Simple tasks skip elaborate mapping.
 |-----------|---------|-------------------|
 | **floatprompt doc** | Document context (YAML frontmatter) | No |
 | **FloatPrompt** | Portable tools (`<fp>` tags) | Yes |
-| **FloatPrompt System** | Project awareness (`_float/`) | Yes (via boot) |
+| **FloatPrompt System** | Project awareness (`.float/`) | Yes (via boot) |
 
 ## Conventions
 
 - **File format**: All FloatPrompt system files use `.md`
-- **Boot loader**: `_float/system.md` (read first, always)
-- **Navigation**: Centralized in `_float/nav/*.md` (one file per major folder)
-- **Logs**: `_float/logs/YYYY-MM-DD.md` (newest entries first)
+- **Boot loader**: `.float/system.md` (read first, always)
+- **Navigation**: Centralized in `.float/nav/*.md` (one file per major folder)
+- **Logs**: `.float/logs/YYYY-MM-DD.md` (newest entries first)
 - **Version**: Currently 0.7.0
 
 ## Historical Note
@@ -133,10 +133,10 @@ The `artifacts/2025/` folder contains 150+ files documenting the evolution of Fl
 
 1. **Voice preservation is sacred** — "First, do not rewrite"
 2. **Portable across platforms** — Same tools work on Claude, ChatGPT, Cursor, Gemini
-3. **Self-documenting** — The `_float/` folder gives any AI instant awareness
+3. **Self-documenting** — The `.float/` folder gives any AI instant awareness
 4. **Recursive** — FloatPrompt is used to build and maintain FloatPrompt
 5. **Human authority** — Pilot principle: human decides, AI executes
 
 ---
 
-*Generated by Context Buoy using _float/tools/context-creator.md*
+*Generated by Context Buoy using .float/tools/context-creator.md*

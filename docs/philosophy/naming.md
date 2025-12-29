@@ -30,7 +30,7 @@ ai_notes: Final revision - FloatPrompt is the namespace, everything lives under 
 | Thing | Official Name | Pattern |
 |-------|---------------|---------|
 | The brand/ecosystem | **FloatPrompt** | Proper noun, trademark |
-| The `_float/` architecture | **FloatPrompt System** | FloatPrompt + descriptor |
+| The `.float/` architecture | **FloatPrompt System** | FloatPrompt + descriptor |
 | A specific tool | **FloatPrompt [ToolName]** | FloatPrompt Voice Guide |
 | A doc with YAML frontmatter | **floatprompt doc** | lowercase + descriptor |
 | Nav files | **nav files** | just descriptive |
@@ -75,7 +75,7 @@ Everything **floats** — surfacing human intelligence to AI.
 | Term | What It Means |
 |------|---------------|
 | **float** | Surface context to AI (verb) |
-| **`_float/`** | Floats to top of file structure |
+| **`.float/`** | Floats to top of file structure |
 | **buoy** | A focused parallel agent |
 | **fleet** | A collection of buoys working together |
 
@@ -121,7 +121,7 @@ Everything **floats** — surfacing human intelligence to AI.
 
 ```
 floatprompt/
-├── _float/                      # FloatPrompt System
+├── .float/                      # FloatPrompt System
 │   ├── system.md                # Boot loader
 │   ├── nav/                     # Navigation files
 │   └── logs/                    # Session logs

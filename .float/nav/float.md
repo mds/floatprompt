@@ -6,7 +6,7 @@ ai_updated: 2025-12-29
 
 # FloatPrompt System
 
-The `_float/` folder — self-documenting system layer for AI project awareness.
+The `.float/` folder — self-documenting system layer for AI project awareness.
 
 ## Contents
 
@@ -55,4 +55,4 @@ One file per day. Multiple sessions append to same file. Newest entries first.
 
 ---
 
-<!-- AI: Update this file when _float/ structure changes. -->
+<!-- AI: Update this file when .float/ structure changes. -->

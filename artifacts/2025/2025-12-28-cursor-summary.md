@@ -11,7 +11,7 @@ human_context: Post-boot sequence snapshot for handoff or reference
 ai_model: Claude Opus 4
 ai_updated: 2025-12-28
 ai_notes: |
-  Generated after completing _float/system.md boot sequence
+  Generated after completing .float/system.md boot sequence
   Updated to include MDS loop framing (5 loops for full context)
 ---
 
@@ -59,9 +59,9 @@ Extension: `.md` for universal compatibility.
 
 ## Architecture
 
-### FloatSystem (`_float/`)
+### FloatSystem (`.float/`)
 
-Every directory can have a `_float/` subfolder containing:
+Every directory can have a `.float/` subfolder containing:
 
 | File | Purpose |
 |------|---------|
@@ -70,8 +70,8 @@ Every directory can have a `_float/` subfolder containing:
 | `logs/` | Session logs (root only) |
 
 **Boot sequence:**
-1. Read `_float/system.md`
-2. Traverse all `_float/index.md` files
+1. Read `.float/system.md`
+2. Traverse all `.float/index.md` files
 3. Read today's session log
 4. Skim key docs
 5. Build mental model
@@ -83,7 +83,7 @@ Every directory can have a `_float/` subfolder containing:
 
 ```
 floatprompt/
-├── _float/                  # FloatSystem container
+├── .float/                  # FloatSystem container
 │   ├── system.md            # Boot loader
 │   ├── index.md             # Root navigation
 │   └── logs/                # Session logs
@@ -192,7 +192,7 @@ Depth scales with complexity. Simple tasks = one loop. Full context = multiple l
 ## Key Naming Conventions
 
 - "floatprompt" is always singular, never plural
-- Underscore only on folder (`_float/`), not files inside
+- Underscore only on folder (`.float/`), not files inside
 - Extension: `.md` for universal compatibility
 
 ---
@@ -201,10 +201,10 @@ Depth scales with complexity. Simple tasks = one loop. Full context = multiple l
 
 **FloatSystem Genesis Day.** Major architecture migration:
 
-- Migrated from flat files to `_float/` container architecture
+- Migrated from flat files to `.float/` container architecture
 - Created `docs/floatsystem.md` documenting the architecture
 - Archived 9 historical specs to `artifacts/2025/`
-- All `_float/index.md` files verified against folder contents
+- All `.float/index.md` files verified against folder contents
 
 **Integrity status:** All checks passed.
 
@@ -212,18 +212,18 @@ Depth scales with complexity. Simple tasks = one loop. Full context = multiple l
 
 ## Files Traversed During Boot
 
-1. `_float/system.md` — Boot loader
-2. `_float/index.md` — Root navigation
-3. `_float/logs/2025-12-28.md` — Session log
-4. `docs/_float/index.md`
-5. `docs/philosophy/_float/index.md`
-6. `docs/reference/_float/index.md`
-7. `context/_float/index.md`
-8. `dev/_float/index.md`
-9. `dev/updates/_float/index.md`
-10. `experimental/_float/index.md`
-11. `artifacts/_float/index.md`
-12. `artifacts/2025/_float/index.md`
+1. `.float/system.md` — Boot loader
+2. `.float/index.md` — Root navigation
+3. `.float/logs/2025-12-28.md` — Session log
+4. `docs/.float/index.md`
+5. `docs/philosophy/.float/index.md`
+6. `docs/reference/.float/index.md`
+7. `context/.float/index.md`
+8. `dev/.float/index.md`
+9. `dev/updates/.float/index.md`
+10. `experimental/.float/index.md`
+11. `artifacts/.float/index.md`
+12. `artifacts/2025/.float/index.md`
 13. `docs/goals.md`
 14. `docs/principles.md`
 

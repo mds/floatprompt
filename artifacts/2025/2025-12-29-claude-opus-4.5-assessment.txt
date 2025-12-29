@@ -97,8 +97,8 @@ Load this FloatPrompt when:
 ### Phase 1: Boot (Successful)
 
 Opus 4.5 ran `/float`:
-- Read `_float/system.md`
-- Read `_float/context/project.md`
+- Read `.float/system.md`
+- Read `.float/context/project.md`
 - Read all 9 `nav/*.md` files
 - Read today's session log
 - Reported: "FloatPrompt operational. No issues found."
@@ -161,7 +161,7 @@ After reading the October assessment, Opus 4.5 re-traversed the files "with fres
 1. JSON behavioral spec is executable instruction, not metadata
 2. Format is designed for AI consumption, not human readability
 3. Complexity is appropriately hidden from users
-4. _float/ system is genuinely lightweight (~1000 tokens for full awareness)
+4. .float/ system is genuinely lightweight (~1000 tokens for full awareness)
 5. Buoys solve maintenance through parallel agents with approval gates
 6. This is working infrastructure with production validation
 
@@ -247,7 +247,7 @@ These show AI making mistakes you're about to make.
 
 ### 2. Reference in System.md
 
-Add to `_float/system.md` under context_depth:
+Add to `.float/system.md` under context_depth:
 ```json
 "deep_understanding": {
   "assessments": "artifacts/2025/*-assessment.txt",

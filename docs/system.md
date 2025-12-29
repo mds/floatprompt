@@ -10,14 +10,14 @@ human_context: The invisible OS for AI — instant project awareness from a sing
 
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
-ai_notes: Added subsystems documentation for nested _float/ folders in large projects
+ai_notes: Added subsystems documentation for nested .float/ folders in large projects
 ---
 
 # FloatPrompt System
 
 **The invisible OS for AI.**
 
-Feed a single `_float/system.md` file to any AI. It boots up, reads centralized navigation, builds rich context, and becomes aware of everything—what exists, how it connects, what needs attention.
+Feed a single `.float/system.md` file to any AI. It boots up, reads centralized navigation, builds rich context, and becomes aware of everything—what exists, how it connects, what needs attention.
 
 **One file turns the lights on.**
 
@@ -35,7 +35,7 @@ The FloatPrompt System gives AI instant awareness through a centralized pattern:
 
 ```
 any-project/
-├── _float/                  # FloatPrompt System
+├── .float/                  # FloatPrompt System
 │   ├── system.md            # Boot loader (read first)
 │   ├── nav/                 # Centralized navigation
 │   │   ├── root.md          # Describes project root
@@ -53,9 +53,9 @@ any-project/
 
 **Boot sequence:**
 
-1. AI reads `_float/system.md`
+1. AI reads `.float/system.md`
 2. Loads structure map into memory
-3. Reads all `_float/nav/*.md` files
+3. Reads all `.float/nav/*.md` files
 4. Reads today's session log
 5. Builds mental model of project
 6. Ready to work with full context
@@ -64,9 +64,9 @@ any-project/
 
 ## File Structure
 
-Centralized pattern: all navigation in `_float/nav/`.
+Centralized pattern: all navigation in `.float/nav/`.
 
-### The `_float/` folder
+### The `.float/` folder
 
 | Item | Purpose |
 |------|---------|
@@ -89,7 +89,7 @@ Centralized pattern: all navigation in `_float/nav/`.
 
 ```
 my-project/
-├── _float/                # All system files here
+├── .float/                # All system files here
 │   ├── system.md          # Boot loader
 │   ├── nav/               # All navigation
 │   │   ├── root.md
@@ -107,9 +107,9 @@ my-project/
 
 | Pattern | Type | Purpose |
 |---------|------|---------|
-| `_float/system.md` | FloatPrompt System | Boot loader, behavioral protocol |
-| `_float/nav/*.md` | Nav files | Folder navigation (centralized) |
-| `_float/logs/*.md` | Logs | Session history |
+| `.float/system.md` | FloatPrompt System | Boot loader, behavioral protocol |
+| `.float/nav/*.md` | Nav files | Folder navigation (centralized) |
+| `.float/logs/*.md` | Logs | Session history |
 | `*.md` with frontmatter | floatprompt doc | Document context |
 | `*.md` with `<fp>` tags | FloatPrompt | Tools, behavioral modifiers |
 
@@ -133,9 +133,9 @@ AI does the heavy lifting. Human stays in control.
 Create the structure yourself:
 
 ```bash
-mkdir -p _float/nav _float/logs
-touch _float/system.md
-touch _float/nav/root.md
+mkdir -p .float/nav .float/logs
+touch .float/system.md
+touch .float/nav/root.md
 ```
 
 ### Option 2: npm (coming soon)
@@ -147,7 +147,7 @@ npx floatprompt init
 
 ### Then
 
-Give your AI the `_float/system.md` file. It takes over from there.
+Give your AI the `.float/system.md` file. It takes over from there.
 
 ## Token Efficiency
 
@@ -155,7 +155,7 @@ Structure IS compression.
 
 | Component | Tokens |
 |-----------|--------|
-| _float/system.md | 300-500 |
+| .float/system.md | 300-500 |
 | nav/*.md (per file) | 30-50 |
 | Session log | 50-150 |
 
@@ -175,7 +175,7 @@ Structure IS compression.
 | | FloatPrompt | FloatPrompt System |
 |--|-------------|---------------------|
 | **Purpose** | Build AI tools | Project awareness |
-| **Format** | `<fp>` tags | `_float/` folder |
+| **Format** | `<fp>` tags | `.float/` folder |
 | **Scope** | Single tool | Entire project |
 | **Use** | Upload to AI | AI reads automatically |
 
@@ -186,21 +186,21 @@ They work together. The FloatPrompt System can contain FloatPrompt tools.
 
 ## Subsystems
 
-Large projects may have subfolders complex enough to be their own projects. These can have their own `_float/` folders.
+Large projects may have subfolders complex enough to be their own projects. These can have their own `.float/` folders.
 
 ```
 monorepo/
-├── _float/                  # Root system
+├── .float/                  # Root system
 ├── packages/
 │   ├── frontend/
-│   │   └── _float/          # Subsystem
+│   │   └── .float/          # Subsystem
 │   └── backend/
-│       └── _float/          # Subsystem
+│       └── .float/          # Subsystem
 ```
 
 **Behavior:**
-- Each `_float/` is independent — not nested or inherited
-- When working in a subfolder, check for local `_float/`
+- Each `.float/` is independent — not nested or inherited
+- When working in a subfolder, check for local `.float/`
 - If found, boot that system for local context
 - Root and subsystem contexts don't merge
 
@@ -213,11 +213,11 @@ monorepo/
 - Simple subfolders (just use root nav)
 - Folders that are part of a unified structure
 
-Subsystems are optional. Most projects need only root `_float/`.
+Subsystems are optional. Most projects need only root `.float/`.
 
 ## Learn More
 
-- See `_float/system.md` in this repo for a live example
+- See `.float/system.md` in this repo for a live example
 - See `artifacts/floatprompt-npm-scaffold-spec.md` for npm tool spec
 
 ---
