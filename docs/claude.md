@@ -11,7 +11,7 @@ human_context: How /float commands work with the FloatPrompt System
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
 ai_notes: |
-  Updated for v0.8.0 — specs moved to specs/claude/, docs/ now contains guides only.
+  Updated for v0.10.0 — commands now palette-discoverable as separate slash commands.
   Full command spec: specs/claude/commands.md
   Buoy pattern spec: specs/claude/buoys.md
 ---
@@ -68,7 +68,7 @@ FloatPrompt operational.
 Directory: /path/to/project
 Status: 3 issues found
 
-Run /float sync to see details and fix
+Run /float-sync to see details and fix
 ```
 
 **Output (new project — no FloatPrompt System yet):**
@@ -90,12 +90,12 @@ Ready for: [human direction]
 
 ---
 
-### /float sync
+### /float-sync
 
-Full integrity check with fix capability. Shows issues, proposes changes, applies on approval.
+Verify nav files match folders. Full integrity check with fix capability.
 
 ```
-/float sync
+/float-sync
 ```
 
 **What it does:**
@@ -148,19 +148,55 @@ Fill in descriptions now? (y/n):
 ```
 
 If 'y': Describe Buoys read each file and generate descriptions.
-If 'n': "Descriptions skipped. Run /float enhance anytime to fill them in."
+If 'n': "Descriptions skipped. Run /float-enhance anytime to fill them in."
 
 ---
 
-### /float enhance
+### /float-fix
 
-Fill in `[needs description]` placeholders and improve content quality.
+Hunt stale references, version drift, and broken links.
 
 ```
-/float enhance
+/float-fix
 ```
 
-Scans all `.float/project/nav/*.md` files for `[needs description]` and weak content, spawns Describe Buoys to read each file and generate descriptions, then updates the nav tables.
+**What it does:**
+1. Scans for stale references (renamed tools, old paths)
+2. Checks version consistency across tools
+3. Validates `related:` field targets exist
+4. Reports content issues (not structural like sync)
+
+---
+
+### /float-context
+
+Generate or update the project terrain map.
+
+```
+/float-context
+```
+
+**What it does:**
+1. Reads philosophy, methodology, examples
+2. Follows deep dive reading order
+3. Builds comprehensive understanding
+4. Updates `.float/project/context/` files
+
+---
+
+### /float-enhance
+
+Fill placeholders, complete frontmatter, improve descriptions.
+
+```
+/float-enhance
+```
+
+**What it does:**
+1. Scans for `[needs description]` placeholders
+2. Checks frontmatter completeness
+3. Identifies weak or stale prose
+4. Spawns Describe Buoys to fill gaps
 
 Can be run independently anytime — not just after sync.
 
@@ -197,12 +233,14 @@ Sync complete.
 ## The Flow
 
 ```
-/float        → Boot → "3 issues detected"
-                          ↓
-/float sync   → Details → Approval → Fleet → Done
+/float          → Boot, quick health check
+/float-sync     → Structure integrity (nav ↔ folders)
+/float-fix      → Content integrity (references ↔ reality)
+/float-context  → Deep understanding (terrain map)
+/float-enhance  → Quality improvement (placeholders, frontmatter)
 ```
 
-Two commands. Simple.
+Five commands. Each does one thing well.
 
 ---
 
@@ -210,9 +248,10 @@ Two commands. Simple.
 
 | File | Purpose |
 |------|---------|
-| `.claude/commands/float.md` | The command definition |
-| `artifacts/float-buoys-commands-spec.md` | Full specification |
-| `artifacts/float-buoys-context.md` | Design decisions and rationale |
+| `.claude/commands/float*.md` | Command routers (6 files) |
+| `.float/meta/tools/float*.md` | Tool implementations (5 files) |
+| `specs/claude/commands.md` | Full command specification |
+| `specs/claude/buoys.md` | Buoy pattern specification |
 
 ---
 
@@ -237,7 +276,7 @@ Two commands. Simple.
 
 ## Architecture
 
-The FloatPrompt System (v0.9.0) uses **meta/project separation**:
+The FloatPrompt System (v0.10.0) uses **meta/project separation**:
 
 ```
 .float/
@@ -264,14 +303,13 @@ The FloatPrompt System (v0.9.0) uses **meta/project separation**:
 
 ## Status
 
-**Current:** Specification complete, command file implemented.
+**Current:** v0.10.0 — All five commands implemented and operational.
 
-**Testing:** Being validated on the floatprompt repo itself.
+**Validated:** Running on the floatprompt repo itself.
 
-**Roadmap:**
-- Test in other repositories
+**Next:**
+- Test in other repositories via `npx floatprompt`
 - Refine buoy behavior based on real usage
-- Consider daemon approach if real-time sync proves necessary (see `float-buoys-daemon-spec.md`)
 
 ---
 

@@ -128,9 +128,11 @@ The template (`floatprompt/template.md`, 3KB) teaches AI how to create tools. Th
 **Get started:** Run `npx floatprompt` in any project to create a `.float/` folder with everything you need.
 
 **Claude Code commands:**
-- `/float` — Boot the system (reads `.float/system.md`, runs full orientation)
-- `/float sync` — Check integrity, fix drift, update nav files
-- `/float context` — Generate AI terrain map for deeper understanding
+- `/float` — Boot the system
+- `/float-sync` — Verify nav files match folders
+- `/float-fix` — Hunt stale references and broken links
+- `/float-context` — Generate project terrain map
+- `/float-enhance` — Fill placeholders, complete frontmatter
 
 ---
 
