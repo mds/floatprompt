@@ -11,7 +11,7 @@ human_context: Explanatory content for understanding FloatPrompt approach
 
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
-ai_notes: Specs moved to specs/ folder. Full metadata per specs/doc.md requirements.
+ai_notes: Added safety-laws.md and structure.md via /float sync.
 ---
 
 # Documentation
@@ -31,6 +31,8 @@ Guides and philosophy (specifications moved to `specs/`).
 | **voice.md** | Voice preservation | How to maintain human voice in AI collaboration |
 | **use.md** | Use cases | What you can build with FloatPrompt |
 | **safety.md** | Safety guidelines | Responsible AI tool creation |
+| **safety-laws.md** | Human safety laws | Foundational harm definitions and protections |
+| **structure.md** | Structure philosophy | Why meta/project organization matters |
 
 ## Subfolders
 

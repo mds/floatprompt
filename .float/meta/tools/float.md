@@ -7,7 +7,7 @@
     "title": "/float",
     "id": "float-boot",
     "format": "floatprompt",
-    "version": "0.9.0"
+    "version": "0.10.0"
   },
 
   "human": {
@@ -29,7 +29,7 @@
       "action_b": "Boot sequence"
     },
     "status_format": "FloatPrompt operational.\nDirectory: [path]\nContext: [Loaded | Missing]\nStatus: [No issues found | N issues found]\n\n[Next step or Ready for: human direction]",
-    "next_step_logic": "Issues found? → Run /float sync. No issues but context missing? → Run /float context. Otherwise → Ready for: human direction"
+    "next_step_logic": "Structure issues (missing nav/folders)? → /float sync. Content issues (stale refs)? → /float fix. Both? → /float sync then /float fix. Context missing? → /float context. Otherwise → Ready for: human direction"
   }
 }
 </json>
@@ -56,7 +56,7 @@ When no FloatPrompt System exists:
    .float/
    ├── system.md           # Boot loader
    ├── meta/               # System internals
-   │   ├── core/           # Templates
+   │   ├── floatprompt/    # Templates
    │   └── tools/          # /float command tools
    └── project/            # Project data
        ├── context/        # Terrain maps (empty initially)
@@ -119,11 +119,20 @@ Status: [No issues found | N issues found]
 
 ```
 Issues found?
-  → Yes: "Next: Run /float sync to see details and fix"
-  → No: Context missing?
-         → Yes: "Next: Run /float context to generate terrain map"
-         → No: "Ready for: human direction"
+  → Structure issues (missing nav files, folders)?
+      → "Next: Run /float sync to fix structure"
+  → Content issues (stale references inside files)?
+      → "Next: Run /float fix to repair references"
+  → Both types?
+      → "Next: Run /float sync (structure) then /float fix (content)"
+  → No issues: Context missing?
+      → Yes: "Next: Run /float context to generate terrain map"
+      → No: "Ready for: human direction"
 ```
+
+**Issue type detection:**
+- **Structure**: nav file doesn't exist, folder doesn't exist, nav/folder mismatch
+- **Content**: reference inside a file points to old/wrong path
 
 ## Buoys
 

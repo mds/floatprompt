@@ -3,7 +3,7 @@ title: CLI
 type: nav
 status: current
 created: 2025-12-29
-related: bin/floatprompt.js, package.json, core/
+related: bin/floatprompt.js, package.json, floatprompt/
 
 human_author: @mds
 human_intent: Document CLI scaffolding tool for npx floatprompt
@@ -28,7 +28,7 @@ The `bin/` folder — CLI script for `npx floatprompt`.
 
 When users run `npx floatprompt`, this script:
 1. Creates `.float/` folder structure
-2. Copies core templates from `core/`
+2. Copies core templates from `floatprompt/`
 3. Scaffolds nav files for existing folders
 4. Sets up the FloatPrompt System
 

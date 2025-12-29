@@ -86,3 +86,9 @@ Captured rationale for project decisions. AI appends entries during context buil
 **Date:** 2025-12-29
 **Version:** 0.10.0
 
+### /float boot routes to correct fix command (v0.10.0)
+**Question:** Why did `/float` recommend `/float sync` for stale reference issues?
+**Answer:** The boot command had hardcoded "issues found → run /float sync" logic. But `/float sync` handles structure (nav ↔ folders), while `/float fix` handles content (stale refs inside files). Updated to categorize issue types: structure issues → sync, content issues → fix, both → sync then fix.
+**Date:** 2025-12-29
+**Version:** 0.10.0
+
