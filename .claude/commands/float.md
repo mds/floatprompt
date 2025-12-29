@@ -593,9 +593,9 @@ Report: "3 issues found" or "No issues"
 
 ## Reference
 
-Full specification: `artifacts/float-buoys-commands-spec.md`
+Full specification: `specs/claude/commands.md`
 Context specification: `artifacts/float-context-spec.md`
-Buoy pattern: `docs/buoys.md`
+Buoy pattern: `specs/claude/buoys.md`
 
 **Commands:**
 - `/float` — Boot (fast, reads existing files)

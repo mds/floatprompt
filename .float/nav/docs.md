@@ -2,6 +2,7 @@
 title: Documentation
 type: nav
 ai_updated: 2025-12-29
+ai_notes: Specs moved to specs/ folder. This folder now contains guides and philosophy only.
 ---
 
 # Documentation
@@ -10,19 +11,17 @@ Core documentation for FloatPrompt, the FloatPrompt System, and the MDS methodol
 
 ## Contents
 
+Guides and philosophy (specifications moved to `specs/`).
+
 | File | Purpose | Intent |
 |------|---------|--------|
-| **claude.md** | Claude Code integration | Boot and sync FloatPrompt System context files |
-| **floatprompt.md** | FloatPrompt file format specification | Define the `<fp>` tag structure |
-| **doc.md** | floatprompt doc format specification | Define YAML frontmatter for documents |
-| **system.md** | FloatPrompt System architecture | Document the `.float/` awareness system |
+| **claude.md** | Claude Code integration | Entry point for Claude Code users (points to specs) |
 | **mds-method.md** | MDS methodology | Explain Map → Do → Summarize → Loop |
 | **goals.md** | Goal hierarchy | Define PRIMARY/SECONDARY/TERTIARY goals |
 | **principles.md** | Core principles | Recognition, Slowness, Archaeology, Pilot |
 | **voice.md** | Voice preservation | How to maintain human voice in AI collaboration |
 | **use.md** | Use cases | What you can build with FloatPrompt |
 | **safety.md** | Safety guidelines | Responsible AI tool creation |
-| **buoys.md** | Float Buoys pattern | Parallel task agents for system maintenance |
 
 ## Subfolders
 
@@ -52,8 +51,8 @@ Template references and examples.
 ## Reading Order
 
 For new context:
-1. `floatprompt.md` — Understand the format
-2. `system.md` — Understand project awareness
+1. `specs/floatprompt.md` — Understand the format
+2. `specs/system.md` — Understand project awareness
 3. `mds-method.md` — Understand the methodology
 4. `goals.md` + `principles.md` — Understand the philosophy
 

@@ -100,10 +100,16 @@ floatprompt/
 │   ├── doc.md             # floatprompt doc tool
 │   └── os.md              # Full FloatPrompt OS
 │
-├── docs/                  # Core documentation
+├── specs/                 # Formal specifications
 │   ├── floatprompt.md     # FloatPrompt file format
 │   ├── doc.md             # floatprompt doc format
 │   ├── system.md          # FloatPrompt System architecture
+│   └── claude/            # Claude Code integration specs
+│       ├── commands.md    # /float command system
+│       └── buoys.md       # Float Buoys pattern
+│
+├── docs/                  # Guides and philosophy
+│   ├── claude.md          # Claude Code entry point (points to specs)
 │   ├── mds-method.md      # MDS methodology
 │   ├── goals.md           # Goal hierarchy
 │   ├── principles.md      # Core principles
@@ -165,6 +171,7 @@ floatprompt/
 | `float.md` | .float/ folder (self-documentation) |
 | `root.md` | Repository root |
 | `core.md` | core/ folder |
+| `specs.md` | specs/ folder (includes claude/) |
 | `docs.md` | docs/ folder (includes philosophy/, reference/) |
 | `context.md` | context/ folder |
 | `examples.md` | examples/ folder (includes all subfolders) |

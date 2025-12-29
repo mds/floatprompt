@@ -51,9 +51,9 @@ Philosophy (why it exists)
 └── docs/voice.md                   — Voice preservation rules
 
 Format (what it is)
-├── docs/floatprompt.md             — <fp> tag structure
-├── docs/doc.md                     — YAML frontmatter format
-└── docs/system.md                  — .float/ folder architecture
+├── specs/floatprompt.md            — <fp> tag structure
+├── specs/doc.md                    — YAML frontmatter format
+└── specs/system.md                 — .float/ folder architecture
 
 Templates (how to build)
 ├── core/prompt.md                  — Basic template

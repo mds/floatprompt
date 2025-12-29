@@ -213,10 +213,13 @@ Choose how deep to go:
 
 ## Documentation
 
+**Specifications:**
+- [FloatPrompt Format](specs/floatprompt.md)
+- [floatprompt doc Format](specs/doc.md)
+- [FloatPrompt System Architecture](specs/system.md)
+
+**Guides:**
 - [What You Can Build](docs/use.md)
-- [FloatPrompt Format](docs/floatprompt.md)
-- [floatprompt doc Format](docs/doc.md)
-- [FloatPrompt System Architecture](docs/system.md)
 - [MDS Methodology](docs/mds-method.md) (Map → Decide → Structure)
 - [Goals](docs/goals.md) | [Principles](docs/principles.md) | [Voice](docs/voice.md) | [Safety](docs/safety.md)
 

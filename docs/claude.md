@@ -8,14 +8,21 @@ human_author: MDS
 human_intent: Document the Claude Code integration for FloatPrompt System maintenance
 human_context: How /float commands work with the FloatPrompt System
 
-ai_model: Claude Opus 4
-ai_updated: 2025-12-28
-ai_notes: Updated for centralized architecture (v0.6.0) — nav/*.md instead of scattered _float.md
+ai_model: Claude Opus 4.5
+ai_updated: 2025-12-29
+ai_notes: |
+  Updated for v0.8.0 — specs moved to specs/claude/, docs/ now contains guides only.
+  Full command spec: specs/claude/commands.md
+  Buoy pattern spec: specs/claude/buoys.md
 ---
 
 # Claude Code Integration
 
-Claude Code integration for the FloatPrompt System. Two commands that keep your `.float/` files accurate.
+Claude Code integration for the FloatPrompt System.
+
+**Full specifications:**
+- [Command System](../specs/claude/commands.md)
+- [Buoy Pattern](../specs/claude/buoys.md)
 
 ---
 
@@ -266,9 +273,9 @@ The FloatPrompt System (v0.6.0) uses **centralized navigation**:
 
 ## Related
 
-- **system.md** — Full FloatPrompt System architecture
-- **doc.md** — floatprompt doc YAML frontmatter format
-- **floatprompt.md** — FloatPrompt tool format
+- **[specs/system.md](../specs/system.md)** — Full FloatPrompt System architecture
+- **[specs/doc.md](../specs/doc.md)** — floatprompt doc YAML frontmatter format
+- **[specs/floatprompt.md](../specs/floatprompt.md)** — FloatPrompt tool format
 
 ---
 
