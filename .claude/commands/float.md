@@ -1,6 +1,6 @@
 # /float — FloatPrompt Boot and Sync
 
-The complete FloatPrompt System maintenance command. Two modes: boot (default) and sync.
+The complete FloatPrompt System maintenance command. Three modes: boot (default), sync, and context.
 
 ## Routing
 
@@ -10,6 +10,7 @@ Parse `$ARGUMENTS` to determine action:
 |-------|--------|
 | `/float` | Boot + quick health check |
 | `/float sync` | Full integrity check + fix with approval |
+| `/float context` | Generate or load project context |
 
 ---
 
@@ -29,10 +30,9 @@ Execute the full orientation using local files:
 2. **Read `_float/context/project.md`** — Load terrain map and relationships (if exists)
 3. **Read ALL `_float/nav/*.md` files** — Understand folder structure (centralized navigation)
 4. **Read today's session log** (`_float/logs/YYYY-MM-DD.md`) if it exists
-5. **Choose context depth** based on task complexity (if context/ folder exists)
-6. **Build mental model** — What exists, what happened, current state
-7. **Quick integrity check** — Count issues only (see below)
-8. **Report ready** — Summarize with issue count
+5. **Build mental model** — What exists, what happened, current state
+6. **Quick integrity check** — Count issues only (see below)
+7. **Report ready** — Summarize with context and issue status
 
 **Quick Integrity Check (fast, no AI):**
 - Count files in folders but not in corresponding nav/*.md tables
@@ -41,15 +41,20 @@ Execute the full orientation using local files:
 - Skip: dotfiles, `_float/`, `node_modules/`, `.git/`, build folders
 - Result: issue count only, no details
 
-**If `_float/context/project.md` is missing:**
-- Spawn Context Buoy to generate it
-- Report: "Context: Generated _float/context/project.md"
-
-**Boot Output (healthy):**
+**Boot Output (healthy, with context):**
 ```
 FloatPrompt operational.
 Directory: [path]
-Context: Loaded (or "Generated" if new)
+Context: Loaded
+Status: No issues found
+Ready for: [human direction]
+```
+
+**Boot Output (healthy, no context):**
+```
+FloatPrompt operational.
+Directory: [path]
+Context: Missing (run /float context to generate)
 Status: No issues found
 Ready for: [human direction]
 ```
@@ -58,6 +63,7 @@ Ready for: [human direction]
 ```
 FloatPrompt operational.
 Directory: [path]
+Context: Loaded (or "Missing")
 Status: [N] issues found
 
 Run /float sync to see details and fix
@@ -253,6 +259,73 @@ Activity logged to _float/logs/2025-12-28.md
 
 ---
 
+## /float context
+
+Generate or load project context. Explicit command for context operations.
+
+### If `_float/context/project.md` DOES NOT EXIST → Generate
+
+Spawn Context Buoy to create the terrain map:
+
+1. **Read `_float/tools/context-creator.md`** — Load generation protocol
+2. **Discover** — Scan system.md, nav/*.md, README, key entry points
+3. **Clarify** — If uncertain, ask 1-3 brief questions (see context-creator.md)
+4. **Generate** — Create `_float/context/project.md` with emergent content
+5. **Report** — Show what was discovered
+
+**Output (generating):**
+```
+FloatPrompt context
+Directory: [path]
+
+Scanning project structure...
+Reading nav files and key entry points...
+
+[If uncertain, asks questions here]
+
+Generating context...
+
+Context generated: _float/context/project.md
+Key discoveries:
+  - [pattern or relationship found]
+  - [reading order identified]
+  - [domain relationships mapped]
+
+Run /float to boot with context loaded.
+```
+
+### If `_float/context/project.md` EXISTS → Load Deep Context
+
+Read context and follow reading order for deeper understanding:
+
+1. **Read `_float/context/project.md`** — Load terrain map
+2. **Follow reading order** — Read the key files listed
+3. **Build rich mental model** — Understand relationships, not just structure
+4. **Report** — Summarize understanding
+
+**Output (loading):**
+```
+FloatPrompt context
+Directory: [path]
+
+Loading context: _float/context/project.md
+Following reading order (7 files)...
+  → _float/system.md
+  → docs/goals.md
+  → docs/principles.md
+  → core/prompt.md
+  → ...
+
+Context loaded. Understanding depth: [deep]
+Key concepts:
+  - [discovered pattern]
+  - [important relationship]
+
+Ready for: [human direction]
+```
+
+---
+
 ## Buoy Orchestration
 
 **Buoys are Task agents.** Each buoy is spawned via Claude Code's Task tool, allowing parallel execution.
@@ -275,19 +348,19 @@ Activity logged to _float/logs/2025-12-28.md
 
 ### Buoy Types
 
-**Boot Phase:**
+**Context Phase (`/float context`):**
 
 | Buoy | Task | Spawned Via |
 |------|------|-------------|
 | **Context Buoy** | Generate/update `_float/context/project.md` terrain map | `Task` tool, uses `_float/tools/context-creator.md` |
 
-**Check Phase (parallel verification):**
+**Check Phase (`/float sync` — parallel verification):**
 
 | Buoy | Task | Spawned Via |
 |------|------|-------------|
 | **Check Buoy** | Verify nav/*.md against actual folder | `Task` tool, general-purpose |
 
-**Fix Phase (after approval):**
+**Fix Phase (`/float sync` — after approval):**
 
 | Buoy | Task | Spawned Via |
 |------|------|-------------|
@@ -398,27 +471,28 @@ Append to _float/logs/YYYY-MM-DD.md:
 ```
 User runs /float
     ↓
-Boot sequence executes
+Boot sequence executes (reads existing files)
     ↓
-Quick health check: "3 issues found"
+Report: "Context: Missing" or "Context: Loaded"
+Report: "3 issues found" or "No issues"
     ↓
-User runs /float sync
-    ↓
-Phase 1: Check Buoys spawn in parallel (one per nav/*.md)
-    ↓
-Results aggregated, detailed issues shown
-    ↓
-Proposed changes shown
-    ↓
-User approves (y) or declines (n)
-    ↓
-If approved:
-    ↓
-Phase 2: Fix Buoys spawn in parallel (Nav, System, Describe, Scaffold)
-    ↓
-Fix Buoys complete, Log Buoy records activity
-    ↓
-FloatPrompt System is now in sync
+    ├── If context missing → User runs /float context
+    │       ↓
+    │   Context Buoy generates terrain map
+    │       ↓
+    │   context/project.md created
+    │
+    ├── If issues found → User runs /float sync
+    │       ↓
+    │   Check Buoys spawn in parallel
+    │       ↓
+    │   Results aggregated, fixes proposed
+    │       ↓
+    │   User approves (y) or declines (n)
+    │       ↓
+    │   Fix Buoys apply changes, Log Buoy records
+    │
+    └── If all good → Ready for work
 ```
 
 ---
@@ -427,10 +501,16 @@ FloatPrompt System is now in sync
 
 Full specification: `artifacts/float-buoys-commands-spec.md`
 Context specification: `artifacts/float-context-spec.md`
+Buoy pattern: `docs/buoys.md`
 
-Key conventions:
+**Commands:**
+- `/float` — Boot (fast, reads existing files)
+- `/float sync` — Verify + fix nav files
+- `/float context` — Generate or load deep context
+
+**Key conventions:**
 - `_float/system.md` — Boot loader (root only)
-- `_float/context/project.md` — AI terrain map (auto-generated)
+- `_float/context/project.md` — AI terrain map (generated via `/float context`)
 - `_float/tools/context-creator.md` — Tool for generating context
 - `_float/nav/*.md` — Centralized folder navigation
 - `_float/logs/YYYY-MM-DD.md` — Session logs (root only)

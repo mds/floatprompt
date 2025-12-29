@@ -7,7 +7,7 @@
     "title": "FloatPrompt Context Creator",
     "id": "floatprompt-context-creator",
     "format": "floatprompt",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
 
   "human": {
@@ -43,6 +43,21 @@
       "default": "Standard terrain map — enough for operational understanding",
       "deep": "If human requests deeper context, expand specific areas",
       "focused": "If human specifies area, go deep on that domain only"
+    },
+    "clarification": {
+      "principle": "Ask when uncertain, don't guess",
+      "triggers": [
+        "Project purpose unclear from files",
+        "Key relationships ambiguous",
+        "Multiple valid interpretations",
+        "Missing README or entry point"
+      ],
+      "format": "Brief questions, max 3 at once",
+      "examples": [
+        "What's the main purpose of this project?",
+        "How do packages/frontend and packages/backend relate?",
+        "Is artifacts/ historical or active?"
+      ]
     }
   }
 }
@@ -96,7 +111,29 @@ Look for:
 - Central concepts and terminology
 - What makes this project unique
 
-### 2. Generate
+### 2. Clarify (if needed)
+
+If uncertain about key things, ask before generating:
+
+**Triggers:**
+- Project purpose unclear from files
+- Key relationships ambiguous
+- Multiple valid interpretations
+- Missing README or entry point
+
+**Format:**
+- Max 3 questions at once
+- Brief, specific questions
+- Use answers to improve context
+
+**Examples:**
+- "What's the main purpose of this project?"
+- "How do packages/frontend and packages/backend relate?"
+- "Is artifacts/ historical or active?"
+
+If everything is clear from discovery, skip to Generate.
+
+### 3. Generate
 
 Create emergent sections based on discovery:
 
@@ -138,7 +175,7 @@ For new AI sessions:
 {Whatever else matters for this project}
 ```
 
-### 3. Preserve
+### 4. Preserve
 
 If updating existing context:
 - Keep sections marked as human-added
@@ -184,7 +221,7 @@ Future: Additional domain-specific context files as siblings (e.g., `frontend.md
 ## Integration
 
 Used by:
-- **Context Buoy** — During `/float` and `/float sync`
+- **Context Buoy** — During `/float context` command
 - **Humans directly** — Upload this file, request context creation
 - **Other AI sessions** — Reference for context generation
 
