@@ -44,7 +44,10 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 
 | File | Purpose |
 |------|---------|
-| **context-creator.md** | FloatPrompt tool for generating context files |
+| **float.md** | Boot/init tool for /float command |
+| **float-sync.md** | Structure integrity tool for /float sync |
+| **float-context.md** | Context generation tool for /float context |
+| **float-enhance.md** | Quality improvement tool for /float enhance |
 
 ## nav/
 
@@ -53,6 +56,7 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 | **float.md** | This file (self-documentation) |
 | **root.md** | Repository root |
 | **core.md** | core/ folder |
+| **specs.md** | specs/ folder (specifications) |
 | **docs.md** | docs/ folder |
 | **context.md** | context/ folder (onboarding) |
 | **examples.md** | examples/ folder |
