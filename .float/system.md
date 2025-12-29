@@ -82,8 +82,6 @@ floatprompt/
 │   │   ├── docs.md        # Documentation
 │   │   ├── context.md     # Onboarding files
 │   │   ├── examples.md    # Example tools
-│   │   ├── dev.md         # Development
-│   │   ├── experimental.md # Legacy build system
 │   │   └── artifacts.md   # Historical archive
 │   └── logs/              # Activity history
 │       └── YYYY-MM-DD.md  # Daily session logs
