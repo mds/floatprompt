@@ -74,6 +74,9 @@ if (args.includes('--update') || args.includes('-u')) {
     copyFileSync(floatCommand, join(cwd, '.claude', 'commands', 'float.md'));
     updated.push('.claude/commands/float.md');
 
+    // Update version file
+    writeFileSync(join(cwd, '.float', '.version'), pkg.version);
+
     console.log(`FloatPrompt System updated to v${pkg.version}.
 
 Updated:
@@ -96,9 +99,23 @@ Run /float in Claude Code to boot.`);
 
 // Check if already initialized
 if (existsSync(floatDir)) {
-  console.log(`FloatPrompt System already initialized.
-Run /float in Claude Code to boot.
-Run npx floatprompt --update to get latest version.`);
+  const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
+  const versionFile = join(floatDir, '.version');
+  const installedVersion = existsSync(versionFile)
+    ? readFileSync(versionFile, 'utf8').trim()
+    : 'unknown';
+
+  if (installedVersion !== pkg.version && installedVersion !== 'unknown') {
+    console.log(`FloatPrompt System initialized (v${installedVersion}).
+Latest version: v${pkg.version} available.
+Run npx floatprompt --update to upgrade.`);
+  } else if (installedVersion === 'unknown') {
+    console.log(`FloatPrompt System already initialized.
+Run npx floatprompt --update to ensure you have the latest version.`);
+  } else {
+    console.log(`FloatPrompt System already initialized (v${installedVersion}).
+Run /float in Claude Code to boot.`);
+  }
   process.exit(0);
 }
 
@@ -187,8 +204,12 @@ Captured rationale for project decisions. AI appends entries during context buil
   copyFileSync(floatCommand, join(cwd, '.claude', 'commands', 'float.md'));
   created.push('.claude/commands/float.md');
 
+  // Write version file
+  const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
+  writeFileSync(join(cwd, '.float', '.version'), pkg.version);
+
   // Success output
-  console.log(`FloatPrompt System initialized.
+  console.log(`FloatPrompt System initialized (v${pkg.version}).
 
 Created:
   ${created.join('\n  ')}
