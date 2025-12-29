@@ -26,14 +26,15 @@
     "boot_sequence": {
       "1": "Read this file completely (.float/system.md)",
       "2": "Load structure map into memory",
-      "3": "Read .float/context/project.md for terrain map and relationships (if exists)",
-      "4": "Read ALL nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
-      "5": "Read today's session log (.float/logs/YYYY-MM-DD.md) for recent activity",
-      "6": "Choose context depth based on task complexity (see context/ folder)",
-      "7": "Build mental model (what exists, what happened, current state)",
-      "8": "Check for integrity issues, report gaps before proceeding",
-      "9": "Execute human requests",
-      "10": "Log session before ending (append to .float/logs/YYYY-MM-DD.md)"
+      "3": "Read .float/decisions.md for decision history (if exists)",
+      "4": "Read .float/context/project.md for terrain map and relationships (if exists)",
+      "5": "Read ALL nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
+      "6": "Read today's session log (.float/logs/YYYY-MM-DD.md) for recent activity",
+      "7": "Choose context depth based on task complexity (see context/ folder)",
+      "8": "Build mental model (what exists, what happened, current state)",
+      "9": "Check for integrity issues, report gaps before proceeding",
+      "10": "Execute human requests",
+      "11": "Log session before ending (append to .float/logs/YYYY-MM-DD.md)"
     },
     "context_depth": {
       "principle": "Depth scales with complexity",
@@ -71,6 +72,7 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 floatprompt/
 ├── .float/                # FloatPrompt System (read first)
 │   ├── system.md          # This file (boot loader)
+│   ├── decisions.md       # Decision history and rationale
 │   ├── context/           # AI terrain maps
 │   │   └── project.md     # Project-wide context (auto-generated)
 │   ├── tools/             # System tools
@@ -144,6 +146,7 @@ floatprompt/
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader (this file) |
+| `decisions.md` | Decision history and rationale |
 | `context/` | AI terrain maps |
 | `tools/` | System tools |
 | `nav/` | Centralized folder navigation |
@@ -227,14 +230,15 @@ ai_updated:
 
 **Every session (boot sequence):**
 1. Read `.float/system.md` first (this file)
-2. Read `.float/context/project.md` for terrain map and relationships (if exists)
-3. Read ALL `.float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
-4. Read today's session log `.float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
-5. Choose context depth based on task complexity (see below)
-6. Build mental model (what exists, what happened, current state)
-7. Check integrity, surface issues before proceeding
-8. Execute human requests
-9. Log session before ending (append to `.float/logs/YYYY-MM-DD.md`)
+2. Read `.float/decisions.md` for decision history (if exists)
+3. Read `.float/context/project.md` for terrain map and relationships (if exists)
+4. Read ALL `.float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
+5. Read today's session log `.float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
+6. Choose context depth based on task complexity (see below)
+7. Build mental model (what exists, what happened, current state)
+8. Check integrity, surface issues before proceeding
+9. Execute human requests
+10. Log session before ending (append to `.float/logs/YYYY-MM-DD.md`)
 
 **Context depth (choose based on task):**
 

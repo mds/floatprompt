@@ -27,12 +27,13 @@ Look for `.float/system.md` in the current working directory.
 Execute the full orientation using local files:
 
 1. **Read `.float/system.md`** — Load boot protocol, structure map, behavioral constraints
-2. **Read `.float/context/project.md`** — Load terrain map and relationships (if exists)
-3. **Read ALL `.float/nav/*.md` files** — Understand folder structure (centralized navigation)
-4. **Read today's session log** (`.float/logs/YYYY-MM-DD.md`) if it exists
-5. **Build mental model** — What exists, what happened, current state
-6. **Quick integrity check** — Count issues only (see below)
-7. **Report ready** — Summarize with context and issue status
+2. **Read `.float/decisions.md`** — Load decision history (if exists)
+3. **Read `.float/context/project.md`** — Load terrain map and relationships (if exists)
+4. **Read ALL `.float/nav/*.md` files** — Understand folder structure (centralized navigation)
+5. **Read today's session log** (`.float/logs/YYYY-MM-DD.md`) if it exists
+6. **Build mental model** — What exists, what happened, current state
+7. **Quick integrity check** — Count issues only (see below)
+8. **Report ready** — Summarize with context and issue status
 
 **Quick Integrity Check (fast, no AI):**
 - Count files in folders but not in corresponding nav/*.md tables
@@ -272,6 +273,7 @@ Spawn Context Buoy to create the terrain map:
 3. **Clarify** — If uncertain, ask 1-3 brief questions (see context-creator.md)
 4. **Generate** — Create `.float/context/project.md` with emergent content
 5. **Report** — Show what was discovered
+6. **Offer decision capture** — Ask if user wants to build deeper context
 
 **Output (generating):**
 ```
@@ -291,6 +293,35 @@ Key discoveries:
   - [reading order identified]
   - [domain relationships mapped]
 
+Build deeper context with decision questions? (y/n):
+```
+
+**If 'y' → Decision Prompting Sequence:**
+```
+Reading project files for ambiguous decisions...
+
+Questions (1-3 baseline, more for complex projects):
+1. Why [observed choice A]?
+2. Why [observed choice B]?
+3. Why [observed choice C]?
+
+Answer each (or 'skip'):
+
+1. Why [choice A]?
+> [human types answer]
+
+2. Why [choice B]?
+> skip
+
+3. Why [choice C]?
+> [human types answer]
+
+Decisions recorded to .float/decisions.md
+Run /float to boot with full context.
+```
+
+**If 'n':**
+```
 Run /float to boot with context loaded.
 ```
 
@@ -481,6 +512,12 @@ Report: "3 issues found" or "No issues"
     │   Context Buoy generates terrain map
     │       ↓
     │   context/project.md created
+    │       ↓
+    │   "Build deeper context with decision questions?" (y/n)
+    │       ↓
+    │   If y: Decision prompting (1-3+ questions)
+    │       ↓
+    │   Answers recorded to decisions.md
     │
     ├── If issues found → User runs /float sync
     │       ↓
@@ -510,6 +547,7 @@ Buoy pattern: `docs/buoys.md`
 
 **Key conventions:**
 - `.float/system.md` — Boot loader (root only)
+- `.float/decisions.md` — Decision history and rationale
 - `.float/context/project.md` — AI terrain map (generated via `/float context`)
 - `.float/tools/context-creator.md` — Tool for generating context
 - `.float/nav/*.md` — Centralized folder navigation

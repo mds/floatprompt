@@ -25,14 +25,15 @@
     "boot_sequence": {
       "1": "Read this file completely",
       "2": "Load structure map into memory",
-      "3": "Read .float/context/project.md if exists (terrain map)",
-      "4": "Read ALL .float/nav/*.md files. Verify Contents tables match actual folder contents. Flag discrepancies.",
-      "5": "Read today's log (.float/logs/YYYY-MM-DD.md) if exists",
-      "6": "Build mental model of project structure",
-      "7": "Report context status: 'Loaded' or 'Missing (run /float context to generate)'",
-      "8": "Flag discrepancies before proceeding",
-      "9": "Execute human requests",
-      "10": "Log session before ending"
+      "3": "Read .float/decisions.md if exists (decision history)",
+      "4": "Read .float/context/project.md if exists (terrain map)",
+      "5": "Read ALL .float/nav/*.md files. Verify Contents tables match actual folder contents. Flag discrepancies.",
+      "6": "Read today's log (.float/logs/YYYY-MM-DD.md) if exists",
+      "7": "Build mental model of project structure",
+      "8": "Report context status: 'Loaded' or 'Missing (run /float context to generate)'",
+      "9": "Flag discrepancies before proceeding",
+      "10": "Execute human requests",
+      "11": "Log session before ending"
     },
     "maintenance": {
       "recursive": true,

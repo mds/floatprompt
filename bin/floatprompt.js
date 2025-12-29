@@ -70,6 +70,33 @@ try {
   copyFileSync(templateSystem, join(cwd, '.float', 'system.md'));
   created.push('.float/system.md');
 
+  // Create empty decisions.md
+  const decisionsContent = `---
+title: Decision History
+type: decisions
+ai_updated: ${new Date().toISOString().split('T')[0]}
+---
+
+# Decision History
+
+Captured rationale for project decisions. AI appends entries during context building.
+
+## Format
+
+\`\`\`
+### [Topic]
+**Question:** Why [observed choice]?
+**Answer:** [human's response]
+**Date:** YYYY-MM-DD
+\`\`\`
+
+---
+
+<!-- Entries below -->
+`;
+  writeFileSync(join(cwd, '.float', 'decisions.md'), decisionsContent);
+  created.push('.float/decisions.md');
+
   copyFileSync(templateRoot, join(cwd, '.float', 'nav', 'root.md'));
   created.push('.float/nav/root.md');
 
