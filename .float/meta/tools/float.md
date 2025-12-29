@@ -84,7 +84,10 @@ When FloatPrompt System exists:
 3. **Read `.float/project/context/*.md`** (if exists) — Load terrain maps
 4. **Read ALL `.float/project/nav/*.md`** — Load folder navigation
 5. **Read today's session log** (if exists) — Load recent activity
-6. **Quick integrity check** — Count issues only, no details
+6. **Quick integrity check** — Count issues only, no details:
+   - Structure: nav files exist, folders exist
+   - Content: stale references
+   - System: router ↔ tools alignment
 7. **Report status + next step**
 
 ## Shell Optimization
@@ -100,6 +103,10 @@ ls .float/project/nav/*.md 2>/dev/null | wc -l
 
 # List folders for init
 ls -d */ | grep -v -E '^(node_modules|dist|build|\.git)/$'
+
+# Check router ↔ tools alignment
+test -f .claude/commands/float.md && echo "router exists"
+ls .float/meta/tools/float*.md 2>/dev/null | wc -l
 ```
 
 ## Status Output
@@ -123,8 +130,10 @@ Issues found?
       → "Next: Run /float sync to fix structure"
   → Content issues (stale references inside files)?
       → "Next: Run /float fix to repair references"
-  → Both types?
-      → "Next: Run /float sync (structure) then /float fix (content)"
+  → System issues (router ↔ tools mismatch)?
+      → "Next: Run /float fix to repair system alignment"
+  → Multiple types?
+      → "Next: Run /float sync (structure) then /float fix (content + system)"
   → No issues: Context missing?
       → Yes: "Next: Run /float context to generate terrain map"
       → No: "Ready for: human direction"
@@ -133,6 +142,7 @@ Issues found?
 **Issue type detection:**
 - **Structure**: nav file doesn't exist, folder doesn't exist, nav/folder mismatch
 - **Content**: reference inside a file points to old/wrong path
+- **System**: router missing, tool missing, router ↔ tools mismatch
 
 ## Buoys
 
