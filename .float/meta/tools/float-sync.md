@@ -358,6 +358,8 @@ Directory: /Users/mds/projects/my-app
 Status: Clean — no changes needed
 
 Ready for: human direction
+
+Tip: Run /float for all commands
 ```
 
 ---

@@ -28,7 +28,7 @@
       "condition_b": "Has .float/system.md",
       "action_b": "Boot sequence"
     },
-    "status_format": "FloatPrompt operational.\nDirectory: [path]\nContext: [Loaded | Missing]\nStatus: [No issues found | N issues found]\n\n[Next step or Ready for: human direction]",
+    "status_format": "FloatPrompt operational.\nDirectory: [path]\nContext: [Loaded | Missing]\nStatus: [No issues found | N issues found]\n\n[Next step or Ready for: human direction]\n\nCommands:\n  /float sync      Structure integrity\n  /float fix       Content integrity\n  /float context   Generate terrain map\n  /float enhance   Fill placeholders, complete frontmatter",
     "next_step_logic": "Structure issues (missing nav/folders)? → /float sync. Content issues (stale refs)? → /float fix. Both? → /float sync then /float fix. Context missing? → /float context. Otherwise → Ready for: human direction"
   }
 }
@@ -118,9 +118,15 @@ Context: [Loaded | Missing]
 Status: [No issues found | N issues found]
 
 [Next step recommendation]
+
+Commands:
+  /float sync      Structure integrity (nav ↔ folders)
+  /float fix       Content integrity (references ↔ reality)
+  /float context   Generate project terrain map
+  /float enhance   Fill placeholders, complete frontmatter
 ```
 
-**Note:** Only `/float` shows the Context line. Other commands omit it.
+**Note:** Only `/float` shows the Context line and Commands list. Other commands omit them.
 
 ## Next Step Logic
 
@@ -167,6 +173,12 @@ Created:
 - .float/project/nav/docs.md
 
 Next: Run /float context to generate terrain map
+
+Commands:
+  /float sync      Structure integrity (nav ↔ folders)
+  /float fix       Content integrity (references ↔ reality)
+  /float context   Generate project terrain map
+  /float enhance   Fill placeholders, complete frontmatter
 ```
 
 **Existing project (boot):**
@@ -179,6 +191,12 @@ Context: Loaded (floatprompt.md)
 Status: 2 issues found
 
 Next: Run /float sync to see details and fix
+
+Commands:
+  /float sync      Structure integrity (nav ↔ folders)
+  /float fix       Content integrity (references ↔ reality)
+  /float context   Generate project terrain map
+  /float enhance   Fill placeholders, complete frontmatter
 ```
 
 **Healthy project:**
@@ -191,6 +209,12 @@ Context: Loaded (floatprompt.md)
 Status: No issues found
 
 Ready for: human direction
+
+Commands:
+  /float sync      Structure integrity (nav ↔ folders)
+  /float fix       Content integrity (references ↔ reality)
+  /float context   Generate project terrain map
+  /float enhance   Fill placeholders, complete frontmatter
 ```
 
 ---
