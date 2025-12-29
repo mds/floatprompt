@@ -37,7 +37,7 @@ The essential FloatPrompt files that ship with `npx floatprompt`.
 
 | File | Purpose |
 |------|---------|
-| **tool-sync.md** | Verify FloatPrompt tools are consistent and synced |
+| **tool-sync.md** | Verify FloatPrompt tools are consistent (run via `/float-tools`) |
 
 ## What Ships
 

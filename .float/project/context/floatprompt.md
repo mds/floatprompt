@@ -139,7 +139,7 @@ Depth scales with complexity. Simple tasks skip elaborate mapping.
 - **Structure**: `meta/` for system internals, `project/` for your project
 - **Navigation**: Centralized in `.float/project/nav/*.md` (one file per major folder)
 - **Logs**: `.float/project/logs/YYYY-MM-DD.md` (newest entries first)
-- **Version**: Currently 0.9.0
+- **Version**: Currently 0.10.0
 
 ## Historical Note
 

@@ -38,7 +38,7 @@
 
 **Verify FloatPrompt tools are consistent, versioned, and properly routed.**
 
-This is maintainer tooling for the FloatPrompt system itself. Run via `/meta` command.
+This is maintainer tooling for the FloatPrompt system itself. Run via `/float-tools` command.
 
 ## Duality
 
@@ -84,25 +84,27 @@ grep -l "## Examples" .float/meta/tools/float-*.md | wc -l
 grep -l "invisible OS for AI" .float/meta/tools/float-*.md | wc -l
 ```
 
-### 3. Router Sync
+### 3. Command Sync
 
-`.claude/commands/float.md` routing table must match actual tools.
+Each tool in `.float/meta/tools/` must have a corresponding command wrapper in `.claude/commands/`.
 
 **Check for:**
-- All tools in `.float/meta/tools/float-*.md` are routed
-- No routes to non-existent tools
-- Routing table descriptions match tool purposes
+- Each `float*.md` tool has matching `.claude/commands/float*.md` wrapper
+- Command wrappers point to correct tool paths
+- No orphan commands (commands without tools)
 
 ```bash
 # List actual tools
-ls .float/meta/tools/float-*.md | xargs -n1 basename | sed 's/.md$//'
+ls .float/meta/tools/float*.md | xargs -n1 basename
 
-# Parse routes from router
-grep -o 'float-[a-z]*' .claude/commands/float.md | sort -u
+# List command wrappers
+ls .claude/commands/float*.md | xargs -n1 basename
+
+# Should match (both return same list)
 ```
 
-**Issue:** `float-new.md` exists but not routed
-**Fix:** Add to routing table in `.claude/commands/float.md`
+**Issue:** `float-new.md` tool exists but no `.claude/commands/float-new.md`
+**Fix:** Create command wrapper in `.claude/commands/float-new.md`
 
 ### 4. Template Sync
 
@@ -122,13 +124,16 @@ diff .float/meta/meta.md templates/.float/meta/meta.md
 
 ### 5. Deployment Sync
 
-`bin/floatprompt.js` must list all tools that should ship.
+`bin/floatprompt.js` must list all tools and commands that should ship.
 
 ```javascript
 const toolFiles = ['float.md', 'float-sync.md', ...];
+const commandFiles = ['float.md', 'float-sync.md', ...];
 ```
 
-Compare against actual `.float/meta/tools/float-*.md` files.
+Compare against actual files:
+- `.float/meta/tools/float*.md` (tools)
+- `.claude/commands/float*.md` (commands)
 
 ## Process
 
@@ -136,20 +141,18 @@ Compare against actual `.float/meta/tools/float-*.md` files.
 
 ```bash
 # Version check
-grep -h '"version"' .float/meta/tools/float-*.md | sort -u | wc -l
+grep -h '"version"' .float/meta/tools/float*.md | sort -u | wc -l
 # Should be 1 (all same version)
 
 # Structure check
-for f in .float/meta/tools/float-*.md; do
-  echo "=== $(basename $f) ==="
-  grep -c "## Duality" "$f"
-  grep -c "## Examples" "$f"
-  grep -c "invisible OS for AI" "$f"
-done
+grep -l "## Duality" .float/meta/tools/float*.md | wc -l
+grep -l "## Examples" .float/meta/tools/float*.md | wc -l
+grep -l "invisible OS for AI" .float/meta/tools/float*.md | wc -l
 
-# Router check
-ls .float/meta/tools/float-*.md | wc -l
-grep -c 'float-.*\.md' .claude/commands/float.md
+# Command check (tools = commands)
+ls .float/meta/tools/float*.md | wc -l
+ls .claude/commands/float*.md | wc -l
+# Should be equal
 ```
 
 ### 2. Report
@@ -163,14 +166,14 @@ Version Sync:
 Structure Sync:
   ✓ All tools have required sections
 
-Router Sync:
-  ✗ float-enhance.md not in routing table
+Command Sync:
+  ✓ All tools have command wrappers
 
 Template Sync:
   ✓ All templates match source
 
 Deployment Sync:
-  ✓ bin/floatprompt.js lists all tools
+  ✓ bin/floatprompt.js lists all tools and commands
 ```
 
 ### 3. Propose Fixes
@@ -180,8 +183,12 @@ For each issue, show the fix:
 ```
 Proposed Fixes:
 
-1. Add to .claude/commands/float.md routing table:
-   | `/float enhance` | `.float/meta/tools/float-enhance.md` | Quality improvement |
+1. Create .claude/commands/float-enhance.md:
+   # /float-enhance — Quality Improvement
+   Read and execute `.float/meta/tools/float-enhance.md`
+
+2. Add to bin/floatprompt.js commandFiles array:
+   'float-enhance.md'
 
 Apply fixes? (y/n):
 ```
@@ -200,7 +207,7 @@ Status: [All synced | N issues found]
 
 **All synced:**
 ```
-> /meta
+> /float-tools
 
 Tool sync complete.
 Directory: /Users/mds/Documents/_Github/floatprompt
@@ -218,7 +225,7 @@ Ready for: human direction
 
 **Issues found:**
 ```
-> /meta
+> /float-tools
 
 Tool sync complete.
 Directory: /Users/mds/Documents/_Github/floatprompt
@@ -227,12 +234,12 @@ Status: 2 issues found
 Version Sync:
   ✗ float-context.md at 0.9.0 (expected 0.10.0)
 
-Router Sync:
-  ✗ float-enhance.md missing from routing table
+Command Sync:
+  ✗ float-new.md missing command wrapper
 
 Proposed Fixes:
 1. Update float-context.md version to 0.10.0
-2. Add float-enhance.md to .claude/commands/float.md
+2. Create .claude/commands/float-new.md
 
 Apply fixes? (y/n):
 ```
@@ -241,7 +248,7 @@ Apply fixes? (y/n):
 
 - Before releasing a new version
 - After adding/modifying tools
-- After updating `.claude/commands/float.md`
+- After creating new command wrappers
 - When something feels out of sync
 
 ---
