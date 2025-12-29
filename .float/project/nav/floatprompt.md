@@ -3,7 +3,7 @@ title: FloatPrompt Templates
 type: nav
 status: current
 created: 2025-12-28
-related: floatprompt/template.md, floatprompt/doc.md, floatprompt/os.md, floatprompt/update.md, bin/floatprompt.js
+related: floatprompt/template.md, floatprompt/doc.md, floatprompt/os.md, floatprompt/update.md, floatprompt/meta/, bin/floatprompt.js
 
 human_author: @mds
 human_intent: Document core templates that ship with npx floatprompt
@@ -11,7 +11,7 @@ human_context: Minimum viable FloatPrompt setup for new projects
 
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
-ai_notes: Renamed from core.md. Files use simple names (template.md, doc.md, os.md, update.md) — folder provides namespace.
+ai_notes: Added meta/ subfolder for maintainer tooling (tool-sync.md).
 ---
 
 # FloatPrompt Templates
@@ -26,6 +26,18 @@ The essential FloatPrompt files that ship with `npx floatprompt`.
 | **doc.md** | floatprompt doc tool for adding YAML frontmatter context |
 | **os.md** | Full FloatPrompt Operating System with advanced features |
 | **update.md** | Structured planning tool for significant changes |
+
+## Subfolders
+
+| Folder | Purpose |
+|--------|---------|
+| **meta/** | Maintainer tooling (does not ship to users) |
+
+### meta/
+
+| File | Purpose |
+|------|---------|
+| **tool-sync.md** | Verify FloatPrompt tools are consistent and synced |
 
 ## What Ships
 
