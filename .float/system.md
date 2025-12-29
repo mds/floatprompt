@@ -7,7 +7,7 @@
     "title": "FloatPrompt System",
     "id": "floatprompt-system",
     "format": "floatprompt",
-    "version": "0.9.0"
+    "version": "0.10.0"
   },
 
   "human": {
@@ -77,10 +77,11 @@ floatprompt/
 │   ├── system.md              # This file (boot loader)
 │   │
 │   ├── meta/                  # About FloatPrompt itself (system internals)
-│   │   ├── core/              # Local copy of core templates
-│   │   │   ├── prompt.md
-│   │   │   ├── doc.md
-│   │   │   └── os.md
+│   │   ├── floatprompt/       # Core templates
+│   │   │   ├── floatprompt-template.md
+│   │   │   ├── floatprompt-doc.md
+│   │   │   ├── floatprompt-os.md
+│   │   │   └── floatprompt-update.md
 │   │   └── tools/             # System tools (source of truth for /float commands)
 │   │       ├── float.md
 │   │       ├── float-sync.md
@@ -96,7 +97,7 @@ floatprompt/
 │       │   ├── float.md       # .float/ folder (self-documentation)
 │       │   ├── root.md        # Repository root
 │       │   ├── bin.md         # CLI folder
-│       │   ├── core.md        # Core templates
+│       │   ├── floatprompt.md  # FloatPrompt templates
 │       │   ├── specs.md       # Specifications
 │       │   ├── docs.md        # Documentation
 │       │   ├── context.md     # Onboarding files
@@ -114,10 +115,11 @@ floatprompt/
 │
 ├── README.md              # Public-facing documentation
 │
-├── core/                  # Essential templates (copied to .float/core/)
-│   ├── prompt.md          # FloatPrompt template
-│   ├── doc.md             # floatprompt doc tool
-│   └── os.md              # Full FloatPrompt OS
+├── floatprompt/           # Core templates (copied to .float/meta/floatprompt/)
+│   ├── floatprompt-template.md  # FloatPrompt template
+│   ├── floatprompt-doc.md       # floatprompt doc tool
+│   ├── floatprompt-os.md        # Full FloatPrompt OS
+│   └── floatprompt-update.md    # Structured update planning
 │
 ├── specs/                 # Formal specifications
 │   ├── floatprompt.md     # FloatPrompt file format
@@ -177,7 +179,7 @@ floatprompt/
 |------|---------|
 | `system.md` | Boot loader (this file) |
 | `meta/` | FloatPrompt system internals (don't modify) |
-| `meta/core/` | Local copy of core templates (prompt, doc, os) |
+| `meta/floatprompt/` | Core templates (floatprompt-template, floatprompt-doc, floatprompt-os, floatprompt-update) |
 | `meta/tools/` | /float command tools (source of truth) |
 | `project/` | Your project's FloatPrompt data |
 | `project/context/` | AI terrain maps (includes decisions.md) |
@@ -191,7 +193,7 @@ floatprompt/
 | `float.md` | .float/ folder (self-documentation) |
 | `root.md` | Repository root |
 | `bin.md` | bin/ folder (CLI) |
-| `core.md` | core/ folder |
+| `floatprompt.md` | floatprompt/ folder (templates) |
 | `specs.md` | specs/ folder (includes claude/) |
 | `docs.md` | docs/ folder (includes philosophy/, reference/) |
 | `context.md` | context/ folder |
@@ -255,9 +257,10 @@ ai_updated:
 |------|----------|---------|
 | `system.md` | `.float/` | Root protocol (this file) |
 | `float-context.md` | `.float/meta/tools/` | Tool for generating terrain maps |
-| `prompt.md` | `core/` | Template for creating floatprompts |
-| `doc.md` | `core/` | Tool for adding context frontmatter |
-| `os.md` | `core/` | Full OS with guided creation |
+| `floatprompt-template.md` | `floatprompt/` | Template for creating floatprompts |
+| `floatprompt-doc.md` | `floatprompt/` | Tool for adding context frontmatter |
+| `floatprompt-os.md` | `floatprompt/` | Full OS with guided creation |
+| `floatprompt-update.md` | `floatprompt/` | Structured update planning |
 
 ## Maintenance Protocol
 

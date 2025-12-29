@@ -38,7 +38,7 @@ any-project/
 ├── .float/                  # FloatPrompt System
 │   ├── system.md            # Boot loader (read first)
 │   ├── meta/                # FloatPrompt internals
-│   │   ├── core/            # Templates
+│   │   ├── floatprompt/     # Core templates
 │   │   └── tools/           # /float command tools
 │   └── project/             # Your project's data
 │       ├── context/         # Terrain maps
@@ -83,7 +83,7 @@ Centralized pattern: meta for system internals, project for your data.
 
 | Item | Purpose |
 |------|---------|
-| `core/` | Templates (prompt.md, doc.md, os.md) |
+| `floatprompt/` | Core templates (floatprompt-template.md, floatprompt-doc.md, floatprompt-os.md, floatprompt-update.md) |
 | `tools/` | /float command tools |
 
 ### project/
@@ -112,7 +112,7 @@ my-project/
 ├── .float/                # FloatPrompt System
 │   ├── system.md          # Boot loader
 │   ├── meta/              # System internals
-│   │   ├── core/          # Templates
+│   │   ├── floatprompt/   # Core templates
 │   │   └── tools/         # Command tools
 │   └── project/           # Your project's data
 │       ├── context/       # Terrain maps
@@ -158,7 +158,7 @@ AI does the heavy lifting. Human stays in control.
 Create the structure yourself:
 
 ```bash
-mkdir -p .float/meta/tools .float/meta/core .float/project/nav .float/project/logs .float/project/context
+mkdir -p .float/meta/tools .float/meta/floatprompt .float/project/nav .float/project/logs .float/project/context
 touch .float/system.md
 touch .float/project/nav/root.md
 ```

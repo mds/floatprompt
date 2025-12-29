@@ -47,7 +47,7 @@ if (args.includes('--update') || args.includes('-u')) {
 
   try {
     // Ensure directories exist
-    const dirs = ['.float/meta/tools', '.float/meta/core', '.claude/commands'];
+    const dirs = ['.float/meta/tools', '.float/meta/floatprompt', '.claude/commands'];
     for (const dir of dirs) {
       const fullPath = join(cwd, dir);
       if (!existsSync(fullPath)) {
@@ -64,13 +64,13 @@ if (args.includes('--update') || args.includes('-u')) {
       updated.push(`.float/meta/tools/${file}`);
     }
 
-    // Update core files (source is core/ at package root, dest is .float/meta/core/)
-    const coreFiles = ['prompt.md', 'doc.md', 'os.md'];
-    for (const file of coreFiles) {
-      const src = join(packageRoot, 'core', file);
-      const dest = join(cwd, '.float', 'meta', 'core', file);
+    // Update floatprompt files (source is floatprompt/ at package root, dest is .float/meta/floatprompt/)
+    const floatpromptFiles = ['floatprompt-template.md', 'floatprompt-doc.md', 'floatprompt-os.md', 'floatprompt-update.md'];
+    for (const file of floatpromptFiles) {
+      const src = join(packageRoot, 'floatprompt', file);
+      const dest = join(cwd, '.float', 'meta', 'floatprompt', file);
       copyFileSync(src, dest);
-      updated.push(`.float/meta/core/${file}`);
+      updated.push(`.float/meta/floatprompt/${file}`);
     }
 
     // Update Claude command
@@ -128,7 +128,7 @@ const dirs = [
   '.float',
   '.float/meta',
   '.float/meta/tools',
-  '.float/meta/core',
+  '.float/meta/floatprompt',
   '.float/project',
   '.float/project/nav',
   '.float/project/logs',
@@ -197,13 +197,13 @@ Captured rationale for project decisions. AI appends entries during context buil
     created.push(`.float/meta/tools/${file}`);
   }
 
-  // Copy core files (source is core/ at package root, dest is .float/meta/core/)
-  const coreFiles = ['prompt.md', 'doc.md', 'os.md'];
-  for (const file of coreFiles) {
-    const src = join(packageRoot, 'core', file);
-    const dest = join(cwd, '.float', 'meta', 'core', file);
+  // Copy floatprompt files (source is floatprompt/ at package root, dest is .float/meta/floatprompt/)
+  const floatpromptFiles = ['floatprompt-template.md', 'floatprompt-doc.md', 'floatprompt-os.md', 'floatprompt-update.md'];
+  for (const file of floatpromptFiles) {
+    const src = join(packageRoot, 'floatprompt', file);
+    const dest = join(cwd, '.float', 'meta', 'floatprompt', file);
     copyFileSync(src, dest);
-    created.push(`.float/meta/core/${file}`);
+    created.push(`.float/meta/floatprompt/${file}`);
   }
 
   // Copy Claude command

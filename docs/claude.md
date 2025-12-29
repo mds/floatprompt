@@ -243,7 +243,7 @@ The FloatPrompt System (v0.9.0) uses **meta/project separation**:
 .float/
 ├── system.md          # Boot loader
 ├── meta/              # FloatPrompt internals (don't modify)
-│   ├── core/          # Templates
+│   ├── floatprompt/   # Core templates
 │   └── tools/         # /float command tools
 └── project/           # Your project's data
     ├── context/       # Terrain maps

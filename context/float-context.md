@@ -123,8 +123,8 @@ Structured text format for portable AI tooling. JSON for behavior, markdown for 
 **FloatPrompt DOES modify AI behavior.** It transforms the AI into a specialized tool.
 
 **Two versions:**
-- `core/prompt.md` (3KB) — The template, teaches AI how to create tools
-- `core/os.md` (35KB) — Full system with guided creation for deep knowledge work
+- `floatprompt/floatprompt-template.md` (3KB) — The template, teaches AI how to create tools
+- `floatprompt/floatprompt-os.md` (35KB) — Full system with guided creation for deep knowledge work
 
 ### FloatPrompt System — Project Awareness
 
@@ -135,7 +135,7 @@ project/
 ├── .float/
 │   ├── system.md      # Boot loader (read first)
 │   ├── meta/          # FloatPrompt internals
-│   │   ├── core/      # Templates
+│   │   ├── floatprompt/ # Core templates
 │   │   └── tools/     # /float command tools
 │   └── project/       # Your project's data
 │       ├── context/   # Terrain maps
@@ -283,9 +283,9 @@ They complement each other.
 ## File Extensions
 
 All FloatPrompt system files use `.md` for universal compatibility:
-- `core/prompt.md` — Template
-- `core/doc.md` — floatprompt doc tool
-- `core/os.md` — Full system
+- `floatprompt/floatprompt-template.md` — Template
+- `floatprompt/floatprompt-doc.md` — floatprompt doc tool
+- `floatprompt/floatprompt-os.md` — Full system
 - `.float/system.md` — Boot loader
 - `.float/project/nav/*.md` — Navigation
 

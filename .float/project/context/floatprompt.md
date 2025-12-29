@@ -19,9 +19,9 @@ FloatPrompt is the invisible OS for AI — a structured text format for portable
 |------|----------------|
 | `.float/system.md` | Boot protocol — read first, always. Defines all conventions. |
 | `.float/project/context/floatprompt.md` | This file — terrain map for AI understanding |
-| `core/os.md` | Full FloatPrompt OS (35KB) — the complete system with guided creation |
-| `core/prompt.md` | Template for creating new FloatPrompt tools |
-| `core/doc.md` | Tool for adding YAML frontmatter to documents |
+| `floatprompt/floatprompt-os.md` | Full FloatPrompt OS (35KB) — the complete system with guided creation |
+| `floatprompt/floatprompt-template.md` | Template for creating new FloatPrompt tools |
+| `floatprompt/floatprompt-doc.md` | Tool for adding YAML frontmatter to documents |
 | `docs/philosophy/manifesto.md` | The "why" — vision, principles, the promise |
 | `docs/goals.md` | Goal hierarchy: Voice > Behavior > Artifacts |
 | `docs/principles.md` | Core constraints: Recognition, Slowness, Archaeology |
@@ -36,7 +36,7 @@ For new AI sessions, read in this order:
 3. `.float/project/nav/*.md` — All 10 navigation files for folder structure
 4. `docs/goals.md` — Goal hierarchy (strict: voice > behavior > artifacts)
 5. `docs/principles.md` — Core principles (recognition, slowness, archaeology)
-6. `core/prompt.md` — The template (see how tools are built)
+6. `floatprompt/floatprompt-template.md` — The template (see how tools are built)
 7. One example from `examples/` — See theory in practice
 
 For deep understanding, follow `context/float-deepdive.md` (5 loops, 23+ files).
@@ -56,9 +56,10 @@ Format (what it is)
 └── specs/system.md                 — .float/ folder architecture
 
 Templates (how to build)
-├── core/prompt.md                  — Basic template
-├── core/doc.md                     — Document context tool
-└── core/os.md                      — Full OS with guided creation
+├── floatprompt/floatprompt-template.md  — Basic template
+├── floatprompt/floatprompt-doc.md       — Document context tool
+├── floatprompt/floatprompt-os.md        — Full OS with guided creation
+└── floatprompt/floatprompt-update.md    — Structured update planning
 
 Methodology (how to work)
 ├── docs/mds-method.md              — Map → Decide → Structure → Loop
@@ -72,7 +73,7 @@ Examples (proof it works)
 System (meta layer)
 ├── .float/system.md                      — Boot loader
 ├── .float/meta/                          — FloatPrompt internals
-│   ├── core/                             — Templates (prompt, doc, os)
+│   ├── floatprompt/                      — Templates (template, doc, os, update)
 │   └── tools/                            — Commands (float-*.md)
 └── .float/project/                       — Your project's data
     ├── context/floatprompt.md            — This terrain map

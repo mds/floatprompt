@@ -27,7 +27,7 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 ├── system.md           # Boot loader (read first)
 │
 ├── meta/               # FloatPrompt internals (don't modify)
-│   ├── core/           # Templates
+│   ├── floatprompt/    # Core templates
 │   └── tools/          # /float command tools
 │
 └── project/            # Your project's data
@@ -48,13 +48,14 @@ The `.float/` folder — self-documenting system layer for AI project awareness.
 
 System internals. Don't modify unless you're updating FloatPrompt itself.
 
-### meta/core/
+### meta/floatprompt/
 
 | File | Purpose |
 |------|---------|
-| **prompt.md** | FloatPrompt template |
-| **doc.md** | floatprompt doc tool |
-| **os.md** | Full FloatPrompt OS |
+| **floatprompt-template.md** | FloatPrompt template |
+| **floatprompt-doc.md** | floatprompt doc tool |
+| **floatprompt-os.md** | Full FloatPrompt OS |
+| **floatprompt-update.md** | Structured update planning |
 
 ### meta/tools/
 
@@ -84,7 +85,7 @@ Your project's FloatPrompt data. This is where project-specific context lives.
 | **float.md** | This file (self-documentation) |
 | **root.md** | Repository root |
 | **bin.md** | bin/ folder (CLI) |
-| **core.md** | core/ folder |
+| **floatprompt.md** | floatprompt/ folder (templates) |
 | **specs.md** | specs/ folder (specifications) |
 | **docs.md** | docs/ folder |
 | **context.md** | context/ folder (onboarding) |

@@ -85,7 +85,7 @@ Read all `.float/project/nav/*.md` files (centralized navigation):
 | 6 | `.float/project/nav/specs.md` | Specifications |
 | 7 | `.float/project/nav/templates.md` | Scaffolding templates |
 | 8 | `.float/project/nav/artifacts.md` | Historical archive |
-| 9 | `.float/project/nav/core.md` | Core template files |
+| 9 | `.float/project/nav/floatprompt.md` | FloatPrompt template files |
 | 10 | `.float/project/nav/examples.md` | Real examples |
 
 **Outcome:** Verified structure, confirmed integrity.
@@ -99,9 +99,9 @@ Read all `.float/project/nav/*.md` files (centralized navigation):
 | 13 | `docs/goals.md` | Goal hierarchy: voice > behavior > artifacts |
 | 14 | `docs/principles.md` | Recognition before action, slow is smooth |
 | 15 | `context/float-context.md` | Three-component distinction |
-| 16 | `core/prompt.md` | The template with placeholders |
+| 16 | `floatprompt/floatprompt-template.md` | The template with placeholders |
 | 17 | `docs/philosophy/manifesto.md` | *Why* FloatPrompt exists |
-| 18 | `core/os.md` | Full OS with Map/Decide/Structure modes |
+| 18 | `floatprompt/floatprompt-os.md` | Full OS with Map/Decide/Structure modes |
 
 **Outcome:** Understood the template, OS, and philosophical foundation.
 
@@ -127,7 +127,7 @@ Fill remaining gaps:
 
 | # | File | What You'll Learn |
 |---|------|-------------------|
-| 22 | `core/doc.md` | floatprompt doc tool, field ownership model |
+| 22 | `floatprompt/floatprompt-doc.md` | floatprompt doc tool, field ownership model |
 | 23 | `docs/voice.md` | Voice preservation rules, what to avoid |
 | 24 | `docs/mds-method.md` | Universal methodology, loop structure |
 

@@ -293,7 +293,7 @@ Loading context from floatprompt.md...
 Following reading order:
 1. .float/system.md — Boot protocol
 2. specs/floatprompt.md — Format definition
-3. core/prompt.md — Template structure
+3. floatprompt/floatprompt-template.md — Template structure
 ...
 
 FloatPrompt context complete.

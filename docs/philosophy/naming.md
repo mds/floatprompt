@@ -110,7 +110,7 @@ Everything **floats** — surfacing human intelligence to AI.
 
 | File Type | Extension | Example |
 |-----------|-----------|---------|
-| Core templates | `.md` | `core/prompt.md`, `core/os.md` |
+| Core templates | `.md` | `floatprompt/floatprompt-template.md`, `floatprompt/floatprompt-os.md` |
 | Documentation | `.md` | `floatprompt.md`, `system.md`, `doc.md` |
 | Nav files | `.md` | `nav/root.md`, `nav/docs.md` |
 | Session logs | `.md` | `2025-12-28.md` |
@@ -125,10 +125,11 @@ floatprompt/
 │   ├── system.md                # Boot loader
 │   ├── nav/                     # Navigation files
 │   └── logs/                    # Session logs
-├── core/                        # Essential templates
-│   ├── prompt.md                # Template (creates floatprompt tools)
-│   ├── doc.md                   # Creates floatprompt docs
-│   └── os.md                    # Full system
+├── floatprompt/                 # Core templates
+│   ├── floatprompt-template.md  # Template (creates floatprompt tools)
+│   ├── floatprompt-doc.md       # Creates floatprompt docs
+│   ├── floatprompt-os.md        # Full system
+│   └── floatprompt-update.md    # Structured update planning
 ├── docs/                        # Documentation
 └── examples/                    # FloatPrompt [ToolName] examples
 ```

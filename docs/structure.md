@@ -38,7 +38,7 @@ Inspired by Next.js conventions where `app/` vs `public/` instantly communicates
 ├── system.md           # Boot loader (entry point)
 │
 ├── meta/               # About FloatPrompt itself
-│   ├── core/           # Templates
+│   ├── floatprompt/    # Core templates
 │   └── tools/          # Commands
 │
 └── project/            # About YOUR project
