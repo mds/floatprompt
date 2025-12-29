@@ -26,8 +26,8 @@
     "boot_sequence": {
       "1": "Read this file completely (.float/system.md)",
       "2": "Load structure map into memory",
-      "3": "Read .float/decisions.md for decision history (if exists)",
-      "4": "Read .float/context/project.md for terrain map and relationships (if exists)",
+      "3": "Read .float/context/decisions.md for decision history (if exists)",
+      "4": "Read .float/context/*.md for terrain maps and relationships (if exists)",
       "5": "Read ALL nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
       "6": "Read today's session log (.float/logs/YYYY-MM-DD.md) for recent activity",
       "7": "Choose context depth based on task complexity (see context/ folder)",
@@ -72,9 +72,9 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 floatprompt/
 ├── .float/                # FloatPrompt System (read first)
 │   ├── system.md          # This file (boot loader)
-│   ├── decisions.md       # Decision history and rationale
 │   ├── context/           # AI terrain maps
-│   │   └── project.md     # Project-wide context (auto-generated)
+│   │   ├── {name}.md      # Project context (named for project, not generic)
+│   │   └── decisions.md   # Decision history and rationale
 │   ├── tools/             # System tools
 │   │   └── context-creator.md
 │   ├── nav/               # Centralized navigation
@@ -146,8 +146,7 @@ floatprompt/
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader (this file) |
-| `decisions.md` | Decision history and rationale |
-| `context/` | AI terrain maps |
+| `context/` | AI terrain maps (includes decisions.md) |
 | `tools/` | System tools |
 | `nav/` | Centralized folder navigation |
 | `logs/` | Session logs folder |
@@ -230,8 +229,8 @@ ai_updated:
 
 **Every session (boot sequence):**
 1. Read `.float/system.md` first (this file)
-2. Read `.float/decisions.md` for decision history (if exists)
-3. Read `.float/context/project.md` for terrain map and relationships (if exists)
+2. Read `.float/context/decisions.md` for decision history (if exists)
+3. Read `.float/context/*.md` for terrain maps and relationships (if exists)
 4. Read ALL `.float/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
 5. Read today's session log `.float/logs/YYYY-MM-DD.md` (recent activity, handoff context)
 6. Choose context depth based on task complexity (see below)

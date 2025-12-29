@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "Context Creator Mode. Generate or update .float/context/project.md for this project. Discover what matters, identify relationships, create a terrain map for AI understanding. Output is emergent based on what you find. Filename is 'project.md' by default but can be changed if project suggests better name.",
+  "STOP": "Context Creator Mode. Generate .float/context/{name}.md for this project. CRITICAL: Choose a meaningful filename that reflects the project identity — NOT 'project.md'. Look at README, package.json, or folder name for hints (e.g., 'floatprompt.md', 'shiftnudge.md', 'portfolio-workshop.md'). The filename IS the project identity for AI context.",
 
   "meta": {
     "title": "FloatPrompt Context Creator",
@@ -35,7 +35,7 @@
       "minimum": ["what this IS", "key files", "reading order", "domain relationships"]
     },
     "preserve_human": {
-      "check": "If .float/context/project.md exists, read it first",
+      "check": "If .float/context/*.md exists (any context file), read it first",
       "preserve": "Sections marked as human-added or in human_refinements",
       "merge": "Integrate new discoveries with existing human context"
     },
@@ -67,7 +67,7 @@
 
 **Generate terrain maps for AI understanding.**
 
-This tool creates `.float/context/project.md` — the understanding layer that complements nav/*.md structure files.
+This tool creates `.float/context/{name}.md` — the understanding layer that complements nav/*.md structure files. Always name the file after the project (e.g., `floatprompt.md`, not generic `project.md`).
 
 ## Quick Start
 
@@ -186,10 +186,15 @@ If updating existing context:
 ## Output Location
 
 ```
-.float/context/project.md
+.float/context/{meaningful-name}.md
 ```
 
-Default filename is `project.md`. Context Buoy may choose a different name if the project suggests one (emergent naming).
+**CRITICAL — Choose a meaningful filename:**
+- DO NOT default to `project.md` — that's lazy and unhelpful
+- Name should reflect the project's domain or identity
+- Look at README, package.json name, or folder name for hints
+- Examples: `floatprompt.md`, `shiftnudge.md`, `portfolio-workshop.md`, `api-gateway.md`
+- The filename IS the project identity for AI context
 
 Future: Additional domain-specific context files as siblings (e.g., `frontend.md`, `api.md`).
 

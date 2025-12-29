@@ -25,8 +25,8 @@
     "boot_sequence": {
       "1": "Read this file completely",
       "2": "Load structure map into memory",
-      "3": "Read .float/decisions.md if exists (decision history)",
-      "4": "Read .float/context/project.md if exists (terrain map)",
+      "3": "Read .float/context/decisions.md if exists (decision history)",
+      "4": "Read .float/context/*.md if exists (terrain maps)",
       "5": "Read ALL .float/nav/*.md files. Verify Contents tables match actual folder contents. Flag discrepancies.",
       "6": "Read today's log (.float/logs/YYYY-MM-DD.md) if exists",
       "7": "Build mental model of project structure",
@@ -56,6 +56,8 @@ project/
 │   │   └── root.md    # Repository root
 │   ├── logs/          # Session history
 │   ├── context/       # AI terrain maps
+│   │   ├── {name}.md  # Project context (named for project)
+│   │   └── decisions.md # Decision history and rationale
 │   ├── tools/         # System tools
 │   │   └── context-creator.md
 │   └── core/          # FloatPrompt templates

@@ -70,7 +70,7 @@ try {
   copyFileSync(templateSystem, join(cwd, '.float', 'system.md'));
   created.push('.float/system.md');
 
-  // Create empty decisions.md
+  // Create empty decisions.md in context/
   const decisionsContent = `---
 title: Decision History
 type: decisions
@@ -94,8 +94,8 @@ Captured rationale for project decisions. AI appends entries during context buil
 
 <!-- Entries below -->
 `;
-  writeFileSync(join(cwd, '.float', 'decisions.md'), decisionsContent);
-  created.push('.float/decisions.md');
+  writeFileSync(join(cwd, '.float', 'context', 'decisions.md'), decisionsContent);
+  created.push('.float/context/decisions.md');
 
   copyFileSync(templateRoot, join(cwd, '.float', 'nav', 'root.md'));
   created.push('.float/nav/root.md');

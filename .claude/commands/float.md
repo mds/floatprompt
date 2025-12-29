@@ -27,8 +27,8 @@ Look for `.float/system.md` in the current working directory.
 Execute the full orientation using local files:
 
 1. **Read `.float/system.md`** — Load boot protocol, structure map, behavioral constraints
-2. **Read `.float/decisions.md`** — Load decision history (if exists)
-3. **Read `.float/context/project.md`** — Load terrain map and relationships (if exists)
+2. **Read `.float/context/decisions.md`** — Load decision history (if exists)
+3. **Read `.float/context/*.md`** — Load terrain map and relationships (if exists)
 4. **Read ALL `.float/nav/*.md` files** — Understand folder structure (centralized navigation)
 5. **Read today's session log** (`.float/logs/YYYY-MM-DD.md`) if it exists
 6. **Build mental model** — What exists, what happened, current state
@@ -316,7 +316,7 @@ Answer each (or 'skip'):
 3. Why [choice C]?
 > [human types answer]
 
-Decisions recorded to .float/decisions.md
+Decisions recorded to .float/context/decisions.md
 Run /float to boot with full context.
 ```
 
@@ -430,14 +430,20 @@ Each buoy receives specific instructions when spawned:
 
 **Context Buoy prompt:**
 ```
-Generate or update .float/context/project.md for this project:
+Generate context file for this project:
 1. Read .float/system.md and all .float/nav/*.md files
 2. Read .float/tools/context-creator.md for generation protocol
 3. Identify key files, reading order, domain relationships
 4. Generate emergent context based on what you discover
-5. If project.md exists, preserve human_refinements sections
-6. Filename is 'project.md' by default, but choose better name if project suggests one
-Output: .float/context/project.md with terrain map for AI understanding
+
+CRITICAL - Choose a meaningful filename:
+- DO NOT default to 'project.md' — that's lazy
+- Name should reflect the project's domain or identity
+- Examples: 'floatprompt.md', 'shiftnudge.md', 'portfolio-workshop.md', 'api-gateway.md'
+- Look at README, package.json name, or folder name for hints
+- The filename IS the project identity for AI context
+
+Output: .float/context/{meaningful-name}.md with terrain map for AI understanding
 ```
 
 **Check Buoy prompt:**
@@ -511,13 +517,13 @@ Report: "3 issues found" or "No issues"
     │       ↓
     │   Context Buoy generates terrain map
     │       ↓
-    │   context/project.md created
+    │   context/{project-name}.md created
     │       ↓
     │   "Build deeper context with decision questions?" (y/n)
     │       ↓
     │   If y: Decision prompting (1-3+ questions)
     │       ↓
-    │   Answers recorded to decisions.md
+    │   Answers recorded to context/decisions.md
     │
     ├── If issues found → User runs /float sync
     │       ↓
@@ -547,8 +553,8 @@ Buoy pattern: `docs/buoys.md`
 
 **Key conventions:**
 - `.float/system.md` — Boot loader (root only)
-- `.float/decisions.md` — Decision history and rationale
-- `.float/context/project.md` — AI terrain map (generated via `/float context`)
+- `.float/context/{name}.md` — AI terrain map (named for project, not generic)
+- `.float/context/decisions.md` — Decision history and rationale
 - `.float/tools/context-creator.md` — Tool for generating context
 - `.float/nav/*.md` — Centralized folder navigation
 - `.float/logs/YYYY-MM-DD.md` — Session logs (root only)
