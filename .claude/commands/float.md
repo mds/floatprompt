@@ -258,6 +258,57 @@ Sync complete. 4 changes applied.
 Activity logged to .float/logs/2025-12-28.md
 ```
 
+**Step 3: Check for incomplete descriptions**
+
+After sync completes, scan nav files for `[needs description]` placeholders:
+
+```
+Checking descriptions...
+Found 23 items with [needs description]:
+  - src.md: 18 files
+  - components.md: 5 files
+
+Fill in descriptions now? (y/n):
+```
+
+**If 'n':** "Descriptions skipped. Run /float describe anytime to fill them in."
+
+**If 'y':** Spawn Describe Buoys in parallel (batch by nav file):
+
+```
+Spawning Describe Buoys...
+  → Reading src/utils/transform.ts...
+  → Reading src/utils/helpers.ts...
+  → Reading src/components/Modal.tsx...
+
+Descriptions generated:
+  transform.ts → "Converts API responses to internal data format"
+  helpers.ts → "Date formatting and string utilities"
+  Modal.tsx → "Reusable modal dialog with backdrop and close handling"
+
+  [accept all / review each / skip]: accept all
+
+Updating nav files...
+  → src.md: 18 descriptions added
+  → components.md: 5 descriptions added
+
+All descriptions complete.
+```
+
+---
+
+## /float describe
+
+Fill in `[needs description]` placeholders in nav files. Can be run independently anytime.
+
+```
+/float describe
+```
+
+Scans all `.float/nav/*.md` files for `[needs description]`, spawns Describe Buoys to generate descriptions, and updates nav files.
+
+Same flow as Step 3 above.
+
 ---
 
 ## /float context

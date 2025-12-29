@@ -7,7 +7,7 @@ alwaysApply: false
 <fp>
 <json>
 {
-  "STOP": "FloatPrompt System tool. When human @-mentions this file and says 'boot' or 'sync', execute the corresponding sequence. Boot = orientation + quick health check. Sync = full integrity check + fix with approval.",
+  "STOP": "FloatPrompt System tool. When human @-mentions this file and says 'boot', 'sync', or 'describe', execute the corresponding sequence. Boot = orientation + quick health check. Sync = full integrity check + fix with approval. Describe = fill in [needs description] placeholders.",
 
   "meta": {
     "title": "FloatPrompt Boot & Sync",
@@ -30,7 +30,8 @@ alwaysApply: false
   "requirements": {
     "commands": {
       "boot": "Read .float/system.md, all nav/*.md, today's log. Report ready.",
-      "sync": "Full integrity check, show issues, propose fixes, apply on approval."
+      "sync": "Full integrity check, show issues, propose fixes, apply on approval.",
+      "describe": "Fill in [needs description] placeholders in nav files."
     },
     "boot_sequence": [
       "Read .float/system.md",
@@ -161,6 +162,32 @@ Proposed changes:
 
 Apply changes? (y/n):
 ```
+
+**After sync completes, check for incomplete descriptions:**
+
+```
+Checking descriptions...
+Found 23 items with [needs description]:
+  - src.md: 18 files
+  - components.md: 5 files
+
+Fill in descriptions now? (y/n):
+```
+
+If 'y': Read each file, generate description, update nav files.
+If 'n': "Descriptions skipped. Say '@float describe' anytime to fill them in."
+
+---
+
+### describe
+
+Fill in `[needs description]` placeholders in nav files.
+
+```
+@float describe
+```
+
+Scans all `.float/nav/*.md` files for `[needs description]`, reads each file to generate a one-line description, and updates the nav tables.
 
 ---
 

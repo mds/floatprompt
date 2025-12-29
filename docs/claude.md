@@ -129,6 +129,34 @@ Apply changes? (y/n):
 
 **If you say 'y':** Fleet spawns in parallel, buoys apply changes, log activity.
 
+**After sync completes:** Check for incomplete descriptions.
+
+```
+Checking descriptions...
+Found 23 items with [needs description]:
+  - src.md: 18 files
+  - components.md: 5 files
+
+Fill in descriptions now? (y/n):
+```
+
+If 'y': Describe Buoys read each file and generate descriptions.
+If 'n': "Descriptions skipped. Run /float describe anytime to fill them in."
+
+---
+
+### /float describe
+
+Fill in `[needs description]` placeholders in nav files.
+
+```
+/float describe
+```
+
+Scans all `.float/nav/*.md` files for `[needs description]`, spawns Describe Buoys to read each file and generate a one-line description, then updates the nav tables.
+
+Can be run independently anytime — not just after sync.
+
 ---
 
 ## Buoy Orchestration
