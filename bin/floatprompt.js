@@ -19,6 +19,7 @@ Usage: npx floatprompt [options]
 Options:
   -h, --help     Show this help message
   -v, --version  Show version number
+  -u, --update   Update FloatPrompt System files (keeps nav, logs, context)
 
 Creates a complete FloatPrompt System in the current directory.
 Learn more: https://github.com/mds/floatprompt`);
@@ -31,13 +32,73 @@ if (args.includes('--version') || args.includes('-v')) {
   process.exit(0);
 }
 
-// Check if already initialized
 const cwd = process.cwd();
 const floatDir = join(cwd, '.float');
 
+// Handle --update flag
+if (args.includes('--update') || args.includes('-u')) {
+  if (!existsSync(floatDir)) {
+    console.error('Error: No FloatPrompt System found. Run npx floatprompt first to initialize.');
+    process.exit(1);
+  }
+
+  const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
+  const updated = [];
+
+  try {
+    // Ensure directories exist
+    const dirs = ['.float/tools', '.float/core', '.claude/commands'];
+    for (const dir of dirs) {
+      const fullPath = join(cwd, dir);
+      if (!existsSync(fullPath)) {
+        mkdirSync(fullPath, { recursive: true });
+      }
+    }
+
+    // Update tools
+    const contextCreator = join(packageRoot, '.float', 'tools', 'context-creator.md');
+    copyFileSync(contextCreator, join(cwd, '.float', 'tools', 'context-creator.md'));
+    updated.push('.float/tools/context-creator.md');
+
+    // Update core files
+    const coreFiles = ['prompt.md', 'doc.md', 'os.md'];
+    for (const file of coreFiles) {
+      const src = join(packageRoot, 'core', file);
+      const dest = join(cwd, '.float', 'core', file);
+      copyFileSync(src, dest);
+      updated.push(`.float/core/${file}`);
+    }
+
+    // Update Claude command
+    const floatCommand = join(packageRoot, '.claude', 'commands', 'float.md');
+    copyFileSync(floatCommand, join(cwd, '.claude', 'commands', 'float.md'));
+    updated.push('.claude/commands/float.md');
+
+    console.log(`FloatPrompt System updated to v${pkg.version}.
+
+Updated:
+  ${updated.join('\n  ')}
+
+Preserved:
+  .float/nav/*
+  .float/logs/*
+  .float/context/*
+  .float/system.md
+
+Run /float in Claude Code to boot.`);
+    process.exit(0);
+
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1);
+  }
+}
+
+// Check if already initialized
 if (existsSync(floatDir)) {
   console.log(`FloatPrompt System already initialized.
-Run /float in Claude Code to boot.`);
+Run /float in Claude Code to boot.
+Run npx floatprompt --update to get latest version.`);
   process.exit(0);
 }
 
