@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const packageRoot = join(__dirname, '..', '..');
+const packageRoot = join(__dirname, '..');
 
 // Parse CLI arguments
 const args = process.argv.slice(2);
@@ -55,26 +55,26 @@ if (args.includes('--update') || args.includes('-u')) {
       }
     }
 
-    // Update tools
+    // Update tools (source: system/claude/tools/)
     const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md'];
     for (const file of toolFiles) {
-      const src = join(packageRoot, '.float', 'core', 'tools', file);
+      const src = join(packageRoot, 'system', 'claude', 'tools', file);
       const dest = join(cwd, '.float', 'core', 'tools', file);
       copyFileSync(src, dest);
       updated.push(`.float/core/tools/${file}`);
     }
 
-    // Update type templates
+    // Update type templates (source: system/claude/tools/types/)
     const typeFiles = ['pipeline.md', 'scorer.md', 'extractor.md', 'reconciler.md', 'processor.md', 'reference.md'];
     for (const file of typeFiles) {
-      const src = join(packageRoot, '.float', 'core', 'tools', 'types', file);
+      const src = join(packageRoot, 'system', 'claude', 'tools', 'types', file);
       const dest = join(cwd, '.float', 'core', 'tools', 'types', file);
       copyFileSync(src, dest);
       updated.push(`.float/core/tools/types/${file}`);
     }
 
-    // Update manual
-    const manualSrc = join(packageRoot, '.float', 'core', 'manual.md');
+    // Update manual (source: system/manual.md)
+    const manualSrc = join(packageRoot, 'system', 'manual.md');
     copyFileSync(manualSrc, join(cwd, '.float', 'core', 'manual.md'));
     updated.push('.float/core/manual.md');
 
@@ -97,12 +97,12 @@ if (args.includes('--update') || args.includes('-u')) {
     }
 
     // Update index.md (structural reference)
-    const indexSrc = join(packageRoot, 'package', 'templates', '.float', 'core', 'index.md');
+    const indexSrc = join(packageRoot, 'templates', '.float', 'core', 'index.md');
     copyFileSync(indexSrc, join(cwd, '.float', 'core', 'index.md'));
     updated.push('.float/core/index.md');
 
     // Update project.md (structural reference)
-    const projectSrc = join(packageRoot, 'package', 'templates', '.float', 'project', 'project.md');
+    const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');
     copyFileSync(projectSrc, join(cwd, '.float', 'project', 'project.md'));
     updated.push('.float/project/project.md');
 
@@ -186,8 +186,8 @@ try {
   }
 
   // Copy template files
-  const templateSystem = join(packageRoot, 'package', 'templates', '.float', 'system.md');
-  const templateRoot = join(packageRoot, 'package', 'templates', '.float', 'project', 'nav', 'root.md');
+  const templateSystem = join(packageRoot, 'templates', '.float', 'system.md');
+  const templateRoot = join(packageRoot, 'templates', '.float', 'project', 'nav', 'root.md');
 
   copyFileSync(templateSystem, join(cwd, '.float', 'system.md'));
   created.push('.float/system.md');
@@ -226,26 +226,26 @@ Captured rationale for project decisions. AI appends entries during context buil
   writeFileSync(join(cwd, '.float', 'project', 'logs', '.gitkeep'), '');
   created.push('.float/project/logs/');
 
-  // Copy tools
+  // Copy tools (source: system/claude/tools/)
   const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md'];
   for (const file of toolFiles) {
-    const src = join(packageRoot, '.float', 'core', 'tools', file);
+    const src = join(packageRoot, 'system', 'claude', 'tools', file);
     const dest = join(cwd, '.float', 'core', 'tools', file);
     copyFileSync(src, dest);
     created.push(`.float/core/tools/${file}`);
   }
 
-  // Copy type templates
+  // Copy type templates (source: system/claude/tools/types/)
   const typeFiles = ['pipeline.md', 'scorer.md', 'extractor.md', 'reconciler.md', 'processor.md', 'reference.md'];
   for (const file of typeFiles) {
-    const src = join(packageRoot, '.float', 'core', 'tools', 'types', file);
+    const src = join(packageRoot, 'system', 'claude', 'tools', 'types', file);
     const dest = join(cwd, '.float', 'core', 'tools', 'types', file);
     copyFileSync(src, dest);
     created.push(`.float/core/tools/types/${file}`);
   }
 
-  // Copy manual
-  const manualSrc = join(packageRoot, '.float', 'core', 'manual.md');
+  // Copy manual (source: system/manual.md)
+  const manualSrc = join(packageRoot, 'system', 'manual.md');
   copyFileSync(manualSrc, join(cwd, '.float', 'core', 'manual.md'));
   created.push('.float/core/manual.md');
 
@@ -268,12 +268,12 @@ Captured rationale for project decisions. AI appends entries during context buil
   }
 
   // Copy index.md (structural reference)
-  const indexSrc = join(packageRoot, 'package', 'templates', '.float', 'core', 'index.md');
+  const indexSrc = join(packageRoot, 'templates', '.float', 'core', 'index.md');
   copyFileSync(indexSrc, join(cwd, '.float', 'core', 'index.md'));
   created.push('.float/core/index.md');
 
   // Copy project.md (structural reference)
-  const projectSrc = join(packageRoot, 'package', 'templates', '.float', 'project', 'project.md');
+  const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');
   copyFileSync(projectSrc, join(cwd, '.float', 'project', 'project.md'));
   created.push('.float/project/project.md');
 

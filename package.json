@@ -3,14 +3,17 @@
   "version": "0.12.0",
   "description": "The invisible OS for AI",
   "bin": {
-    "floatprompt": "./package/bin/floatprompt.js"
+    "floatprompt": "./bin/floatprompt.js"
   },
   "type": "module",
   "files": [
-    "package/",
+    "bin/",
+    "templates/",
+    "system/claude/tools/",
+    "system/manual.md",
     "format/core/",
-    ".claude/",
-    ".float/core/"
+    "format/tools/",
+    ".claude/"
   ],
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "Format folder. FILE pillar. Everything about what FloatPrompt IS.",
+  "STOP": "Format folder. What FloatPrompt IS. FILE pillar.",
 
   "meta": {
     "title": "Format",
@@ -13,19 +13,18 @@
 
   "human": {
     "author": "@mds",
-    "intent": "Define what FloatPrompt IS — templates, specs, docs, examples",
-    "context": "FILE pillar root — contains all format-related content"
+    "intent": "Core format templates, specifications, guides, and examples",
+    "context": "FILE pillar — everything about what FloatPrompt IS"
   },
 
   "ai": {
     "role": "Context provider",
-    "behavior": "Orient reader to FILE pillar contents"
+    "behavior": "Orient reader to format structure"
   },
 
   "requirements": {
     "pillar": "FILE",
-    "question_answered": "What is FloatPrompt?",
-    "deployed_to": ".float/core/format/"
+    "subfolders": ["core/", "specs/", "guides/", "concepts/", "reference/", "examples/"]
   }
 }
 </json>
@@ -36,48 +35,39 @@
 
 ## Contents
 
-| Subfolder | Purpose |
-|-----------|---------|
-| `core/` | Core format templates |
-| `tools/` | Format-level tools |
+| Folder | Purpose |
+|--------|---------|
+| `core/` | Core format templates (template.md, doc.md, os.md) |
 | `specs/` | Format specifications |
-| `docs/` | Guides and philosophy |
+| `guides/` | How to use FloatPrompt |
+| `concepts/` | Principles and philosophy |
+| `reference/` | Quick lookups |
 | `examples/` | Real-world FloatPrompt tools |
 
 ### core/
 
-| File | Purpose |
-|------|---------|
-| `template.md` | The FloatPrompt template (3KB) |
-| `doc.md` | floatprompt doc tool |
-| `os.md` | Full FloatPrompt OS (35KB) |
+The three core templates:
+- `template.md` — The FloatPrompt template (3KB)
+- `doc.md` — floatprompt doc tool
+- `os.md` — Full FloatPrompt OS (35KB)
 
-### tools/
+### guides/
 
-| File | Purpose |
-|------|---------|
-| `update.md` | Structured update planning |
-| `tool-sync.md` | Tool consistency checker |
+How to use FloatPrompt:
+- `use.md` — What you can build
+- `mds-method.md` — MDS methodology
 
-### specs/
+### concepts/
 
-| File | Purpose |
-|------|---------|
-| `floatprompt.md` | `<fp>` format specification |
-| `doc.md` | floatprompt doc specification |
-| `system.md` | FloatPrompt System architecture |
+Principles and philosophy merged:
+- Goals, principles, voice, safety
+- Manifesto, structure, context, discovery, naming, orientation, value
 
-### docs/
+### reference/
 
-Guides, philosophy, and principles.
-
-### examples/
-
-Real-world FloatPrompt tools demonstrating the format.
-
-## Deployment
-
-`core/` and `tools/` are copied to `.float/core/format/` when users run `npx floatprompt`.
+Quick lookups:
+- `claude.md` — Claude Code entry point
+- `reference-*.md` — Template references
 
 ---
 

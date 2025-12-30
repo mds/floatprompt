@@ -26,8 +26,9 @@ FloatPrompt repository root — the invisible OS for AI.
 | **LICENSE** | MIT license |
 | **package.json** | npm package configuration |
 | **format/** | FILE pillar — What FloatPrompt IS (core/, tools/, specs/, docs/, examples/) |
-| **system/** | SYSTEM pillar — How FloatPrompt WORKS (commands, buoys, maintenance) |
-| **package/** | PACKAGE pillar — How FloatPrompt SHIPS (bin/, templates/) |
+| **system/** | SYSTEM pillar — How FloatPrompt WORKS (architecture/, claude/, maintenance/) |
+| **bin/** | CLI script (npx floatprompt) |
+| **templates/** | Scaffolding templates for npx floatprompt |
 | **.float/** | FloatPrompt System (ships with npx floatprompt) |
 | **artifacts/** | Historical archive |
 

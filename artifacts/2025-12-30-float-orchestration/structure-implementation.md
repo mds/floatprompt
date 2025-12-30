@@ -170,7 +170,7 @@ Workers return ONLY this structure to orchestrator:
 ```json
 {
   "status": "failed",
-  "file": ".float/core/tools/float-enhance.md",
+  "file": "system/claude/tools/float-enhance.md",
   "changes": [],
   "error": "Could not locate process section to add reporting calls"
 }
@@ -198,7 +198,7 @@ Workers return ONLY this structure to orchestrator:
    ```
 3. Human decides — orchestrator does NOT auto-commit partial work
 4. If retry: spawn single worker for failed tool
-5. If rollback: `git checkout -- .float/core/tools/`
+5. If rollback: `git checkout -- system/claude/tools/`
 
 **Never auto-proceed with partial success.**
 
@@ -290,7 +290,7 @@ Do not read tool files yourself. Workers handle that.
 
 ### 1A. Create float-report.md
 
-Location: `.float/core/tools/float-report.md`
+Location: `system/claude/tools/float-report.md`
 
 **Responsibilities:**
 - Accept phase data (map/decide/structure)
@@ -327,7 +327,7 @@ Location: `.claude/commands/float-report.md`
 ```
 Phase 1: Foundation - float-report and logs/ structure
 
-- Created .float/core/tools/float-report.md
+- Created system/claude/tools/float-report.md
 - Created .claude/commands/float-report.md
 - Updated package/templates/ with logs/ structure
 - Updated package/bin/floatprompt.js
@@ -346,7 +346,7 @@ Phase 1: Foundation - float-report and logs/ structure
 
 ### 2A. Create float-project.md
 
-Location: `.float/core/tools/float-project.md`
+Location: `system/claude/tools/float-project.md`
 
 **Responsibilities:**
 - Define expected structure for nav/, logs/, context/
@@ -377,7 +377,7 @@ Location: `.claude/commands/float-project.md`
 ```
 Phase 2: Project Tool - float-project.md
 
-- Created .float/core/tools/float-project.md
+- Created system/claude/tools/float-project.md
 - Created .claude/commands/float-project.md
 - Renamed decisions.md → project-decisions.md
 - Renamed floatprompt.md → project-context.md
@@ -545,7 +545,7 @@ Phase 3D: Build Tool - Add MDS reporting
 
 ### 4A. Create float-all.md
 
-Location: `.float/core/tools/float-all.md`
+Location: `system/claude/tools/float-all.md`
 
 **Sequence:**
 ```
@@ -579,9 +579,9 @@ Location: `.claude/commands/float-all.md`
 ```
 Phase 4: Orchestration - float-all and buoy team pattern
 
-- Created .float/core/tools/float-all.md
+- Created system/claude/tools/float-all.md
 - Created .claude/commands/float-all.md
-- Updated .float/core/manual.md with buoy team pattern
+- Updated system/manual.md with buoy team pattern
 - Updated package/bin/floatprompt.js
 ```
 
@@ -639,6 +639,506 @@ Phase 5: Validation - Full system test complete
 
 ---
 
+## Appendix A: New Tool Templates
+
+### float-report.md Template
+
+```
+<fp>
+<json>
+{
+  "STOP": "Float Report Tool. Write MDS logs (map/decide/structure) for tool runs to logs/ folder.",
+
+  "meta": {
+    "title": "/float-report",
+    "id": "float-report",
+    "format": "floatprompt",
+    "version": "0.12.0"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Persistent logging for all tool runs — civilization of context",
+    "context": "Called by tools at phase boundaries, or directly for manual logging"
+  },
+
+  "ai": {
+    "role": "Log writer and folder manager",
+    "behavior": "Create logs folder structure, write phase files, maintain run numbering"
+  },
+
+  "requirements": {
+    "duality": {
+      "condition_a": "Phase data provided",
+      "action_a": "Write to logs/{date}/{tool}-run-{n}/{phase}.md",
+      "condition_b": "No phase data",
+      "action_b": "Report current logs/ status"
+    },
+    "status_format": "FloatPrompt report.\nWrote: logs/{date}/{tool}-run-{n}/{phase}.md\n\nReady for: next phase or human direction",
+    "next_step_logic": "After write, return to calling tool or human"
+  }
+}
+</json>
+<md>
+# /float-report — MDS Logging
+
+**Write MDS logs for tool runs.**
+
+## Duality
+
+| Condition | Action |
+|-----------|--------|
+| Phase data provided | Write to logs/{date}/{tool}-run-{n}/{phase}.md |
+| No phase data | Report current logs/ status |
+
+## Interface
+
+```bash
+/float-report --tool=float-sync --phase=map --content="..."
+/float-report --tool=float-sync --phase=decide --content="..."
+/float-report --tool=float-sync --phase=structure --content="..."
+```
+
+## Folder Structure
+
+```
+.float/project/logs/
+├── 2025-12-30/
+│   ├── float-sync-run-1/
+│   │   ├── map.md
+│   │   ├── decide.md
+│   │   └── structure.md
+│   └── float-sync-run-2/
+│       └── ...
+```
+
+## Run Numbering
+
+- First run of tool today: `{tool}-run-1`
+- Subsequent runs: increment run number
+- Check existing folders to determine next number
+
+## Phase File Format
+
+### map.md
+```markdown
+---
+tool: {tool}
+phase: map
+run: {n}
+timestamp: {ISO timestamp}
+---
+
+# Map: {tool}
+
+## Scanned
+{what was analyzed}
+
+## Findings
+{what exists}
+
+## Gaps
+{what's missing or wrong}
+```
+
+### decide.md
+```markdown
+---
+tool: {tool}
+phase: decide
+run: {n}
+timestamp: {ISO timestamp}
+depends_on: map.md
+---
+
+# Decide: {tool}
+
+## Proposed Actions
+{numbered list of changes}
+
+## Rationale
+{why each action}
+```
+
+### structure.md
+```markdown
+---
+tool: {tool}
+phase: structure
+run: {n}
+timestamp: {ISO timestamp}
+depends_on: decide.md
+---
+
+# Structure: {tool}
+
+## Actions Taken
+{numbered list with ✓}
+
+## Result
+{summary of changes}
+
+## Next
+{what to do next}
+```
+
+---
+
+*[FloatPrompt](https://github.com/mds/floatprompt) — the invisible OS for AI*
+</md>
+</fp>
+```
+
+### float-project.md Template
+
+```
+<fp>
+<json>
+{
+  "STOP": "Float Project Tool. Validate and manage .float/project/ structure (nav/, logs/, context/).",
+
+  "meta": {
+    "title": "/float-project",
+    "id": "float-project",
+    "format": "floatprompt",
+    "version": "0.12.0"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Ensure .float/project/ structure is valid and complete",
+    "context": "Focused safeguard for system's own structure, complements /float-sync"
+  },
+
+  "ai": {
+    "role": "Project structure validator and manager",
+    "behavior": "Check expected structure, create missing, report status"
+  },
+
+  "requirements": {
+    "duality": {
+      "condition_a": "Structure valid",
+      "action_a": "Report healthy status",
+      "condition_b": "Structure invalid",
+      "action_b": "Create missing directories/files, report changes"
+    },
+    "expected_structure": {
+      "nav/": "Folder-file mapping (root.md required)",
+      "logs/": "Tool run logs (auto-created)",
+      "context/": "Project understanding (project-decisions.md, project-context.md required)"
+    },
+    "status_format": "FloatPrompt project.\nDirectory: [path]\nStatus: [valid | fixed N issues]\n\nReady for: human direction"
+  }
+}
+</json>
+<md>
+# /float-project — Structure Validator
+
+**Validate and manage .float/project/ structure.**
+
+## Duality
+
+| Condition | Action |
+|-----------|--------|
+| Structure valid | Report healthy status |
+| Structure invalid | Create missing, report changes |
+
+## Expected Structure
+
+```
+.float/project/
+├── project.md              # This file (structure reference)
+├── nav/                    # Folder-file mapping
+│   └── root.md             # Required: root nav file
+├── logs/                   # Tool run logs
+│   └── {date}/             # Auto-created by float-report
+└── context/                # Project understanding
+    ├── project-decisions.md  # Required: rationale capture
+    └── project-context.md    # Required: project terrain
+```
+
+## Validation Checklist
+
+- [ ] nav/ exists
+- [ ] nav/root.md exists
+- [ ] logs/ exists
+- [ ] context/ exists
+- [ ] context/project-decisions.md exists
+- [ ] context/project-context.md exists
+
+## Process
+
+1. Check each expected directory
+2. Check required files
+3. If missing: create with scaffold content
+4. Report status
+
+---
+
+*[FloatPrompt](https://github.com/mds/floatprompt) — the invisible OS for AI*
+</md>
+</fp>
+```
+
+### float-all.md Template
+
+```
+<fp>
+<json>
+{
+  "STOP": "Float All Tool. Orchestrate full health check: float → sync → fix → context → enhance.",
+
+  "meta": {
+    "title": "/float-all",
+    "id": "float-all",
+    "format": "floatprompt",
+    "version": "0.12.0"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "One command to make project healthy",
+    "context": "Orchestrates tool sequence with buoy teams"
+  },
+
+  "ai": {
+    "role": "Tool orchestrator",
+    "behavior": "Spawn buoy teams, coordinate sequence, collect results, produce combined report"
+  },
+
+  "requirements": {
+    "duality": {
+      "condition_a": "Issues found",
+      "action_a": "Run full sequence, fix issues, report changes",
+      "condition_b": "Already healthy",
+      "action_b": "Report healthy status (fast path)"
+    },
+    "sequence": ["float", "float-sync", "float-fix", "float-context", "float-enhance"],
+    "buoy_team": {
+      "orchestrator": 1,
+      "workers": 3,
+      "validator": 1
+    },
+    "status_format": "FloatPrompt all.\nDirectory: [path]\nTools run: [N]\nIssues fixed: [N]\n\nReady for: human direction"
+  }
+}
+</json>
+<md>
+# /float-all — Full Health Check
+
+**Orchestrate: float → sync → fix → context → enhance.**
+
+## Duality
+
+| Condition | Action |
+|-----------|--------|
+| Issues found | Run full sequence, fix, report |
+| Already healthy | Fast path, report OK |
+
+## Sequence
+
+```
+1. /float       → Boot, load context
+2. /float-sync  → Nav ↔ folders
+3. /float-fix   → References ↔ reality
+4. /float-context → Update terrain
+5. /float-enhance → Fill placeholders
+```
+
+## Buoy Team Pattern
+
+```
+Orchestrator (this tool)
+     │
+     ├── Tool Runner 1 ──┐
+     ├── Tool Runner 2 ──┼── parallel where possible
+     └── Tool Runner 3 ──┘
+           │
+           ▼
+     Validator ── checks combined results
+```
+
+## Combined Logging
+
+All tool runs logged to:
+```
+logs/{date}/float-all-run-{n}/
+├── map.md       # Combined findings from all tools
+├── decide.md    # Combined proposed actions
+└── structure.md # Combined results
+```
+
+---
+
+*[FloatPrompt](https://github.com/mds/floatprompt) — the invisible OS for AI*
+</md>
+</fp>
+```
+
+---
+
+## Appendix B: Worker Buoy Prompts
+
+### Tool Update Worker Prompt
+
+Use this prompt when spawning workers to update existing tools:
+
+```
+You are a worker buoy updating a single tool with MDS reporting.
+
+**Your task:**
+Update {TOOL_PATH} to add MDS reporting protocol.
+
+**Read these first:**
+1. The tool file: {TOOL_PATH}
+2. The Update Pattern (from implementation plan)
+
+**Changes to make:**
+
+1. Add to the JSON requirements section:
+```json
+"reporting": {
+  "protocol": "float-report",
+  "phases": ["map", "decide", "structure"],
+  "async": true
+}
+```
+
+2. Add to the markdown Process section (after each phase):
+- After scan/analysis: "Report: /float-report --phase=map"
+- After planning: "Report: /float-report --phase=decide"
+- After execution: "Report: /float-report --phase=structure"
+
+**Return format:**
+```json
+{
+  "status": "success | failed",
+  "file": "{TOOL_PATH}",
+  "changes": ["list", "of", "changes"],
+  "error": null
+}
+```
+
+Do NOT return file contents. Only return the JSON result.
+```
+
+### Validator Buoy Prompt
+
+Use this prompt for validation after workers complete:
+
+```
+You are a validator buoy checking tool updates.
+
+**Your task:**
+Validate that {TOOL_PATH} was correctly updated with MDS reporting.
+
+**Checks:**
+1. [ ] JSON has "reporting" section with protocol, phases, async
+2. [ ] Markdown mentions /float-report at phase boundaries
+3. [ ] No syntax errors in JSON block
+4. [ ] Tool still has valid floatprompt structure
+
+**Then test:**
+Run the tool and verify it attempts to call float-report.
+
+**Return format:**
+```json
+{
+  "status": "valid | invalid",
+  "file": "{TOOL_PATH}",
+  "checks_passed": ["list"],
+  "checks_failed": ["list"],
+  "error": null
+}
+```
+```
+
+---
+
+## Appendix C: Before/After Example
+
+### Example: Updating float-sync.md
+
+**BEFORE (relevant sections only):**
+
+```json
+"requirements": {
+  "duality": {
+    "condition_a": "Drift detected",
+    "action_a": "Report drift, offer to create missing nav files",
+    "condition_b": "In sync",
+    "action_b": "Report healthy status"
+  },
+  "status_format": "FloatPrompt sync complete.\nDirectory: [path]\nNav files: [n]\nFolders: [n]\nStatus: [result]\n\nNext: [suggestion]",
+  "next_step_logic": "..."
+}
+```
+
+**AFTER (with reporting added):**
+
+```json
+"requirements": {
+  "duality": {
+    "condition_a": "Drift detected",
+    "action_a": "Report drift, offer to create missing nav files",
+    "condition_b": "In sync",
+    "action_b": "Report healthy status"
+  },
+  "reporting": {
+    "protocol": "float-report",
+    "phases": ["map", "decide", "structure"],
+    "async": true
+  },
+  "status_format": "FloatPrompt sync complete.\nDirectory: [path]\nNav files: [n]\nFolders: [n]\nStatus: [result]\n\nNext: [suggestion]",
+  "next_step_logic": "..."
+}
+```
+
+**BEFORE Process section:**
+
+```markdown
+## Process
+
+### 1. Scan
+- List all nav files in .float/project/nav/
+- List all folders in project root
+- Compare nav files to folders
+
+### 2. Report
+Show sync status...
+```
+
+**AFTER Process section:**
+
+```markdown
+## Process
+
+### 1. Scan
+- List all nav files in .float/project/nav/
+- List all folders in project root
+- Compare nav files to folders
+- **Report:** `/float-report --tool=float-sync --phase=map`
+
+### 2. Plan
+- Determine which nav files to create/update
+- **Report:** `/float-report --tool=float-sync --phase=decide`
+
+### 3. Execute
+- Create missing nav files
+- Update outdated nav files
+- **Report:** `/float-report --tool=float-sync --phase=structure`
+
+### 4. Report
+Show sync status...
+```
+
+**Key changes:**
+1. Added `"reporting"` object to JSON requirements
+2. Split process into Map/Decide/Structure phases
+3. Added float-report calls after each phase
+
+---
+
 ## Workstreams
 
 | WS | Name | Phases | Commits | Deliverables |
@@ -682,9 +1182,9 @@ WS1 (Foundation) ─── CP1 commit
 
 | File | Location |
 |------|----------|
-| float-report.md | .float/core/tools/ |
-| float-project.md | .float/core/tools/ |
-| float-all.md | .float/core/tools/ |
+| float-report.md | system/claude/tools/ |
+| float-project.md | system/claude/tools/ |
+| float-all.md | system/claude/tools/ |
 | float-report.md | .claude/commands/ |
 | float-project.md | .claude/commands/ |
 | float-all.md | .claude/commands/ |
@@ -694,7 +1194,7 @@ WS1 (Foundation) ─── CP1 commit
 | File | Changes |
 |------|---------|
 | bin/floatprompt.js | Add new tools/commands |
-| manual.md | Add buoy team pattern |
+| system/manual.md | Add buoy team pattern |
 | 10 existing tools | Add reporting protocol |
 | templates/ | Mirror new structure |
 | context/decisions.md | Rename to project-decisions.md |

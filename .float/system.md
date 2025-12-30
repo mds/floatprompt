@@ -98,17 +98,18 @@ floatprompt/
 │   │   ├── template.md        # The FloatPrompt template (3KB)
 │   │   ├── doc.md             # floatprompt doc tool
 │   │   └── os.md              # Full FloatPrompt OS (35KB)
-│   ├── tools/                 # Format-level tools
-│   │   └── update.md          # Structured update planning
 │   ├── specs/                 # Format specifications
 │   │   ├── floatprompt.md     # FloatPrompt file format
 │   │   └── doc.md             # floatprompt doc format
-│   ├── docs/                  # Guides and philosophy
+│   ├── guides/                # How to use FloatPrompt
+│   │   ├── use.md             # What you can build
+│   │   └── mds-method.md      # MDS methodology
+│   ├── concepts/              # Principles and philosophy
+│   │   ├── goals.md, principles.md, voice.md, safety.md
+│   │   └── manifesto.md, structure.md, context.md...
+│   ├── reference/             # Quick lookups
 │   │   ├── claude.md          # Claude Code entry point
-│   │   ├── mds-method.md      # MDS methodology
-│   │   ├── goals.md, principles.md, voice.md, use.md, safety.md
-│   │   ├── philosophy/        # Background thinking
-│   │   └── reference/         # Template references
+│   │   └── reference-*.md     # Template references
 │   └── examples/              # Real-world FloatPrompt tools
 │       ├── ai portfolio coach/
 │       ├── design feedback extractor/
@@ -118,37 +119,39 @@ floatprompt/
 │
 ├── system/                    # SYSTEM pillar: How FloatPrompt WORKS
 │   ├── float.md               # Folder context
-│   ├── architecture.md        # FloatPrompt System architecture
-│   ├── claude-integration.md  # Claude Code integration
-│   ├── commands.md            # /float command system
-│   ├── buoys.md               # Float Buoys pattern
-│   └── maintenance.md         # System maintenance
+│   ├── manual.md              # Tool building guide
+│   ├── architecture/          # System architecture docs
+│   │   └── overview.md        # FloatPrompt System architecture
+│   ├── claude/                # Claude Code integration
+│   │   ├── integration.md     # Integration guide
+│   │   ├── commands.md        # /float command system
+│   │   ├── buoys.md           # Float Buoys pattern
+│   │   └── tools/             # Source of truth for /float commands
+│   │       ├── float.md, float-sync.md, float-fix.md...
+│   │       ├── update.md, tool-sync.md
+│   │       └── types/         # Tool type templates
+│   └── maintenance/           # System maintenance
+│       └── checklist.md
 │
-├── package/                   # PACKAGE pillar: How FloatPrompt SHIPS
-│   ├── bin/                   # CLI script (npx floatprompt)
-│   │   └── floatprompt.js
-│   └── templates/             # Scaffolding templates
-│       └── .float/
+├── bin/                       # CLI script (npx floatprompt)
+│   └── floatprompt.js
+│
+├── templates/                 # Scaffolding templates
+│   └── .float/
 │
 │ ─── OPERATIONAL (ships with npx floatprompt) ───────────────
 │
 ├── .float/                    # FloatPrompt System (read first)
 │   ├── system.md              # This file (boot loader)
 │   │
-│   ├── core/                  # FloatPrompt internals (system internals)
-│   │   ├── index.md           # Quick structural reference (what's here)
-│   │   ├── format/            # Format templates
-│   │   │   ├── template.md
-│   │   │   ├── doc.md
-│   │   │   ├── os.md
-│   │   │   └── update.md
-│   │   └── tools/             # System tools (source of truth for /float commands)
-│   │       ├── float.md
-│   │       ├── float-sync.md
-│   │       ├── float-fix.md
-│   │       ├── float-context.md
-│   │       ├── float-enhance.md
-│   │       └── types/         # Tool type definitions
+│   ├── core/                  # FloatPrompt internals
+│   │   ├── index.md           # Quick structural reference
+│   │   ├── manual.md          # Tool building guide
+│   │   ├── format/            # Format templates (from format/core/)
+│   │   │   ├── template.md, doc.md, os.md, update.md
+│   │   └── tools/             # /float command tools (from system/claude/tools/)
+│   │       ├── float.md, float-sync.md, float-fix.md...
+│   │       └── types/         # Tool type templates
 │   │
 │   └── project/               # About YOUR project (your stuff)
 │       ├── project.md         # Structure reference for project/
@@ -191,7 +194,7 @@ floatprompt/
 | `core/` | FloatPrompt system internals (don't modify) |
 | `core/index.md` | Structural reference — "what's here" |
 | `core/format/` | Format templates (template, doc, os, update) |
-| `core/tools/` | /float command tools (source of truth) |
+| `core/tools/` | /float command tools (deployed from system/claude/tools/) |
 | `core/tools/types/` | Tool type definitions |
 | `project/` | Your project's FloatPrompt data |
 | `project/project.md` | Structure reference — "what's in project/" |
@@ -205,8 +208,7 @@ floatprompt/
 |------|-----------|
 | `root.md` | Repository root |
 | `format.md` | format/ folder (FILE pillar — core/, tools/, specs/, docs/, examples/) |
-| `system.md` | system/ folder (SYSTEM pillar) |
-| `package.md` | package/ folder (PACKAGE pillar — bin/, templates/) |
+| `system.md` | system/ folder (SYSTEM pillar — architecture/, claude/, maintenance/) |
 | `artifacts.md` | artifacts/ folder (includes 2025/) |
 
 **Centralized pattern:** All navigation lives in `.float/project/nav/`. No scattered files. AI reads one location for complete folder context.

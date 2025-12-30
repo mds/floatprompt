@@ -12,7 +12,7 @@ ai_model: Claude Opus 4.5
 ai_updated: 2025-12-30
 ai_notes: |
   Slimmed down — operational content moved to system/claude/integration.md
-  This file stays in format/ as an entry point for users exploring docs/
+  Moved from format/docs/claude.md to format/reference/claude.md (mirrored structure)
   v0.12.0: Content moved to SYSTEM pillar
 ---
 

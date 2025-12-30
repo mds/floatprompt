@@ -11,7 +11,7 @@ human_context: Core templates, specifications, documentation, examples
 
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-30
-ai_notes: Created during great restructuring — three pillars consolidation
+ai_notes: Mirrored structure — docs/ promoted to format/ level (guides/, concepts/, reference/)
 ---
 
 # Format
@@ -24,9 +24,10 @@ FILE pillar — What FloatPrompt IS.
 |------|---------|
 | **float.md** | Folder context |
 | **core/** | Core format templates (template.md, doc.md, os.md) |
-| **tools/** | Format-level tools (update.md) |
 | **specs/** | Format specifications |
-| **docs/** | Guides and philosophy |
+| **guides/** | How to use FloatPrompt |
+| **concepts/** | Principles and philosophy |
+| **reference/** | Quick lookups |
 | **examples/** | Real-world FloatPrompt tools |
 
 ### core/
@@ -45,25 +46,14 @@ FILE pillar — What FloatPrompt IS.
 | `floatprompt.md` | FloatPrompt file format spec |
 | `doc.md` | floatprompt doc format spec |
 
-### docs/
-
-| Item | Purpose |
-|------|---------|
-| `float.md` | Folder context |
-| `claude.md` | Claude Code quick reference (points to system/) |
-| `guides/` | How to use FloatPrompt |
-| `principles/` | Core rules and constraints |
-| `philosophy/` | Background thinking and rationale |
-| `reference/` | Template references |
-
-#### docs/guides/
+### guides/
 
 | File | Purpose |
 |------|---------|
 | `use.md` | What you can build |
 | `mds-method.md` | MDS methodology |
 
-#### docs/principles/
+### concepts/
 
 | File | Purpose |
 |------|---------|
@@ -72,11 +62,6 @@ FILE pillar — What FloatPrompt IS.
 | `voice.md` | Voice preservation |
 | `safety.md` | Safety guidelines |
 | `safety-laws.md` | Human safety rules for AI collaboration (7 laws) |
-
-#### docs/philosophy/
-
-| File | Purpose |
-|------|---------|
 | `manifesto.md` | Vision and promise |
 | `structure.md` | Rationale for .float/ folder organization |
 | `context.md` | Context philosophy |
@@ -84,6 +69,15 @@ FILE pillar — What FloatPrompt IS.
 | `naming.md` | Naming conventions |
 | `orientation.md` | Orientation philosophy |
 | `value.md` | Value philosophy |
+
+### reference/
+
+| File | Purpose |
+|------|---------|
+| `claude.md` | Claude Code quick reference (points to system/) |
+| `reference-full.md` | Full template reference |
+| `reference-mini.md` | Mini template reference |
+| `reference-micro.md` | Micro template reference |
 
 ### examples/
 
