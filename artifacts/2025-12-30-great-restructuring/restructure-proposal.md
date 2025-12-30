@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "Restructure Proposal. Decisions locked and pending for the great restructuring.",
+  "STOP": "Restructure Proposal. All decisions locked for the great restructuring.",
 
   "meta": {
     "title": "Restructure Proposal",
@@ -19,36 +19,75 @@
 
   "ai": {
     "role": "Restructure planner",
-    "behavior": "Propose changes, flag uncertainties, ask clarifying questions"
+    "behavior": "Record locked decisions, prepare for execution"
   },
 
   "requirements": {
-    "status": "In progress - some decisions locked, some pending",
+    "status": "All decisions locked - ready for execution",
     "depends_on": ["pillar-map.md"],
-    "decisions_locked": 4,
-    "decisions_pending": 1
+    "decisions_locked": 9,
+    "decisions_pending": 0
   }
 }
 </json>
 <md>
 # Restructure Proposal
 
-What moves, renames, or changes during the great restructuring.
+All decisions locked for the great restructuring.
+
+---
+
+## The Mental Model
+
+**The Three Pillars as Folders:**
+
+| Pillar | Folder | Contains |
+|--------|--------|----------|
+| FILE | `format/` | What FloatPrompt IS (format specs, templates) |
+| SYSTEM | `system/` | How FloatPrompt WORKS (system documentation) |
+| PACKAGE | `bin/`, `templates/` | How FloatPrompt SHIPS |
+
+**Separately:**
+- `.float/` = The system RUNNING in this project (spawned by /float, not a pillar folder)
+
+**Key insight:** Nothing should be NAMED `floatprompt/` in folders. The format is FloatPrompt, the files are `.md` with `<fp>` tags inside. Folders are named by PURPOSE.
 
 ---
 
 ## Decisions Locked
 
-### 1. `specs/claude/` → Move to SYSTEM pillar ✓
+### 1. Root `floatprompt/` → `format/` ✓
 
-**Decision:** Move to `.float/floatprompt/specs/`
+**Current:** `floatprompt/` at root (FILE pillar content)
+**New:** `format/`
+
+**Rationale:** Folder names describe purpose, not format name. Like JavaScript projects don't have a `javascript/` folder.
+
+---
+
+### 2. New `system/` folder ✓
+
+**Current:** SYSTEM pillar docs scattered (specs/claude/, etc.)
+**New:** `system/` folder at root
+
+**Contains:**
+- Documentation about how `.float/` works
+- Specs for commands, buoys, etc.
+- System-level documentation
+
+---
+
+### 3. `specs/claude/` → `system/` ✓
+
+**Current:** `specs/claude/` (SYSTEM content in FILE location)
+**New:** `system/specs/` or just `system/`
 
 ```
 Before:
 specs/
-├── floatprompt.md    # FILE (format spec)
-├── doc.md            # FILE (format spec)
-├── system.md         # FILE (architecture doc)
+├── floatprompt.md    # FILE
+├── doc.md            # FILE
+├── system.md         # FILE
 └── claude/           # SYSTEM ← wrong pillar
     ├── commands.md
     └── buoys.md
@@ -59,114 +98,192 @@ specs/
 ├── doc.md            # FILE
 └── system.md         # FILE
 
-.float/floatprompt/specs/   # NEW
-├── commands.md       # SYSTEM
-└── buoys.md          # SYSTEM
+system/               # NEW - SYSTEM pillar
+├── commands.md
+└── buoys.md
 ```
 
-**Rationale:** SYSTEM content belongs in SYSTEM pillar.
+---
+
+### 4. `MAINTENANCE.md` → `system/maintenance.md` as tool ✓
+
+**Current:** `MAINTENANCE.md` at root (plain markdown)
+**New:** `system/maintenance.md` as floatprompt tool (`<fp>`)
+
+**Rationale:** It's system maintenance docs, belongs in SYSTEM pillar, should be behavioral.
 
 ---
 
-### 2. `MAINTENANCE.md` → Move to SYSTEM pillar as tool ✓
+### 5. `.float/floatprompt/` → `.float/core/` ✓
 
-**Decision:** Move to `.float/floatprompt/maintenance.md` as floatprompt tool
+**Current:** `.float/floatprompt/`
+**New:** `.float/core/`
 
-**Rationale:** It's about system maintenance, should be a behavioral tool not plain docs.
-
----
-
-### 3. Root `context/` → Replaced by FLOAT.md system ✓
-
-**Decision:** Eliminate root `context/` folder. Content absorbed into FLOAT.md files.
-
-**Rationale:** The new FLOAT.md system provides context at every folder level, making a separate `context/` folder redundant.
+**Rationale:** Nothing named `floatprompt/` in folders. This is the "core" of the running system.
 
 ---
 
-### 4. FLOAT.md System ✓ (NEW)
+### 6. `.float/floatprompt/core/` → `.float/core/format/` ✓
 
-**Decision:** Every folder gets a `FLOAT.md` file for context/onboarding.
+**Current:** `.float/floatprompt/core/` (templates)
+**New:** `.float/core/format/`
+
+**Rationale:** Mirrors repo `format/` folder. Contains format templates.
+
+---
+
+### 7. `.float/floatprompt/types/` → `.float/core/tools/types/` ✓
+
+**Current:** `.float/floatprompt/types/` (sibling of tools/)
+**New:** `.float/core/tools/types/`
+
+**Rationale:** Types are "types of tools" — they belong inside tools/.
+
+---
+
+### 8. Root `context/` → Replaced by FLOAT.md system ✓
+
+**Current:** `context/` folder at root with onboarding files
+**New:** Eliminated. Content absorbed into FLOAT.md files.
+
+**Rationale:** FLOAT.md system provides context at every folder level.
+
+---
+
+### 9. FLOAT.md in every folder ✓
+
+**Decision:** Every folder gets a `FLOAT.md` file.
 
 | Folder Type | Format | Purpose |
 |-------------|--------|---------|
 | Project folders | floatprompt doc (YAML) | Context about the folder |
 | System folders (`.float/*`) | floatprompt tool (`<fp>`) | Behavioral instructions |
 
-**Structure:**
+---
+
+## Final Structure
+
+### Repo Root (After)
+
 ```
-any-project/
-├── FLOAT.md              ← doc: project root context
-├── src/
-│   └── FLOAT.md          ← doc: src folder context
-├── docs/
-│   └── FLOAT.md          ← doc: docs folder context
-└── .float/
-    ├── FLOAT.md          ← TOOL: system root behavior
-    ├── floatprompt/
-    │   └── FLOAT.md      ← TOOL: internals behavior
+floatprompt/                    (repo)
+├── FLOAT.md                    ← doc: repo context
+│
+├── format/                     ← FILE pillar (was floatprompt/)
+│   ├── FLOAT.md
+│   ├── core/
+│   │   ├── template.md
+│   │   ├── doc.md
+│   │   └── os.md
+│   └── tools/
+│       ├── update.md
+│       └── tool-sync.md
+│
+├── system/                     ← SYSTEM pillar (NEW)
+│   ├── FLOAT.md
+│   ├── commands.md             (from specs/claude/)
+│   ├── buoys.md                (from specs/claude/)
+│   └── maintenance.md          (from root, as tool)
+│
+├── specs/                      ← FILE pillar (format specs only)
+│   ├── FLOAT.md
+│   ├── floatprompt.md
+│   ├── doc.md
+│   └── system.md
+│
+├── docs/                       ← FILE pillar
+│   └── FLOAT.md
+│
+├── examples/                   ← FILE pillar
+│   └── FLOAT.md
+│
+├── bin/                        ← PACKAGE pillar
+├── templates/                  ← PACKAGE pillar
+├── package.json
+│
+├── artifacts/                  ← Workspace (not a pillar)
+│
+└── .float/                     ← Running system (spawned, not pillar)
+    ├── system.md
+    ├── FLOAT.md                ← TOOL
+    ├── core/                   ← was floatprompt/
+    │   ├── FLOAT.md            ← TOOL
+    │   ├── index.md
+    │   ├── manual.md
+    │   ├── format/             ← was core/
+    │   │   ├── template.md
+    │   │   ├── doc.md
+    │   │   └── os.md
+    │   └── tools/
+    │       ├── float.md
+    │       ├── float-sync.md
+    │       ├── float-fix.md
+    │       ├── float-context.md
+    │       ├── float-enhance.md
+    │       ├── float-build.md
+    │       ├── float-harvest.md
+    │       ├── float-delta.md
+    │       ├── float-focus.md
+    │       ├── float-relate.md
+    │       └── types/          ← was sibling
+    │           ├── extractor.md
+    │           ├── pipeline.md
+    │           ├── processor.md
+    │           ├── reconciler.md
+    │           ├── reference.md
+    │           └── scorer.md
     └── project/
-        └── FLOAT.md      ← TOOL: project data behavior
+        ├── FLOAT.md            ← TOOL
+        ├── project.md
+        ├── context/
+        ├── nav/
+        └── logs/
 ```
 
-**Relationship to nav files:**
-- `.float/project/nav/*.md` = quick maps (what's here)
-- `FLOAT.md` in each folder = deep context (understand this)
+---
 
-**Rationale:** Context lives with the code. No more confusion about root `context/` vs `.float/project/context/`.
+## Renames Summary
+
+| Current | New |
+|---------|-----|
+| `floatprompt/` | `format/` |
+| `specs/claude/` | `system/` |
+| `MAINTENANCE.md` | `system/maintenance.md` |
+| `context/` | (eliminated, → FLOAT.md) |
+| `.float/floatprompt/` | `.float/core/` |
+| `.float/floatprompt/core/` | `.float/core/format/` |
+| `.float/floatprompt/types/` | `.float/core/tools/types/` |
 
 ---
 
-## Decisions Pending
+## Files to Update
 
-### 5. Naming collision: `floatprompt/` vs `.float/floatprompt/`
-
-**Current:**
-- `floatprompt/` at root = FILE pillar (format templates)
-- `.float/floatprompt/` = SYSTEM pillar (system internals)
-
-**Problem:** Same name, different purposes.
-
-**Options:**
-- A) Keep both as `floatprompt/` — context clarifies
-- B) Rename root to `format/`
-- C) Rename `.float/floatprompt/` to `.float/core/` or `.float/engine/`
-
-**Trade-off:**
-- Renaming root = only affects this repo
-- Renaming `.float/floatprompt/` = affects all user projects
-
-**Status:** Awaiting decision.
+After the renames, these files will need path updates:
+- `bin/floatprompt.js` — deployment paths
+- `.claude/commands/*.md` — tool paths
+- `README.md` — documentation
+- `docs/*.md` — references
+- `specs/*.md` — references
+- All nav files in `.float/project/nav/`
+- `templates/` — mirror new structure
 
 ---
 
-## No Change Needed
+## Execution Plan
 
-| Item | Pillar | Why it's fine |
-|------|--------|---------------|
-| `.float/` | SYSTEM | Well-structured after v0.11.0 |
-| `.claude/` | SYSTEM | Correct location |
-| `docs/` | FILE | Correct location |
-| `examples/` | FILE | Correct location |
-| `bin/` | PACKAGE | Correct location |
-| `templates/` | PACKAGE | Correct location |
-| `package.json` | PACKAGE | Correct location |
-| `README.md` | FILE+PACKAGE | Shared ownership is fine |
-| `artifacts/` | Workspace | Not a pillar, stays at root |
+1. Create new folders (`format/`, `system/`)
+2. Move files to new locations
+3. Rename `.float/floatprompt/` → `.float/core/`
+4. Move types/ inside tools/
+5. Create FLOAT.md files in each folder
+6. Update all references (bin, commands, docs, nav)
+7. Update templates/ to match
+8. Run /float-fix to validate
+9. Test `npx floatprompt init`
 
 ---
 
-## Summary
-
-| Decision | Status |
-|----------|--------|
-| specs/claude/ → .float/floatprompt/specs/ | ✓ Locked |
-| MAINTENANCE.md → .float/floatprompt/maintenance.md (tool) | ✓ Locked |
-| Root context/ → absorbed into FLOAT.md system | ✓ Locked |
-| FLOAT.md in every folder | ✓ Locked |
-| Naming collision (floatprompt/) | ⏳ Pending |
-
----
+**Status:** All decisions locked. Ready for execution.
 
 *Updated: 2025-12-30*
 </md>

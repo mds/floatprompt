@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "Great Restructuring Context. Planning artifact for reorganizing FloatPrompt repo by three pillars (FILE, SYSTEM, PACKAGE). Read this first.",
+  "STOP": "Great Restructuring Context. All decisions locked. Ready for execution.",
 
   "meta": {
     "title": "The Great Restructuring",
@@ -14,87 +14,100 @@
   "human": {
     "author": "@mds",
     "intent": "Plan and document the restructuring of FloatPrompt repo by pillars",
-    "context": "Evolved from atomic audit — now focused on what actually changes"
+    "context": "Evolved from atomic audit — all decisions now locked"
   },
 
   "ai": {
     "role": "Restructure planner and decision recorder",
-    "behavior": "Map current state, propose changes, capture decisions, create paper trail"
+    "behavior": "Execute restructuring per locked decisions"
   },
 
   "requirements": {
     "reading_order": [
       "CONTEXT.md (this file)",
+      "restructure-proposal.md (ALL DECISIONS - start here for execution)",
+      "pillar-map.md (FILE/SYSTEM/PACKAGE reference)",
       "brain-dump.md (original thoughts)",
-      "map-current-complexity.md (analysis)",
-      "pillar-map.md (FILE/SYSTEM/PACKAGE breakdown)",
-      "restructure-proposal.md (what changes)"
+      "map-current-complexity.md (historical)"
     ],
     "related_work": {
       "orchestration": "2025-12-30-float-orchestration/",
       "float-think": "2025-12-30-float-think/",
       "relationship": "Restructuring happens BEFORE implementing orchestration"
     },
-    "key_questions": [
-      "What moves between pillars?",
-      "What gets renamed?",
-      "What stays the same?",
-      "When do we execute?"
-    ]
+    "decisions_locked": 9
   }
 }
 </json>
 <md>
 # The Great Restructuring
 
-**Purpose:** Plan the reorganization of FloatPrompt repo by three pillars.
+**Status:** All decisions locked. Ready for execution.
 
 ## What This Is
 
-Planning artifact for restructuring the FloatPrompt repository. Map everything first, make decisions, THEN execute. No ad-hoc changes.
+Planning artifact for restructuring the FloatPrompt repository. Decisions are finalized. Next step: execute.
 
 ## Document Map
 
 ```
 2025-12-30-great-restructuring/
 ├── CONTEXT.md              ← You are here
-├── brain-dump.md           ← Original stream of consciousness
-├── map-current-complexity.md  ← Where we are, what's muddled
-├── pillar-map.md           ← FILE/SYSTEM/PACKAGE breakdown
-└── restructure-proposal.md ← What changes (draft, needs decisions)
+├── restructure-proposal.md ← ALL DECISIONS (9 locked)
+├── pillar-map.md           ← FILE/SYSTEM/PACKAGE reference
+├── brain-dump.md           ← Original thoughts (historical)
+└── map-current-complexity.md  ← Analysis (historical)
 ```
 
-## The Three Pillars
+## The Three Pillars (Final)
 
-| Pillar | Purpose | Key Folders |
-|--------|---------|-------------|
-| **FILE** | The format itself | `floatprompt/`, `specs/`, `docs/`, `examples/` |
-| **SYSTEM** | Runtime behavior | `.float/`, `.claude/`, `context/` |
-| **PACKAGE** | Distribution | `bin/`, `templates/`, `package.json` |
+| Pillar | Folder | Contains |
+|--------|--------|----------|
+| **FILE** | `format/` | What FloatPrompt IS |
+| **SYSTEM** | `system/` | How FloatPrompt WORKS |
+| **PACKAGE** | `bin/`, `templates/` | How FloatPrompt SHIPS |
 
-**Workspace** (not a pillar): `artifacts/`
+**Separately:** `.float/` = The system RUNNING (spawned, not a pillar folder)
 
-## Related Work
+## Key Decisions
 
-| Artifact | Relationship |
-|----------|--------------|
-| `2025-12-30-float-orchestration/` | Implementation deferred until after restructuring |
-| `2025-12-30-float-think/` | Vision parked, depends on orchestration |
+| # | Decision |
+|---|----------|
+| 1 | `floatprompt/` → `format/` |
+| 2 | New `system/` folder |
+| 3 | `specs/claude/` → `system/` |
+| 4 | `MAINTENANCE.md` → `system/maintenance.md` (as tool) |
+| 5 | `.float/floatprompt/` → `.float/core/` |
+| 6 | `.float/floatprompt/core/` → `.float/core/format/` |
+| 7 | `.float/floatprompt/types/` → `.float/core/tools/types/` |
+| 8 | Root `context/` → eliminated (FLOAT.md system) |
+| 9 | FLOAT.md in every folder |
 
 ## Status
 
 - [x] Map current complexity
 - [x] Define three pillars
 - [x] Assign all files to pillars
-- [ ] Decide what moves/renames (in progress)
+- [x] Decide what moves/renames
 - [ ] Execute restructuring
-- [ ] Validate and archive
+- [ ] Update all references
+- [ ] Update templates/
+- [ ] Validate with /float-fix
+- [ ] Test npx floatprompt init
+- [ ] Archive this artifact
+
+## Related Work
+
+| Artifact | Relationship |
+|----------|--------------|
+| `2025-12-30-float-orchestration/` | Deferred until after restructuring |
+| `2025-12-30-float-think/` | Parked, depends on orchestration |
 
 ## Origin
 
 **Trigger:** Complexity concerns after rapid tool ecosystem expansion.
 
-**Evolution:** Started as "atomic audit" → became "great restructuring" as scope clarified.
+**Evolution:** atomic audit → pillar analysis → naming decisions → FLOAT.md system → ready for execution
 
 **Date:** 2025-12-30
 </md>
