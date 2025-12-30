@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "System folder. SYSTEM pillar. Documentation about how FloatPrompt System works.",
+  "STOP": "System folder. SYSTEM pillar. How FloatPrompt WORKS.",
 
   "meta": {
     "title": "System",
@@ -24,8 +24,7 @@
 
   "requirements": {
     "pillar": "SYSTEM",
-    "question_answered": "How does FloatPrompt work?",
-    "audience": "Developers building with FloatPrompt"
+    "subfolders": ["guides/", "concepts/", "reference/", "tools/"]
   }
 }
 </json>
@@ -36,17 +35,30 @@
 
 ## Contents
 
-| File | Purpose |
-|------|---------|
-| `architecture.md` | FloatPrompt System architecture (.float/ folder) |
-| `commands.md` | /float command system specification |
-| `buoys.md` | Float Buoys parallel execution pattern |
-| `maintenance.md` | System maintenance tool |
-| `claude-integration.md` | Claude Code integration guide |
+| Folder | Purpose |
+|--------|---------|
+| `guides/` | How to integrate and maintain |
+| `concepts/` | Architecture and patterns |
+| `reference/` | Quick lookups |
+| `tools/` | Source of truth for /float commands |
 
-## Audience
+### guides/
 
-This folder is for developers who want to understand how the FloatPrompt System works internally. For format documentation, see `specs/`.
+- `integration.md` — Claude Code integration guide
+- `checklist.md` — System maintenance checklist
+
+### concepts/
+
+- `architecture.md` — FloatPrompt System architecture
+- `buoys.md` — Float Buoys parallel execution pattern
+
+### reference/
+
+- `commands.md` — /float command system specification
+
+### tools/
+
+Source of truth for all /float command implementations. Deployed to `.float/core/tools/` by npx floatprompt.
 
 ---
 

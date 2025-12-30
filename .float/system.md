@@ -120,18 +120,17 @@ floatprompt/
 ├── system/                    # SYSTEM pillar: How FloatPrompt WORKS
 │   ├── float.md               # Folder context
 │   ├── manual.md              # Tool building guide
-│   ├── architecture/          # System architecture docs
-│   │   └── overview.md        # FloatPrompt System architecture
-│   ├── claude/                # Claude Code integration
-│   │   ├── integration.md     # Integration guide
-│   │   ├── commands.md        # /float command system
-│   │   ├── buoys.md           # Float Buoys pattern
-│   │   └── tools/             # Source of truth for /float commands
-│   │       ├── float.md, float-sync.md, float-fix.md...
-│   │       ├── update.md, tool-sync.md
-│   │       └── types/         # Tool type templates
-│   └── maintenance/           # System maintenance
-│       └── checklist.md
+│   ├── guides/                # How to integrate and maintain
+│   │   ├── integration.md     # Claude Code integration guide
+│   │   └── checklist.md       # System maintenance checklist
+│   ├── concepts/              # Architecture and patterns
+│   │   ├── architecture.md    # FloatPrompt System architecture
+│   │   └── buoys.md           # Float Buoys pattern
+│   ├── reference/             # Quick lookups
+│   │   └── commands.md        # /float command system
+│   └── tools/                 # Source of truth for /float commands
+│       ├── float.md, float-sync.md, float-fix.md...
+│       └── types/             # Tool type templates
 │
 ├── bin/                       # CLI script (npx floatprompt)
 │   └── floatprompt.js

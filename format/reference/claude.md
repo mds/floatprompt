@@ -20,16 +20,16 @@ ai_notes: |
 
 For Claude Code integration with FloatPrompt, see:
 
-**[system/claude/integration.md](../../system/claude/integration.md)**
+**[system/guides/integration.md](../../system/guides/integration.md)**
 
 ## Quick Reference
 
 | Resource | Location |
 |----------|----------|
-| Integration guide | [system/claude/integration.md](../../system/claude/integration.md) |
-| Command specification | [system/claude/commands.md](../../system/claude/commands.md) |
-| Buoy pattern | [system/claude/buoys.md](../../system/claude/buoys.md) |
-| System architecture | [system/architecture/overview.md](../../system/architecture/overview.md) |
+| Integration guide | [system/guides/integration.md](../../system/guides/integration.md) |
+| Command specification | [system/reference/commands.md](../../system/reference/commands.md) |
+| Buoy pattern | [system/concepts/buoys.md](../../system/concepts/buoys.md) |
+| System architecture | [system/concepts/architecture.md](../../system/concepts/architecture.md) |
 
 ## Commands
 
@@ -41,7 +41,7 @@ For Claude Code integration with FloatPrompt, see:
 /float-enhance  → Fill placeholders
 ```
 
-See [system/claude/integration.md](../../system/claude/integration.md) for full documentation.
+See [system/guides/integration.md](../../system/guides/integration.md) for full documentation.
 
 ---
 
