@@ -51,7 +51,7 @@ Inspired by Next.js conventions where `app/` vs `public/` instantly communicates
 
 | Path | Human Understanding |
 |------|---------------------|
-| `.float/meta/...` | "System files. FloatPrompt's internals." |
+| `.float/floatprompt/...` | "System files. FloatPrompt's internals." |
 | `.float/project/...` | "My project's stuff." |
 
 No ambiguity. No learning curve.

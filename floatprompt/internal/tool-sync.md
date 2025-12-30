@@ -7,7 +7,7 @@
     "title": "tool-sync",
     "id": "tool-sync",
     "format": "floatprompt",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
 
   "human": {
@@ -51,11 +51,11 @@ This is maintainer tooling for the FloatPrompt system itself. Run via `/float-to
 
 ### 1. Version Sync
 
-All tools in `.float/meta/tools/float-*.md` must be at the same version.
+All tools in `.float/floatprompt/tools/float-*.md` must be at the same version.
 
 ```bash
 # Quick check
-grep -h '"version"' .float/meta/tools/float-*.md | sort -u
+grep -h '"version"' .float/floatprompt/tools/float-*.md | sort -u
 ```
 
 **Issue:** `float-context.md` at 0.9.0, others at 0.10.0
@@ -79,14 +79,14 @@ All tools must have consistent structure:
 
 ```bash
 # Check for required sections
-grep -l "## Duality" .float/meta/tools/float-*.md | wc -l
-grep -l "## Examples" .float/meta/tools/float-*.md | wc -l
-grep -l "invisible OS for AI" .float/meta/tools/float-*.md | wc -l
+grep -l "## Duality" .float/floatprompt/tools/float-*.md | wc -l
+grep -l "## Examples" .float/floatprompt/tools/float-*.md | wc -l
+grep -l "invisible OS for AI" .float/floatprompt/tools/float-*.md | wc -l
 ```
 
 ### 3. Command Sync
 
-Each tool in `.float/meta/tools/` must have a corresponding command wrapper in `.claude/commands/`.
+Each tool in `.float/floatprompt/tools/` must have a corresponding command wrapper in `.claude/commands/`.
 
 **Check for:**
 - Each `float*.md` tool has matching `.claude/commands/float*.md` wrapper
@@ -95,7 +95,7 @@ Each tool in `.float/meta/tools/` must have a corresponding command wrapper in `
 
 ```bash
 # List actual tools
-ls .float/meta/tools/float*.md | xargs -n1 basename
+ls .float/floatprompt/tools/float*.md | xargs -n1 basename
 
 # List command wrappers
 ls .claude/commands/float*.md | xargs -n1 basename
@@ -112,12 +112,12 @@ Files in `templates/.float/` must match source files.
 
 | Source | Template |
 |--------|----------|
-| `.float/meta/meta.md` | `templates/.float/meta/meta.md` |
+| `.float/floatprompt/index.md` | `templates/.float/floatprompt/index.md` |
 | `.float/project/project.md` | `templates/.float/project/project.md` |
 
 ```bash
 # Check for differences (structure, not content)
-diff .float/meta/meta.md templates/.float/meta/meta.md
+diff .float/floatprompt/index.md templates/.float/floatprompt/index.md
 ```
 
 **Note:** Templates have placeholder values (`[scaffold date]`, etc.) — check structure, not exact content.
@@ -132,7 +132,7 @@ const commandFiles = ['float.md', 'float-sync.md', ...];
 ```
 
 Compare against actual files:
-- `.float/meta/tools/float*.md` (tools)
+- `.float/floatprompt/tools/float*.md` (tools)
 - `.claude/commands/float*.md` (commands)
 
 ## Process
@@ -141,16 +141,16 @@ Compare against actual files:
 
 ```bash
 # Version check
-grep -h '"version"' .float/meta/tools/float*.md | sort -u | wc -l
+grep -h '"version"' .float/floatprompt/tools/float*.md | sort -u | wc -l
 # Should be 1 (all same version)
 
 # Structure check
-grep -l "## Duality" .float/meta/tools/float*.md | wc -l
-grep -l "## Examples" .float/meta/tools/float*.md | wc -l
-grep -l "invisible OS for AI" .float/meta/tools/float*.md | wc -l
+grep -l "## Duality" .float/floatprompt/tools/float*.md | wc -l
+grep -l "## Examples" .float/floatprompt/tools/float*.md | wc -l
+grep -l "invisible OS for AI" .float/floatprompt/tools/float*.md | wc -l
 
 # Command check (tools = commands)
-ls .float/meta/tools/float*.md | wc -l
+ls .float/floatprompt/tools/float*.md | wc -l
 ls .claude/commands/float*.md | wc -l
 # Should be equal
 ```
@@ -185,7 +185,7 @@ Proposed Fixes:
 
 1. Create .claude/commands/float-enhance.md:
    # /float-enhance — Quality Improvement
-   Read and execute `.float/meta/tools/float-enhance.md`
+   Read and execute `.float/floatprompt/tools/float-enhance.md`
 
 2. Add to bin/floatprompt.js commandFiles array:
    'float-enhance.md'
@@ -214,11 +214,11 @@ Directory: /Users/mds/Documents/_Github/floatprompt
 Status: All synced
 
 5 tools checked:
-  ✓ float.md (0.10.0)
-  ✓ float-sync.md (0.10.0)
-  ✓ float-context.md (0.10.0)
-  ✓ float-enhance.md (0.10.0)
-  ✓ float-fix.md (0.10.0)
+  ✓ float.md (0.11.0)
+  ✓ float-sync.md (0.11.0)
+  ✓ float-context.md (0.11.0)
+  ✓ float-enhance.md (0.11.0)
+  ✓ float-fix.md (0.11.0)
 
 Ready for: human direction
 ```
@@ -232,7 +232,7 @@ Directory: /Users/mds/Documents/_Github/floatprompt
 Status: 2 issues found
 
 Version Sync:
-  ✗ float-context.md at 0.9.0 (expected 0.10.0)
+  ✗ float-context.md at 0.10.0 (expected 0.11.0)
 
 Command Sync:
   ✗ float-new.md missing command wrapper

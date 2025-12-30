@@ -158,7 +158,7 @@ AI does the heavy lifting. Human stays in control.
 Create the structure yourself:
 
 ```bash
-mkdir -p .float/meta/tools .float/meta/floatprompt .float/project/nav .float/project/logs .float/project/context
+mkdir -p .float/floatprompt/tools .float/floatprompt/core .float/project/nav .float/project/logs .float/project/context
 touch .float/system.md
 touch .float/project/nav/root.md
 ```

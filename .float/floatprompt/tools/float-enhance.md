@@ -7,7 +7,7 @@
     "title": "/float enhance",
     "id": "float-enhance",
     "format": "floatprompt",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
 
   "human": {
@@ -85,7 +85,7 @@ For each nav file, compare descriptions to actual file contents:
 **Frontmatter discovery via navigation structure:**
 ```
 .float/system.md (entry)
-  → .float/meta/meta.md → lists meta/ files
+  → .float/floatprompt/index.md → lists floatprompt/ files
   → .float/project/project.md → lists project/ structure
         → project/nav/*.md → each lists files in a project folder
               → Check frontmatter for each documented file
@@ -202,7 +202,7 @@ Enhancement is the end of the command chain.
 Verify frontmatter for files documented in {nav_file}:
 1. Read {nav_file}, extract file paths from Contents table
 2. For each file:
-   - If in floatprompt/ or meta/tools/ → expect <fp> JSON format
+   - If in floatprompt/ or floatprompt/tools/ → expect <fp> JSON format
    - Otherwise → expect YAML frontmatter
 3. Check required fields:
    YAML: title, type, status, created, human_author, human_intent

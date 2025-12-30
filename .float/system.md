@@ -3,18 +3,19 @@ title: FloatPrompt System
 type: system
 status: current
 created: 2025-12-28
-related: .float/meta/meta.md, .float/project/project.md, specs/system.md
+related: .float/floatprompt/index.md, .float/project/project.md, specs/system.md
 
 human_author: @mds
 human_intent: Boot protocol and behavioral constraints for AI working in this project
 human_context: Read first in any session — defines conventions, boot sequence, maintenance
 
 ai_model: Claude Opus 4.5
-ai_updated: 2025-12-29
+ai_updated: 2025-12-30
 ai_notes: |
   This is both a floatprompt doc (YAML context) and a FloatPrompt tool (<fp> behavior).
   YAML gives document context. JSON gives behavioral instructions.
-  Version tracked in JSON meta.version (currently 0.10.0).
+  Version tracked in JSON meta.version (currently 0.11.0).
+  v0.11.0: Restructured .float/meta/ → .float/floatprompt/ for clarity.
 ---
 
 <fp>
@@ -26,7 +27,7 @@ ai_notes: |
     "title": "FloatPrompt System",
     "id": "floatprompt-system",
     "format": "floatprompt",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
 
   "human": {
@@ -95,9 +96,9 @@ floatprompt/
 ├── .float/                    # FloatPrompt System (read first)
 │   ├── system.md              # This file (boot loader)
 │   │
-│   ├── meta/                  # About FloatPrompt itself (system internals)
-│   │   ├── meta.md            # Quick structural reference (what's here)
-│   │   ├── floatprompt/       # Core templates
+│   ├── floatprompt/           # About FloatPrompt itself (system internals)
+│   │   ├── index.md           # Quick structural reference (what's here)
+│   │   ├── core/              # Core templates
 │   │   │   ├── template.md
 │   │   │   ├── doc.md
 │   │   │   ├── os.md
@@ -135,7 +136,7 @@ floatprompt/
 │
 ├── README.md              # Public-facing documentation
 │
-├── floatprompt/           # Core templates (copied to .float/meta/floatprompt/)
+├── floatprompt/           # Core templates (copied to .float/floatprompt/core/)
 │   ├── template.md        # FloatPrompt template
 │   ├── doc.md             # floatprompt doc tool
 │   ├── os.md              # Full FloatPrompt OS
@@ -198,10 +199,10 @@ floatprompt/
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader (this file) — "how it works" |
-| `meta/` | FloatPrompt system internals (don't modify) |
-| `meta/meta.md` | Structural reference — "what's here" |
-| `meta/floatprompt/` | Core templates (template, doc, os, update) |
-| `meta/tools/` | /float command tools (source of truth) |
+| `floatprompt/` | FloatPrompt system internals (don't modify) |
+| `floatprompt/index.md` | Structural reference — "what's here" |
+| `floatprompt/core/` | Core templates (template, doc, os, update) |
+| `floatprompt/tools/` | /float command tools (source of truth) |
 | `project/` | Your project's FloatPrompt data |
 | `project/project.md` | Structure reference — "what's in project/" |
 | `project/context/` | AI terrain maps (includes decisions.md) |
@@ -225,7 +226,7 @@ floatprompt/
 **Centralized pattern:** All navigation lives in `.float/project/nav/`. No scattered files. AI reads one location for complete folder context.
 
 **Depth layering:** The `.float/` folder has two levels of documentation:
-- `meta/meta.md` + `project/project.md` = "what's here" (structural reference)
+- `floatprompt/index.md` + `project/project.md` = "what's here" (structural reference)
 - `system.md` = "how it works" (full behavioral protocol)
 
 ### Nav File Subfolder Rules
@@ -279,7 +280,7 @@ ai_updated:
 | File | Location | Purpose |
 |------|----------|---------|
 | `system.md` | `.float/` | Root protocol (this file) |
-| `float-context.md` | `.float/meta/tools/` | Tool for generating terrain maps |
+| `float-context.md` | `.float/floatprompt/tools/` | Tool for generating terrain maps |
 | `template.md` | `floatprompt/` | Template for creating floatprompts |
 | `doc.md` | `floatprompt/` | Tool for adding context frontmatter |
 | `os.md` | `floatprompt/` | Full OS with guided creation |

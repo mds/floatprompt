@@ -118,7 +118,7 @@ related: system.md, context/floatprompt.md, tools/float.md
 ```
 Scanning related fields...
 
-meta/meta.md relates to:
+floatprompt/index.md relates to:
   ✓ system.md (exists)
 
 Proposed fix: None needed

@@ -2,16 +2,16 @@
 title: .float/ Structure
 type: nav
 status: current
-created: 2025-12-29
+created: [scaffold date]
 related: .float/system.md, .float/project/project.md
 
-human_author: @mds
+human_author: [update to your handle]
 human_intent: Quick structural reference for .float/ folder
 human_context: Depth layering — this is "what's here", system.md is "how it works"
 
-ai_model: Claude Opus 4.5
-ai_updated: 2025-12-29
-ai_notes: Moved from project/nav/float.md to meta/meta.md (v0.10.0)
+ai_model: [first AI to update this]
+ai_updated: [scaffold date]
+ai_notes: Scaffolded by npx floatprompt
 ---
 
 # .float/ Structure
@@ -19,11 +19,11 @@ ai_notes: Moved from project/nav/float.md to meta/meta.md (v0.10.0)
 Quick structural reference for the `.float/` folder.
 
 **Depth layering:**
-- `meta.md` / `project.md` = "what's here" (structure)
+- `floatprompt/index.md` (this file) = "what's here" (structure)
 - `system.md` = "how it works" (behavior)
 
 **Symmetry:**
-- `meta/meta.md` = describes FloatPrompt internals (this file)
+- `floatprompt/index.md` = describes FloatPrompt internals (this file)
 - `project/project.md` = describes your project's data
 
 ## Structure
@@ -32,9 +32,9 @@ Quick structural reference for the `.float/` folder.
 .float/
 ├── system.md           # Boot loader (read first)
 │
-├── meta/               # FloatPrompt internals (don't modify)
-│   ├── meta.md         # This file (structure reference)
-│   ├── floatprompt/    # Core templates
+├── floatprompt/        # FloatPrompt internals (don't modify)
+│   ├── index.md        # This file (structure reference)
+│   ├── core/           # Core templates
 │   └── tools/          # /float command tools
 │
 └── project/            # Your project's data
@@ -44,17 +44,17 @@ Quick structural reference for the `.float/` folder.
     └── logs/           # Session history
 ```
 
-## meta/
+## floatprompt/
 
 System internals. Don't modify unless you're updating FloatPrompt itself.
 
 | Item | Purpose |
 |------|---------|
-| **meta.md** | This file — structural reference |
-| **floatprompt/** | Core templates |
+| **index.md** | This file — structural reference |
+| **core/** | Core templates |
 | **tools/** | /float command tools |
 
-### meta/floatprompt/
+### floatprompt/core/
 
 | File | Purpose |
 |------|---------|
@@ -63,7 +63,7 @@ System internals. Don't modify unless you're updating FloatPrompt itself.
 | **os.md** | Full FloatPrompt OS |
 | **update.md** | Structured update planning |
 
-### meta/tools/
+### floatprompt/tools/
 
 | File | Purpose |
 |------|---------|

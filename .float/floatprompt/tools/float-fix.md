@@ -7,7 +7,7 @@
     "title": "/float fix",
     "id": "float-fix",
     "format": "floatprompt",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
 
   "human": {
@@ -87,8 +87,8 @@ grep -r "\.md" .float/ | grep -v "^Binary"
 grep -r "^related:" .float/project/
 
 # Check router ↔ tools alignment
-# List tools defined in meta/tools/
-ls .float/meta/tools/float*.md | xargs -n1 basename | sed 's/\.md$//'
+# List tools defined in floatprompt/tools/
+ls .float/floatprompt/tools/float*.md | xargs -n1 basename | sed 's/\.md$//'
 
 # Parse commands from router
 grep -o 'float-[a-z]*\.md' .claude/commands/float.md | sed 's/\.md$//' | sort -u
@@ -120,7 +120,7 @@ specs/doc.md relates to: floatprompt.md, system.md
 
 **3. Stale path check** — Were related files renamed/moved?
 ```
-related: .float/meta/tools/context-creator.md
+related: .float/floatprompt/tools/context-creator.md
          ✗ MISSING — was renamed to float-context.md
 ```
 
@@ -133,7 +133,7 @@ Related Field Issues (2):
 
 ### Router ↔ Tools Scanning
 
-The `.claude/commands/float.md` router must stay aligned with `.float/meta/tools/`.
+The `.claude/commands/float.md` router must stay aligned with `.float/floatprompt/tools/`.
 
 **1. Router existence** — Does the router file exist?
 ```
@@ -143,16 +143,16 @@ The `.claude/commands/float.md` router must stay aligned with `.float/meta/tools
 **2. Route targets** — Do all routed tools exist?
 ```
 Router routes to:
-  float.md         → .float/meta/tools/float.md ✓
-  float-sync.md    → .float/meta/tools/float-sync.md ✓
-  float-fix.md     → .float/meta/tools/float-fix.md ✓
-  float-context.md → .float/meta/tools/float-context.md ✓
-  float-enhance.md → .float/meta/tools/float-enhance.md ✓
+  float.md         → .float/floatprompt/tools/float.md ✓
+  float-sync.md    → .float/floatprompt/tools/float-sync.md ✓
+  float-fix.md     → .float/floatprompt/tools/float-fix.md ✓
+  float-context.md → .float/floatprompt/tools/float-context.md ✓
+  float-enhance.md → .float/floatprompt/tools/float-enhance.md ✓
 ```
 
 **3. Orphan tools** — Are there tools not reachable from router?
 ```
-Tools in .float/meta/tools/:
+Tools in .float/floatprompt/tools/:
   float.md ✓ (routed)
   float-sync.md ✓ (routed)
   float-new.md ✗ (NOT ROUTED — orphan)
@@ -301,7 +301,7 @@ Validate related field in {file_path}:
 Verify router ↔ tools alignment:
 1. Check .claude/commands/float.md exists
 2. Parse routing table from router file (grep for float-*.md references)
-3. List all tools in .float/meta/tools/float*.md
+3. List all tools in .float/floatprompt/tools/float*.md
 4. Compare:
    a. Routes without tools = broken routes
    b. Tools without routes = orphan tools

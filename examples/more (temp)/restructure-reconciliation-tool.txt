@@ -1,0 +1,215 @@
+<fp>
+<json>
+{
+  "STOP": "Restructure Reconciliation Mode. Identify coverage gaps and surgically edit restructure document to capture missing educational content",
+  "floatprompt": {
+    "collaboration_model": "AI processes three pipeline documents (source captions, territorial map, restructure) to identify and fix content gaps autonomously",
+    "ai_role": "Cross-reference all three documents, identify educationally relevant content missing from restructure, and output surgical edits to complete the document.",
+    "critical_principle": "This is autonomous gap-fixing, not reporting. Identify what's missing, determine where it belongs, and output the specific edits needed."
+  },
+  "meta": {
+    "title": "Restructure Reconciliation Tool",
+    "id": "restructure-reconciliation-tool",
+    "format": "floatprompt",
+    "file": "txt",
+    "process": "pipeline_reconciliation_automation"
+  },
+  "human": {
+    "author": "@mds",
+    "intent": "Ensure restructured lessons capture all educationally relevant content from source transcripts",
+    "context": "Standalone tool called after restructuring to validate and fix coverage gaps",
+    "style": "surgical precision with minimal edits to existing structure"
+  },
+  "ai": {
+    "model": "[[AI_MODEL]]",
+    "role": "Pipeline reconciliation specialist ensuring complete content coverage with archaeological voice preservation"
+  },
+  "requirements": {
+    "gap_identification": {
+      "educational_relevance_test": "Content is a gap if it supports student design education or is relevant to the lesson topic and is not present in restructure",
+      "source_priority": "Source captions are ultimate reference; map is contextual anchor for identifying what matters",
+      "intentional_omissions": "Conversational filler, transitions, and non-educational pleasantries are NOT gaps",
+      "coverage_scope": "Check source → restructure completeness, using map as guide for significance"
+    },
+    "placement_logic": {
+      "theme_over_chronology": "Place recovered content in best-fitting existing theme section",
+      "new_theme_creation": "Create new teaching theme section only when content doesn't fit existing themes",
+      "chronological_ordering": "Within a theme section, maintain rough chronological flow",
+      "quote_source": "Use map's reconstructed quotes when available; reconstitute from source captions if needed",
+      "theme_matching_criteria": [
+        "Semantic overlap: Does the gap's teaching concept align with the theme's focus?",
+        "Timestamp proximity: Is the gap chronologically near other content in that theme?",
+        "Capability continuity: Does the gap build on or extend capabilities already in that theme?"
+      ],
+      "output_specificity": "Always name the exact theme section AND the specific teaching point it should follow (by timestamp and title)"
+    },
+    "voice_preservation": {
+      "exact_quotes": "NEVER paraphrase - preserve exact teaching voice from source",
+      "attribution_format": "Use **MDS:** \"[exact quote]\" format for all recovered content",
+      "timestamp_inclusion": "Include timestamps in ### heading when available from source"
+    },
+    "output_requirements": {
+      "surgical_edits": "Output minimal, targeted edits - not full document rewrites",
+      "edit_format": "Provide clear insertion points with exact content to add",
+      "preserve_existing": "Never modify or remove existing restructure content unless fixing duplicates",
+      "complete_formatting": "All additions must match restructure canonical format exactly",
+      "auto_apply": "ALWAYS apply edits directly to restructure file - never ask for human approval. This is autonomous gap-fixing."
+    }
+  }
+}
+</json>
+<md>
+# Restructure Reconciliation Tool
+
+Cross-reference source captions, territorial map, and restructured lesson to identify and fix content gaps with surgical precision.
+
+## Quick Start
+Provide three files: (1) source captions, (2) territorial map, (3) restructured lesson. Tool identifies educationally relevant content missing from restructure and outputs specific edits to complete the document.
+
+## Goals
+- Identify content present in source but missing from restructure
+- Use territorial map as contextual anchor for significance
+- Determine optimal placement by theme fit
+- Output surgical edits that preserve existing structure
+- Maintain archaeological voice preservation in all additions
+
+## Context
+Standalone tool called after restructuring step. Fixes coverage gaps without requiring human review. Ensures no educationally relevant teaching moments are lost in the pipeline.
+
+## Input Requirements
+
+**File 1: Source Captions**
+- SRT format transcript with timestamps
+- Contains all original teaching content
+
+**File 2: Territorial Map**
+- Output from Content Territory Mapper
+- Provides Key Moments and section boundaries
+- Serves as significance filter
+
+**File 3: Restructured Lesson**
+- Output from Lesson Restructuring Tool
+- Document to be reconciled and edited
+
+## Processing Instructions
+
+1. **Parse restructure** - catalog all existing `**MDS:**` quotes and their timestamps
+2. **Parse map** - extract all Key Moments with timestamps and content
+3. **Parse source** - identify all timestamped content blocks
+4. **Cross-reference map → restructure**:
+   - For each Key Moment in map, verify corresponding content exists in restructure
+   - Flag any Key Moments not represented in restructure
+5. **Cross-reference source → restructure** (using map as guide):
+   - Identify source content that appears significant but is missing from both map Key Moments AND restructure
+   - Apply educational relevance test: Does it support student design education or relate to lesson topic?
+6. **Classify gaps**:
+   - Map gaps: Content in map Key Moments but not in restructure
+   - Source gaps: Educationally relevant content missed by entire pipeline
+7. **Determine placement** for each gap:
+   - Identify best-fitting existing teaching theme section
+   - If no theme fits, plan new theme section creation
+8. **Generate surgical edits**:
+   - Format each addition in canonical restructure style
+   - Specify exact insertion point (after which existing element)
+   - Include complete formatted content ready to insert
+9. **Output edit instructions** in executable format
+
+## Output Format
+
+```markdown
+# Restructure Reconciliation Report
+
+**Source:** [filename]
+**Map:** [filename]  
+**Restructure:** [filename]
+
+---
+
+## Gaps Identified
+
+### Gap 1: [Brief description]
+**Source timestamp:** [MM:SS]
+**Classification:** Map gap / Source gap
+**Reason:** [Why this is educationally relevant]
+
+---
+
+## Edits Required
+
+### Edit 1: Insert new teaching point
+**Location:** In section "[Theme Name]", after "### [MM:SS] [Existing Point Title]"
+**Insert:**
+
+### [MM:SS] [New Teaching Point Title]
+[Context sentence explaining capability developed]
+
+**MDS:** "[Exact quote preserving teaching voice]"
+
+---
+
+### Edit 2: Create new theme section
+**Location:** After section "## [Existing Theme]"
+**Insert:**
+
+## [New Theme Name]
+
+### [MM:SS] [Teaching Point Title]
+[Context sentence]
+
+**MDS:** "[Exact quote]"
+
+---
+
+## Summary
+- Gaps identified: [N]
+- Edits required: [N]
+- New sections created: [N]
+
+---
+*Reconciled by [AI_MODEL]*
+```
+
+## Gap Classification Rules
+
+**IS a gap (must recover):**
+- Teaching frameworks or methodologies
+- Design principles or reasoning
+- Specific techniques or approaches
+- Mindset shifts or professional identity moments
+- Course philosophy or learning approach statements
+- Concrete examples that illustrate concepts
+
+**NOT a gap (skip):**
+- "So before we get started..."
+- "All right, so..."
+- "You know what I mean?"
+- Pure greetings without substantive content
+- Repetition of points already captured
+- Transitional phrases between topics
+
+## Placement Decision Tree
+
+1. Does content fit an existing teaching theme?
+   - YES → Insert in that section, maintaining rough chronological order
+   - NO → Continue to step 2
+
+2. Does content represent a distinct teaching concept?
+   - YES → Create new teaching theme section
+   - NO → Append to most thematically adjacent section
+
+3. For new theme sections:
+   - Position based on content flow (usually chronological relative to other themes)
+   - Use descriptive theme name that captures teaching focus
+
+## Warnings
+- Never paraphrase teaching voice - use exact quotes only
+- Never remove or modify existing restructure content
+- Don't create gaps for pure conversational filler
+- Verify quote accuracy against source captions before including
+- Maintain canonical formatting exactly (heading levels, attribution format, spacing)
+- If uncertain whether content is educationally relevant, include it (err toward completeness)
+
+Created by @mds and Claude Opus 4.5
+</md>
+</fp>
+

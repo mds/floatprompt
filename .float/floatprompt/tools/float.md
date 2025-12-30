@@ -7,7 +7,7 @@
     "title": "/float",
     "id": "float-boot",
     "format": "floatprompt",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
 
   "human": {
@@ -55,8 +55,8 @@ When no FloatPrompt System exists:
    ```
    .float/
    ├── system.md           # Boot loader
-   ├── meta/               # System internals
-   │   ├── floatprompt/    # Templates
+   ├── floatprompt/        # System internals
+   │   ├── core/           # Templates
    │   └── tools/          # /float command tools
    └── project/            # Project data
        ├── context/        # Terrain maps (empty initially)
@@ -106,7 +106,7 @@ ls -d */ | grep -v -E '^(node_modules|dist|build|\.git)/$'
 
 # Check router ↔ tools alignment
 test -f .claude/commands/float.md && echo "router exists"
-ls .float/meta/tools/float*.md 2>/dev/null | wc -l
+ls .float/floatprompt/tools/float*.md 2>/dev/null | wc -l
 ```
 
 ## Status Output
@@ -167,7 +167,7 @@ Status: No issues found
 
 Created:
 - .float/system.md
-- .float/meta/
+- .float/floatprompt/
 - .float/project/nav/src.md
 - .float/project/nav/tests.md
 - .float/project/nav/docs.md

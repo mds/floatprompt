@@ -1,0 +1,185 @@
+<fp>
+<json>
+{
+  "STOP": "Lesson Restructuring Mode. Extract teaching methodology with archaeological voice preservation and canonical structure organization",
+  "floatprompt": {
+    "collaboration_model": "AI processes structured inputs (captions + territorial map) through systematic extraction pipeline to produce RAG-optimized training data",
+    "ai_role": "Execute archaeological extraction following territorial boundaries. Preserve exact teaching voice. Flag ambiguities rather than interpret.",
+    "critical_principle": "This is a transformation specification - the collaboration happened upstream when MDS created the teaching content. AI executes systematic extraction, not interpretation."
+  },
+  "meta": {
+    "title": "Lesson Restructuring Tool",
+    "id": "lesson-restructuring-floatprompt",
+    "format": "floatprompt",
+    "file": "txt",
+    "process": "territorial_lesson_restructuring"
+  },
+  "human": {
+    "author": "@mds",
+    "intent": "Restructure existing lessons into canonical format with archaeological voice preservation for optimal human learning and AI training",
+    "context": "Automation processing lesson transcripts with territorial maps for systematic lesson improvement",
+    "style": "archaeological precision with pedagogical optimization, systematic lesson methodology"
+  },
+  "ai": {
+    "model": "[[AI_MODEL]]",
+    "role": "Lesson restructuring specialist preserving authentic teaching voice while creating canonical pedagogical structure"
+  },
+  "requirements": {
+    "voice_preservation": {
+      "exact_quotes": "NEVER paraphrase or rewrite - preserve exact teaching voice focusing on core teaching mechanisms",
+      "teaching_patterns": "Maintain authentic methodology frameworks, analogies, and systematic explanations while removing conversational transitions",
+      "essential_content": "Extract only teaching moments that contain frameworks, reasoning patterns, or systematic approaches",
+      "uncertainty_handling": "If unclear, write [UNCLEAR] rather than guessing",
+      "timestamp_precision": "Use exact timestamps from transcript when available"
+    },
+    "territorial_integration": {
+      "map_boundaries": "Use provided territorial map section boundaries for systematic lesson coverage",
+      "teaching_identification": "Extract every teaching methodology, framework, and pedagogical moment mentioned",
+      "territorial_coverage": "Process ALL content within each territory from the map"
+    },
+    "canonical_structure": {
+      "pedagogical_organization": "Structure content into clear teaching themes that emerge from territorial analysis",
+      "systematic_methodology": "Preserve core teaching frameworks while organizing for optimal learning progression and AI curriculum generation",
+      "outcome_focused_impact": "Each pedagogical explanation must specify concrete student capabilities, measurable skills, and professional applications",
+      "ai_training_optimization": "Maintain rich systematic approaches and decision frameworks intact for effective AI model training",
+      "pedagogical_framework": "Lessons typically follow Why-What-How-Homework structure: foundational reasoning, concept explanation, practical implementation, and applied assignment",
+      "lesson_methodology_tags": "Generate concise topical tags that naturally emerge from this lesson. Use only tags clearly present in the teaching content. Avoid filler or repetition."
+    },
+    "output_structure": {
+      "format_compliance": "Output clean markdown optimized for RAG ingestion - no FloatPrompt wrapper",
+      "clean_teaching_format": "Focus on Teaching Voice with MDS attribution. Include rationale when not obvious.",
+      "comprehensive_capture": "Include all content categories: teaching themes, tool shortcuts, edge cases, design nuances, software comparisons",
+      "consistent_headings": "ALWAYS include all standard headings: Tool Shortcuts & Workflows, Edge Cases & Implementation Details, Design Nuances, Software Comparisons, Systematic Methodologies, Professional Capabilities, Homework Assignment, Key Lesson Takeaways",
+      "file_naming": "Save output as [module-number]-[module-title]-[lesson-number]-[lesson-title]-restructure.md format (e.g., '02-typography-01-font-size-restructure.md')"
+    }    
+  }
+}
+</json>
+<md>
+# Lesson Restructuring Tool
+
+Extract teaching methodology from lesson transcripts using territorial map guidance while preserving authentic voice patterns and creating canonical pedagogical structure optimized for human learning and AI training.
+
+## Quick Start
+Process lesson transcript with territorial map to extract all teaching methodologies in canonical format with complete voice preservation. Focus on archaeological precision - preserve exact teaching voice while creating systematic pedagogical organization.
+
+## Goals
+- Extract every teaching methodology with exact voice preservation
+- Use territorial map for complete coverage without redundancy
+- Create canonical lesson structure optimized for learning and AI training
+- Structure methodologies for systematic pedagogy without forced categorization
+- Maintain archaeological precision while optimizing pedagogical flow
+
+## Context
+Use after territorial mapping step in lesson improvement workflow. Processes lesson transcripts to create canonically structured lessons that preserve authentic teaching voice while organizing content for optimal human learning and AI training data.
+
+## Output
+Clean markdown optimized for RAG ingestion:
+
+```markdown
+# [Lesson Title] - [Module Name]
+
+**Tags:** [comma-separated methodology tags extracted from lesson]
+
+**Summary:** [2-3 sentence summary of the lesson's core teaching]
+
+---
+
+## [Emergent Teaching Theme 1]
+
+### [MM:SS] [Teaching Point Title]
+[Brief context: what capability this develops or why it matters]
+
+**MDS:** "[Exact quote preserving teaching voice]"
+
+### [MM:SS] [Teaching Point Title]
+[Brief context]
+
+**MDS:** "[Exact quote]"
+
+## [Emergent Teaching Theme 2]
+
+[Continue for all teaching themes that emerge from content]
+
+---
+
+## Tool Shortcuts & Workflows
+- [Keyboard shortcuts demonstrated, e.g., "Command Shift + 4 for pixel measurement"]
+- [Specific plugins mentioned, e.g., "Figma plugin: Avatars by Dylan Feltus"]
+- [Workflow patterns, e.g., "Option drag → Command D → Refresh data for rapid duplication"]
+
+## Edge Cases & Implementation Details
+- [Truncation rules, e.g., "If name exceeds 25 characters, truncate with ellipsis"]
+- [Exception handling patterns]
+- [Developer handoff considerations]
+
+## Design Nuances
+- [Small observations showing experienced designer thinking]
+- [Contextual decisions, e.g., "Border barely visible on dark images - intentional"]
+
+## Software Comparisons
+- [Tool differences mentioned, e.g., "Sketch symbols require editing on symbols page; Figma components edit in place"]
+
+---
+
+## Systematic Methodologies
+- [Decision-making frameworks extracted from lesson]
+- [Numbered approaches or systematic processes taught]
+
+## Professional Capabilities
+- [Specific skills developed]
+- [Client communication abilities]
+- [Career-relevant competencies]
+
+## Homework Assignment
+*(Follow these instructions manually, or copy/paste as an AI prompt)*
+
+Design [specific interface] applying this lesson's methodology:
+- [Specific constraint or framework to apply]
+- [Elements to include]
+- [Variations to explore]
+- Submit for review and feedback
+
+## Key Lesson Takeaways
+- [Specific measurable skill and its professional application]
+- [Concrete ability for client work and decision-making]
+
+---
+*Created by @mds | Processed by [AI_MODEL]*
+```
+
+## Processing Instructions
+1. Read territorial map to understand lesson structure and boundaries
+2. Go through transcript section by section following map boundaries, recognizing typical Why-What-How-Homework pedagogical progression
+3. Extract every teaching methodology mentioned with exact timestamp when available; remove [MM:SS] completely if no timestamps exist
+4. Preserve essential teaching mechanisms: frameworks, systematic explanations, analogies - remove conversational transitions
+5. Focus on concrete pedagogical outcomes: specify student capabilities gained, professional applications, and measurable skills developed
+6. Group methodologies into logical teaching themes that emerge from the content naturally
+7. **Capture comprehensive content** across all categories:
+   - **Tool Shortcuts & Workflows**: Extract ALL keyboard shortcuts, plugin names, APIs, workflow patterns demonstrated
+   - **Edge Cases & Implementation Details**: Capture truncation rules, exception handling, developer handoff notes
+   - **Design Nuances**: Preserve small observations showing experienced designer thinking
+   - **Software Comparisons**: Note any tool differences mentioned (Sketch vs Figma, etc.)
+8. Create specific, actionable homework serving both human learning and AI prompt generation
+9. Generate methodology tags that reflect actual content (avoid generic filler)
+10. Let teaching themes emerge organically from territorial analysis
+11. **ALWAYS include all standard headings** even if some sections have minimal content - this ensures consistent structure for RAG chunking
+12. **Output clean markdown** - no FloatPrompt wrapper, no delimiters
+13. **Save using filename format**: `[module-number]-[module-title]-[lesson-number]-[lesson-title]-restructure.md` (e.g., `02-typography-01-font-size-restructure.md`)
+
+## Warnings
+- Never paraphrase teaching voice - preserve core teaching mechanisms exactly as spoken
+- Focus on essential content: frameworks, systematic explanations, analogies - remove conversational filler
+- **Platform-specific references**: Remove or generalize mentions of specific platforms (Slack, Dribbble, etc.) - replace with generic alternatives like "submit your work" or "share for review"
+- Include concrete professional benefits when explicitly clear from teaching content rather than forcing abstractions
+- Use exact timestamps when available from source material
+- Create new teaching themes when content doesn't fit standard pedagogical categories
+- Mark unclear content as [UNCLEAR] rather than making assumptions
+- **Don't skip "tangential" content** - Tool shortcuts, edge cases, and design nuances are valuable for comprehensive RAG training even if not central to the lesson theme
+- **Empty sections are OK** - If a lesson has no software comparisons, include the heading with "None in this lesson" rather than omitting
+- Maintain rich systematic approaches intact for effective AI model training
+- **MANDATORY sections**: Tool Shortcuts & Workflows, Edge Cases & Implementation Details, Design Nuances, Software Comparisons, Systematic Methodologies, Professional Capabilities, Homework Assignment, Key Lesson Takeaways
+
+Created by @mds and Claude Opus 4.5
+</md>
+</fp>

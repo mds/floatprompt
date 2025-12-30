@@ -3,15 +3,17 @@ title: project/ Structure
 type: nav
 status: current
 created: 2025-12-29
-related: .float/meta/meta.md, .float/system.md
+related: .float/floatprompt/index.md, .float/system.md
 
 human_author: @mds
 human_intent: Quick structural reference for project/ folder
 human_context: Your project's FloatPrompt data — context, nav, logs
 
 ai_model: Claude Opus 4.5
-ai_updated: 2025-12-29
-ai_notes: Created for symmetry with meta/meta.md
+ai_updated: 2025-12-30
+ai_notes: |
+  Created for symmetry with floatprompt/index.md
+  v0.11.0: Updated meta/meta.md → floatprompt/index.md
 ---
 
 # project/ Structure
@@ -19,7 +21,7 @@ ai_notes: Created for symmetry with meta/meta.md
 Your project's FloatPrompt data. Everything here is project-specific.
 
 **Symmetry:**
-- `meta/meta.md` = describes FloatPrompt internals
+- `floatprompt/index.md` = describes FloatPrompt internals
 - `project/project.md` = describes your project's data (this file)
 
 ## Structure
@@ -53,7 +55,7 @@ One nav file per major project folder. Centralized navigation.
 
 **What belongs here:** Nav files for actual project folders (src/, docs/, tests/, etc.)
 
-**What doesn't:** System documentation (that's in meta/)
+**What doesn't:** System documentation (that's in floatprompt/)
 
 ## logs/
 

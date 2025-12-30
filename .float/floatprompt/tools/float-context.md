@@ -7,7 +7,7 @@
     "title": "/float context",
     "id": "float-context",
     "format": "floatprompt",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
 
   "human": {

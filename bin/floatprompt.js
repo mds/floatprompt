@@ -47,7 +47,7 @@ if (args.includes('--update') || args.includes('-u')) {
 
   try {
     // Ensure directories exist
-    const dirs = ['.float/meta/tools', '.float/meta/floatprompt', '.claude/commands'];
+    const dirs = ['.float/floatprompt/tools', '.float/floatprompt/core', '.claude/commands'];
     for (const dir of dirs) {
       const fullPath = join(cwd, dir);
       if (!existsSync(fullPath)) {
@@ -58,25 +58,25 @@ if (args.includes('--update') || args.includes('-u')) {
     // Update tools
     const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md'];
     for (const file of toolFiles) {
-      const src = join(packageRoot, '.float', 'meta', 'tools', file);
-      const dest = join(cwd, '.float', 'meta', 'tools', file);
+      const src = join(packageRoot, '.float', 'floatprompt', 'tools', file);
+      const dest = join(cwd, '.float', 'floatprompt', 'tools', file);
       copyFileSync(src, dest);
-      updated.push(`.float/meta/tools/${file}`);
+      updated.push(`.float/floatprompt/tools/${file}`);
     }
 
-    // Update floatprompt files (source is floatprompt/ at package root, dest is .float/meta/floatprompt/)
+    // Update floatprompt files (source is floatprompt/ at package root, dest is .float/floatprompt/core/)
     const floatpromptFiles = ['template.md', 'doc.md', 'os.md', 'update.md'];
     for (const file of floatpromptFiles) {
       const src = join(packageRoot, 'floatprompt', file);
-      const dest = join(cwd, '.float', 'meta', 'floatprompt', file);
+      const dest = join(cwd, '.float', 'floatprompt', 'core', file);
       copyFileSync(src, dest);
-      updated.push(`.float/meta/floatprompt/${file}`);
+      updated.push(`.float/floatprompt/core/${file}`);
     }
 
-    // Update meta.md (structural reference)
-    const metaSrc = join(packageRoot, 'templates', '.float', 'meta', 'meta.md');
-    copyFileSync(metaSrc, join(cwd, '.float', 'meta', 'meta.md'));
-    updated.push('.float/meta/meta.md');
+    // Update index.md (structural reference)
+    const indexSrc = join(packageRoot, 'templates', '.float', 'floatprompt', 'index.md');
+    copyFileSync(indexSrc, join(cwd, '.float', 'floatprompt', 'index.md'));
+    updated.push('.float/floatprompt/index.md');
 
     // Update project.md (structural reference)
     const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');
@@ -140,9 +140,9 @@ Run /float in Claude Code to boot.`);
 // Create directory structure
 const dirs = [
   '.float',
-  '.float/meta',
-  '.float/meta/tools',
-  '.float/meta/floatprompt',
+  '.float/floatprompt',
+  '.float/floatprompt/tools',
+  '.float/floatprompt/core',
   '.float/project',
   '.float/project/nav',
   '.float/project/logs',
@@ -205,25 +205,25 @@ Captured rationale for project decisions. AI appends entries during context buil
   // Copy tools
   const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md'];
   for (const file of toolFiles) {
-    const src = join(packageRoot, '.float', 'meta', 'tools', file);
-    const dest = join(cwd, '.float', 'meta', 'tools', file);
+    const src = join(packageRoot, '.float', 'floatprompt', 'tools', file);
+    const dest = join(cwd, '.float', 'floatprompt', 'tools', file);
     copyFileSync(src, dest);
-    created.push(`.float/meta/tools/${file}`);
+    created.push(`.float/floatprompt/tools/${file}`);
   }
 
-  // Copy floatprompt files (source is floatprompt/ at package root, dest is .float/meta/floatprompt/)
+  // Copy floatprompt files (source is floatprompt/ at package root, dest is .float/floatprompt/core/)
   const floatpromptFiles = ['template.md', 'doc.md', 'os.md', 'update.md'];
   for (const file of floatpromptFiles) {
     const src = join(packageRoot, 'floatprompt', file);
-    const dest = join(cwd, '.float', 'meta', 'floatprompt', file);
+    const dest = join(cwd, '.float', 'floatprompt', 'core', file);
     copyFileSync(src, dest);
-    created.push(`.float/meta/floatprompt/${file}`);
+    created.push(`.float/floatprompt/core/${file}`);
   }
 
-  // Copy meta.md (structural reference)
-  const metaSrc = join(packageRoot, 'templates', '.float', 'meta', 'meta.md');
-  copyFileSync(metaSrc, join(cwd, '.float', 'meta', 'meta.md'));
-  created.push('.float/meta/meta.md');
+  // Copy index.md (structural reference)
+  const indexSrc = join(packageRoot, 'templates', '.float', 'floatprompt', 'index.md');
+  copyFileSync(indexSrc, join(cwd, '.float', 'floatprompt', 'index.md'));
+  created.push('.float/floatprompt/index.md');
 
   // Copy project.md (structural reference)
   const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');

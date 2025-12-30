@@ -3,7 +3,7 @@ title: FloatPrompt System
 type: system
 status: current
 created: [scaffold date]
-related: .float/meta/meta.md, .float/project/project.md
+related: .float/floatprompt/index.md, .float/project/project.md
 
 human_author: [update to your handle]
 human_intent: Boot protocol and behavioral constraints for AI working in this project
@@ -25,7 +25,7 @@ ai_notes: |
   "meta": {
     "title": "FloatPrompt System",
     "format": "floatprompt",
-    "version": "0.10.0"
+    "version": "0.11.0"
   },
 
   "human": {
@@ -71,15 +71,15 @@ ai_notes: |
 project/
 ├── .float/
 │   ├── system.md           # This file (boot loader) — "how it works"
-│   ├── meta/               # FloatPrompt internals (don't modify)
-│   │   ├── meta.md         # Structural reference — "what's here"
+│   ├── floatprompt/        # FloatPrompt internals (don't modify)
+│   │   ├── index.md        # Structural reference — "what's here"
 │   │   ├── tools/          # System tools
 │   │   │   ├── float.md
 │   │   │   ├── float-sync.md
 │   │   │   ├── float-fix.md
 │   │   │   ├── float-context.md
 │   │   │   └── float-enhance.md
-│   │   └── floatprompt/    # FloatPrompt templates
+│   │   └── core/           # FloatPrompt templates
 │   │       ├── template.md   # Tool creation template
 │   │       ├── doc.md        # Document context tool
 │   │       ├── os.md         # Full FloatPrompt OS
@@ -100,7 +100,7 @@ project/
 | Pattern | Type | Purpose |
 |---------|------|---------|
 | `.float/system.md` | FloatPrompt System | Boot loader (this file) |
-| `.float/meta/*` | Meta | FloatPrompt internals (don't modify) |
+| `.float/floatprompt/*` | FloatPrompt | System internals (don't modify) |
 | `.float/project/nav/*.md` | Nav files | Folder navigation (centralized) |
 | `.float/project/context/*.md` | Context | AI-generated terrain maps |
 | `.float/project/logs/*.md` | Logs | Session history |
@@ -128,10 +128,10 @@ AI maintains this system. Human approves changes.
 
 ## Creating Tools
 
-Use `.float/meta/floatprompt/template.md` as template for new FloatPrompt tools.
-Use `.float/meta/floatprompt/doc.md` to add context frontmatter to documents.
-Use `.float/meta/floatprompt/os.md` for guided tool creation with voice preservation.
-Use `.float/meta/floatprompt/update.md` for planning significant changes.
+Use `.float/floatprompt/core/template.md` as template for new FloatPrompt tools.
+Use `.float/floatprompt/core/doc.md` to add context frontmatter to documents.
+Use `.float/floatprompt/core/os.md` for guided tool creation with voice preservation.
+Use `.float/floatprompt/core/update.md` for planning significant changes.
 
 ## FloatPrompt Source
 

@@ -2,4 +2,4 @@
 
 Boot the FloatPrompt System or initialize if none exists.
 
-Read and execute `.float/meta/tools/float.md`
+Read and execute `.float/floatprompt/tools/float.md`

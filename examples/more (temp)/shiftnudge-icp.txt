@@ -1,0 +1,869 @@
+<fp>
+  <json>
+  {
+    "STOP": "Shift Nudge Customer Intelligence Authority Mode. This floatprompt contains complete customer psychology, buying behavior, and decision-making patterns for Shift Nudge's primary customer. Use as definitive customer understanding reference for all positioning, messaging, and strategic decisions.",
+    "floatprompt": {
+      "collaboration_model": "Human+AI joint execution through conversational collaboration with shared context",
+      "ai_role": "Apply customer intelligence to human's specific situation. Provide strategic context for positioning and messaging decisions. Support human judgment with deep customer understanding.",
+      "critical_principle": "You are a collaborative assistant providing customer intelligence, not autonomous software. Support human decision-making with psychological insights and buying behavior patterns."
+    },
+    "meta": {
+      "title": "Shift Nudge ICP — Sarah Shift Customer Intelligence",
+      "id": "shiftnudge-icp",
+      "format": "floatprompt",
+      "file": "txt",
+      "process": "AI-generated from customer research and behavioral analysis"
+    },
+    "human": {
+      "author": "@mds",
+      "intent": "Definitive customer profile for all Shift Nudge positioning, messaging, and sales decisions",
+      "context": "Premium professional interface design training targeting working designers ready to level up their craft and advance their careers",
+      "style": "Deep customer psychology with practical business intelligence for strategic decision-making"
+    },
+    "ai": {
+      "model": "Claude Sonnet 4",
+      "role": "Customer intelligence specialist providing psychological insights and buying behavior analysis for Shift Nudge positioning and messaging decisions"
+    },
+    "requirements": {
+      "customer_intelligence_depth": {
+        "demographic_profile": "Complete professional context with experience range, salary, role, and career trajectory",
+        "psychological_drivers": "Real motivations, anxieties, and aspirations driving purchase decisions and professional development investment",
+        "financial_psychology": "Investment justification, budget context, and $1997 annual pricing acceptance patterns",
+        "decision_framework": "Objection patterns, trigger events, timing factors, and conversion psychology for strategic sales support",
+        "extended_segments": "Career changers with design roles, 6-20 year veterans needing foundations, self-taught professionals, adjacent roles (engineers/PMs)",
+        "success_validation": "Graduate completion patterns from 71+ certificate completers showing who succeeds and what they value most",
+        "financial_accommodation": "PPP tier context with 75+ countries qualifying for 15-85% discounts and 6-month payment plan guardrails"
+      },
+      "voice_standards": {
+        "natural_language": "Use Shift Nudge, professional interface design training, process, system, curriculum, training as primary terms",
+        "strategic_terms": "Use framework, methodology, systematic sparingly and only when contextually appropriate",
+        "authenticity": "Preserve real customer language patterns and psychological truth without corporate sanitization",
+        "professional_positioning": "Maintain premium professional development framing without beginner or transformation language",
+        "graduate_validated_language": "Scattered knowledge to systematic process, understand the WHY, validation gave confidence, immediately applicable to work",
+        "avoid_overused_terms": "Never use 'systematic methodology' (robotic) or 'transformation' (overpromise)"
+      },
+      "business_intelligence": {
+        "qualification_signals": "Behavioral and contextual patterns that indicate high-probability conversion vs low-quality prospects",
+        "objection_psychology": "Underlying concerns beneath stated objections with strategic response guidance",
+        "competitive_context": "What customers compare against and why they choose Shift Nudge over alternatives",
+        "decision_timing": "Career cycles, budget periods, and emotional trigger events that drive purchase decisions"
+      },
+      "strategic_application": {
+        "positioning_guidance": "How to communicate value in ways that resonate with Sarah's real psychology and career goals",
+        "messaging_optimization": "Language patterns and framing that convert based on authentic customer understanding",
+        "sales_support": "Customer intelligence that helps humans make better qualification and follow-up decisions",
+        "product_alignment": "How Shift Nudge curriculum and outcomes map to customer needs and professional development goals"
+      }
+    }
+  }
+  </json>
+  <md>
+    # Shift Nudge ICP — Sarah Shift Customer Intelligence
+    
+    Complete customer profile for positioning, messaging, and strategic decision-making.
+
+    > **"I can do the work, but my visual design, craft, and polish aren't where they need to be. I want to know definitively that my designs are good—and how to get them there."**
+
+    ---
+
+    ## Quick Start
+
+    **Use this ICP when:**
+    - Creating marketing copy or positioning messages
+    - Making sales and qualification decisions
+    - Developing curriculum or course content
+    - Understanding objections and conversion barriers
+    - Supporting strategic business decisions with customer psychology
+
+    **This document provides:**
+    - Deep understanding of who Sarah Shift is and what drives her
+    - Real psychology behind purchase decisions and hesitations
+    - Financial context and investment justification patterns
+    - Strategic guidance for positioning and messaging optimization
+
+    ---
+
+    ## 👤 Sarah Shift Profile
+
+    ### Demographics & Professional Context
+
+    **Core Profile:**
+    - **Age:** 26-34 years old
+    - **Experience:** 2-5 years in product/interface design
+    - **Salary:** ~$95,000 (range: $75K-$120K depending on experience and market)
+    - **Location:** Major tech hub or remote for tech company
+    - **Role:** Product Designer, UI/UX Designer, Interface Designer
+
+    **Professional Context:**
+    - Works at startup (Series A-C) or mid-size tech company
+    - Reports to Senior Designer, Design Lead, or Design Manager
+    - Collaborates daily with product managers and engineers
+    - Responsible for feature design and interface execution
+    - Seeking advancement to Senior Designer or Design Lead within 1-2 years
+
+    **Career Stage Reality:**
+    - Has shipped real work and understands basic design principles
+    - Can complete projects but lacks confidence in craft and polish
+    - Feels visual execution is the gap between current and senior-level work
+    - Knows what good design looks like but struggles to consistently create it
+    - Wants repeatable process instead of trial-and-error approach
+
+    ---
+
+    ## 🎯 Real Dreams & Aspirations
+
+    ### What Sarah Actually Wants
+
+    **Career Advancement:**
+    - Get promoted to Senior Designer or Design Lead
+    - Command respect as someone with solid craft and design judgment
+    - Mentor junior designers with confidence (not wing it)
+    - Work at top-tier company (Figma, Stripe, Linear, etc.)
+    - Build portfolio that opens doors instead of apologizing for gaps
+
+    **Professional Confidence:**
+    - **Stop feeling stupid in design reviews** when questioned about decisions
+    - **Defend design choices with confidence** instead of crumbling under critique
+    - **Know definitively when a design is good** vs. could be better
+    - **Understand HOW to improve** when something's not working
+    - **Feel certain** instead of constantly second-guessing every choice
+
+    **Skill Development:**
+    - Master visual design, craft, and polish (her biggest gap)
+    - Develop repeatable process for interface design decisions
+    - Build intuition for typography, layout, color, and style
+    - Create work that looks effortlessly professional
+    - Become the designer others come to for advice
+
+    **AI Era Positioning:**
+    - Believes design craft is the differentiator in AI-augmented world
+    - Knows AI can't replace taste, judgment, and visual refinement
+    - Wants to be indispensable through craft excellence
+    - Sees senior designers with strong craft thriving while others struggle
+
+    ---
+
+    ## 😰 Real Fears & Frustrations
+
+    ### What Keeps Sarah Up at Night
+
+    **Professional Anxieties:**
+    - **Getting exposed** as someone who "makes it up" without real process
+    - **Looking amateur** compared to designers with refined craft
+    - **Getting passed over for promotion** because work lacks polish
+    - **Being unable to defend decisions** when stakeholders push back
+    - **Staying stuck at mid-level** while others advance with better craft
+
+    **Daily Frustrations:**
+    - **Wasting time on trial-and-error** instead of knowing what works
+    - **Second-guessing every choice** (spacing, colors, typography, layout)
+    - **Not understanding why designs work or fail** (lacks mental models)
+    - **Feeling slower than expected** for experience level
+    - **Imposter syndrome in design reviews** when can't explain decisions
+
+    **Craft & Polish Gap:**
+    - Can complete functional designs but they lack professional refinement
+    - Knows something's "off" but can't identify or fix it systematically
+    - Struggles with typography hierarchy, spacing, and visual balance
+    - Colors and styles feel arbitrary instead of intentional
+    - Work looks "fine" but not "excellent" — the gap to senior level
+
+    **Career Trajectory Concerns:**
+    - Watching colleagues with better craft get promoted past her
+    - Seeing job postings requiring "strong visual design sense"
+    - Fearing commoditization if she can't develop distinctive craft
+    - Worried about being replaced by AI if craft doesn't improve
+    - Missing opportunities because portfolio doesn't showcase excellence
+
+    ---
+
+    ## 🔄 Extended Customer Segments
+
+    ### Beyond the Core: Who Else Succeeds with Shift Nudge
+
+    While Sarah Shift (2-5 years IC designer) represents the ideal customer, analysis of 31+ applicants and 71+ graduates reveals additional high-value segments who succeed with identical pain points. These segments share the same visual craft gaps, confidence challenges, and systematic foundation needs.
+
+    **Critical Qualification Principle:** The unifying factor isn't demographics—it's the pain. Visual craft execution gaps preventing career advancement.
+
+    ---
+
+    ### The Self-Taught Professional
+
+    **Profile:**
+    - Working designer 1-10+ years who learned by doing, no formal design education
+    - Currently employed with design responsibilities and shipped work
+    - Successful through intuition and copying but lacks systematic foundation
+    - May work at major companies (JP Morgan, Atlassian) but feels validation gap
+
+    **Pain Points:**
+    - "I have good taste but can't execute it" / "Outputs don't match my vision"
+    - "Need validation for design decisions I've been guessing at for years"
+    - "Scattered knowledge without systematic process to tie it together"
+    - "Want to rise above mediocrity and have confidence in my abilities"
+
+    **Why They Succeed:**
+    - Same visual craft gaps as Sarah despite years of experience
+    - Systematic foundation fills the formal training void
+    - Graduate feedback: "Finally systematic" / "Validation gave me confidence" (9-10/10 ratings)
+
+    **Examples:**
+    - Mohamed: 10+ years product designer, "did not come from formal design background... opened my eyes to visual tricks" (10/10)
+    - Ipshita: 5-7 years at JP Morgan, "self-taught, relied on gut instincts... if I get trained on foundations I can amplify abilities"
+    - Multiple high-scoring applicants explicitly stating no formal training as pain driver
+
+    **Qualification Approach:**
+    - Same visual craft pain = same fit regardless of formal education
+    - Must have professional design responsibility (not exploring)
+    - Strong pain articulation validates readiness despite unconventional path
+
+    ---
+
+    ### The Experienced Returner
+
+    **Profile:**
+    - 8-20+ years design experience, successful in career but wanting systematic foundation
+    - May have advanced titles (Senior, Staff, Manager) at major companies
+    - Learned through doing but missed foundational principles along the way
+    - Feels work has become routine or wants to sharpen details that matter
+
+    **Pain Points:**
+    - "Back to basics" / "Small things that amount to big changes"
+    - "Routine stifled my creativity, need to break out of rut"
+    - "Want to understand WHY designs work, not just copy patterns"
+    - "Repeatable, tasteful visual design is where I can still improve"
+
+    **Why They Succeed:**
+    - Experience doesn't equal systematic foundation—they have gaps too
+    - Course brings them "back to small details" with fresh perspective
+    - Graduate feedback: "20 years experience, still got gems" / "Game-changer for breaking routine" (8-10/10 ratings)
+
+    **Examples:**
+    - Shauna: 20 years in digital design at Zalando, "still got gems of learnings from course" (8/10)
+    - Sara: 8 years + HCI Masters, "brought me back to small things that amount to big changes" (9/10)
+    - Chris: 10+ years Senior Staff at Google, "repeatable, tasteful visd is where I can improve... slower to execute world-class" (9/10)
+    - João: Several years UI/UX, "fallen into routine that stifled creativity... game-changer" (10/10)
+
+    **Qualification Approach:**
+    - Years of experience doesn't disqualify—foundation gaps exist at all levels
+    - Look for "back to basics" / "systematic approach" language in pain articulation
+    - These are often highest-value customers with strong professional networks
+
+    ---
+
+    ### The Career Advancer
+
+    **Profile:**
+    - Career changer who HAS secured a design role (not just exploring)
+    - Previously: engineer, product manager, marketer, graphic designer
+    - Currently: employed with design responsibilities requiring visual craft skills
+    - Pivoting to advance but craft gap is the barrier
+
+    **Pain Points:**
+    - Identical to IC designers: execution gaps, confidence, systematic approach
+    - "Pivoting from [PM/engineering/marketing] and want craft to not be the barrier"
+    - "Easy to identify what needs changing but mocked-up results don't match vision"
+    - "Need to demonstrate craft for career transition to succeed"
+
+    **Why They Succeed:**
+    - HAVE design responsibility = can apply learning immediately
+    - Same visual craft pain = same fit regardless of entry path
+    - Graduate feedback: Career changers with roles complete at 10/10 success rate
+
+    **Examples:**
+    - Jenny: Frontend engineer → design, "making official career shift from code to design" (10/10)
+    - Linh: Graphic design → UI/UX, "transitioning... learned about systematic behind every decision" (8/10)
+    - Maddie: Growth Marketing → Product Design at Amplitude, "unlikely to pivot without demonstrating craft" (9/10)
+    - Nidhi: PM → Design consultant, "pivoting... want craft to not be barrier to advancing career"
+
+    **Critical Distinction:**
+    - Career advancer WITH role (good fit) vs. career explorer without role (bad fit)
+    - Must HAVE design responsibility to apply learning, not just considering the field
+    - Same pain points as traditional IC designers = same outcomes
+
+    **Qualification Approach:**
+    - Verify they have secured design role/responsibility (not exploring whether to pivot)
+    - Look for concrete project examples showing visual craft challenges
+    - Career urgency often creates strong motivation and commitment
+
+    ---
+
+    ### The Adjacent Professional
+
+    **Profile:**
+    - Engineers, PMs, managers, founders needing visual craft evaluation skills
+    - Not becoming full-time designers but need design judgment for their role
+    - Creating prototypes, evaluating designers' work, or making visual decisions
+    - Want to be effective cross-functionally with design craft understanding
+
+    **Pain Points:**
+    - "Lack specific language to describe what would make designs better"
+    - "Want to evaluate designers capably" / "Improve prototype quality"
+    - "Need visual fluency for cross-functional effectiveness"
+    - "Design craft is differentiator in product development"
+
+    **Why They Succeed:**
+    - Different application but same foundational visual craft needs
+    - Course teaches "understanding WHY" which enables evaluation and judgment
+    - Graduate feedback: Engineers complete at 10/10 with "solid foundation" takeaway
+
+    **Examples:**
+    - Benedict: Startup founder, "feel confident evaluating and collaborating with designers much more capably" (8/10)
+    - Tanner: Staff Software Engineer at Shopify, "lack specific language... want to be more effective at product development" (8/10)
+    - Sajan: Senior Software Engineer, "want to create unique component library, not default to frameworks" (10/10)
+
+    **Qualification Approach:**
+    - Must have legitimate need for visual craft skills in professional role
+    - Different application (evaluation vs. execution) but same foundation needed
+    - Often company-funded with clear business case
+
+    ---
+
+    ## ⚡ Decision Triggers & Timing
+
+    ### When Sarah Actually Buys
+
+    **Career Pressure Moments:**
+    - Just got passed over for promotion (craft cited as gap)
+    - Performance review approaching and needs concrete evidence of growth
+    - New senior designer joined team with noticeably better craft
+    - Started at company with much higher design standards
+    - Taking on project that exposes craft limitations
+
+    **Emotional Trigger Events:**
+    - Bad design review where couldn't defend decisions confidently
+    - Stakeholder asked "why did you choose this?" without good answer
+    - Saw colleague's work and felt embarrassed by comparison
+    - Sunday anxiety about upcoming week's design presentations
+    - Colleague or friend recommended Shift Nudge based on their results
+    - "Something's off but can't identify what" moment of design frustration
+    - Colleague with noticeably stronger craft joined team (comparison anxiety)
+    - Self-taught designer wanting validation after years of guessing
+    - Recent performance review included feedback about craft/polish gaps
+
+    **Timing & Budget Factors:**
+    - New Year professional development resolutions (January surge)
+    - Company budget refresh with training allocation (varies by company)
+    - Received bonus or raise providing investment capacity
+    - Between projects with mental bandwidth for learning
+    - Performance review cycle creating urgency for visible improvement
+
+    **Market Context:**
+    - Design job market tightening (craft becomes differentiator)
+    - AI tools proliferating (craft is human advantage)
+    - Seeing Shift Nudge graduates' work in job market or social media
+    - Design community discussion about importance of craft
+    - Conference or meetup where craft gaps become apparent
+
+    ---
+
+    ## 💰 Financial Psychology
+
+    ### Investment Decision Framework
+
+    **Budget Reality:**
+    - **Annual salary:** ~$95,000 ($75K-$120K range)
+    - **Take-home:** ~$5,500-$6,500/month after taxes and 401k
+    - **Professional development budget:** $3,000-$5,000 annually
+    - **Current tool spending:** ~$250-$350/month (Figma, Adobe, plugins, etc.)
+
+    **$1997 Annual Investment Logic:**
+
+    *"Less than most designers' annual professional development budget"*
+
+    - Annual tool subscriptions: ~$3,000-$4,000/year already
+    - Single conference: $1,500-$2,500 (travel, ticket, hotel)
+    - Random courses accumulated: $500-$1,000/year (never finished)
+    - **Shift Nudge:** $1997/year = **comprehensive solution replacing scattered spending**
+
+    **Monthly Mental Math:**
+    - $1997 annual = **$166/month**
+    - 35-40% less than current monthly tool spending
+    - Less than one fancy dinner per month
+    - Less than 2 days of salary for full year of training
+    - "Tool-level pricing" for career-level impact
+
+    **Investment Psychology Patterns:**
+
+    **Views as Professional Development Investment** (not expense):
+    - Compares to potential salary increase (Senior Designer = $115K-$130K)
+    - $20K+ salary bump from promotion = 10x ROI on $1997 investment
+    - Calculates career-long value, not just immediate learning
+    - Sees craft improvement as prerequisite for advancement
+
+    **Pricing Acceptance Factors:**
+    - Premium positioning signals quality and seriousness
+    - Application-only creates exclusivity and commitment
+    - Social proof from designers at top companies validates investment
+    - Concrete outcomes (portfolio improvement, promotion success) justify price
+    - Lifetime access removes pressure and supports long-term value
+
+    **Company Reimbursement Context:**
+    - Some can expense as professional development
+    - Many self-fund to maintain control and commitment
+    - Mental framing: "I'll expense it if I can, but I'd pay myself"
+    - Not waiting for approval — career urgency overrides budget process
+
+    ---
+
+    ## 💳 Financial Accommodation & Global Pricing
+
+    ### PPP Tier Context & Payment Flexibility
+
+    **Standard Pricing Structure:**
+    - **Primary:** $1,997 annual membership (target 75% of conversions)
+    - **Trial:** $1,297 for 6-month trial (commitment hesitation accommodation)
+    - **Monthly:** $297/month (unique timing situations only)
+    - See complete pricing strategy: `.cursor/reference/shiftnudge_pricing_strategy.txt`
+
+    **Purchasing Power Parity (PPP) Discounts:**
+
+    Shift Nudge serves a global market with 75+ countries qualifying for 15-85% discounts based on purchasing power parity. Complete tier data available in `src/lib/pppTiers.ts`.
+
+    **PPP Tier Breakdown:**
+    - **85% discount:** Egypt, Afghanistan
+    - **75% discount:** India, Pakistan, Nigeria, Bangladesh, Vietnam, Ukraine, Sri Lanka, Egypt (25+ countries)
+    - **65% discount:** Philippines, Thailand, Indonesia, Turkey, Malaysia, Russia, Colombia, Kenya (50+ countries)
+    - **55% discount:** South Africa, Brazil, Argentina, Poland, Romania, Peru, Croatia (20+ countries)
+    - **45% discount:** China, Chile, Mexico, Portugal, Greece, Saudi Arabia (15+ countries)
+    - **35% discount:** Italy, Japan, South Korea, Spain, Singapore, UAE (20+ countries)
+    - **25% discount:** Germany, France, Belgium (5+ countries)
+    - **15% discount:** Canada, UK, Ireland, Netherlands, Austria, Sweden, Norway (10+ countries)
+
+    **Critical Pattern from Applicants:**
+
+    Multiple high-scoring applicants from 75% PPP tier (India, Nigeria, Pakistan) demonstrate:
+    - **Identical pain points** as Sarah Shift: visual craft gaps, confidence, systematic foundation needs
+    - **Strong commitment** scores (8-10/10) with immediate readiness
+    - **Professional context** at major companies (JP Morgan, Atlassian) or strong career motivation
+    - **Capacity constraints** due to self-funded + high-PPP tier combination despite strong fit
+
+    **Accommodation Approach:**
+
+    **Qualify on pain first, capacity second:**
+    1. Assess pain alignment (visual craft gaps, confidence, systematic approach needs)
+    2. Evaluate professional context (has design role, shipped work, career urgency)
+    3. If strong pain + professional fit + high-PPP + self-funded = offer 6-month plan
+    4. Same rigorous standards — geography doesn't change pain-product fit
+
+    **6-Month Payment Plan:**
+    - After PPP discount applied: e.g., 75% off $1,997 = $499 annual
+    - 6-month accommodation: $499 ÷ 6 = ~$83/month
+    - Present as professional accommodation for financial capacity, not product uncertainty
+    - Maintains commitment (6 months) while addressing cash flow reality
+
+    **Qualification Guardrails:**
+    - ✅ High-PPP + strong pain alignment + professional role = accommodate
+    - ✅ Self-funded + career changer with role + strong motivation = accommodate
+    - ✅ Between roles + urgent career pressure + capacity verification = accommodate
+    - ❌ Price shopping behavior regardless of geography = disqualify
+    - ❌ Weak pain articulation + capacity constraints = not ready
+    - ❌ Career explorer without role + financial limitations = wrong timing
+
+    **Strategic Intelligence:**
+    - Geography indicates capacity context, not qualification criteria
+    - Pain alignment is universal — execution gaps, confidence, systematic needs don't vary by location
+    - Multiple graduates from high-PPP countries complete at 9-10/10 success rates
+    - Financial accommodation enables access without compromising member quality or outcomes
+
+    ---
+
+    ## 🚫 Objections & Hesitations
+
+    ### What Sarah Says (And What She Actually Means)
+
+    #### "It's expensive"
+
+    **What she's really saying:**
+    - "I'm not sure the value justifies the investment"
+    - "I've bought courses before that didn't deliver"
+    - "What if this doesn't actually improve my work?"
+
+    **Underlying psychology:**
+    - Value doubt, not genuine budget constraint (she spends $3K-$5K annually already)
+    - Fear of another failed educational purchase
+    - Needs concrete evidence of outcomes before committing
+
+    **Strategic response:**
+    - Salary advancement ROI calculation ($25K increase potential)
+    - Portfolio improvement evidence from graduates
+    - Social proof from designers at companies she respects
+    - Concrete 30-90 day outcomes (not vague transformation promises)
+
+    ---
+
+    #### "I don't have time"
+
+    **What she's really saying:**
+    - "I'm already overwhelmed with work projects"
+    - "I've failed to finish courses before due to time pressure"
+    - "What if I pay and then can't keep up?"
+
+    **Underlying psychology:**
+    - Overwhelm with current responsibilities
+    - Fear of guilt from unfinished investment
+    - Anxiety about adding more to plate
+
+    **Strategic response:**
+    - 5-7 hours/week realistic commitment (not 20+ hours)
+    - Lifetime access removes pressure and supports flexible pacing
+    - Apply directly to current work projects (not separate homework)
+    - Process actually saves time by eliminating trial-and-error
+
+    ---
+
+    #### "I'm not sure it's for my level"
+
+    **What she's really saying:**
+    - "Am I too junior? Too senior? Wrong stage?"
+    - "What if this is too basic or too advanced?"
+    - "I don't want to look stupid if I'm not ready"
+
+    **Underlying psychology:**
+    - Imposter syndrome about current skill level
+    - Fear of being in wrong peer group
+    - Uncertainty about where she actually stands
+
+    **Strategic response:**
+    - 2-5 years experience is exact target range
+    - Focus on craft and polish (her actual gap)
+    - Community of working professionals (not students or hobbyists)
+    - Application process ensures appropriate fit
+
+    ---
+
+    #### "I need to think about it"
+
+    **What she's really saying:**
+    - Could be legitimate evaluation period
+    - Could be polite "I'm not convinced" 
+    - Could be timing/approval coordination
+
+    **Underlying psychology:**
+    - Varies significantly — needs diagnosis, not assumption
+    - Genuine consideration takes 1-3 days typically
+    - Extended silence often indicates soft no or value doubt
+
+    **Strategic response:**
+    - Give space but follow up within 3-4 days
+    - Direct question about specific concerns or timeline
+    - Respect decision either way (preserves relationship)
+
+    ---
+
+    ## 🎯 Why Shift Nudge Fits Sarah Perfectly
+
+    ### The Value Proposition Match
+
+    **Her Primary Gap: Visual Design, Craft, & Polish**
+    - Shift Nudge curriculum focuses exactly here
+    - Typography, layout, color, style — her specific weakness
+    - Process-driven approach gives her the certainty she craves
+    - Portfolio transformation addresses advancement blocker
+
+    **Her Career Goal: Senior Designer / Design Lead**
+    - Members have advanced to Senior, Lead, and Head of Design
+    - Social proof from designers at companies she respects
+    - Craft excellence is documented differentiator for promotion
+    - Portfolio quality opens doors to top-tier companies
+
+    **Her Learning Style: Working Professional**
+    - Built for people with full-time jobs (not students)
+    - Apply directly to current projects (not academic exercises)
+    - Community of peers at same stage (2-5 years experience)
+    - Flexible pacing with lifetime access (no guilt pressure)
+
+    **Her Psychology: Wants Certainty & Process**
+    - Stop guessing, start knowing definitively
+    - Repeatable system instead of trial-and-error
+    - Defend decisions with confidence in design reviews
+    - Build intuition through structured learning
+
+    **Her Financial Reality: Professional Development Budget**
+    - $1997 fits within typical $3K-$5K annual allocation
+    - Less than tool spending + conference + random courses
+    - Career ROI justifies investment (salary advancement potential)
+    - Can potentially expense as professional development
+
+    **Her Timing: Career Advancement Urgency**
+    - Feels craft gap blocking promotion opportunity
+    - Sees AI requiring craft differentiation for job security
+    - Watches colleagues with better craft advance past her
+    - Sunday anxiety about design reviews needs solution
+
+    ---
+
+    ## ✅ Success Validation from Graduates
+
+    ### Who Actually Completes & What They Value
+
+    Analysis of 71+ certificate completers validates the extended customer segments and reveals what drives successful outcomes. This data provides concrete evidence for positioning and qualification decisions.
+
+    **Completion Success Rates by Segment:**
+
+    **Career Changers WITH Roles:** 10/10 success rate
+    - Jenny (engineer → design): "Solid foundation... making official career shift" (10/10)
+    - Linh (graphic → UI/UX): "Systematic behind every decision" (8/10)
+    - Damayanti (non-design background): "Extremely helpful... specific lessons on colors, typography, mobile vs desktop" (8/10)
+    - Ariana (recent grad, no prior experience): "How much I have grown... each video broke down fundamentals into manageable steps" (10/10)
+
+    **10-20+ Year Veterans:** 8-10/10 success rate with "back to basics" value
+    - Shauna (20 years): "Even though quite experienced... still got gems of learnings" (8/10)
+    - Sara (8 years + HCI Masters): "Brought me back to small things that really amount to big changes" (9/10)
+    - Jeremy (20+ years): "Been designing well over 20 years... this can all be learned. Inspiring to see others grab concepts" (8/10)
+    - João (several years): "Fallen into routine that stifled creativity... game-changer for breaking out" (10/10)
+
+    **Self-Taught Professionals:** 9-10/10 success rate with "finally systematic" feedback
+    - Mohamed (10+ years, no formal background): "Opened my eyes to visual tricks... plethora of neat techniques" (10/10)
+    - Osemudiamen: "I have everything it takes to make solid decisions grounded in strong understanding of fundamentals" (10/10)
+    - Akash Joshua: "Pushed me to step up UI game... more confident stepping into next level of career" (10/10)
+
+    **Adjacent Roles (Engineers/PMs):** 10/10 success rate with "solid foundation" outcomes
+    - Jenny (frontend engineer): "Solid foundation... core design principles like typography, layout, color" (10/10)
+    - Benedict (startup founder): "Feel confident evaluating and collaborating with designers much more capably" (8/10)
+
+    **Top Graduate Takeaways (Validated Messaging Language):**
+
+    **"Scattered knowledge → systematic process" (most common theme):**
+    - "Transforms interface design from scattered tips into clear, repeatable process" (Elizabeth, 10/10)
+    - "Systematic overview filling in the gaps" (Andrea, 8/10)
+    - "Structured approach that still allows for creativity" (Nisha, 10/10)
+    - "Think in systems and focus on fundamentals" (Erik, 10/10)
+
+    **"Understanding the WHY" (confidence driver):**
+    - "Design isn't just taste, it's clarity. Helped me understand the WHY behind strong visual choices" (Nia, 10/10)
+    - "Deep understanding of why in every design decision" (Natanael, 9/10)
+    - "Breaking down gut feeling of right/wrong into composite parts" (Benedict, 8/10)
+    - "Not just what works but WHY, and how to apply it in real projects" (Elizabeth, 10/10)
+
+    **"Validation & confidence" (self-taught professionals especially):**
+    - "Cement ideas I knew but gave me validation so I can be confident with my design decisions" (Aashishlal, 10/10)
+    - "Gained a lot of confidence about taking UX decisions now" (Shuvam @Atlassian, 9/10)
+    - "I can trust that my process and consistency will lead to work I'm proud of" (Osemudiamen, 10/10)
+
+    **"Back to basics / small details" (experienced designers):**
+    - "Brought me back to small things that really amount to big changes. Nice to re-focus on subtlety and minutiae" (Sara, 8 years + Masters, 9/10)
+    - "Back to basics and fundamentals. Made me think in different perspectives" (Jen, 9+ years, 9/10)
+    - "Establishing the basics is a big step for a good designer" (Marinela, 10/10)
+
+    **"Immediately applicable to day-to-day work" (working professionals):**
+    - "Applied the lessons in my day-to-day work which felt like easier route" (Benedict, 8/10)
+    - "Return to any module and instantly find answers to design problems I was facing in real work" (Nia, 10/10)
+    - "Learning this while working as product designer... upskilling as I went through every module" (Jon, 10/10)
+
+    **Most Valued Topics (Frequency Analysis):**
+
+    1. **Typography:** Mentioned explicitly 12+ times as most valuable
+    2. **Layout, spacing, hierarchy:** 10+ mentions as immediately useful
+    3. **Color systems (especially HSB method):** 8+ mentions of specific technique value
+    4. **Grid systems:** 5+ mentions of foundation-building importance
+    5. **Details, subtlety, refinement:** Experienced designers value precision aspects
+
+    **Companies Represented in Graduates:**
+    - **Atlassian:** 5+ completers (Shuvam, Eduardo, Nayaab, Joel, Nakul)
+    - **Google:** Rebecca (9/10)
+    - **Dropbox:** Elizabeth (8/10)
+    - **GitLab:** Michael (8/10)
+    - **Zalando:** Shauna (20 years, 8/10), Idowu (7/10)
+    - **Seek:** Amy (7/10), Nigel (10/10)
+    - **Klaviyo, Amplitude, JP Morgan** (per applicant data)
+
+    This validates premium professional positioning and enterprise-applicable outcomes.
+
+    **NPS Distribution:**
+    - **10/10 (Promoters):** Majority of completers
+    - **8-9/10 (Strong):** Most remaining completers
+    - **7/10 (Satisfied):** Small minority
+    - **Below 6/10:** Rare outliers
+
+    Average recommendation score demonstrates strong product-market fit across all segments.
+
+    ---
+
+    ## 📊 Strategic Business Intelligence
+
+    ### Qualification Signals (High Probability)
+
+    **Strong Indicators:**
+    - 2-5 years experience at startup or tech company
+    - Explicitly mentions craft, polish, or visual design gaps
+    - Career advancement goals (Senior, Lead roles)
+    - Professional development investment mindset
+    - Self-funded or company reimbursement capability
+
+    **Green Flags:**
+    - Articulates specific craft challenges (typography, spacing, color)
+    - Describes imposter syndrome or confidence gaps
+    - References design reviews or stakeholder presentations
+    - Mentions portfolio improvement for career advancement
+    - Shows urgency (promotion cycle, performance review, job search)
+
+    **Engagement Patterns:**
+    - Asks concrete questions about curriculum or outcomes
+    - References specific work challenges Shift Nudge addresses
+    - Mentions timeline for decision (ready now vs 30 days)
+    - Self-identifies with craft gap positioning
+
+    ---
+
+    ### Anti-Patterns (Low Probability)
+
+    **Red Flags:**
+    - **Career explorer without design role/responsibility** (not career advancer WITH role)
+    - **Complete beginners seeking basic software training only** (wrong positioning)
+    - **Hobbyists with no professional design context** (not working professionals)
+    - **Students without work to apply learning to** (can't use immediately)
+    - **Price shoppers showing discount-seeking behavior** (wrong investment mindset)
+    - **Vague goals without specific craft focus** (unclear pain-product fit)
+
+    **Critical Distinction:**
+    - ❌ "Career changer exploring whether design is for me" = wrong stage
+    - ✅ "Career changer with design role needing craft foundation" = good fit
+    - The difference is HAVING design responsibility vs. CONSIDERING the field
+
+    **Time Wasters:**
+    - Multiple non-responses across extended follow-up
+    - Excessive information requests without decision progression
+    - Comparing to free alternatives (YouTube, Medium articles)
+    - "I'll think about it" without specific consideration criteria
+    - Price negotiation attempts despite PPP discounts already applied
+
+    ---
+
+    ### Competitive Context
+
+    **What Sarah Has Already Tried:**
+
+    **Free Alternatives (Didn't Work):**
+    - YouTube tutorials: Inconsistent, no system, random tips
+    - Design Twitter/LinkedIn: Inspiration without process
+    - Medium articles: Surface-level, not comprehensive
+    - Dribbble/Behance: Visual inspiration only, no learning
+
+    **Paid Courses (Failed Her):**
+    - Random Udemy/Skillshare: Too basic or not interface-focused
+    - Short courses: Incomplete, no support, abandoned
+    - Books: Too theoretical, can't apply to daily work
+    - Conferences: Once yearly, expensive, no ongoing support
+
+    **Why She Chooses Shift Nudge:**
+    - **Comprehensive system** vs. scattered random knowledge
+    - **Built for working professionals** vs. students or hobbyists
+    - **Craft-focused curriculum** vs. general design theory
+    - **Ongoing support** vs. one-time content dump
+    - **Proven outcomes** vs. vague skill development promises
+    - **Community of peers** vs. isolated learning experience
+
+    ---
+
+    ## 💡 Messaging & Positioning Guidance
+
+    ### Language That Resonates
+
+    **Use These Terms:**
+    - Professional interface design training
+    - Visual design, craft, and polish
+    - Process and system for confident decisions
+    - Career advancement to Senior/Lead roles
+    - Portfolio transformation and concrete outcomes
+    - Working designers at [company names]
+
+    **Graduate-Validated Phrases (Top Takeaways from 71+ Completers):**
+    - "Scattered knowledge → systematic process" (most common theme)
+    - "Understand the WHY behind design decisions" (confidence driver)
+    - "Validation gave me confidence" (self-taught professionals especially)
+    - "Immediately applicable to day-to-day work" (working professionals)
+    - "Back to basics that make big difference" (experienced designers)
+    - "Break down gut feeling into composite parts" (judgment clarity)
+    - "Clear, repeatable process" (eliminates guesswork)
+
+    **Avoid These Terms:**
+    - Systematic methodology (overused, sounds robotic)
+    - Transformation or life-changing (overpromise)
+    - Beginner or fundamentals (wrong positioning for core Sarah)
+    - Learn design from scratch (assumes no experience)
+    - Hobby or side project (professional context only)
+
+    **Emotional Resonance:**
+    - "Stop second-guessing" (her daily frustration)
+    - "Defend decisions with confidence" (her anxiety point)
+    - "Know definitively" (certainty she craves)
+    - "Professional polish" (specific gap she feels)
+    - "Career advancement" (concrete goal)
+
+    **Social Proof Pattern:**
+    - "Designers at Figma, Google, Microsoft" (aspiration)
+    - "Advanced to Senior Designer, Design Lead" (her goal)
+    - "Community of 4,600+ working professionals" (peer validation)
+    - "Portfolio transformation in 90 days" (concrete timeline)
+
+    ---
+
+    ### Positioning Strategy
+
+    **Core Value Proposition:**
+    "Professional interface design training that builds the craft, polish, and confidence working designers need to advance their careers."
+
+    **Primary Benefit:**
+    Stop guessing and start knowing — develop the visual design process and professional polish that differentiates senior-level work.
+
+    **Differentiation:**
+    - Comprehensive system vs. scattered tutorials
+    - Working professional focus vs. student/beginner courses
+    - Craft excellence vs. general design theory
+    - Proven career outcomes vs. vague skill promises
+
+    **Conversion Framework:**
+    1. **Identify the gap:** Visual design, craft, and polish holding back advancement
+    2. **Show the outcome:** Senior roles, portfolio transformation, confident decisions
+    3. **Prove credibility:** Designers at top companies, concrete results, peer community
+    4. **Remove barriers:** Lifetime access, professional development investment framing
+    5. **Create urgency:** Career advancement timing, performance reviews, market competition
+
+    ---
+
+    ## ⚠️ Warnings & Considerations
+
+    ### What This ICP Is Not
+
+    **This is NOT about:**
+    - Complete beginners seeking basic software training
+    - Career explorers without design roles (considering the field)
+    - Hobbyists or side-project designers (no professional context)
+    - Agencies seeking client work tips (wrong application)
+    - People who want to "test it out" (wrong commitment level)
+
+    **Core Customer Profile (Expanded):**
+    - **Primary:** Working designer with 2-5 years professional experience (Sarah Shift)
+    - **Extended:** Self-taught professionals (1-20 years), career advancers WITH roles, experienced returners (8-20+ years), adjacent professionals (engineers/PMs)
+    - **Unifying factor:** Visual craft execution gaps preventing career advancement
+    - **Common needs:** Has shipped work, lacks craft confidence, seeking systematic foundation
+    - **Shared psychology:** Ready to invest in professional development for concrete outcomes
+    - **Values:** Process and system over random tips and tricks
+
+    ### Using This Intelligence
+
+    **For Positioning & Messaging:**
+    - Speak directly to craft gap and career advancement goals
+    - Use social proof from companies and roles she aspires to
+    - Frame $1997 as professional development investment with ROI
+    - Address imposter syndrome and confidence gaps honestly
+
+    **For Sales & Follow-Up:**
+    - Qualify based on experience level and professional context
+    - Diagnose real objections beneath surface hesitations
+    - Extend effort for engaged prospects with strong fit signals
+    - Close gracefully when qualification or timing doesn't match
+
+    **For Product & Curriculum:**
+    - Focus on visual design, craft, and polish outcomes
+    - Build confidence through process and repeatable systems
+    - Create portfolio-quality work applicable to career advancement
+    - Support working professional schedule and learning style
+
+    ---
+
+    Created by @mds and Claude Sonnet 4
+  </md>
+</fp>
+
+<!-- @MDS | floatprompt.com -->

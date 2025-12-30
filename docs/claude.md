@@ -9,9 +9,9 @@ human_intent: Document the Claude Code integration for FloatPrompt System mainte
 human_context: How /float commands work with the FloatPrompt System
 
 ai_model: Claude Opus 4.5
-ai_updated: 2025-12-29
+ai_updated: 2025-12-30
 ai_notes: |
-  Updated for v0.10.0 — commands now palette-discoverable as separate slash commands.
+  Updated for v0.11.0 — restructured .float/meta/ → .float/floatprompt/.
   Full command spec: specs/claude/commands.md
   Buoy pattern spec: specs/claude/buoys.md
 ---
@@ -249,7 +249,7 @@ Five commands. Each does one thing well.
 | File | Purpose |
 |------|---------|
 | `.claude/commands/float*.md` | Command routers (6 files) |
-| `.float/meta/tools/float*.md` | Tool implementations (5 files) |
+| `.float/floatprompt/tools/float*.md` | Tool implementations (5 files) |
 | `specs/claude/commands.md` | Full command specification |
 | `specs/claude/buoys.md` | Buoy pattern specification |
 
@@ -276,15 +276,17 @@ Five commands. Each does one thing well.
 
 ## Architecture
 
-The FloatPrompt System (v0.10.0) uses **meta/project separation**:
+The FloatPrompt System (v0.11.0) uses **floatprompt/project separation**:
 
 ```
 .float/
 ├── system.md          # Boot loader
-├── meta/              # FloatPrompt internals (don't modify)
-│   ├── floatprompt/   # Core templates
+├── floatprompt/       # FloatPrompt internals (don't modify)
+│   ├── index.md       # Structural reference
+│   ├── core/          # Core templates
 │   └── tools/         # /float command tools
 └── project/           # Your project's data
+    ├── project.md     # Structural reference
     ├── context/       # Terrain maps
     ├── nav/           # Folder navigation
     │   ├── root.md
@@ -295,7 +297,7 @@ The FloatPrompt System (v0.10.0) uses **meta/project separation**:
 ```
 
 **Why this structure?**
-- meta = don't touch (system files)
+- floatprompt = don't touch (system files)
 - project = your stuff
 - Instant clarity from folder names
 
@@ -303,7 +305,7 @@ The FloatPrompt System (v0.10.0) uses **meta/project separation**:
 
 ## Status
 
-**Current:** v0.10.0 — All five commands implemented and operational.
+**Current:** v0.11.0 — All five commands implemented and operational.
 
 **Validated:** Running on the floatprompt repo itself.
 

@@ -1,0 +1,93 @@
+<fp>
+  <json>
+  {
+    "STOP": "Shift Nudge applicant processing authority for systematic CSV extraction and intelligence document creation. This floatprompt contains complete workflow for converting raw application data into AI-optimized applicant profiles with scoring and personalization context. Use as definitive processing reference for all application evaluation and intelligence document generation.",
+    "meta": {
+      "title": "Shift Nudge Applicant Processing System — CSV to Intelligence Document Workflow",
+      "id": "shiftnudge-applicant-processing",
+      "format": "floatprompt",
+      "file": "txt",
+      "process": "AI-generated from systematic processing requirements and automation pipeline design"
+    },
+    "human": {
+      "author": "@mds",
+      "intent": "Systematic application processing workflow for creating individual applicant intelligence documents with scoring and personalization context",
+      "context": "Premium membership qualification pipeline targeting working designers with automated processing for sales email personalization",
+      "style": "Operational documentation with precise extraction steps and data formatting requirements"
+    },
+    "ai": {
+      "model": "Claude Sonnet 4",
+      "role": "Application processing specialist and intelligence document generator for systematic membership qualification and sales personalization"
+    },
+    "requirements": {
+      "processing_workflow": {
+        "data_extraction": "Systematic extraction of all 32 CSV fields from application reference structure with complete answer preservation",
+        "scoring_application": "Apply four-signal scoring methodology (Fit/Pain/Capacity/Readiness) producing Hot/Warm/Cold classification",
+        "intelligence_formatting": "Structure extracted data and scoring results for AI consumption and sales email personalization",
+        "document_generation": "Create individual floatprompt per applicant for downstream automation and CRM integration"
+      },
+      "extraction_methodology": {
+        "administrative_fields": "Extract submission metadata, contact information, and professional profiles for CRM coordination",
+        "qualification_responses": "Preserve complete application answers for pain point identification and personalization context",
+        "variable_extraction_mapping": "Map 32 CSV fields to specific email template variables with systematic field-to-variable correspondence",
+        "scoring_calculation": "Apply scoring methodology from triage system producing numerical scores and classification",
+        "language_preservation": "Maintain applicant's actual language and phrasing for authentic email personalization",
+        "complete_variable_list": "Extract all professional context, challenge analysis, motivation drivers, capacity indicators, and community fit variables for email template processing"
+      },
+      "intelligence_document_structure": {
+        "applicant_profile": "Complete professional context with role, experience, company, and contact information",
+        "pain_points_analysis": "Extracted challenges, motivations, and systematic methodology needs in applicant's own words",
+        "scoring_results": "Four-signal scores, composite percentage, and Hot/Warm/Cold classification with routing guidance",
+        "personalization_context": "Key phrases, specific challenges, and language patterns for email template customization",
+        "email_template_variables": "Systematic extraction of all professional context, challenge analysis, motivation drivers, capacity indicators, and community fit variables for direct email template processing",
+        "output_format_guidance": "Structure variables in consistent format for AI email template processing with clear variable naming and authentic language preservation"
+      },
+      "automation_integration": {
+        "single_applicant_focus": "Generate individual floatprompt per submission for systematic automation pipeline processing",
+        "CRM_coordination": "Structure data for systematic CRM integration and sales process coordination",
+        "email_preparation": "Format intelligence for immediate use in personalized sales sequence generation",
+        "workflow_optimization": "Enable systematic processing from Tally submission through CRM integration and email sequences"
+      }
+    }
+  }
+  </json>
+  <md>
+    # Shift Nudge Applicant Processing System
+    Complete workflow for converting raw CSV application data into AI-optimized applicant intelligence documents with scoring and personalization context for sales automation.
+
+    ## Quick Start
+    Extract applicant data from CSV using application reference structure, apply scoring methodology, generate individual intelligence floatprompt per applicant. Document contains complete profile, scoring results, and personalization context for email sequences.
+
+    ## Goals
+    - Systematic processing of raw application data into structured intelligence documents
+    - Apply scoring methodology producing Hot/Warm/Cold classification for systematic routing
+    - Preserve applicant language and pain points for authentic sales email personalization
+    - Generate individual floatprompts per applicant enabling automation pipeline integration
+    - Structure data for immediate CRM coordination and systematic sales process execution
+
+    ## Context
+    Use this processing system for:
+    - Every new application submission requiring evaluation and intelligence document creation
+    - Systematic conversion from raw CSV data to AI-optimized applicant profiles
+    - Automation pipeline coordination from Tally through CRM integration and email sequences
+    - Sales team coordination with structured applicant intelligence and personalization context
+    - Consistent application processing eliminating manual data formatting and scoring calculation
+
+    ## Output
+    **Applicant Profile:** Complete professional context with role, experience, company, and systematic methodology alignment assessment
+    **Pain Points Analysis:** Extracted challenges and motivations in applicant's actual language for email personalization
+    **Scoring Results:** Four-signal evaluation with Hot/Warm/Cold classification and specific routing recommendations
+    **Personalization Context:** Key phrases, challenges, and language patterns enabling authentic sales communication
+    **Intelligence Document:** Individual applicant floatprompt ready for CRM integration and email sequence generation
+
+    ## Warnings
+    - Process individual applicants only, not batch processing for systematic automation coordination
+    - Preserve exact applicant language and phrasing without interpretation or modification for authentic personalization
+    - Apply scoring methodology consistently using established criteria and thresholds from triage system
+    - Generate complete intelligence documents enabling effective sales email personalization and systematic follow-up
+    - Structure output for systematic automation pipeline integration and CRM coordination requirements
+
+    Created by @mds and Claude Sonnet 4
+  </md>
+</fp>
+<!-- @MDS | floatprompt.com -->
