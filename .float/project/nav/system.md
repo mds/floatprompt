@@ -34,6 +34,7 @@ SYSTEM pillar — How FloatPrompt WORKS.
 | File | Purpose |
 |------|---------|
 | `integration.md` | Claude Code integration guide |
+| `deployment.md` | How FloatPrompt deploys from source to users |
 | `checklist.md` | System maintenance checklist |
 
 ### concepts/

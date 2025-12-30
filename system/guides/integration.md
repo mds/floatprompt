@@ -11,9 +11,9 @@ human_context: How /float commands work with the FloatPrompt System
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-30
 ai_notes: |
-  Moved from format/docs/claude.md to system/claude-integration.md
+  Moved from format/docs/claude.md to system/guides/integration.md
   This is SYSTEM pillar content — describes operational behavior
-  v0.12.0: Restructured to three pillars
+  v0.12.0: Restructured to three pillars, mirrored folder structure
 ---
 
 # Claude Code Integration
@@ -21,9 +21,10 @@ ai_notes: |
 Claude Code integration for the FloatPrompt System.
 
 **Related specs:**
-- [Command System](commands.md)
-- [Buoy Pattern](buoys.md)
-- [Architecture](architecture.md)
+- [Command System](../reference/commands.md)
+- [Buoy Pattern](../concepts/buoys.md)
+- [Architecture](../concepts/architecture.md)
+- [Deployment](deployment.md)
 
 ---
 
