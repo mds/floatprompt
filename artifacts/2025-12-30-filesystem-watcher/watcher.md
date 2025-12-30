@@ -18,13 +18,13 @@
 
   "ai": {
     "role": "Watcher specification reference",
-    "behavior": "Understand how the code layer detects changes and produces data for Scout Buoy"
+    "behavior": "Understand how the code layer detects changes and produces data for scout-map"
   },
 
   "requirements": {
     "runtime": "Node.js",
     "scope": "Entire project directory with standard ignores",
-    "output": "Raw change data for Scout Buoy",
+    "output": "Raw change data for scout-map (via scout-detect)",
     "always_on": "Runs continuously while active"
   }
 }
@@ -34,7 +34,7 @@
 
 **The code layer that detects changes and triggers the buoy chain.**
 
-Pure Node.js. No AI calls. Runs continuously, detects filesystem events, gathers raw data, and passes to Scout Buoy.
+Pure Node.js. No AI calls. Runs continuously, detects filesystem events, gathers raw data via scout-detect, and passes non-trivial changes to scout-map.
 
 ---
 
@@ -45,8 +45,8 @@ Pure Node.js. No AI calls. Runs continuously, detects filesystem events, gathers
 │  Filesystem Watcher                     │
 │                                         │
 │  ┌─────────────┐    ┌────────────────┐ │
-│  │  Event      │───→│  Detect        │ │
-│  │  Listener   │    │  Functions     │ │
+│  │  Event      │───→│  scout-detect  │ │
+│  │  Listener   │    │  (code)        │ │
 │  └─────────────┘    └────────────────┘ │
 │                            │            │
 │                            ▼            │
@@ -57,8 +57,8 @@ Pure Node.js. No AI calls. Runs continuously, detects filesystem events, gathers
 │                            │            │
 └────────────────────────────│────────────┘
                              │
-                             ▼
-                      Scout Buoy
+                             ▼ (if non-trivial)
+                      scout-map (AI)
 ```
 
 ---
@@ -252,11 +252,41 @@ async function checkVersions(content, currentVersion) {
 }
 ```
 
+### Version Source
+
+Where does the watcher get the current project version?
+
+```javascript
+async function getCurrentVersion() {
+  // Primary: package.json
+  const pkgPath = path.join(projectRoot, 'package.json');
+  if (await fs.pathExists(pkgPath)) {
+    const pkg = await fs.readJson(pkgPath);
+    if (pkg.version) return pkg.version;
+  }
+
+  // Fallback: .float/project/context/*.md frontmatter
+  const contextFiles = await glob('.float/project/context/*.md');
+  for (const file of contextFiles) {
+    const frontmatter = await parseFrontmatter(file);
+    if (frontmatter?.version) return frontmatter.version;
+  }
+
+  // No version found
+  return null;
+}
+```
+
+**Priority:**
+1. `package.json` version field (standard for Node projects)
+2. Context file frontmatter version (fallback for non-npm projects)
+3. `null` if no version found (version checking disabled)
+
 ---
 
 ## Raw Change Data Output
 
-What the watcher passes to Scout Buoy:
+What scout-detect passes to scout-map (for non-trivial changes):
 
 ```json
 {
@@ -328,7 +358,7 @@ if (batchedChanges.length > FLOOD_THRESHOLD) {
 
 ## State File
 
-Watcher state persisted to `.float/.watcher.json`:
+Watcher state persisted to `.float/project/.watcher.json`:
 
 ```json
 {
@@ -339,6 +369,7 @@ Watcher state persisted to `.float/.watcher.json`:
   "files_tracked": 147,
   "last_event": "2025-12-30T14:32:00Z",
   "pending_scouts": 0,
+  "offline_queue": [],
   "config": {
     "debounce_ms": 500,
     "batch_window_ms": 1000,
@@ -346,6 +377,8 @@ Watcher state persisted to `.float/.watcher.json`:
   }
 }
 ```
+
+**Location rationale:** `.float/project/` is for project-specific data (not system internals). Watcher state is project-specific.
 
 ---
 
@@ -377,7 +410,7 @@ npx floatprompt scan
 
 When `/float` runs in Claude Code:
 
-1. Check `.float/.watcher.json` for status
+1. Check `.float/project/.watcher.json` for status
 2. If running: Report status, continue to boot
 3. If not running: Start watcher, then boot
 4. If crashed: Restart watcher, report recovery
@@ -452,7 +485,7 @@ Check .float/ exists?
       ├── No → Initialize .float/
       │
       ▼
-Check .watcher.json exists?
+Check .float/project/.watcher.json exists?
       │
       ├── Yes, running → Report status, exit
       ├── Yes, stale → Clean up, start fresh
@@ -461,7 +494,7 @@ Check .watcher.json exists?
 Start filesystem watcher
       │
       ▼
-Run initial scan (Scout Buoy)
+Run initial scan (scout-detect → scout-map if needed)
       │
       ▼
 Report status
@@ -474,30 +507,93 @@ Enter watch loop
 
 ## Initial Scan
 
-On startup, watcher runs a full scan:
+On startup, watcher runs a full scan checking all staleness types:
 
 ```javascript
 async function initialScan() {
-  // Get all tracked files
+  const currentVersion = await getCurrentVersion();
   const files = await glob('**/*', { ignore: ignorePatterns });
-
-  // Check for obvious issues (broken refs, missing frontmatter)
   const issues = [];
+
   for (const file of files) {
+    const content = await fs.readFile(file, 'utf8');
+    const frontmatter = await parseFrontmatter(file);
+
+    // 1. Broken references
     const refs = await checkReferences(file);
     if (refs.broken_refs.length > 0) {
-      issues.push({ file, type: 'broken_refs', refs: refs.broken_refs });
+      issues.push({ file, type: 'broken_refs', details: refs.broken_refs });
+    }
+
+    // 2. Timestamp drift (ai_updated older than file mtime)
+    if (frontmatter) {
+      const timestamps = await checkTimestamps(file, frontmatter);
+      if (timestamps.is_stale) {
+        issues.push({ file, type: 'timestamp_drift', details: timestamps });
+      }
+    }
+
+    // 3. Version mismatches
+    if (currentVersion) {
+      const versions = await checkVersions(content, currentVersion);
+      if (versions.mismatches.length > 0) {
+        issues.push({ file, type: 'version_mismatch', details: versions.mismatches });
+      }
+    }
+
+    // 4. Missing frontmatter (for files that should have it)
+    if (shouldHaveFrontmatter(file) && !frontmatter) {
+      issues.push({ file, type: 'missing_frontmatter', details: null });
     }
   }
 
-  // If issues found, trigger Scout Buoy with batch
+  // 5. Orphaned nav entries (files listed in nav that don't exist)
+  const navOrphans = await checkNavOrphans();
+  issues.push(...navOrphans);
+
+  // If issues found, trigger scout-map with batch
   if (issues.length > 0) {
-    await triggerScout({ type: 'initial_scan', issues });
+    await triggerScoutMap({ type: 'initial_scan', issues });
   }
 
   return { files_tracked: files.length, issues_found: issues.length };
 }
+
+function shouldHaveFrontmatter(filePath) {
+  // Files in these locations should have frontmatter
+  const frontmatterPaths = ['.float/', 'docs/', 'specs/'];
+  return frontmatterPaths.some(p => filePath.includes(p)) && filePath.endsWith('.md');
+}
+
+async function checkNavOrphans() {
+  const orphans = [];
+  const navFiles = await glob('.float/project/nav/*.md');
+
+  for (const navFile of navFiles) {
+    const content = await fs.readFile(navFile, 'utf8');
+    // Parse table rows for file references
+    const fileRefs = parseNavTableFiles(content);
+
+    for (const ref of fileRefs) {
+      if (!await fs.pathExists(ref)) {
+        orphans.push({ file: navFile, type: 'orphan_entry', details: ref });
+      }
+    }
+  }
+
+  return orphans;
+}
 ```
+
+### Staleness Types Checked
+
+| Type | What It Catches |
+|------|-----------------|
+| broken_refs | Links that don't resolve |
+| timestamp_drift | ai_updated older than file mtime |
+| version_mismatch | Old version strings in content |
+| missing_frontmatter | Files that should have frontmatter but don't |
+| orphan_entry | Nav entries pointing to non-existent files |
 
 ---
 

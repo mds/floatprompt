@@ -152,12 +152,20 @@ system/               # NEW - SYSTEM pillar
 
 ### 9. FLOAT.md in every folder ✓
 
-**Decision:** Every folder gets a `FLOAT.md` file.
+**Decision:** Every folder gets a `FLOAT.md` file using **full `<fp><json><md>` format**.
 
-| Folder Type | Format | Purpose |
-|-------------|--------|---------|
-| Project folders | floatprompt doc (YAML) | Context about the folder |
-| System folders (`.float/*`) | floatprompt tool (`<fp>`) | Behavioral instructions |
+| Aspect | Specification |
+|--------|---------------|
+| Format | Always `<fp><json><md>` (floatprompt tool) |
+| JSON includes | STOP, meta, human, ai, requirements |
+| Markdown includes | Quick context, contents, purpose |
+| Consistency | Same format for ALL folders |
+
+**Why full `<fp>` format everywhere:**
+- Better AI hooks via structured JSON
+- "STOP" field gives immediate context
+- Consistent parsing across all folders
+- No doc vs tool distinction needed
 
 ---
 

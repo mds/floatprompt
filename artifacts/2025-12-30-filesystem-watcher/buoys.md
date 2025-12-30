@@ -31,23 +31,58 @@
 <md>
 # Watcher Buoy Specifications
 
-**Three buoys form the AI decision chain: Scout → Map → Think.**
+**Three AI buoys form the decision chain: scout-map → Map Buoy → Think Buoy.**
 
 Each buoy has a focused responsibility. Together they assess changes, determine impact, and decide action.
 
 ---
 
-## Scout Buoy
+## Naming Convention
 
-**Purpose:** Assess a filesystem change and gather initial context.
+| Name | Type | Description |
+|------|------|-------------|
+| scout-detect | Code function | Mechanical detection, runs on every change |
+| scout-map | AI buoy (lightweight) | Assesses non-trivial changes, produces report |
+| Map Buoy | AI buoy (full) | Determines blast radius, semantic relationships |
+| Think Buoy | AI buoy (full) | Decides actions, invokes commands |
+| /float-* | Commands | Text tools invoked by buoys or humans |
 
-### Role
+**Pattern:**
+- `lowercase-hyphen` = code function or lightweight AI
+- `Title Case Buoy` = full AI agent
+- `/float-*` = command (slash prefix)
 
-The first responder. Scout sees the raw change data from the code layer and produces a quick assessment. Fast, lightweight, runs on every change.
+---
+
+## Scout (Two Phases)
+
+Scout has two phases: code detection and AI mapping.
+
+### scout-detect (Code Phase)
+
+**Purpose:** Gather raw data about a filesystem change. Filter trivial changes.
+
+Pure code. No AI. Runs on every filesystem event.
+
+**Trivial changes (filtered out, no AI):**
+- Ignored files (.DS_Store, node_modules, etc.)
+- Files with no references to/from .float/
+- Pure whitespace changes
+
+**Non-trivial changes (passed to scout-map):**
+- Files referenced by nav/*.md
+- Files with frontmatter
+- Changes to .float/ itself
+
+### scout-map (AI Phase)
+
+**Purpose:** Assess a non-trivial change and produce a report for Map Buoy.
+
+Fast, lightweight AI. Only runs when scout-detect flags a non-trivial change.
 
 ### Input
 
-From code layer:
+From scout-detect (code layer):
 
 ```json
 {
@@ -65,7 +100,7 @@ From code layer:
 
 ### Output
 
-Scout Report:
+scout-map Report:
 
 ```json
 {
@@ -88,9 +123,9 @@ Scout Report:
 ### Prompt
 
 ```
-You are Scout Buoy. Your job is to assess a filesystem change quickly.
+You are scout-map. Your job is to assess a filesystem change quickly.
 
-CHANGE DATA:
+CHANGE DATA (from scout-detect):
 {raw_change_data}
 
 TASKS:
@@ -102,11 +137,11 @@ TASKS:
    - references: Are any references now broken?
    - version: Any version strings that might be outdated?
 5. Assess urgency: normal | elevated | critical
-6. Decide if Map Buoy is needed (needs_map: true/false)
+6. Always pass to Map Buoy (chain of command)
 
-OUTPUT: JSON scout report
+OUTPUT: JSON scout-map report
 
-Be fast. Be accurate. When uncertain, flag for Map Buoy.
+Be fast. Be accurate. Map Buoy will determine the full blast radius.
 ```
 
 ### Model
@@ -121,15 +156,15 @@ Configurable. Start with Haiku for speed.
 
 ### Role
 
-The analyst. Map Buoy takes Scout's report and goes deeper — understanding not just mechanical links but semantic relationships. "This file talks about authentication" even if no direct reference exists.
+The analyst. Map Buoy takes scout-map's report and goes deeper — understanding not just mechanical links but semantic relationships. "This file talks about authentication" even if no direct reference exists.
 
 ### Input
 
-Scout Report + additional context:
+scout-map Report + additional context:
 
 ```json
 {
-  "scout_report": { ... },
+  "scout_map_report": { ... },
   "nav_files": ["nav/src.md contents..."],
   "related_content": ["docs/safety.md contents (excerpt)..."]
 }
@@ -178,8 +213,8 @@ Map Report:
 ```
 You are Map Buoy. Your job is to determine the full impact of a change.
 
-SCOUT REPORT:
-{scout_report}
+SCOUT-MAP REPORT:
+{scout_map_report}
 
 NAV FILE CONTENT:
 {nav_file_content}
@@ -225,7 +260,7 @@ Configurable. Start with Haiku, escalate to Sonnet for needs-judgment cases.
 
 ### Role
 
-The decision maker. Think Buoy reads the Map report and decides:
+The decision maker. Think Buoy reads the Map Buoy report and decides:
 - Which float-* commands to invoke
 - In what order
 - With what scope
@@ -342,13 +377,18 @@ Configurable. Start with Sonnet for better reasoning.
 ### Chain Flow
 
 ```
-Code Layer
+Filesystem Event
     │
-    │ raw change data
+    │ raw event
     ▼
-Scout Buoy
+scout-detect (code)
     │
-    │ scout report
+    │ Trivial? → Done
+    │ Non-trivial? ↓
+    ▼
+scout-map (AI)
+    │
+    │ scout-map report
     ▼
 Map Buoy
     │
@@ -370,9 +410,9 @@ Think detects command failed
     │
     │ "Re-scout this file"
     ▼
-Scout Buoy (re-run)
+scout-map (re-run)
     │
-    │ updated scout report
+    │ updated scout-map report
     ▼
 Map Buoy (re-run)
     │
@@ -386,12 +426,12 @@ Think Buoy (retry decision)
 Multiple changes can be batched:
 
 ```
-Change 1 → Scout Report 1 ─┐
-Change 2 → Scout Report 2 ─┼─→ Map Buoy (batched) → Think Buoy
-Change 3 → Scout Report 3 ─┘
+Change 1 → scout-detect → scout-map Report 1 ─┐
+Change 2 → scout-detect → scout-map Report 2 ─┼─→ Map Buoy (batched) → Think Buoy
+Change 3 → scout-detect → scout-map Report 3 ─┘
 ```
 
-Map and Think can process multiple scout reports together for efficiency.
+Map and Think can process multiple scout-map reports together for efficiency.
 
 ---
 
@@ -421,14 +461,15 @@ Map and Think can process multiple scout reports together for efficiency.
 
 ## Error Handling
 
-| Buoy | Failure Mode | Response |
-|------|--------------|----------|
-| Scout | Timeout | Log, skip this change, continue watching |
-| Scout | API error | Retry once, then queue for later |
-| Map | Timeout | Fall back to Scout assessment only |
-| Map | API error | Retry once, use Scout report for Think |
-| Think | Timeout | Queue decision for retry |
-| Think | API error | Log partial state, alert for manual review |
+| Component | Failure Mode | Response |
+|-----------|--------------|----------|
+| scout-detect | Error | Log, skip this change, continue watching |
+| scout-map | Timeout | Log, skip this change |
+| scout-map | API error | Retry once, then queue for later |
+| Map Buoy | Timeout | Fall back to scout-map assessment only |
+| Map Buoy | API error | Retry once, use scout-map report for Think |
+| Think Buoy | Timeout | Queue decision for retry |
+| Think Buoy | API error | Log partial state, alert for manual review |
 
 ---
 
@@ -437,10 +478,17 @@ Map and Think can process multiple scout reports together for efficiency.
 Every buoy logs its activity:
 
 ```markdown
-## 2025-12-30 14:32:01 — Scout Buoy
+## 2025-12-30 14:32:00 — scout-detect
+Event: src/auth.ts modified
+References: nav/src.md, docs/safety.md
+Trivial: no
+Passed to: scout-map
+
+## 2025-12-30 14:32:01 — scout-map
 Change: src/auth.ts modified
 Assessment: nav/src.md likely stale
-Needs Map: yes
+Urgency: normal
+Passed to: Map Buoy
 
 ## 2025-12-30 14:32:02 — Map Buoy
 Blast radius: nav/src.md (certain), docs/safety.md (possible)

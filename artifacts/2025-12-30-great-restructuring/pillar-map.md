@@ -164,12 +164,19 @@ Everything in the FloatPrompt repo belongs to one of three pillars.
 
 ## FLOAT.md System
 
-Every folder gets a `FLOAT.md` file:
+Every folder gets a `FLOAT.md` file using **full `<fp><json><md>` format**:
 
-| Folder Type | Format | Purpose |
-|-------------|--------|---------|
-| Project folders | floatprompt doc (YAML) | Context about the folder |
-| System folders (`.float/*`) | floatprompt tool (`<fp>`) | Behavioral instructions |
+| Aspect | Specification |
+|--------|---------------|
+| Format | Always `<fp><json><md>` |
+| JSON | STOP, meta, human, ai, requirements |
+| Markdown | Quick context, contents, purpose |
+
+**Why full `<fp>` format everywhere:**
+- Better AI hooks via structured JSON
+- "STOP" field gives immediate context signal
+- Consistent format across ALL folders
+- No doc vs tool distinction needed
 
 This replaces the old root `context/` folder. Context now lives WITH the code.
 

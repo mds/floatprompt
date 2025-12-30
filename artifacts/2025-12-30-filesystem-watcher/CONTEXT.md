@@ -3,7 +3,7 @@ title: Filesystem Watcher Context
 type: artifact-context
 status: draft
 created: 2025-12-30
-related: architecture.md, buoys.md, decision-log.md, watcher.md
+related: architecture.md, buoys.md, decision-log.md, decisions.md, roadmap.md, watcher.md
 
 human_author: @mds
 human_intent: Frame the problem, goals, and approach for a self-healing FloatPrompt System
@@ -39,14 +39,19 @@ Files go stale. The metadata (`ai_updated`, `created`) tells us *when* something
 A filesystem watcher that keeps `.float/` current through a chain of command:
 
 ```
-Boot → Watcher → Scout Buoy → Map Buoy → Think Buoy → float-* commands
+Boot → Watcher → scout-detect → scout-map → Map Buoy → Think Buoy → float-* commands
+         (code)    (code)         (AI)        (AI)        (AI)         (tools)
 ```
 
 **Key distinctions:**
 
-- **Code layer** — Mechanical, always running, free (filesystem watcher, detect functions)
-- **Buoys** — AI agents triggered by code or other buoys (Scout, Map, Think)
-- **float-* commands** — Text tools invoked by buoys or humans
+- **Code layer** — Mechanical, always running, free (filesystem watcher, scout-detect)
+- **Buoys** — AI agents triggered by code or other buoys (scout-map, Map, Think)
+- **float-* commands** — Text tools invoked by buoys or humans (float-sync, float-fix, etc.)
+
+**Scout is two phases:**
+- **scout-detect** — Pure code, instant, runs on every change, filters noise
+- **scout-map** — Lightweight AI, assesses non-trivial changes, produces report
 
 Buoys are agents. Commands are tools they use.
 
@@ -59,14 +64,16 @@ npx floatprompt (or /float)
          ↓
     Watcher: Start monitoring
          ↓
-    Scout Buoy: Immediate scan ("anything stale?")
+    scout-detect: Initial scan (code, instant)
+         ↓
+    scout-map: Assess findings (AI, if non-trivial)
          ↓
     If clean → "Ready for: human direction"
-    If issues → Think Buoy → float-* commands → resolve
+    If issues → Map Buoy → Think Buoy → float-* commands → resolve
          ↓
     Watcher continues running
          ↓
-    Changes detected → Scout → Map → Think → Act
+    Changes detected → scout-detect → scout-map → Map → Think → Act
          ↓
     .float/ always current
 ```
@@ -132,8 +139,10 @@ Start at Phase 2. Build toward Phase 3+.
 |------|---------|
 | CONTEXT.md | This file — problem, goals, approach |
 | architecture.md | Layers, chain of command, components |
-| buoys.md | Scout, Map, Think Buoy specifications |
+| buoys.md | Scout (two-phase), Map, Think Buoy specifications |
+| decisions.md | Architectural decisions with rationale |
 | decision-log.md | Paper trail format specification |
+| roadmap.md | Implementation phases, open questions, tracking |
 | watcher.md | Code layer specification |
 
 ---

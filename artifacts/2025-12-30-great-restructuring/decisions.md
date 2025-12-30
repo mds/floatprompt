@@ -176,18 +176,23 @@ Having a dedicated `system/` folder makes the pillar structure visible in the re
 - Keep centralized nav files only
 - Add `.float.md` (hidden) in each folder
 - Add `FLOAT.md` (visible) in each folder
+- YAML doc format vs full `<fp>` tool format
 
-**Decision:** `FLOAT.md` in every folder
+**Decision:** `FLOAT.md` in every folder, **always using full `<fp><json><md>` format**
 
-**Format rules:**
-- Project folders → floatprompt doc (YAML frontmatter)
-- System folders (`.float/*`) → floatprompt tool (`<fp><json><md>`)
+**Format:**
+- ALL folders use floatprompt tool format (`<fp><json><md>`)
+- The JSON metadata provides better AI hooks
+- "STOP" field gives immediate context signal
+- Consistent format everywhere
 
 **Rationale:**
 1. Visible (`FLOAT.md`) is better than hidden (`.float.md`) for discoverability
 2. Context lives WITH the code, not in a separate location
-3. System folders need behavioral instructions (tool), project folders need context (doc)
-4. Replaces confusing root `context/` folder
+3. Full `<fp>` format provides better AI parsing than YAML
+4. "STOP" field immediately orients AI to folder purpose
+5. Consistent format across all folders (no doc vs tool distinction)
+6. Replaces confusing root `context/` folder
 
 ---
 

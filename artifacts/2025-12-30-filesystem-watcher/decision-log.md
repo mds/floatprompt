@@ -250,6 +250,62 @@ Daily summary at end of each decision log:
 
 ---
 
+## Offline & Backlog Handling
+
+When the watcher comes back online after being offline (API down, watcher stopped, etc.):
+
+### Backlog Processing
+
+1. **Queue during offline** — Changes are queued locally by scout-detect (code layer, no API needed)
+2. **Consolidate on reconnect** — Same file modified 5 times = 1 change (final state matters)
+3. **Batch to scout-map** — Send consolidated batch, not individual changes
+4. **Log backlog event** — Record that backlog processing occurred
+
+### Backlog Log Entry
+
+```markdown
+## 2025-12-30 09:15:00 — Backlog Processing
+
+**Offline period:** 2025-12-30 02:00 → 09:15 (7h 15m)
+**Changes queued:** 47
+**After consolidation:** 12
+**Processing:**
+- 8 routine updates
+- 3 significant changes
+- 1 needs-judgment (deferred)
+
+**Details:**
+- src/api/*.ts (5 files) → consolidated to 1 batch
+- docs/safety.md → 3 saves consolidated to 1
+- .float/system.md modified → flagged for human review
+
+**Result:** Backlog processed successfully
+```
+
+### Consolidation Rules
+
+| Scenario | Consolidation |
+|----------|---------------|
+| Same file modified multiple times | Keep final state only |
+| File created then deleted | No change (cancel out) |
+| File renamed then modified | Track as new name + modify |
+| Many files in same folder | Batch together |
+
+### Flood Detection During Backlog
+
+If consolidated backlog still exceeds flood threshold (20+ files):
+
+```markdown
+## 2025-12-30 09:15:00 — Backlog Flood Detected
+
+**Queued changes:** 150
+**After consolidation:** 45
+**Action:** Triggering /float-plan for chunked processing
+**Human notification:** Recommended
+```
+
+---
+
 ## Integration with /float
 
 When `/float` boots, it checks decision logs:
