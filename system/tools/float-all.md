@@ -143,11 +143,12 @@ Single file with sections:
 - Decide: Combined proposed actions
 - Structure: Combined results
 
-## Fast Path
+## Examples
 
-If boot reports "No issues found" AND context is recent (< 24h):
-
+**Fast path (already healthy):**
 ```
+> /float-all
+
 FloatPrompt all.
 Directory: /path/to/project
 Tools run: 1 (boot only)
@@ -158,8 +159,7 @@ Already healthy. Skipped: sync, fix, context, enhance
 Ready for: human direction
 ```
 
-## Full Path Example
-
+**Full sequence (issues found):**
 ```
 > /float-all
 
