@@ -9,10 +9,9 @@
   "files": [
     "bin/",
     "templates/",
-    "system/claude/tools/",
+    "system/tools/",
     "system/manual.md",
     "format/core/",
-    "format/tools/",
     ".claude/"
   ],
   "repository": {
