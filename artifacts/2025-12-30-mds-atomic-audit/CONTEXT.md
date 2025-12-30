@@ -26,7 +26,8 @@
     "reading_order": [
       "CONTEXT.md (this file)",
       "brain-dump.md (original thoughts)",
-      "map-current-complexity.md (analysis)"
+      "map-current-complexity.md (analysis)",
+      "pillar-map.md (file/system/package breakdown)"
     ],
     "related_work": {
       "orchestration": "2025-12-30-float-orchestration/",
@@ -56,7 +57,8 @@ A stepping-back moment to audit everything FloatPrompt has become and ensure str
 2025-12-30-mds-atomic-audit/
 ├── CONTEXT.md              ← You are here
 ├── brain-dump.md           ← Original stream of consciousness
-└── map-current-complexity.md  ← Where we are, what's muddled
+├── map-current-complexity.md  ← Where we are, what's muddled
+└── pillar-map.md           ← File/System/Package breakdown
 ```
 
 ## Related Work
