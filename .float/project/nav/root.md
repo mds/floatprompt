@@ -22,6 +22,7 @@ FloatPrompt repository root — the invisible OS for AI.
 
 | Item | Purpose |
 |------|---------|
+| **float.md** | Repository context |
 | **README.md** | Public-facing documentation |
 | **LICENSE** | MIT license |
 | **package.json** | npm package configuration |

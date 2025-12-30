@@ -65,6 +65,8 @@ Source of truth for /float command implementations.
 | `float-focus.md` | Focus on specific area |
 | `float-harvest.md` | Extract patterns from content |
 | `float-relate.md` | Find related files |
+| `float-project.md` | Validate .float/project/ structure |
+| `float-report.md` | Write MDS logs for tool runs |
 | `update.md` | Structured update planning |
 | `tool-sync.md` | Verify tools are synced |
 | `manual.md` | Tool building guide |
