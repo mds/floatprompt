@@ -34,6 +34,7 @@ A system where:
 ├── map-current-state.md       ← What exists now
 ├── map-proposed-architecture.md ← What we're building
 ├── decide-components.md       ← Decisions about each piece
+├── decisions.md               ← Rationale behind each decision (Q&A format)
 └── structure-implementation.md ← Build plan
 ```
 
