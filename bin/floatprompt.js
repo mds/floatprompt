@@ -47,7 +47,7 @@ if (args.includes('--update') || args.includes('-u')) {
 
   try {
     // Ensure directories exist
-    const dirs = ['.float/floatprompt/tools', '.float/floatprompt/core', '.claude/commands'];
+    const dirs = ['.float/floatprompt/tools', '.float/floatprompt/core', '.float/floatprompt/types', '.claude/commands'];
     for (const dir of dirs) {
       const fullPath = join(cwd, dir);
       if (!existsSync(fullPath)) {
@@ -56,13 +56,27 @@ if (args.includes('--update') || args.includes('-u')) {
     }
 
     // Update tools
-    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md'];
+    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md'];
     for (const file of toolFiles) {
       const src = join(packageRoot, '.float', 'floatprompt', 'tools', file);
       const dest = join(cwd, '.float', 'floatprompt', 'tools', file);
       copyFileSync(src, dest);
       updated.push(`.float/floatprompt/tools/${file}`);
     }
+
+    // Update type templates
+    const typeFiles = ['pipeline.md', 'scorer.md', 'extractor.md', 'reconciler.md', 'processor.md', 'reference.md'];
+    for (const file of typeFiles) {
+      const src = join(packageRoot, '.float', 'floatprompt', 'types', file);
+      const dest = join(cwd, '.float', 'floatprompt', 'types', file);
+      copyFileSync(src, dest);
+      updated.push(`.float/floatprompt/types/${file}`);
+    }
+
+    // Update manual
+    const manualSrc = join(packageRoot, '.float', 'floatprompt', 'manual.md');
+    copyFileSync(manualSrc, join(cwd, '.float', 'floatprompt', 'manual.md'));
+    updated.push('.float/floatprompt/manual.md');
 
     // Update floatprompt files (source is floatprompt/ at package root, dest is .float/floatprompt/core/)
     const floatpromptFiles = ['template.md', 'doc.md', 'os.md', 'update.md'];
@@ -84,7 +98,7 @@ if (args.includes('--update') || args.includes('-u')) {
     updated.push('.float/project/project.md');
 
     // Update Claude commands
-    const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md'];
+    const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md'];
     for (const file of commandFiles) {
       const src = join(packageRoot, '.claude', 'commands', file);
       const dest = join(cwd, '.claude', 'commands', file);
@@ -143,6 +157,7 @@ const dirs = [
   '.float/floatprompt',
   '.float/floatprompt/tools',
   '.float/floatprompt/core',
+  '.float/floatprompt/types',
   '.float/project',
   '.float/project/nav',
   '.float/project/logs',
@@ -203,13 +218,27 @@ Captured rationale for project decisions. AI appends entries during context buil
   created.push('.float/project/logs/');
 
   // Copy tools
-  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md'];
+  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md'];
   for (const file of toolFiles) {
     const src = join(packageRoot, '.float', 'floatprompt', 'tools', file);
     const dest = join(cwd, '.float', 'floatprompt', 'tools', file);
     copyFileSync(src, dest);
     created.push(`.float/floatprompt/tools/${file}`);
   }
+
+  // Copy type templates
+  const typeFiles = ['pipeline.md', 'scorer.md', 'extractor.md', 'reconciler.md', 'processor.md', 'reference.md'];
+  for (const file of typeFiles) {
+    const src = join(packageRoot, '.float', 'floatprompt', 'types', file);
+    const dest = join(cwd, '.float', 'floatprompt', 'types', file);
+    copyFileSync(src, dest);
+    created.push(`.float/floatprompt/types/${file}`);
+  }
+
+  // Copy manual
+  const manualSrc = join(packageRoot, '.float', 'floatprompt', 'manual.md');
+  copyFileSync(manualSrc, join(cwd, '.float', 'floatprompt', 'manual.md'));
+  created.push('.float/floatprompt/manual.md');
 
   // Copy floatprompt files (source is floatprompt/ at package root, dest is .float/floatprompt/core/)
   const floatpromptFiles = ['template.md', 'doc.md', 'os.md', 'update.md'];
@@ -231,7 +260,7 @@ Captured rationale for project decisions. AI appends entries during context buil
   created.push('.float/project/project.md');
 
   // Copy Claude commands
-  const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md'];
+  const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md'];
   for (const file of commandFiles) {
     const src = join(packageRoot, '.claude', 'commands', file);
     const dest = join(cwd, '.claude', 'commands', file);
