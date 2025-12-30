@@ -37,6 +37,11 @@
       "system_buoy": "Update structure map in system.md",
       "scaffold_buoy": "Create one new nav file",
       "log_buoy": "Append to session log"
+    },
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "decide", "structure"],
+      "async": true
     }
   }
 }
@@ -90,6 +95,8 @@ Compare shell output with nav file contents to identify:
 - **Stale** — In nav but not in folder
 - **New folders** — Folders without nav files
 
+**Report:** Call float-report --phase=map with findings
+
 ### 2. Report
 
 Show issues with details:
@@ -135,6 +142,8 @@ Proposed Fixes:
 Apply changes? (y/n):
 ```
 
+**Report:** Call float-report --phase=decide with proposed actions
+
 ### 4. Wait for Approval
 
 | Response | Action |
@@ -162,6 +171,8 @@ Orchestrator checks buoy work:
 - Verify changes were applied correctly
 - Re-run detection to confirm clean state
 - Report any remaining issues
+
+**Report:** Call float-report --phase=structure with results
 
 ### 7. Log
 

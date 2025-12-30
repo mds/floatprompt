@@ -29,7 +29,12 @@
       "action_b": "Boot sequence"
     },
     "status_format": "FloatPrompt operational.\nDirectory: [path]\nContext: [Loaded | Missing]\nStatus: [No issues found | N issues found]\n\n[Next step or Ready for: human direction]\n\nCommands:\n  /float-sync      Structure integrity\n  /float-fix       Content integrity\n  /float-context   Generate terrain map\n  /float-enhance   Fill placeholders\n  /float-focus     Deep dive into topic\n  /float-harvest   Mine knowledge\n  /float-relate    Map relationships\n  /float-delta     Ripple analysis\n  /float-build     Build tools",
-    "next_step_logic": "Structure issues (missing nav/folders)? → /float-sync. Content issues (stale refs)? → /float-fix. Both? → /float-sync then /float-fix. Context missing? → /float-context. Otherwise → Ready for: human direction"
+    "next_step_logic": "Structure issues (missing nav/folders)? → /float-sync. Content issues (stale refs)? → /float-fix. Both? → /float-sync then /float-fix. Context missing? → /float-context. Otherwise → Ready for: human direction",
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map"],
+      "async": true
+    }
   }
 }
 </json>
@@ -89,6 +94,7 @@ When FloatPrompt System exists:
    - Content: stale references
    - System: router ↔ tools alignment
 7. **Report status + next step**
+8. **Report** — Call float-report with map data (what was loaded, any issues found)
 
 ## Shell Optimization
 

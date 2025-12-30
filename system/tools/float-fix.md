@@ -36,6 +36,11 @@
       "router_buoy": "Verify router ↔ tools alignment, find orphans and missing routes",
       "trace_buoy": "Follow reference chains to find related mentions",
       "repair_buoy": "Apply approved fixes to one file"
+    },
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "decide", "structure"],
+      "async": true
     }
   }
 }
@@ -99,6 +104,8 @@ Spawn Scan Buoys for semantic analysis:
 - Check cross-references between files
 - Validate version consistency
 - **Scan `related` fields for link integrity**
+
+**Report:** Call float-report --phase=map with findings
 
 ### Related Field Scanning
 
@@ -208,6 +215,8 @@ Historical (skipped):
 Total: 4 fixes proposed, 3 historical skipped
 ```
 
+**Report:** Call float-report --phase=decide with proposed actions
+
 ### 4. Wait for Approval
 
 ```
@@ -239,6 +248,8 @@ After repairs:
 - Re-run scan to confirm clean state
 - Report any remaining issues
 - Log activity
+
+**Report:** Call float-report --phase=structure with results
 
 ## Status Output
 
