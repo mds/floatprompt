@@ -227,20 +227,13 @@ Phase 4: Restructure .float/floatprompt/ → .float/core/
 
 | Buoy | Operation |
 |------|-----------|
-| Worker A | Archive or remove `context/*.md` files |
+| Worker A | Archive `context/*.md` files |
 
-**Decision needed:** Archive to `artifacts/archive/` or delete?
+**Decision:** Archive (locked). These files will be referenced when creating FLOAT.md files.
 
-**Option A - Archive:**
 ```bash
 mkdir -p artifacts/archive/2025/12-dec/context-files
 git mv context/*.md artifacts/archive/2025/12-dec/context-files/
-rmdir context
-```
-
-**Option B - Delete:**
-```bash
-git rm context/*.md
 rmdir context
 ```
 
@@ -252,7 +245,7 @@ test ! -d context
 
 ### Commit:
 ```
-Phase 5: Eliminate root context/ (archived/deleted)
+Phase 5: Archive root context/ to artifacts/archive/
 ```
 
 ---
@@ -310,52 +303,60 @@ Phase 6: Fix all stale references via /float-fix
 
 ### Worker Buoys (parallel):
 
-| Buoy | Folders | Format |
-|------|---------|--------|
-| Worker A | `format/`, `format/core/`, `format/tools/` | floatprompt doc (YAML) |
-| Worker B | `system/`, `specs/`, `docs/`, `examples/` | floatprompt doc (YAML) |
-| Worker C | `.float/`, `.float/core/`, `.float/project/` | floatprompt tool (`<fp>`) |
-| Worker D | Root `FLOAT.md` | floatprompt doc (YAML) |
+| Buoy | Folders |
+|------|---------|
+| Worker A | `format/`, `format/core/`, `format/tools/` |
+| Worker B | `system/`, `specs/`, `docs/`, `examples/` |
+| Worker C | `.float/`, `.float/core/`, `.float/project/` |
+| Worker D | Root `FLOAT.md` |
 
-### Template for project folders (doc):
+**Format:** ALL folders use full `<fp><json><md>` format (Decision #9).
 
-```yaml
----
-title: [Folder Name]
-type: context
-status: current
-created: 2025-12-30
+### Template for ALL folders:
 
-human_author: @mds
-human_intent: [Purpose of this folder]
-human_context: [What's in here]
----
+```xml
+<fp>
+<json>
+{
+  "STOP": "[Folder name]. [One-line purpose].",
 
+  "meta": {
+    "title": "[Folder Name]",
+    "id": "[folder-id]",
+    "format": "floatprompt",
+    "version": "0.12.0",
+    "type": "context"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "[Purpose of this folder]",
+    "context": "[What's in here]"
+  },
+
+  "ai": {
+    "role": "Context provider",
+    "behavior": "Orient reader to folder purpose and contents"
+  },
+
+  "requirements": {
+    "contents": ["file1.md", "file2.md", "subfolder/"],
+    "reading_order": ["Start here", "Then this"]
+  }
+}
+</json>
+<md>
 # [Folder Name]
 
 [Description]
 
 ## Contents
 
-[List of files/subfolders]
-```
+[List of files/subfolders with purposes]
 
-### Template for system folders (tool):
+## Purpose
 
-```
-<fp>
-<json>
-{
-  "STOP": "[Folder] context...",
-  "meta": { ... },
-  "human": { ... },
-  "ai": { ... },
-  "requirements": { ... }
-}
-</json>
-<md>
-# [Folder Name]
-...
+[Why this folder exists]
 </md>
 </fp>
 ```
