@@ -31,7 +31,7 @@ FloatPrompt is the invisible OS for AI — a structured text format for portable
 | File | Why It Matters |
 |------|----------------|
 | `.float/system.md` | Boot protocol — read first, always. Defines all conventions. |
-| `.float/project/context/floatprompt.md` | This file — terrain map for AI understanding |
+| `.float/project/context/project-context.md` | This file — terrain map for AI understanding |
 | `format/core/os.md` | Full FloatPrompt OS (35KB) — the complete system with guided creation |
 | `format/core/template.md` | Template for creating new FloatPrompt tools |
 | `format/core/doc.md` | Tool for adding YAML frontmatter to documents |
@@ -44,7 +44,7 @@ FloatPrompt is the invisible OS for AI — a structured text format for portable
 For new AI sessions, read in this order:
 
 1. `.float/system.md` — Boot protocol, structure map, behavioral constraints
-2. `.float/project/context/floatprompt.md` — This file (terrain map, relationships)
+2. `.float/project/context/project-context.md` — This file (terrain map, relationships)
 3. `.float/project/nav/*.md` — Navigation files for folder structure
 4. `format/docs/goals.md` — Goal hierarchy (strict: voice > behavior > artifacts)
 5. `format/docs/principles.md` — Core principles (recognition, slowness, archaeology)
@@ -92,7 +92,7 @@ OPERATIONAL (ships with npx floatprompt)
 │   ├── format/                     — Templates (template, doc, os)
 │   └── tools/                      — Commands (float-*.md)
 └── project/                        — Your project's data
-    ├── context/floatprompt.md      — This terrain map
+    ├── context/project-context.md  — This terrain map
     ├── nav/*.md                    — Folder navigation
     └── logs/*.md                   — Session history
 

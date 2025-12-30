@@ -14,15 +14,15 @@ Use this checklist for changes that affect multiple files or core structure.
 |-------|----------|
 | Single file fix | Just do it |
 | 2-3 file update | Just do it with care |
-| Major restructure | Use `format/tools/update.md` |
-| Version migration | Use `format/tools/update.md` |
-| Cross-cutting change | Use `format/tools/update.md` |
+| Major restructure | Use `system/tools/update.md` |
+| Version migration | Use `system/tools/update.md` |
+| Cross-cutting change | Use `system/tools/update.md` |
 
 **Rule of thumb:** If you need to think about execution order, create an update plan first.
 
 ### 2. Create Update Plan (if needed)
 
-Use `.float/core/core/update.md` methodology:
+Use `system/tools/update.md` methodology:
 
 1. **Change Specification** — Current state vs target state
 2. **Impact Zone Assessment** — Find ALL affected files (not just obvious ones)
@@ -106,7 +106,7 @@ Run validation after each phase and at completion:
 | Tool | Purpose | When to Use |
 |------|---------|-------------|
 | `/float-tools` | Tool consistency | Before releases, after updating tools |
-| `format/tools/update.md` | Change planning | Major restructures, migrations |
+| `system/tools/update.md` | Change planning | Major restructures, migrations |
 
 ### Working with Artifacts
 
@@ -166,7 +166,7 @@ Major changes without a plan lead to:
 - Inconsistent state
 - Lost context between sessions
 
-**Use `format/tools/update.md` for anything non-trivial.**
+**Use `system/tools/update.md` for anything non-trivial.**
 
 ### 5. Forgetting bin/floatprompt.js
 
@@ -250,7 +250,7 @@ grep -r "pattern" .             # Find all references
 /float-tools                    # Tool check
 
 # Planning
-# Use format/tools/update.md methodology
+# Use system/tools/update.md methodology
 # Store plans in artifacts/
 ```
 

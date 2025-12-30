@@ -3,7 +3,7 @@ title: Decision History
 type: decisions
 status: current
 created: 2025-12-29
-related: .float/project/context/floatprompt.md, .float/system.md
+related: .float/project/context/project-context.md, .float/system.md
 
 human_author: @mds
 human_intent: Capture rationale for project decisions so future AI sessions understand the "why"

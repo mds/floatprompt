@@ -47,7 +47,7 @@ ai_notes: |
     "boot_sequence": {
       "1": "Read this file completely (.float/system.md)",
       "2": "Load structure map into memory",
-      "3": "Read .float/project/context/decisions.md for decision history (if exists)",
+      "3": "Read .float/project/context/project-decisions.md for decision history (if exists)",
       "4": "Read .float/project/context/*.md for terrain maps and relationships (if exists)",
       "5": "Read ALL .float/project/nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
       "6": "Read today's session log (.float/project/logs/YYYY-MM-DD.md) for recent activity",
@@ -155,8 +155,8 @@ floatprompt/
 │   └── project/               # About YOUR project (your stuff)
 │       ├── project.md         # Structure reference for project/
 │       ├── context/           # AI terrain maps
-│       │   ├── floatprompt.md # This project's terrain map
-│       │   └── decisions.md   # Decision history and rationale
+│       │   ├── project-context.md    # This project's terrain map
+│       │   └── project-decisions.md  # Decision history and rationale
 │       ├── nav/               # Centralized navigation (project folders only)
 │       │   ├── root.md        # Repository root
 │       │   └── [folder].md    # One per major folder
@@ -197,7 +197,7 @@ floatprompt/
 | `core/tools/types/` | Tool type definitions |
 | `project/` | Your project's FloatPrompt data |
 | `project/project.md` | Structure reference — "what's in project/" |
-| `project/context/` | AI terrain maps (includes decisions.md) |
+| `project/context/` | AI terrain maps (includes project-decisions.md) |
 | `project/nav/` | Centralized folder navigation |
 | `project/logs/` | Session logs folder |
 
@@ -279,7 +279,7 @@ ai_updated:
 
 **Every session (boot sequence):**
 1. Read `.float/system.md` first (this file)
-2. Read `.float/project/context/decisions.md` for decision history (if exists)
+2. Read `.float/project/context/project-decisions.md` for decision history (if exists)
 3. Read `.float/project/context/*.md` for terrain maps and relationships (if exists)
 4. Read ALL `.float/project/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
 5. Read today's session log `.float/project/logs/YYYY-MM-DD.md` (recent activity, handoff context)

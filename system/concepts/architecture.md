@@ -40,11 +40,12 @@ The FloatPrompt System gives AI instant awareness through a centralized pattern:
 any-project/
 ├── .float/                  # FloatPrompt System
 │   ├── system.md            # Boot loader (read first)
-│   ├── floatprompt/         # FloatPrompt internals
+│   ├── core/                # FloatPrompt internals
 │   │   ├── index.md         # Structure reference
-│   │   ├── core/            # Core templates
+│   │   ├── manual.md        # Tool building guide
+│   │   ├── format/          # Format templates
 │   │   ├── tools/           # /float command tools
-│   │   └── types/           # Tool type definitions
+│   │   └── tools/types/     # Tool type definitions
 │   └── project/             # Your project's data
 │       ├── context/         # Terrain maps
 │       ├── nav/             # Folder navigation
@@ -74,25 +75,25 @@ any-project/
 
 ## File Structure
 
-Centralized pattern: floatprompt/ for system internals, project/ for your data.
+Centralized pattern: core/ for system internals, project/ for your data.
 
 ### The `.float/` folder
 
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader — behavioral protocol |
-| `floatprompt/` | FloatPrompt internals (don't modify) |
+| `core/` | FloatPrompt internals (don't modify) |
 | `project/` | Your project's FloatPrompt data |
 
-### floatprompt/
+### core/
 
 | Item | Purpose |
 |------|---------|
 | `index.md` | Structure reference |
 | `manual.md` | Tool building guide |
-| `core/` | Core templates (template.md, doc.md, os.md) |
-| `tools/` | /float command tools (10 tools) |
-| `types/` | Tool type definitions (6 types) |
+| `format/` | Format templates (template.md, doc.md, os.md) |
+| `tools/` | /float command tools (12+ tools) |
+| `tools/types/` | Tool type definitions (6 types) |
 
 ### project/
 
@@ -111,7 +112,7 @@ Centralized pattern: floatprompt/ for system internals, project/ for your data.
 | `docs.md` | docs/ folder |
 | `[folder].md` | Any folder... |
 
-**Why this structure?** floatprompt/ = don't touch (system files). project/ = your stuff. Instant clarity from folder names.
+**Why this structure?** core/ = don't touch (system files). project/ = your stuff. Instant clarity from folder names.
 
 ### Example
 
@@ -119,11 +120,12 @@ Centralized pattern: floatprompt/ for system internals, project/ for your data.
 my-project/
 ├── .float/                # FloatPrompt System
 │   ├── system.md          # Boot loader
-│   ├── floatprompt/       # System internals
+│   ├── core/              # System internals
 │   │   ├── index.md       # Structure reference
-│   │   ├── core/          # Core templates
+│   │   ├── manual.md      # Tool building guide
+│   │   ├── format/        # Format templates
 │   │   ├── tools/         # Command tools
-│   │   └── types/         # Tool types
+│   │   └── tools/types/   # Tool types
 │   └── project/           # Your project's data
 │       ├── context/       # Terrain maps
 │       ├── nav/           # Navigation files
@@ -168,7 +170,7 @@ AI does the heavy lifting. Human stays in control.
 Create the structure yourself:
 
 ```bash
-mkdir -p .float/core/{core,tools,types} .float/project/{nav,logs,context}
+mkdir -p .float/core/{format,tools/types} .float/project/{nav,logs,context}
 touch .float/system.md
 touch .float/core/index.md
 touch .float/project/nav/root.md

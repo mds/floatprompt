@@ -38,8 +38,8 @@ AI-generated terrain maps and captured decisions.
 
 | File | Purpose |
 |------|---------|
-| **{project}.md** | Project-wide terrain map (named for project identity) |
-| **decisions.md** | Decision history and rationale |
+| **project-context.md** | Project-wide terrain map |
+| **project-decisions.md** | Decision history and rationale |
 
 **Naming rule:** Context files use meaningful names (`floatprompt.md`, `api-gateway.md`), never generic `project.md`.
 

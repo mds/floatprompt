@@ -1,7 +1,7 @@
 ---
 title: Float Command System
 type: spec
-version: 0.9.0
+version: 0.12.0
 created: 2025-12-29
 
 human_author: @mds
@@ -9,11 +9,11 @@ human_intent: Define the /float command system for Claude Code integration
 human_context: Formal specification that tools implement
 
 ai_model: Claude Opus 4.5
-ai_updated: 2025-12-29
+ai_updated: 2025-12-30
 ai_notes: |
   Created as part of Float Command System implementation.
   This spec is the "contract" that all tool floatprompts implement.
-  Revised to add spectrum concept, buoy sizing strategy, error handling.
+  v0.12.0: Updated for system/ restructure, clarified source vs deployed paths.
 ---
 
 # Float Command System
@@ -67,6 +67,15 @@ Commands and their internal operations exist on a spectrum from mechanical speed
 
 The orchestrator routes to tool floatprompts. Tools are the source of truth.
 
+**Source (this repo):**
+```
+system/tools/float.md               Source of truth (maintainers edit here)
+system/tools/float-sync.md
+system/tools/float-fix.md
+...
+```
+
+**Deployed (user projects):**
 ```
 .claude/commands/float.md           Orchestrator (routes based on input)
         ↓
@@ -76,6 +85,8 @@ The orchestrator routes to tool floatprompts. Tools are the source of truth.
 .float/core/tools/float-context.md       Meaning generation tool
 .float/core/tools/float-enhance.md       Quality improvement tool
 ```
+
+See [deployment.md](../guides/deployment.md) for how tools flow from source to users.
 
 **Orchestrator responsibilities:**
 1. Parse input (`/float`, `/float sync`, `/float fix`, `/float context`, `/float enhance`)
@@ -563,6 +574,7 @@ Each tool follows this structure:
 |---------|------|---------|
 | 0.8.0 | 2025-12-29 | Initial spec. Replaces /float describe with /float enhance. Adds spectrum concept, buoy sizing, error handling. |
 | 0.9.0 | 2025-12-29 | Updated paths for meta/project structure. Tools now at `.float/core/tools/`. |
+| 0.12.0 | 2025-12-30 | Clarified source vs deployed paths. Added link to deployment.md. |
 
 ---
 
