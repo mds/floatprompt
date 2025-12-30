@@ -10,24 +10,36 @@ const packageRoot = join(__dirname, '..');
 
 // Parse CLI arguments
 const args = process.argv.slice(2);
+const command = args[0];
+const flags = args.filter(a => a.startsWith('-'));
 
-if (args.includes('--help') || args.includes('-h')) {
-  console.log(`floatprompt - The invisible OS for AI
+const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
 
-Usage: npx floatprompt [options]
+// Help text
+const helpText = `float v${pkg.version} - FloatPrompt: The invisible OS for AI
+
+Usage: float <command>
+
+Commands:
+  init     Create FloatPrompt System in current directory
+  update   Update tools and templates (preserves nav, logs, context)
 
 Options:
   -h, --help     Show this help message
   -v, --version  Show version number
-  -u, --update   Update FloatPrompt System files (keeps nav, logs, context)
 
-Creates a complete FloatPrompt System in the current directory.
-Learn more: https://github.com/mds/floatprompt`);
+Examples:
+  float init      # New project setup
+  float update    # Get latest tools
+
+Learn more: https://github.com/mds/floatprompt`;
+
+if (flags.includes('--help') || flags.includes('-h')) {
+  console.log(helpText);
   process.exit(0);
 }
 
-if (args.includes('--version') || args.includes('-v')) {
-  const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
+if (flags.includes('--version') || flags.includes('-v')) {
   console.log(pkg.version);
   process.exit(0);
 }
@@ -35,14 +47,38 @@ if (args.includes('--version') || args.includes('-v')) {
 const cwd = process.cwd();
 const floatDir = join(cwd, '.float');
 
-// Handle --update flag
-if (args.includes('--update') || args.includes('-u')) {
+// No command given - smart default
+if (!command || command.startsWith('-')) {
+  if (existsSync(floatDir)) {
+    // System exists - show status
+    const versionFile = join(floatDir, '.version');
+    const installedVersion = existsSync(versionFile)
+      ? readFileSync(versionFile, 'utf8').trim()
+      : 'unknown';
+
+    if (installedVersion !== pkg.version) {
+      console.log(`FloatPrompt v${installedVersion} installed (v${pkg.version} available)
+
+Run: float update`);
+    } else {
+      console.log(`FloatPrompt v${installedVersion} installed
+
+Run /float in Claude Code to boot.`);
+    }
+  } else {
+    // No system - show help
+    console.log(helpText);
+  }
+  process.exit(0);
+}
+
+// Handle 'update' command
+if (command === 'update') {
   if (!existsSync(floatDir)) {
-    console.error('Error: No FloatPrompt System found. Run npx floatprompt first to initialize.');
+    console.error('Error: No FloatPrompt System found. Run `float init` first.');
     process.exit(1);
   }
 
-  const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
   const updated = [];
 
   try {
@@ -56,7 +92,7 @@ if (args.includes('--update') || args.includes('-u')) {
     }
 
     // Update tools (source: system/tools/)
-    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'update.md', 'tool-sync.md'];
+    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'update.md', 'tool-sync.md'];
     for (const file of toolFiles) {
       const src = join(packageRoot, 'system', 'tools', file);
       const dest = join(cwd, '.float', 'core', 'tools', file);
@@ -99,7 +135,7 @@ if (args.includes('--update') || args.includes('-u')) {
     updated.push('.float/project/project.md');
 
     // Update Claude commands
-    const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md'];
+    const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md'];
     for (const file of commandFiles) {
       const src = join(packageRoot, '.claude', 'commands', file);
       const dest = join(cwd, '.claude', 'commands', file);
@@ -130,25 +166,26 @@ Run /float in Claude Code to boot.`);
   }
 }
 
-// Check if already initialized
+// Handle 'init' command
+if (command !== 'init') {
+  // Unknown command
+  console.error(`Unknown command: ${command}
+
+${helpText}`);
+  process.exit(1);
+}
+
+// Init: check if already exists
 if (existsSync(floatDir)) {
-  const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
   const versionFile = join(floatDir, '.version');
   const installedVersion = existsSync(versionFile)
     ? readFileSync(versionFile, 'utf8').trim()
     : 'unknown';
 
-  if (installedVersion !== pkg.version && installedVersion !== 'unknown') {
-    console.log(`FloatPrompt System initialized (v${installedVersion}).
-Latest version: v${pkg.version} available.
-Run npx floatprompt --update to upgrade.`);
-  } else if (installedVersion === 'unknown') {
-    console.log(`FloatPrompt System already initialized.
-Run npx floatprompt --update to ensure you have the latest version.`);
-  } else {
-    console.log(`FloatPrompt System already initialized (v${installedVersion}).
-Run /float in Claude Code to boot.`);
-  }
+  console.log(`FloatPrompt already initialized (v${installedVersion}).
+
+To update: float update
+To boot: /float in Claude Code`);
   process.exit(0);
 }
 
@@ -219,7 +256,7 @@ Captured rationale for project decisions. AI appends entries during context buil
   created.push('.float/project/logs/');
 
   // Copy tools (source: system/tools/)
-  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'update.md', 'tool-sync.md'];
+  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'update.md', 'tool-sync.md'];
   for (const file of toolFiles) {
     const src = join(packageRoot, 'system', 'tools', file);
     const dest = join(cwd, '.float', 'core', 'tools', file);
@@ -262,7 +299,7 @@ Captured rationale for project decisions. AI appends entries during context buil
   created.push('.float/project/project.md');
 
   // Copy Claude commands
-  const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md'];
+  const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md'];
   for (const file of commandFiles) {
     const src = join(packageRoot, '.claude', 'commands', file);
     const dest = join(cwd, '.claude', 'commands', file);

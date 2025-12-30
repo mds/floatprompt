@@ -28,9 +28,12 @@ Specification for the `/float` command family in Claude Code. Five commands that
 /float fix       Content     (references ↔ reality)
 /float context   Meaning     (terrain map)
 /float enhance   Quality     (make it better)
+/float all       Full sweep  (run all in sequence)
 ```
 
 Each command increases depth. Use the lightest command that accomplishes the task.
+
+`/float all` orchestrates the full sequence when you want comprehensive health check.
 
 ---
 
@@ -84,6 +87,7 @@ system/tools/float-fix.md
 .float/core/tools/float-fix.md           Content integrity tool
 .float/core/tools/float-context.md       Meaning generation tool
 .float/core/tools/float-enhance.md       Quality improvement tool
+.float/core/tools/float-all.md           Full health check orchestrator
 ```
 
 See [deployment.md](../guides/deployment.md) for how tools flow from source to users.
@@ -118,6 +122,8 @@ Each command handles two states of the same concern.
 | `/float context` | Has context file | Load deep, follow reading order |
 | `/float enhance` | Weak/stale content | Improve with approval |
 | `/float enhance` | High quality | Report OK, nothing to enhance |
+| `/float all` | Issues found | Run full sequence, fix, report |
+| `/float all` | Already healthy | Fast path, report OK |
 
 ---
 
