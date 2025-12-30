@@ -104,6 +104,21 @@ In a fresh conversation:
 
 ---
 
+## Gaps Identified
+
+### Logging
+
+Session logs weren't created during work — only discovered when running `/float` boot in new session. No log existed for 2025-12-30 despite 7 commits.
+
+**Options for future:**
+- Manual: Create log at end of session
+- Tool: `/float-harvest` can extract from git, but that's retroactive
+- Workflow: Add "update log" to workstream completion protocol
+
+Not blocking — logged retroactively. Worth considering for next major work session.
+
+---
+
 ## Session Origin
 
 **Trigger question:** "Would any tools be helpful on a healthy directory?"
