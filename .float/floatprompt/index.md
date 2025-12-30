@@ -36,8 +36,10 @@ Quick structural reference for the `.float/` folder.
 │
 ├── floatprompt/        # FloatPrompt internals (don't modify)
 │   ├── index.md        # This file (structure reference)
+│   ├── manual.md       # Reference guide with tool types
 │   ├── core/           # Core templates
-│   └── tools/          # /float command tools
+│   ├── tools/          # /float command tools (10 tools)
+│   └── types/          # Tool type definitions (6 types)
 │
 └── project/            # Your project's data
     ├── project.md      # Structure reference for project/
@@ -53,8 +55,10 @@ System internals. Don't modify unless you're updating FloatPrompt itself.
 | Item | Purpose |
 |------|---------|
 | **index.md** | This file — structural reference |
+| **manual.md** | Reference guide with tool types |
 | **core/** | Core templates |
 | **tools/** | /float command tools |
+| **types/** | Tool type definitions |
 
 ### floatprompt/core/
 
@@ -74,6 +78,22 @@ System internals. Don't modify unless you're updating FloatPrompt itself.
 | **float-fix.md** | Content integrity tool for /float fix |
 | **float-context.md** | Context generation tool for /float context |
 | **float-enhance.md** | Quality improvement tool for /float enhance |
+| **float-build.md** | Build/scaffolding tool for /float build |
+| **float-harvest.md** | Pattern extraction tool for /float harvest |
+| **float-delta.md** | Change tracking tool for /float delta |
+| **float-focus.md** | Attention filtering tool for /float focus |
+| **float-relate.md** | Relationship mapping tool for /float relate |
+
+### floatprompt/types/
+
+| File | Purpose |
+|------|---------|
+| **extractor.md** | Extractor tool type definition |
+| **pipeline.md** | Pipeline tool type definition |
+| **processor.md** | Processor tool type definition |
+| **reconciler.md** | Reconciler tool type definition |
+| **reference.md** | Reference tool type definition |
+| **scorer.md** | Scorer tool type definition |
 
 ## project/
 

@@ -14,9 +14,9 @@ Use this checklist for changes that affect multiple files or core structure.
 |-------|----------|
 | Single file fix | Just do it |
 | 2-3 file update | Just do it with care |
-| Major restructure | Use `floatprompt/update.md` |
-| Version migration | Use `floatprompt/update.md` |
-| Cross-cutting change | Use `floatprompt/update.md` |
+| Major restructure | Use `floatprompt/tools/update.md` |
+| Version migration | Use `floatprompt/tools/update.md` |
+| Cross-cutting change | Use `floatprompt/tools/update.md` |
 
 **Rule of thumb:** If you need to think about execution order, create an update plan first.
 
@@ -106,7 +106,7 @@ Run validation after each phase and at completion:
 | Tool | Purpose | When to Use |
 |------|---------|-------------|
 | `/float-tools` | Tool consistency | Before releases, after updating tools |
-| `floatprompt/update.md` | Change planning | Major restructures, migrations |
+| `floatprompt/tools/update.md` | Change planning | Major restructures, migrations |
 
 ### Working with Artifacts
 
@@ -166,7 +166,7 @@ Major changes without a plan lead to:
 - Inconsistent state
 - Lost context between sessions
 
-**Use `floatprompt/update.md` for anything non-trivial.**
+**Use `floatprompt/tools/update.md` for anything non-trivial.**
 
 ### 5. Forgetting bin/floatprompt.js
 
@@ -250,7 +250,7 @@ grep -r "pattern" .             # Find all references
 /float-tools                    # Tool check
 
 # Planning
-# Use floatprompt/update.md methodology
+# Use floatprompt/tools/update.md methodology
 # Store plans in artifacts/
 ```
 

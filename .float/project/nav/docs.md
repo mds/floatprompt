@@ -32,7 +32,7 @@ Guides and philosophy (specifications moved to `specs/`).
 | **use.md** | Use cases | What you can build with FloatPrompt |
 | **safety.md** | Safety guidelines | Responsible AI tool creation |
 | **safety-laws.md** | Human safety laws | Foundational harm definitions and protections |
-| **structure.md** | Structure philosophy | Why meta/project organization matters |
+| **structure.md** | Structure philosophy | Why floatprompt/project organization matters |
 
 ## Subfolders
 

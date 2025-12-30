@@ -194,7 +194,7 @@ INTEGRITY ISSUES:
   docs/claude.md → .float/system.md
     ↳ system.md doesn't list docs/claude.md
 
-  specs/floatprompt.md → floatprompt/template.md
+  specs/floatprompt.md → floatprompt/core/template.md
     ↳ template.md doesn't list specs/floatprompt.md
 
 SUGGESTIONS (2):
@@ -256,7 +256,7 @@ BROKEN (1):
 
 ONE-WAY (3):
   2. docs/claude.md → .float/system.md
-  3. specs/floatprompt.md → floatprompt/template.md
+  3. specs/floatprompt.md → floatprompt/core/template.md
   4. README.md → docs/goals.md
 
 Fix all one-way issues? [all / review / skip]:

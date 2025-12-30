@@ -40,17 +40,17 @@ That's a floatprompt. A text file that becomes a tool.
 
 ## Which File?
 
-**[`floatprompt/template.md`](floatprompt/template.md)** (3KB) — The template
+**[`floatprompt/core/template.md`](floatprompt/core/template.md)** (3KB) — The template
 - Use when: Building a floatprompt through conversation
 - What it does: Teaches AI how to create floatprompts
 - Best for: Experienced users who know what they want to build
 
-**[`floatprompt/doc.md`](floatprompt/doc.md)** — floatprompt doc tool
+**[`floatprompt/core/doc.md`](floatprompt/core/doc.md)** — floatprompt doc tool
 - Use when: Adding context frontmatter to any document
 - What it does: Generates YAML frontmatter for mutual understanding
 - Best for: Documenting what files ARE (not modifying behavior)
 
-**[`floatprompt/os.md`](floatprompt/os.md)** (35KB) — The full system
+**[`floatprompt/core/os.md`](floatprompt/core/os.md)** (35KB) — The full system
 - Use when: You want guided tool creation
 - What it does: Boot sequence, friction scoring, step-by-step methodology
 - Best for: First-time users, complex tools, when you want more structure
@@ -62,7 +62,7 @@ Start with the OS if you're new. Graduate to the template when you know what you
 ## Quick Start
 
 **Any AI platform:**
-1. Download [`floatprompt/os.md`](floatprompt/os.md) (full system) or [`floatprompt/template.md`](floatprompt/template.md) (template only)
+1. Download [`floatprompt/core/os.md`](floatprompt/core/os.md) (full system) or [`floatprompt/core/template.md`](floatprompt/core/template.md) (template only)
 2. Upload to ChatGPT, Claude, Cursor, or any AI
 3. Follow the guided flow (OS) or say "float build [what you need]" (template)
 4. Collaborate through conversation
@@ -113,7 +113,7 @@ Universal structure for portable AI tooling. JSON for behavior, markdown for met
 </fp>
 ```
 
-The template (`floatprompt/template.md`, 3KB) teaches AI how to create tools. The full system (`floatprompt/os.md`, 35KB) adds guided creation for deep knowledge work.
+The template (`floatprompt/core/template.md`, 3KB) teaches AI how to create tools. The full system (`floatprompt/core/os.md`, 35KB) adds guided creation for deep knowledge work.
 
 ### FloatPrompt System — Project Awareness
 

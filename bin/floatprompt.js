@@ -78,10 +78,19 @@ if (args.includes('--update') || args.includes('-u')) {
     copyFileSync(manualSrc, join(cwd, '.float', 'floatprompt', 'manual.md'));
     updated.push('.float/floatprompt/manual.md');
 
-    // Update floatprompt files (source is floatprompt/ at package root, dest is .float/floatprompt/core/)
-    const floatpromptFiles = ['template.md', 'doc.md', 'os.md', 'update.md'];
-    for (const file of floatpromptFiles) {
-      const src = join(packageRoot, 'floatprompt', file);
+    // Update floatprompt core files (source is floatprompt/core/ at package root)
+    const floatpromptCoreFiles = ['template.md', 'doc.md', 'os.md'];
+    for (const file of floatpromptCoreFiles) {
+      const src = join(packageRoot, 'floatprompt', 'core', file);
+      const dest = join(cwd, '.float', 'floatprompt', 'core', file);
+      copyFileSync(src, dest);
+      updated.push(`.float/floatprompt/core/${file}`);
+    }
+
+    // Update floatprompt tool files (source is floatprompt/tools/ at package root)
+    const floatpromptToolFiles = ['update.md'];
+    for (const file of floatpromptToolFiles) {
+      const src = join(packageRoot, 'floatprompt', 'tools', file);
       const dest = join(cwd, '.float', 'floatprompt', 'core', file);
       copyFileSync(src, dest);
       updated.push(`.float/floatprompt/core/${file}`);
@@ -240,10 +249,19 @@ Captured rationale for project decisions. AI appends entries during context buil
   copyFileSync(manualSrc, join(cwd, '.float', 'floatprompt', 'manual.md'));
   created.push('.float/floatprompt/manual.md');
 
-  // Copy floatprompt files (source is floatprompt/ at package root, dest is .float/floatprompt/core/)
-  const floatpromptFiles = ['template.md', 'doc.md', 'os.md', 'update.md'];
-  for (const file of floatpromptFiles) {
-    const src = join(packageRoot, 'floatprompt', file);
+  // Copy floatprompt core files (source is floatprompt/core/ at package root)
+  const floatpromptCoreFiles = ['template.md', 'doc.md', 'os.md'];
+  for (const file of floatpromptCoreFiles) {
+    const src = join(packageRoot, 'floatprompt', 'core', file);
+    const dest = join(cwd, '.float', 'floatprompt', 'core', file);
+    copyFileSync(src, dest);
+    created.push(`.float/floatprompt/core/${file}`);
+  }
+
+  // Copy floatprompt tool files (source is floatprompt/tools/ at package root)
+  const floatpromptToolFiles = ['update.md'];
+  for (const file of floatpromptToolFiles) {
+    const src = join(packageRoot, 'floatprompt', 'tools', file);
     const dest = join(cwd, '.float', 'floatprompt', 'core', file);
     copyFileSync(src, dest);
     created.push(`.float/floatprompt/core/${file}`);

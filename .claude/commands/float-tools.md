@@ -4,7 +4,7 @@
 
 This command is for FloatPrompt maintainers only. It does not ship to user projects.
 
-Read and execute `floatprompt/internal/tool-sync.md`.
+Read and execute `floatprompt/tools/tool-sync.md`.
 
 ## What It Checks
 

@@ -123,8 +123,8 @@ Structured text format for portable AI tooling. JSON for behavior, markdown for 
 **FloatPrompt DOES modify AI behavior.** It transforms the AI into a specialized tool.
 
 **Two versions:**
-- `floatprompt/template.md` (3KB) — The template, teaches AI how to create tools
-- `floatprompt/os.md` (35KB) — Full system with guided creation for deep knowledge work
+- `floatprompt/core/template.md` (3KB) — The template, teaches AI how to create tools
+- `floatprompt/core/os.md` (35KB) — Full system with guided creation for deep knowledge work
 
 ### FloatPrompt System — Project Awareness
 
@@ -283,9 +283,9 @@ They complement each other.
 ## File Extensions
 
 All FloatPrompt system files use `.md` for universal compatibility:
-- `floatprompt/template.md` — Template
-- `floatprompt/doc.md` — floatprompt doc tool
-- `floatprompt/os.md` — Full system
+- `floatprompt/core/template.md` — Template
+- `floatprompt/core/doc.md` — floatprompt doc tool
+- `floatprompt/core/os.md` — Full system
 - `.float/system.md` — Boot loader
 - `.float/project/nav/*.md` — Navigation
 

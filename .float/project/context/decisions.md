@@ -31,11 +31,11 @@ Captured rationale for project decisions. AI appends entries during context buil
 
 <!-- Entries below -->
 
-### .float/ self-doc via meta/meta.md
+### .float/ self-doc via floatprompt/index.md
 **Question:** Why does the `.float/` folder self-document with its own structural reference?
-**Answer:** Depth layering — `meta/meta.md` is "what's here" (quick structural reference), `system.md` is "how it works" (full behavioral protocol). Different depths for different needs. Originally lived in `project/nav/float.md` but moved to `meta/` because `.float/` structure is system documentation, not project documentation. `project/nav/*.md` is now purely for project folders.
+**Answer:** Depth layering — `floatprompt/index.md` is "what's here" (quick structural reference), `system.md` is "how it works" (full behavioral protocol). Different depths for different needs. Originally lived in `project/nav/float.md` but moved to `floatprompt/` because `.float/` structure is system documentation, not project documentation. `project/nav/*.md` is now purely for project folders.
 **Date:** 2025-12-29
-**Refined:** 2025-12-29 (moved from project/nav/float.md to meta/meta.md)
+**Refined:** 2025-12-29 (moved from project/nav/float.md to floatprompt/index.md)
 
 ### Context file naming (no generic project.md)
 **Question:** Why must the context file use a project-specific name instead of `project.md`?
@@ -83,12 +83,13 @@ Captured rationale for project decisions. AI appends entries during context buil
 **Date:** 2025-12-29
 **Status:** Future enhancement, not blocking
 
-### meta/ and project/ structure (v0.9.0)
+### meta/ and project/ structure (v0.9.0) — SUPERSEDED by v0.10.0
 **Question:** How should .float/ be organized for instant human clarity?
 **Answer:** Split into `meta/` (FloatPrompt system internals) and `project/` (your project's data). Inspired by Next.js conventions where folder names communicate purpose instantly. When AI handles 90% of implementation, humans need to glance at a path and know immediately what it is. `meta/` = don't touch, system files. `project/` = your stuff. See docs/structure.md for philosophy.
 **Date:** 2025-12-29
 **Version:** 0.9.0
-**Note:** Decisions above this entry reference pre-0.9.0 paths (e.g., `.float/tools/` is now `.float/meta/tools/`)
+**Superseded:** v0.10.0 renamed `meta/` to `floatprompt/` for consistency with package naming
+**Note:** Decisions above this entry reference pre-0.9.0 paths (e.g., `.float/tools/` is now `.float/floatprompt/tools/`)
 
 ### floatprompt/ folder naming (v0.10.0)
 **Question:** How should core templates be named for clarity and consistency?

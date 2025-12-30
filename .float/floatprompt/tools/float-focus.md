@@ -229,8 +229,8 @@ Depth: 3 levels
 Tracing...
 
 Forward (specs/ references):
-  → floatprompt/template.md
-  → floatprompt/doc.md
+  → floatprompt/core/template.md
+  → floatprompt/core/doc.md
   → .float/system.md
 
 Backward (references specs/):
