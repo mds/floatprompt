@@ -9,8 +9,8 @@ human_intent: Document the FloatPrompt System architecture for project awareness
 human_context: The invisible OS for AI — instant project awareness from a single entry point
 
 ai_model: Claude Opus 4.5
-ai_updated: 2025-12-29
-ai_notes: Added subsystems documentation for nested .float/ folders in large projects
+ai_updated: 2025-12-30
+ai_notes: Updated structure to v0.11.0 (meta/ → floatprompt/)
 ---
 
 # FloatPrompt System
@@ -37,9 +37,11 @@ The FloatPrompt System gives AI instant awareness through a centralized pattern:
 any-project/
 ├── .float/                  # FloatPrompt System
 │   ├── system.md            # Boot loader (read first)
-│   ├── meta/                # FloatPrompt internals
-│   │   ├── floatprompt/     # Core templates
-│   │   └── tools/           # /float command tools
+│   ├── floatprompt/         # FloatPrompt internals
+│   │   ├── index.md         # Structure reference
+│   │   ├── core/            # Core templates
+│   │   ├── tools/           # /float command tools
+│   │   └── types/           # Tool type definitions
 │   └── project/             # Your project's data
 │       ├── context/         # Terrain maps
 │       ├── nav/             # Folder navigation
@@ -69,22 +71,25 @@ any-project/
 
 ## File Structure
 
-Centralized pattern: meta for system internals, project for your data.
+Centralized pattern: floatprompt/ for system internals, project/ for your data.
 
 ### The `.float/` folder
 
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader — behavioral protocol |
-| `meta/` | FloatPrompt internals (don't modify) |
+| `floatprompt/` | FloatPrompt internals (don't modify) |
 | `project/` | Your project's FloatPrompt data |
 
-### meta/
+### floatprompt/
 
 | Item | Purpose |
 |------|---------|
-| `floatprompt/` | Core templates (template.md, doc.md, os.md, update.md) |
-| `tools/` | /float command tools |
+| `index.md` | Structure reference |
+| `manual.md` | Tool building guide |
+| `core/` | Core templates (template.md, doc.md, os.md) |
+| `tools/` | /float command tools (10 tools) |
+| `types/` | Tool type definitions (6 types) |
 
 ### project/
 
@@ -103,7 +108,7 @@ Centralized pattern: meta for system internals, project for your data.
 | `docs.md` | docs/ folder |
 | `[folder].md` | Any folder... |
 
-**Why this structure?** meta = don't touch (system files). project = your stuff. Instant clarity from folder names.
+**Why this structure?** floatprompt/ = don't touch (system files). project/ = your stuff. Instant clarity from folder names.
 
 ### Example
 
@@ -111,9 +116,11 @@ Centralized pattern: meta for system internals, project for your data.
 my-project/
 ├── .float/                # FloatPrompt System
 │   ├── system.md          # Boot loader
-│   ├── meta/              # System internals
-│   │   ├── floatprompt/   # Core templates
-│   │   └── tools/         # Command tools
+│   ├── floatprompt/       # System internals
+│   │   ├── index.md       # Structure reference
+│   │   ├── core/          # Core templates
+│   │   ├── tools/         # Command tools
+│   │   └── types/         # Tool types
 │   └── project/           # Your project's data
 │       ├── context/       # Terrain maps
 │       ├── nav/           # Navigation files
@@ -158,15 +165,15 @@ AI does the heavy lifting. Human stays in control.
 Create the structure yourself:
 
 ```bash
-mkdir -p .float/floatprompt/tools .float/floatprompt/core .float/project/nav .float/project/logs .float/project/context
+mkdir -p .float/floatprompt/{core,tools,types} .float/project/{nav,logs,context}
 touch .float/system.md
+touch .float/floatprompt/index.md
 touch .float/project/nav/root.md
 ```
 
-### Option 2: npm (coming soon)
+### Option 2: npm
 
 ```bash
-npm install -g floatprompt
 npx floatprompt init
 ```
 
@@ -243,7 +250,7 @@ Subsystems are optional. Most projects need only root `.float/`.
 ## Learn More
 
 - See `.float/system.md` in this repo for a live example
-- See `artifacts/floatprompt-npm-scaffold-spec.md` for npm tool spec
+- See `.float/floatprompt/index.md` for full structure reference
 
 ---
 
