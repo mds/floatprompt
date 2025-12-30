@@ -73,8 +73,8 @@ if (args.includes('--update') || args.includes('-u')) {
       updated.push(`.float/core/tools/types/${file}`);
     }
 
-    // Update manual (source: system/manual.md)
-    const manualSrc = join(packageRoot, 'system', 'manual.md');
+    // Update manual (source: system/tools/manual.md)
+    const manualSrc = join(packageRoot, 'system', 'tools', 'manual.md');
     copyFileSync(manualSrc, join(cwd, '.float', 'core', 'manual.md'));
     updated.push('.float/core/manual.md');
 
@@ -208,8 +208,8 @@ Captured rationale for project decisions. AI appends entries during context buil
 
 <!-- Entries below -->
 `;
-  writeFileSync(join(cwd, '.float', 'project', 'context', 'decisions.md'), decisionsContent);
-  created.push('.float/project/context/decisions.md');
+  writeFileSync(join(cwd, '.float', 'project', 'context', 'project-decisions.md'), decisionsContent);
+  created.push('.float/project/context/project-decisions.md');
 
   copyFileSync(templateRoot, join(cwd, '.float', 'project', 'nav', 'root.md'));
   created.push('.float/project/nav/root.md');
@@ -236,8 +236,8 @@ Captured rationale for project decisions. AI appends entries during context buil
     created.push(`.float/core/tools/types/${file}`);
   }
 
-  // Copy manual (source: system/manual.md)
-  const manualSrc = join(packageRoot, 'system', 'manual.md');
+  // Copy manual (source: system/tools/manual.md)
+  const manualSrc = join(packageRoot, 'system', 'tools', 'manual.md');
   copyFileSync(manualSrc, join(cwd, '.float', 'core', 'manual.md'));
   created.push('.float/core/manual.md');
 

@@ -107,7 +107,7 @@ The `related` field in floatprompt doc frontmatter creates a link graph. Scan it
 **1. Existence check** — Do related files exist?
 ```
 project/nav/float.md:
-  related: .float/system.md, .float/project/context/floatprompt.md
+  related: .float/system.md, .float/project/context/project-context.md
            ✓ exists          ✓ exists
 ```
 

@@ -151,7 +151,7 @@ git log --since="7 days ago" --oneline
 
 ### decisions.md
 
-Appends to `.float/project/context/decisions.md`:
+Appends to `.float/project/context/project-decisions.md`:
 
 ```markdown
 ### [Topic/Decision Title]

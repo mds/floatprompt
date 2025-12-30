@@ -236,7 +236,7 @@ Forward (specs/ references):
 Backward (references specs/):
   ← docs/claude.md
   ← README.md
-  ← .float/project/context/floatprompt.md
+  ← .float/project/context/project-context.md
 
 Semantic (similar domains):
   ~ docs/philosophy/

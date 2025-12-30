@@ -196,7 +196,7 @@ HIGH (definitely stale):
     Reason: New buoy not mentioned
 
 MEDIUM (possibly stale):
-  ? .float/project/context/floatprompt.md
+  ? .float/project/context/project-context.md
     References tool system
     Reason: Might want buoy mention
 

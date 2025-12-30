@@ -274,7 +274,7 @@ If user says 'n':
 
 **Boot sequence:**
 1. Read `.float/system.md`
-2. Read `.float/project/context/decisions.md` (if exists)
+2. Read `.float/project/context/project-decisions.md` (if exists)
 3. Read `.float/project/context/*.md` (if exists)
 4. Read ALL `.float/project/nav/*.md` files
 5. Read today's session log (if exists)

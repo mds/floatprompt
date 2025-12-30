@@ -80,7 +80,7 @@ When no FloatPrompt System exists:
 When FloatPrompt System exists:
 
 1. **Read `.float/system.md`** — Load boot protocol
-2. **Read `.float/project/context/decisions.md`** (if exists) — Load decision history
+2. **Read `.float/project/context/project-decisions.md`** (if exists) — Load decision history
 3. **Read `.float/project/context/*.md`** (if exists) — Load terrain maps
 4. **Read ALL `.float/project/nav/*.md`** — Load folder navigation
 5. **Read today's session log** (if exists) — Load recent activity
