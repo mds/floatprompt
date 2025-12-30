@@ -29,7 +29,12 @@
       "action_b": "Report clean status"
     },
     "status_format": "FloatPrompt delta.\nDirectory: [path]\nChanges: [N files]\nRipples: [HIGH: n, MEDIUM: n, LOW: n | None detected]\n\n[Report or Ready for: human direction]",
-    "next_step_logic": "HIGH ripples? Propose fixes first. MEDIUM? Show for review. LOW? List for manual check. None? Ready for: human direction"
+    "next_step_logic": "HIGH ripples? Propose fixes first. MEDIUM? Show for review. LOW? List for manual check. None? Ready for: human direction",
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "decide"],
+      "async": true
+    }
   }
 }
 </json>
@@ -107,6 +112,8 @@ git diff --staged --name-only
 - Extract key changes (new functions, renamed vars, moved paths)
 - Note version changes
 
+**Report:** Call float-report --phase=map
+
 ### 3. Trace Impact
 
 **Impact Tracer (sonnet):**
@@ -137,6 +144,8 @@ For each dependent:
   - **HIGH**: Definitely stale (path changed, referenced content deleted)
   - **MEDIUM**: Possibly stale (content changed, reference might be outdated)
   - **LOW**: Check manually (general reference, probably fine)
+
+**Report:** Call float-report --phase=decide
 
 ## Severity Levels
 

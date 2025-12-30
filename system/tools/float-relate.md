@@ -29,7 +29,12 @@
       "action_b": "Report healthy status with stats"
     },
     "status_format": "FloatPrompt relate.\nTarget: [scope]\nRelationships: [explicit: n, implicit: n, structural: n]\nIssues: [n found | None]\n\n[Map/Issues or Ready for: human direction]",
-    "next_step_logic": "Issues found? Show and offer fixes. Suggestions? Present for consideration. Otherwise: Ready for: human direction"
+    "next_step_logic": "Issues found? Show and offer fixes. Suggestions? Present for consideration. Otherwise: Ready for: human direction",
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "decide", "structure"],
+      "async": true
+    }
   }
 }
 </json>
@@ -128,6 +133,25 @@ grep -r "docs/claude.md" --include="*.md"
 - Generate suggestions:
   - Files that mention each other but aren't related
   - Files in same domain that should connect
+
+**Report:** Call float-report --phase=map
+
+### 5. Propose Fixes
+
+Based on detected issues, propose relationship fixes:
+- Add missing bidirectional links
+- Remove broken references
+- Suggest new connections
+
+**Report:** Call float-report --phase=decide
+
+### 6. Apply Fixes
+
+After human approval, apply relationship fixes:
+- Update `related:` fields in affected files
+- Verify changes maintain integrity
+
+**Report:** Call float-report --phase=structure
 
 ## Relationship Types
 

@@ -29,7 +29,12 @@
       "action_b": "Report clean status"
     },
     "status_format": "FloatPrompt harvest.\nDirectory: [path]\nRange: [time range]\nStatus: [N decisions, M patterns | Nothing to harvest]\n\n[Proposals or Ready for: human direction]",
-    "next_step_logic": "Proposals found? Show with evidence and confidence. Approved? Write to files. Otherwise: Ready for: human direction"
+    "next_step_logic": "Proposals found? Show with evidence and confidence. Approved? Write to files. Otherwise: Ready for: human direction",
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "decide", "structure"],
+      "async": true
+    }
   }
 }
 </json>
@@ -116,6 +121,8 @@ git log --since="7 days ago" --oneline
 - Note file paths changed
 - Identify patterns (refactor, fix, add)
 
+**Report:** Call float-report --phase=map
+
 ### 3. Mine Decisions
 
 **Decision Miner (sonnet):**
@@ -131,6 +138,8 @@ git log --since="7 days ago" --oneline
 - **HIGH**: Log discussion + commit confirms
 - **MEDIUM**: Commit only, no log discussion
 - **LOW**: Inference from patterns, not explicit
+
+**Report:** Call float-report --phase=decide
 
 ### 4. Validate Evidence
 
@@ -161,6 +170,8 @@ Appends to `.float/project/context/project-decisions.md`:
 **Evidence:** commit abc1234, session log 2025-12-30 14:30
 **Confidence:** HIGH
 ```
+
+**Report:** Call float-report --phase=structure
 
 ### patterns.md
 
