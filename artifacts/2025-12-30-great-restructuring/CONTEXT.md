@@ -25,8 +25,9 @@
   "requirements": {
     "reading_order": [
       "CONTEXT.md (this file)",
-      "restructure-proposal.md (ALL DECISIONS - start here for execution)",
-      "pillar-map.md (FILE/SYSTEM/PACKAGE reference)",
+      "decisions.md (WHY each decision was made)",
+      "restructure-proposal.md (WHAT changes - execution plan)",
+      "pillar-map.md (final structure reference)",
       "brain-dump.md (original thoughts)",
       "map-current-complexity.md (historical)"
     ],
@@ -53,8 +54,9 @@ Planning artifact for restructuring the FloatPrompt repository. Decisions are fi
 ```
 2025-12-30-great-restructuring/
 ├── CONTEXT.md              ← You are here
-├── restructure-proposal.md ← ALL DECISIONS (9 locked)
-├── pillar-map.md           ← FILE/SYSTEM/PACKAGE reference
+├── decisions.md            ← WHY each decision was made
+├── restructure-proposal.md ← WHAT changes (9 locked, execution plan)
+├── pillar-map.md           ← Final structure reference
 ├── brain-dump.md           ← Original thoughts (historical)
 └── map-current-complexity.md  ← Analysis (historical)
 ```
