@@ -23,12 +23,32 @@ SYSTEM pillar — How FloatPrompt WORKS.
 | Item | Purpose |
 |------|---------|
 | **float.md** | Folder context |
-| **commands.md** | /float command system |
-| **buoys.md** | Float Buoys pattern |
-| **maintenance.md** | System maintenance |
+| **architecture/** | System architecture docs |
+| **claude/** | Claude Code integration |
+| **maintenance/** | System maintenance |
+
+### architecture/
+
+| File | Purpose |
+|------|---------|
+| `overview.md` | FloatPrompt System architecture (.float/ folder) |
+
+### claude/
+
+| File | Purpose |
+|------|---------|
+| `integration.md` | Claude Code integration guide |
+| `commands.md` | /float command system |
+| `buoys.md` | Float Buoys pattern |
+
+### maintenance/
+
+| File | Purpose |
+|------|---------|
+| `checklist.md` | System maintenance checklist |
 
 ## Key Concepts
 
-- **Commands**: Slash commands for Claude Code (/float, /float-sync, etc.)
-- **Buoys**: Parallel execution pattern for multi-scope tasks
+- **Architecture**: How the .float/ system is structured
+- **Claude**: Slash commands (/float, /float-sync, etc.) and buoy patterns
 - **Maintenance**: Keeping the FloatPrompt System healthy

@@ -262,6 +262,20 @@ WS1 must complete first. WS2 and WS3 can run in parallel. WS4 needs WS3. WS5 nee
 - **Total new files:** ~10
 - **Total file updates:** ~25
 
+## Future Work (After WS5)
+
+**float-think** — Meta-orchestrator with intelligent tool selection.
+
+Unlike `float-all` (fixed sequence), `float-think` would:
+- Analyze current context to determine which tools are needed
+- Detect gaps when no tool fits the need
+- Trigger repairs to update/create tools
+- Provide full MDS reasoning trail
+
+**Status:** Parked. Depends on orchestration infrastructure (WS1-WS5).
+
+See: `2025-12-30-float-think.md` for full vision.
+
 ---
 
 **Ready for:** Human approval to begin WS1

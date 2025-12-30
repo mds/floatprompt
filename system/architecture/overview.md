@@ -1,5 +1,5 @@
 ---
-title: FloatPrompt System
+title: FloatPrompt System Architecture
 type: documentation
 status: current
 created: 2025-12-28
@@ -10,10 +10,13 @@ human_context: The invisible OS for AI — instant project awareness from a sing
 
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-30
-ai_notes: Updated structure to v0.11.0 (meta/ → floatprompt/)
+ai_notes: |
+  Moved from format/specs/system.md to system/architecture.md
+  This is SYSTEM pillar content — describes how .float/ works at runtime
+  v0.12.0: Restructured to three pillars
 ---
 
-# FloatPrompt System
+# FloatPrompt System Architecture
 
 **The invisible OS for AI.**
 

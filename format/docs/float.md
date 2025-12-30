@@ -37,7 +37,7 @@
 
 | File | Purpose |
 |------|---------|
-| `claude.md` | Claude Code entry point |
+| `claude.md` | Claude Code quick reference (points to system/) |
 | `mds-method.md` | MDS methodology (Map → Decide → Structure) |
 | `goals.md` | Goal hierarchy |
 | `principles.md` | Core principles |

@@ -164,7 +164,7 @@ Relationship Map for: .float/system.md
 EXPLICIT (in related: field):
   → .float/core/index.md
   → .float/project/project.md
-  → specs/system.md
+  → system/architecture.md
 
 IMPLICIT (referenced in content):
   → docs/claude.md (mentions boot protocol)
@@ -173,7 +173,7 @@ IMPLICIT (referenced in content):
 REFERENCING THIS FILE:
   ← 14 files reference .float/system.md
   ← docs/claude.md
-  ← specs/system.md
+  ← system/architecture.md
   ← [12 more...]
 
 STRUCTURAL:
@@ -201,7 +201,7 @@ SUGGESTIONS (2):
   ? docs/claude.md ↔ docs/structure.md
     Both mention "boot" but not related
 
-  ? specs/system.md ↔ specs/floatprompt.md
+  ? system/architecture.md ↔ specs/floatprompt.md
     Same domain, consider relating
 ```
 

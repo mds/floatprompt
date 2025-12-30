@@ -44,24 +44,46 @@ FILE pillar — What FloatPrompt IS.
 | `float.md` | Folder context |
 | `floatprompt.md` | FloatPrompt file format spec |
 | `doc.md` | floatprompt doc format spec |
-| `system.md` | FloatPrompt System architecture |
 
 ### docs/
 
 | Item | Purpose |
 |------|---------|
 | `float.md` | Folder context |
-| `claude.md` | Claude Code entry point |
-| `goals.md` | Goal hierarchy |
+| `claude.md` | Claude Code quick reference (points to system/) |
+| `guides/` | How to use FloatPrompt |
+| `principles/` | Core rules and constraints |
+| `philosophy/` | Background thinking and rationale |
+| `reference/` | Template references |
+
+#### docs/guides/
+
+| File | Purpose |
+|------|---------|
+| `use.md` | What you can build |
 | `mds-method.md` | MDS methodology |
+
+#### docs/principles/
+
+| File | Purpose |
+|------|---------|
+| `goals.md` | Goal hierarchy |
 | `principles.md` | Core principles |
+| `voice.md` | Voice preservation |
 | `safety.md` | Safety guidelines |
 | `safety-laws.md` | Human safety rules for AI collaboration (7 laws) |
+
+#### docs/philosophy/
+
+| File | Purpose |
+|------|---------|
+| `manifesto.md` | Vision and promise |
 | `structure.md` | Rationale for .float/ folder organization |
-| `use.md` | What you can build |
-| `voice.md` | Voice preservation |
-| `philosophy/` | Background thinking |
-| `reference/` | Template references |
+| `context.md` | Context philosophy |
+| `discovery.md` | Discovery philosophy |
+| `naming.md` | Naming conventions |
+| `orientation.md` | Orientation philosophy |
+| `value.md` | Value philosophy |
 
 ### examples/
 

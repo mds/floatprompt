@@ -61,8 +61,7 @@ format/ (FILE pillar — What FloatPrompt IS)
 ├── tools/                          — Format tools (update.md)
 ├── specs/                          — Format specifications
 │   ├── floatprompt.md              — <fp> tag structure
-│   ├── doc.md                      — YAML frontmatter format
-│   └── system.md                   — .float/ folder architecture
+│   └── doc.md                      — YAML frontmatter format
 ├── docs/                           — Guides and philosophy
 │   ├── philosophy/manifesto.md     — Vision and promise
 │   ├── goals.md                    — Goal hierarchy
@@ -75,6 +74,8 @@ format/ (FILE pillar — What FloatPrompt IS)
     └── shortform script.../        — Pipeline tool (chains from extractor)
 
 system/ (SYSTEM pillar — How FloatPrompt WORKS)
+├── architecture.md                 — FloatPrompt System architecture
+├── claude-integration.md           — Claude Code integration
 ├── commands.md                     — /float command system
 ├── buoys.md                        — Float Buoys pattern
 └── maintenance.md                  — System maintenance

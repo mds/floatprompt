@@ -29,7 +29,8 @@
       "map-proposed-architecture.md",
       "decide-components.md",
       "decisions.md (rationale)",
-      "structure-implementation.md"
+      "structure-implementation.md",
+      "2025-12-30-float-think.md (future vision, parked)"
     ],
     "key_insight": "MDS pattern applies to tool output, not just tool design",
     "decisions_locked": 8,
@@ -57,6 +58,7 @@ A system where:
 | `float-project.md` | Directory tool for `.float/project/*` management |
 | `float-report` | Logging mechanism producing map/decide/structure |
 | `float-all` | Orchestrator running tools in sequence |
+| `float-think` | Meta-orchestrator with intelligent tool selection (future, parked) |
 | Monitoring buoys | Long-running buoys watching for changes |
 | Gate buoys | Approval points between phases |
 
@@ -64,12 +66,13 @@ A system where:
 
 ```
 2025-12-30-float-orchestration/
-├── CONTEXT.md                 ← You are here
-├── map-current-state.md       ← What exists now
+├── CONTEXT.md                   ← You are here
+├── map-current-state.md         ← What exists now
 ├── map-proposed-architecture.md ← What we're building
-├── decide-components.md       ← Decisions about each piece
-├── decisions.md               ← Rationale behind each decision (Q&A format)
-└── structure-implementation.md ← Build plan
+├── decide-components.md         ← Decisions about each piece
+├── decisions.md                 ← Rationale behind each decision (Q&A format)
+├── structure-implementation.md  ← Build plan
+└── 2025-12-30-float-think.md    ← Future vision (parked)
 ```
 
 ## Decisions Locked (8)

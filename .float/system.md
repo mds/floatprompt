@@ -3,7 +3,7 @@ title: FloatPrompt System
 type: system
 status: current
 created: 2025-12-28
-related: .float/core/index.md, .float/project/project.md, format/specs/system.md
+related: .float/core/index.md, .float/project/project.md, system/architecture.md
 
 human_author: @mds
 human_intent: Boot protocol and behavioral constraints for AI working in this project
@@ -102,8 +102,7 @@ floatprompt/
 │   │   └── update.md          # Structured update planning
 │   ├── specs/                 # Format specifications
 │   │   ├── floatprompt.md     # FloatPrompt file format
-│   │   ├── doc.md             # floatprompt doc format
-│   │   └── system.md          # FloatPrompt System architecture
+│   │   └── doc.md             # floatprompt doc format
 │   ├── docs/                  # Guides and philosophy
 │   │   ├── claude.md          # Claude Code entry point
 │   │   ├── mds-method.md      # MDS methodology
@@ -119,6 +118,8 @@ floatprompt/
 │
 ├── system/                    # SYSTEM pillar: How FloatPrompt WORKS
 │   ├── float.md               # Folder context
+│   ├── architecture.md        # FloatPrompt System architecture
+│   ├── claude-integration.md  # Claude Code integration
 │   ├── commands.md            # /float command system
 │   ├── buoys.md               # Float Buoys pattern
 │   └── maintenance.md         # System maintenance

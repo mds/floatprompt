@@ -223,7 +223,7 @@ For historical context files, see `artifacts/archive/2025/12-dec/context-files/`
 **Specifications:**
 - [FloatPrompt Format](format/specs/floatprompt.md)
 - [floatprompt doc Format](format/specs/doc.md)
-- [FloatPrompt System Architecture](format/specs/system.md)
+- [FloatPrompt System Architecture](system/architecture.md)
 
 **Guides:**
 - [What You Can Build](format/docs/use.md)

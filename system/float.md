@@ -38,9 +38,11 @@
 
 | File | Purpose |
 |------|---------|
+| `architecture.md` | FloatPrompt System architecture (.float/ folder) |
 | `commands.md` | /float command system specification |
 | `buoys.md` | Float Buoys parallel execution pattern |
 | `maintenance.md` | System maintenance tool |
+| `claude-integration.md` | Claude Code integration guide |
 
 ## Audience
 

@@ -24,7 +24,7 @@
 
   "requirements": {
     "pillar": "FILE",
-    "specs": ["floatprompt.md", "doc.md", "system.md"]
+    "specs": ["floatprompt.md", "doc.md"]
   }
 }
 </json>
@@ -39,12 +39,12 @@
 |------|---------|
 | `floatprompt.md` | FloatPrompt `<fp>` format specification |
 | `doc.md` | floatprompt doc (YAML frontmatter) specification |
-| `system.md` | FloatPrompt System architecture specification |
 
 ## Relationship to system/
 
-- `specs/` = Format specifications (what the files look like)
+- `format/specs/` = Format specifications (what the files look like)
 - `system/` = Runtime documentation (how the system behaves)
+- `system/architecture.md` = FloatPrompt System architecture (moved from here)
 
 ---
 
