@@ -49,10 +49,10 @@ Building infrastructure for FloatPrompt tool creation:
 
 ```
 WS1: Restructure ──→ WS2: MAINTENANCE.md ──→ WS3: Tool System ──→ WS4: Expansion
-    (NEXT)              (quick win)            (core)              (future)
+    (DONE ✅)            (NEXT)                 (core)              (future)
 ```
 
-**Current:** WS1 approved, ready to execute
+**Current:** WS1 complete (864c7bf, v0.11.0). WS2 ready to start.
 
 ---
 
