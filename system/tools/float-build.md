@@ -28,6 +28,11 @@
       "condition_b": "Human has specific type in mind",
       "action_b": "Skip to Structure phase with chosen type"
     },
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "decide", "structure"],
+      "async": true
+    },
     "status_format": "FloatPrompt build.\nPhase: [Scope | Type | Structure | Build]\nTool: [name or pending]\n\n[Current phase output or questions]",
     "next_step_logic": "After each phase, confirm before proceeding. Human approves each transition."
   }
@@ -86,6 +91,8 @@ Scope → Type → Structure → Build
 
 **Output:** Scope summary with answers to all 5 questions.
 
+**Report:** Call float-report --phase=map with scope findings.
+
 ## Phase 2: Type
 
 **Goal:** Determine which of 6 types fits best.
@@ -112,6 +119,8 @@ If scope has:
 → Recommend decomposition into pipeline.
 
 **Output:** Recommended type with rationale.
+
+**Report:** Call float-report --phase=decide with type selection and rationale.
 
 ## Phase 3: Structure
 
@@ -158,6 +167,8 @@ If scope has:
 - Version matches other tools
 
 **Output:** Complete floatprompt file ready for use.
+
+**Report:** Call float-report --phase=structure with generated tool and locations.
 
 ## Reference Documents
 
