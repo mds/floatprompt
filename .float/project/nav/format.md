@@ -41,6 +41,7 @@ FILE pillar — What FloatPrompt IS.
 
 | File | Purpose |
 |------|---------|
+| `float.md` | Folder context |
 | `floatprompt.md` | FloatPrompt file format spec |
 | `doc.md` | floatprompt doc format spec |
 | `system.md` | FloatPrompt System architecture |
@@ -49,13 +50,16 @@ FILE pillar — What FloatPrompt IS.
 
 | Item | Purpose |
 |------|---------|
+| `float.md` | Folder context |
 | `claude.md` | Claude Code entry point |
-| `mds-method.md` | MDS methodology |
 | `goals.md` | Goal hierarchy |
+| `mds-method.md` | MDS methodology |
 | `principles.md` | Core principles |
-| `voice.md` | Voice preservation |
-| `use.md` | What you can build |
 | `safety.md` | Safety guidelines |
+| `safety-laws.md` | [needs description] |
+| `structure.md` | [needs description] |
+| `use.md` | What you can build |
+| `voice.md` | Voice preservation |
 | `philosophy/` | Background thinking |
 | `reference/` | Template references |
 
@@ -66,5 +70,6 @@ FILE pillar — What FloatPrompt IS.
 | `ai portfolio coach/` | Coach — multi-phase guidance |
 | `design feedback extractor/` | Extractor — archaeological extraction |
 | `mds voice guide/` | Voice — voice preservation system |
+| `more (temp)/` | [needs description] |
 | `shortform caption writer/` | Writer — social media captions |
 | `shortform script writer/` | Writer — viral script creation |
