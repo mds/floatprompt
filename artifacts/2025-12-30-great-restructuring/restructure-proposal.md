@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "Restructure Proposal. Best guess at what moves/renames during the great restructuring. Questions at the end need human decisions.",
+  "STOP": "Restructure Proposal. Decisions locked and pending for the great restructuring.",
 
   "meta": {
     "title": "Restructure Proposal",
@@ -23,37 +23,25 @@
   },
 
   "requirements": {
-    "status": "Draft - awaiting human decisions",
+    "status": "In progress - some decisions locked, some pending",
     "depends_on": ["pillar-map.md"],
-    "questions_count": 5
+    "decisions_locked": 4,
+    "decisions_pending": 1
   }
 }
 </json>
 <md>
 # Restructure Proposal
 
-Best guess at what moves, renames, or changes — based on the three pillars.
-
-## Summary
-
-| Change Type | Count |
-|-------------|-------|
-| Definite moves | 1 |
-| Possible moves | 2 |
-| Renames | 1 |
-| No change needed | Most things |
-
-**Key insight:** The structure is mostly sound. The issues are edge cases and documentation clarity, not fundamental reorganization.
+What moves, renames, or changes during the great restructuring.
 
 ---
 
-## Definite Changes
+## Decisions Locked
 
-### 1. `specs/claude/` → Move to SYSTEM pillar
+### 1. `specs/claude/` → Move to SYSTEM pillar ✓
 
-**Current:** `specs/claude/` (lives in FILE pillar folder)
-**Problem:** It's SYSTEM content (buoys, commands) in a FILE location
-**Proposal:** Move to `.float/floatprompt/specs/`
+**Decision:** Move to `.float/floatprompt/specs/`
 
 ```
 Before:
@@ -61,7 +49,7 @@ specs/
 ├── floatprompt.md    # FILE (format spec)
 ├── doc.md            # FILE (format spec)
 ├── system.md         # FILE (architecture doc)
-└── claude/           # SYSTEM (runtime specs) ← wrong pillar
+└── claude/           # SYSTEM ← wrong pillar
     ├── commands.md
     └── buoys.md
 
@@ -76,59 +64,79 @@ specs/
 └── buoys.md          # SYSTEM
 ```
 
-**Confidence:** 90% — This is clearly misplaced.
+**Rationale:** SYSTEM content belongs in SYSTEM pillar.
 
 ---
 
-## Possible Changes (Need Decision)
+### 2. `MAINTENANCE.md` → Move to SYSTEM pillar as tool ✓
 
-### 2. `context/` — Stay at root or move?
+**Decision:** Move to `.float/floatprompt/maintenance.md` as floatprompt tool
 
-**Current:** Root level, contains onboarding context files
-**Tension:**
-- FILE argument: It's documentation for humans learning FloatPrompt
-- SYSTEM argument: It's consumed by AI at runtime during boot
-
-**Options:**
-- **A) Stay at root** — It's onboarding material, visible to newcomers
-- **B) Move to `docs/context/`** — Group with other FILE pillar docs
-- **C) Move to `.float/project/context/`** — Merge with runtime context
-
-**Confidence:** 50% — Could go either way.
+**Rationale:** It's about system maintenance, should be a behavioral tool not plain docs.
 
 ---
 
-### 3. `MAINTENANCE.md` — Stay at root or move?
+### 3. Root `context/` → Replaced by FLOAT.md system ✓
 
-**Current:** Root level, internal maintenance guide
-**Tension:** Internal doc sitting at top level with public-facing files
+**Decision:** Eliminate root `context/` folder. Content absorbed into FLOAT.md files.
 
-**Options:**
-- **A) Stay at root** — Easy to find for maintainers
-- **B) Move to `docs/`** — Group with FILE pillar
-- **C) Move to `.float/floatprompt/`** — It's about system maintenance
-
-**Confidence:** 60% — Leaning toward move, but not critical.
+**Rationale:** The new FLOAT.md system provides context at every folder level, making a separate `context/` folder redundant.
 
 ---
 
-## Naming Clarity
+### 4. FLOAT.md System ✓ (NEW)
 
-### 4. `floatprompt/` at root — Rename?
+**Decision:** Every folder gets a `FLOAT.md` file for context/onboarding.
+
+| Folder Type | Format | Purpose |
+|-------------|--------|---------|
+| Project folders | floatprompt doc (YAML) | Context about the folder |
+| System folders (`.float/*`) | floatprompt tool (`<fp>`) | Behavioral instructions |
+
+**Structure:**
+```
+any-project/
+├── FLOAT.md              ← doc: project root context
+├── src/
+│   └── FLOAT.md          ← doc: src folder context
+├── docs/
+│   └── FLOAT.md          ← doc: docs folder context
+└── .float/
+    ├── FLOAT.md          ← TOOL: system root behavior
+    ├── floatprompt/
+    │   └── FLOAT.md      ← TOOL: internals behavior
+    └── project/
+        └── FLOAT.md      ← TOOL: project data behavior
+```
+
+**Relationship to nav files:**
+- `.float/project/nav/*.md` = quick maps (what's here)
+- `FLOAT.md` in each folder = deep context (understand this)
+
+**Rationale:** Context lives with the code. No more confusion about root `context/` vs `.float/project/context/`.
+
+---
+
+## Decisions Pending
+
+### 5. Naming collision: `floatprompt/` vs `.float/floatprompt/`
 
 **Current:**
-- `floatprompt/` at root (core templates)
-- `.float/floatprompt/` (system internals)
+- `floatprompt/` at root = FILE pillar (format templates)
+- `.float/floatprompt/` = SYSTEM pillar (system internals)
 
-**Problem:** Same name, different purposes. Potential confusion.
+**Problem:** Same name, different purposes.
 
 **Options:**
-- **A) Keep as is** — Context makes it clear (root vs .float/)
-- **B) Rename root to `templates/`** — But we already have `templates/` for npm scaffolding
-- **C) Rename root to `format/`** — "The format specification templates"
-- **D) Rename root to `core/`** — "Core FloatPrompt templates"
+- A) Keep both as `floatprompt/` — context clarifies
+- B) Rename root to `format/`
+- C) Rename `.float/floatprompt/` to `.float/core/` or `.float/engine/`
 
-**Confidence:** 40% — Not sure if this is actually a problem in practice.
+**Trade-off:**
+- Renaming root = only affects this repo
+- Renaming `.float/floatprompt/` = affects all user projects
+
+**Status:** Awaiting decision.
 
 ---
 
@@ -148,37 +156,18 @@ specs/
 
 ---
 
-## Questions for Human
+## Summary
 
-### Q1: specs/claude/ move
-Move `specs/claude/` to `.float/floatprompt/specs/`?
-- Yes, it's clearly SYSTEM content
-- No, keep all specs together for discoverability
-
-### Q2: context/ location
-Where should `context/` live?
-- A) Stay at root (visible onboarding)
-- B) Move to `docs/context/` (FILE pillar)
-- C) Move to `.float/project/context/` (SYSTEM pillar, merge with runtime)
-
-### Q3: MAINTENANCE.md location
-Where should `MAINTENANCE.md` live?
-- A) Stay at root
-- B) Move to `docs/`
-- C) Move to `.float/floatprompt/`
-
-### Q4: Root floatprompt/ naming
-Rename `floatprompt/` at root to avoid confusion with `.float/floatprompt/`?
-- A) Keep as `floatprompt/` (context is enough)
-- B) Rename to `format/`
-- C) Rename to `core/`
-- D) Other suggestion
-
-### Q5: Anything else?
-Are there structural issues I missed that should be addressed in the restructuring?
+| Decision | Status |
+|----------|--------|
+| specs/claude/ → .float/floatprompt/specs/ | ✓ Locked |
+| MAINTENANCE.md → .float/floatprompt/maintenance.md (tool) | ✓ Locked |
+| Root context/ → absorbed into FLOAT.md system | ✓ Locked |
+| FLOAT.md in every folder | ✓ Locked |
+| Naming collision (floatprompt/) | ⏳ Pending |
 
 ---
 
-*Draft proposal. Awaiting human decisions on Q1-Q5.*
+*Updated: 2025-12-30*
 </md>
 </fp>
