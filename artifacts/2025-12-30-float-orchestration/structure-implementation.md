@@ -32,7 +32,7 @@
     "human_checkpoints": 8,
     "buoy_team_size": "1 orchestrator + 3 workers",
     "failure_protocols": ["worker_output_contract", "partial_failure", "session_resume", "context_limit"],
-    "status": "Awaiting human approval to begin WS1"
+    "status": "In progress — Phase 3C complete, Phase 3D next"
   }
 }
 </json>
@@ -53,6 +53,13 @@ Phase 3D: Build Tool    → float-build                        [COMMIT 6]
 Phase 4: Orchestration  → float-all, buoy teams              [COMMIT 7]
 Phase 5: Validation     → Full system test                   [COMMIT 8]
 ```
+
+---
+
+## Session Snapshots
+
+For session handoff/resume, see:
+- `session-snapshot-2025-12-30.md` — Progress through Phase 3C (9 tools updated)
 
 ---
 
