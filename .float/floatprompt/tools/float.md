@@ -28,8 +28,8 @@
       "condition_b": "Has .float/system.md",
       "action_b": "Boot sequence"
     },
-    "status_format": "FloatPrompt operational.\nDirectory: [path]\nContext: [Loaded | Missing]\nStatus: [No issues found | N issues found]\n\n[Next step or Ready for: human direction]\n\nCommands:\n  /float sync      Structure integrity\n  /float fix       Content integrity\n  /float context   Generate terrain map\n  /float enhance   Fill placeholders, complete frontmatter",
-    "next_step_logic": "Structure issues (missing nav/folders)? → /float sync. Content issues (stale refs)? → /float fix. Both? → /float sync then /float fix. Context missing? → /float context. Otherwise → Ready for: human direction"
+    "status_format": "FloatPrompt operational.\nDirectory: [path]\nContext: [Loaded | Missing]\nStatus: [No issues found | N issues found]\n\n[Next step or Ready for: human direction]\n\nCommands:\n  /float-sync      Structure integrity\n  /float-fix       Content integrity\n  /float-context   Generate terrain map\n  /float-enhance   Fill placeholders\n  /float-focus     Deep dive into topic\n  /float-harvest   Mine knowledge\n  /float-relate    Map relationships\n  /float-delta     Ripple analysis\n  /float-build     Build tools",
+    "next_step_logic": "Structure issues (missing nav/folders)? → /float-sync. Content issues (stale refs)? → /float-fix. Both? → /float-sync then /float-fix. Context missing? → /float-context. Otherwise → Ready for: human direction"
   }
 }
 </json>
@@ -120,10 +120,15 @@ Status: [No issues found | N issues found]
 [Next step recommendation]
 
 Commands:
-  /float sync      Structure integrity (nav ↔ folders)
-  /float fix       Content integrity (references ↔ reality)
-  /float context   Generate project terrain map
-  /float enhance   Fill placeholders, complete frontmatter
+  /float-sync      Structure integrity
+  /float-fix       Content integrity
+  /float-context   Generate terrain map
+  /float-enhance   Fill placeholders
+  /float-focus     Deep dive into topic
+  /float-harvest   Mine knowledge
+  /float-relate    Map relationships
+  /float-delta     Ripple analysis
+  /float-build     Build tools
 ```
 
 **Note:** Only `/float` shows the Context line and Commands list. Other commands omit them.
@@ -133,15 +138,15 @@ Commands:
 ```
 Issues found?
   → Structure issues (missing nav files, folders)?
-      → "Next: Run /float sync to fix structure"
+      → "Next: Run /float-sync to fix structure"
   → Content issues (stale references inside files)?
-      → "Next: Run /float fix to repair references"
+      → "Next: Run /float-fix to repair references"
   → System issues (router ↔ tools mismatch)?
-      → "Next: Run /float fix to repair system alignment"
+      → "Next: Run /float-fix to repair system alignment"
   → Multiple types?
-      → "Next: Run /float sync (structure) then /float fix (content + system)"
+      → "Next: Run /float-sync (structure) then /float-fix (content + system)"
   → No issues: Context missing?
-      → Yes: "Next: Run /float context to generate terrain map"
+      → Yes: "Next: Run /float-context to generate terrain map"
       → No: "Ready for: human direction"
 ```
 
@@ -172,13 +177,18 @@ Created:
 - .float/project/nav/tests.md
 - .float/project/nav/docs.md
 
-Next: Run /float context to generate terrain map
+Next: Run /float-context to generate terrain map
 
 Commands:
-  /float sync      Structure integrity (nav ↔ folders)
-  /float fix       Content integrity (references ↔ reality)
-  /float context   Generate project terrain map
-  /float enhance   Fill placeholders, complete frontmatter
+  /float-sync      Structure integrity
+  /float-fix       Content integrity
+  /float-context   Generate terrain map
+  /float-enhance   Fill placeholders
+  /float-focus     Deep dive into topic
+  /float-harvest   Mine knowledge
+  /float-relate    Map relationships
+  /float-delta     Ripple analysis
+  /float-build     Build tools
 ```
 
 **Existing project (boot):**
@@ -190,13 +200,18 @@ Directory: /Users/mds/Documents/_Github/floatprompt
 Context: Loaded (floatprompt.md)
 Status: 2 issues found
 
-Next: Run /float sync to see details and fix
+Next: Run /float-sync to see details and fix
 
 Commands:
-  /float sync      Structure integrity (nav ↔ folders)
-  /float fix       Content integrity (references ↔ reality)
-  /float context   Generate project terrain map
-  /float enhance   Fill placeholders, complete frontmatter
+  /float-sync      Structure integrity
+  /float-fix       Content integrity
+  /float-context   Generate terrain map
+  /float-enhance   Fill placeholders
+  /float-focus     Deep dive into topic
+  /float-harvest   Mine knowledge
+  /float-relate    Map relationships
+  /float-delta     Ripple analysis
+  /float-build     Build tools
 ```
 
 **Healthy project:**
@@ -211,10 +226,15 @@ Status: No issues found
 Ready for: human direction
 
 Commands:
-  /float sync      Structure integrity (nav ↔ folders)
-  /float fix       Content integrity (references ↔ reality)
-  /float context   Generate project terrain map
-  /float enhance   Fill placeholders, complete frontmatter
+  /float-sync      Structure integrity
+  /float-fix       Content integrity
+  /float-context   Generate terrain map
+  /float-enhance   Fill placeholders
+  /float-focus     Deep dive into topic
+  /float-harvest   Mine knowledge
+  /float-relate    Map relationships
+  /float-delta     Ripple analysis
+  /float-build     Build tools
 ```
 
 ---
