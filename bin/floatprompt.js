@@ -56,7 +56,7 @@ if (args.includes('--update') || args.includes('-u')) {
     }
 
     // Update tools
-    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md'];
+    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md'];
     for (const file of toolFiles) {
       const src = join(packageRoot, '.float', 'floatprompt', 'tools', file);
       const dest = join(cwd, '.float', 'floatprompt', 'tools', file);
@@ -98,7 +98,7 @@ if (args.includes('--update') || args.includes('-u')) {
     updated.push('.float/project/project.md');
 
     // Update Claude commands
-    const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md'];
+    const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md'];
     for (const file of commandFiles) {
       const src = join(packageRoot, '.claude', 'commands', file);
       const dest = join(cwd, '.claude', 'commands', file);
@@ -218,7 +218,7 @@ Captured rationale for project decisions. AI appends entries during context buil
   created.push('.float/project/logs/');
 
   // Copy tools
-  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md'];
+  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md'];
   for (const file of toolFiles) {
     const src = join(packageRoot, '.float', 'floatprompt', 'tools', file);
     const dest = join(cwd, '.float', 'floatprompt', 'tools', file);
@@ -260,7 +260,7 @@ Captured rationale for project decisions. AI appends entries during context buil
   created.push('.float/project/project.md');
 
   // Copy Claude commands
-  const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md'];
+  const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md'];
   for (const file of commandFiles) {
     const src = join(packageRoot, '.claude', 'commands', file);
     const dest = join(cwd, '.claude', 'commands', file);
