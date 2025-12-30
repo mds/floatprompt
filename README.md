@@ -38,6 +38,15 @@ That's a floatprompt. A text file that becomes a tool.
 
 ---
 
+## Three Pillars
+
+```
+floatprompt/
+├── format/      ← FILE: What FloatPrompt IS
+├── system/      ← SYSTEM: How it WORKS
+└── package/     ← PACKAGE: How it SHIPS
+```
+
 ## Which File?
 
 **[`format/core/template.md`](format/core/template.md)** (3KB) — The template
@@ -142,11 +151,11 @@ Real floatprompts solving real problems:
 
 | Example | Type | Lines | What It Does |
 |---------|------|-------|--------------|
-| [AI Portfolio Coach](examples/ai%20portfolio%20coach/) | Coach | 729 | Multi-phase guidance producing HTML artifacts |
-| [Design Feedback Extractor](examples/design%20feedback%20extractor/) | Extractor | 86 | Archaeological extraction preserving voice |
-| [MDS Voice Guide](examples/mds%20voice%20guide/) | Voice | — | Voice preservation and calibration system |
-| [Shortform Caption Writer](examples/shortform%20caption%20writer/) | Writer | — | Social media caption generation |
-| [Shortform Script Writer](examples/shortform%20script%20writer/) | Writer | 200 | Transforms extractions into viral scripts |
+| [AI Portfolio Coach](format/examples/ai%20portfolio%20coach/) | Coach | 729 | Multi-phase guidance producing HTML artifacts |
+| [Design Feedback Extractor](format/examples/design%20feedback%20extractor/) | Extractor | 86 | Archaeological extraction preserving voice |
+| [MDS Voice Guide](format/examples/mds%20voice%20guide/) | Voice | — | Voice preservation and calibration system |
+| [Shortform Caption Writer](format/examples/shortform%20caption%20writer/) | Writer | — | Social media caption generation |
+| [Shortform Script Writer](format/examples/shortform%20script%20writer/) | Writer | 200 | Transforms extractions into viral scripts |
 
 Study these to see the format in action. Depth scales with complexity.
 
@@ -212,14 +221,14 @@ For historical context files, see `artifacts/archive/2025/12-dec/context-files/`
 ## Documentation
 
 **Specifications:**
-- [FloatPrompt Format](specs/floatprompt.md)
-- [floatprompt doc Format](specs/doc.md)
-- [FloatPrompt System Architecture](specs/system.md)
+- [FloatPrompt Format](format/specs/floatprompt.md)
+- [floatprompt doc Format](format/specs/doc.md)
+- [FloatPrompt System Architecture](format/specs/system.md)
 
 **Guides:**
-- [What You Can Build](docs/use.md)
-- [MDS Methodology](docs/mds-method.md) (Map → Decide → Structure)
-- [Goals](docs/goals.md) | [Principles](docs/principles.md) | [Voice](docs/voice.md) | [Safety](docs/safety.md)
+- [What You Can Build](format/docs/use.md)
+- [MDS Methodology](format/docs/mds-method.md) (Map → Decide → Structure)
+- [Goals](format/docs/goals.md) | [Principles](format/docs/principles.md) | [Voice](format/docs/voice.md) | [Safety](format/docs/safety.md)
 
 ---
 

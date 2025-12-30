@@ -3,7 +3,7 @@ title: FloatPrompt System
 type: system
 status: current
 created: 2025-12-28
-related: .float/core/index.md, .float/project/project.md, specs/system.md
+related: .float/core/index.md, .float/project/project.md, format/specs/system.md
 
 human_author: @mds
 human_intent: Boot protocol and behavioral constraints for AI working in this project
@@ -90,6 +90,45 @@ This repository contains FloatPrompt, a structured text format for portable AI c
 ```
 floatprompt/
 │
+│ ─── THREE PILLARS ──────────────────────────────────────────
+│
+├── format/                    # FILE pillar: What FloatPrompt IS
+│   ├── FLOAT.md               # Folder context
+│   ├── core/                  # Core format templates
+│   │   ├── template.md        # The FloatPrompt template (3KB)
+│   │   ├── doc.md             # floatprompt doc tool
+│   │   └── os.md              # Full FloatPrompt OS (35KB)
+│   ├── tools/                 # Format-level tools
+│   │   └── update.md          # Structured update planning
+│   ├── specs/                 # Format specifications
+│   │   ├── floatprompt.md     # FloatPrompt file format
+│   │   ├── doc.md             # floatprompt doc format
+│   │   └── system.md          # FloatPrompt System architecture
+│   ├── docs/                  # Guides and philosophy
+│   │   ├── claude.md          # Claude Code entry point
+│   │   ├── mds-method.md      # MDS methodology
+│   │   ├── goals.md, principles.md, voice.md, use.md, safety.md
+│   │   ├── philosophy/        # Background thinking
+│   │   └── reference/         # Template references
+│   └── examples/              # Real-world FloatPrompt tools
+│       ├── ai portfolio coach/
+│       ├── design feedback extractor/
+│       ├── mds voice guide/
+│       ├── shortform caption writer/
+│       └── shortform script writer/
+│
+├── system/                    # SYSTEM pillar: How FloatPrompt WORKS
+│   ├── FLOAT.md               # Folder context
+│   ├── commands.md            # /float command system
+│   ├── buoys.md               # Float Buoys pattern
+│   └── maintenance.md         # System maintenance
+│
+├── package/                   # PACKAGE pillar: How FloatPrompt SHIPS
+│   ├── bin/                   # CLI script (npx floatprompt)
+│   │   └── floatprompt.js
+│   └── templates/             # Scaffolding templates
+│       └── .float/
+│
 │ ─── OPERATIONAL (ships with npx floatprompt) ───────────────
 │
 ├── .float/                    # FloatPrompt System (read first)
@@ -117,67 +156,18 @@ floatprompt/
 │       │   └── decisions.md   # Decision history and rationale
 │       ├── nav/               # Centralized navigation (project folders only)
 │       │   ├── root.md        # Repository root
-│       │   ├── bin.md         # CLI folder
-│       │   ├── format.md      # Format templates
-│       │   ├── system.md      # System documentation
-│       │   ├── specs.md       # Specifications
-│       │   ├── docs.md        # Documentation
-│       │   ├── examples.md    # Example tools
-│       │   ├── templates.md   # Scaffolding templates
-│       │   └── artifacts.md   # Historical archive
+│       │   └── [folder].md    # One per major folder
 │       └── logs/              # Activity history
 │           └── YYYY-MM-DD.md  # Daily session logs
 │
 ├── .claude/                   # Claude Code integration
 │   └── commands/
-│       └── float.md           # /float command router
+│       └── float*.md          # /float command wrappers
 │
-│ ─── SOURCE (maintainers only) ──────────────────────────────
+│ ─── OTHER ──────────────────────────────────────────────────
 │
 ├── README.md              # Public-facing documentation
-│
-├── format/                # Format templates (copied to .float/core/format/)
-│   ├── core/              # Core format templates
-│   │   ├── template.md
-│   │   ├── doc.md
-│   │   └── os.md
-│   └── tools/             # Format-level tools
-│       └── update.md
-│
-├── system/                # System documentation (SYSTEM pillar)
-│   ├── commands.md        # /float command system
-│   ├── buoys.md           # Float Buoys pattern
-│   └── maintenance.md     # System maintenance
-│
-├── specs/                 # Format specifications (FILE pillar)
-│   ├── floatprompt.md     # FloatPrompt file format
-│   ├── doc.md             # floatprompt doc format
-│   └── system.md          # FloatPrompt System architecture
-│
-├── docs/                  # Guides and philosophy
-│   ├── claude.md          # Claude Code entry point
-│   ├── mds-method.md      # MDS methodology
-│   ├── goals.md           # Goal hierarchy
-│   ├── principles.md      # Core principles
-│   ├── voice.md           # Voice preservation
-│   ├── use.md             # What you can build
-│   ├── safety.md          # Safety guidelines
-│   ├── philosophy/        # Background thinking
-│   └── reference/         # Template references
-│
-├── examples/              # Real-world FloatPrompt tools
-│   ├── ai portfolio coach/
-│   ├── design feedback extractor/
-│   ├── mds voice guide/
-│   ├── shortform caption writer/
-│   └── shortform script writer/
-│
-├── bin/                   # CLI script (npx floatprompt)
-│   └── floatprompt.js
-│
-├── templates/             # Scaffolding templates
-│   └── .float/
-│
+├── FLOAT.md               # Repository context
 └── artifacts/             # Historical archive
     └── 2025/              # 160+ files documenting evolution
 ```
@@ -213,13 +203,9 @@ floatprompt/
 | File | Describes |
 |------|-----------|
 | `root.md` | Repository root |
-| `bin.md` | bin/ folder (CLI) |
-| `format.md` | format/ folder (format templates) |
+| `format.md` | format/ folder (FILE pillar — core/, tools/, specs/, docs/, examples/) |
 | `system.md` | system/ folder (SYSTEM pillar) |
-| `specs.md` | specs/ folder (format specs) |
-| `docs.md` | docs/ folder (includes philosophy/, reference/) |
-| `examples.md` | examples/ folder (includes all subfolders) |
-| `templates.md` | templates/ folder |
+| `package.md` | package/ folder (PACKAGE pillar — bin/, templates/) |
 | `artifacts.md` | artifacts/ folder (includes 2025/) |
 
 **Centralized pattern:** All navigation lives in `.float/project/nav/`. No scattered files. AI reads one location for complete folder context.
@@ -280,10 +266,10 @@ ai_updated:
 |------|----------|---------|
 | `system.md` | `.float/` | Root protocol (this file) |
 | `float-context.md` | `.float/core/tools/` | Tool for generating terrain maps |
-| `template.md` | `format/core/` | Template for creating floatprompts |
-| `doc.md` | `format/core/` | Tool for adding context frontmatter |
-| `os.md` | `format/core/` | Full OS with guided creation |
-| `update.md` | `format/tools/` | Structured update planning |
+| `template.md` | `.float/core/format/` | Template for creating floatprompts |
+| `doc.md` | `.float/core/format/` | Tool for adding context frontmatter |
+| `os.md` | `.float/core/format/` | Full OS with guided creation |
+| `update.md` | `.float/core/format/` | Structured update planning |
 
 ## Maintenance Protocol
 
@@ -417,7 +403,7 @@ This repository has two layers:
 
 **Operational files** work standalone. They reference the source repo for deeper context but don't require it.
 
-**Source files** (specs/, docs/, examples/) exist only in the floatprompt repo. Users who run `npx floatprompt` won't have these.
+**Source files** (format/, system/, package/) exist only in the floatprompt repo. Users who run `npx floatprompt` won't have these.
 
 When modifying tools, ask: "Will this work for npx users who only have `.float/` and `.claude/`?"
 

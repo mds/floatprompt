@@ -1,17 +1,16 @@
 {
   "name": "floatprompt",
-  "version": "0.1.5",
+  "version": "0.12.0",
   "description": "The invisible OS for AI",
   "bin": {
-    "floatprompt": "./bin/floatprompt.js"
+    "floatprompt": "./package/bin/floatprompt.js"
   },
   "type": "module",
   "files": [
-    "bin/",
-    "templates/",
-    "floatprompt/",
+    "package/",
+    "format/core/",
     ".claude/",
-    ".float/meta/tools/"
+    ".float/core/"
   ],
   "repository": {
     "type": "git",

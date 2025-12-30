@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const packageRoot = join(__dirname, '..');
+const packageRoot = join(__dirname, '..', '..');
 
 // Parse CLI arguments
 const args = process.argv.slice(2);
@@ -97,12 +97,12 @@ if (args.includes('--update') || args.includes('-u')) {
     }
 
     // Update index.md (structural reference)
-    const indexSrc = join(packageRoot, 'templates', '.float', 'core', 'index.md');
+    const indexSrc = join(packageRoot, 'package', 'templates', '.float', 'core', 'index.md');
     copyFileSync(indexSrc, join(cwd, '.float', 'core', 'index.md'));
     updated.push('.float/core/index.md');
 
     // Update project.md (structural reference)
-    const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');
+    const projectSrc = join(packageRoot, 'package', 'templates', '.float', 'project', 'project.md');
     copyFileSync(projectSrc, join(cwd, '.float', 'project', 'project.md'));
     updated.push('.float/project/project.md');
 
@@ -186,8 +186,8 @@ try {
   }
 
   // Copy template files
-  const templateSystem = join(packageRoot, 'templates', '.float', 'system.md');
-  const templateRoot = join(packageRoot, 'templates', '.float', 'nav', 'root.md');
+  const templateSystem = join(packageRoot, 'package', 'templates', '.float', 'system.md');
+  const templateRoot = join(packageRoot, 'package', 'templates', '.float', 'project', 'nav', 'root.md');
 
   copyFileSync(templateSystem, join(cwd, '.float', 'system.md'));
   created.push('.float/system.md');
@@ -268,12 +268,12 @@ Captured rationale for project decisions. AI appends entries during context buil
   }
 
   // Copy index.md (structural reference)
-  const indexSrc = join(packageRoot, 'templates', '.float', 'core', 'index.md');
+  const indexSrc = join(packageRoot, 'package', 'templates', '.float', 'core', 'index.md');
   copyFileSync(indexSrc, join(cwd, '.float', 'core', 'index.md'));
   created.push('.float/core/index.md');
 
   // Copy project.md (structural reference)
-  const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');
+  const projectSrc = join(packageRoot, 'package', 'templates', '.float', 'project', 'project.md');
   copyFileSync(projectSrc, join(cwd, '.float', 'project', 'project.md'));
   created.push('.float/project/project.md');
 

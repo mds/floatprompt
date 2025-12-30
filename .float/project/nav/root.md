@@ -10,7 +10,7 @@ human_intent: Provide orientation to FloatPrompt repository for AI navigation
 human_context: Entry point for understanding project structure and philosophy
 
 ai_model: Claude Opus 4.5
-ai_updated: 2025-12-29
+ai_updated: 2025-12-30
 ai_notes: Added full metadata per specs/doc.md requirements
 ---
 
@@ -25,13 +25,10 @@ FloatPrompt repository root — the invisible OS for AI.
 | **README.md** | Public-facing documentation |
 | **LICENSE** | MIT license |
 | **package.json** | npm package configuration |
-| **bin/** | CLI script for npx floatprompt |
-| **floatprompt/** | Essential templates (ships with npx floatprompt) |
-| **specs/** | Formal specifications (format, system, Claude integration) |
-| **docs/** | Guides and philosophy |
-| **context/** | Onboarding context files |
-| **examples/** | Real-world FloatPrompt tools |
-| **templates/** | Scaffolding templates for new projects |
+| **format/** | FILE pillar — What FloatPrompt IS (core/, tools/, specs/, docs/, examples/) |
+| **system/** | SYSTEM pillar — How FloatPrompt WORKS (commands, buoys, maintenance) |
+| **package/** | PACKAGE pillar — How FloatPrompt SHIPS (bin/, templates/) |
+| **.float/** | FloatPrompt System (ships with npx floatprompt) |
 | **artifacts/** | Historical archive |
 
 ## What Is This

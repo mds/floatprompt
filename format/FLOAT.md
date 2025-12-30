@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "Format folder. FILE pillar. Contains FloatPrompt format templates and tools.",
+  "STOP": "Format folder. FILE pillar. Everything about what FloatPrompt IS.",
 
   "meta": {
     "title": "Format",
@@ -13,13 +13,13 @@
 
   "human": {
     "author": "@mds",
-    "intent": "Define what FloatPrompt IS — the format specification and templates",
-    "context": "FILE pillar root — format templates copied to .float/core/format/ during init"
+    "intent": "Define what FloatPrompt IS — templates, specs, docs, examples",
+    "context": "FILE pillar root — contains all format-related content"
   },
 
   "ai": {
     "role": "Context provider",
-    "behavior": "Orient reader to format templates"
+    "behavior": "Orient reader to FILE pillar contents"
   },
 
   "requirements": {
@@ -40,6 +40,9 @@
 |-----------|---------|
 | `core/` | Core format templates |
 | `tools/` | Format-level tools |
+| `specs/` | Format specifications |
+| `docs/` | Guides and philosophy |
+| `examples/` | Real-world FloatPrompt tools |
 
 ### core/
 
@@ -56,9 +59,25 @@
 | `update.md` | Structured update planning |
 | `tool-sync.md` | Tool consistency checker |
 
+### specs/
+
+| File | Purpose |
+|------|---------|
+| `floatprompt.md` | `<fp>` format specification |
+| `doc.md` | floatprompt doc specification |
+| `system.md` | FloatPrompt System architecture |
+
+### docs/
+
+Guides, philosophy, and principles.
+
+### examples/
+
+Real-world FloatPrompt tools demonstrating the format.
+
 ## Deployment
 
-These files are copied to `.float/core/format/` when users run `npx floatprompt`.
+`core/` and `tools/` are copied to `.float/core/format/` when users run `npx floatprompt`.
 
 ---
 

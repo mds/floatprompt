@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "FloatPrompt Repository. The invisible OS for AI. Portable text files that transform AI behavior.",
+  "STOP": "FloatPrompt Repository. The invisible OS for AI. Three pillars: format/, system/, package/.",
 
   "meta": {
     "title": "FloatPrompt",
@@ -14,25 +14,25 @@
   "human": {
     "author": "@mds",
     "intent": "Create portable AI tooling that preserves human voice and agency",
-    "context": "Repository root — start here for orientation"
+    "context": "Repository root — three pillars structure"
   },
 
   "ai": {
     "role": "Context provider",
-    "behavior": "Orient reader to repository structure and purpose"
+    "behavior": "Orient reader to three-pillar repository structure"
   },
 
   "requirements": {
     "pillars": {
-      "FILE": "format/, specs/, docs/, examples/ — What FloatPrompt IS",
-      "SYSTEM": "system/, .claude/ — How FloatPrompt WORKS",
-      "PACKAGE": "bin/, templates/ — How FloatPrompt SHIPS"
+      "format/": "FILE pillar — What FloatPrompt IS (core/, tools/, specs/, docs/, examples/)",
+      "system/": "SYSTEM pillar — How FloatPrompt WORKS (commands, buoys, maintenance)",
+      "package/": "PACKAGE pillar — How FloatPrompt SHIPS (bin/, templates/)"
     },
     "running_system": ".float/ — The system RUNNING in this project",
     "entry_points": {
       "quick_start": "README.md",
       "system_boot": ".float/system.md",
-      "format_spec": "specs/floatprompt.md"
+      "format_spec": "format/specs/floatprompt.md"
     }
   }
 }
@@ -42,38 +42,39 @@
 
 **The invisible OS for AI**
 
-## Quick Orientation
+## Three Pillars
 
-| Pillar | Folder | What it answers |
-|--------|--------|-----------------|
-| **FILE** | `format/`, `specs/`, `docs/` | What is FloatPrompt? |
-| **SYSTEM** | `system/`, `.claude/` | How does it work? |
-| **PACKAGE** | `bin/`, `templates/` | How does it ship? |
-
-**Running system:** `.float/` — FloatPrompt System running in this project
-
-## Contents
-
-| Item | Purpose |
-|------|---------|
-| `README.md` | Public entry point |
-| `format/` | Format templates (FILE pillar) |
-| `system/` | System documentation (SYSTEM pillar) |
-| `specs/` | Format specifications |
-| `docs/` | Guides and philosophy |
-| `examples/` | Real-world FloatPrompt tools |
-| `bin/` | CLI script (npx floatprompt) |
-| `templates/` | Scaffolding templates |
-| `.float/` | Running system |
-| `.claude/` | Claude Code integration |
-| `artifacts/` | Working documents |
+```
+floatprompt/
+├── format/          ← FILE: What FloatPrompt IS
+│   ├── core/        ← templates (template.md, doc.md, os.md)
+│   ├── tools/       ← format tools (update.md)
+│   ├── specs/       ← format specifications
+│   ├── docs/        ← guides and philosophy
+│   └── examples/    ← real-world examples
+│
+├── system/          ← SYSTEM: How FloatPrompt WORKS
+│   ├── commands.md  ← /float command system
+│   ├── buoys.md     ← parallel execution pattern
+│   └── maintenance.md
+│
+├── package/         ← PACKAGE: How FloatPrompt SHIPS
+│   ├── bin/         ← CLI script (npx floatprompt)
+│   └── templates/   ← scaffolding templates
+│
+├── .float/          ← Running system (dynamic)
+├── .claude/         ← Claude Code integration
+└── artifacts/       ← Working documents
+```
 
 ## Entry Points
 
-- **New user:** Start with `README.md`
-- **AI session:** Start with `.float/system.md`
-- **Building tools:** Start with `format/core/template.md`
-- **Understanding format:** Start with `specs/floatprompt.md`
+| Audience | Start Here |
+|----------|------------|
+| New user | `README.md` |
+| AI session | `.float/system.md` |
+| Building tools | `format/core/template.md` |
+| Understanding format | `format/specs/floatprompt.md` |
 
 ---
 
