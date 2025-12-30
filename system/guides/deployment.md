@@ -17,54 +17,56 @@ ai_notes: |
 
 # Deployment Architecture
 
-How FloatPrompt goes from source repository to user projects via `npx floatprompt`.
+How FloatPrompt goes from source repository to user projects via `float init`.
 
 ---
 
 ## The Chain
 
 ```
-SOURCE (this repo)          PACKAGE (npm)           USER PROJECT
-─────────────────          ─────────────           ────────────
-system/tools/*.md    →     bin/floatprompt.js  →   .float/core/tools/*.md
-format/core/*.md     →     copies from source  →   .float/core/format/*.md
-templates/.float/    →     scaffolding         →   .float/system.md, etc.
-.claude/commands/    →     copies directly     →   .claude/commands/*.md
+SOURCE (this repo)                   PACKAGE (npm)           USER PROJECT
+─────────────────                   ─────────────           ────────────
+templates/.float/core/tools/*.md →  bin/floatprompt.js  →   .float/core/tools/*.md
+templates/.float/core/format/*.md → copies from source  →   .float/core/format/*.md
+templates/.float/system.md       →  scaffolding         →   .float/system.md
+.claude/commands/                →  copies directly     →   .claude/commands/*.md
 ```
 
 ---
 
 ## Source of Truth
 
+**templates/.float/ IS the product.** This is what ships to users.
+
 | Content | Source Location | Deployed To |
 |---------|-----------------|-------------|
-| /float command tools | `system/tools/*.md` | `.float/core/tools/*.md` |
-| Tool type templates | `system/tools/types/*.md` | `.float/core/tools/types/*.md` |
-| Format templates | `format/core/*.md` | `.float/core/format/*.md` |
+| /float command tools | `templates/.float/core/tools/*.md` | `.float/core/tools/*.md` |
+| Tool type templates | `templates/.float/core/tools/types/*.md` | `.float/core/tools/types/*.md` |
+| Format templates | `templates/.float/core/format/*.md` | `.float/core/format/*.md` |
 | System boot loader | `templates/.float/system.md` | `.float/system.md` |
 | Nav root template | `templates/.float/project/nav/root.md` | `.float/project/nav/root.md` |
 | Command wrappers | `.claude/commands/*.md` | `.claude/commands/*.md` |
-| Tool building guide | `system/tools/manual.md` | `.float/core/manual.md` |
+| Tool building guide | `templates/.float/core/tools/manual.md` | `.float/core/manual.md` |
 
-**Key insight:** `system/tools/` is the source of truth for operational tools. Changes there propagate to user projects via `npx floatprompt --update`.
+**Key insight:** `templates/.float/` is THE source of truth. What's there is what ships. `system/` contains documentation and guides only (doesn't ship).
 
 ---
 
 ## bin/floatprompt.js
 
-The deployment script that runs when users execute `npx floatprompt`.
+The deployment script that runs when users execute `float init` or `float update`.
 
 ### What It Does
 
 **Init mode** (no `.float/` exists):
 1. Creates `.float/` folder structure
-2. Copies tools from `system/tools/` → `.float/core/tools/`
-3. Copies format templates from `format/core/` → `.float/core/format/`
+2. Copies tools from `templates/.float/core/tools/` → `.float/core/tools/`
+3. Copies format templates from `templates/.float/core/format/` → `.float/core/format/`
 4. Copies boot loader from `templates/.float/system.md`
-5. Creates empty `decisions.md` in context/
+5. Creates empty `project-decisions.md` in context/
 6. Copies Claude commands to `.claude/commands/`
 
-**Update mode** (`--update` flag):
+**Update mode** (`float update`):
 1. Updates tools (preserves user's nav, logs, context)
 2. Updates format templates
 3. Updates Claude commands
@@ -110,8 +112,6 @@ Defines what gets published to npm:
   "files": [
     "bin/",
     "templates/",
-    "system/tools/",
-    "format/core/",
     ".claude/"
   ]
 }
@@ -119,27 +119,38 @@ Defines what gets published to npm:
 
 **Only these folders ship with the npm package.** Everything else (docs, examples, specs, artifacts) stays in the repo.
 
+**templates/.float/ IS the product.** No duplication needed.
+
 ---
 
 ## templates/ Folder
 
-Scaffolding templates for new projects. These are the "starter" versions of files.
+**templates/.float/ IS the product.** This is what ships to user projects.
 
 ```
 templates/
 └── .float/
-    ├── system.md              # Boot loader template
+    ├── system.md              # Boot loader
     ├── core/
-    │   └── index.md           # Structure reference template
+    │   ├── index.md           # Structure reference
+    │   ├── tools/             # ALL /float command tools
+    │   │   ├── float.md
+    │   │   ├── float-sync.md
+    │   │   ├── float-fix.md
+    │   │   ├── ...
+    │   │   ├── manual.md      # Tool building guide
+    │   │   └── types/         # Tool type templates
+    │   └── format/            # Format templates
+    │       ├── template.md
+    │       ├── doc.md
+    │       └── os.md
     └── project/
         ├── project.md         # Project reference template
         └── nav/
             └── root.md        # Root nav template
 ```
 
-**Difference from source:**
-- `templates/.float/system.md` is a generic template
-- `.float/system.md` in the repo is customized for FloatPrompt itself
+**Source of truth:** Edits to tools go HERE. No duplication.
 
 ---
 
@@ -149,8 +160,8 @@ Complete checklist:
 
 ### 1. Create the Tool
 ```bash
-# Create tool implementation
-touch system/tools/float-newtool.md
+# Create tool implementation in templates (source of truth)
+touch templates/.float/core/tools/float-newtool.md
 ```
 
 ### 2. Create Command Wrapper
@@ -165,7 +176,7 @@ Wrapper content:
 
 [Description]
 
-Read and execute `system/tools/float-newtool.md`
+Read and execute `.float/core/tools/float-newtool.md`
 ```
 
 ### 3. Update Deployment Script
@@ -193,7 +204,7 @@ node bin/floatprompt.js --help  # Verify script runs
 
 ## User Project Structure
 
-What users get after `npx floatprompt`:
+What users get after `float init`:
 
 ```
 user-project/
@@ -236,7 +247,7 @@ cat .float/.version
 
 ### Updating
 ```bash
-npx floatprompt --update
+float update
 ```
 
 ### What Gets Updated
@@ -263,7 +274,7 @@ Check both arrays in `bin/floatprompt.js` — tool must be in both `toolFiles` a
 Check `package.json` files array — source folder must be included.
 
 ### Version Mismatch
-Run `npx floatprompt --update` to sync.
+Run `float update` to sync.
 
 ### Missing Files After Init
 Check `templates/` folder has all required scaffolding files.

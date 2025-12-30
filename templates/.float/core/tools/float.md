@@ -1,7 +1,7 @@
 <fp>
 <json>
 {
-  "STOP": "Float Boot/Init Tool. Boot the FloatPrompt System or initialize if none exists.",
+  "STOP": "Float Boot Tool. Boot the FloatPrompt System for project awareness.",
 
   "meta": {
     "title": "/float",
@@ -24,7 +24,7 @@
   "requirements": {
     "duality": {
       "condition_a": "No .float/system.md exists",
-      "action_a": "Init sequence",
+      "action_a": "Not installed: instruct user to run npx float init",
       "condition_b": "Has .float/system.md",
       "action_b": "Boot sequence"
     },
@@ -39,9 +39,9 @@
 }
 </json>
 <md>
-# /float — Boot/Init Tool
+# /float — Boot Tool
 
-**Boot the FloatPrompt System or initialize if none exists.**
+**Boot the FloatPrompt System for project awareness.**
 
 This is the entry point command. Run `/float` first in any session to gain project awareness.
 
@@ -49,36 +49,22 @@ This is the entry point command. Run `/float` first in any session to gain proje
 
 | Condition | Action |
 |-----------|--------|
-| No `.float/system.md` | Init: create folder structure, auto-boot |
+| No `.float/system.md` | Not installed: instruct user to run `npx float init` |
 | Has `.float/system.md` | Boot: read files, quick health check |
 
-## Init Sequence
+## Not Installed
 
-When no FloatPrompt System exists:
+When no FloatPrompt System exists, output:
 
-1. **Create `.float/` folder structure:**
-   ```
-   .float/
-   ├── system.md           # Boot loader
-   ├── floatprompt/        # System internals
-   │   ├── core/           # Templates
-   │   └── tools/          # /float command tools
-   └── project/            # Project data
-       ├── context/        # Terrain maps (empty initially)
-       ├── nav/            # Folder navigation
-       └── logs/           # Session logs
-   ```
+```
+FloatPrompt not found.
 
-2. **Create `system.md`** — Boot loader with structure map
+Run: npx float init
 
-3. **Create `project/nav/*.md`** for each visible folder:
-   - Use shell to detect all folders: `ls -d */`
-   - Exclude: `.git/`, `node_modules/`, `dist/`, `build/`, `.float/`
-   - Create one nav file per folder with placeholder descriptions
+Learn more: https://github.com/mds/floatprompt
+```
 
-4. **Create `project/logs/` directory** — Ready for session logs
-
-5. **Auto-boot** — Execute boot sequence on newly created system
+Do not attempt to create files. The `.float/` structure is created by the npm package.
 
 ## Boot Sequence
 
@@ -106,9 +92,6 @@ test -f .float/system.md
 
 # Count nav files
 ls .float/project/nav/*.md 2>/dev/null | wc -l
-
-# List folders for init
-ls -d */ | grep -v -E '^(node_modules|dist|build|\.git)/$'
 
 # Check router ↔ tools alignment
 test -f .claude/commands/float.md && echo "router exists"
@@ -167,34 +150,18 @@ None. Boot is a fast operation — no spawning needed.
 
 ## Examples
 
-**Fresh project (init):**
+**Not installed:**
 ```
 > /float
 
-FloatPrompt initialized.
-Directory: /Users/mds/projects/my-app
-Context: Missing
-Status: No issues found
+FloatPrompt not found.
 
-Created:
-- .float/system.md
-- .float/core/
-- .float/project/nav/src.md
-- .float/project/nav/tests.md
-- .float/project/nav/docs.md
+Run: npx float init
 
-Next: /float-think (will likely call float-context to generate terrain map)
-
-Commands:
-  /float-think     Intelligent router (recommended)
-  /float-sync      Structure integrity
-  /float-fix       Content integrity
-  /float-context   Generate terrain map
-  /float-enhance   Fill placeholders
-  /float-all       Run all tools
+Learn more: https://github.com/mds/floatprompt
 ```
 
-**Existing project (boot with issues):**
+**Boot with issues:**
 ```
 > /float
 

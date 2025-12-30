@@ -11,7 +11,7 @@ human_context: Your project's FloatPrompt data — context, nav, logs
 
 ai_model: [first AI to update this]
 ai_updated: [scaffold date]
-ai_notes: Scaffolded by npx floatprompt
+ai_notes: Scaffolded by float init
 ---
 
 # project/ Structure

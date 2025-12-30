@@ -163,6 +163,28 @@ my-project/
 
 AI does the heavy lifting. Human stays in control.
 
+## The Containment Principle
+
+**`.float/` is a read-only observer of project files.**
+
+| Action | Inside `.float/` | Outside `.float/` |
+|--------|------------------|-------------------|
+| Write | ✓ | ✗ |
+| Read/scan | ✓ | ✓ |
+| Report findings | ✓ (to `logs/`) | — |
+| Apply fixes | ✓ | Human only |
+
+This ensures:
+- **Delete `.float/` = zero trace** — No modifications to project files
+- **AI observes, human modifies** — Respects Pilot Principle for source files
+- **Clean separation** — System files vs. project files never mix
+
+**Tools affected:**
+- `/float-fix` scans entire project, writes findings to `logs/`, human applies fixes
+- `/float-enhance` applies changes inside `.float/`, suggests changes for project files via `logs/`
+
+**Why this matters:** FloatPrompt is the "invisible OS." It should be truly invisible — removable without trace.
+
 ## Getting Started
 
 ### Option 1: Manual
@@ -176,10 +198,11 @@ touch .float/core/index.md
 touch .float/project/nav/root.md
 ```
 
-### Option 2: npm
+### Option 2: CLI
 
 ```bash
-npx floatprompt init
+npm install -g floatprompt
+float init
 ```
 
 ### Then
@@ -205,7 +228,7 @@ Structure IS compression.
 - **Sorts to top** — underscore prefix always visible
 - **Clear signal** — "this is a system/meta folder"
 - **Zero collision** — won't conflict with project files
-- **Installable** — `npx floatprompt init` creates structure
+- **Installable** — `float init` creates structure
 
 ## Relationship to FloatPrompt
 

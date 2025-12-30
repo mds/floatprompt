@@ -2,18 +2,16 @@
 title: project/ Structure
 type: nav
 status: current
-created: 2025-12-29
+created: [scaffold date]
 related: .float/core/index.md, .float/system.md
 
-human_author: @mds
+human_author: [update to your handle]
 human_intent: Quick structural reference for project/ folder
 human_context: Your project's FloatPrompt data — context, nav, logs
 
-ai_model: Claude Opus 4.5
-ai_updated: 2025-12-30
-ai_notes: |
-  Created for symmetry with floatprompt/index.md
-  v0.11.0: Updated meta/meta.md → floatprompt/index.md
+ai_model: [first AI to update this]
+ai_updated: [scaffold date]
+ai_notes: Scaffolded by float init
 ---
 
 # project/ Structure
@@ -40,8 +38,8 @@ AI-generated terrain maps and captured decisions.
 
 | File | Purpose |
 |------|---------|
-| **{project}.md** | Project-wide terrain map (named for project identity) |
-| **decisions.md** | Decision history and rationale |
+| **project-context.md** | Project-wide terrain map |
+| **project-decisions.md** | Decision history and rationale |
 
 **Naming rule:** Context files use meaningful names (`floatprompt.md`, `api-gateway.md`), never generic `project.md`.
 

@@ -58,7 +58,7 @@
 
 ### tools/
 
-Source of truth for all /float command implementations. Deployed to `.float/core/tools/` by npx floatprompt.
+Source of truth for all /float command implementations. Deployed to `.float/core/tools/` by `float init`.
 
 ---
 

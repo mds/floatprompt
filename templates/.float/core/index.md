@@ -11,7 +11,7 @@ human_context: Depth layering — this is "what's here", system.md is "how it wo
 
 ai_model: [first AI to update this]
 ai_updated: [scaffold date]
-ai_notes: Scaffolded by npx floatprompt
+ai_notes: Scaffolded by float init
 ---
 
 # .float/ Structure

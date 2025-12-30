@@ -10,7 +10,7 @@ human_intent: Capture rationale for project decisions so future AI sessions unde
 human_context: Append-only log — AI adds entries during context building, human reviews
 
 ai_model: Claude Opus 4.5
-ai_updated: 2025-12-29
+ai_updated: 2025-12-30
 ai_notes: Log-style document. Entries appended chronologically. Never delete, only supersede.
 ---
 
@@ -102,4 +102,17 @@ Captured rationale for project decisions. AI appends entries during context buil
 **Answer:** The boot command had hardcoded "issues found → run /float sync" logic. But `/float sync` handles structure (nav ↔ folders), while `/float fix` handles content (stale refs inside files). Updated to categorize issue types: structure issues → sync, content issues → fix, both → sync then fix.
 **Date:** 2025-12-29
 **Version:** 0.10.0
+
+### .float/ Containment Principle (v0.12.0)
+**Question:** Should /float tools modify files outside `.float/`?
+**Answer:** No. `.float/` is a read-only observer of project files. Tools scan and analyze project files, but ALL writes go inside `.float/` only. This means:
+- `/float-fix` reports broken refs to `logs/`, human applies fixes
+- `/float-enhance` only modifies files inside `.float/`
+- No `float.md` context files scattered in project folders — all context lives in `.float/project/context/`
+- Delete `.float/` = zero trace in project
+
+This ensures clean separation: AI observes, human modifies. Respects Pilot Principle fully. The "invisible OS" is truly invisible — it never touches your source files.
+**Date:** 2025-12-30
+**Version:** 0.12.0
+**Status:** Foundational constraint
 

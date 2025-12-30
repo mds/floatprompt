@@ -44,6 +44,7 @@ ai_notes: |
 
   "requirements": {
     "pilot_principle": "Human decides, AI executes. Human is pilot, AI is crew.",
+    "containment_principle": ".float/ tools only write inside .float/. Scan project files, report findings to logs/, but NEVER modify files outside .float/. Human applies fixes to project files.",
     "boot_sequence": {
       "1": "Read this file completely (.float/system.md)",
       "2": "Load structure map into memory",
@@ -133,13 +134,13 @@ floatprompt/
 │       ├── manual.md          # Tool building guide
 │       └── types/             # Tool type templates
 │
-├── bin/                       # CLI script (npx floatprompt)
+├── bin/                       # CLI script (floatprompt)
 │   └── floatprompt.js
 │
 ├── templates/                 # Scaffolding templates
 │   └── .float/
 │
-│ ─── OPERATIONAL (ships with npx floatprompt) ───────────────
+│ ─── OPERATIONAL (ships with float init) ────────────────────
 │
 ├── .float/                    # FloatPrompt System (read first)
 │   ├── system.md              # This file (boot loader)
@@ -361,6 +362,7 @@ The hierarchy is strict. Never compromise voice for convenience.
 - **Slow is Smooth** — Speed without alignment is drift
 - **Archaeological Respect** — First, do not rewrite
 - **Pilot Principle** — Human decides, AI executes
+- **Containment Principle** — `.float/` tools only write inside `.float/`; human modifies project files
 
 ## Agent Handoff
 
@@ -406,9 +408,9 @@ This repository has two layers:
 
 **Operational files** work standalone. They reference the source repo for deeper context but don't require it.
 
-**Source files** (format/, system/, package/) exist only in the floatprompt repo. Users who run `npx floatprompt` won't have these.
+**Source files** (format/, system/) exist only in the floatprompt repo. Users who run `float init` won't have these.
 
-When modifying tools, ask: "Will this work for npx users who only have `.float/` and `.claude/`?"
+When modifying tools, ask: "Will this work for users who only have `.float/` and `.claude/`?"
 
 ---
 

@@ -84,7 +84,7 @@ package/ (PACKAGE pillar — How FloatPrompt SHIPS)
 ├── bin/floatprompt.js              — CLI script
 └── templates/.float/               — Scaffolding templates
 
-OPERATIONAL (ships with npx floatprompt)
+OPERATIONAL (ships with float init)
 
 .float/                             — FloatPrompt System
 ├── system.md                       — Boot loader

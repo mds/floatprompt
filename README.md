@@ -78,14 +78,15 @@ Start with the OS if you're new. Graduate to the template when you know what you
 5. Receive a custom floatprompt for your use case
 
 **Any project (FloatPrompt System):**
-```
-npx floatprompt
+```bash
+npm install -g floatprompt    # Install once
+float init                    # Create .float/ in your project
 ```
 Creates `.float/` folder with system.md, nav files, and the `/float` command for Claude Code.
 
-Update an existing install:
-```
-npx floatprompt --update
+Update tools to latest:
+```bash
+float update
 ```
 
 **Claude Code (this repo):**
@@ -134,7 +135,7 @@ The template (`format/core/template.md`, 3KB) teaches AI how to create tools. Th
 
 **Boot sequence:** AI reads system.md, reads all project/nav/*.md files, builds mental model, checks integrity, then executes.
 
-**Get started:** Run `npx floatprompt` in any project to create a `.float/` folder with everything you need.
+**Get started:** Run `float init` in any project to create a `.float/` folder with everything you need.
 
 **Claude Code commands:**
 - `/float` — Boot the system

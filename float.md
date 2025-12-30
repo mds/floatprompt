@@ -24,9 +24,10 @@
 
   "requirements": {
     "pillars": {
-      "format/": "FILE pillar — What FloatPrompt IS (core/, tools/, specs/, docs/, examples/)",
-      "system/": "SYSTEM pillar — How FloatPrompt WORKS (commands, buoys, maintenance)",
-      "package/": "PACKAGE pillar — How FloatPrompt SHIPS (bin/, templates/)"
+      "format/": "FILE pillar — What FloatPrompt IS (core/, specs/, docs/, examples/)",
+      "system/": "SYSTEM pillar — How FloatPrompt WORKS (commands, buoys, tools)",
+      "bin/": "CLI script (floatprompt)",
+      "templates/": "Scaffolding templates"
     },
     "running_system": ".float/ — The system RUNNING in this project",
     "entry_points": {
@@ -58,9 +59,8 @@ floatprompt/
 │   ├── buoys.md     ← parallel execution pattern
 │   └── maintenance.md
 │
-├── package/         ← PACKAGE: How FloatPrompt SHIPS
-│   ├── bin/         ← CLI script (npx floatprompt)
-│   └── templates/   ← scaffolding templates
+├── bin/             ← CLI script (floatprompt)
+├── templates/       ← scaffolding templates
 │
 ├── .float/          ← Running system (dynamic)
 ├── .claude/         ← Claude Code integration

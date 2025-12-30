@@ -138,7 +138,7 @@ grep -r "old/path" templates/
 
 ### 2. Forgetting templates/ Mirrors .float/
 
-The `templates/` folder is what `npx floatprompt` deploys. It must mirror the source structure.
+The `templates/` folder is what `float init` deploys. It must mirror the source structure.
 
 | Source | Template |
 |--------|----------|

@@ -12,7 +12,7 @@ human_context: Read first in any session — defines conventions, boot sequence,
 ai_model: [first AI to update this]
 ai_updated: [scaffold date]
 ai_notes: |
-  Scaffolded by npx floatprompt.
+  Scaffolded by float init.
   This is both a floatprompt doc (YAML context) and a FloatPrompt tool (<fp> behavior).
   YAML gives document context. JSON gives behavioral instructions.
 ---
@@ -25,7 +25,7 @@ ai_notes: |
   "meta": {
     "title": "FloatPrompt System",
     "format": "floatprompt",
-    "version": "0.11.0"
+    "version": "0.12.0"
   },
 
   "human": {
@@ -41,6 +41,7 @@ ai_notes: |
 
   "requirements": {
     "pilot_principle": "Human decides, AI executes",
+    "containment_principle": ".float/ tools only write inside .float/. Scan project files, report findings to logs/, but NEVER modify files outside .float/. Human applies fixes.",
     "boot_sequence": {
       "1": "Read this file completely",
       "2": "Load structure map into memory",
@@ -70,27 +71,25 @@ ai_notes: |
 ```
 project/
 ├── .float/
-│   ├── system.md           # This file (boot loader) — "how it works"
-│   ├── floatprompt/        # FloatPrompt internals (don't modify)
-│   │   ├── index.md        # Structural reference — "what's here"
-│   │   ├── tools/          # System tools
-│   │   │   ├── float.md
-│   │   │   ├── float-sync.md
-│   │   │   ├── float-fix.md
-│   │   │   ├── float-context.md
-│   │   │   └── float-enhance.md
-│   │   └── core/           # FloatPrompt templates
-│   │       ├── template.md   # Tool creation template
-│   │       ├── doc.md        # Document context tool
-│   │       ├── os.md         # Full FloatPrompt OS
-│   │       └── update.md     # Structured update planning
+│   ├── system.md           # This file (boot loader)
+│   ├── core/               # FloatPrompt internals (don't modify)
+│   │   ├── index.md        # Structural reference
+│   │   ├── format/         # Format templates
+│   │   │   ├── template.md
+│   │   │   ├── doc.md
+│   │   │   └── os.md
+│   │   └── tools/          # /float command tools
+│   │       ├── float.md
+│   │       ├── float-sync.md
+│   │       ├── float-fix.md
+│   │       ├── float-context.md
+│   │       └── float-enhance.md
 │   └── project/            # Your project's data
-│       ├── project.md      # Structure reference for project/
 │       ├── nav/            # Centralized navigation
-│       │   └── root.md     # Repository root
+│       │   └── root.md
 │       ├── context/        # AI terrain maps
-│       │   ├── {name}.md   # Project context (named for project)
-│       │   └── decisions.md # Decision history and rationale
+│       │   ├── project-context.md
+│       │   └── project-decisions.md
 │       └── logs/           # Session history
 └── [project files]
 ```
@@ -126,12 +125,24 @@ AI maintains this system. Human approves changes.
 - Log sessions to `.float/project/logs/`
 - Surface integrity issues before proceeding
 
+## Containment Principle
+
+`.float/` tools only write inside `.float/`. They scan and analyze project files but NEVER modify them.
+
+| Action | Inside `.float/` | Outside `.float/` |
+|--------|------------------|-------------------|
+| Write | ✓ | ✗ |
+| Read/scan | ✓ | ✓ |
+| Report findings | ✓ (to `logs/`) | — |
+| Apply fixes | ✓ | Human only |
+
+**Why:** Delete `.float/` = zero trace. AI observes, human modifies project files.
+
 ## Creating Tools
 
-Use `.float/core/core/template.md` as template for new FloatPrompt tools.
-Use `.float/core/core/doc.md` to add context frontmatter to documents.
-Use `.float/core/core/os.md` for guided tool creation with voice preservation.
-Use `.float/core/core/update.md` for planning significant changes.
+Use `.float/core/format/template.md` as template for new FloatPrompt tools.
+Use `.float/core/format/doc.md` to add context frontmatter to documents.
+Use `.float/core/format/os.md` for guided tool creation with voice preservation.
 
 ## FloatPrompt Source
 
