@@ -1,8 +1,42 @@
+<fp>
+<json>
+{
+  "STOP": "Map of Current Complexity. Analysis of FloatPrompt's three pillars, what's muddled, and how it relates to orchestration work.",
+
+  "meta": {
+    "title": "Map: Current Complexity",
+    "id": "mds-atomic-audit-map",
+    "format": "floatprompt",
+    "version": "0.11.0",
+    "type": "artifact-map"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Understand current state before deciding path forward",
+    "context": "MDS methodology - Map phase of audit"
+  },
+
+  "ai": {
+    "role": "Complexity analyst",
+    "behavior": "Document what exists, identify overlaps, surface questions"
+  },
+
+  "requirements": {
+    "three_pillars": {
+      "file": "FloatPrompt format, specs, philosophy",
+      "system": ".float/ folder, buoys, tools, commands",
+      "package": "npx floatprompt, deployment, templates"
+    },
+    "paths_forward": ["Build now", "Restructure first", "Lightweight cleanup"],
+    "next_phase": "decide"
+  }
+}
+</json>
+<md>
 # Map: Current Complexity
 
 Mapping where we are and how it relates to the orchestration work.
-
----
 
 ## The Three Pillars
 
@@ -23,8 +57,6 @@ Everything FloatPrompt does falls into three categories:
 ```
 
 **Current state:** These are muddled in the repo structure.
-
----
 
 ## What Lives Where (Current)
 
@@ -62,8 +94,6 @@ Everything FloatPrompt does falls into three categories:
     └── context/
 ```
 
----
-
 ## Naming Stutter Problem
 
 Current paths that feel redundant:
@@ -75,8 +105,6 @@ Current paths that feel redundant:
 | `specs/floatprompt.md` | Spec about floatprompt format |
 
 Not broken, but cognitively heavy.
-
----
 
 ## Orchestration Adds More Complexity
 
@@ -92,8 +120,6 @@ The `2025-12-30-float-orchestration/` work proposes:
 | MDS output | map.md, decide.md, structure.md per tool run |
 
 **Question:** Build this on current foundation, or restructure first?
-
----
 
 ## Ideas From Brain Dump
 
@@ -134,8 +160,6 @@ Repair buoy updates tools if gaps found
 
 **Relationship to orchestration:** Enhances existing tool, not new tool.
 
----
-
 ## Three Possible Paths
 
 ### Path A: Build Orchestration Now
@@ -161,8 +185,6 @@ Repair buoy updates tools if gaps found
 - Full restructure later if needed
 - Risk: Half-measures
 
----
-
 ## Overlap Analysis
 
 | Orchestration Decision | Audit Concern | Conflict? |
@@ -172,8 +194,6 @@ Repair buoy updates tools if gaps found
 | Buoy teams | Buoy docs scattered | Yes — where do buoy docs live? |
 | MDS output | logs/ structure | No — contained in .float/project/logs/ |
 | float-all | Complexity | Yes — orchestration of orchestration |
-
----
 
 ## Buoy Documentation Gap
 
@@ -187,8 +207,6 @@ Options:
 1. Keep in specs/claude/ (current)
 2. Move to .float/floatprompt/buoys/
 3. Create docs/buoys.md for conceptual, keep specs for technical
-
----
 
 ## Root Folder Clarity Proposal
 
@@ -224,8 +242,6 @@ floatprompt/                    # REPO ROOT
 
 **Note:** This is conceptual grouping, not necessarily folder moves.
 
----
-
 ## Key Questions for @mds
 
 1. **Is the three-pillar framing correct?** (File, System, Package)
@@ -241,3 +257,5 @@ floatprompt/                    # REPO ROOT
 ---
 
 *Map complete. Ready for: Decide phase*
+</md>
+</fp>

@@ -1,27 +1,39 @@
----
-title: Float Orchestration Decisions
-type: decisions
-status: current
-created: 2025-12-30
-related: CONTEXT.md, decide-components.md, structure-implementation.md
+<fp>
+<json>
+{
+  "STOP": "Float Orchestration Decisions. Rationale behind the 8 architectural decisions for FloatPrompt orchestration. Created via structured Q&A interview.",
 
-human_author: @mds
-human_intent: Capture rationale behind orchestration architecture decisions
-human_context: Q&A session to document the "why" behind each locked decision
+  "meta": {
+    "title": "Float Orchestration Decisions",
+    "id": "float-orchestration-decisions",
+    "format": "floatprompt",
+    "version": "0.11.0",
+    "type": "artifact-decisions"
+  },
 
-ai_model: Claude Opus 4.5
-ai_updated: 2025-12-30
-ai_notes: |
-  Created via structured interview.
-  8 decisions with rationale captured.
-  Some decisions are hard locks, others are soft preferences.
----
+  "human": {
+    "author": "@mds",
+    "intent": "Capture rationale behind orchestration architecture decisions",
+    "context": "Q&A session to document the 'why' behind each locked decision"
+  },
 
+  "ai": {
+    "role": "Decision documenter",
+    "behavior": "Record human rationale accurately, distinguish hard vs soft locks"
+  },
+
+  "requirements": {
+    "decisions_count": 8,
+    "format": "Question → Answer → Status",
+    "lock_types": ["hard", "soft"],
+    "created_via": "structured Q&A interview"
+  }
+}
+</json>
+<md>
 # Float Orchestration Decisions
 
 Rationale behind the 8 architectural decisions for FloatPrompt orchestration.
-
----
 
 ## Decision 1: float-project.md as Tool + Spec
 
@@ -144,3 +156,5 @@ Each level manages 4-5 of the next level down. This creates accountability struc
 ---
 
 *Captured via structured interview, 2025-12-30*
+</md>
+</fp>
