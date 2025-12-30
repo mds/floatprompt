@@ -181,6 +181,48 @@ If declined, buoys stop. User got their inspection without modification.
 
 ---
 
+## Context Architecture
+
+Buoys operate with **isolated context** — they don't inherit the orchestrator's conversation history.
+
+### What Buoys Receive
+
+- **The prompt you provide** — be specific, include all necessary context
+- **Tool access** — they can read files, grep, glob independently
+- **Their own context window** — fresh start, no prior conversation
+
+### What Buoys Don't Receive
+
+- Prior conversation history with the user
+- Files the orchestrator already read
+- Decisions discussed in conversation
+- Mental model the orchestrator built up
+
+### Implication: File-Based Context
+
+Instead of passing conversation context, tell buoys which files to read:
+
+```
+Good: "Read nav/format.md, compare to format/ folder contents, return JSON"
+Bad:  "Check the file we discussed earlier"
+```
+
+Buoys discover context through files, not conversation transfer. This is why:
+- **Scoped tasks work** — buoy reads exactly what it needs
+- **Parallelization works** — no shared conversation state to sync
+- **Results are predictable** — same files = same context = reproducible
+
+### Prompt Design for Buoys
+
+| Include | Exclude |
+|---------|---------|
+| Specific file paths to read | "The file we talked about" |
+| Expected output format (JSON) | Open-ended questions |
+| Success/failure criteria | Ambiguous goals |
+| Scope boundaries | Unbounded exploration |
+
+---
+
 ## Implementation Notes
 
 The buoy pattern can be implemented via:

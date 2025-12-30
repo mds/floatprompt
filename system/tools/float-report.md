@@ -29,7 +29,8 @@
       "action_b": "Report current logs/ status"
     },
     "status_format": "FloatPrompt report.\nWrote: logs/{date}/{tool}-run-{n}/{phase}.md\n\nReady for: next phase or human direction",
-    "next_step_logic": "After write, return to calling tool or human"
+    "next_step_logic": "After write, return to calling tool or human",
+    "self_reports": false
   }
 }
 </json>
@@ -47,10 +48,19 @@
 
 ## Interface
 
-Called by tools or directly:
-- After scan phase: report --phase=map
-- After plan phase: report --phase=decide
-- After execute phase: report --phase=structure
+```bash
+/float-report --tool=<tool-name> --phase=<map|decide|structure> --content="<content>"
+```
+
+**Parameters:**
+- `--tool` — Name of the tool being logged (e.g., `float-sync`)
+- `--phase` — MDS phase: `map`, `decide`, or `structure`
+- `--content` — The content to write to the phase file
+
+**Called by tools at phase boundaries:**
+- After scan/analysis → `--phase=map`
+- After planning → `--phase=decide`
+- After execution → `--phase=structure`
 
 ## Folder Structure
 
@@ -143,6 +153,44 @@ depends_on: decide.md
 4. Create `logs/{date}/{tool}-run-{n}/` folder
 5. Write the phase file (map.md, decide.md, or structure.md)
 6. Report what was written
+
+## Examples
+
+**Log a map phase:**
+```
+> /float-report --tool=float-sync --phase=map --content="## Scanned\n- Nav files: 4\n- Folders: 5\n\n## Gaps\n- Missing nav/newdir.md"
+
+FloatPrompt report.
+Wrote: logs/2025-12-30/float-sync-run-1/map.md
+
+Ready for: next phase or human direction
+```
+
+**Log a decide phase:**
+```
+> /float-report --tool=float-sync --phase=decide --content="## Proposed Actions\n1. Create nav/newdir.md\n\n## Rationale\nFolder exists but no nav file"
+
+FloatPrompt report.
+Wrote: logs/2025-12-30/float-sync-run-1/decide.md
+
+Ready for: next phase or human direction
+```
+
+**Check logs status (no params):**
+```
+> /float-report
+
+FloatPrompt report.
+Directory: /path/to/project
+Logs: 3 runs today
+
+Recent:
+- float-sync-run-1/ (map, decide, structure)
+- float-fix-run-1/ (map, decide)
+- float-context-run-1/ (map)
+
+Ready for: human direction
+```
 
 ---
 
