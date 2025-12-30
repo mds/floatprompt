@@ -68,6 +68,7 @@ Source of truth for /float command implementations.
 | `float-project.md` | Validate .float/project/ structure |
 | `float-report.md` | Write MDS logs for tool runs |
 | `float-all.md` | Full health check orchestrator |
+| `float-think.md` | Intelligent router (recommended next step) |
 | `update.md` | Structured update planning |
 | `tool-sync.md` | Verify tools are synced |
 | `manual.md` | Tool building guide |

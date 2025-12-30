@@ -24,6 +24,7 @@ Specification for the `/float` command family in Claude Code. Five commands that
 
 ```
 /float           Awareness   (boot/init)
+/float think     Intelligence (analyze → route → execute)
 /float sync      Structure   (nav ↔ folders)
 /float fix       Content     (references ↔ reality)
 /float context   Meaning     (terrain map)
@@ -31,9 +32,11 @@ Specification for the `/float` command family in Claude Code. Five commands that
 /float all       Full sweep  (run all in sequence)
 ```
 
-Each command increases depth. Use the lightest command that accomplishes the task.
+**Recommended flow:** `/float` → `/float-think`
 
-`/float all` orchestrates the full sequence when you want comprehensive health check.
+`/float` gives the pulse check. `/float-think` intelligently routes to the right tools.
+
+`/float all` runs everything regardless of need. `/float-think` runs only what's needed.
 
 ---
 
@@ -88,6 +91,7 @@ system/tools/float-fix.md
 .float/core/tools/float-context.md       Meaning generation tool
 .float/core/tools/float-enhance.md       Quality improvement tool
 .float/core/tools/float-all.md           Full health check orchestrator
+.float/core/tools/float-think.md         Intelligent router
 ```
 
 See [deployment.md](../guides/deployment.md) for how tools flow from source to users.
@@ -124,6 +128,8 @@ Each command handles two states of the same concern.
 | `/float enhance` | High quality | Report OK, nothing to enhance |
 | `/float all` | Issues found | Run full sequence, fix, report |
 | `/float all` | Already healthy | Fast path, report OK |
+| `/float think` | Issues found | Select tools → spawn buoys → execute → report |
+| `/float think` | No issues | Report healthy, ready for human direction |
 
 ---
 
