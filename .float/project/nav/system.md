@@ -3,7 +3,7 @@ title: System
 type: nav
 status: current
 created: 2025-12-30
-related: system/FLOAT.md, .float/system.md
+related: system/float.md, .float/system.md
 
 human_author: @mds
 human_intent: Navigate the SYSTEM pillar — how FloatPrompt works
@@ -22,7 +22,7 @@ SYSTEM pillar — How FloatPrompt WORKS.
 
 | Item | Purpose |
 |------|---------|
-| **FLOAT.md** | Folder context |
+| **float.md** | Folder context |
 | **commands.md** | /float command system |
 | **buoys.md** | Float Buoys pattern |
 | **maintenance.md** | System maintenance |

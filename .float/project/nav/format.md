@@ -3,7 +3,7 @@ title: Format
 type: nav
 status: current
 created: 2025-12-30
-related: format/FLOAT.md, .float/system.md
+related: format/float.md, .float/system.md
 
 human_author: @mds
 human_intent: Navigate the FILE pillar — everything about what FloatPrompt IS
@@ -22,7 +22,7 @@ FILE pillar — What FloatPrompt IS.
 
 | Item | Purpose |
 |------|---------|
-| **FLOAT.md** | Folder context |
+| **float.md** | Folder context |
 | **core/** | Core format templates (template.md, doc.md, os.md) |
 | **tools/** | Format-level tools (update.md) |
 | **specs/** | Format specifications |

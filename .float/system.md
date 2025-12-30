@@ -59,7 +59,7 @@ ai_notes: |
     },
     "context_depth": {
       "principle": "Depth scales with complexity",
-      "note": "Context files archived to artifacts/archive/2025/12-dec/context-files/. Use FLOAT.md files in each folder for context.",
+      "note": "Context files archived to artifacts/archive/2025/12-dec/context-files/. Use float.md files in each folder for context.",
       "deep_understanding": {
         "assessments": "artifacts/2025/*-assessment.txt",
         "purpose": "Prevent AI skepticism pattern that persists even after full deep dive",
@@ -93,7 +93,7 @@ floatprompt/
 │ ─── THREE PILLARS ──────────────────────────────────────────
 │
 ├── format/                    # FILE pillar: What FloatPrompt IS
-│   ├── FLOAT.md               # Folder context
+│   ├── float.md               # Folder context
 │   ├── core/                  # Core format templates
 │   │   ├── template.md        # The FloatPrompt template (3KB)
 │   │   ├── doc.md             # floatprompt doc tool
@@ -118,7 +118,7 @@ floatprompt/
 │       └── shortform script writer/
 │
 ├── system/                    # SYSTEM pillar: How FloatPrompt WORKS
-│   ├── FLOAT.md               # Folder context
+│   ├── float.md               # Folder context
 │   ├── commands.md            # /float command system
 │   ├── buoys.md               # Float Buoys pattern
 │   └── maintenance.md         # System maintenance
@@ -167,7 +167,7 @@ floatprompt/
 │ ─── OTHER ──────────────────────────────────────────────────
 │
 ├── README.md              # Public-facing documentation
-├── FLOAT.md               # Repository context
+├── float.md               # Repository context
 └── artifacts/             # Historical archive
     └── 2025/              # 160+ files documenting evolution
 ```
@@ -289,13 +289,13 @@ ai_updated:
 
 **Context depth (choose based on task):**
 
-Context files have been replaced by the FLOAT.md system. Each folder now has a `FLOAT.md` file providing local context. For historical context files, see `artifacts/archive/2025/12-dec/context-files/`.
+Context files have been replaced by the float.md system. Each folder now has a `float.md` file providing local context. For historical context files, see `artifacts/archive/2025/12-dec/context-files/`.
 
 | Level | Method | When to Use |
 |-------|--------|-------------|
-| Quick | Read FLOAT.md in relevant folder | Simple tasks, quick questions |
+| Quick | Read float.md in relevant folder | Simple tasks, quick questions |
 | Standard | Read .float/system.md + relevant nav files | Need system understanding |
-| Full | Read all FLOAT.md files in affected areas | Complex work, system evolution |
+| Full | Read all float.md files in affected areas | Complex work, system evolution |
 | Deep | `artifacts/2025/*-assessment.txt` | Prevent skepticism, true understanding |
 
 **Depth scales with complexity.** Quick tasks need quick context. Deep work needs deep context.

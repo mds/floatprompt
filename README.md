@@ -212,7 +212,7 @@ Anything you'd want an AI to do repeatedly, with specific behavior, producing co
 
 ## Context Depth
 
-Context is now provided via FLOAT.md files in each folder. Read the FLOAT.md in any folder for local context.
+Context is now provided via float.md files in each folder. Read the float.md in any folder for local context.
 
 For historical context files, see `artifacts/archive/2025/12-dec/context-files/`.
 
