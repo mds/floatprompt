@@ -23,7 +23,6 @@ SYSTEM pillar — How FloatPrompt WORKS.
 | Item | Purpose |
 |------|---------|
 | **float.md** | Folder context |
-| **manual.md** | Tool building guide |
 | **guides/** | How to integrate and maintain |
 | **concepts/** | Architecture and patterns |
 | **reference/** | Quick lookups |
@@ -68,4 +67,5 @@ Source of truth for /float command implementations.
 | `float-relate.md` | Find related files |
 | `update.md` | Structured update planning |
 | `tool-sync.md` | Verify tools are synced |
+| `manual.md` | Tool building guide |
 | `types/` | Tool type templates |

@@ -10,7 +10,6 @@
     "bin/",
     "templates/",
     "system/tools/",
-    "system/manual.md",
     "format/core/",
     ".claude/"
   ],

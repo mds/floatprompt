@@ -44,7 +44,7 @@ templates/.float/    →     scaffolding         →   .float/system.md, etc.
 | System boot loader | `templates/.float/system.md` | `.float/system.md` |
 | Nav root template | `templates/.float/project/nav/root.md` | `.float/project/nav/root.md` |
 | Command wrappers | `.claude/commands/*.md` | `.claude/commands/*.md` |
-| Tool building guide | `system/manual.md` | `.float/core/manual.md` |
+| Tool building guide | `system/tools/manual.md` | `.float/core/manual.md` |
 
 **Key insight:** `system/tools/` is the source of truth for operational tools. Changes there propagate to user projects via `npx floatprompt --update`.
 
@@ -111,7 +111,6 @@ Defines what gets published to npm:
     "bin/",
     "templates/",
     "system/tools/",
-    "system/manual.md",
     "format/core/",
     ".claude/"
   ]

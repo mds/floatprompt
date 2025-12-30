@@ -44,7 +44,7 @@ ai_notes: |
     "boot_sequence": {
       "1": "Read this file completely",
       "2": "Load structure map into memory",
-      "3": "Read .float/project/context/decisions.md if exists (decision history)",
+      "3": "Read .float/project/context/project-decisions.md if exists (decision history)",
       "4": "Read .float/project/context/*.md if exists (terrain maps)",
       "5": "Read ALL .float/project/nav/*.md files. Verify Contents tables match actual folder contents. Flag discrepancies.",
       "6": "Read today's log (.float/project/logs/YYYY-MM-DD.md) if exists",

@@ -119,9 +119,9 @@ floatprompt/
 │
 ├── system/                    # SYSTEM pillar: How FloatPrompt WORKS
 │   ├── float.md               # Folder context
-│   ├── manual.md              # Tool building guide
 │   ├── guides/                # How to integrate and maintain
 │   │   ├── integration.md     # Claude Code integration guide
+│   │   ├── deployment.md      # Source → package → deploy chain
 │   │   └── checklist.md       # System maintenance checklist
 │   ├── concepts/              # Architecture and patterns
 │   │   ├── architecture.md    # FloatPrompt System architecture
@@ -130,6 +130,7 @@ floatprompt/
 │   │   └── commands.md        # /float command system
 │   └── tools/                 # Source of truth for /float commands
 │       ├── float.md, float-sync.md, float-fix.md...
+│       ├── manual.md          # Tool building guide
 │       └── types/             # Tool type templates
 │
 ├── bin/                       # CLI script (npx floatprompt)

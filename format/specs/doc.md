@@ -103,7 +103,7 @@ AI can suggest updates to `ai_` fields. Human approves.
 The `related` field enables automated integrity checking:
 
 ```yaml
-related: system.md, context/floatprompt.md, tools/float.md
+related: system.md, context/project-context.md, tools/float.md
 ```
 
 **What this enables:**
@@ -141,7 +141,7 @@ title: FloatPrompt System
 type: nav
 status: current
 created: 2025-12-29
-related: .float/system.md, .float/context/floatprompt.md
+related: .float/system.md, .float/project/context/project-context.md
 
 human_author: @mds
 human_intent: Document .float/ folder structure for AI navigation
