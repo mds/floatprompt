@@ -56,8 +56,8 @@ FILE pillar — What FloatPrompt IS.
 | `mds-method.md` | MDS methodology |
 | `principles.md` | Core principles |
 | `safety.md` | Safety guidelines |
-| `safety-laws.md` | [needs description] |
-| `structure.md` | [needs description] |
+| `safety-laws.md` | Human safety rules for AI collaboration (7 laws) |
+| `structure.md` | Rationale for .float/ folder organization |
 | `use.md` | What you can build |
 | `voice.md` | Voice preservation |
 | `philosophy/` | Background thinking |
@@ -70,6 +70,6 @@ FILE pillar — What FloatPrompt IS.
 | `ai portfolio coach/` | Coach — multi-phase guidance |
 | `design feedback extractor/` | Extractor — archaeological extraction |
 | `mds voice guide/` | Voice — voice preservation system |
-| `more (temp)/` | [needs description] |
+| `more (temp)/` | Miscellaneous Shift Nudge course tools |
 | `shortform caption writer/` | Writer — social media captions |
 | `shortform script writer/` | Writer — viral script creation |
