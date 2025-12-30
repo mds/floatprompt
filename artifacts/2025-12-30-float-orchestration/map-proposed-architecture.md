@@ -1,8 +1,39 @@
+<fp>
+<json>
+{
+  "STOP": "Map of Proposed Architecture. What we're building: float-project, float-report, float-all, buoy types, and coordination patterns.",
+
+  "meta": {
+    "title": "Map: Proposed Architecture",
+    "id": "float-orchestration-map-proposed",
+    "format": "floatprompt",
+    "version": "0.11.0",
+    "type": "artifact-map"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Design the target architecture for orchestration",
+    "context": "MDS methodology - Map phase (future state)"
+  },
+
+  "ai": {
+    "role": "Architecture designer",
+    "behavior": "Design components, patterns, data flows, and coordination mechanisms"
+  },
+
+  "requirements": {
+    "core_principle": "MDS everywhere - tools, output, buoy coordination",
+    "new_components": ["float-project.md", "float-report", "float-all"],
+    "buoy_types": ["scan", "report", "gate", "monitor", "orchestrator"],
+    "gate_points": ["post-map", "post-decide", "post-structure"]
+  }
+}
+</json>
+<md>
 # Map: Proposed Architecture
 
 What we're building.
-
----
 
 ## Core Principle
 
@@ -10,8 +41,6 @@ What we're building.
 - Tools follow MDS (map → decide → structure)
 - Tool OUTPUT follows MDS (map.md → decide.md → structure.md)
 - Buoy coordination follows MDS (scan → plan → execute)
-
----
 
 ## New/Evolved Components
 
@@ -70,8 +99,6 @@ float → sync → fix → context → enhance
 | **Monitor buoy** | Watch for changes | Long-running |
 | **Orchestrator buoy** | Coordinate other buoys | Session-length |
 
----
-
 ## Proposed project/ Structure
 
 ```
@@ -95,8 +122,6 @@ float → sync → fix → context → enhance
     ├── floatprompt.md    # Project understanding
     └── {scope}.md        # Created by /float-focus
 ```
-
----
 
 ## Proposed Data Flow
 
@@ -130,8 +155,6 @@ User runs /float-all
         ▼
    Persistent logs in logs/{date}/
 ```
-
----
 
 ## Buoy Coordination Pattern
 
@@ -169,8 +192,6 @@ User runs /float-all
         └─────────────┘
 ```
 
----
-
 ## Gate Points
 
 | Gate | When | What's Approved |
@@ -178,8 +199,6 @@ User runs /float-all
 | **Post-map** | After all scans complete | Continue to decide phase |
 | **Post-decide** | After plan generated | Execute proposed changes |
 | **Post-structure** | After execution | Confirm success, close workflow |
-
----
 
 ## Monitor Buoys (Future)
 
@@ -192,3 +211,5 @@ Long-running buoys that watch for changes:
 | `context_monitor` | Significant changes | `/float-context` |
 
 These are stretch goals — coordination comes first.
+</md>
+</fp>

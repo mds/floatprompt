@@ -1,8 +1,40 @@
+<fp>
+<json>
+{
+  "STOP": "Implementation Plan. Build plan for orchestration architecture with 5 phases and 5 workstreams. Ready for human approval to begin.",
+
+  "meta": {
+    "title": "Structure: Implementation Plan",
+    "id": "float-orchestration-structure-implementation",
+    "format": "floatprompt",
+    "version": "0.11.0",
+    "type": "artifact-structure"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Define the build plan for orchestration architecture",
+    "context": "MDS methodology - Structure phase"
+  },
+
+  "ai": {
+    "role": "Implementation planner",
+    "behavior": "Break work into phases and workstreams, identify dependencies, list deliverables"
+  },
+
+  "requirements": {
+    "phases": 5,
+    "workstreams": 5,
+    "new_tools": ["float-report", "float-project", "float-all"],
+    "tools_to_update": 10,
+    "status": "Awaiting human approval to begin WS1"
+  }
+}
+</json>
+<md>
 # Structure: Implementation Plan
 
 Build plan for the orchestration architecture.
-
----
 
 ## Overview
 
@@ -13,8 +45,6 @@ Phase 3: Tool Updates   → Add reporting to existing tools
 Phase 4: Orchestration  → float-all, buoy teams
 Phase 5: Validation     → Full system test
 ```
-
----
 
 ## Phase 1: Foundation
 
@@ -53,8 +83,6 @@ Update templates and bin/floatprompt.js:
 
 Location: `.claude/commands/float-report.md`
 
----
-
 ## Phase 2: Project Tool
 
 **Goal:** Convert project.md from doc to tool.
@@ -85,8 +113,6 @@ Ensure new projects get correct structure.
 ### 2D. Create command wrapper
 
 Location: `.claude/commands/float-project.md`
-
----
 
 ## Phase 3: Tool Updates
 
@@ -123,8 +149,6 @@ Add to each tool's process:
 2. After plan → call float-report --phase=decide
 3. After execute → call float-report --phase=structure
 
----
-
 ## Phase 4: Orchestration
 
 **Goal:** Build float-all and buoy team pattern.
@@ -159,8 +183,6 @@ Team of 4-5:
 
 Location: `.claude/commands/float-all.md`
 
----
-
 ## Phase 5: Validation
 
 **Goal:** Full system test.
@@ -187,8 +209,6 @@ Location: `.claude/commands/float-all.md`
    - Verify nav/, logs/, context/ all valid
    - Verify `project-decisions.md` and `project-context.md` exist
 
----
-
 ## Workstreams
 
 | WS | Name | Deliverables |
@@ -198,8 +218,6 @@ Location: `.claude/commands/float-all.md`
 | WS3 | Tool Updates | 10 tools updated with reporting |
 | WS4 | Orchestration | float-all.md, buoy team docs, command |
 | WS5 | Validation | Test suite, fixes |
-
----
 
 ## Dependencies
 
@@ -212,8 +230,6 @@ WS1 (Foundation)
 ```
 
 WS1 must complete first. WS2 and WS3 can run in parallel. WS4 needs WS3. WS5 needs all.
-
----
 
 ## Files to Create
 
@@ -237,8 +253,6 @@ WS1 must complete first. WS2 and WS3 can run in parallel. WS4 needs WS3. WS5 nee
 | context/decisions.md | Rename to project-decisions.md |
 | context/floatprompt.md | Rename to project-context.md |
 
----
-
 ## Estimated Scope
 
 - **New tools:** 3 (float-report, float-project, float-all)
@@ -251,3 +265,5 @@ WS1 must complete first. WS2 and WS3 can run in parallel. WS4 needs WS3. WS5 nee
 ---
 
 **Ready for:** Human approval to begin WS1
+</md>
+</fp>

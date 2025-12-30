@@ -1,8 +1,46 @@
+<fp>
+<json>
+{
+  "STOP": "Float Orchestration Architecture Context. Design the coordination layer for FloatPrompt tools, buoys, and reporting. Read this first when resuming work.",
+
+  "meta": {
+    "title": "Float Orchestration Architecture",
+    "id": "float-orchestration-context",
+    "format": "floatprompt",
+    "version": "0.11.0",
+    "type": "artifact-context"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Design coordination layer for tools, buoys, and reporting",
+    "context": "Triggered by discussion about chaining float-* commands and logging gaps"
+  },
+
+  "ai": {
+    "role": "Architecture designer and documentation keeper",
+    "behavior": "Design patterns, document decisions, maintain coherence across documents"
+  },
+
+  "requirements": {
+    "reading_order": [
+      "CONTEXT.md (this file)",
+      "map-current-state.md",
+      "map-proposed-architecture.md",
+      "decide-components.md",
+      "decisions.md (rationale)",
+      "structure-implementation.md"
+    ],
+    "key_insight": "MDS pattern applies to tool output, not just tool design",
+    "decisions_locked": 8,
+    "implementation_status": "Design complete, awaiting implementation"
+  }
+}
+</json>
+<md>
 # Float Orchestration Architecture
 
 **Purpose:** Design the coordination layer for FloatPrompt tools, buoys, and reporting.
-
----
 
 ## What We're Designing
 
@@ -12,9 +50,7 @@ A system where:
 3. **Buoys are fully orchestrated** — coordinated, waiting on each other, one orchestrating
 4. **Everything reports up the chain** — logged, auditable, resumable
 
----
-
-## Key Concepts Emerging
+## Key Concepts
 
 | Concept | Description |
 |---------|-------------|
@@ -23,8 +59,6 @@ A system where:
 | `float-all` | Orchestrator running tools in sequence |
 | Monitoring buoys | Long-running buoys watching for changes |
 | Gate buoys | Approval points between phases |
-
----
 
 ## Document Map
 
@@ -37,8 +71,6 @@ A system where:
 ├── decisions.md               ← Rationale behind each decision (Q&A format)
 └── structure-implementation.md ← Build plan
 ```
-
----
 
 ## Decisions Locked (8)
 
@@ -53,9 +85,7 @@ A system where:
 | 7 | logs/ structure | Run numbers |
 | 8 | Buoy hierarchy | Teams of 4-5, flat |
 
-See `decide-components.md` for full details.
-
----
+See `decisions.md` for full rationale.
 
 ## Session Origin
 
@@ -65,3 +95,5 @@ See `decide-components.md` for full details.
 
 **Session date:** 2025-12-30
 **Participants:** @mds, Claude Opus 4.5
+</md>
+</fp>

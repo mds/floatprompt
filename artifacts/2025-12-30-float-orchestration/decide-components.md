@@ -1,10 +1,41 @@
+<fp>
+<json>
+{
+  "STOP": "Component Architecture Decisions. Technical decisions for each component with MDS templates. All 8 decisions locked.",
+
+  "meta": {
+    "title": "Decide: Component Architecture",
+    "id": "float-orchestration-decide-components",
+    "format": "floatprompt",
+    "version": "0.11.0",
+    "type": "artifact-decide"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Lock technical decisions for each orchestration component",
+    "context": "MDS methodology - Decide phase"
+  },
+
+  "ai": {
+    "role": "Decision recorder",
+    "behavior": "Document technical decisions with templates and patterns"
+  },
+
+  "requirements": {
+    "decisions_count": 8,
+    "all_locked": true,
+    "includes_templates": ["map.md", "decide.md", "structure.md"],
+    "next_phase": "structure-implementation.md"
+  }
+}
+</json>
+<md>
 # Decide: Component Architecture
 
 Decisions for each component. **All decisions locked.**
 
----
-
-## Decision 1: float-project.md ✅
+## Decision 1: float-project.md
 
 **Role:** Tool + Spec (possibly + orchestrator if goldilocks)
 
@@ -12,9 +43,7 @@ Decisions for each component. **All decisions locked.**
 - Enforces structure (not just documents it)
 - May spawn buoys for subdirectories if scope warrants
 
----
-
-## Decision 2: float-report Integration ✅
+## Decision 2: float-report Integration
 
 **Pattern:** Protocol + report_buoy hybrid
 
@@ -22,9 +51,7 @@ Decisions for each component. **All decisions locked.**
 - Protocol spawns report_buoy for async, non-blocking writes
 - Lives in `floatprompt/tools/float-report.md`
 
----
-
-## Decision 3: Buoy Coordination ✅
+## Decision 3: Buoy Coordination
 
 **Pattern:** Orchestrator pattern
 
@@ -34,9 +61,7 @@ Decisions for each component. **All decisions locked.**
   - 2-3 Workers (parallel execution)
   - 1 Validator (sequential, runs AFTER workers complete)
 
----
-
-## Decision 4: Gate UX ✅
+## Decision 4: Gate UX
 
 **Pattern:** Automated with paper trail
 
@@ -44,9 +69,7 @@ Decisions for each component. **All decisions locked.**
 - Full paper trail via MDS logs enables post-job fixes
 - Humans can always review logs and correct
 
----
-
-## Decision 5: MDS File Format ✅
+## Decision 5: MDS File Format
 
 ### map.md
 ```markdown
@@ -114,9 +137,7 @@ depends_on: decide.md
 Ready for: /float-fix
 ```
 
----
-
-## Decision 6: context/ Structure ✅
+## Decision 6: context/ Structure
 
 **Pattern:** Required core + emergent discovery
 
@@ -129,9 +150,7 @@ Ready for: /float-fix
 - Domain files discovered by buoys
 - Special context from specific tasks
 
----
-
-## Decision 7: logs/ Structure ✅
+## Decision 7: logs/ Structure
 
 **Pattern:** Run numbers for multiple executions
 
@@ -151,9 +170,7 @@ logs/
 │       └── structure.md       # Combined
 ```
 
----
-
-## Decision 8: Buoy Hierarchy ✅
+## Decision 8: Buoy Hierarchy
 
 **Pattern:** Teams of 4-5, flat structure
 
@@ -174,21 +191,21 @@ Orchestrator (1)
               (sequential)
 ```
 
----
-
 ## Decisions Summary
 
 | # | Component | Decision | Status |
 |---|-----------|----------|--------|
-| 1 | float-project.md | Tool + Spec (+ orchestrator) | ✅ Locked |
-| 2 | float-report | Protocol + report_buoy | ✅ Locked |
-| 3 | Buoy coordination | Orchestrator pattern | ✅ Locked |
-| 4 | Gate UX | Automated + paper trail | ✅ Locked |
-| 5 | MDS file format | See templates above | ✅ Locked |
-| 6 | context/ structure | Required + emergent | ✅ Locked |
-| 7 | logs/ structure | Run numbers | ✅ Locked |
-| 8 | Buoy hierarchy | Teams of 4-5, flat | ✅ Locked |
+| 1 | float-project.md | Tool + Spec (+ orchestrator) | Locked |
+| 2 | float-report | Protocol + report_buoy | Locked |
+| 3 | Buoy coordination | Orchestrator pattern | Locked |
+| 4 | Gate UX | Automated + paper trail | Locked |
+| 5 | MDS file format | See templates above | Locked |
+| 6 | context/ structure | Required + emergent | Locked |
+| 7 | logs/ structure | Run numbers | Locked |
+| 8 | Buoy hierarchy | Teams of 4-5, flat | Locked |
 
 ---
 
 **Ready for:** structure-implementation.md (build plan)
+</md>
+</fp>

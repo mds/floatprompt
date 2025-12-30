@@ -1,8 +1,49 @@
+<fp>
+<json>
+{
+  "STOP": "Map of Current State. What exists today before orchestration architecture work. Identifies gaps in logging, buoy coordination, and project.md passivity.",
+
+  "meta": {
+    "title": "Map: Current State",
+    "id": "float-orchestration-map-current",
+    "format": "floatprompt",
+    "version": "0.11.0",
+    "type": "artifact-map"
+  },
+
+  "human": {
+    "author": "@mds",
+    "intent": "Document current state before designing orchestration",
+    "context": "MDS methodology - Map phase"
+  },
+
+  "ai": {
+    "role": "State documenter",
+    "behavior": "Accurately capture what exists, identify gaps, note strengths to keep"
+  },
+
+  "requirements": {
+    "tools_count": 10,
+    "gaps_identified": [
+      "Most tools output only to conversation",
+      "project.md is passive documentation",
+      "Buoys don't coordinate",
+      "No per-tool logs",
+      "No MDS structure in output"
+    ],
+    "strengths_to_keep": [
+      "Goldilocks-sized tools",
+      "Buoy pattern exists",
+      "Duality pattern",
+      "Status format consistency"
+    ]
+  }
+}
+</json>
+<md>
 # Map: Current State
 
 What exists today before this architecture work.
-
----
 
 ## Current Tools (10)
 
@@ -20,8 +61,6 @@ What exists today before this architecture work.
 | `/float-relate` | Map relationships | Conversation only |
 
 **Gap:** Most tools output only to conversation. No persistent logging.
-
----
 
 ## Current project/ Structure
 
@@ -42,8 +81,6 @@ What exists today before this architecture work.
 
 **Gap:** `project.md` is passive documentation, not an active tool.
 
----
-
 ## Current Buoy Usage
 
 Buoys are spawned ad-hoc via Task tool:
@@ -53,8 +90,6 @@ Buoys are spawned ad-hoc via Task tool:
 - No waiting/gating between buoys
 
 **Gap:** Buoys don't coordinate. No orchestration layer.
-
----
 
 ## Current Logging
 
@@ -69,8 +104,6 @@ logs/
 - No per-tool logs
 - No MDS structure (map/decide/structure)
 - No automatic logging from tool runs
-
----
 
 ## Current Data Flow
 
@@ -89,8 +122,6 @@ User runs /float-sync
 
 **Gap:** No persistent record of what tools did.
 
----
-
 ## What's Missing
 
 | Need | Current State |
@@ -103,8 +134,6 @@ User runs /float-sync
 | Monitoring | None |
 | project.md as tool | Just documentation |
 
----
-
 ## Strengths to Keep
 
 - Tools are goldilocks-sized
@@ -112,3 +141,5 @@ User runs /float-sync
 - Duality pattern in all tools
 - Status format consistency
 - `.float/project/` structure exists
+</md>
+</fp>
