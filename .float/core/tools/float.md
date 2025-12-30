@@ -106,7 +106,7 @@ ls -d */ | grep -v -E '^(node_modules|dist|build|\.git)/$'
 
 # Check router ↔ tools alignment
 test -f .claude/commands/float.md && echo "router exists"
-ls .float/floatprompt/tools/float*.md 2>/dev/null | wc -l
+ls .float/core/tools/float*.md 2>/dev/null | wc -l
 ```
 
 ## Status Output
@@ -172,7 +172,7 @@ Status: No issues found
 
 Created:
 - .float/system.md
-- .float/floatprompt/
+- .float/core/
 - .float/project/nav/src.md
 - .float/project/nav/tests.md
 - .float/project/nav/docs.md

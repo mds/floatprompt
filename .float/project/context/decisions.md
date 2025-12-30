@@ -89,7 +89,7 @@ Captured rationale for project decisions. AI appends entries during context buil
 **Date:** 2025-12-29
 **Version:** 0.9.0
 **Superseded:** v0.10.0 renamed `meta/` to `floatprompt/` for consistency with package naming
-**Note:** Decisions above this entry reference pre-0.9.0 paths (e.g., `.float/tools/` is now `.float/floatprompt/tools/`)
+**Note:** Decisions above this entry reference pre-0.9.0 paths (e.g., `.float/tools/` is now `.float/core/tools/`)
 
 ### floatprompt/ folder naming (v0.10.0)
 **Question:** How should core templates be named for clarity and consistency?

@@ -2,4 +2,4 @@
 
 Guide for building new FloatPrompt tools.
 
-Read and execute `.float/floatprompt/tools/float-build.md`
+Read and execute `.float/core/tools/float-build.md`

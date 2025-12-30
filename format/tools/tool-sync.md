@@ -51,11 +51,11 @@ This is maintainer tooling for the FloatPrompt system itself. Run via `/float-to
 
 ### 1. Version Sync
 
-All tools in `.float/floatprompt/tools/float-*.md` must be at the same version.
+All tools in `.float/core/tools/float-*.md` must be at the same version.
 
 ```bash
 # Quick check
-grep -h '"version"' .float/floatprompt/tools/float-*.md | sort -u
+grep -h '"version"' .float/core/tools/float-*.md | sort -u
 ```
 
 **Issue:** `float-context.md` at 0.9.0, others at 0.10.0
@@ -79,14 +79,14 @@ All tools must have consistent structure:
 
 ```bash
 # Check for required sections
-grep -l "## Duality" .float/floatprompt/tools/float-*.md | wc -l
-grep -l "## Examples" .float/floatprompt/tools/float-*.md | wc -l
-grep -l "invisible OS for AI" .float/floatprompt/tools/float-*.md | wc -l
+grep -l "## Duality" .float/core/tools/float-*.md | wc -l
+grep -l "## Examples" .float/core/tools/float-*.md | wc -l
+grep -l "invisible OS for AI" .float/core/tools/float-*.md | wc -l
 ```
 
 ### 3. Command Sync
 
-Each tool in `.float/floatprompt/tools/` must have a corresponding command wrapper in `.claude/commands/`.
+Each tool in `.float/core/tools/` must have a corresponding command wrapper in `.claude/commands/`.
 
 **Check for:**
 - Each `float*.md` tool has matching `.claude/commands/float*.md` wrapper
@@ -95,7 +95,7 @@ Each tool in `.float/floatprompt/tools/` must have a corresponding command wrapp
 
 ```bash
 # List actual tools
-ls .float/floatprompt/tools/float*.md | xargs -n1 basename
+ls .float/core/tools/float*.md | xargs -n1 basename
 
 # List command wrappers
 ls .claude/commands/float*.md | xargs -n1 basename
@@ -112,12 +112,12 @@ Files in `templates/.float/` must match source files.
 
 | Source | Template |
 |--------|----------|
-| `.float/floatprompt/index.md` | `templates/.float/floatprompt/index.md` |
+| `.float/core/index.md` | `templates/.float/core/index.md` |
 | `.float/project/project.md` | `templates/.float/project/project.md` |
 
 ```bash
 # Check for differences (structure, not content)
-diff .float/floatprompt/index.md templates/.float/floatprompt/index.md
+diff .float/core/index.md templates/.float/core/index.md
 ```
 
 **Note:** Templates have placeholder values (`[scaffold date]`, etc.) — check structure, not exact content.
@@ -132,7 +132,7 @@ const commandFiles = ['float.md', 'float-sync.md', ...];
 ```
 
 Compare against actual files:
-- `.float/floatprompt/tools/float*.md` (tools)
+- `.float/core/tools/float*.md` (tools)
 - `.claude/commands/float*.md` (commands)
 
 ## Process
@@ -141,16 +141,16 @@ Compare against actual files:
 
 ```bash
 # Version check
-grep -h '"version"' .float/floatprompt/tools/float*.md | sort -u | wc -l
+grep -h '"version"' .float/core/tools/float*.md | sort -u | wc -l
 # Should be 1 (all same version)
 
 # Structure check
-grep -l "## Duality" .float/floatprompt/tools/float*.md | wc -l
-grep -l "## Examples" .float/floatprompt/tools/float*.md | wc -l
-grep -l "invisible OS for AI" .float/floatprompt/tools/float*.md | wc -l
+grep -l "## Duality" .float/core/tools/float*.md | wc -l
+grep -l "## Examples" .float/core/tools/float*.md | wc -l
+grep -l "invisible OS for AI" .float/core/tools/float*.md | wc -l
 
 # Command check (tools = commands)
-ls .float/floatprompt/tools/float*.md | wc -l
+ls .float/core/tools/float*.md | wc -l
 ls .claude/commands/float*.md | wc -l
 # Should be equal
 ```
@@ -185,7 +185,7 @@ Proposed Fixes:
 
 1. Create .claude/commands/float-enhance.md:
    # /float-enhance — Quality Improvement
-   Read and execute `.float/floatprompt/tools/float-enhance.md`
+   Read and execute `.float/core/tools/float-enhance.md`
 
 2. Add to bin/floatprompt.js commandFiles array:
    'float-enhance.md'

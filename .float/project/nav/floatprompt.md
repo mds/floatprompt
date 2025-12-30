@@ -3,7 +3,7 @@ title: FloatPrompt Templates
 type: nav
 status: current
 created: 2025-12-28
-related: floatprompt/core/template.md, floatprompt/core/doc.md, floatprompt/core/os.md, floatprompt/tools/update.md, floatprompt/tools/, bin/floatprompt.js
+related: format/core/template.md, format/core/doc.md, format/core/os.md, floatprompt/tools/update.md, floatprompt/tools/, bin/floatprompt.js
 
 human_author: @mds
 human_intent: Document core templates that ship with npx floatprompt
@@ -11,7 +11,7 @@ human_context: Minimum viable FloatPrompt setup for new projects
 
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-29
-ai_notes: Templates organized in floatprompt/core/ and floatprompt/tools/.
+ai_notes: Templates organized in format/core/ and floatprompt/tools/.
 ---
 
 # FloatPrompt Templates

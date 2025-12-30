@@ -26,7 +26,7 @@ ai_notes: Added FloatDoc frontmatter
 
 **Immediate Action:**
 
-1. **Upload `floatprompt/core/template.md`** to any AI system → activate floatprompt creation mode
+1. **Upload `format/core/template.md`** to any AI system → activate floatprompt creation mode
 2. **Say "float [anything]"** → AI creates custom collaboration tools through conversation  
 3. **Experience enhanced collaboration** with voice preservation and systematic intelligence
 
@@ -36,17 +36,17 @@ ai_notes: Added FloatDoc frontmatter
 
 ### **Core Templates:**
 
-**`floatprompt/core/template.md` (3KB)** - Universal template and system definition
+**`format/core/template.md` (3KB)** - Universal template and system definition
 - Complete floatprompt creation protocol with collaboration model
 - Self-referential template that teaches AI how to create new floatprompts
 - Comprehensive system context and voice preservation protocols
 - Natural language triggers: "float map", "float extract", "float build", "float [anything]"
 
-**`floatprompt/core/os.md` (35KB)** - Full system with guided creation
+**`format/core/os.md` (35KB)** - Full system with guided creation
 - Boot sequence, friction scoring, step-by-step methodology
 - Best for first-time users, complex tools, when you want more structure
 
-**`floatprompt/core/doc.md`** - FloatDoc tool
+**`format/core/doc.md`** - FloatDoc tool
 - Generates YAML frontmatter for mutual understanding
 
 **`floatprompt/tools/update.md`** - Update planning tool
@@ -116,4 +116,4 @@ For basic, one-time AI interactions, standard prompting may be more appropriate.
 - **[Format Specification](../floatprompt.md)** - Technical file format details
 - **[MDS Methodology](../mds-method.md)** - Complete collaboration methodology
 
-**Start Simple:** Upload `floatprompt/core/template.md` to your preferred AI system and say "float [anything]" to create custom collaboration tools. The system will guide you through enhanced AI partnership naturally.
+**Start Simple:** Upload `format/core/template.md` to your preferred AI system and say "float [anything]" to create custom collaboration tools. The system will guide you through enhanced AI partnership naturally.

@@ -165,9 +165,9 @@ AI does the heavy lifting. Human stays in control.
 Create the structure yourself:
 
 ```bash
-mkdir -p .float/floatprompt/{core,tools,types} .float/project/{nav,logs,context}
+mkdir -p .float/core/{core,tools,types} .float/project/{nav,logs,context}
 touch .float/system.md
-touch .float/floatprompt/index.md
+touch .float/core/index.md
 touch .float/project/nav/root.md
 ```
 
@@ -250,7 +250,7 @@ Subsystems are optional. Most projects need only root `.float/`.
 ## Learn More
 
 - See `.float/system.md` in this repo for a live example
-- See `.float/floatprompt/index.md` for full structure reference
+- See `.float/core/index.md` for full structure reference
 
 ---
 

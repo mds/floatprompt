@@ -180,10 +180,10 @@ Changes: 2 files
 Analyzing changes...
 
 Changed (2 files):
-  - .float/floatprompt/tools/float-enhance.md
+  - .float/core/tools/float-enhance.md
     Type: content (+frontmatter_buoy section)
 
-  - specs/claude/buoys.md
+  - system/buoys.md
     Type: content (+Frontmatter Buoy)
 
 Tracing ripples...
@@ -247,7 +247,7 @@ Directory: /Users/mds/Documents/_Github/floatprompt
 Changes: 5 files (structure change detected)
 
 Changed:
-  - .float/meta/ → .float/floatprompt/ (RENAME)
+  - .float/meta/ → .float/core/ (RENAME)
 
 HIGH ripples (28 files):
   Path references found in 28 files.

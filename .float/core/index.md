@@ -14,6 +14,7 @@ ai_updated: 2025-12-30
 ai_notes: |
   v0.10.0: Moved from project/nav/float.md to meta/meta.md
   v0.11.0: Renamed meta/ → floatprompt/, meta.md → index.md
+  v0.12.0: Renamed floatprompt/ → core/, core/ → format/, types/ → tools/types/
 ---
 
 # .float/ Structure
@@ -25,7 +26,7 @@ Quick structural reference for the `.float/` folder.
 - `system.md` = "how it works" (behavior)
 
 **Symmetry:**
-- `floatprompt/index.md` = describes FloatPrompt internals (this file)
+- `core/index.md` = describes FloatPrompt internals (this file)
 - `project/project.md` = describes your project's data
 
 ## Structure
@@ -34,12 +35,12 @@ Quick structural reference for the `.float/` folder.
 .float/
 ├── system.md           # Boot loader (read first)
 │
-├── floatprompt/        # FloatPrompt internals (don't modify)
+├── core/               # FloatPrompt internals (don't modify)
 │   ├── index.md        # This file (structure reference)
 │   ├── manual.md       # Reference guide with tool types
-│   ├── core/           # Core templates
-│   ├── tools/          # /float command tools (10 tools)
-│   └── types/          # Tool type definitions (6 types)
+│   ├── format/         # Format templates
+│   └── tools/          # /float command tools (10 tools)
+│       └── types/      # Tool type definitions (6 types)
 │
 └── project/            # Your project's data
     ├── project.md      # Structure reference for project/
@@ -48,7 +49,7 @@ Quick structural reference for the `.float/` folder.
     └── logs/           # Session history
 ```
 
-## floatprompt/
+## core/
 
 System internals. Don't modify unless you're updating FloatPrompt itself.
 
@@ -56,11 +57,11 @@ System internals. Don't modify unless you're updating FloatPrompt itself.
 |------|---------|
 | **index.md** | This file — structural reference |
 | **manual.md** | Reference guide with tool types |
-| **core/** | Core templates |
+| **format/** | Format templates |
 | **tools/** | /float command tools |
-| **types/** | Tool type definitions |
+| **tools/types/** | Tool type definitions |
 
-### floatprompt/core/
+### core/format/
 
 | File | Purpose |
 |------|---------|
@@ -69,7 +70,7 @@ System internals. Don't modify unless you're updating FloatPrompt itself.
 | **os.md** | Full FloatPrompt OS |
 | **update.md** | Structured update planning |
 
-### floatprompt/tools/
+### core/tools/
 
 | File | Purpose |
 |------|---------|
@@ -84,7 +85,7 @@ System internals. Don't modify unless you're updating FloatPrompt itself.
 | **float-focus.md** | Attention filtering tool for /float focus |
 | **float-relate.md** | Relationship mapping tool for /float relate |
 
-### floatprompt/types/
+### core/tools/types/
 
 | File | Purpose |
 |------|---------|

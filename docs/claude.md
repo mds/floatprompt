@@ -11,9 +11,9 @@ human_context: How /float commands work with the FloatPrompt System
 ai_model: Claude Opus 4.5
 ai_updated: 2025-12-30
 ai_notes: |
-  Updated for v0.11.0 — restructured .float/meta/ → .float/floatprompt/.
-  Full command spec: specs/claude/commands.md
-  Buoy pattern spec: specs/claude/buoys.md
+  Updated for v0.11.0 — restructured .float/meta/ → .float/core/.
+  Full command spec: system/commands.md
+  Buoy pattern spec: system/buoys.md
 ---
 
 # Claude Code Integration
@@ -21,8 +21,8 @@ ai_notes: |
 Claude Code integration for the FloatPrompt System.
 
 **Full specifications:**
-- [Command System](../specs/claude/commands.md)
-- [Buoy Pattern](../specs/claude/buoys.md)
+- [Command System](../system/commands.md)
+- [Buoy Pattern](../system/buoys.md)
 
 ---
 
@@ -249,9 +249,9 @@ Five commands. Each does one thing well.
 | File | Purpose |
 |------|---------|
 | `.claude/commands/float*.md` | Command routers (6 files) |
-| `.float/floatprompt/tools/float*.md` | Tool implementations (5 files) |
-| `specs/claude/commands.md` | Full command specification |
-| `specs/claude/buoys.md` | Buoy pattern specification |
+| `.float/core/tools/float*.md` | Tool implementations (5 files) |
+| `system/commands.md` | Full command specification |
+| `system/buoys.md` | Buoy pattern specification |
 
 ---
 

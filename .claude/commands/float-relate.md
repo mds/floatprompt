@@ -2,4 +2,4 @@
 
 Discover and document relationships between files.
 
-Read and execute `.float/floatprompt/tools/float-relate.md`
+Read and execute `.float/core/tools/float-relate.md`

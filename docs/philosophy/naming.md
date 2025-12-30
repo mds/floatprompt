@@ -110,7 +110,7 @@ Everything **floats** — surfacing human intelligence to AI.
 
 | File Type | Extension | Example |
 |-----------|-----------|---------|
-| Core templates | `.md` | `floatprompt/core/template.md`, `floatprompt/core/os.md` |
+| Core templates | `.md` | `format/core/template.md`, `format/core/os.md` |
 | Documentation | `.md` | `floatprompt.md`, `system.md`, `doc.md` |
 | Nav files | `.md` | `nav/root.md`, `nav/docs.md` |
 | Session logs | `.md` | `2025-12-28.md` |

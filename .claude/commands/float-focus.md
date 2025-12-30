@@ -2,4 +2,4 @@
 
 Build focused context for a specific topic or area.
 
-Read and execute `.float/floatprompt/tools/float-focus.md`
+Read and execute `.float/core/tools/float-focus.md`

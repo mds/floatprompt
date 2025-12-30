@@ -204,20 +204,76 @@ Change → scout-detect (code) → trivial? → done
 
 ---
 
-## Open Questions
+### 11. Configuration Location
 
-### Model Selection Strategy
+**Question:** Where should watcher configuration live?
 
-**Question:** How should models be selected per buoy?
+**Decision:** `.float/config.json`
 
-**Status:** Partially decided.
-- Scout: Haiku (speed)
-- Map: Haiku, escalate to Sonnet for needs-judgment
-- Think: Sonnet (better reasoning)
+**Rationale:**
+- Predictable location — config near what it configures
+- Keeps package.json clean (already crowded with Next.js tooling)
+- Copy-paste friendly between projects
+- Separation of concerns — `.float/project/` is data, config is behavior
+- Gitignore flexibility for `.float/config.local.json`
+- Convention over configuration — works with zero config, only create if overriding
 
-**Still open:** Should there be an "auto" mode that selects based on complexity?
+**Date:** 2025-12-30
 
 ---
+
+### 12. Command Invocation Method
+
+**Question:** How does Think Buoy invoke float-* commands?
+
+**Decision:** Direct function import
+
+**Rationale:**
+- Speed — subprocess spawn has 100-200ms overhead; direct imports ~1ms
+- Shared context — same Node process, same loaded config, same parsed nav files
+- Error handling — stack traces flow naturally, no stdout parsing
+- Developer joy — straightforward debugging, set breakpoint, step through
+- Resource efficiency — one Node process vs spawning many
+- Matches Next.js patterns — plugins, middleware, API routes all use direct calls
+
+**Date:** 2025-12-30
+
+---
+
+### 13. Model Selection Strategy
+
+**Question:** Should there be an "auto" mode that selects model based on complexity?
+
+**Decision:** Hybrid — config sets default + max, auto-escalate allowed up to max
+
+**Implementation:**
+- scout-map: Haiku (fixed)
+- Map Buoy: Haiku default, auto-escalate to Sonnet if confidence is `needs-judgment`
+- Think Buoy: Sonnet (fixed)
+
+**Config:**
+```json
+{
+  "buoys": {
+    "map": {
+      "model": "claude-3-5-haiku-20241022",
+      "escalate_model": "claude-sonnet-4-20250514",
+      "escalate_on": ["needs-judgment"]
+    }
+  }
+}
+```
+
+**Rationale:**
+- Cost-conscious default — 95% of changes are routine, Haiku handles them
+- Quality when it matters — `needs-judgment` cases get Sonnet reasoning
+- Config controls ceiling — users can disable with `"escalate_model": null`
+
+**Date:** 2025-12-30
+
+---
+
+## Open Questions
 
 ### Human Interrupt
 

@@ -3,7 +3,7 @@ title: Specifications
 type: nav
 status: current
 created: 2025-12-29
-related: specs/floatprompt.md, specs/doc.md, specs/system.md, specs/claude/commands.md
+related: specs/floatprompt.md, specs/doc.md, specs/system.md, system/commands.md
 
 human_author: @mds
 human_intent: Document formal specifications for FloatPrompt format and system

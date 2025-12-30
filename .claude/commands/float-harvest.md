@@ -2,4 +2,4 @@
 
 Extract decisions and patterns from conversation history.
 
-Read and execute `.float/floatprompt/tools/float-harvest.md`
+Read and execute `.float/core/tools/float-harvest.md`

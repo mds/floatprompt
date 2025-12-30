@@ -137,9 +137,9 @@ Start at Phase 2. Build toward Phase 3+.
 
 | File | Purpose |
 |------|---------|
-| CONTEXT.md | This file — problem, goals, approach |
+| FLOAT.md | This file — problem, goals, approach |
 | architecture.md | Layers, chain of command, components |
-| buoys.md | Scout (two-phase), Map, Think Buoy specifications |
+| buoys.md | scout-map, Map Buoy, Think Buoy specifications |
 | decisions.md | Architectural decisions with rationale |
 | decision-log.md | Paper trail format specification |
 | roadmap.md | Implementation phases, open questions, tracking |

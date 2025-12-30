@@ -2,4 +2,4 @@
 
 Generate or update the project terrain map.
 
-Read and execute `.float/floatprompt/tools/float-context.md`
+Read and execute `.float/core/tools/float-context.md`

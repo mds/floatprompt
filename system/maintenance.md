@@ -14,15 +14,15 @@ Use this checklist for changes that affect multiple files or core structure.
 |-------|----------|
 | Single file fix | Just do it |
 | 2-3 file update | Just do it with care |
-| Major restructure | Use `floatprompt/tools/update.md` |
-| Version migration | Use `floatprompt/tools/update.md` |
-| Cross-cutting change | Use `floatprompt/tools/update.md` |
+| Major restructure | Use `format/tools/update.md` |
+| Version migration | Use `format/tools/update.md` |
+| Cross-cutting change | Use `format/tools/update.md` |
 
 **Rule of thumb:** If you need to think about execution order, create an update plan first.
 
 ### 2. Create Update Plan (if needed)
 
-Use `.float/floatprompt/core/update.md` methodology:
+Use `.float/core/core/update.md` methodology:
 
 1. **Change Specification** — Current state vs target state
 2. **Impact Zone Assessment** — Find ALL affected files (not just obvious ones)
@@ -38,10 +38,10 @@ Before creating new functionality, check if existing tools already cover it:
 
 ```bash
 # Check current tools
-ls .float/floatprompt/tools/
+ls .float/core/tools/
 
 # Check what each does
-grep "STOP" .float/floatprompt/tools/*.md
+grep "STOP" .float/core/tools/*.md
 ```
 
 ### 4. Get Approval
@@ -106,7 +106,7 @@ Run validation after each phase and at completion:
 | Tool | Purpose | When to Use |
 |------|---------|-------------|
 | `/float-tools` | Tool consistency | Before releases, after updating tools |
-| `floatprompt/tools/update.md` | Change planning | Major restructures, migrations |
+| `format/tools/update.md` | Change planning | Major restructures, migrations |
 
 ### Working with Artifacts
 
@@ -143,7 +143,7 @@ The `templates/` folder is what `npx floatprompt` deploys. It must mirror the so
 | Source | Template |
 |--------|----------|
 | `.float/system.md` | `templates/.float/system.md` |
-| `.float/floatprompt/index.md` | `templates/.float/floatprompt/index.md` |
+| `.float/core/index.md` | `templates/.float/core/index.md` |
 | `.float/project/project.md` | `templates/.float/project/project.md` |
 
 **After any .float/ structure change, update templates/ too.**
@@ -166,7 +166,7 @@ Major changes without a plan lead to:
 - Inconsistent state
 - Lost context between sessions
 
-**Use `floatprompt/tools/update.md` for anything non-trivial.**
+**Use `format/tools/update.md` for anything non-trivial.**
 
 ### 5. Forgetting bin/floatprompt.js
 
@@ -198,14 +198,14 @@ See "Workstream Completion Protocol" in the active roadmap.
 | File | Purpose |
 |------|---------|
 | `.float/system.md` | Boot loader, structure map |
-| `.float/floatprompt/index.md` | FloatPrompt system reference |
+| `.float/core/index.md` | FloatPrompt system reference |
 | `.float/project/project.md` | Project-specific reference |
 
 ### Tools (update together)
 
 | File | Purpose |
 |------|---------|
-| `.float/floatprompt/tools/float*.md` | Tool implementations |
+| `.float/core/tools/float*.md` | Tool implementations |
 | `.claude/commands/float*.md` | Command wrappers |
 | `bin/floatprompt.js` | Deployment script |
 
@@ -214,7 +214,7 @@ See "Workstream Completion Protocol" in the active roadmap.
 | File | Mirrors |
 |------|---------|
 | `templates/.float/system.md` | `.float/system.md` |
-| `templates/.float/floatprompt/index.md` | `.float/floatprompt/index.md` |
+| `templates/.float/core/index.md` | `.float/core/index.md` |
 | `templates/.float/project/project.md` | `.float/project/project.md` |
 
 ---
@@ -225,7 +225,7 @@ When releasing a new version:
 
 1. Update version in ALL tools (must match):
    ```bash
-   grep -h '"version"' .float/floatprompt/tools/float*.md
+   grep -h '"version"' .float/core/tools/float*.md
    ```
 
 2. Update `package.json` version
@@ -250,7 +250,7 @@ grep -r "pattern" .             # Find all references
 /float-tools                    # Tool check
 
 # Planning
-# Use floatprompt/tools/update.md methodology
+# Use format/tools/update.md methodology
 # Store plans in artifacts/
 ```
 

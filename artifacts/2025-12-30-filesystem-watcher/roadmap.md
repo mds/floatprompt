@@ -61,10 +61,10 @@ Update this document as phases complete, questions get answered, and new work em
 | Decision log format | `[x]` | decision-log.md |
 | Architectural decisions | `[x]` | decisions.md |
 | Implementation roadmap | `[x]` | roadmap.md (this file) |
-| Configuration spec | `[ ]` | See Open Questions |
-| Integration mapping | `[ ]` | How watcher connects to existing float-* |
+| Configuration spec | `[x]` | `.float/config.json` — decided 2025-12-30 |
+| Integration mapping | `[x]` | Direct function import — decided 2025-12-30 |
 
-**Phase 0 Completion:** 6/8 tasks
+**Phase 0 Completion:** 8/8 tasks
 
 ---
 
@@ -233,17 +233,17 @@ Questions that need resolution. Update status when answered.
 
 **Question:** How exactly does Think Buoy invoke float-* commands?
 
-**Status:** `[ ]` Not decided
+**Status:** `[x]` Decided (2025-12-30)
 
-**Options:**
-1. Direct function call (if commands are modularized)
-2. Subprocess spawn (npx floatprompt sync)
-3. Claude Code tool invocation (if running in Claude Code context)
+**Decision:** Direct function import
 
-**Considerations:**
-- Watcher may run outside Claude Code (as daemon)
-- Need consistent behavior regardless of context
-- Commands need to accept programmatic input
+**Rationale:**
+- Speed — subprocess spawn has 100-200ms overhead; direct imports ~1ms
+- Shared context — same Node process, same loaded config, same parsed nav files
+- Error handling — stack traces flow naturally, no stdout parsing
+- Developer joy — straightforward debugging, set breakpoint, step through
+- Resource efficiency — one Node process vs spawning many
+- Matches Next.js patterns — plugins, middleware, API routes all use direct calls
 
 ---
 
@@ -270,14 +270,32 @@ Questions that need resolution. Update status when answered.
 
 **Question:** Should there be an "auto" mode that selects model based on complexity?
 
-**Status:** `[?]` Partially decided (see decisions.md)
+**Status:** `[x]` Decided (2025-12-30)
 
-**Current Decision:**
-- Scout: Haiku
-- Map: Haiku, escalate to Sonnet for needs-judgment
-- Think: Sonnet
+**Decision:** Hybrid — config sets default + max, auto-escalate allowed up to max
 
-**Open:** Auto-escalation logic. How does Map decide to escalate?
+**Implementation:**
+- scout-map: Haiku (fixed)
+- Map Buoy: Haiku default, auto-escalate to Sonnet if confidence is `needs-judgment`
+- Think Buoy: Sonnet (fixed)
+
+**Config example:**
+```json
+{
+  "buoys": {
+    "map": {
+      "model": "claude-3-5-haiku-20241022",
+      "escalate_model": "claude-sonnet-4-20250514",
+      "escalate_on": ["needs-judgment"]
+    }
+  }
+}
+```
+
+**Rationale:**
+- Cost-conscious default — 95% of changes are routine, Haiku handles them
+- Quality when it matters — `needs-judgment` cases get Sonnet reasoning
+- Config controls ceiling — users can disable with `"escalate_model": null`
 
 ---
 
@@ -330,7 +348,7 @@ Questions that need resolution. Update status when answered.
 
 | Phase | Completed | Notes |
 |-------|-----------|-------|
-| Phase 0: Design | In progress | 6/8 tasks |
+| Phase 0: Design | Complete | 2025-12-30 |
 | Phase 1: Scaffold | Not started | |
 | Phase 2: Code Layer | Not started | |
 | Phase 3: Initial Scan | Not started | |

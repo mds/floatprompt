@@ -229,8 +229,8 @@ Depth: 3 levels
 Tracing...
 
 Forward (specs/ references):
-  → floatprompt/core/template.md
-  → floatprompt/core/doc.md
+  → format/core/template.md
+  → format/core/doc.md
   → .float/system.md
 
 Backward (references specs/):
@@ -286,8 +286,8 @@ Target: concept "buoys"
 Searching for buoy-related content...
 
 Found in 8 files:
-  - specs/claude/buoys.md (definition)
-  - .float/floatprompt/tools/*.md (usage)
+  - system/buoys.md (definition)
+  - .float/core/tools/*.md (usage)
   - docs/claude.md (documentation)
 
 Synthesizing understanding...

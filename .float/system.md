@@ -3,7 +3,7 @@ title: FloatPrompt System
 type: system
 status: current
 created: 2025-12-28
-related: .float/floatprompt/index.md, .float/project/project.md, specs/system.md
+related: .float/core/index.md, .float/project/project.md, specs/system.md
 
 human_author: @mds
 human_intent: Boot protocol and behavioral constraints for AI working in this project
@@ -14,8 +14,9 @@ ai_updated: 2025-12-30
 ai_notes: |
   This is both a floatprompt doc (YAML context) and a FloatPrompt tool (<fp> behavior).
   YAML gives document context. JSON gives behavioral instructions.
-  Version tracked in JSON meta.version (currently 0.11.0).
+  Version tracked in JSON meta.version (currently 0.12.0).
   v0.11.0: Restructured .float/meta/ → .float/floatprompt/ for clarity.
+  v0.12.0: The Great Restructuring - floatprompt/ → format/, .float/floatprompt/ → .float/core/
 ---
 
 <fp>
@@ -27,7 +28,7 @@ ai_notes: |
     "title": "FloatPrompt System",
     "id": "floatprompt-system",
     "format": "floatprompt",
-    "version": "0.11.0"
+    "version": "0.12.0"
   },
 
   "human": {
@@ -58,9 +59,7 @@ ai_notes: |
     },
     "context_depth": {
       "principle": "Depth scales with complexity",
-      "quick": "context/float-map.md — 6 files, ~5 min, one MDS loop",
-      "standard": "context/float-context.md — conceptual overview, ~2 min",
-      "full": "context/float-deepdive.md — 24+ files, ~15 min, 5 MDS loops",
+      "note": "Context files archived to artifacts/archive/2025/12-dec/context-files/. Use FLOAT.md files in each folder for context.",
       "deep_understanding": {
         "assessments": "artifacts/2025/*-assessment.txt",
         "purpose": "Prevent AI skepticism pattern that persists even after full deep dive",
@@ -96,9 +95,9 @@ floatprompt/
 ├── .float/                    # FloatPrompt System (read first)
 │   ├── system.md              # This file (boot loader)
 │   │
-│   ├── floatprompt/           # About FloatPrompt itself (system internals)
+│   ├── core/                  # FloatPrompt internals (system internals)
 │   │   ├── index.md           # Quick structural reference (what's here)
-│   │   ├── core/              # Core templates
+│   │   ├── format/            # Format templates
 │   │   │   ├── template.md
 │   │   │   ├── doc.md
 │   │   │   ├── os.md
@@ -108,7 +107,8 @@ floatprompt/
 │   │       ├── float-sync.md
 │   │       ├── float-fix.md
 │   │       ├── float-context.md
-│   │       └── float-enhance.md
+│   │       ├── float-enhance.md
+│   │       └── types/         # Tool type definitions
 │   │
 │   └── project/               # About YOUR project (your stuff)
 │       ├── project.md         # Structure reference for project/
@@ -118,10 +118,10 @@ floatprompt/
 │       ├── nav/               # Centralized navigation (project folders only)
 │       │   ├── root.md        # Repository root
 │       │   ├── bin.md         # CLI folder
-│       │   ├── floatprompt.md  # FloatPrompt templates
+│       │   ├── format.md      # Format templates
+│       │   ├── system.md      # System documentation
 │       │   ├── specs.md       # Specifications
 │       │   ├── docs.md        # Documentation
-│       │   ├── context.md     # Onboarding files
 │       │   ├── examples.md    # Example tools
 │       │   ├── templates.md   # Scaffolding templates
 │       │   └── artifacts.md   # Historical archive
@@ -136,22 +136,26 @@ floatprompt/
 │
 ├── README.md              # Public-facing documentation
 │
-├── floatprompt/           # Core templates (copied to .float/floatprompt/core/)
-│   ├── template.md        # FloatPrompt template
-│   ├── doc.md             # floatprompt doc tool
-│   ├── os.md              # Full FloatPrompt OS
-│   └── update.md          # Structured update planning
+├── format/                # Format templates (copied to .float/core/format/)
+│   ├── core/              # Core format templates
+│   │   ├── template.md
+│   │   ├── doc.md
+│   │   └── os.md
+│   └── tools/             # Format-level tools
+│       └── update.md
 │
-├── specs/                 # Formal specifications
+├── system/                # System documentation (SYSTEM pillar)
+│   ├── commands.md        # /float command system
+│   ├── buoys.md           # Float Buoys pattern
+│   └── maintenance.md     # System maintenance
+│
+├── specs/                 # Format specifications (FILE pillar)
 │   ├── floatprompt.md     # FloatPrompt file format
 │   ├── doc.md             # floatprompt doc format
-│   ├── system.md          # FloatPrompt System architecture
-│   └── claude/            # Claude Code integration specs
-│       ├── commands.md    # /float command system
-│       └── buoys.md       # Float Buoys pattern
+│   └── system.md          # FloatPrompt System architecture
 │
 ├── docs/                  # Guides and philosophy
-│   ├── claude.md          # Claude Code entry point (points to specs)
+│   ├── claude.md          # Claude Code entry point
 │   ├── mds-method.md      # MDS methodology
 │   ├── goals.md           # Goal hierarchy
 │   ├── principles.md      # Core principles
@@ -160,11 +164,6 @@ floatprompt/
 │   ├── safety.md          # Safety guidelines
 │   ├── philosophy/        # Background thinking
 │   └── reference/         # Template references
-│
-├── context/               # Onboarding
-│   ├── float-map.md       # Quick context
-│   ├── float-context.md   # Standard context
-│   └── float-deepdive.md  # Full context
 │
 ├── examples/              # Real-world FloatPrompt tools
 │   ├── ai portfolio coach/
@@ -180,7 +179,6 @@ floatprompt/
 │   └── .float/
 │
 └── artifacts/             # Historical archive
-    ├── floatprompt-npm-scaffold-spec.md
     └── 2025/              # 160+ files documenting evolution
 ```
 
@@ -199,10 +197,11 @@ floatprompt/
 | Item | Purpose |
 |------|---------|
 | `system.md` | Boot loader (this file) — "how it works" |
-| `floatprompt/` | FloatPrompt system internals (don't modify) |
-| `floatprompt/index.md` | Structural reference — "what's here" |
-| `floatprompt/core/` | Core templates (template, doc, os, update) |
-| `floatprompt/tools/` | /float command tools (source of truth) |
+| `core/` | FloatPrompt system internals (don't modify) |
+| `core/index.md` | Structural reference — "what's here" |
+| `core/format/` | Format templates (template, doc, os, update) |
+| `core/tools/` | /float command tools (source of truth) |
+| `core/tools/types/` | Tool type definitions |
 | `project/` | Your project's FloatPrompt data |
 | `project/project.md` | Structure reference — "what's in project/" |
 | `project/context/` | AI terrain maps (includes decisions.md) |
@@ -215,10 +214,10 @@ floatprompt/
 |------|-----------|
 | `root.md` | Repository root |
 | `bin.md` | bin/ folder (CLI) |
-| `floatprompt.md` | floatprompt/ folder (templates) |
-| `specs.md` | specs/ folder (includes claude/) |
+| `format.md` | format/ folder (format templates) |
+| `system.md` | system/ folder (SYSTEM pillar) |
+| `specs.md` | specs/ folder (format specs) |
 | `docs.md` | docs/ folder (includes philosophy/, reference/) |
-| `context.md` | context/ folder |
 | `examples.md` | examples/ folder (includes all subfolders) |
 | `templates.md` | templates/ folder |
 | `artifacts.md` | artifacts/ folder (includes 2025/) |
@@ -226,7 +225,7 @@ floatprompt/
 **Centralized pattern:** All navigation lives in `.float/project/nav/`. No scattered files. AI reads one location for complete folder context.
 
 **Depth layering:** The `.float/` folder has two levels of documentation:
-- `floatprompt/index.md` + `project/project.md` = "what's here" (structural reference)
+- `core/index.md` + `project/project.md` = "what's here" (structural reference)
 - `system.md` = "how it works" (full behavioral protocol)
 
 ### Nav File Subfolder Rules
@@ -280,11 +279,11 @@ ai_updated:
 | File | Location | Purpose |
 |------|----------|---------|
 | `system.md` | `.float/` | Root protocol (this file) |
-| `float-context.md` | `.float/floatprompt/tools/` | Tool for generating terrain maps |
-| `template.md` | `floatprompt/` | Template for creating floatprompts |
-| `doc.md` | `floatprompt/` | Tool for adding context frontmatter |
-| `os.md` | `floatprompt/` | Full OS with guided creation |
-| `update.md` | `floatprompt/` | Structured update planning |
+| `float-context.md` | `.float/core/tools/` | Tool for generating terrain maps |
+| `template.md` | `format/core/` | Template for creating floatprompts |
+| `doc.md` | `format/core/` | Tool for adding context frontmatter |
+| `os.md` | `format/core/` | Full OS with guided creation |
+| `update.md` | `format/tools/` | Structured update planning |
 
 ## Maintenance Protocol
 
@@ -304,12 +303,14 @@ ai_updated:
 
 **Context depth (choose based on task):**
 
-| Level | File | Scope | When to Use |
-|-------|------|-------|-------------|
-| Quick | `context/float-map.md` | 6 files, ~5 min | Simple tasks, quick questions |
-| Standard | `context/float-context.md` | Conceptual, ~2 min | Need system understanding |
-| Full | `context/float-deepdive.md` | 24+ files, ~15 min | Complex work, system evolution |
-| Deep | `artifacts/2025/*-assessment.txt` | Pattern correction | Prevent skepticism, true understanding |
+Context files have been replaced by the FLOAT.md system. Each folder now has a `FLOAT.md` file providing local context. For historical context files, see `artifacts/archive/2025/12-dec/context-files/`.
+
+| Level | Method | When to Use |
+|-------|--------|-------------|
+| Quick | Read FLOAT.md in relevant folder | Simple tasks, quick questions |
+| Standard | Read .float/system.md + relevant nav files | Need system understanding |
+| Full | Read all FLOAT.md files in affected areas | Complex work, system evolution |
+| Deep | `artifacts/2025/*-assessment.txt` | Prevent skepticism, true understanding |
 
 **Depth scales with complexity.** Quick tasks need quick context. Deep work needs deep context.
 

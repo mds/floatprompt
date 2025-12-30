@@ -3,7 +3,7 @@ title: project/ Structure
 type: nav
 status: current
 created: 2025-12-29
-related: .float/floatprompt/index.md, .float/system.md
+related: .float/core/index.md, .float/system.md
 
 human_author: @mds
 human_intent: Quick structural reference for project/ folder

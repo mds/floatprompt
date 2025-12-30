@@ -70,16 +70,16 @@ The orchestrator routes to tool floatprompts. Tools are the source of truth.
 ```
 .claude/commands/float.md           Orchestrator (routes based on input)
         ↓
-.float/floatprompt/tools/float.md               Boot/init tool
-.float/floatprompt/tools/float-sync.md          Structure integrity tool
-.float/floatprompt/tools/float-fix.md           Content integrity tool
-.float/floatprompt/tools/float-context.md       Meaning generation tool
-.float/floatprompt/tools/float-enhance.md       Quality improvement tool
+.float/core/tools/float.md               Boot/init tool
+.float/core/tools/float-sync.md          Structure integrity tool
+.float/core/tools/float-fix.md           Content integrity tool
+.float/core/tools/float-context.md       Meaning generation tool
+.float/core/tools/float-enhance.md       Quality improvement tool
 ```
 
 **Orchestrator responsibilities:**
 1. Parse input (`/float`, `/float sync`, `/float fix`, `/float context`, `/float enhance`)
-2. Read the appropriate tool from `.float/floatprompt/tools/float-{command}.md`
+2. Read the appropriate tool from `.float/core/tools/float-{command}.md`
 3. Execute according to tool's instructions
 4. Report status + next step
 
@@ -279,7 +279,7 @@ ls docs/ | wc -l                      # count folder contents
 
 **Buoys:** None (fast operation, no spawning)
 
-**Tool:** `.float/floatprompt/tools/float.md`
+**Tool:** `.float/core/tools/float.md`
 
 ---
 
@@ -311,7 +311,7 @@ ls docs/ | wc -l                      # count folder contents
 
 **Buoys:** See Buoy Assignments section
 
-**Tool:** `.float/floatprompt/tools/float-sync.md`
+**Tool:** `.float/core/tools/float-sync.md`
 
 ---
 
@@ -345,7 +345,7 @@ ls docs/ | wc -l                      # count folder contents
 **Buoys:**
 - Context Buoy (generate terrain map)
 
-**Tool:** `.float/floatprompt/tools/float-context.md`
+**Tool:** `.float/core/tools/float-context.md`
 
 ---
 
@@ -378,7 +378,7 @@ ls docs/ | wc -l                      # count folder contents
 - Describe Buoy (generate descriptions, model: haiku)
 - Reference Buoy (fix stale references)
 
-**Tool:** `.float/floatprompt/tools/float-enhance.md`
+**Tool:** `.float/core/tools/float-enhance.md`
 
 ---
 
@@ -470,18 +470,18 @@ This pattern ensures:
 
 | Buoy | Prompt Location |
 |------|-----------------|
-| Check Buoy | `.float/floatprompt/tools/float-sync.md` |
-| Nav Buoy | `.float/floatprompt/tools/float-sync.md` |
-| System Buoy | `.float/floatprompt/tools/float-sync.md` |
-| Scaffold Buoy | `.float/floatprompt/tools/float-sync.md` |
-| Log Buoy | `.float/floatprompt/tools/float-sync.md` |
-| Scan Buoy | `.float/floatprompt/tools/float-fix.md` |
-| Related Buoy | `.float/floatprompt/tools/float-fix.md` |
-| Trace Buoy | `.float/floatprompt/tools/float-fix.md` |
-| Repair Buoy | `.float/floatprompt/tools/float-fix.md` |
-| Context Buoy | `.float/floatprompt/tools/float-context.md` |
-| Describe Buoy | `.float/floatprompt/tools/float-enhance.md` |
-| Reference Buoy | `.float/floatprompt/tools/float-enhance.md` |
+| Check Buoy | `.float/core/tools/float-sync.md` |
+| Nav Buoy | `.float/core/tools/float-sync.md` |
+| System Buoy | `.float/core/tools/float-sync.md` |
+| Scaffold Buoy | `.float/core/tools/float-sync.md` |
+| Log Buoy | `.float/core/tools/float-sync.md` |
+| Scan Buoy | `.float/core/tools/float-fix.md` |
+| Related Buoy | `.float/core/tools/float-fix.md` |
+| Trace Buoy | `.float/core/tools/float-fix.md` |
+| Repair Buoy | `.float/core/tools/float-fix.md` |
+| Context Buoy | `.float/core/tools/float-context.md` |
+| Describe Buoy | `.float/core/tools/float-enhance.md` |
+| Reference Buoy | `.float/core/tools/float-enhance.md` |
 
 ---
 
@@ -562,7 +562,7 @@ Each tool follows this structure:
 | Version | Date | Changes |
 |---------|------|---------|
 | 0.8.0 | 2025-12-29 | Initial spec. Replaces /float describe with /float enhance. Adds spectrum concept, buoy sizing, error handling. |
-| 0.9.0 | 2025-12-29 | Updated paths for meta/project structure. Tools now at `.float/floatprompt/tools/`. |
+| 0.9.0 | 2025-12-29 | Updated paths for meta/project structure. Tools now at `.float/core/tools/`. |
 
 ---
 

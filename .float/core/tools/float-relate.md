@@ -162,7 +162,7 @@ grep -r "docs/claude.md" --include="*.md"
 Relationship Map for: .float/system.md
 
 EXPLICIT (in related: field):
-  → .float/floatprompt/index.md
+  → .float/core/index.md
   → .float/project/project.md
   → specs/system.md
 
@@ -177,7 +177,7 @@ REFERENCING THIS FILE:
   ← [12 more...]
 
 STRUCTURAL:
-  ~ .float/floatprompt/ (child folder)
+  ~ .float/core/ (child folder)
   ~ .float/project/ (child folder)
 ```
 
@@ -194,7 +194,7 @@ INTEGRITY ISSUES:
   docs/claude.md → .float/system.md
     ↳ system.md doesn't list docs/claude.md
 
-  specs/floatprompt.md → floatprompt/core/template.md
+  specs/floatprompt.md → format/core/template.md
     ↳ template.md doesn't list specs/floatprompt.md
 
 SUGGESTIONS (2):
@@ -217,12 +217,12 @@ Target: docs/claude.md
 Scanning relationships...
 
 EXPLICIT:
-  → specs/claude/commands.md
-  → specs/claude/buoys.md
+  → system/commands.md
+  → system/buoys.md
 
 IMPLICIT:
   → .float/system.md (mentions boot)
-  → .float/floatprompt/tools/*.md (references)
+  → .float/core/tools/*.md (references)
 
 REFERENCING:
   ← README.md
@@ -256,7 +256,7 @@ BROKEN (1):
 
 ONE-WAY (3):
   2. docs/claude.md → .float/system.md
-  3. specs/floatprompt.md → floatprompt/core/template.md
+  3. specs/floatprompt.md → format/core/template.md
   4. README.md → docs/goals.md
 
 Fix all one-way issues? [all / review / skip]:

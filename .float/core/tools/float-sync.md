@@ -71,7 +71,7 @@ Use shell commands for fast detection:
 
 ```bash
 # Check structural reference files exist
-test -f .float/floatprompt/index.md && echo "index.md OK" || echo "index.md MISSING"
+test -f .float/core/index.md && echo "index.md OK" || echo "index.md MISSING"
 test -f .float/project/project.md && echo "project.md OK" || echo "project.md MISSING"
 
 # List actual files in folder
@@ -225,7 +225,7 @@ Verify .float/project/nav/{folder}.md against actual {folder}/ contents:
 ```
 Create missing structural reference file:
 1. Determine which file is missing: floatprompt/index.md or project/project.md
-2. Read templates/.float/floatprompt/index.md or templates/.float/project/project.md
+2. Read templates/.float/core/index.md or templates/.float/project/project.md
 3. Copy template to appropriate location
 4. Update created date to today
 5. Return confirmation

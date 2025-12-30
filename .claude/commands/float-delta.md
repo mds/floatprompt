@@ -2,4 +2,4 @@
 
 Trace how changes propagate through the codebase.
 
-Read and execute `.float/floatprompt/tools/float-delta.md`
+Read and execute `.float/core/tools/float-delta.md`

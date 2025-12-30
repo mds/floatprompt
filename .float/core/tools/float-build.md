@@ -119,7 +119,7 @@ If scope has:
 
 **Process:**
 
-1. Load type template from `.float/floatprompt/types/[type].md`
+1. Load type template from `.float/core/types/[type].md`
 2. Fill in template sections:
    - STOP directive
    - meta block (title, id, version)
@@ -148,7 +148,7 @@ If scope has:
 4. Add footer
 
 **Output locations:**
-- Tool: `.float/floatprompt/tools/[name].md`
+- Tool: `.float/core/tools/[name].md`
 - Command: `.claude/commands/[name].md` (if shipping)
 
 **Validation:**
@@ -163,8 +163,8 @@ If scope has:
 
 During build, consult:
 
-- `.float/floatprompt/manual.md` — Patterns and anti-patterns
-- `.float/floatprompt/types/[type].md` — Type-specific template
+- `.float/core/manual.md` — Patterns and anti-patterns
+- `.float/core/types/[type].md` — Type-specific template
 
 ## Examples
 
@@ -208,7 +208,7 @@ FloatPrompt build.
 Phase: Build
 Tool: applicant-scorer
 
-Generated: .float/floatprompt/tools/applicant-scorer.md
+Generated: .float/core/tools/applicant-scorer.md
 
 Sections created:
 ✓ JSON block with 4 scoring signals
