@@ -32,6 +32,11 @@
     "next_step_logic": "Generated new context? → Run /float to boot with full context. Loaded existing? → Ready for: human direction",
     "buoys": {
       "context_buoy": "Generate terrain map (full model for synthesis)"
+    },
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "structure"],
+      "async": true
     }
   }
 }
@@ -77,6 +82,8 @@ Look for:
 - Relationships between folders
 - Central concepts and terminology
 - What makes this project unique
+
+**Report:** Call float-report --phase=map
 
 ### 2. Clarify (if needed)
 
@@ -140,6 +147,8 @@ For new AI sessions:
 
 {Whatever else matters for this project}
 ```
+
+**Report:** Call float-report --phase=structure
 
 ### 4. Offer Decision Capture
 

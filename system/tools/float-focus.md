@@ -29,7 +29,12 @@
       "action_b": "Report isolated scope"
     },
     "status_format": "FloatPrompt focus.\nTarget: [scope]\nRelationships: [forward: n, backward: n, semantic: n]\n\n[Map or Ready for: human direction]",
-    "next_step_logic": "Relationships found? Show map, ask persistent/ephemeral. Otherwise: Ready for: human direction"
+    "next_step_logic": "Relationships found? Show map, ask persistent/ephemeral. Otherwise: Ready for: human direction",
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "structure"],
+      "async": true
+    }
   }
 }
 </json>
@@ -126,6 +131,8 @@ grep -r "target" --include="*.md" --include="*.js"
 - Consider folder siblings
 - Identify related abstractions
 
+**Report:** Call float-report --phase=map
+
 ### 5. Synthesize
 
 **Synthesizer (sonnet):**
@@ -133,6 +140,8 @@ grep -r "target" --include="*.md" --include="*.js"
 - Build relationship map
 - Create mini-context document
 - Include reading order recommendation
+
+**Report:** Call float-report --phase=structure
 
 ## Output Options
 

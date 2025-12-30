@@ -34,6 +34,11 @@
       "frontmatter_buoy": "Check frontmatter completeness for files in one nav scope (parallel)",
       "describe_buoy": "Generate one file description (model: haiku, parallel)",
       "reference_buoy": "Fix stale references in one file"
+    },
+    "reporting": {
+      "protocol": "float-report",
+      "phases": ["map", "decide", "structure"],
+      "async": true
     }
   }
 }
@@ -93,6 +98,8 @@ For each nav file, compare descriptions to actual file contents:
 
 Spawn Frontmatter Buoys (one per nav scope) to check completeness.
 
+**Report:** Call float-report --phase=map
+
 ### 2. Report
 
 Show what needs enhancement:
@@ -132,6 +139,8 @@ Enhance these 6 items? (y/n):
 | `n` or `no` | Cancel, no changes made |
 | Specific feedback | Adjust scope, re-propose |
 
+**Report:** Call float-report --phase=decide
+
 ### 4. Spawn Buoys
 
 **Describe Buoy** (model: haiku for speed):
@@ -170,6 +179,8 @@ Descriptions generated:
 | `accept all` | Apply all descriptions |
 | `review each` | Show one at a time for approval |
 | `skip` | Cancel, no changes made |
+
+**Report:** Call float-report --phase=structure
 
 ## Status Output
 
