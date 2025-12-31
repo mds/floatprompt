@@ -38,28 +38,29 @@ That's a floatprompt. A text file that becomes a tool.
 
 ---
 
-## Three Pillars
+## Structure
 
 ```
 floatprompt/
-├── format/      ← FILE: What FloatPrompt IS
-├── system/      ← SYSTEM: How it WORKS
-└── package/     ← PACKAGE: How it SHIPS
+├── templates/   ← THE product (what ships)
+├── docs/        ← Documentation (philosophy, specs, maintainer)
+├── examples/    ← Real floatprompt examples
+└── bin/         ← CLI script
 ```
 
 ## Which File?
 
-**[`format/core/template.md`](format/core/template.md)** (3KB) — The template
+**[`templates/.float/core/format/template.md`](templates/.float/core/format/template.md)** (3KB) — The template
 - Use when: Building a floatprompt through conversation
 - What it does: Teaches AI how to create floatprompts
 - Best for: Experienced users who know what they want to build
 
-**[`format/core/doc.md`](format/core/doc.md)** — floatprompt doc tool
+**[`templates/.float/core/format/doc.md`](templates/.float/core/format/doc.md)** — floatprompt doc tool
 - Use when: Adding context frontmatter to any document
 - What it does: Generates YAML frontmatter for mutual understanding
 - Best for: Documenting what files ARE (not modifying behavior)
 
-**[`format/core/os.md`](format/core/os.md)** (35KB) — The full system
+**[`templates/.float/core/format/os.md`](templates/.float/core/format/os.md)** (35KB) — The full system
 - Use when: You want guided tool creation
 - What it does: Boot sequence, friction scoring, step-by-step methodology
 - Best for: First-time users, complex tools, when you want more structure
@@ -71,7 +72,7 @@ Start with the OS if you're new. Graduate to the template when you know what you
 ## Quick Start
 
 **Any AI platform:**
-1. Download [`format/core/os.md`](format/core/os.md) (full system) or [`format/core/template.md`](format/core/template.md) (template only)
+1. Download [`templates/.float/core/format/os.md`](templates/.float/core/format/os.md) (full system) or [`templates/.float/core/format/template.md`](templates/.float/core/format/template.md) (template only)
 2. Upload to ChatGPT, Claude, Cursor, or any AI
 3. Follow the guided flow (OS) or say "float build [what you need]" (template)
 4. Collaborate through conversation
@@ -123,7 +124,7 @@ Universal structure for portable AI tooling. JSON for behavior, markdown for met
 </fp>
 ```
 
-The template (`format/core/template.md`, 3KB) teaches AI how to create tools. The full system (`format/core/os.md`, 35KB) adds guided creation for deep knowledge work.
+The template (`templates/.float/core/format/template.md`, 3KB) teaches AI how to create tools. The full system (`templates/.float/core/format/os.md`, 35KB) adds guided creation for deep knowledge work.
 
 ### FloatPrompt System — Project Awareness
 
@@ -143,6 +144,8 @@ The template (`format/core/template.md`, 3KB) teaches AI how to create tools. Th
 - `/float-fix` — Hunt stale references and broken links
 - `/float-context` — Generate project terrain map
 - `/float-enhance` — Fill placeholders, complete frontmatter
+- `/float-harvest` — Extract knowledge from conversations
+- `/float-delta` — Analyze change ripple effects
 
 ---
 
@@ -152,11 +155,11 @@ Real floatprompts solving real problems:
 
 | Example | Type | Lines | What It Does |
 |---------|------|-------|--------------|
-| [AI Portfolio Coach](format/examples/ai%20portfolio%20coach/) | Coach | 729 | Multi-phase guidance producing HTML artifacts |
-| [Design Feedback Extractor](format/examples/design%20feedback%20extractor/) | Extractor | 86 | Archaeological extraction preserving voice |
-| [MDS Voice Guide](format/examples/mds%20voice%20guide/) | Voice | — | Voice preservation and calibration system |
-| [Shortform Caption Writer](format/examples/shortform%20caption%20writer/) | Writer | — | Social media caption generation |
-| [Shortform Script Writer](format/examples/shortform%20script%20writer/) | Writer | 200 | Transforms extractions into viral scripts |
+| [AI Portfolio Coach](examples/ai%20portfolio%20coach/) | Coach | 729 | Multi-phase guidance producing HTML artifacts |
+| [Design Feedback Extractor](examples/design%20feedback%20extractor/) | Extractor | 86 | Archaeological extraction preserving voice |
+| [MDS Voice Guide](examples/mds%20voice%20guide/) | Voice | — | Voice preservation and calibration system |
+| [Shortform Caption Writer](examples/shortform%20caption%20writer/) | Writer | — | Social media caption generation |
+| [Shortform Script Writer](examples/shortform%20script%20writer/) | Writer | 200 | Transforms extractions into viral scripts |
 
 Study these to see the format in action. Depth scales with complexity.
 
@@ -222,14 +225,13 @@ For historical context files, see `artifacts/archive/2025/12-dec/context-files/`
 ## Documentation
 
 **Specifications:**
-- [FloatPrompt Format](format/specs/floatprompt.md)
-- [floatprompt doc Format](format/specs/doc.md)
-- [FloatPrompt System Architecture](system/architecture.md)
+- [FloatPrompt Format](docs/specs/floatprompt.md)
+- [floatprompt doc Format](docs/specs/float-doc.md)
+- [FloatPrompt System Architecture](docs/specs/float-system.md)
 
-**Guides:**
-- [What You Can Build](format/docs/use.md)
-- [MDS Methodology](format/docs/mds-method.md) (Map → Decide → Structure)
-- [Goals](format/docs/goals.md) | [Principles](format/docs/principles.md) | [Voice](format/docs/voice.md) | [Safety](format/docs/safety.md)
+**Philosophy:**
+- [MDS Methodology](docs/philosophy/mds-method.md) (Map → Decide → Structure)
+- [Goals](docs/philosophy/goals.md) | [Principles](docs/philosophy/principles.md) | [Voice](docs/philosophy/voice.md) | [Safety](docs/philosophy/safety.md)
 
 ---
 

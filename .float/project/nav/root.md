@@ -26,11 +26,12 @@ FloatPrompt repository root — the invisible OS for AI.
 | **README.md** | Public-facing documentation |
 | **LICENSE** | MIT license |
 | **package.json** | npm package configuration |
-| **format/** | FILE pillar — What FloatPrompt IS (core/, tools/, specs/, docs/, examples/) |
-| **system/** | SYSTEM pillar — How FloatPrompt WORKS (architecture/, claude/, maintenance/) |
+| **docs/** | Documentation (philosophy/, specs/, maintainer/) |
+| **examples/** | Real floatprompt examples |
+| **templates/** | THE product — what ships via float init |
 | **bin/** | CLI script (floatprompt) |
-| **templates/** | Scaffolding templates for float init |
-| **.float/** | FloatPrompt System (ships with float init) |
+| **.float/** | This repo's FloatPrompt instance |
+| **.claude/** | Claude Code command wrappers |
 | **artifacts/** | Historical archive |
 
 ## What Is This
