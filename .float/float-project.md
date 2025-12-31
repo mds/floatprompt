@@ -3,7 +3,7 @@ title: project/ Structure
 type: nav
 status: current
 created: [scaffold date]
-related: .float/tools/, .float/system.md
+related: .float/tools/, .float/float-system.md
 
 human_author: [update to your handle]
 human_intent: Quick structural reference for project/ folder
@@ -20,7 +20,7 @@ Your project's FloatPrompt data. Everything here is project-specific.
 
 **Symmetry:**
 - `core/index.md` = describes FloatPrompt internals
-- `project/project.md` = describes your project's data (this file)
+- `float-project.md` = describes your project's data (this file)
 
 ## Structure
 

@@ -32,7 +32,7 @@
     "running_system": ".float/ — The system RUNNING in this project",
     "entry_points": {
       "quick_start": "README.md",
-      "system_boot": ".float/system.md",
+      "system_boot": ".float/float-system.md",
       "format_spec": "format/specs/floatprompt.md"
     }
   }
@@ -72,7 +72,7 @@ floatprompt/
 | Audience | Start Here |
 |----------|------------|
 | New user | `README.md` |
-| AI session | `.float/system.md` |
+| AI session | `.float/float-system.md` |
 | Building tools | `format/core/template.md` |
 | Understanding format | `format/specs/floatprompt.md` |
 

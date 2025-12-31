@@ -141,7 +141,7 @@ title: FloatPrompt System
 type: nav
 status: current
 created: 2025-12-29
-related: .float/system.md, .float/project/context/project-context.md
+related: .float/float-system.md, .float/project/context/project-context.md
 
 human_author: @mds
 human_intent: Document .float/ folder structure for AI navigation

@@ -183,11 +183,11 @@ After human approval, apply relationship fixes:
 ### Relationship Map
 
 ```
-Relationship Map for: .float/system.md
+Relationship Map for: .float/float-system.md
 
 EXPLICIT (in related: field):
   → .float/tools/
-  → .float/project/project.md
+  → .float/float-project.md
   → docs/architecture.md
 
 IMPLICIT (referenced in content):
@@ -195,7 +195,7 @@ IMPLICIT (referenced in content):
   → README.md (references system.md)
 
 REFERENCING THIS FILE:
-  ← 14 files reference .float/system.md
+  ← 14 files reference .float/float-system.md
   ← README.md
   ← docs/architecture.md
   ← [12 more...]
@@ -215,7 +215,7 @@ INTEGRITY ISSUES:
     File does not exist
 
 ⚠ ONE-WAY (3):
-  docs/claude.md → .float/system.md
+  docs/claude.md → .float/float-system.md
     ↳ system.md doesn't list docs/claude.md
 
   docs/api.md → src/handlers/index.ts
@@ -245,7 +245,7 @@ EXPLICIT:
   → docs/concepts.md
 
 IMPLICIT:
-  → .float/system.md (mentions boot)
+  → .float/float-system.md (mentions boot)
   → .float/tools/*.md (references)
 
 REFERENCING:
@@ -255,7 +255,7 @@ REFERENCING:
 Issues: 1 found
 
 ONE-WAY:
-  docs/claude.md → .float/system.md
+  docs/claude.md → .float/float-system.md
     ↳ Add docs/claude.md to system.md's related?
 
 Fix? [yes / skip]:
@@ -279,7 +279,7 @@ BROKEN (1):
      ↳ Target does not exist
 
 ONE-WAY (3):
-  2. docs/claude.md → .float/system.md
+  2. docs/claude.md → .float/float-system.md
   3. docs/api.md → src/handlers/index.ts
   4. README.md → docs/goals.md
 

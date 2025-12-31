@@ -113,7 +113,7 @@ Files in `templates/.float/` must match source files.
 | Source | Template |
 |--------|----------|
 | `.float/tools/` | `templates/.float/tools/` |
-| `.float/project/project.md` | `templates/.float/project/project.md` |
+| `.float/float-project.md` | `templates/.float/float-project.md` |
 
 ```bash
 # Check for differences (structure, not content)

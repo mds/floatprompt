@@ -97,9 +97,9 @@ For each nav file, compare descriptions to actual file contents:
 
 **Frontmatter discovery via navigation structure:**
 ```
-.float/system.md (entry)
+.float/float-system.md (entry)
   → .float/tools/ → lists floatprompt/ files
-  → .float/project/project.md → lists project/ structure
+  → .float/float-project.md → lists project/ structure
         → project/nav/*.md → each lists files in a project folder
               → Check frontmatter for each documented file
 ```
@@ -116,7 +116,7 @@ Show what needs enhancement:
 Enhancement Targets:
 
 Incomplete frontmatter (4):
-  .float/system.md: missing ai_updated
+  .float/float-system.md: missing ai_updated
   docs/new-guide.md: missing human_author, human_intent, ai_notes
   specs/api.md: missing related, ai_model
   context/terrain.md: missing status, created

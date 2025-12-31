@@ -3,7 +3,7 @@ title: FloatPrompt System
 type: system
 status: current
 created: [scaffold date]
-related: .float/project/project.md
+related: .float/float-project.md
 
 human_author: [update to your handle]
 human_intent: Boot protocol and behavioral constraints for AI working in this project
@@ -97,7 +97,7 @@ project/
 
 | Pattern | Type | Purpose |
 |---------|------|---------|
-| `.float/system.md` | FloatPrompt System | Boot loader (this file) |
+| `.float/float-system.md` | FloatPrompt System | Boot loader (this file) |
 | `.float/tools/*` | FloatPrompt | /float command tools |
 | `.float/templates/*` | FloatPrompt | Format templates |
 | `.float/project/nav/*.md` | Nav files | Folder navigation (centralized) |

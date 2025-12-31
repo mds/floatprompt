@@ -118,15 +118,15 @@ if (command === 'update') {
       updated.push(`.float/templates/${file}`);
     }
 
-    // Update project.md (structural reference)
-    const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');
-    copyFileSync(projectSrc, join(cwd, '.float', 'project', 'project.md'));
-    updated.push('.float/project/project.md');
+    // Update float-project.md (structural reference)
+    const projectSrc = join(packageRoot, 'templates', '.float', 'float-project.md');
+    copyFileSync(projectSrc, join(cwd, '.float', 'float-project.md'));
+    updated.push('.float/float-project.md');
 
-    // Update system.md (boot loader)
-    const systemSrc = join(packageRoot, 'templates', '.float', 'system.md');
-    copyFileSync(systemSrc, join(cwd, '.float', 'system.md'));
-    updated.push('.float/system.md');
+    // Update float-system.md (boot loader)
+    const systemSrc = join(packageRoot, 'templates', '.float', 'float-system.md');
+    copyFileSync(systemSrc, join(cwd, '.float', 'float-system.md'));
+    updated.push('.float/float-system.md');
 
     // Update Claude commands (source: templates/.claude/commands/)
     const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md'];
@@ -207,11 +207,15 @@ try {
   }
 
   // Copy template files
-  const templateSystem = join(packageRoot, 'templates', '.float', 'system.md');
+  const templateSystem = join(packageRoot, 'templates', '.float', 'float-system.md');
+  const templateProject = join(packageRoot, 'templates', '.float', 'float-project.md');
   const templateRoot = join(packageRoot, 'templates', '.float', 'project', 'nav', 'root.md');
 
-  copyFileSync(templateSystem, join(cwd, '.float', 'system.md'));
-  created.push('.float/system.md');
+  copyFileSync(templateSystem, join(cwd, '.float', 'float-system.md'));
+  created.push('.float/float-system.md');
+
+  copyFileSync(templateProject, join(cwd, '.float', 'float-project.md'));
+  created.push('.float/float-project.md');
 
   // Create empty decisions.md in context/
   const decisionsContent = `---
@@ -273,11 +277,6 @@ Captured rationale for project decisions. AI appends entries during context buil
     copyFileSync(src, dest);
     created.push(`.float/templates/${file}`);
   }
-
-  // Copy project.md (structural reference)
-  const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');
-  copyFileSync(projectSrc, join(cwd, '.float', 'project', 'project.md'));
-  created.push('.float/project/project.md');
 
   // Copy Claude commands (source: templates/.claude/commands/)
   const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md'];

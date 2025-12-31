@@ -23,9 +23,9 @@
 
   "requirements": {
     "duality": {
-      "condition_a": "No .float/system.md exists",
+      "condition_a": "No .float/float-system.md exists",
       "action_a": "Not installed: instruct user to run npx float init",
-      "condition_b": "Has .float/system.md",
+      "condition_b": "Has .float/float-system.md",
       "action_b": "Boot sequence"
     },
     "status_format": "FloatPrompt operational.\nDirectory: [path]\nContext: [Loaded | Missing]\nStatus: [No issues found | N issues found]\n\nNext: /float-think (will likely call [tools] to [action])\n\nCommands:\n  /float-think     Intelligent router (recommended)\n  /float-sync      Structure integrity\n  /float-fix       Content integrity\n  /float-context   Generate terrain map\n  /float-enhance   Fill placeholders\n  /float-all       Run all tools",
@@ -49,8 +49,8 @@ This is the entry point command. Run `/float` first in any session to gain proje
 
 | Condition | Action |
 |-----------|--------|
-| No `.float/system.md` | Not installed: instruct user to run `npx float init` |
-| Has `.float/system.md` | Boot: read files, quick health check |
+| No `.float/float-system.md` | Not installed: instruct user to run `npx float init` |
+| Has `.float/float-system.md` | Boot: read files, quick health check |
 
 ## Not Installed
 
@@ -70,7 +70,7 @@ Do not attempt to create files. The `.float/` structure is created by the npm pa
 
 When FloatPrompt System exists:
 
-1. **Read `.float/system.md`** — Load boot protocol
+1. **Read `.float/float-system.md`** — Load boot protocol
 2. **Read `.float/project/context/project-decisions.md`** (if exists) — Load decision history
 3. **Read `.float/project/context/*.md`** (if exists) — Load terrain maps
 4. **Read ALL `.float/project/nav/*.md`** — Load folder navigation
@@ -88,7 +88,7 @@ Boot is designed to be fast. Use shell commands where possible:
 
 ```bash
 # Check if system exists
-test -f .float/system.md
+test -f .float/float-system.md
 
 # Count nav files
 ls .float/project/nav/*.md 2>/dev/null | wc -l
