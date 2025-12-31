@@ -99,7 +99,7 @@ For each nav file, compare descriptions to actual file contents:
 ```
 .float/system.md (entry)
   → .float/tools/ → lists floatprompt/ files
-  → .float/project.md → lists project/ structure
+  → .float/project/project.md → lists project/ structure
         → project/nav/*-map.md → each lists files in a project folder
               → Check frontmatter for each documented file
 ```

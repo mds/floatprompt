@@ -25,8 +25,8 @@
     "pilot_principle": "Human decides, AI executes. Human is pilot, AI is crew.",
     "containment_principle": ".float/ tools only write inside .float/. Scan project files, report findings to logs/, but NEVER modify files outside .float/. Human applies fixes.",
     "boot_sequence": [
-      "Read .float/float.md (this file)",
-      "Read .float/project.md (project/ structure)",
+      "Read .float/system.md (this file)",
+      "Read .float/project/project.md (project/ structure)",
       "Read .float/project/context/project-decisions.md if exists",
       "Read .float/project/context/project-context.md if exists (terrain map)",
       "Read ALL .float/project/nav/*-map.md files (fast boot)",
@@ -56,8 +56,8 @@ This file is the boot loader. Read it first in any session.
 
 ```
 .float/
-├── float.md              # This file (boot protocol)
-├── project.md            # project/ structure reference
+├── system.md             # This file (boot protocol)
+├── project/project.md    # project/ structure reference
 ├── tools/                # /float command tools
 ├── templates/            # Format templates
 └── project/              # Dynamic content (AI maintains)
@@ -76,8 +76,8 @@ This file is the boot loader. Read it first in any session.
 **Fast boot:** Read `*-map.md` files only (lightweight).
 **Deep dive:** Load `*-context.md` as needed.
 
-1. Read `.float/float.md` (this file)
-2. Read `.float/project.md` (project/ structure)
+1. Read `.float/system.md` (this file)
+2. Read `.float/project/project.md` (project/ structure)
 3. Read `project/context/project-decisions.md` if exists
 4. Read `project/context/project-context.md` if exists (terrain map)
 5. Read ALL `project/nav/*-map.md` files (fast boot)
@@ -92,8 +92,8 @@ This file is the boot loader. Read it first in any session.
 
 | Location | Format | Purpose |
 |----------|--------|---------|
-| `.float/float.md` | floatprompt | Boot protocol (this file) |
-| `.float/project.md` | floatprompt | project/ structure |
+| `.float/system.md` | floatprompt | Boot protocol (this file) |
+| `.float/project/project.md` | floatprompt | project/ structure |
 | `.float/tools/*.md` | floatprompt | /float command tools |
 | `.float/templates/*.md` | floatprompt | Format templates |
 | `.float/project/nav/*-map.md` | floatprompt doc | Lightweight inventory |

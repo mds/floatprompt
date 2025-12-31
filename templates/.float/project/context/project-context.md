@@ -30,8 +30,8 @@
 ## Reading Order
 
 For new AI sessions:
-1. `.float/float.md` — Boot protocol
-2. `.float/project.md` — project/ structure
+1. `.float/system.md` — Boot protocol
+2. `.float/project/project.md` — project/ structure
 3. This file — Deep context
 4. Relevant `nav/*.md` — Folder specifics
 

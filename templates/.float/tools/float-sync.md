@@ -98,7 +98,7 @@ Use shell commands for fast detection:
 ```bash
 # Check structural reference files exist
 test -d .float/tools/ && echo "tools/ OK" || echo "tools/ MISSING"
-test -f .float/project.md && echo "project.md OK" || echo "project.md MISSING"
+test -f .float/project/project.md && echo "project.md OK" || echo "project.md MISSING"
 
 # List actual files in folder
 ls docs/

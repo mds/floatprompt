@@ -187,7 +187,7 @@ Relationship Map for: .float/system.md
 
 EXPLICIT (in related: field):
   → .float/tools/
-  → .float/project.md
+  → .float/project/project.md
   → docs/architecture.md
 
 IMPLICIT (referenced in content):
@@ -215,7 +215,7 @@ INTEGRITY ISSUES:
     File does not exist
 
 ⚠ ONE-WAY (3):
-  docs/claude.md → .float/float.md
+  docs/claude.md → .float/system.md
     ↳ system.md doesn't list docs/claude.md
 
   docs/api.md → src/handlers/index.ts
