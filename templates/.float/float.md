@@ -7,7 +7,7 @@
     "title": "FloatPrompt System",
     "id": "float-system",
     "format": "floatprompt",
-    "version": "0.16.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -18,7 +18,7 @@
 
   "ai": {
     "role": "System navigator, maintainer, and integrity checker",
-    "behavior": "Read structure first, traverse all project/nav/*.md files, maintain recursively"
+    "behavior": "Read structure first, traverse all project/nav/*-map.md files (fast), load *-context.md as needed (deep)"
   },
 
   "requirements": {
@@ -28,12 +28,13 @@
       "Read .float/float.md (this file)",
       "Read .float/project.md (project/ structure)",
       "Read .float/project/context/project-decisions.md if exists",
-      "Read .float/project/context/*.md if exists (terrain maps)",
-      "Read ALL .float/project/nav/*.md files",
+      "Read .float/project/context/project-context.md if exists (terrain map)",
+      "Read ALL .float/project/nav/*-map.md files (fast boot)",
       "Read today's log (.float/project/logs/YYYY-MM-DD.md) if exists",
       "Build mental model of project structure",
       "Flag discrepancies before proceeding",
       "Execute human requests",
+      "Load nav/*-context.md as needed for deep understanding",
       "Log session before ending"
     ],
     "maintenance": {
@@ -55,30 +56,37 @@ This file is the boot loader. Read it first in any session.
 
 ```
 .float/
-├── float.md     # This file (boot protocol)
-├── project.md    # project/ structure reference
-├── tools/              # /float command tools
-├── templates/          # Format templates
-└── project/            # Dynamic content (AI maintains)
-    ├── nav/            # Folder navigation
-    ├── context/        # Terrain maps
-    └── logs/           # Session history
+├── float.md              # This file (boot protocol)
+├── project.md            # project/ structure reference
+├── tools/                # /float command tools
+├── templates/            # Format templates
+└── project/              # Dynamic content (AI maintains)
+    ├── nav/
+    │   ├── *-map.md      # Lightweight inventory (fast boot)
+    │   └── *-context.md  # Deep understanding (load as needed)
+    ├── context/
+    │   └── project-context.md  # Project-wide terrain map
+    └── logs/             # Session history
 ```
 
 **Rule:** `.float/` root = npm scaffolding (static). `project/` = /float maintains (dynamic).
 
 ## Boot Sequence
 
+**Fast boot:** Read `*-map.md` files only (lightweight).
+**Deep dive:** Load `*-context.md` as needed.
+
 1. Read `.float/float.md` (this file)
 2. Read `.float/project.md` (project/ structure)
 3. Read `project/context/project-decisions.md` if exists
-4. Read `project/context/*.md` if exists (terrain maps)
-5. Read ALL `project/nav/*.md` files
+4. Read `project/context/project-context.md` if exists (terrain map)
+5. Read ALL `project/nav/*-map.md` files (fast boot)
 6. Read today's log if exists
 7. Build mental model
 8. Flag discrepancies
 9. Execute human requests
-10. Log session before ending
+10. Load `nav/*-context.md` as needed for deep understanding
+11. Log session before ending
 
 ## File Conventions
 
@@ -88,8 +96,9 @@ This file is the boot loader. Read it first in any session.
 | `.float/project.md` | floatprompt | project/ structure |
 | `.float/tools/*.md` | floatprompt | /float command tools |
 | `.float/templates/*.md` | floatprompt | Format templates |
-| `.float/project/nav/*.md` | nav file | Folder navigation |
-| `.float/project/context/*.md` | context | AI terrain maps |
+| `.float/project/nav/*-map.md` | floatprompt doc | Lightweight inventory |
+| `.float/project/nav/*-context.md` | floatprompt | Deep folder understanding |
+| `.float/project/context/*.md` | floatprompt | Project-wide terrain maps |
 | `.float/project/logs/*.md` | log | Session history |
 
 ## Containment Principle
@@ -116,8 +125,8 @@ Human decides, AI executes. Human is pilot, AI is crew.
 ## Maintenance
 
 AI maintains project/ content:
-- Update `project/nav/*.md` when folders change
-- Run `/float-context` to generate terrain maps
+- Run `/float-sync` to update `project/nav/*-map.md` when folders change
+- Run `/float-context` to generate `*-context.md` for deep understanding
 - Log sessions to `project/logs/`
 - Surface integrity issues before proceeding
 

@@ -1,18 +1,18 @@
 <fp>
 <json>
 {
-  "STOP": "Float Sync Tool. Verify nav files match reality and fix discrepancies.",
+  "STOP": "Float Sync Tool. Verify nav map files match reality and fix discrepancies.",
 
   "meta": {
     "title": "/float sync",
     "id": "float-sync",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
     "author": "@mds",
-    "intent": "Keep structure files synchronized with actual folder contents",
+    "intent": "Keep *-map.md files synchronized with actual folder contents",
     "context": "Run when /float reports issues or after major file changes"
   },
 
@@ -29,13 +29,18 @@
       "action_b": "Report OK"
     },
     "status_format": "FloatPrompt sync complete.\nDirectory: [path]\nStatus: [result]\n\n[Next step or Ready for: human direction]",
-    "next_step_logic": "Always suggest /float-think as next step. Float-think will analyze results and decide if float-enhance is needed.",
+    "next_step_logic": "Always suggest /float-think as next step. Float-think will analyze results and decide if float-enhance or float-context is needed.",
+    "output_pattern": {
+      "map_files": "nav/{folder}-map.md",
+      "format": "floatprompt doc (YAML frontmatter)",
+      "purpose": "Lightweight inventory for fast boot"
+    },
     "buoys": {
-      "check_buoy": "Verify one nav file vs folder (parallel, one per nav file)",
+      "check_buoy": "Verify one map file vs folder (parallel, one per map file)",
       "structural_buoy": "Create missing core/index.md or float-project.md",
-      "nav_buoy": "Update file table in one nav file",
-      "system_buoy": "Update structure map in system.md",
-      "scaffold_buoy": "Create one new nav file",
+      "map_buoy": "Update file table in one map file",
+      "system_buoy": "Update structure map in float.md",
+      "scaffold_buoy": "Create one new map file",
       "log_buoy": "Append to session log"
     },
     "reporting": {
@@ -49,9 +54,25 @@
 <md>
 # /float sync — Structure Integrity Tool
 
-**Verify nav files match reality and fix discrepancies.**
+**Verify nav map files match reality and fix discrepancies.**
 
-This command ensures `.float/project/nav/*.md` files accurately reflect actual folder contents.
+This command ensures `.float/project/nav/*-map.md` files accurately reflect actual folder contents.
+
+## Output Pattern
+
+Creates/updates **map files** (lightweight inventory):
+
+```
+.float/project/nav/
+├── root-map.md      # Repository root
+├── src-map.md       # src/ folder
+├── docs-map.md      # docs/ folder
+└── ...
+```
+
+**Format:** floatprompt doc (YAML frontmatter) — fast to parse, read on every boot.
+
+**Companion:** `/float-context` creates `*-context.md` files for deep understanding.
 
 ## Duality
 
@@ -62,11 +83,11 @@ This command ensures `.float/project/nav/*.md` files accurately reflect actual f
 
 ## What It Checks
 
-1. **Structural references** — `core/index.md` and `float-project.md` exist
-2. **Nav coverage** — Every visible project folder has a nav file
-3. **Table accuracy** — Files listed in nav match actual folder contents
-4. **Subfolder accuracy** — Subfolders listed in nav match actual subfolders
-5. **Structure map** — system.md structure map matches reality
+1. **Structural references** — `tools/` and `project.md` exist
+2. **Map coverage** — Every visible project folder has a `*-map.md` file
+3. **Table accuracy** — Files listed in map match actual folder contents
+4. **Subfolder accuracy** — Subfolders listed in map match actual subfolders
+5. **Structure map** — `float.md` structure map matches reality
 
 ## Process
 
@@ -76,24 +97,24 @@ Use shell commands for fast detection:
 
 ```bash
 # Check structural reference files exist
-test -f .float/tools/ && echo "index.md OK" || echo "index.md MISSING"
+test -d .float/tools/ && echo "tools/ OK" || echo "tools/ MISSING"
 test -f .float/project.md && echo "project.md OK" || echo "project.md MISSING"
 
 # List actual files in folder
 ls docs/
 
-# Parse nav file entries
-grep "^\| \*\*" .float/project/nav/docs.md
+# Parse map file entries
+grep "^\| \*\*" .float/project/nav/docs-map.md
 
-# Find missing nav files
+# Find folders without map files
 ls -d */ | grep -v -E '^(node_modules|dist|build|\.git|\.float)/$'
 ```
 
-Compare shell output with nav file contents to identify:
-- **Missing structural refs** — `core/index.md` or `float-project.md` doesn't exist
-- **Missing** — In folder but not in nav
-- **Stale** — In nav but not in folder
-- **New folders** — Folders without nav files
+Compare shell output with map file contents to identify:
+- **Missing structural refs** — `tools/` or `project.md` doesn't exist
+- **Missing** — In folder but not in map
+- **Stale** — In map but not in folder
+- **New folders** — Folders without `*-map.md` files
 
 **Report:** Call float-report --phase=map with findings
 
@@ -105,7 +126,7 @@ Show issues with details:
 Sync Issues Found:
 
 Structural references:
-  Missing: core/index.md
+  Missing: tools/
 
 docs/:
   Missing: new-guide.md, api-reference.md
@@ -114,7 +135,7 @@ docs/:
 src/:
   Missing subfolder: utils/
 
-New folders without nav:
+Folders without map files:
   tests/
 ```
 
@@ -125,19 +146,19 @@ Offer fixes:
 ```
 Proposed Fixes:
 
-1. Create core/index.md (structural reference)
+1. Create tools/ (structural reference)
 
-2. Add to nav/docs.md:
+2. Add to nav/docs-map.md:
    - new-guide.md [needs description]
    - api-reference.md [needs description]
 
-3. Remove from nav/docs.md:
+3. Remove from nav/docs-map.md:
    - old-doc.md
 
-4. Add to nav/src.md subfolders:
+4. Add to nav/src-map.md subfolders:
    - utils/
 
-5. Create nav/tests.md
+5. Create nav/tests-map.md
 
 Apply changes? (y/n):
 ```
@@ -158,10 +179,10 @@ Spawn targeted buoys for fixes:
 
 | Fix Type | Buoy | Task |
 |----------|------|------|
-| Create structural ref | Structural Buoy | Generate core/index.md or float-project.md |
-| Update nav table | Nav Buoy | Add/remove rows, preserve existing descriptions |
-| Update structure map | System Buoy | Add/remove folders in system.md |
-| Create new nav file | Scaffold Buoy | Generate nav file with placeholder descriptions |
+| Create structural ref | Structural Buoy | Generate tools/ or project.md |
+| Update map table | Map Buoy | Add/remove rows, preserve existing descriptions |
+| Update structure map | System Buoy | Add/remove folders in float.md |
+| Create new map file | Scaffold Buoy | Generate `*-map.md` file with placeholder descriptions |
 
 **Parallelization:** Independent fixes run in parallel.
 
@@ -216,13 +237,13 @@ Float-think will analyze the sync results and decide if float-enhance is needed 
 ### Check Buoy
 
 ```
-Verify .float/project/nav/{folder}.md against actual {folder}/ contents:
-1. Read the nav file and parse the Contents table
+Verify .float/project/nav/{folder}-map.md against actual {folder}/ contents:
+1. Read the map file and parse the Contents table
 2. List actual files in {folder}/ (exclude: dotfiles, node_modules, .git, dist, build)
 3. List actual subfolders in {folder}/
-4. Compare nav entries to actual contents
+4. Compare map entries to actual contents
 5. Return JSON: {
-     navFile: string,
+     mapFile: string,
      status: "ok" | "issues",
      missing: string[],
      stale: string[],
@@ -234,18 +255,18 @@ Verify .float/project/nav/{folder}.md against actual {folder}/ contents:
 ### Structural Buoy
 
 ```
-Create missing structural reference file:
-1. Determine which file is missing: core/index.md or float-project.md
-2. Read templates/.float/tools/ or templates/.float/project.md
+Create missing structural reference:
+1. Determine what is missing: tools/ or project.md
+2. Read corresponding template from templates/.float/
 3. Copy template to appropriate location
 4. Update created date to today
 5. Return confirmation
 ```
 
-### Nav Buoy
+### Map Buoy
 
 ```
-Update .float/project/nav/{folder}.md:
+Update .float/project/nav/{folder}-map.md:
 1. Add these files to Contents table: [list]
 2. Remove these files from Contents table: [list]
 3. Add these subfolders: [list]
@@ -271,33 +292,37 @@ Update structure map in .float/float.md:
 ### Scaffold Buoy
 
 ```
-Create .float/project/nav/{folder}.md for a new folder:
+Create .float/project/nav/{folder}-map.md for a new folder.
+
+REFERENCE: Use templates/.float/project/nav/root-map.md as the template.
+
 1. List all files in {folder}/ (exclude dotfiles, etc.)
 2. List all subfolders in {folder}/
-3. Create nav file with full floatprompt doc metadata:
+3. Create map file with floatprompt doc format:
 
    ---
-   title: {Folder Name}
-   type: nav
-   status: current
-   created: {YYYY-MM-DD}
-   related: {folder}/
-
-   human_author: @mds
-   human_intent: Document {folder}/ contents for AI navigation
-   human_context: [needs description]
-
-   ai_model: Claude Opus 4.5
+   title: {folder}/
+   type: map
+   generated_by: /float-sync
    ai_updated: {YYYY-MM-DD}
-   ai_notes: Scaffolded by /float sync
    ---
 
-4. Add heading and description of folder purpose
-5. Add Contents table with "[needs description]" for each file
-6. Add Subfolders table if subfolders exist
-7. Return the complete nav file content
+   # {folder}/
 
-Note: human_author defaults to @mds. Override from package.json author if available.
+   {One-line description of folder purpose}
+
+   ## Contents
+
+   | Item | Purpose |
+   |------|---------|
+   | **file.md** | [needs description] |
+   | **subfolder/** | [needs description] |
+
+4. Add heading and brief description of folder purpose
+5. Add Contents table with "[needs description]" for each item
+6. Return the complete map file content
+
+Note: Map files are lightweight inventories. Deep context goes in *-context.md files.
 ```
 
 ### Log Buoy
@@ -348,14 +373,37 @@ docs/:
   Stale: old-doc.md
 
 Proposed Fixes:
-1. Add to nav/docs.md: new-guide.md [needs description]
-2. Remove from nav/docs.md: old-doc.md
+1. Add to nav/docs-map.md: new-guide.md [needs description]
+2. Remove from nav/docs-map.md: old-doc.md
 
 Apply changes? (y/n): y
 
 FloatPrompt sync complete.
 Directory: /Users/mds/projects/my-app
 Status: Fixed 2 issues, 1 description pending
+
+Next: /float-think
+```
+
+**New folder detected:**
+```
+> /float-sync
+
+Sync Issues Found:
+
+Folders without map files:
+  tests/
+
+Proposed Fixes:
+1. Create nav/tests-map.md
+
+Apply changes? (y/n): y
+
+FloatPrompt sync complete.
+Directory: /Users/mds/projects/my-app
+Status: Created 1 map file
+
+Tip: Run /float-context to add tests-context.md for deep understanding.
 
 Next: /float-think
 ```

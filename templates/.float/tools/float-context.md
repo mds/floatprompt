@@ -1,19 +1,19 @@
 <fp>
 <json>
 {
-  "STOP": "Float Context Tool. Generate or load project context for deep understanding. CRITICAL: Choose a meaningful filename that reflects the project identity — NOT 'project.md'.",
+  "STOP": "Float Context Tool. Generate deep understanding files for folders and projects.",
 
   "meta": {
     "title": "/float context",
     "id": "float-context",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
     "author": "@mds",
-    "intent": "Generate terrain maps that give AI instant understanding of any project",
-    "context": "Run when /float reports missing context or when deep understanding is needed"
+    "intent": "Generate context files that give AI deep understanding of folders and projects",
+    "context": "Run after /float-sync to add depth to map files, or when deep understanding is needed"
   },
 
   "ai": {
@@ -23,15 +23,22 @@
 
   "requirements": {
     "duality": {
-      "condition_a": "No context file exists",
-      "action_a": "Generate terrain map",
-      "condition_b": "Has context file",
+      "condition_a": "Missing context files",
+      "action_a": "Generate context files",
+      "condition_b": "Has context files",
       "action_b": "Load and follow reading order"
     },
     "status_format": "FloatPrompt context complete.\nDirectory: [path]\nStatus: [result]\n\n[Next step or Ready for: human direction]",
     "next_step_logic": "Always suggest /float-think as next step. Float-think will decide what's needed based on context state.",
+    "output_patterns": {
+      "folder_context": "nav/{folder}-context.md",
+      "project_context": "context/project-context.md",
+      "format": "floatprompt (full <fp><json><md>)",
+      "purpose": "Deep understanding, architecture, relationships"
+    },
     "buoys": {
-      "context_buoy": "Generate terrain map (full model for synthesis)"
+      "folder_context_buoy": "Generate one folder context file (parallel, one per folder)",
+      "project_context_buoy": "Generate project-wide terrain map (full model)"
     },
     "reporting": {
       "protocol": "float-report",
@@ -42,38 +49,64 @@
 }
 </json>
 <md>
-# /float context — Meaning Generation Tool
+# /float context — Deep Understanding Tool
 
-**Generate or load project context for deep understanding.**
+**Generate context files for deep understanding of folders and projects.**
 
-This command creates `.float/project/context/{project-name}.md` — the understanding layer that complements project/nav/*.md structure files.
+This command creates `*-context.md` files — the understanding layer that complements `*-map.md` inventory files.
+
+## Output Pattern
+
+Creates **context files** (deep understanding):
+
+```
+.float/project/
+├── nav/
+│   ├── root-map.md          # Created by /float-sync
+│   ├── root-context.md      # Created by /float-context ← THIS
+│   ├── src-map.md
+│   └── src-context.md       # ← THIS
+└── context/
+    └── project-context.md   # Project-wide terrain map ← THIS
+```
+
+**Format:** floatprompt (full `<fp><json><md>`) — rich understanding, read when needed.
+
+**Companion:** `/float-sync` creates `*-map.md` files for lightweight inventory.
 
 ## Duality
 
 | Condition | Action |
 |-----------|--------|
-| No context file exists | Generate terrain map |
-| Has context file | Load and follow reading order |
+| Missing context files | Generate context files |
+| Has context files | Load and follow reading order |
 
 **Regeneration:** Delete context file to force regeneration. No special command needed.
+
+## Two Levels of Context
+
+| Level | File | Purpose |
+|-------|------|---------|
+| **Folder** | `nav/{folder}-context.md` | Deep understanding of one folder |
+| **Project** | `context/project-context.md` | Project-wide terrain map |
 
 ## Difference from /float Boot
 
 | Command | Purpose | Depth |
 |---------|---------|-------|
-| `/float` (boot) | Quick awareness | Reads context file for awareness |
+| `/float` (boot) | Quick awareness | Reads `*-map.md` files only |
 | `/float context` (load) | Deep understanding | Follows reading order, builds mental model |
-| `/float context` (generate) | Create context | Synthesizes project understanding |
+| `/float context` (generate) | Create context | Synthesizes folder/project understanding |
 
 ## Generate Sequence
 
-When no context file exists:
+When context files are missing:
 
 ### 1. Discover
 
 Read and analyze:
 - `.float/float.md` — Boot protocol
-- `.float/project/nav/*.md` — All navigation files
+- `.float/project/nav/*-map.md` — All map files
 - `README.md` — Project overview
 - Key entry points (main files, index files, core modules)
 
@@ -85,7 +118,22 @@ Look for:
 
 **Report:** Call float-report --phase=map
 
-### 2. Clarify (if needed)
+### 2. Identify Missing Context
+
+Check for folders with maps but no context:
+
+```bash
+# Find map files without matching context files
+for map in .float/project/nav/*-map.md; do
+  context="${map/-map.md/-context.md}"
+  test -f "$context" || echo "Missing: $context"
+done
+
+# Check project-wide context
+test -f .float/project/context/project-context.md || echo "Missing: project-context.md"
+```
+
+### 3. Clarify (if needed)
 
 If uncertain about key things, ask before generating:
 
@@ -106,84 +154,117 @@ If uncertain about key things, ask before generating:
 
 If everything is clear, skip to Generate.
 
-### 3. Generate via Context Buoy
+### 4. Generate via Buoys
 
-Spawn Context Buoy to create terrain map:
+Spawn buoys for each missing context file:
 
-```markdown
----
-title: {Project} Context
-type: context
-generated: YYYY-MM-DD HH:MM
-generator: float-context
+**Folder Context Buoy** — for each missing `{folder}-context.md`:
 
-human_refinements: |
-  {preserved from previous version if exists}
----
+```
+REFERENCE: Use templates/.float/project/nav/root-context.md as the template.
 
-# {Project} Context
+Create .float/project/nav/{folder}-context.md with full floatprompt format:
 
-{One paragraph: what this project IS, its purpose, its shape}
+<fp>
+<json>
+{
+  "STOP": "Deep context for {folder}/ folder. Understanding, patterns, relationships.",
+  "meta": {
+    "title": "{folder}/ context",
+    "type": "context",
+    "format": "floatprompt",
+    "generated_by": "/float-context"
+  },
+  "ai": {
+    "role": "Deep folder understanding",
+    "behavior": "Reference for architecture, patterns, and connections"
+  }
+}
+</json>
+<md>
+# {folder}/ — Context
+
+Deep understanding of the {folder}/ folder.
+
+## What This Folder Does
+
+[One paragraph: purpose, goals, what problem it solves]
+
+## Architecture
+
+[Key patterns, structure, how pieces fit together]
 
 ## Key Files
 
 | File | Why It Matters |
 |------|----------------|
-| `path/file` | {significance} |
+| [file] | [importance] |
 
-## Reading Order
+## Relationships
 
-For new AI sessions:
+- [How this folder connects to others]
+- [Dependencies, imports, references]
 
-1. `.float/float.md` — {why}
-2. `{next file}` — {why}
-...
+## Conventions
 
-## Domain Map
+[Naming patterns, organization rules, coding standards]
 
-{How folders/concepts relate — emergent format}
-
-## {Emergent Sections}
-
-{Whatever else matters for this project}
+</md>
+</fp>
 ```
+
+**Project Context Buoy** — for `project-context.md`:
+
+```
+Create .float/project/context/project-context.md with full floatprompt format.
+
+This is the project-wide terrain map covering:
+- What this project IS
+- Key files table
+- Reading order for new AI sessions
+- Domain map (how folders/concepts relate)
+- Core patterns and conventions
+```
+
+**Parallelization:** Multiple folder context buoys can run in parallel.
 
 **Report:** Call float-report --phase=structure
 
-### 4. Offer Decision Capture
+### 5. Offer Decision Capture
 
 After generating context:
 
 ```
-Context generated: .float/project/context/{project-name}.md
+Context generated:
+  - nav/src-context.md
+  - nav/docs-context.md
+  - context/project-context.md
 
 Build deeper context? (Capture key decisions)
 (y/n):
 ```
 
-If yes: prompt for decisions, save to `decisions.md`
+If yes: prompt for decisions, save to `project-decisions.md`
 
 ## Load Sequence
 
-When context file exists:
+When context files exist:
 
-1. **Read `.float/project/context/*.md`** — All context files
+1. **Read `.float/project/context/project-context.md`** — Project-wide terrain map
 2. **Follow reading order** — As specified in terrain map
-3. **Read files in order** — Build rich mental model
+3. **Read `nav/*-context.md` as needed** — Deep folder understanding
 4. **Report understanding depth**
 
-## Output Location
+## Output Locations
 
 ```
-.float/project/context/{meaningful-name}.md
+.float/project/nav/{folder}-context.md    # Per-folder deep understanding
+.float/project/context/project-context.md # Project-wide terrain map
 ```
 
-**CRITICAL — Choose a meaningful filename:**
-- DO NOT default to `project.md` — that's lazy and unhelpful
-- Name should reflect the project's domain or identity
-- Look at README, package.json name, or folder name for hints
-- Examples: `floatprompt.md`, `shiftnudge.md`, `portfolio-workshop.md`, `api-gateway.md`
-- The filename IS the project identity for AI context
+**Naming:**
+- Folder context: `{folder}-context.md` (matches `{folder}-map.md`)
+- Project context: `project-context.md` (the terrain map)
 
 ## Status Output
 
@@ -196,7 +277,7 @@ Status: [result]
 ```
 
 **Results:**
-- "Generated floatprompt.md"
+- "Generated 3 context files (2 folder, 1 project)"
 - "Loaded context, followed reading order (8 files)"
 
 ## Next Step Logic
@@ -211,25 +292,48 @@ Float-think will decide what's needed based on context state.
 
 ## Buoy Prompts
 
-### Context Buoy
+### Folder Context Buoy
 
 ```
-Generate context file for this project:
-1. Read .float/float.md for project overview
-2. Read all .float/project/nav/*.md files for structure
+Generate context file for {folder}/:
+
+REFERENCE: Use templates/.float/project/nav/root-context.md as the template.
+
+1. Read .float/project/nav/{folder}-map.md for inventory
+2. Read key files in {folder}/ to understand purpose
+3. Identify architecture and patterns
+4. Map relationships to other folders
+5. Note conventions and standards
+6. Generate full floatprompt format file with:
+   - What This Folder Does
+   - Architecture
+   - Key Files table
+   - Relationships
+   - Conventions
+7. Write to .float/project/nav/{folder}-context.md
+8. Return: { folder: string, file: string }
+```
+
+### Project Context Buoy
+
+```
+Generate project-wide terrain map:
+
+1. Read .float/float.md for boot protocol
+2. Read all .float/project/nav/*-map.md files for structure
 3. Read README.md for public description
 4. Identify key files that define the project
 5. Determine logical reading order for understanding
 6. Map domain relationships
-7. Choose meaningful filename based on project identity (NOT 'project.md')
-8. Generate terrain map with:
+7. Generate full floatprompt format file with:
    - Project summary
    - Key files table
    - Reading order
    - Domain map
    - Core patterns
    - Conventions
-9. Return: { filename: string, content: string }
+8. Write to .float/project/context/project-context.md
+9. Return: { file: string }
 ```
 
 ## Depth Modes
@@ -269,9 +373,11 @@ If updating existing context:
 
 **Generate new context:**
 ```
-> /float context
+> /float-context
 
 Scanning project structure...
+Found 3 map files without context: src-map.md, docs-map.md, root-map.md
+Missing project-context.md
 
 Questions:
 1. Is artifacts/ historical or active development?
@@ -282,7 +388,13 @@ Generating context...
 
 FloatPrompt context complete.
 Directory: /Users/mds/Documents/_Github/floatprompt
-Status: Generated floatprompt.md
+Status: Generated 4 context files (3 folder, 1 project)
+
+Created:
+  - nav/root-context.md
+  - nav/src-context.md
+  - nav/docs-context.md
+  - context/project-context.md
 
 Build deeper context? (Capture key decisions)
 (y/n): y
@@ -290,16 +402,29 @@ Build deeper context? (Capture key decisions)
 What key decisions should be captured?
 > We chose <fp> tags over YAML because...
 
-Saved to decisions.md
+Saved to project-decisions.md
+
+Next: /float-think
+```
+
+**Generate single folder context:**
+```
+> /float-context src
+
+Generating context for src/...
+
+FloatPrompt context complete.
+Directory: /Users/mds/Documents/_Github/floatprompt
+Status: Generated nav/src-context.md
 
 Next: /float-think
 ```
 
 **Load existing context:**
 ```
-> /float context
+> /float-context
 
-Loading context from floatprompt.md...
+Loading context from project-context.md...
 
 Following reading order:
 1. .float/float.md — Boot protocol
