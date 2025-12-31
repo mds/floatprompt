@@ -118,15 +118,15 @@ if (command === 'update') {
       updated.push(`.float/templates/${file}`);
     }
 
-    // Update project.md (structural reference)
-    const projectSrc = join(packageRoot, 'templates', '.float', 'project.md');
-    copyFileSync(projectSrc, join(cwd, '.float', 'project.md'));
-    updated.push('.float/project.md');
+    // Update system.md (boot loader)
+    const systemSrc = join(packageRoot, 'templates', '.float', 'system.md');
+    copyFileSync(systemSrc, join(cwd, '.float', 'system.md'));
+    updated.push('.float/system.md');
 
-    // Update float.md (boot loader)
-    const systemSrc = join(packageRoot, 'templates', '.float', 'float.md');
-    copyFileSync(systemSrc, join(cwd, '.float', 'float.md'));
-    updated.push('.float/float.md');
+    // Update project/project.md (structural reference)
+    const projectSrc = join(packageRoot, 'templates', '.float', 'project', 'project.md');
+    copyFileSync(projectSrc, join(cwd, '.float', 'project', 'project.md'));
+    updated.push('.float/project/project.md');
 
     // Update Claude commands (source: templates/.claude/commands/)
     const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md'];
@@ -207,16 +207,16 @@ try {
   }
 
   // Copy template files
-  const templateSystem = join(packageRoot, 'templates', '.float', 'float.md');
-  const templateProject = join(packageRoot, 'templates', '.float', 'project.md');
+  const templateSystem = join(packageRoot, 'templates', '.float', 'system.md');
+  const templateProject = join(packageRoot, 'templates', '.float', 'project', 'project.md');
   const templateRootMap = join(packageRoot, 'templates', '.float', 'project', 'nav', 'root-map.md');
   const templateRootContext = join(packageRoot, 'templates', '.float', 'project', 'nav', 'root-context.md');
 
-  copyFileSync(templateSystem, join(cwd, '.float', 'float.md'));
-  created.push('.float/float.md');
+  copyFileSync(templateSystem, join(cwd, '.float', 'system.md'));
+  created.push('.float/system.md');
 
-  copyFileSync(templateProject, join(cwd, '.float', 'project.md'));
-  created.push('.float/project.md');
+  copyFileSync(templateProject, join(cwd, '.float', 'project', 'project.md'));
+  created.push('.float/project/project.md');
 
   // Copy context templates
   const templateDecisions = join(packageRoot, 'templates', '.float', 'project', 'context', 'project-decisions.md');
