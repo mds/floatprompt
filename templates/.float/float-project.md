@@ -1,59 +1,96 @@
----
-title: project/ Structure
-type: nav
-status: current
-created: [scaffold date]
-related: .float/tools/, .float/float-system.md
+<fp>
+<json>
+{
+  "STOP": "project/ Structure Reference. This describes the dynamic content folder that /float commands maintain.",
 
-human_author: [update to your handle]
-human_intent: Quick structural reference for project/ folder
-human_context: Your project's FloatPrompt data — context, nav, logs
+  "meta": {
+    "title": "project/ Structure",
+    "id": "float-project",
+    "format": "floatprompt",
+    "version": "0.16.0"
+  },
 
-ai_model: [first AI to update this]
-ai_updated: [scaffold date]
-ai_notes: Scaffolded by float init
----
+  "human": {
+    "author": "@mds",
+    "intent": "Define project/ folder structure and what each subfolder contains",
+    "context": "Read after float-system.md"
+  },
 
+  "ai": {
+    "role": "Structure reference for project/ folder",
+    "behavior": "Use this to understand what belongs where in project/"
+  },
+
+  "requirements": {
+    "structure": {
+      "nav/": "Folder navigation files (one per major folder)",
+      "context/": "AI terrain maps and decision history",
+      "logs/": "Session history (one file per day)"
+    },
+    "ownership": "AI maintains all project/ content via /float commands",
+    "formats": {
+      "nav/*.md": "nav file format (minimal YAML)",
+      "context/*.md": "floatprompt doc format (YAML frontmatter)",
+      "logs/*.md": "log format (changelog style)"
+    }
+  }
+}
+</json>
+<md>
 # project/ Structure
 
-Your project's FloatPrompt data. Everything here is project-specific.
+**Your project's FloatPrompt data. Everything here is dynamic.**
 
-**Symmetry:**
-- `core/index.md` = describes FloatPrompt internals
-- `float-project.md` = describes your project's data (this file)
+The `/float` commands maintain this folder. Human approves changes.
 
 ## Structure
 
 ```
 project/
-├── project.md      # This file (structure reference)
-├── context/        # Terrain maps, decisions
-├── nav/            # Project folder navigation
+├── nav/            # Folder navigation
+├── context/        # Terrain maps
 └── logs/           # Session history
+```
+
+## nav/
+
+One file per major project folder. Centralized navigation.
+
+| Pattern | Example |
+|---------|---------|
+| `{folder}.md` | `root.md`, `src.md`, `docs.md`, `tests.md` |
+
+**Created by:** `/float-sync`
+
+**Format:** Minimal YAML + Contents table
+
+```markdown
+---
+title: src
+type: nav
+ai_updated: 2025-01-01
+---
+
+# src/
+
+| Item | Purpose |
+|------|---------|
+| **components/** | React components |
+| **utils/** | Helper functions |
 ```
 
 ## context/
 
 AI-generated terrain maps and captured decisions.
 
-| File | Purpose |
-|------|---------|
-| **project-context.md** | Project-wide terrain map |
-| **project-decisions.md** | Decision history and rationale |
+| File | Purpose | Created by |
+|------|---------|------------|
+| `project-context.md` | Project-wide terrain map | `/float-context` |
+| `project-decisions.md` | Decision history and rationale | AI appends |
 
-**Naming rule:** Context files use meaningful names (`floatprompt.md`, `api-gateway.md`), never generic `project.md`.
+**Format:** floatprompt doc (YAML frontmatter)
 
-## nav/
-
-One nav file per major project folder. Centralized navigation.
-
-| Pattern | Example |
-|---------|---------|
-| `{folder}.md` | `root.md`, `src.md`, `docs.md`, `tests.md` |
-
-**What belongs here:** Nav files for actual project folders (src/, docs/, tests/, etc.)
-
-**What doesn't:** System documentation (that's in core/)
+**Naming:** Use meaningful names (`api-gateway.md`, `auth-system.md`), never generic names.
 
 ## logs/
 
@@ -63,16 +100,34 @@ Session logs with date-based naming.
 |---------|--------|
 | `YYYY-MM-DD.md` | One file per day, newest entries first |
 
-Multiple sessions append to same day's file. Changelog-style entries:
+**Format:** Changelog style
 
 ```markdown
-## YYYY-MM-DD HH:MM — Short title
-commit: [hash]
+## 2025-01-01 14:30 — Added user auth
+commit: abc123
 
-- What changed and why
-- Brief bullets
+- Implemented JWT authentication
+- Added login/logout endpoints
 ```
 
----
+Multiple sessions append to same day's file.
 
-<!-- AI: Update this file when project/ structure changes. -->
+## What Belongs Where
+
+| Content | Location |
+|---------|----------|
+| Folder structure | `nav/*.md` |
+| Project understanding | `context/*.md` |
+| Decision rationale | `context/project-decisions.md` |
+| Session activity | `logs/*.md` |
+
+## Maintenance
+
+| Command | Maintains |
+|---------|-----------|
+| `/float-sync` | `nav/*.md` |
+| `/float-context` | `context/*.md` |
+| `/float` | `logs/*.md` (session end) |
+
+</md>
+</fp>
