@@ -3,7 +3,7 @@ title: project/ Structure
 type: nav
 status: current
 created: [scaffold date]
-related: .float/core/index.md, .float/system.md
+related: .float/tools/, .float/system.md
 
 human_author: [update to your handle]
 human_intent: Quick structural reference for project/ folder

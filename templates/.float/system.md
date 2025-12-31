@@ -3,7 +3,7 @@ title: FloatPrompt System
 type: system
 status: current
 created: [scaffold date]
-related: .float/core/index.md, .float/project/project.md
+related: .float/project/project.md
 
 human_author: [update to your handle]
 human_intent: Boot protocol and behavioral constraints for AI working in this project
@@ -25,7 +25,7 @@ ai_notes: |
   "meta": {
     "title": "FloatPrompt System",
     "format": "floatprompt",
-    "version": "0.12.0"
+    "version": "0.15.0"
   },
 
   "human": {
@@ -72,18 +72,17 @@ ai_notes: |
 project/
 ├── .float/
 │   ├── system.md           # This file (boot loader)
-│   ├── core/               # FloatPrompt internals (don't modify)
-│   │   ├── index.md        # Structural reference
-│   │   ├── format/         # Format templates
-│   │   │   ├── template.md
-│   │   │   ├── doc.md
-│   │   │   └── os.md
-│   │   └── tools/          # /float command tools
-│   │       ├── float.md
-│   │       ├── float-sync.md
-│   │       ├── float-fix.md
-│   │       ├── float-context.md
-│   │       └── float-enhance.md
+│   ├── tools/              # /float command tools
+│   │   ├── float.md
+│   │   ├── float-sync.md
+│   │   ├── float-fix.md
+│   │   ├── float-context.md
+│   │   ├── float-enhance.md
+│   │   └── types/          # Tool type templates
+│   ├── templates/          # Format templates
+│   │   ├── floatprompt.md
+│   │   ├── float-doc.md
+│   │   └── float-os.md
 │   └── project/            # Your project's data
 │       ├── nav/            # Centralized navigation
 │       │   └── root.md
@@ -99,7 +98,8 @@ project/
 | Pattern | Type | Purpose |
 |---------|------|---------|
 | `.float/system.md` | FloatPrompt System | Boot loader (this file) |
-| `.float/core/*` | FloatPrompt | System internals (don't modify) |
+| `.float/tools/*` | FloatPrompt | /float command tools |
+| `.float/templates/*` | FloatPrompt | Format templates |
 | `.float/project/nav/*.md` | Nav files | Folder navigation (centralized) |
 | `.float/project/context/*.md` | Context | AI-generated terrain maps |
 | `.float/project/logs/*.md` | Logs | Session history |
@@ -140,9 +140,9 @@ AI maintains this system. Human approves changes.
 
 ## Creating Tools
 
-Use `.float/core/format/template.md` as template for new FloatPrompt tools.
-Use `.float/core/format/doc.md` to add context frontmatter to documents.
-Use `.float/core/format/os.md` for guided tool creation with voice preservation.
+Use `.float/templates/floatprompt.md` as template for new FloatPrompt tools.
+Use `.float/templates/float-doc.md` to add context frontmatter to documents.
+Use `.float/templates/float-os.md` for guided tool creation with voice preservation.
 
 ## FloatPrompt Source
 
