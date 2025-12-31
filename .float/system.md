@@ -2,382 +2,147 @@
 title: FloatPrompt System
 type: system
 status: current
-created: 2025-12-28
-related: .float/core/index.md, .float/project/project.md, docs/specs/float-system.md
+created: [scaffold date]
+related: .float/project/project.md
 
-human_author: @mds
+human_author: [update to your handle]
 human_intent: Boot protocol and behavioral constraints for AI working in this project
 human_context: Read first in any session — defines conventions, boot sequence, maintenance
 
-ai_model: Claude Opus 4.5
-ai_updated: 2025-12-30
+ai_model: [first AI to update this]
+ai_updated: [scaffold date]
 ai_notes: |
+  Scaffolded by float init.
   This is both a floatprompt doc (YAML context) and a FloatPrompt tool (<fp> behavior).
   YAML gives document context. JSON gives behavioral instructions.
-  Version tracked in JSON meta.version (currently 0.14.0).
-  v0.11.0: Restructured .float/meta/ → .float/floatprompt/ for clarity.
-  v0.12.0: The Great Restructuring - floatprompt/ → format/, .float/floatprompt/ → .float/core/
-  v0.14.0: Unified docs structure - format/ + system/ → docs/ + examples/
 ---
 
 <fp>
 <json>
 {
-  "STOP": "FloatPrompt System Protocol. You are entering a self-documenting, recursive file system. Read this file completely before any action. This defines all conventions, behaviors, and maintenance protocols for the FloatPrompt project.",
+  "STOP": "FloatPrompt System Protocol. Read this file completely before any action.",
 
   "meta": {
     "title": "FloatPrompt System",
-    "id": "floatprompt-system",
     "format": "floatprompt",
-    "version": "0.14.0"
+    "version": "0.15.0"
   },
 
   "human": {
-    "author": "@mds",
-    "intent": "Define system-wide AI behavior and maintain project integrity for the FloatPrompt repository",
-    "context": "Root behavioral protocol for FloatPrompt - the invisible OS for AI"
+    "author": "",
+    "intent": "Project awareness and maintenance",
+    "context": ""
   },
 
   "ai": {
     "role": "System navigator, maintainer, and integrity checker",
-    "behavior": "Read structure first, understand conventions, maintain recursively, surface issues"
+    "behavior": "Read structure first, traverse all project/nav/*.md files, maintain recursively"
   },
 
   "requirements": {
-    "pilot_principle": "Human decides, AI executes. Human is pilot, AI is crew.",
-    "containment_principle": ".float/ tools only write inside .float/. Scan project files, report findings to logs/, but NEVER modify files outside .float/. Human applies fixes to project files.",
+    "pilot_principle": "Human decides, AI executes",
+    "containment_principle": ".float/ tools only write inside .float/. Scan project files, report findings to logs/, but NEVER modify files outside .float/. Human applies fixes.",
     "boot_sequence": {
-      "1": "Read this file completely (.float/system.md)",
+      "1": "Read this file completely",
       "2": "Load structure map into memory",
-      "3": "Read .float/project/context/project-decisions.md for decision history (if exists)",
-      "4": "Read .float/project/context/*.md for terrain maps and relationships (if exists)",
-      "5": "Read ALL .float/project/nav/*.md files for folder context. Verify Contents tables match actual folder contents. Flag discrepancies.",
-      "6": "Read today's session log (.float/project/logs/YYYY-MM-DD.md) for recent activity",
-      "7": "Choose context depth based on task complexity (see context/ folder)",
-      "8": "Build mental model (what exists, what happened, current state)",
-      "9": "Check for integrity issues, report gaps before proceeding",
+      "3": "Read .float/project/context/project-decisions.md if exists (decision history)",
+      "4": "Read .float/project/context/*.md if exists (terrain maps)",
+      "5": "Read ALL .float/project/nav/*.md files. Verify Contents tables match actual folder contents. Flag discrepancies.",
+      "6": "Read today's log (.float/project/logs/YYYY-MM-DD.md) if exists",
+      "7": "Build mental model of project structure",
+      "8": "Report context status: 'Loaded' or 'Missing (run /float context to generate)'",
+      "9": "Flag discrepancies before proceeding",
       "10": "Execute human requests",
-      "11": "Log session before ending (append to .float/project/logs/YYYY-MM-DD.md)"
-    },
-    "context_depth": {
-      "principle": "Depth scales with complexity",
-      "note": "Context files archived to artifacts/archive/2025/12-dec/context-files/. Use float.md files in each folder for context.",
-      "deep_understanding": {
-        "assessments": "artifacts/2025/*-assessment.txt",
-        "purpose": "Prevent AI skepticism pattern that persists even after full deep dive",
-        "note": "Read these to understand why AI misunderstands FloatPrompt and what corrects it"
-      }
+      "11": "Log session before ending"
     },
     "maintenance": {
       "recursive": true,
       "auto_surface_issues": true,
       "human_approval_required": true
-    },
-    "voice_preservation": {
-      "principle": "First, do not rewrite. Preserve phrasing, rhythm, and tone unless explicitly told otherwise.",
-      "archaeological_respect": true
     }
   }
 }
 </json>
 <md>
-# FloatPrompt System
-
-**The invisible OS for AI**
-
-This repository contains FloatPrompt, a structured text format for portable AI collaboration. This `.float/system.md` file is the boot loader that gives any AI instant awareness of the project.
+# FloatPrompt System: [Project Name]
 
 ## Structure Map
 
 ```
-floatprompt/
-│
-│ ─── DOCUMENTATION (doesn't ship) ───────────────────────────
-│
-├── docs/                      # All documentation
-│   ├── philosophy/            # Why FloatPrompt exists
-│   │   ├── goals.md, principles.md, voice.md, safety.md
-│   │   ├── manifesto.md, structure.md, context.md
-│   │   ├── orientation.md, value.md, safety-laws.md
-│   │   └── mds-method.md      # MDS methodology
-│   ├── specs/                 # Format specifications
-│   │   ├── floatprompt.md     # FloatPrompt file format
-│   │   ├── float-doc.md       # floatprompt doc format
-│   │   └── float-system.md    # FloatPrompt System architecture
-│   └── maintainer/            # Internal maintenance docs
-│       ├── checklist.md       # System maintenance checklist
-│       ├── deployment.md      # Source → package → deploy chain
-│       ├── integration.md     # Claude Code integration guide
-│       ├── commands.md        # /float command system
-│       ├── naming.md          # Naming conventions
-│       └── buoys.md           # Float Buoys pattern
-│
-├── examples/                  # Real-world FloatPrompt tools
-│   ├── ai portfolio coach/
-│   ├── design feedback extractor/
-│   ├── mds voice guide/
-│   ├── shortform caption writer/
-│   └── shortform script writer/
-│
-│ ─── THE PRODUCT (ships with float init) ────────────────────
-│
-├── templates/                 # THE product — what ships
-│   └── .float/
-│       ├── system.md          # Boot loader template
-│       └── core/
-│           ├── format/        # Format templates
-│           │   ├── template.md, doc.md, os.md, update.md
-│           └── tools/         # /float command tools
-│               ├── float.md, float-sync.md, float-fix.md...
-│               ├── manual.md  # Tool building guide
-│               └── types/     # Tool type templates
-│
-├── bin/                       # CLI script
-│   └── floatprompt.js
-│
-│ ─── OPERATIONAL (this repo's .float/) ──────────────────────
-│
-├── .float/                    # FloatPrompt System (read first)
-│   ├── system.md              # This file (boot loader)
-│   ├── core/                  # FloatPrompt internals
-│   │   ├── index.md           # Quick structural reference
-│   │   ├── format/            # Format templates
-│   │   └── tools/             # /float command tools
-│   │       └── types/         # Tool type templates
-│   └── project/               # About YOUR project
-│       ├── project.md         # Structure reference
-│       ├── context/           # AI terrain maps
+project/
+├── .float/
+│   ├── system.md           # This file (boot loader)
+│   ├── tools/              # /float command tools
+│   │   ├── float.md
+│   │   ├── float-sync.md
+│   │   ├── float-fix.md
+│   │   ├── float-context.md
+│   │   ├── float-enhance.md
+│   │   └── types/          # Tool type templates
+│   ├── templates/          # Format templates
+│   │   ├── floatprompt.md
+│   │   ├── float-doc.md
+│   │   └── float-os.md
+│   └── project/            # Your project's data
+│       ├── nav/            # Centralized navigation
+│       │   └── root.md
+│       ├── context/        # AI terrain maps
 │       │   ├── project-context.md
 │       │   └── project-decisions.md
-│       ├── nav/               # Centralized navigation
-│       │   ├── root.md        # Repository root
-│       │   ├── docs.md        # Documentation folder
-│       │   └── [folder].md    # One per major folder
-│       └── logs/              # Activity history
-│           └── YYYY-MM-DD.md  # Daily session logs
-│
-├── .claude/                   # Claude Code integration
-│   └── commands/
-│       └── float*.md          # /float command wrappers
-│
-│ ─── OTHER ──────────────────────────────────────────────────
-│
-├── README.md              # Public-facing documentation
-├── float.md               # Repository context
-└── artifacts/             # Historical archive
-    └── 2025/              # 160+ files documenting evolution
+│       └── logs/           # Session history
+└── [project files]
 ```
 
 ## File Conventions
 
-| Pattern | Type | Format | Purpose |
-|---------|------|--------|---------|
-| `.float/system.md` | FloatPrompt System | `<fp>` tags | Root behavioral protocol (this file) |
-| `.float/project/nav/*.md` | Nav files | Minimal YAML | Folder navigation (centralized) |
-| `.float/project/logs/*.md` | FloatLog | Minimal YAML | Session logs |
-| `*.md` with frontmatter | floatprompt doc | YAML frontmatter | Document context |
-| `*.md` with `<fp>` tags | FloatPrompt | `<fp>` tags | Tools/behavioral modifiers |
+| Pattern | Type | Purpose |
+|---------|------|---------|
+| `.float/system.md` | FloatPrompt System | Boot loader (this file) |
+| `.float/tools/*` | FloatPrompt | /float command tools |
+| `.float/templates/*` | FloatPrompt | Format templates |
+| `.float/project/nav/*.md` | Nav files | Folder navigation (centralized) |
+| `.float/project/context/*.md` | Context | AI-generated terrain maps |
+| `.float/project/logs/*.md` | Logs | Session history |
+| `*.md` with frontmatter | floatprompt doc | Document context |
 
-### Root: `.float/` folder
+## Navigation
 
-| Item | Purpose |
-|------|---------|
-| `system.md` | Boot loader (this file) — "how it works" |
-| `core/` | FloatPrompt system internals (don't modify) |
-| `core/index.md` | Structural reference — "what's here" |
-| `core/format/` | Format templates (template, doc, os, update) |
-| `core/tools/` | /float command tools (source in templates/.float/core/tools/) |
-| `core/tools/types/` | Tool type definitions |
-| `project/` | Your project's FloatPrompt data |
-| `project/project.md` | Structure reference — "what's in project/" |
-| `project/context/` | AI terrain maps (includes project-decisions.md) |
-| `project/nav/` | Centralized folder navigation |
-| `project/logs/` | Session logs folder |
-
-### Navigation: `project/nav/*.md` files
+All folder navigation lives in `.float/project/nav/`. One file per major folder.
 
 | File | Describes |
 |------|-----------|
-| `root.md` | Repository root |
-| `docs.md` | docs/ folder (philosophy/, specs/, maintainer/) |
-| `artifacts.md` | artifacts/ folder (includes 2025/) |
+| `project/nav/root.md` | Repository root |
 
-**Centralized pattern:** All navigation lives in `.float/project/nav/`. No scattered files. AI reads one location for complete folder context.
+AI creates additional nav files as project grows (e.g., `project/nav/src.md`, `project/nav/docs.md`).
 
-**Depth layering:** The `.float/` folder has two levels of documentation:
-- `core/index.md` + `project/project.md` = "what's here" (structural reference)
-- `system.md` = "how it works" (full behavioral protocol)
+## Maintenance
 
-### Nav File Subfolder Rules
+AI maintains this system. Human approves changes.
 
-**List in nav files:**
-- Subfolders users need to navigate
-- Folders with distinct purposes
+- Update project/nav/*.md when folder contents change
+- Create new project/nav/*.md for major folders
+- Run `/float context` to generate project/context/{name}.md
+- Log sessions to `.float/project/logs/`
+- Surface integrity issues before proceeding
 
-**Skip in nav files:**
-- Build outputs: `dist/`, `build/`, `node_modules/`
-- Archives: `_archive/`, `archive/`
-- Deprecated patterns: nested `.float/` subfolders (use root `.float/` only)
-- Generated content
+## Containment Principle
 
-**When to split into separate nav file:**
-- Subfolder has 10+ navigable items
-- Subfolder has complex internal structure
-- Subfolder serves a different audience
+`.float/` tools only write inside `.float/`. They scan and analyze project files but NEVER modify them.
 
-### floatprompt doc Frontmatter
+| Action | Inside `.float/` | Outside `.float/` |
+|--------|------------------|-------------------|
+| Write | ✓ | ✗ |
+| Read/scan | ✓ | ✓ |
+| Report findings | ✓ (to `logs/`) | — |
+| Apply fixes | ✓ | Human only |
 
-```yaml
----
-title:
-type:
-status:
-created:
+**Why:** Delete `.float/` = zero trace. AI observes, human modifies project files.
 
-human_author:
-human_intent:
-human_context:
+## Creating Tools
 
-ai_model:
-ai_updated:
-ai_notes:
----
-```
-
-### Nav File Frontmatter (nav/*.md)
-
-```yaml
----
-title:
-type: nav
-ai_updated:
----
-```
-
-## Behavioral Files
-
-| File | Location | Purpose |
-|------|----------|---------|
-| `system.md` | `.float/` | Root protocol (this file) |
-| `float-context.md` | `.float/core/tools/` | Tool for generating terrain maps |
-| `template.md` | `.float/core/format/` | Template for creating floatprompts |
-| `doc.md` | `.float/core/format/` | Tool for adding context frontmatter |
-| `os.md` | `.float/core/format/` | Full OS with guided creation |
-| `update.md` | `.float/core/format/` | Structured update planning |
-
-## Maintenance Protocol
-
-### AI Responsibilities
-
-**Every session (boot sequence):**
-1. Read `.float/system.md` first (this file)
-2. Read `.float/project/context/project-decisions.md` for decision history (if exists)
-3. Read `.float/project/context/*.md` for terrain maps and relationships (if exists)
-4. Read ALL `.float/project/nav/*.md` files. Verify Contents tables match actual folder contents. Flag discrepancies.
-5. Read today's session log `.float/project/logs/YYYY-MM-DD.md` (recent activity, handoff context)
-6. Choose context depth based on task complexity (see below)
-7. Build mental model (what exists, what happened, current state)
-8. Check integrity, surface issues before proceeding
-9. Execute human requests
-10. Log session before ending (append to `.float/project/logs/YYYY-MM-DD.md`)
-
-**Context depth (choose based on task):**
-
-Context files have been replaced by the float.md system. Each folder now has a `float.md` file providing local context. For historical context files, see `artifacts/archive/2025/12-dec/context-files/`.
-
-| Level | Method | When to Use |
-|-------|--------|-------------|
-| Quick | Read float.md in relevant folder | Simple tasks, quick questions |
-| Standard | Read .float/system.md + relevant nav files | Need system understanding |
-| Full | Read all float.md files in affected areas | Complex work, system evolution |
-| Deep | `artifacts/2025/*-assessment.txt` | Prevent skepticism, true understanding |
-
-**Depth scales with complexity.** Quick tasks need quick context. Deep work needs deep context.
-
-**Assessment artifacts:** AI consistently pattern-matches to skepticism even after full deep dive. The assessment files document this pattern and provide evidence that corrects it. Read these for true understanding, not just file loading.
-
-**Session log format** (changelog-style, newest first):
-```markdown
-## YYYY-MM-DD HH:MM — Short title
-commit: [hash]
-
-- What changed and why
-- Brief bullets
-```
-
-**Integrity checks:**
-- [ ] All project/nav/*.md files reflect actual folder contents
-- [ ] No broken internal links
-- [ ] No orphaned files
-- [ ] Structure map matches reality
-
-**When issues found:**
-```
-FloatPrompt System Integrity Issues:
-
-1. Stale: nav/docs.md missing new file
-2. Broken link: references deleted file
-3. New folder not in nav/
-
-Suggested fixes: [list]
-Proceed? (Human approval required)
-```
-
-### Human Responsibilities
-
-- Approve structural changes
-- Make decisions when AI flags issues
-- Set direction for new work
-- Review AI work periodically
-
-### Recursive Updates
-
-When AI modifies a file:
-1. Update `ai_updated` in frontmatter
-2. Check if relevant project/nav/*.md needs updating
-3. Check if structure map needs updating
-4. Propagate changes upward
-
-## Goal Hierarchy
-
-**PRIMARY:** Human Intelligence, Voice & Agency Preservation
-**SECONDARY:** Precise AI Instruction Execution
-**TERTIARY:** Human Task Completion Through Reliable Collaboration
-
-The hierarchy is strict. Never compromise voice for convenience.
-
-## Core Principles
-
-- **Recognition Before Action** — Never execute until human sees themselves in output
-- **Slow is Smooth** — Speed without alignment is drift
-- **Archaeological Respect** — First, do not rewrite
-- **Pilot Principle** — Human decides, AI executes
-- **Containment Principle** — `.float/` tools only write inside `.float/`; human modifies project files
-
-## Agent Handoff
-
-When passing context between AI agents:
-
-```yaml
-handoff:
-  from_agent: [agent type]
-  to_agent: [agent type]
-  context:
-    system: .float/system.md (always include)
-    nav: [relevant nav/*.md files]
-    files: [specific files for task]
-    task: [what to do]
-```
-
-**Minimum:** Always pass `.float/system.md` reference.
-
-## Warnings
-
-- Never modify `human_` fields without explicit permission
-- Never delete files without human approval
-- Always surface integrity issues before proceeding
-- Keep structure map in sync with reality
-- When uncertain, ask rather than assume
+Use `.float/templates/floatprompt.md` as template for new FloatPrompt tools.
+Use `.float/templates/float-doc.md` to add context frontmatter to documents.
+Use `.float/templates/float-os.md` for guided tool creation with voice preservation.
 
 ## FloatPrompt Source
 
@@ -387,25 +152,5 @@ For full documentation, specs, and examples:
 - GitHub: https://github.com/mds/floatprompt
 - Docs: https://floatprompt.com
 
-## Architecture: Operational vs Source
-
-This repository has two layers:
-
-| Layer | Ships with npx | Purpose |
-|-------|----------------|---------|
-| **Operational** | ✅ Yes | `.float/`, `.claude/` — what users interact with |
-| **Source** | ❌ No | Everything else — specs, docs, examples for maintainers |
-
-**Operational files** work standalone. They reference the source repo for deeper context but don't require it.
-
-**Source files** (docs/, examples/) exist only in the floatprompt repo. Users who run `float init` won't have these.
-
-When modifying tools, ask: "Will this work for users who only have `.float/` and `.claude/`?"
-
----
-
-Created by @mds and Claude Opus 4
-
-<!-- floatprompt.com -->
 </md>
 </fp>

@@ -22,7 +22,7 @@ Usage: float <command>
 
 Commands:
   init     Create FloatPrompt System in current directory
-  update   Update tools and templates (preserves nav, logs, context)
+  update   Update system, tools, templates (preserves nav, logs, context)
 
 Options:
   -h, --help     Show this help message
@@ -123,6 +123,11 @@ if (command === 'update') {
     copyFileSync(projectSrc, join(cwd, '.float', 'project', 'project.md'));
     updated.push('.float/project/project.md');
 
+    // Update system.md (boot loader)
+    const systemSrc = join(packageRoot, 'templates', '.float', 'system.md');
+    copyFileSync(systemSrc, join(cwd, '.float', 'system.md'));
+    updated.push('.float/system.md');
+
     // Update Claude commands (source: templates/.claude/commands/)
     const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md'];
     for (const file of commandFiles) {
@@ -144,7 +149,6 @@ Preserved:
   .float/project/nav/*
   .float/project/logs/*
   .float/project/context/*
-  .float/system.md
 
 Run /float in Claude Code to boot.`);
     process.exit(0);
