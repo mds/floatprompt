@@ -7,7 +7,7 @@
     "title": "project/ Structure",
     "id": "float-project",
     "format": "floatprompt",
-    "version": "0.16.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -23,15 +23,16 @@
 
   "requirements": {
     "structure": {
-      "nav/": "Folder navigation files (one per major folder)",
-      "context/": "AI terrain maps and decision history",
+      "nav/": "Folder maps and context (two files per folder)",
+      "context/": "Project-wide terrain maps and decision history",
       "logs/": "Session history (one file per day)"
     },
     "ownership": "AI maintains all project/ content via /float commands",
     "formats": {
-      "nav/*.md": "nav file format (minimal YAML)",
-      "context/*.md": "floatprompt doc format (YAML frontmatter)",
-      "logs/*.md": "log format (changelog style)"
+      "nav/*-map.md": "floatprompt doc (lightweight inventory)",
+      "nav/*-context.md": "floatprompt (rich understanding)",
+      "context/*.md": "floatprompt (project-wide)",
+      "logs/*.md": "changelog style"
     }
   }
 }
@@ -47,31 +48,40 @@ The `/float` commands maintain this folder. Human approves changes.
 
 ```
 project/
-├── nav/            # Folder navigation
-├── context/        # Terrain maps
-└── logs/           # Session history
+├── nav/                    # Folder maps + context
+│   ├── root-map.md         # Quick inventory
+│   ├── root-context.md     # Deep understanding
+│   ├── src-map.md
+│   └── src-context.md
+├── context/                # Project-wide
+│   ├── project-context.md  # Overall terrain map
+│   └── project-decisions.md
+└── logs/                   # Session history
+    └── YYYY-MM-DD.md
 ```
 
 ## nav/
 
-One file per major project folder. Centralized navigation.
+Two files per folder: **map** (fast) + **context** (deep).
 
-| Pattern | Example |
-|---------|---------|
-| `{folder}.md` | `root.md`, `src.md`, `docs.md`, `tests.md` |
+| Pattern | Format | Purpose |
+|---------|--------|---------|
+| `{folder}-map.md` | floatprompt doc | Lightweight inventory |
+| `{folder}-context.md` | floatprompt | Rich understanding |
 
-**Created by:** `/float-sync`
-
-**Format:** Minimal YAML + Contents table
+**Map files** — read on every boot (fast):
 
 ```markdown
 ---
-title: src
-type: nav
+title: src/
+type: map
+generated_by: /float-sync
 ai_updated: 2025-01-01
 ---
 
 # src/
+
+## Contents
 
 | Item | Purpose |
 |------|---------|
@@ -79,18 +89,43 @@ ai_updated: 2025-01-01
 | **utils/** | Helper functions |
 ```
 
+**Context files** — read when needed (deep):
+
+```markdown
+<fp>
+<json>
+{
+  "STOP": "Deep context for src/ folder.",
+  "meta": { "type": "context", "generated_by": "/float-context" },
+  "ai": { "behavior": "Reference for patterns and relationships" }
+}
+</json>
+<md>
+# src/ — Context
+
+## Architecture
+[How pieces fit together]
+
+## Relationships
+[Connections to other folders]
+</md>
+</fp>
+```
+
+**Created by:**
+- `/float-sync` creates `*-map.md`
+- `/float-context` creates `*-context.md`
+
 ## context/
 
-AI-generated terrain maps and captured decisions.
+Project-wide understanding (not folder-specific).
 
 | File | Purpose | Created by |
 |------|---------|------------|
-| `project-context.md` | Project-wide terrain map | `/float-context` |
-| `project-decisions.md` | Decision history and rationale | AI appends |
+| `project-context.md` | Overall terrain map | `/float-context` |
+| `project-decisions.md` | Decision history | AI appends |
 
-**Format:** floatprompt doc (YAML frontmatter)
-
-**Naming:** Use meaningful names (`api-gateway.md`, `auth-system.md`), never generic names.
+**Format:** floatprompt
 
 ## logs/
 
@@ -98,35 +133,32 @@ Session logs with date-based naming.
 
 | Pattern | Format |
 |---------|--------|
-| `YYYY-MM-DD.md` | One file per day, newest entries first |
-
-**Format:** Changelog style
+| `YYYY-MM-DD.md` | Changelog style, newest first |
 
 ```markdown
-## 2025-01-01 14:30 — Added user auth
+# Session Log: 2025-01-01
+
+## 14:30 — Added user auth
 commit: abc123
 
 - Implemented JWT authentication
 - Added login/logout endpoints
 ```
 
-Multiple sessions append to same day's file.
+## Boot Behavior
 
-## What Belongs Where
-
-| Content | Location |
-|---------|----------|
-| Folder structure | `nav/*.md` |
-| Project understanding | `context/*.md` |
-| Decision rationale | `context/project-decisions.md` |
-| Session activity | `logs/*.md` |
+| Phase | Reads | Why |
+|-------|-------|-----|
+| Fast boot | `nav/*-map.md` | Quick inventory |
+| Deep dive | `nav/*-context.md` | When understanding needed |
+| Project-wide | `context/*.md` | Overall patterns |
 
 ## Maintenance
 
-| Command | Maintains |
-|---------|-----------|
-| `/float-sync` | `nav/*.md` |
-| `/float-context` | `context/*.md` |
+| Command | Creates/Updates |
+|---------|-----------------|
+| `/float-sync` | `nav/*-map.md` |
+| `/float-context` | `nav/*-context.md`, `context/*.md` |
 | `/float` | `logs/*.md` (session end) |
 
 </md>

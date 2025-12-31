@@ -209,7 +209,8 @@ try {
   // Copy template files
   const templateSystem = join(packageRoot, 'templates', '.float', 'float.md');
   const templateProject = join(packageRoot, 'templates', '.float', 'project.md');
-  const templateRoot = join(packageRoot, 'templates', '.float', 'project', 'nav', 'root.md');
+  const templateRootMap = join(packageRoot, 'templates', '.float', 'project', 'nav', 'root-map.md');
+  const templateRootContext = join(packageRoot, 'templates', '.float', 'project', 'nav', 'root-context.md');
 
   copyFileSync(templateSystem, join(cwd, '.float', 'float.md'));
   created.push('.float/float.md');
@@ -217,35 +218,21 @@ try {
   copyFileSync(templateProject, join(cwd, '.float', 'project.md'));
   created.push('.float/project.md');
 
-  // Create empty decisions.md in context/
-  const decisionsContent = `---
-title: Decision History
-type: decisions
-ai_updated: ${new Date().toISOString().split('T')[0]}
----
+  // Copy context templates
+  const templateDecisions = join(packageRoot, 'templates', '.float', 'project', 'context', 'project-decisions.md');
+  const templateContext = join(packageRoot, 'templates', '.float', 'project', 'context', 'project-context.md');
 
-# Decision History
-
-Captured rationale for project decisions. AI appends entries during context building.
-
-## Format
-
-\`\`\`
-### [Topic]
-**Question:** Why [observed choice]?
-**Answer:** [human's response]
-**Date:** YYYY-MM-DD
-\`\`\`
-
----
-
-<!-- Entries below -->
-`;
-  writeFileSync(join(cwd, '.float', 'project', 'context', 'project-decisions.md'), decisionsContent);
+  copyFileSync(templateDecisions, join(cwd, '.float', 'project', 'context', 'project-decisions.md'));
   created.push('.float/project/context/project-decisions.md');
 
-  copyFileSync(templateRoot, join(cwd, '.float', 'project', 'nav', 'root.md'));
-  created.push('.float/project/nav/root.md');
+  copyFileSync(templateContext, join(cwd, '.float', 'project', 'context', 'project-context.md'));
+  created.push('.float/project/context/project-context.md');
+
+  copyFileSync(templateRootMap, join(cwd, '.float', 'project', 'nav', 'root-map.md'));
+  created.push('.float/project/nav/root-map.md');
+
+  copyFileSync(templateRootContext, join(cwd, '.float', 'project', 'nav', 'root-context.md'));
+  created.push('.float/project/nav/root-context.md');
 
   // Create .gitkeep files for empty directories
   writeFileSync(join(cwd, '.float', 'project', 'logs', '.gitkeep'), '');
