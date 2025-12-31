@@ -7,7 +7,7 @@
     "title": "/float-think",
     "id": "float-think",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -34,9 +34,9 @@
       "Direct invocation (analyzes current state)"
     ],
     "tool_capabilities": {
-      "float-sync": "Structure issues (nav ↔ folders mismatch)",
+      "float-sync": "Structure issues (map files ↔ folders mismatch)",
       "float-fix": "Content issues (stale references, broken links)",
-      "float-context": "Missing or stale terrain map",
+      "float-context": "Missing context files (map exists but no context), stale terrain map",
       "float-enhance": "Placeholder descriptions, weak content",
       "float-project": "Structure validation for .float/project/",
       "float-build": "Need to create a new tool",
@@ -100,11 +100,12 @@ float-think matches findings to tools:
 
 | Finding | Tool | Why |
 |---------|------|-----|
-| Nav file missing for folder | float-sync | Structure alignment |
-| Folder missing for nav file | float-sync | Structure alignment |
+| Map file missing for folder | float-sync | Structure alignment |
+| Folder missing for map file | float-sync | Structure alignment |
 | Stale reference in file | float-fix | Content integrity |
 | Broken link | float-fix | Content integrity |
-| No context/terrain map | float-context | Missing awareness |
+| Map exists but no context file | float-context | Add deep understanding |
+| No project-context.md | float-context | Missing terrain map |
 | Context file stale (>7 days) | float-context | Refresh awareness |
 | `[needs description]` found | float-enhance | Fill placeholders |
 | .float/project/ structure invalid | float-project | Validate system |
@@ -160,8 +161,11 @@ For each finding, determine which tool addresses it:
 
 ```
 "2 issues found"
-  → Issue 1: "nav/api.md missing" → float-sync
+  → Issue 1: "nav/api-map.md missing" → float-sync
   → Issue 2: "stale ref in docs/guide.md" → float-fix
+
+"1 context gap found"
+  → Issue: "nav/src-map.md exists but no src-context.md" → float-context
 ```
 
 ### 4. Plan Execution
@@ -178,7 +182,7 @@ Before executing, show the human what will happen:
 
 ```
 float-think will call:
-  • float-sync (1 nav file to create)
+  • float-sync (1 map file to create)
   • float-fix (1 stale reference to fix)
 
 Proceed? (y/n)
@@ -203,7 +207,7 @@ Analyzed: /float boot output
 Selected: float-sync, float-fix
 Result: 2 tools run, 2 issues resolved
 
-  ✓ float-sync — created nav/api.md
+  ✓ float-sync — created nav/api-map.md
   ✓ float-fix — fixed 1 stale reference
 
 Ready for: human direction
@@ -228,7 +232,7 @@ Next: /float-think (will likely call float-sync, float-fix)
 Analyzing /float output...
 
 float-think will call:
-  • float-sync (nav/api.md missing)
+  • float-sync (nav/api-map.md missing)
   • float-fix (stale ref in README.md)
 
 Proceed? (y/n): y
@@ -270,8 +274,8 @@ Ready for: human direction
 > /float-sync
 
 FloatPrompt sync complete.
-Created: nav/api.md, nav/utils.md
-Status: 2 nav files created with [needs description]
+Created: nav/api-map.md, nav/utils-map.md
+Status: 2 map files created with [needs description]
 
 Next: /float-think
 
@@ -281,13 +285,14 @@ Analyzing /float-sync output...
 
 float-think will call:
   • float-enhance (2 placeholders to fill)
+  • float-context (2 context files to generate)
 
 Proceed? (y/n): y
 
 FloatPrompt think.
 Analyzed: /float-sync output
-Selected: float-enhance
-Result: 2 descriptions filled
+Selected: float-enhance, float-context
+Result: 2 descriptions filled, 2 context files generated
 
 Ready for: human direction
 ```

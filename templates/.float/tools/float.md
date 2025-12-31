@@ -7,7 +7,7 @@
     "title": "/float",
     "id": "float-boot",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -18,7 +18,7 @@
 
   "ai": {
     "role": "System bootloader and health checker",
-    "behavior": "Fast boot, minimal overhead, report status and next step"
+    "behavior": "Fast boot via *-map.md files, load *-context.md as needed, report status and next step"
   },
 
   "requirements": {
@@ -72,15 +72,17 @@ When FloatPrompt System exists:
 
 1. **Read `.float/float.md`** — Load boot protocol
 2. **Read `.float/project/context/project-decisions.md`** (if exists) — Load decision history
-3. **Read `.float/project/context/*.md`** (if exists) — Load terrain maps
-4. **Read ALL `.float/project/nav/*.md`** — Load folder navigation
+3. **Read `.float/project/context/project-context.md`** (if exists) — Load terrain map
+4. **Read ALL `.float/project/nav/*-map.md`** — Load folder inventories (fast boot)
 5. **Read today's session log** (if exists) — Load recent activity
 6. **Quick integrity check** — Count issues only, no details:
-   - Structure: nav files exist, folders exist
+   - Structure: map files exist, folders exist
    - Content: stale references
-   - System: router ↔ tools alignment
+   - Context: map files without matching context files
 7. **Report status + next step**
 8. **Report** — Call float-report with map data (what was loaded, any issues found)
+
+**Note:** Boot reads `*-map.md` files only (fast). Deep `*-context.md` files are loaded as needed during work.
 
 ## Shell Optimization
 
@@ -90,8 +92,11 @@ Boot is designed to be fast. Use shell commands where possible:
 # Check if system exists
 test -f .float/float.md
 
-# Count nav files
-ls .float/project/nav/*.md 2>/dev/null | wc -l
+# Count map files (fast boot)
+ls .float/project/nav/*-map.md 2>/dev/null | wc -l
+
+# Count context files (for integrity check)
+ls .float/project/nav/*-context.md 2>/dev/null | wc -l
 
 # Check router ↔ tools alignment
 test -f .claude/commands/float.md && echo "router exists"
