@@ -19,7 +19,7 @@ ai_notes: Scaffolded by float init
 Your project's FloatPrompt data. Everything here is project-specific.
 
 **Symmetry:**
-- `floatprompt/index.md` = describes FloatPrompt internals
+- `core/index.md` = describes FloatPrompt internals
 - `project/project.md` = describes your project's data (this file)
 
 ## Structure
@@ -53,7 +53,7 @@ One nav file per major project folder. Centralized navigation.
 
 **What belongs here:** Nav files for actual project folders (src/, docs/, tests/, etc.)
 
-**What doesn't:** System documentation (that's in floatprompt/)
+**What doesn't:** System documentation (that's in core/)
 
 ## logs/
 

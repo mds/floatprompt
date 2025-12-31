@@ -92,7 +92,7 @@ if (command === 'update') {
     }
 
     // Update tools (source: templates/.float/core/tools/)
-    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md', 'update.md', 'tool-sync.md'];
+    const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md', 'tool-sync.md'];
     for (const file of toolFiles) {
       const src = join(packageRoot, 'templates', '.float', 'core', 'tools', file);
       const dest = join(cwd, '.float', 'core', 'tools', file);
@@ -256,7 +256,7 @@ Captured rationale for project decisions. AI appends entries during context buil
   created.push('.float/project/logs/');
 
   // Copy tools (source: templates/.float/core/tools/)
-  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md', 'update.md', 'tool-sync.md'];
+  const toolFiles = ['float.md', 'float-sync.md', 'float-context.md', 'float-enhance.md', 'float-fix.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md', 'tool-sync.md'];
   for (const file of toolFiles) {
     const src = join(packageRoot, 'templates', '.float', 'core', 'tools', file);
     const dest = join(cwd, '.float', 'core', 'tools', file);

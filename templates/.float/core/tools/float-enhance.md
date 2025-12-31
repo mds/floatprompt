@@ -30,7 +30,7 @@
       "action_b": "Report OK, nothing to enhance"
     },
     "status_format": "FloatPrompt enhance complete.\nDirectory: [path]\nEnhanced: [N] inside .float/\nSuggested: [N] for project files (see logs/)\n\nReady for: human to apply project file suggestions",
-    "next_step_logic": "If project file suggestions exist, human reviews logs/ and applies. Otherwise ready for human direction.",
+    "next_step_logic": "If project file suggestions exist, human reviews logs/ and applies. After applying: run /float-think to continue.",
     "buoys": {
       "frontmatter_buoy": "Check frontmatter completeness for files in one nav scope (parallel)",
       "describe_buoy": "Generate one file description (model: haiku, parallel)"
@@ -208,11 +208,15 @@ Ready for: human to apply project file suggestions
 
 ## Next Step Logic
 
+If project file suggestions were written to logs/, human applies them first.
+
+**After applying (or if no suggestions):**
+
 ```
-Always: "Ready for: human direction"
+Next: /float-think
 ```
 
-Enhancement is the end of the command chain.
+Float-think will decide if any follow-up is needed.
 
 ## Buoy Prompts
 

@@ -29,7 +29,7 @@
       "action_b": "Load and follow reading order"
     },
     "status_format": "FloatPrompt context complete.\nDirectory: [path]\nStatus: [result]\n\n[Next step or Ready for: human direction]",
-    "next_step_logic": "Generated new context? → Run /float to boot with full context. Loaded existing? → Ready for: human direction",
+    "next_step_logic": "Always suggest /float-think as next step. Float-think will decide what's needed based on context state.",
     "buoys": {
       "context_buoy": "Generate terrain map (full model for synthesis)"
     },
@@ -201,11 +201,13 @@ Status: [result]
 
 ## Next Step Logic
 
+**Always suggest `/float-think` as the next step:**
+
 ```
-Generated new context?
-  → Yes: "Next: Run /float to boot with full context"
-  → No (loaded existing): "Ready for: human direction"
+Next: /float-think
 ```
+
+Float-think will decide what's needed based on context state.
 
 ## Buoy Prompts
 
@@ -290,7 +292,7 @@ What key decisions should be captured?
 
 Saved to decisions.md
 
-Next: Run /float to boot with full context
+Next: /float-think
 ```
 
 **Load existing context:**

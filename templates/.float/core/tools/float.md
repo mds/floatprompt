@@ -106,43 +106,37 @@ Directory: /path/to/project
 Context: [Loaded | Missing]
 Status: [No issues found | N issues found]
 
-[Next step recommendation]
+Next: /float-think (will likely call [tools] to [action])
 
 Commands:
+  /float-think     Intelligent router (recommended)
   /float-sync      Structure integrity
   /float-fix       Content integrity
   /float-context   Generate terrain map
   /float-enhance   Fill placeholders
-  /float-focus     Deep dive into topic
-  /float-harvest   Mine knowledge
-  /float-relate    Map relationships
-  /float-delta     Ripple analysis
-  /float-build     Build tools
+  /float-all       Run all tools
 ```
 
 **Note:** Only `/float` shows the Context line and Commands list. Other commands omit them.
 
 ## Next Step Logic
 
+**Always recommend `/float-think` as the next step.** Include a prediction of what it will likely do:
+
 ```
 Issues found?
-  → Structure issues (missing nav files, folders)?
-      → "Next: Run /float-sync to fix structure"
-  → Content issues (stale references inside files)?
-      → "Next: Run /float-fix to repair references"
-  → System issues (router ↔ tools mismatch)?
-      → "Next: Run /float-fix to repair system alignment"
-  → Multiple types?
-      → "Next: Run /float-sync (structure) then /float-fix (content + system)"
-  → No issues: Context missing?
-      → Yes: "Next: Run /float-context to generate terrain map"
-      → No: "Ready for: human direction"
+  → "Next: /float-think (will likely call float-sync, float-fix to resolve N issues)"
+
+No issues, context missing?
+  → "Next: /float-think (will likely call float-context to generate terrain map)"
+
+No issues, healthy?
+  → "Next: /float-think (will likely confirm healthy status)"
+
+  OR simply: "Ready for: human direction"
 ```
 
-**Issue type detection:**
-- **Structure**: nav file doesn't exist, folder doesn't exist, nav/folder mismatch
-- **Content**: reference inside a file points to old/wrong path
-- **System**: router missing, tool missing, router ↔ tools mismatch
+float-think is the intelligent router — it analyzes findings and calls the right tools. The human doesn't need to decide which tool to run.
 
 ## Buoys
 

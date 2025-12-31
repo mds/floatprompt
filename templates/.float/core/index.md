@@ -19,11 +19,11 @@ ai_notes: Scaffolded by float init
 Quick structural reference for the `.float/` folder.
 
 **Depth layering:**
-- `floatprompt/index.md` (this file) = "what's here" (structure)
+- `core/index.md` (this file) = "what's here" (structure)
 - `system.md` = "how it works" (behavior)
 
 **Symmetry:**
-- `floatprompt/index.md` = describes FloatPrompt internals (this file)
+- `core/index.md` = describes FloatPrompt internals (this file)
 - `project/project.md` = describes your project's data
 
 ## Structure
@@ -32,9 +32,9 @@ Quick structural reference for the `.float/` folder.
 .float/
 ├── system.md           # Boot loader (read first)
 │
-├── floatprompt/        # FloatPrompt internals (don't modify)
+├── core/               # FloatPrompt internals (don't modify)
 │   ├── index.md        # This file (structure reference)
-│   ├── core/           # Core templates
+│   ├── format/         # Core format templates
 │   └── tools/          # /float command tools
 │
 └── project/            # Your project's data
@@ -44,26 +44,25 @@ Quick structural reference for the `.float/` folder.
     └── logs/           # Session history
 ```
 
-## floatprompt/
+## core/
 
 System internals. Don't modify unless you're updating FloatPrompt itself.
 
 | Item | Purpose |
 |------|---------|
 | **index.md** | This file — structural reference |
-| **core/** | Core templates |
+| **format/** | Core format templates |
 | **tools/** | /float command tools |
 
-### floatprompt/core/
+### core/format/
 
 | File | Purpose |
 |------|---------|
 | **template.md** | FloatPrompt template |
 | **doc.md** | floatprompt doc tool |
 | **os.md** | Full FloatPrompt OS |
-| **update.md** | Structured update planning |
 
-### floatprompt/tools/
+### core/tools/
 
 | File | Purpose |
 |------|---------|

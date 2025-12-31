@@ -39,7 +39,7 @@
       "async": true
     },
     "status_format": "FloatPrompt project.\nDirectory: [path]\nStatus: [valid | fixed N issues]\n\nReady for: human direction",
-    "next_step_logic": "If issues fixed, suggest /float-sync to verify nav files. Otherwise ready for human direction."
+    "next_step_logic": "Always suggest /float-think as next step. Float-think will decide if float-sync is needed."
   }
 }
 </json>
@@ -158,7 +158,7 @@ Checked:
 - context/project-decisions.md ✓
 - context/project-context.md ✓
 
-Ready for: human direction
+Next: /float-think
 ```
 
 **Missing files:**
@@ -173,9 +173,7 @@ Created:
 - context/project-decisions.md (scaffold)
 - context/project-context.md (scaffold)
 
-Next: Customize the scaffold files for your project
-
-Ready for: human direction
+Next: /float-think
 ```
 
 ---

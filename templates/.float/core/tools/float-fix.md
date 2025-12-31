@@ -30,7 +30,7 @@
       "action_b": "Report OK"
     },
     "status_format": "FloatPrompt fix scan complete.\nDirectory: [path]\nIssues: [count]\nReport: logs/{date}/float-fix-run-{n}/\n\nReady for: human to review and apply fixes",
-    "next_step_logic": "Always: Human reviews report, applies fixes manually",
+    "next_step_logic": "Human reviews report, applies fixes manually. After applying: run /float-think to continue.",
     "buoys": {
       "scan_buoy": "Detect inconsistencies in one file (parallel, one per target)",
       "related_buoy": "Validate related field links, check existence and bidirectional refs",
