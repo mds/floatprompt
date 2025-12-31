@@ -7,7 +7,7 @@
     "title": "tool-sync",
     "id": "tool-sync",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {

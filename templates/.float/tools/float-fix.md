@@ -7,7 +7,7 @@
     "title": "/float fix",
     "id": "float-fix",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -120,7 +120,7 @@ The `related` field in floatprompt doc frontmatter creates a link graph. Scan it
 **1. Existence check** — Do related files exist?
 ```
 project/nav/float.md:
-  related: .float/float.md, .float/project/context/project-context.md
+  related: .float/system.md, .float/project/context/project-context.md
            ✓ exists          ✓ exists
 ```
 

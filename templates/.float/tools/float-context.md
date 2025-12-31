@@ -105,7 +105,7 @@ When context files are missing:
 ### 1. Discover
 
 Read and analyze:
-- `.float/float.md` — Boot protocol
+- `.float/system.md` — Boot protocol
 - `.float/project/nav/*-map.md` — All map files
 - `README.md` — Project overview
 - Key entry points (main files, index files, core modules)
@@ -319,7 +319,7 @@ REFERENCE: Use templates/.float/project/nav/root-context.md as the template.
 ```
 Generate project-wide terrain map:
 
-1. Read .float/float.md for boot protocol
+1. Read .float/system.md for boot protocol
 2. Read all .float/project/nav/*-map.md files for structure
 3. Read README.md for public description
 4. Identify key files that define the project
@@ -427,7 +427,7 @@ Next: /float-think
 Loading context from project-context.md...
 
 Following reading order:
-1. .float/float.md — Boot protocol
+1. .float/system.md — Boot protocol
 2. docs/api.md — API documentation
 3. src/core/index.ts — Main entry point
 ...

@@ -7,7 +7,7 @@
     "title": "/float-project",
     "id": "float-project",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -128,11 +128,11 @@ created: {date}
 
 | File | Why It Matters |
 |------|----------------|
-| `.float/float.md` | Boot protocol — read first |
+| `.float/system.md` | Boot protocol — read first |
 
 ## Reading Order
 
-1. `.float/float.md`
+1. `.float/system.md`
 2. This file
 
 ---

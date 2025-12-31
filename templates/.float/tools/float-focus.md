@@ -7,7 +7,7 @@
     "title": "/float-focus",
     "id": "float-focus",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -240,7 +240,7 @@ Tracing...
 Forward (docs/ references):
   → src/core/index.ts
   → src/utils/helpers.ts
-  → .float/float.md
+  → .float/system.md
 
 Backward (references docs/):
   ← README.md
@@ -263,10 +263,10 @@ Ready for: deep work on specifications
 
 **File scope:**
 ```
-> /float-focus .float/float.md
+> /float-focus .float/system.md
 
 FloatPrompt focus.
-Target: .float/float.md
+Target: .float/system.md
 
 Tracing...
 

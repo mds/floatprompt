@@ -39,7 +39,7 @@
       "check_buoy": "Verify one map file vs folder (parallel, one per map file)",
       "structural_buoy": "Create missing core/index.md or float-project.md",
       "map_buoy": "Update file table in one map file",
-      "system_buoy": "Update structure map in float.md",
+      "system_buoy": "Update structure map in system.md",
       "scaffold_buoy": "Create one new map file",
       "log_buoy": "Append to session log"
     },
@@ -87,7 +87,7 @@ Creates/updates **map files** (lightweight inventory):
 2. **Map coverage** — Every visible project folder has a `*-map.md` file
 3. **Table accuracy** — Files listed in map match actual folder contents
 4. **Subfolder accuracy** — Subfolders listed in map match actual subfolders
-5. **Structure map** — `float.md` structure map matches reality
+5. **Structure map** — `system.md` structure map matches reality
 
 ## Process
 
@@ -181,7 +181,7 @@ Spawn targeted buoys for fixes:
 |----------|------|------|
 | Create structural ref | Structural Buoy | Generate tools/ or project.md |
 | Update map table | Map Buoy | Add/remove rows, preserve existing descriptions |
-| Update structure map | System Buoy | Add/remove folders in float.md |
+| Update structure map | System Buoy | Add/remove folders in system.md |
 | Create new map file | Scaffold Buoy | Generate `*-map.md` file with placeholder descriptions |
 
 **Parallelization:** Independent fixes run in parallel.
@@ -281,7 +281,7 @@ Update .float/project/nav/{folder}-map.md:
 ### System Buoy
 
 ```
-Update structure map in .float/float.md:
+Update structure map in .float/system.md:
 1. Add these folders to structure map: [list]
 2. Remove these folders: [list]
 3. Preserve existing annotations and comments

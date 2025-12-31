@@ -7,7 +7,7 @@
     "title": "/float-build",
     "id": "float-build",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {

@@ -7,7 +7,7 @@
     "title": "/float enhance",
     "id": "float-enhance",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -97,10 +97,10 @@ For each nav file, compare descriptions to actual file contents:
 
 **Frontmatter discovery via navigation structure:**
 ```
-.float/float.md (entry)
+.float/system.md (entry)
   → .float/tools/ → lists floatprompt/ files
   → .float/project.md → lists project/ structure
-        → project/nav/*.md → each lists files in a project folder
+        → project/nav/*-map.md → each lists files in a project folder
               → Check frontmatter for each documented file
 ```
 

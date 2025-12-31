@@ -7,7 +7,7 @@
     "title": "/float-relate",
     "id": "float-relate",
     "format": "floatprompt",
-    "version": "0.15.0"
+    "version": "0.17.0"
   },
 
   "human": {
@@ -183,7 +183,7 @@ After human approval, apply relationship fixes:
 ### Relationship Map
 
 ```
-Relationship Map for: .float/float.md
+Relationship Map for: .float/system.md
 
 EXPLICIT (in related: field):
   → .float/tools/
@@ -195,7 +195,7 @@ IMPLICIT (referenced in content):
   → README.md (references system.md)
 
 REFERENCING THIS FILE:
-  ← 14 files reference .float/float.md
+  ← 14 files reference .float/system.md
   ← README.md
   ← docs/architecture.md
   ← [12 more...]
@@ -245,7 +245,7 @@ EXPLICIT:
   → docs/concepts.md
 
 IMPLICIT:
-  → .float/float.md (mentions boot)
+  → .float/system.md (mentions boot)
   → .float/tools/*.md (references)
 
 REFERENCING:
@@ -255,7 +255,7 @@ REFERENCING:
 Issues: 1 found
 
 ONE-WAY:
-  docs/claude.md → .float/float.md
+  docs/claude.md → .float/system.md
     ↳ Add docs/claude.md to system.md's related?
 
 Fix? [yes / skip]:
