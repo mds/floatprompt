@@ -20,7 +20,7 @@ ai_notes: |
 
 **The invisible OS for AI.**
 
-Feed a single `.float/float-system.md` file to any AI. It boots up, reads centralized navigation, builds rich context, and becomes aware of everything—what exists, how it connects, what needs attention.
+Feed a single `.float/float.md` file to any AI. It boots up, reads centralized navigation, builds rich context, and becomes aware of everything—what exists, how it connects, what needs attention.
 
 **One file turns the lights on.**
 
@@ -64,7 +64,7 @@ any-project/
 
 **Boot sequence:**
 
-1. AI reads `.float/float-system.md`
+1. AI reads `.float/float.md`
 2. Loads structure map into memory
 3. Reads all `.float/project/nav/*.md` files
 4. Reads today's session log
@@ -144,7 +144,7 @@ my-project/
 
 | Pattern | Type | Purpose |
 |---------|------|---------|
-| `.float/float-system.md` | FloatPrompt System | Boot loader, behavioral protocol |
+| `.float/float.md` | FloatPrompt System | Boot loader, behavioral protocol |
 | `.float/project/nav/*.md` | Nav files | Folder navigation (centralized) |
 | `.float/project/logs/*.md` | Logs | Session history |
 | `*.md` with frontmatter | floatprompt doc | Document context |
@@ -193,7 +193,7 @@ Create the structure yourself:
 
 ```bash
 mkdir -p .float/core/{format,tools/types} .float/project/{nav,logs,context}
-touch .float/float-system.md
+touch .float/float.md
 touch .float/core/index.md
 touch .float/project/nav/root.md
 ```
@@ -207,7 +207,7 @@ float init
 
 ### Then
 
-Give your AI the `.float/float-system.md` file. It takes over from there.
+Give your AI the `.float/float.md` file. It takes over from there.
 
 ## Token Efficiency
 
@@ -215,7 +215,7 @@ Structure IS compression.
 
 | Component | Tokens |
 |-----------|--------|
-| .float/float-system.md | 300-500 |
+| .float/float.md | 300-500 |
 | nav/*.md (per file) | 30-50 |
 | Session log | 50-150 |
 
@@ -277,7 +277,7 @@ Subsystems are optional. Most projects need only root `.float/`.
 
 ## Learn More
 
-- See `.float/float-system.md` in this repo for a live example
+- See `.float/float.md` in this repo for a live example
 - See `.float/core/index.md` for full structure reference
 
 ---

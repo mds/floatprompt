@@ -72,7 +72,7 @@ When no context file exists:
 ### 1. Discover
 
 Read and analyze:
-- `.float/float-system.md` — Boot protocol
+- `.float/float.md` — Boot protocol
 - `.float/project/nav/*.md` — All navigation files
 - `README.md` — Project overview
 - Key entry points (main files, index files, core modules)
@@ -135,7 +135,7 @@ human_refinements: |
 
 For new AI sessions:
 
-1. `.float/float-system.md` — {why}
+1. `.float/float.md` — {why}
 2. `{next file}` — {why}
 ...
 
@@ -215,7 +215,7 @@ Float-think will decide what's needed based on context state.
 
 ```
 Generate context file for this project:
-1. Read .float/float-system.md for project overview
+1. Read .float/float.md for project overview
 2. Read all .float/project/nav/*.md files for structure
 3. Read README.md for public description
 4. Identify key files that define the project
@@ -302,7 +302,7 @@ Next: /float-think
 Loading context from floatprompt.md...
 
 Following reading order:
-1. .float/float-system.md — Boot protocol
+1. .float/float.md — Boot protocol
 2. docs/api.md — API documentation
 3. src/core/index.ts — Main entry point
 ...

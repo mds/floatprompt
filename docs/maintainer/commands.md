@@ -58,7 +58,7 @@ Commands and their internal operations exist on a spectrum from mechanical speed
 
 | Operation | Approach | Example |
 |-----------|----------|---------|
-| File exists? | Shell | `test -f .float/float-system.md` |
+| File exists? | Shell | `test -f .float/float.md` |
 | Count files in folder | Shell | `ls docs/ \| wc -l` |
 | Find nav entries | Shell | `grep "^\| \*\*" nav/docs.md` |
 | Compare nav to folder | Shell + AI | Shell gathers, AI interprets diff |
@@ -274,8 +274,8 @@ If user says 'n':
 **Purpose:** Boot the FloatPrompt System or initialize if none exists.
 
 **Duality:**
-- No `.float/float-system.md` → Init sequence
-- Has `.float/float-system.md` → Boot sequence
+- No `.float/float.md` → Init sequence
+- Has `.float/float.md` → Boot sequence
 
 **Init sequence:**
 1. Create `.float/` folder structure (meta/ and project/ subdirectories)
@@ -285,7 +285,7 @@ If user says 'n':
 5. Auto-boot the newly created system
 
 **Boot sequence:**
-1. Read `.float/float-system.md`
+1. Read `.float/float.md`
 2. Read `.float/project/context/project-decisions.md` (if exists)
 3. Read `.float/project/context/*.md` (if exists)
 4. Read ALL `.float/project/nav/*.md` files

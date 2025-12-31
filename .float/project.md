@@ -13,7 +13,7 @@
   "human": {
     "author": "@mds",
     "intent": "Define project/ folder structure and what each subfolder contains",
-    "context": "Read after float-system.md"
+    "context": "Read after float.md"
   },
 
   "ai": {

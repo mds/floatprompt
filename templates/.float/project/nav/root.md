@@ -3,7 +3,7 @@ title: Root
 type: nav
 status: current
 created: [scaffold date]
-related: README.md, package.json, .float/float-system.md
+related: README.md, package.json, .float/float.md
 
 human_author: [update to your handle]
 human_intent: Provide orientation to project repository for AI navigation

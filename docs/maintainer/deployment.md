@@ -28,7 +28,7 @@ SOURCE (this repo)                   PACKAGE (npm)           USER PROJECT
 ─────────────────                   ─────────────           ────────────
 templates/.float/core/tools/*.md →  bin/floatprompt.js  →   .float/core/tools/*.md
 templates/.float/core/format/*.md → copies from source  →   .float/core/format/*.md
-templates/.float/float-system.md       →  scaffolding         →   .float/float-system.md
+templates/.float/float.md       →  scaffolding         →   .float/float.md
 .claude/commands/                →  copies directly     →   .claude/commands/*.md
 ```
 
@@ -43,7 +43,7 @@ templates/.float/float-system.md       →  scaffolding         →   .float/flo
 | /float command tools | `templates/.float/core/tools/*.md` | `.float/core/tools/*.md` |
 | Tool type templates | `templates/.float/core/tools/types/*.md` | `.float/core/tools/types/*.md` |
 | Format templates | `templates/.float/core/format/*.md` | `.float/core/format/*.md` |
-| System boot loader | `templates/.float/float-system.md` | `.float/float-system.md` |
+| System boot loader | `templates/.float/float.md` | `.float/float.md` |
 | Nav root template | `templates/.float/project/nav/root.md` | `.float/project/nav/root.md` |
 | Command wrappers | `.claude/commands/*.md` | `.claude/commands/*.md` |
 | Tool building guide | `templates/.float/core/tools/manual.md` | `.float/core/manual.md` |
@@ -62,7 +62,7 @@ The deployment script that runs when users execute `float init` or `float update
 1. Creates `.float/` folder structure
 2. Copies tools from `templates/.float/core/tools/` → `.float/core/tools/`
 3. Copies format templates from `templates/.float/core/format/` → `.float/core/format/`
-4. Copies boot loader from `templates/.float/float-system.md`
+4. Copies boot loader from `templates/.float/float.md`
 5. Creates empty `project-decisions.md` in context/
 6. Copies Claude commands to `.claude/commands/`
 
@@ -192,7 +192,7 @@ Usually not needed — `system/tools/` is already included.
 ### 5. Update Documentation
 - Add to `system/reference/commands.md`
 - Add to `system/guides/integration.md`
-- Update `.float/float-system.md` structure map if visible to users
+- Update `.float/float.md` structure map if visible to users
 
 ### 6. Validate
 ```bash
@@ -261,7 +261,7 @@ float update
 - `.float/project/nav/*` — User's navigation files
 - `.float/project/logs/*` — Session history
 - `.float/project/context/*` — Terrain maps, decisions
-- `.float/float-system.md` — User may have customized
+- `.float/float.md` — User may have customized
 
 ---
 

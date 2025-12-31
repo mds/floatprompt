@@ -25,8 +25,8 @@
     "pilot_principle": "Human decides, AI executes. Human is pilot, AI is crew.",
     "containment_principle": ".float/ tools only write inside .float/. Scan project files, report findings to logs/, but NEVER modify files outside .float/. Human applies fixes.",
     "boot_sequence": [
-      "Read .float/float-system.md (this file)",
-      "Read .float/float-project.md (project/ structure)",
+      "Read .float/float.md (this file)",
+      "Read .float/project.md (project/ structure)",
       "Read .float/project/context/project-decisions.md if exists",
       "Read .float/project/context/*.md if exists (terrain maps)",
       "Read ALL .float/project/nav/*.md files",
@@ -55,8 +55,8 @@ This file is the boot loader. Read it first in any session.
 
 ```
 .float/
-├── float-system.md     # This file (boot protocol)
-├── float-project.md    # project/ structure reference
+├── float.md     # This file (boot protocol)
+├── project.md    # project/ structure reference
 ├── tools/              # /float command tools
 ├── templates/          # Format templates
 └── project/            # Dynamic content (AI maintains)
@@ -69,8 +69,8 @@ This file is the boot loader. Read it first in any session.
 
 ## Boot Sequence
 
-1. Read `.float/float-system.md` (this file)
-2. Read `.float/float-project.md` (project/ structure)
+1. Read `.float/float.md` (this file)
+2. Read `.float/project.md` (project/ structure)
 3. Read `project/context/project-decisions.md` if exists
 4. Read `project/context/*.md` if exists (terrain maps)
 5. Read ALL `project/nav/*.md` files
@@ -84,8 +84,8 @@ This file is the boot loader. Read it first in any session.
 
 | Location | Format | Purpose |
 |----------|--------|---------|
-| `.float/float-system.md` | floatprompt | Boot protocol (this file) |
-| `.float/float-project.md` | floatprompt | project/ structure |
+| `.float/float.md` | floatprompt | Boot protocol (this file) |
+| `.float/project.md` | floatprompt | project/ structure |
 | `.float/tools/*.md` | floatprompt | /float command tools |
 | `.float/templates/*.md` | floatprompt | Format templates |
 | `.float/project/nav/*.md` | nav file | Folder navigation |

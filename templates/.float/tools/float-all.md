@@ -75,7 +75,7 @@ Each tool runs to completion before the next starts. Results accumulate.
 
 Run `/float` to verify system exists and load context.
 
-- If no `.float/float-system.md` → init first, then continue
+- If no `.float/float.md` → init first, then continue
 - If system exists → proceed with sequence
 
 **Report:** Call float-report --phase=map with system state.

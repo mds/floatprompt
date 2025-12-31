@@ -242,7 +242,7 @@ Buoys maintain the system, they don't define it:
 
 | Component | Purpose |
 |-----------|---------|
-| `.float/float-system.md` | Boot protocol |
+| `.float/float.md` | Boot protocol |
 | `.float/project/context/*.md` | AI understanding |
 | `.float/project/nav/*.md` | Structure navigation |
 | `.float/project/logs/*.md` | Session history |

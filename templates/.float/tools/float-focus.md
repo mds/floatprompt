@@ -240,7 +240,7 @@ Tracing...
 Forward (docs/ references):
   → src/core/index.ts
   → src/utils/helpers.ts
-  → .float/float-system.md
+  → .float/float.md
 
 Backward (references docs/):
   ← README.md
@@ -263,10 +263,10 @@ Ready for: deep work on specifications
 
 **File scope:**
 ```
-> /float-focus .float/float-system.md
+> /float-focus .float/float.md
 
 FloatPrompt focus.
-Target: .float/float-system.md
+Target: .float/float.md
 
 Tracing...
 

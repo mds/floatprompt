@@ -118,15 +118,15 @@ if (command === 'update') {
       updated.push(`.float/templates/${file}`);
     }
 
-    // Update float-project.md (structural reference)
-    const projectSrc = join(packageRoot, 'templates', '.float', 'float-project.md');
-    copyFileSync(projectSrc, join(cwd, '.float', 'float-project.md'));
-    updated.push('.float/float-project.md');
+    // Update project.md (structural reference)
+    const projectSrc = join(packageRoot, 'templates', '.float', 'project.md');
+    copyFileSync(projectSrc, join(cwd, '.float', 'project.md'));
+    updated.push('.float/project.md');
 
-    // Update float-system.md (boot loader)
-    const systemSrc = join(packageRoot, 'templates', '.float', 'float-system.md');
-    copyFileSync(systemSrc, join(cwd, '.float', 'float-system.md'));
-    updated.push('.float/float-system.md');
+    // Update float.md (boot loader)
+    const systemSrc = join(packageRoot, 'templates', '.float', 'float.md');
+    copyFileSync(systemSrc, join(cwd, '.float', 'float.md'));
+    updated.push('.float/float.md');
 
     // Update Claude commands (source: templates/.claude/commands/)
     const commandFiles = ['float.md', 'float-sync.md', 'float-fix.md', 'float-context.md', 'float-enhance.md', 'float-build.md', 'float-harvest.md', 'float-delta.md', 'float-focus.md', 'float-relate.md', 'float-report.md', 'float-project.md', 'float-all.md', 'float-think.md'];
@@ -207,15 +207,15 @@ try {
   }
 
   // Copy template files
-  const templateSystem = join(packageRoot, 'templates', '.float', 'float-system.md');
-  const templateProject = join(packageRoot, 'templates', '.float', 'float-project.md');
+  const templateSystem = join(packageRoot, 'templates', '.float', 'float.md');
+  const templateProject = join(packageRoot, 'templates', '.float', 'project.md');
   const templateRoot = join(packageRoot, 'templates', '.float', 'project', 'nav', 'root.md');
 
-  copyFileSync(templateSystem, join(cwd, '.float', 'float-system.md'));
-  created.push('.float/float-system.md');
+  copyFileSync(templateSystem, join(cwd, '.float', 'float.md'));
+  created.push('.float/float.md');
 
-  copyFileSync(templateProject, join(cwd, '.float', 'float-project.md'));
-  created.push('.float/float-project.md');
+  copyFileSync(templateProject, join(cwd, '.float', 'project.md'));
+  created.push('.float/project.md');
 
   // Create empty decisions.md in context/
   const decisionsContent = `---

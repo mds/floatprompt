@@ -130,7 +130,7 @@ The template (`templates/.float/core/format/template.md`, 3KB) teaches AI how to
 
 `.float/` folders that give AI instant awareness of entire directories.
 
-- `.float/float-system.md` — Boot loader (read first)
+- `.float/float.md` — Boot loader (read first)
 - `.float/core/` — FloatPrompt internals (templates, tools)
 - `.float/project/` — Your project's data (nav, context, logs)
 

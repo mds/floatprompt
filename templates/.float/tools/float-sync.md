@@ -77,7 +77,7 @@ Use shell commands for fast detection:
 ```bash
 # Check structural reference files exist
 test -f .float/tools/ && echo "index.md OK" || echo "index.md MISSING"
-test -f .float/float-project.md && echo "project.md OK" || echo "project.md MISSING"
+test -f .float/project.md && echo "project.md OK" || echo "project.md MISSING"
 
 # List actual files in folder
 ls docs/
@@ -236,7 +236,7 @@ Verify .float/project/nav/{folder}.md against actual {folder}/ contents:
 ```
 Create missing structural reference file:
 1. Determine which file is missing: core/index.md or float-project.md
-2. Read templates/.float/tools/ or templates/.float/float-project.md
+2. Read templates/.float/tools/ or templates/.float/project.md
 3. Copy template to appropriate location
 4. Update created date to today
 5. Return confirmation
@@ -260,7 +260,7 @@ Update .float/project/nav/{folder}.md:
 ### System Buoy
 
 ```
-Update structure map in .float/float-system.md:
+Update structure map in .float/float.md:
 1. Add these folders to structure map: [list]
 2. Remove these folders: [list]
 3. Preserve existing annotations and comments

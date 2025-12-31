@@ -142,9 +142,9 @@ The `templates/` folder is what `float init` deploys. It must mirror the source 
 
 | Source | Template |
 |--------|----------|
-| `.float/float-system.md` | `templates/.float/float-system.md` |
+| `.float/float.md` | `templates/.float/float.md` |
 | `.float/core/index.md` | `templates/.float/core/index.md` |
-| `.float/float-project.md` | `templates/.float/float-project.md` |
+| `.float/project.md` | `templates/.float/project.md` |
 
 **After any .float/ structure change, update templates/ too.**
 
@@ -197,9 +197,9 @@ See "Workstream Completion Protocol" in the active roadmap.
 
 | File | Purpose |
 |------|---------|
-| `.float/float-system.md` | Boot loader, structure map |
+| `.float/float.md` | Boot loader, structure map |
 | `.float/core/index.md` | FloatPrompt system reference |
-| `.float/float-project.md` | Project-specific reference |
+| `.float/project.md` | Project-specific reference |
 
 ### Tools (update together)
 
@@ -213,9 +213,9 @@ See "Workstream Completion Protocol" in the active roadmap.
 
 | File | Mirrors |
 |------|---------|
-| `templates/.float/float-system.md` | `.float/float-system.md` |
+| `templates/.float/float.md` | `.float/float.md` |
 | `templates/.float/core/index.md` | `.float/core/index.md` |
-| `templates/.float/float-project.md` | `.float/float-project.md` |
+| `templates/.float/project.md` | `.float/project.md` |
 
 ---
 

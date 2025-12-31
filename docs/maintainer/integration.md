@@ -50,7 +50,7 @@ Boot the FloatPrompt System and run a quick health check.
 ```
 
 **What it does:**
-1. Reads `.float/float-system.md` (boot protocol)
+1. Reads `.float/float.md` (boot protocol)
 2. Reads all `.float/project/nav/*.md` files (centralized navigation)
 3. Builds mental model of the project
 4. Counts any integrity issues
@@ -78,7 +78,7 @@ Run /float-sync to see details and fix
 FloatPrompt initialized.
 Directory: /path/to/project
 Created:
-  - .float/float-system.md
+  - .float/float.md
   - .float/project/nav/root.md
   - .float/project/nav/src.md
   - .float/project/nav/docs.md
@@ -103,7 +103,7 @@ Verify nav files match folders. Full integrity check with fix capability.
 **What it does:**
 1. Checks all `.float/project/nav/*.md` tables against actual folder contents
 2. Checks subfolder tables against actual subfolders
-3. Checks structure map in `.float/float-system.md`
+3. Checks structure map in `.float/float.md`
 4. Shows detailed issues
 5. Proposes fixes
 6. Waits for approval
@@ -117,7 +117,7 @@ Directory: /path/to/project
 
 Checking integrity...
 
-✓ .float/float-system.md — OK
+✓ .float/float.md — OK
 ✓ .float/project/nav/root.md — OK
 ✗ .float/project/nav/docs.md — 2 issues
   - Missing: docs/new-feature.md (file exists, not in table)
@@ -264,7 +264,7 @@ Five commands. Each does one thing well.
 | Nav coverage | Every major folder has a `project/nav/*.md` file |
 | Table accuracy | File tables match actual folder contents |
 | Subfolder accuracy | Subfolder tables match actual subfolders |
-| Structure map | `.float/float-system.md` structure map matches reality |
+| Structure map | `.float/float.md` structure map matches reality |
 | Orphaned files | Files exist but aren't in any nav file |
 | Missing files | Nav references files that don't exist |
 

@@ -128,11 +128,11 @@ created: {date}
 
 | File | Why It Matters |
 |------|----------------|
-| `.float/float-system.md` | Boot protocol — read first |
+| `.float/float.md` | Boot protocol — read first |
 
 ## Reading Order
 
-1. `.float/float-system.md`
+1. `.float/float.md`
 2. This file
 
 ---
