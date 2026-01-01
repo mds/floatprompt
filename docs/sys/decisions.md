@@ -317,6 +317,47 @@ ai_updated: 2025-01-01
 
 ---
 
+### Code commenting pattern
+
+**Decision:** All TypeScript files follow a consistent commenting structure.
+
+**Pattern:**
+```typescript
+/**
+ * Component Name
+ * Format: what format/structure this defines
+ * Use: when/why to use this
+ *
+ * Design principles:
+ * 1. First principle
+ * 2. Second principle
+ * 3. Third principle
+ * 4. Fourth principle
+ */
+
+export const Schema = z.object({
+  // Section name (context about this group)
+  field: z.string(),                     // what it is
+  field: z.string(),                     // what it is
+
+  // Section name (context about this group)
+  field: z.string(),                     // what it is
+});
+
+// Type exports
+export type X = z.infer<typeof Schema>;
+```
+
+**Rules:**
+- Docblock at top with name, format, use, and 4 design principles
+- Section comments group related fields
+- Inline comments aligned at column 42
+- Type exports grouped at end
+
+**See:** `docs/sys/comments.md` for full documentation.
+
+---
+
 ## Open Questions
 
 - Partial breakdown (what's shared vs per-file)
