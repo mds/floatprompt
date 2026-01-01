@@ -1,0 +1,83 @@
+{
+  "tool": {
+    "name": "float-sync",
+    "id": "float-sync",
+    "purpose": "Verify nav files match folder structure",
+    "type": "integrity",
+    "intent": "Structure integrity validation",
+    "role": "Structure integrity guardian"
+  },
+
+  "patterns": {
+    "duality": {
+      "run": "Verify nav ↔ folders, report drift, offer fixes",
+      "check": "Report drift only, no modifications"
+    },
+    "has_buoys": true,
+    "has_reporting": true,
+    "reporting_sections": ["map", "structure"]
+  },
+
+  "buoys": [
+    {
+      "name": "nav_scanner",
+      "prompt": "Scan nav files and compare entries to actual folder contents",
+      "scope": "{{paths.nav}}*.md",
+      "returns": "List of nav entries with validation status"
+    },
+    {
+      "name": "folder_scanner",
+      "prompt": "Scan actual folder structure and list contents",
+      "scope": "Top-level project folders",
+      "returns": "Folder inventory with file counts"
+    }
+  ],
+
+  "sequences": [
+    {
+      "phase": "Discovery",
+      "steps": [
+        "Read {{paths.system}} for boot context",
+        "Glob {{paths.nav}}*.md for nav file inventory",
+        "Scan actual folder structure for comparison"
+      ]
+    },
+    {
+      "phase": "Analysis",
+      "steps": [
+        "Compare nav entries to folder contents",
+        "Identify drift: missing entries, extra files, stale references",
+        "Classify severity: critical, warning, info"
+      ]
+    },
+    {
+      "phase": "Resolution",
+      "steps": [
+        "Report findings to human",
+        "Propose fixes (if run mode)",
+        "Apply approved fixes",
+        "Regenerate nav files from templates (if enabled)"
+      ]
+    }
+  ],
+
+  "next_steps": ["float-fix", "float-context", "float-enhance"],
+
+  "examples": [
+    {
+      "title": "Check mode (default)",
+      "input": "/float-sync",
+      "output": "Drift report showing 3 missing entries, no changes made"
+    },
+    {
+      "title": "Run mode with fixes",
+      "input": "/float-sync run",
+      "output": "Drift report + fixes applied, nav files updated"
+    },
+    {
+      "title": "Specific folder",
+      "input": "/float-sync docs/",
+      "output": "Drift report for docs/ nav file only"
+    }
+  ]
+}

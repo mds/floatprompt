@@ -1,0 +1,6 @@
+"reporting": {
+  "tool": "float-report",
+  "when": "After each phase completion",
+  "sections": [{{#each sections}}"{{this}}"{{#unless @last}}, {{/unless}}{{/each}}],
+  "format": "MDS log files in {{paths.logs}}"
+},

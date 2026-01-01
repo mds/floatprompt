@@ -1,0 +1,99 @@
+<fp>
+  <json>
+  {
+    "STOP": "{{tool.purpose}}",
+
+    "meta": {
+      "title": "{{tool.name}}",
+      "version": "{{system.version}}",
+      "id": "{{tool.id}}",
+      "type": "{{tool.type}}"
+    },
+
+    "human": {
+      "author": "{{system.author}}",
+      "intent": "{{tool.intent}}"
+    },
+
+    "ai": {
+      "role": "{{tool.role}}"
+    },
+
+    "requirements": {
+      {{> duality patterns.duality}}
+      {{> status_format}}
+      {{> next_step_logic next_steps=next_steps}}
+      {{#if patterns.has_buoys}}
+      {{> buoys buoys=buoys limit=defaults.buoy_limit}}
+      {{/if}}
+      {{#if patterns.has_reporting}}
+      {{> reporting sections=patterns.reporting_sections}}
+      {{/if}}
+    }
+  }
+  </json>
+  <md>
+
+# {{tool.name}}
+
+**{{tool.purpose}}**
+
+| Mode | Behavior |
+|------|----------|
+| Run | {{patterns.duality.run}} |
+| Check | {{patterns.duality.check}} |
+
+**Default:** Check mode (report only)
+
+---
+
+{{#each sequences}}
+## {{phase}} Phase
+
+{{#each steps}}
+{{@index}}. {{this}}
+{{/each}}
+
+{{/each}}
+
+---
+
+{{#if buoys}}
+## Buoys
+
+| Buoy | Scope | Returns |
+|------|-------|---------|
+{{#each buoys}}
+| {{name}} | `{{scope}}` | {{returns}} |
+{{/each}}
+
+{{#each buoys}}
+### {{name}}
+
+**Prompt:**
+```
+{{prompt}}
+```
+
+{{/each}}
+{{/if}}
+
+---
+
+## Examples
+
+{{#each examples}}
+### {{title}}
+
+**Input:** `{{input}}`
+
+**Output:** {{output}}
+
+{{/each}}
+
+---
+
+{{> footer}}
+
+  </md>
+</fp>

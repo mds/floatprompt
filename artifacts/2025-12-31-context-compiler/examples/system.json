@@ -1,0 +1,21 @@
+{
+  "system": {
+    "version": "0.18.0",
+    "author": "@mds",
+    "format": "floatprompt",
+    "repository": "https://github.com/mds/floatprompt"
+  },
+  "paths": {
+    "system": ".float/system.md",
+    "project": ".float/project/project.md",
+    "nav": ".float/project/nav/",
+    "context": ".float/project/context/",
+    "tools": ".float/tools/",
+    "logs": ".float/project/logs/"
+  },
+  "defaults": {
+    "ai_model": "Claude",
+    "buoy_limit": 5,
+    "reporting_enabled": true
+  }
+}
