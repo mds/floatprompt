@@ -436,6 +436,71 @@ ${dualityMd(duality)}
 
 ---
 
+### Pattern recognition over explicit memory
+
+**Decision:** AI recognizes patterns rather than remembering explicit instructions. TypeScript enforces consistency at build time.
+
+**The architecture:**
+- **boot.md** = comprehensive brain (explains patterns once)
+- **Tools** = simple, consistent structures (pattern recognition)
+- **TypeScript** = the enforcer (partials ensure identical shape)
+- **AI** = pattern recognizer (learns from one, applies everywhere)
+
+**Why this works:**
+- Context windows fill up, older content gets compressed
+- But structure itself is a reminder (seeing `.float/project/nav/` reminds AI of nav files)
+- Compiled consistency means AI doesn't need to "remember" — it recognizes
+- Build system is the memory, not the AI's context
+
+**Implication:** Tools don't need redundant explanations. boot.md explains conventions once; tools just instantiate them.
+
+---
+
+### Tools are mini FloatPrompts
+
+**Decision:** Tools use FloatPrompt format but are much smaller and focused.
+
+**Structure:**
+```xml
+<fp>
+<json>
+{
+  "STOP": "Verify nav files match reality",
+  "meta": { "id": "float-sync", "title": "/float-sync" },
+  "triggers": ["nav out of sync", "after file changes"],
+  "checks": ["nav coverage", "table accuracy"],
+  "outputs": ["updated nav", "sync report"]
+}
+</json>
+<md>
+## Process
+1. Scan folders
+2. Compare to nav
+3. Propose fixes
+4. Apply with approval
+</md>
+</fp>
+```
+
+**What tools contain:**
+- JSON: identity + routing (STOP, meta, triggers, checks, outputs)
+- Markdown: just process steps (the one thing that needs prose)
+
+**What tools DON'T contain (boot.md has these):**
+- Duality table (boot.md explains the pattern)
+- Examples (boot.md shows canonical examples)
+- Buoy prompts (boot.md defines buoy patterns)
+- Detailed behavioral instructions
+
+**Rationale:**
+- Same format = consistency
+- Smaller = faster to read, less context
+- Process steps need prose, everything else is structured
+- Pattern recognition > explicit instructions per tool
+
+---
+
 ## Open Questions
 
 - boot.md content (the actual instructions)
+- Buoy prompt location (boot.md patterns vs tool-specific)
