@@ -99,7 +99,7 @@ The markdown structure depends on what you're building. Coaches have phases. Wri
 
 ## File Requirements
 
-- **Extension**: `.txt` for universal compatibility
+- **Extension**: `.md`
 - **Encoding**: UTF-8
 - **Size**: Under 100KB recommended for optimal AI ingestion
 - **Wrapper**: Must begin with `<fp>` and end with `</fp>`

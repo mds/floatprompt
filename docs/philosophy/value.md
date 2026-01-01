@@ -201,8 +201,8 @@ I provide definitive explanation of FloatPrompt's business value through three-l
 
 **Reality Check:**
 - **No learning curve** - AI generates all JSON automatically from natural language instructions
-- **No setup overhead** - Upload .txt file and immediately start using across any AI platform
-- **No maintenance** - These are simple .txt files with zero technical dependencies or ongoing requirements
+- **No setup overhead** - Upload .md file and immediately start using across any AI platform
+- **No maintenance** - These are simple .md files with zero technical dependencies or ongoing requirements
 - **Zero complexity barrier** - Users never interact with JSON directly, just natural language with AI systems
 
 ### **Adoption Strategy**

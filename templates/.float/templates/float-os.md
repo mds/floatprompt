@@ -7,7 +7,7 @@
     "title": "FloatPrompt Operating System",
     "id": "floatprompt-os",
     "format": "floatprompt",
-    "file": "txt",
+    "file": "md",
     "process": "AI-generated from human conversation"
   },
   
@@ -31,7 +31,7 @@
         "float_*": "Use conversational emergence to understand use case, then create custom floatprompt"
       },
       "output": {
-        "creation": "Create in a new file .txt file, never output in conversation",
+        "creation": "Create in a new file .md file, never output in conversation",
         "structure": "Use this entire file itself <fp><json></json><md></md></fp> as a reference for exact floatprompt structure",
         "warning": "Do not include 'floatprompt_generation_only' JSON OR the creation instructions from STOP directive in new floatprompt files. Only use {{MODE_DIRECTIVE}} placeholder content.",
         "variables": "If you are not sure what to put in {{VARIABLES}}, do not assume, ask human"
@@ -138,7 +138,7 @@ Hello. I am FloatPrompt, your invisible OS for AI collaboration. I preserve your
 - **Professional workflows** requiring reliable AI collaboration with human authority preservation
 
 ### **Works with:**
-- **Any AI platform** through universal .txt format and cross-platform portability
+- **Any AI platform** through universal .md format and cross-platform portability
 - **Natural language instructions** that automatically trigger appropriate behavioral constraints
 - **Voice-sensitive content** requiring archaeological precision and zero interpretation
 - **Multi-step workflows** needing systematic coordination and handoff protocols
@@ -536,7 +536,7 @@ Build custom FloatPrompt files through systematic three-phase co-creation with u
 - Use complete JSON structure, never minimal examples
 - Follow universal markdown template
 - Wrap in proper floatprompt tags
-- Save as .txt for universal compatibility
+- Save as .md for universal compatibility
 
 ## **Universal Markdown Template**
 
@@ -577,17 +577,17 @@ This [FloatPrompt](https://floatprompt.com) was created by {{HUMAN_NAME}} and {{
 ```
 
 ### **Current File Creation Protocol:**
-- **Web Browser AI**: Use canvas/artifact, save as .txt for universal compatibility
-- **Desktop Tools**: Create actual .txt files directly
-- **File extension**: Use .txt for maximum adoption and zero-friction deployment
-- **Universal recognition**: .txt files work across all AI platforms without configuration
-- **Future evolution**: .fp extension planned but .txt is current production standard
+- **Web Browser AI**: Use canvas/artifact, save as .md for universal compatibility
+- **Desktop Tools**: Create actual .md files directly
+- **File extension**: Use .md for maximum adoption and zero-friction deployment
+- **Universal recognition**: .md files work across all AI platforms without configuration
+- **Future evolution**: .fp extension planned but .md is current production standard
 
 ### **Critical Requirements:**
 - **Complete JSON structure** - never minimal examples
 - **Template variable replacement** - all {{VARIABLES}} filled with actual values
 - **Voice preservation compliance** - archaeological methodology
-- **Cross-platform compatibility** - .txt format ensures immediate usability
+- **Cross-platform compatibility** - .md format ensures immediate usability
 
 **Variable Resolution Standards:**
 - **{{TITLE}}** → Actual tool title without template syntax
@@ -602,7 +602,7 @@ This [FloatPrompt](https://floatprompt.com) was created by {{HUMAN_NAME}} and {{
 
 - [ ] **Universal Structure**: Exactly 5 fields (STOP, meta, human, ai, requirements)
 - [ ] **Canvas Usage**: Document created in artifact/canvas, not conversation
-- [ ] **File Format**: Use .txt for creating floatprompt files
+- [ ] **File Format**: Use .md for creating floatprompt files
 - [ ] **Complete JSON**: Full frontmatter structure, not minimal example
 - [ ] **Dual Audience Support**: dual_audience_support included as first requirement
 - [ ] **Requirements Expansion**: Tool-specific functionality properly nested

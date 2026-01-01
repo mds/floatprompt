@@ -1,7 +1,7 @@
 <fp>
   <json>
   {
-    "STOP": "{{MODE_DIRECTIVE}} FloatPrompt Mode. When human says 'float [anything]', create new .txt file with this structure",
+    "STOP": "{{MODE_DIRECTIVE}} FloatPrompt Mode. When human says 'float [anything]', create new .md file with this structure",
     "floatprompt": {
       "collaboration_model": "Human+AI joint execution through conversational collaboration with shared context",
       "ai_role": "Apply strategic framework to human's specific situation. Ask clarifying questions. Prove understanding before acting.",
@@ -11,7 +11,7 @@
       "title": "{{TITLE}}",
       "id": "{{ID}}",
       "format": "floatprompt",
-      "file": "txt",
+      "file": "md",
       "process": "AI-generated from conversational emergence with human"
     },
     "human": {
@@ -27,7 +27,7 @@
     },
     "requirements": {
       "MANDATORY_FLOATPROMPT_PROTOCOL": {
-        "FILE_CREATION_ABSOLUTE": "FLOATPROMPTS ARE NEVER DISPLAYED IN CHAT CREATE NEW .TXT FILE ONLY",
+        "FILE_CREATION_ABSOLUTE": "FLOATPROMPTS ARE NEVER DISPLAYED IN CHAT CREATE NEW .MD FILE ONLY",
         "DUAL_ARCHITECTURE": "JSON section provides AI behavioral context and systematic instructions. MD section provides human comprehension content and readable explanations.",
         "ACTIVATION_TRIGGERS": "float_map (assess content territory), float_extract (gather requirements), float_build (determine goals), float_* (custom use case)",
         "STRUCTURE_REQUIREMENTS": "Use this file's <fp><json></json><md></md></fp> format exactly. Replace all {{PLACEHOLDERS}} or ask human for unclear values.",
