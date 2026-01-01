@@ -500,6 +500,71 @@ ${dualityMd(duality)}
 
 ---
 
+### FloatPrompt tiers: Immutable format, emergent content
+
+**Decision:** The format is immutable. The content is emergent based on usage. Three tiers provide guidelines, not strict requirements.
+
+**Immutable (never changes):**
+```xml
+<fp>
+<json>{ ... }</json>
+<md>...</md>
+</fp>
+```
+The wrapper is the format. That's it.
+
+**Emergent (determined by usage):**
+
+| Tier | Context | Typical Fields |
+|------|---------|----------------|
+| **Fullest** (Boot/Orchestrator) | Standalone, foundational | STOP, meta, human, ai, requirements, boot_sequence, principles |
+| **Fuller** (Standalone tools) | No boot context, self-contained | STOP, meta, human, ai, process |
+| **Minimal** (Chained tools) | Assumes boot context | id, triggers, checks, outputs |
+
+**Examples:**
+
+**Tier 1 — Fullest (boot.md):**
+```json
+{
+  "STOP": "FloatPrompt System Protocol...",
+  "meta": { "id": "float-system", "title": "FloatPrompt System" },
+  "human": { "author": "@mds", "intent": "Boot protocol..." },
+  "ai": { "role": "System navigator..." },
+  "requirements": {
+    "boot_sequence": ["Read float.md", "Read project.md", ...],
+    "principles": { "pilot": "Human decides, AI executes" }
+  }
+}
+```
+
+**Tier 2 — Fuller (standalone tool):**
+```json
+{
+  "STOP": "Portfolio coaching tool...",
+  "meta": { "id": "portfolio-coach", "title": "Portfolio Coach" },
+  "human": { "author": "@mds", "intent": "Guide portfolio creation" },
+  "ai": { "role": "Creative coach" }
+}
+```
+
+**Tier 3 — Minimal (chained tool):**
+```json
+{
+  "id": "float-sync",
+  "triggers": ["nav out of sync", "after file changes"],
+  "checks": ["nav coverage", "table accuracy"],
+  "outputs": ["updated nav", "sync report"]
+}
+```
+
+**The principle:**
+- Guidelines, not requirements
+- Usage determines what fields you need
+- Add fields as needed, don't include what you don't need
+- AI learns the patterns, recognizes the tier
+
+---
+
 ## Open Questions
 
 - boot.md content (the actual instructions)
