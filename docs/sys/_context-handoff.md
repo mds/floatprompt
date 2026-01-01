@@ -32,6 +32,11 @@
     "do_not_read_unless_needed": [
       "artifacts/2025-12-31-context-compiler/20-implementation-plan.md (partially outdated)",
       "artifacts/2025-12-31-context-compiler/*.md (breadcrumbs, not specs)"
+    ],
+    "session_protocol": [
+      "Update docs/sys/decisions.md as you make decisions",
+      "This is the paper trail for cross-session consistency",
+      "See 'For Future AI Sessions' section in decisions.md for format"
     ]
   }
 }
