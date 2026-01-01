@@ -358,7 +358,51 @@ export type X = z.infer<typeof Schema>;
 
 ---
 
+### Partials: Shared content blocks
+
+**Decision:** Five core partials generate both JSON and Markdown for system tools.
+
+| Partial | JSON Output | Markdown Output |
+|---------|-------------|-----------------|
+| `duality` | `{ condition_a, action_a, condition_b, action_b }` | `## Duality` table |
+| `status` | `status_format` string | `## Status Output` section |
+| `buoys` | `{ key: description }` object | `## Buoy Prompts` section |
+| `examples` | (none — markdown only) | `## Examples` section |
+| `footer` | (none — markdown only) | Footer with tagline |
+
+**Pattern:**
+```typescript
+// Each partial exports:
+// - Interface for typing (e.g., Duality)
+// - JSON generator (e.g., dualityJson)
+// - Markdown generator (e.g., dualityMd)
+
+import { dualityJson, dualityMd } from "./partials";
+
+const duality: Duality = {
+  condition_a: "Issues found",
+  action_a: "Fix them",
+  condition_b: "Clean",
+  action_b: "Report OK",
+};
+
+// Use in JSON
+requirements: {
+  duality: dualityJson(duality),
+}
+
+// Use in Markdown
+${dualityMd(duality)}
+```
+
+**Rationale:**
+- Single source of truth — define once, use in JSON and Markdown
+- Type-safe — TypeScript catches errors
+- Composable — tool configs import what they need
+- Testable — pure functions, easy to unit test
+
+---
+
 ## Open Questions
 
-- Partial breakdown (what's shared vs per-file)
 - boot.md content (the actual instructions)

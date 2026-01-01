@@ -62,8 +62,11 @@ The `.md` files are build artifacts. Users see markdown. We maintain TypeScript.
 ```
 src/
 ├── schema/        # ✅ Zod schemas (FloatPrompt, FloatDoc) — DONE
-├── partials/      # Template literal functions — NEXT
-├── tools/         # Tool configs
+├── partials/      # ✅ Template literal functions — DONE
+│   ├── duality.ts, status.ts, footer.ts, examples.ts, buoys.ts
+│   └── index.ts
+├── tools/         # ✅ First tool config — DONE
+│   └── float-sync.ts
 ├── static/        # Files copied as-is (boot.md)
 └── cli/           # CLI code
 ```
@@ -72,7 +75,17 @@ src/
 - `FloatPromptJsonSchema` — STOP, meta{title,id,type}, human{author,intent}, ai{role}, requirements
 - `FloatDocSchema` — 8 fields (4 terrain + 4 attribution)
 
-**Next step:** Create partials from real system tools.
+**Partials created (2026-01-01):**
+- `duality` — JSON + Markdown for dual condition tables
+- `status` — JSON + Markdown for status output format
+- `buoys` — JSON + Markdown for buoy prompts
+- `examples` — Markdown only for usage examples
+- `footer` — Markdown only for standard tagline
+
+**First tool config (2026-01-01):**
+- `float-sync.ts` — demonstrates partial usage, exports `compile()` function
+
+**Next step:** Build script to compile tools → markdown.
 
 ## Key Decisions (docs/sys/decisions.md)
 
@@ -107,10 +120,12 @@ src/
 
 1. ~~Create `src/schema/floatprompt.ts`~~ ✅ Done
 2. ~~Create `src/schema/floatdoc.ts`~~ ✅ Done
-3. Look at real system tools (`.float/tools/*.md`) to extract partials
-4. Create partials: duality, status_output, examples, etc.
-5. Create one tool config (`src/tools/float-sync.ts`) using partials
+3. ~~Look at real system tools (`.float/tools/*.md`) to extract partials~~ ✅ Done
+4. ~~Create partials: duality, status, examples, buoys, footer~~ ✅ Done
+5. ~~Create one tool config (`src/tools/float-sync.ts`) using partials~~ ✅ Done
 6. Build script to compile tools → markdown
+7. Migrate remaining tools to src/tools/
+8. Create src/static/boot.md (the AI instruction file)
 
 ## The Big Picture
 
