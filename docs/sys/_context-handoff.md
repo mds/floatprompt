@@ -61,14 +61,18 @@ The `.md` files are build artifacts. Users see markdown. We maintain TypeScript.
 **Folder structure created:**
 ```
 src/
-├── schema/        # Zod schemas (FloatPrompt, FloatDoc)
-├── partials/      # Template literal functions
+├── schema/        # ✅ Zod schemas (FloatPrompt, FloatDoc) — DONE
+├── partials/      # Template literal functions — NEXT
 ├── tools/         # Tool configs
 ├── static/        # Files copied as-is (boot.md)
 └── cli/           # CLI code
 ```
 
-**Next step:** Create Zod schemas from existing specs.
+**Schemas locked (2026-01-01):**
+- `FloatPromptJsonSchema` — STOP, meta{title,id,type}, human{author,intent}, ai{role}, requirements
+- `FloatDocSchema` — 8 fields (4 terrain + 4 attribution)
+
+**Next step:** Create partials from real system tools.
 
 ## Key Decisions (docs/sys/decisions.md)
 
@@ -80,6 +84,11 @@ src/
 | TypeScript native | No Handlebars, no React |
 | Zod for schemas | Types + validation, Vercel AI SDK pattern |
 | Schema → Partials → Configs | Three-layer separation |
+| meta: title, id, type | format/version removed (system-level) |
+| ai: just role | behavior/tone/etc. go to requirements |
+| requirements: loose | AI's playground, `Record<string, unknown>` |
+| meta.type: system/custom | Determines markdown validation strictness |
+| FloatDoc: 8 fields | 4 terrain + 4 attribution, description is routing signal |
 
 ## Reading Order
 
@@ -96,10 +105,12 @@ src/
 
 ## Next Actions
 
-1. Create `src/schema/floatprompt.ts` (Zod schema from spec)
-2. Create `src/schema/floatdoc.ts` (Zod schema from spec)
-3. Look at one real tool to understand partials needed
-4. Build from there
+1. ~~Create `src/schema/floatprompt.ts`~~ ✅ Done
+2. ~~Create `src/schema/floatdoc.ts`~~ ✅ Done
+3. Look at real system tools (`.float/tools/*.md`) to extract partials
+4. Create partials: duality, status_output, examples, etc.
+5. Create one tool config (`src/tools/float-sync.ts`) using partials
+6. Build script to compile tools → markdown
 
 ## The Big Picture
 
@@ -112,6 +123,6 @@ npm float install → .float/ appears
 
 ---
 
-*Created 2026-01-01 — end of deep planning session*
+*Created 2026-01-01 — updated after schema session*
 </md>
 </fp>
