@@ -403,6 +403,39 @@ ${dualityMd(duality)}
 
 ---
 
+### No extra abstraction layer
+
+**Decision:** Three layers are enough: Schema → Partials → Configs. No intermediate "theme" or "config" layer needed.
+
+**Considered:**
+- Adding a layer between schema and output for project-level config, themes, or generation preferences
+- Per-file override configs for generated content
+
+**Rejected because:**
+- Web development precedents (Jekyll, Hugo, Tailwind, Next.js) all use the same pattern: flat config + partials + source files
+- No major framework has an intermediate abstraction layer
+- Tool configs already serve as the "data" layer that fills the schema
+- Adding complexity without solving a real problem
+
+**What we have (matches industry standard):**
+
+| Layer | Purpose | Precedent |
+|-------|---------|-----------|
+| Schema (Zod) | Structure validation | Content models |
+| Project config | Constants (author, version) | `tailwind.config.js`, `next.config.js` |
+| Partials | Reusable formatting | `_includes/`, components |
+| Tool configs | Per-file content | `pages/`, content files |
+| Build output | Compiled result | `dist/`, `_site/`, `.next/` |
+
+**For generated files (nav, context):**
+- No per-file source needed
+- Schema + template + folder scan = output
+- Human additions (descriptions) persist in the generated file; regeneration merges/preserves
+
+**Do not revisit.** Validated against Jekyll, Hugo, Tailwind, Next.js patterns.
+
+---
+
 ## Open Questions
 
 - boot.md content (the actual instructions)
