@@ -67,6 +67,12 @@ AI agents need to understand projects quickly and deeply. Currently:
 - Not a chat-to-doc converter (original use case)
 - Not a templating system (though we use templates to build it)
 - Not a knowledge base (it's structural context, not content)
+- Not RAG/vector search (retrieval vs understanding)
+
+**RAG vs FloatPrompt:**
+- RAG answers: "What chunks are similar to this query?"
+- FloatPrompt answers: "What does this project mean? What decisions were made?"
+- They're complementary, not competitive.
 
 ## Decision Anchor
 
@@ -80,3 +86,21 @@ When evaluating any feature, ask:
 
 If no to all → reject.
 If yes to some → evaluate tradeoffs.
+
+## Validation Status
+
+**The thesis has three claims:**
+
+| Claim | Status | Evidence |
+|-------|--------|----------|
+| **Problem exists** | VALIDATED | Universal experience: AI asks "what framework?" every session, no persistent memory |
+| **Solution works** | PARTIALLY VALIDATED | Structured context helps, but maintenance is the weak point |
+| **People will adopt** | UNVALIDATED | No external users yet, internal use shows promise |
+
+**What would kill it:**
+- Maintenance burden exceeds value
+- AI models solve this natively (unlimited context, built-in memory)
+- A simpler solution emerges
+- No one cares enough to adopt
+
+**The templating/compilation work directly addresses the biggest risk (maintenance burden).**
