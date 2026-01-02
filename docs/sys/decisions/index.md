@@ -43,6 +43,14 @@ Current locked decisions and navigation map.
 
 ---
 
+## Open Questions
+
+- **boot.md content** — What does it contain now that agents build and local understands?
+- **Vercel infrastructure** — AI SDK, Sandbox, or provider-agnostic?
+- **Trigger mechanism** — Webhooks, cron, manual, all?
+
+---
+
 ## Protocol
 
 When adding decisions:
