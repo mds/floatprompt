@@ -431,47 +431,15 @@ export type X = z.infer<typeof Schema>;
 
 ---
 
-### Tools are mini FloatPrompts
+### ~~Tools are mini FloatPrompts~~ (SUPERSEDED)
 
-**Decision:** Tools use FloatPrompt format but are much smaller and focused.
+> **Superseded by:** "AI orchestrates, code executes" (below)
 
-**Structure:**
-```xml
-<fp>
-<json>
-{
-  "STOP": "Verify nav files match reality",
-  "meta": { "id": "float-sync", "title": "/float-sync" },
-  "triggers": ["nav out of sync", "after file changes"],
-  "checks": ["nav coverage", "table accuracy"],
-  "outputs": ["updated nav", "sync report"]
-}
-</json>
-<md>
-## Process
-1. Scan folders
-2. Compare to nav
-3. Propose fixes
-4. Apply with approval
-</md>
-</fp>
-```
+~~**Decision:** Tools use FloatPrompt format but are much smaller and focused.~~
 
-**What tools contain:**
-- JSON: identity + routing (STOP, meta, triggers, checks, outputs)
-- Markdown: just process steps (the one thing that needs prose)
+This section described tools as .md files with FloatPrompt format. That model is superseded.
 
-**What tools DON'T contain (boot.md has these):**
-- Duality table (boot.md explains the pattern)
-- Examples (boot.md shows canonical examples)
-- Buoy prompts (boot.md defines buoy patterns)
-- Detailed behavioral instructions
-
-**Rationale:**
-- Same format = consistency
-- Smaller = faster to read, less context
-- Process steps need prose, everything else is structured
-- Pattern recognition > explicit instructions per tool
+**Current model:** Tools are TypeScript functions (scan.ts, parse.ts, etc.) that AI calls directly. No .md tool files. See "AI orchestrates, code executes" section.
 
 ---
 
@@ -540,46 +508,15 @@ The wrapper is the format. That's it.
 
 ---
 
-### Tools are minimal, no partials needed
+### ~~Tools are minimal, no partials needed~~ (SUPERSEDED)
 
-**Decision:** Tools are minimal configs. No partials required.
+> **Superseded by:** "AI orchestrates, code executes" (below)
 
-**Before (each tool is self-contained):**
-```typescript
-// src/tools/float-sync.ts - ~150 lines
-const duality: Duality = { ... }
-const status: StatusOutput = { ... }
-const buoys: BuoyDefinition[] = [ ... ]
-const examples: Example[] = [ ... ]
-// Generates ~300 line .md file
-```
+~~**Decision:** Tools are minimal configs. No partials required.~~
 
-**After (minimal tool):**
-```typescript
-// src/tools/float-sync.ts - ~60 lines
-export const json = {
-  id: "float-sync",
-  title: "/float sync",
-  triggers: [...],
-  checks: [...],
-  outputs: [...],
-};
+This section described tool configs that compile to .md files. That model is superseded.
 
-export const markdown = `# /float sync
-...process steps...
-`;
-```
-
-**What goes in boot.md:**
-- Pattern explanations (duality, buoys, etc.)
-- Behavioral rules
-- Boot sequence
-
-**What goes in tools:**
-- Routing info (triggers, checks, outputs)
-- Process steps (markdown)
-
-**Rationale:** Schema + Tool Config is sufficient. Partials are ad-hoc when 3+ tools share identical content.
+**Current model:** Tools are mechanical TypeScript functions (scan.ts, parse.ts, etc.) that AI calls directly. See "AI orchestrates, code executes" section.
 
 ---
 
@@ -643,9 +580,8 @@ Content here.
 - For content that appears once
 
 **Implementation:**
-- `src/partials/` folder exists but is empty
-- `README.md` documents the decision
-- Add partials ad-hoc when repetition is found
+- No `src/partials/` folder (YAGNI — create when needed)
+- Add partials ad-hoc when 3+ tools share identical content
 
 ---
 
