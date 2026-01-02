@@ -2,6 +2,8 @@
 
 Decisions made during context-compiler development. Living document.
 
+**Note:** Newer decisions supersede older ones. Superseded decisions are ~~struck through~~ but kept for historical context.
+
 ---
 
 ## For Future AI Sessions
@@ -358,48 +360,27 @@ export type X = z.infer<typeof Schema>;
 
 ---
 
-### Partials: Shared content blocks
+### ~~Partials: Shared content blocks~~ (SUPERSEDED)
 
-**Decision:** Five core partials generate both JSON and Markdown for system tools.
+> **Superseded by:** "Partials are ad-hoc, not core architecture" (below)
 
-| Partial | JSON Output | Markdown Output |
+~~**Decision:** Five core partials generate both JSON and Markdown for system tools.~~
+
+| ~~Partial~~ | ~~JSON Output~~ | ~~Markdown Output~~ |
 |---------|-------------|-----------------|
-| `duality` | `{ condition_a, action_a, condition_b, action_b }` | `## Duality` table |
-| `status` | `status_format` string | `## Status Output` section |
-| `buoys` | `{ key: description }` object | `## Buoy Prompts` section |
-| `examples` | (none — markdown only) | `## Examples` section |
-| `footer` | (none — markdown only) | Footer with tagline |
+| ~~`duality`~~ | ~~`{ condition_a, action_a, condition_b, action_b }`~~ | ~~`## Duality` table~~ |
+| ~~`status`~~ | ~~`status_format` string~~ | ~~`## Status Output` section~~ |
+| ~~`buoys`~~ | ~~`{ key: description }` object~~ | ~~`## Buoy Prompts` section~~ |
+| ~~`examples`~~ | ~~(none — markdown only)~~ | ~~`## Examples` section~~ |
+| ~~`footer`~~ | ~~(none — markdown only)~~ | ~~Footer with tagline~~ |
 
-**Pattern:**
-```typescript
-// Each partial exports:
-// - Interface for typing (e.g., Duality)
-// - JSON generator (e.g., dualityJson)
-// - Markdown generator (e.g., dualityMd)
+~~**Rationale:**~~
+- ~~Single source of truth — define once, use in JSON and Markdown~~
+- ~~Type-safe — TypeScript catches errors~~
+- ~~Composable — tool configs import what they need~~
+- ~~Testable — pure functions, easy to unit test~~
 
-import { dualityJson, dualityMd } from "./partials";
-
-const duality: Duality = {
-  condition_a: "Issues found",
-  action_a: "Fix them",
-  condition_b: "Clean",
-  action_b: "Report OK",
-};
-
-// Use in JSON
-requirements: {
-  duality: dualityJson(duality),
-}
-
-// Use in Markdown
-${dualityMd(duality)}
-```
-
-**Rationale:**
-- Single source of truth — define once, use in JSON and Markdown
-- Type-safe — TypeScript catches errors
-- Composable — tool configs import what they need
-- Testable — pure functions, easy to unit test
+**Why superseded:** These patterns aren't universal. Duality, status, buoys are CLI-tool specific. YAGNI — add partials only when 3+ tools share identical content.
 
 ---
 
