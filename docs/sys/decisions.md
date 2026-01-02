@@ -655,6 +655,77 @@ Content here.
 
 ---
 
+## Execution Model
+
+### TypeScript system that produces markdown
+
+**Decision:** FloatPrompt is a TypeScript system that produces markdown, not a markdown system that AI maintains.
+
+**The architecture:**
+```
+TypeScript (execution) → Markdown (interface) → AI reads/writes
+                      ↘ AI (judgment layer) ↗
+```
+
+| Layer | Role |
+|-------|------|
+| **TypeScript** | Orchestration, mechanical work, scaffolding |
+| **Markdown** | Interface — what AI and humans read/write |
+| **AI calls** | Judgment — when decisions are needed, not execution |
+
+**Before (markdown-centric):**
+```
+/float-sync → AI reads markdown → AI scans folders → AI compares → AI writes
+```
+- AI does mechanical work
+- Session-dependent
+- Maintenance burden on AI
+- Why solution is only "partially validated"
+
+**After (TypeScript-centric):**
+```
+float sync → TS scans folders → TS compares → AI judges (if needed) → TS writes
+```
+- Code does mechanical work (fast, deterministic, testable)
+- AI only for judgment (focused, cheaper)
+- Not session-dependent
+- Structured outputs via Zod
+
+**What this means for src/:**
+```
+src/
+├── schema/          # Zod schemas (exists)
+├── tools/           # Actual TS functions, not just configs
+│   ├── sync.ts      # Scans, compares, calls AI for judgment
+│   ├── fix.ts       # Detects drift, proposes fixes
+│   └── context.ts   # Generates terrain maps
+├── cli/             # Orchestrator
+│   └── index.ts     # float init, float sync, etc.
+├── ai/              # AI judgment layer
+│   └── judge.ts     # Wrapper for AI calls when needed
+└── output/          # Markdown generators
+    └── templates.ts # Produces .md files
+```
+
+**User experience stays the same:**
+```bash
+float init          # TypeScript scaffolds .float/
+float sync          # TypeScript scans, AI judges, TypeScript writes
+```
+
+**boot.md still exists** — it orients Claude Code sessions. But heavy lifting is TypeScript.
+
+**Rationale:**
+- Maintenance burden was the biggest risk (validation assessment)
+- Mechanical work should be code, not AI
+- AI is expensive and session-dependent
+- TypeScript is testable, deterministic, persistent
+- Markdown remains the interface — invisible to users
+
+**Do not revisit.** This is the core architectural direction.
+
+---
+
 ## Open Questions
 
 ### boot.md content

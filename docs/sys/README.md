@@ -45,105 +45,91 @@
 
 ## What We're Building
 
-FloatPrompt is a **context compilation pipeline**:
+FloatPrompt is a **TypeScript system that produces markdown**:
 
 ```
-src/ (TypeScript) → build → dist/templates/.float/ → npm float install → user project
+TypeScript (execution) → Markdown (interface) → AI reads/writes
+                      ↘ AI (judgment layer) ↗
 ```
 
-The `.md` files are build artifacts. Users see markdown. We maintain TypeScript.
+- **TypeScript** does mechanical work (scanning, comparing, scaffolding)
+- **Markdown** is the interface (what AI and humans read/write)
+- **AI** is the judgment layer (called when decisions needed, not for execution)
+
+Users see `.float/` with markdown. Behind the scenes, TypeScript does the heavy lifting.
 
 ## Current State (2026-01-02)
 
 **Folder structure:**
 ```
 src/
-├── schema/        # Zod schemas (minimal required + optional fields)
+├── schema/          # Zod schemas (exists)
 │   ├── floatprompt.ts
 │   ├── floatdoc.ts
 │   └── index.ts
-├── partials/      # EMPTY — ad-hoc only, see README.md
-│   ├── README.md  # Documents when to use/not use
-│   └── index.ts   # Empty
-├── tools/         # Tool configs (one exists as example)
-│   └── float-sync.ts
-├── static/        # Files copied as-is (boot.md will go here)
-└── cli/           # CLI code (future)
+├── tools/           # TS functions that DO things (not just configs)
+│   ├── sync.ts      # Scans folders, compares to nav, calls AI for judgment
+│   ├── fix.ts       # Detects drift, proposes fixes
+│   └── context.ts   # Generates terrain maps
+├── cli/             # Orchestrator
+│   └── index.ts     # float init, float sync, etc.
+├── ai/              # AI judgment layer
+│   └── judge.ts     # Wrapper for AI calls when needed
+└── output/          # Markdown generators
+    └── templates.ts # Produces .md files
 ```
 
 **Schema (locked):**
 - Required: `id`, `title` only
 - Optional: `STOP`, `type`, `human`, `ai`, `triggers`, `checks`, `outputs`, `requirements`
-- Like HTML: required structure minimal, everything else optional
 
-**Partials (decision locked):**
-- Ad-hoc, not core architecture
-- Currently empty — Schema + Tool Config is sufficient
-- Add partials only when 3+ tools share identical content
-
-**Tool pattern:**
-```typescript
-import type { FloatPromptJson } from "../schema/floatprompt";
-
-export const json: FloatPromptJson = {
-  id: "float-sync",
-  title: "/float sync",
-  triggers: [...],
-  checks: [...],
-  outputs: [...],
-};
-
-export const markdown = `# /float sync
-...process steps...
-`;
-
-export const compile = () => `<fp><json>...</json><md>...</md></fp>`;
-```
+**Execution model (locked):**
+- TypeScript does mechanical work (scanning, comparing, writing)
+- AI called only for judgment (is this description good? what should this folder be named?)
+- Markdown is the output interface
 
 ## Key Decisions (docs/sys/decisions.md)
 
 | Decision | Summary |
 |----------|---------|
+| **TypeScript system** | TS does mechanical work, AI for judgment only, markdown is interface |
 | src/ → dist/ | Conventional pattern, templates/ becomes output |
-| npm = install only | AI orchestrates everything else |
 | boot.md | Renamed from system.md, THE instruction file |
 | TypeScript native | No Handlebars, no React |
 | Zod for schemas | Types + validation |
 | Required structure | `id` + `title` only, everything else optional |
-| Three tiers | Fullest/Fuller/Minimal (guidelines, not requirements) |
-| STOP optional | For focus breaking; chained tools inherit from boot.md |
-| Partials ad-hoc | No built-in partials; add when 3+ tools share content |
 
 ## Open Questions
 
-- **boot.md content** — THE ultimate FloatPrompt that orients AI to the .float/ system
-- **Buoys** — Claude Code agents branded as "buoys" in FloatPrompt. Not yet fully defined.
-- **TypeScript tools** — Which tools should be actual TS functions vs markdown instructions?
-- **AI execution model** — AI can use TS functions, CLI, AND spawn buoys. "Never do alone what 3-4 buoys can do together."
+- **boot.md content** — THE ultimate FloatPrompt that orients Claude Code sessions
+- **Buoys** — Claude Code agents branded as "buoys". How do they fit in TS-centric model?
+- **AI SDK choice** — Vercel AI SDK? Anthropic SDK directly? Provider-agnostic wrapper?
 
 ## What's Next
 
-1. Decide boot.md content and structure
-2. Build script to compile tools → markdown
-3. Migrate remaining tools to src/tools/
-4. Create src/static/boot.md
+1. Decide AI SDK choice (Vercel AI SDK, Anthropic SDK, or wrapper)
+2. Build first TS tool (float-sync) — scan folders, compare, AI judges
+3. Define boot.md for Claude Code sessions
+4. Build CLI orchestrator
 
 ## What's Outdated
 
-- `artifacts/2025-12-31-context-compiler/*.md` — Breadcrumbs from early planning
-- Any reference to partials like duality, status, buoys, examples, footer — deleted
+- `artifacts/2025-12-31-context-compiler/` — Archived, breadcrumbs from early planning
+- Markdown-only tool execution model — superseded by TypeScript system
+- Partials architecture — superseded (tools are TS functions now)
 
 ## The Big Picture
 
-**AI orchestrates. Code executes. .md is the interface.**
+**Code orchestrates. AI judges. .md is the interface.**
 
 ```
-npm float install → .float/ appears
-/float → AI reads boot.md → AI orchestrates → code executes → .md files → AI reads
+float init      → TypeScript scaffolds .float/
+float sync      → TypeScript scans → AI judges (if needed) → TypeScript writes .md
+/float          → Claude Code reads boot.md → oriented for session
 ```
 
 ---
 
-*Updated 2026-01-02 — after partials decision*
+*Updated 2026-01-02 — TypeScript system decision locked*
 </md>
 </fp>
