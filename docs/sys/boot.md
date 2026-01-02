@@ -22,7 +22,7 @@
     "methodology": "Map → Decide → Structure",
     "execution_model": "AI orchestrates → TS/CLI/buoys execute → AI also thinks",
     "nav_structure": "_/ convention with map.md, context.md, logs/",
-    "paper_trail": "All decisions logged in decisions/YYYY/MM-mon/DD-topic.md"
+    "paper_trail": "All decisions logged in logs/YYYY/MM-mon/DD-topic.md"
   }
 }
 </json>
@@ -60,7 +60,7 @@ AI agents need to understand projects quickly and deeply. Currently:
 - Rich understanding takes time to rebuild
 
 **The lived problem (2026-01-02):**
-1. Made architecture decisions → logged to decisions/
+1. Made architecture decisions → logged to logs/
 2. Decisions changed meaning → problem.md and overview.md needed updates
 3. Structure changed → README.md needed updates
 4. Human asked "double check everything"
@@ -264,6 +264,11 @@ Inherited from float-os.md (v0.16.0 vision):
 - **Buoy principle** — Never do alone what 3-4 buoys can do together
 - **Agents build, local understands** — Cloud maintains, local helps human
 
+### Infrastructure
+- **Vercel AI SDK** — Orchestration, streaming, tool calling
+- **Vercel Sandbox** — Isolated buoy execution, scalable
+- **Anthropic (Claude)** — Provider for context and reasoning
+
 ### Archival Structure
 - **Hierarchy** — Collection/Series/File/Item
 - **Naming** — `YYYY/MM-mon/DD-topic.md`
@@ -281,8 +286,9 @@ Inherited from float-os.md (v0.16.0 vision):
 ## Open Questions
 
 - **boot.md content** — What does the production boot.md contain?
-- **Vercel infrastructure** — AI SDK, Sandbox, or provider-agnostic?
 - **Trigger mechanism** — Webhooks, cron, manual, all?
+
+*(Vercel infrastructure locked: AI SDK + Sandbox, Anthropic provider)*
 
 ---
 
@@ -308,10 +314,10 @@ src/
 ## Session Protocol
 
 When making decisions:
-1. Create `DD-topic.md` in `decisions/YYYY/MM-mon/`
+1. Create `DD-topic.md` in `logs/YYYY/MM-mon/`
 2. Update month's `index.md` with summary
 3. Update year's `index.md` if new theme emerges
-4. Update root `decisions/index.md` only if new year
+4. Update root `logs/index.md` only if new year
 
 This is the paper trail for cross-session consistency.
 
@@ -325,8 +331,8 @@ Only read these if you need deeper context:
 |------|--------------|
 | `problem.md` | Understanding the "why" in depth |
 | `overview.md` | Understanding the "how" in depth |
-| `decisions/2026/01-jan/index.md` | All locked decisions with full detail |
-| `decisions/2026/01-jan/02-nav-structure.md` | Full nav structure rationale |
+| `logs/2026/01-jan/index.md` | All locked decisions with full detail |
+| `logs/2026/01-jan/02-nav-structure.md` | Full nav structure rationale |
 | `.float/templates/float-os.md` | The v0.16.0 origin, Map/Decide/Structure methodology |
 
 ---

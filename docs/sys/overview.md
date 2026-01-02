@@ -80,7 +80,7 @@ float context # Generates terrain maps
 ```
 
 - AI orchestrates, delegates to TS/CLI/buoys
-- Runs in Vercel Sandbox (isolated, scalable)
+- Vercel AI SDK (orchestration) + Sandbox (isolated execution)
 - Unlimited parallel buoys
 - Maintains .float/ automatically
 - Triggered by webhooks, cron, or manual

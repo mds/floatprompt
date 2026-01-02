@@ -11,6 +11,7 @@ Context-compiler development year.
 - **Archival structure** — Collection/Series/File/Item hierarchy
 - **Archive unity** — ONE archive with Series, "logs" as umbrella term
 - **Nav structure** — Mirror project, `_/` convention, map/context/logs
+- **Vercel infrastructure** — AI SDK + Sandbox for cloud agents
 
 ---
 

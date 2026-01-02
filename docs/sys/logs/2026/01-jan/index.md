@@ -27,8 +27,13 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Buoy principle** — Never do alone what 3-4 buoys can do together
 - **Agents build, local understands** — Cloud maintains, local helps human
 
+### Infrastructure
+- **Vercel AI SDK** — Orchestration, streaming, tool calling
+- **Vercel Sandbox** — Isolated buoy execution, scalable
+- **Anthropic (Claude)** — Provider for context and reasoning
+
 ### Archival Structure
-- **Hierarchy** — Collection/Series/File/Item → decisions/year/month/logs
+- **Hierarchy** — Collection/Series/File/Item → logs/year/month/entries
 - **Naming** — `YYYY/MM-mon/DD-topic.md`
 - **Summaries** — `index.md` at every level, richest at month level
 
@@ -48,6 +53,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [02-archival-structure.md](02-archival-structure.md) | Archival folder hierarchy and naming |
 | [02-archive-unity.md](02-archive-unity.md) | ONE archive with Series inside, "logs" as umbrella term |
 | [02-nav-structure.md](02-nav-structure.md) | Mirror project structure, `_/` convention, three files |
+| [02-vercel-infrastructure.md](02-vercel-infrastructure.md) | Vercel AI SDK + Sandbox, Anthropic provider |
 
 ---
 

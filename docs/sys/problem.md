@@ -61,7 +61,7 @@ AI skims maps at each level, follows descriptions down, reads only what's needed
 
 A single session building FloatPrompt (2026-01-02):
 
-1. Made architecture decisions → logged to decisions/
+1. Made architecture decisions → logged to logs/
 2. Decisions changed meaning → problem.md and overview.md needed updates
 3. Structure changed → README.md needed updates
 4. Human asked "double check everything"
