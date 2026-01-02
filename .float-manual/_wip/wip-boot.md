@@ -21,8 +21,9 @@
   "requirements": {
     "methodology": "Map → Decide → Structure",
     "execution_model": "AI orchestrates → TS/CLI/buoys execute → AI also thinks",
-    "nav_structure": "_/ convention with map.md, context.md, logs/",
-    "paper_trail": "All decisions logged in logs/YYYY/MM-mon/YYYY-MM-DD-topic.md"
+    "nav_structure": "_/ convention with {folder}-map.md, {folder}-context.md, {folder}-logs/",
+    "paper_trail": "All decisions logged in wip-logs/YYYY/MM-mon/YYYY-MM-DD-topic.md",
+    "naming_convention": "Self-describing prefixes: project-map.md, src-context.md, wip-boot.md"
   }
 }
 </json>
@@ -292,34 +293,39 @@ Inherited from float-os.md (v0.16.0 vision):
 
 ---
 
-## Current State (2026-01-02)
+## Current State (2026-01-02, updated late session)
 
-**Warning: `.float-old/` is STALE.** The `.float-old/` folder (renamed from `.float/`) uses the OLD structure (nav/, context/, logs/ as separate folders). Ignore it — it's from a previous iteration. The NEW structure (`_/` convention) is documented here but not yet implemented.
+**Warning: `.float-old/` is STALE.** Renamed from `.float/`. Uses OLD structure. Ignore it.
 
-**.float-manual/ is a manual prototype.** We're building philosophy and decisions that will become automated TypeScript + agents. This is the "field operation" — manually doing what agents will do automatically.
-
-**Folder structure:**
+**.float-manual/ structure (current):**
 ```
-src/
-├── schema/          # Zod schemas (exists)
-│   ├── floatprompt.ts
-│   ├── floatdoc.ts
-│   └── index.ts
-├── tools/           # TS functions AI can call (empty)
-├── cli/             # Entry points
-└── output/          # Markdown generators
-
-.float-manual/       # Manual prototype (this folder)
-├── boot.md          # This file — dev context
-├── logs/            # Archive (floatprompt-governed)
-├── problem.md       # The "why"
-└── overview.md      # The "how"
+.float-manual/
+├── _wip/                        # Working materials for session continuity
+│   ├── wip-boot.md              # THIS FILE — session handoff context
+│   ├── wip-problem.md           # The "why" (reference)
+│   ├── wip-overview.md          # The "how" (reference)
+│   ├── wip-comments.md          # Code standards (reference)
+│   ├── wip-readme.md            # Old readme (reference)
+│   └── wip-logs/                # System/architecture decisions
+│       └── 2026/01-jan/...      # Locked decisions from earlier today
+│
+└── project/                     # Clean structure we're building
+    └── _/
+        ├── project-map.md       # Repo structure
+        ├── project-context.md   # What the project is
+        └── project-logs/        # Code changes (not arch decisions)
+            └── index.md
 ```
 
-**What exists:** Schema definitions, folder structure, manual archive prototype
-**What's next:** Build first TS functions (scan, compare), define production boot.md
+**Naming convention:** Self-describing prefixes.
+- `project-map.md` not `map.md`
+- `src-context.md` not `context.md`
+- `wip-boot.md` not `boot.md`
 
-**Note:** This is `.float-manual/boot.md` — dev context for building FloatPrompt. Production `boot.md` (what users get in `.float/`) is an open question.
+**What exists:** Schema in src/, manual prototype structure, locked architecture decisions
+**What's next:** Build out `project/src/_/`, `project/bin/_/`, `project/templates/_/`
+
+**Note:** This is `wip-boot.md` — session handoff context during WIP. NOT the final boot.md architecture.
 
 ---
 
@@ -343,16 +349,18 @@ This is the paper trail for cross-session consistency. The manual process (~15 m
 
 ## Drill-Down Files
 
-Only read these if you need deeper context:
+Only read these if you need deeper context (paths relative to `.float-manual/_wip/`):
 
 | File | When to read |
 |------|--------------|
-| `logs/index.md` | **The floatprompt that governs archive protocol** |
-| `problem.md` | Understanding the "why" in depth |
-| `overview.md` | Understanding the "how" in depth |
-| `logs/2026/01-jan/index.md` | All locked decisions with full detail |
-| `logs/2026/01-jan/2026-01-02-nav-structure.md` | Full nav structure rationale |
-| `.float-old/templates/float-os.md` | The v0.16.0 origin, Map/Decide/Structure methodology |
+| `wip-logs/index.md` | **The floatprompt that governs archive protocol** |
+| `wip-problem.md` | Understanding the "why" in depth |
+| `wip-overview.md` | Understanding the "how" in depth |
+| `wip-logs/2026/01-jan/index.md` | All locked decisions with full detail |
+| `wip-logs/2026/01-jan/2026-01-02-nav-structure.md` | Full nav structure rationale |
+| `../../.float-old/templates/float-os.md` | The v0.16.0 origin, Map/Decide/Structure methodology |
+| `../project/_/project-map.md` | Current repo structure map |
+| `../project/_/project-context.md` | Current project context |
 
 ---
 
@@ -370,6 +378,49 @@ float sync      → AI orchestrates → spawns buoys → calls TS → writes .md
 
 ---
 
-*Created 2026-01-02 — Updated after session demonstrating manual recursive maintenance*
+## Session Handoff (2026-01-02, late session)
+
+**What happened this session:**
+
+1. **Moved `docs/sys/` → `.float-manual/`**
+   - Manual prototype now at root level
+   - `docs/` reserved for user-facing docs (later)
+
+2. **Renamed `.float/` → `.float-old/`**
+   - Clearer signal it's deprecated
+   - Added STALE.md to archive folder with path mappings
+
+3. **Restructured `.float-manual/`**
+   - Created `_wip/` for session continuity materials
+   - Created `project/_/` with clean structure
+   - Moved all working docs to `_wip/` with `wip-` prefix
+
+4. **Established naming convention**
+   - Self-describing prefixes: `project-map.md`, `src-context.md`, `wip-boot.md`
+   - Not generic `map.md`, `context.md`, `boot.md`
+
+5. **Added TARGET vs STALE notes**
+   - All files referencing `.float/` now clarify it's TARGET (future)
+   - `.float-old/` is STALE (current, deprecated)
+
+**Commits this session:**
+```
+67afa6a Restructure .float-manual/: _wip/ + project/_/
+c938bc8 Add STALE.md to context-compiler archive folder
+fcb3ee9 Add TARGET vs STALE notes to remaining log files
+6a310db Add TARGET vs STALE notes to problem.md and overview.md
+de460ac Rename .float/ → .float-old/, document stale references
+66a037e Archive completed artifact, add new working artifacts
+d6ec53e Move docs/sys/ → .float-manual/
+```
+
+**What's next:**
+- Build out `project/src/_/`, `project/bin/_/`, `project/templates/_/`
+- Discuss ideal architecture via scenario walkthrough
+- Start TypeScript implementation (scan, compare functions)
+
+---
+
+*Created 2026-01-02 — Updated late session with restructure and naming convention*
 </md>
 </fp>
