@@ -1,6 +1,8 @@
 # The Problem We're Solving
 
-**An AI OS for any project directory.**
+**The invisible OS for AI.**
+
+FloatPrompt is not a file format. Not a CLI tool. It's a **recursive context system** that installs into any project and evolves with it.
 
 ---
 
