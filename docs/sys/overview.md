@@ -1,18 +1,29 @@
 # How FloatPrompt Works
 
-Overview of the FloatPrompt system — installation, structure, and goals.
+Overview of the FloatPrompt system — architecture, execution model, and goals.
 
 ---
 
-## Installation Flow
+## The Architecture
 
-User installs floatprompt into any directory of their own knowledge (code/content/etc):
-
-```bash
-npm install floatprompt
+```
+Cloud Agents (build/maintain)          Local Session (understand/help)
+        │                                       │
+        ▼                                       ▼
+┌─────────────────┐                    ┌─────────────────┐
+│  TypeScript     │                    │  Claude Code    │
+│  tools in       │───── .float/ ─────│  reads boot.md  │
+│  Vercel Sandbox │                    │  has context    │
+└─────────────────┘                    └─────────────────┘
+        │                                       │
+        ▼                                       ▼
+   Maintains:                              Helps human:
+   - nav/ files                            - Build features
+   - context/ files                        - Debug issues
+   - logs/                                 - Navigate codebase
 ```
 
-Then runs `/float` command to scaffold the system.
+**Agents build. Local understands.**
 
 ---
 
@@ -20,63 +31,82 @@ Then runs `/float` command to scaffold the system.
 
 ```
 .float/
-├── boot.md           # System protocol (orients AI)
+├── boot.md           # Orients Claude Code to context
 ├── project/
-│   ├── context/      # Deep understanding files
+│   ├── context/      # Deep understanding (agent-maintained)
 │   ├── logs/         # Session history
-│   └── nav/          # Folder maps
-├── templates/        # Legacy markdown docs
-└── tools/            # /float* command tools
+│   └── nav/          # Folder maps (agent-maintained)
+└── .version          # Installed version
 
-.claude/commands/     # Each points to .float/tools/*
+.claude/commands/     # Thin wrappers (may be deprecated)
 ```
 
 ---
 
-## Current State
+## Execution Model
 
-Everything in `.float/` has previously been done with markdown only.
+| Layer | Role | Example |
+|-------|------|---------|
+| **TypeScript** | Mechanical work | Scan folders, compare files, generate nav |
+| **AI judgment** | Decisions when needed | "Is this description accurate?" |
+| **Markdown** | Interface | What humans and Claude Code read |
 
-We're now rebuilding the foundational pieces, bit by bit, with TypeScript.
-
-**The goal:** Merge the speed and predictability of code with the contextual quality structure of FloatPrompt to create omnipresent recursive context scaffolding around any user's project.
-
----
-
-## Buoys (Agents)
-
-Claude Code can spawn "Claude" agents to handle various tasks.
-
-**In the FloatPrompt world, these agents are called "Buoys."**
-
-AI should realize it can use:
-- TypeScript functions
-- Command line functions
-- Spawn multiple buoys/agents
-
-> "It should never try to do alone, what 3-4 subagents/buoys can do together."
+**Code orchestrates. AI judges. .md is the interface.**
 
 ---
 
-## Open Decisions
+## Two Modes
 
-### 1. boot.md Structure
+### Cloud Mode (Agents)
 
-The ultimate FloatPrompt that orients and directs Claude Code to fully understand the `.float/` system and how it should operate to create recursive contextual scaffolding.
+```bash
+# Agents run continuously or on triggers
+float sync    # TypeScript scans → AI judges → TypeScript writes
+float fix     # Detects drift → proposes fixes
+float context # Generates terrain maps
+```
 
-This is THE OS-level document. The existing `templates/.float/system.md` does well, but it's based on old markdown-only methodology.
+- Runs in Vercel Sandbox (isolated, scalable)
+- Unlimited parallel agents
+- Maintains .float/ automatically
+- Triggered by webhooks, cron, or manual
 
-### 2. TypeScript Tools
+### Local Mode (Session)
 
-We've defined schema for the base format. All existing tools are markdown only.
+```
+/float        # Claude Code reads boot.md → instant context
+```
 
-Some tools could be more powerful within `.float/` if they were actual TypeScript functions vs markdown instructions for AI.
+- Human opens Claude Code session
+- Reads agent-maintained context
+- Helps human build with full understanding
+- No re-explaining needed
 
 ---
 
-## Assumptions
+## Tool Design Principles
 
-For now, we assume CLI tools — users are running Claude Code.
+Because agents are cheap (cloud, parallel), tools should be:
+
+| Principle | Why |
+|-----------|-----|
+| Small, focused | One tool = one job |
+| Composable | Orchestrator combines tools |
+| Stateless | No shared context between agents |
+| Structured output | JSON, not prose |
+
+---
+
+## Installation Flow
+
+```bash
+npm install floatprompt   # Get the package
+float init                # Scaffold .float/
+```
+
+Then either:
+- **Cloud:** Connect to webhooks → agents maintain automatically
+- **Local:** Run `float sync` manually, or just use maintained context
 
 ---
 

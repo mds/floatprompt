@@ -27,40 +27,47 @@ AI agents need to understand projects quickly and deeply. Currently:
 ## The Architecture
 
 ```
-.float/
-├── boot.md              ← Heavy lifting: orient AI, explain system
-│
-├── tools/               ← Immutable: the system itself
-│   ├── float.md
-│   ├── float-sync.md
-│   └── ...
-│
-└── project/             ← Mutable: project-specific context
-    ├── project.md       ← Project entry point
-    ├── nav/             ← Folder maps (AI-readable structure)
-    ├── context/         ← Deep understanding (decisions, architecture)
-    └── logs/            ← Paper trail (what changed, when)
+Cloud Agents                              Local Session
+     │                                         │
+     ▼                                         ▼
+TypeScript tools ──── .float/ ──── Claude Code reads
+     │                   │                     │
+     ▼                   ▼                     ▼
+Maintain context    boot.md              Help human build
+(nav/, context/)    (orientation)        (with full context)
 ```
 
-**Immutable scaffolding:** The system structure (boot.md, tools/) — AI reads but doesn't modify.
+**Agents build. Local understands.**
 
-**Mutable content:** Project context (nav/, context/, logs/) — AI reads AND writes.
+```
+.float/
+├── boot.md              ← Orients Claude Code to context
+│
+└── project/             ← Agent-maintained context
+    ├── nav/             ← Folder maps (agent-generated)
+    ├── context/         ← Deep understanding (agent-generated)
+    └── logs/            ← Paper trail
+```
+
+**TypeScript maintains.** Agents run continuously, keep context fresh.
+
+**Markdown is interface.** What humans and Claude Code read.
 
 ## What Success Looks Like
 
-1. AI runs `/float` → immediately understands project structure
-2. AI can navigate to any folder, understand its purpose
-3. AI can go deep on specific areas when needed
-4. AI can update context as project evolves
-5. Context persists across sessions
-6. Works in any project (JS, Python, Rust, docs, anything)
+1. Agents maintain `.float/` continuously — context always fresh
+2. Human opens session → Claude Code reads boot.md → instant understanding
+3. No re-explaining project structure, decisions, architecture
+4. Human builds with full context, AI never asks "what framework?"
+5. Works in any project (JS, Python, Rust, docs, anything)
+6. Scales from solo dev to enterprise teams
 
 ## Constraints
 
 - Must be deletable (delete `.float/` = zero trace)
 - Must be human-readable (markdown, not binary)
-- Must work offline (no API dependencies)
-- Must be AI-writable (AI can update nav, context, logs)
+- Must work locally (CLI fallback) AND cloud (agents at scale)
+- Must be agent-writable (TypeScript maintains nav, context, logs)
 
 ## What This Is NOT
 
@@ -94,7 +101,7 @@ If yes to some → evaluate tradeoffs.
 | Claim | Status | Evidence |
 |-------|--------|----------|
 | **Problem exists** | VALIDATED | Universal experience: AI asks "what framework?" every session, no persistent memory |
-| **Solution works** | PARTIALLY VALIDATED | Structured context helps, but maintenance is the weak point |
+| **Solution works** | PARTIALLY VALIDATED | Structured context helps, but maintenance was the weak point |
 | **People will adopt** | UNVALIDATED | No external users yet, internal use shows promise |
 
 **What would kill it:**
@@ -103,4 +110,8 @@ If yes to some → evaluate tradeoffs.
 - A simpler solution emerges
 - No one cares enough to adopt
 
-**The templating/compilation work directly addresses the biggest risk (maintenance burden).**
+**The agent-based architecture directly addresses the biggest risk (maintenance burden):**
+- Agents run continuously → context stays fresh
+- TypeScript does mechanical work → no session dependency
+- Cloud execution → scales infinitely
+- Human only sees maintained context → zero maintenance burden on user
