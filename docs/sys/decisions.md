@@ -565,6 +565,87 @@ The wrapper is the format. That's it.
 
 ---
 
+### Partials simplification (implication of mini FloatPrompts)
+
+**Decision:** Most partials move to boot.md. Tool configs become minimal.
+
+**Before (each tool is self-contained):**
+```typescript
+// src/tools/float-sync.ts - ~150 lines
+const duality: Duality = { ... }
+const status: StatusOutput = { ... }
+const buoys: BuoyDefinition[] = [ ... ]
+const examples: Example[] = [ ... ]
+// Generates ~300 line .md file
+```
+
+**After (tool inherits from boot.md):**
+```typescript
+// src/tools/float-sync.ts - ~30 lines
+export const config = {
+  id: "float-sync",
+  title: "/float sync",
+  triggers: ["nav out of sync", "after file changes"],
+  checks: ["nav coverage", "table accuracy"],
+  outputs: ["updated nav", "sync report"],
+}
+// + markdown with process steps
+// Generates ~30 line .md file
+```
+
+**What moves to boot.md:**
+- Duality pattern explanation (one example, AI recognizes pattern)
+- Buoy prompts (common patterns, not per-tool)
+- Examples (canonical examples, not per-tool)
+- Status output format (one format, all tools follow)
+
+**What stays in partials:**
+- `footer.ts` — consistent branding in all output
+
+**Rationale:** Tools inherit behavior from boot.md. They don't repeat it.
+
+---
+
+### FloatPrompt required structure
+
+**Decision:** Minimal required structure, everything else optional.
+
+**Required (like `<html><head><title><body>`):**
+
+```xml
+<fp>
+<json>
+{
+  "id": "thing-id",
+  "title": "Thing Title"
+}
+</json>
+<md>
+Content here.
+</md>
+</fp>
+```
+
+- `<fp>` wrapper — always, even in files (like `<html>` in .html files)
+- `id` — how code/AI references it
+- `title` — what humans read
+- `<json>` + `<md>` — always together
+
+**Optional (add as needed):**
+
+| Field | When to use |
+|-------|-------------|
+| `STOP` | Focus breaking (boot.md, standalone tools) |
+| `meta.type` | When build needs to distinguish system/custom |
+| `human` | Standalone tools, attribution needed |
+| `ai` | When persona/role matters |
+| `triggers`, `checks`, `outputs` | Tools (routing info) |
+| `requirements` | Complex behavior |
+
+**Rationale:** Like HTML — required structure is minimal, optional elements added based on what you're building.
+
+---
+
 ## Open Questions
 
 - boot.md content (the actual instructions)

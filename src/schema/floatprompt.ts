@@ -3,53 +3,68 @@ import { z } from "zod";
 /**
  * FloatPrompt Schema
  * Format: <fp><json>{ ... }</json><md>...</md></fp>
- * Use: Tools that modify AI behavior
+ * Use: Structured context for AI (tools, boot files, standalone prompts)
  *
  * Design principles:
- * 1. Structured JSON — 5 top-level keys, predictable shape
- * 2. Minimal required fields — just what's needed for identity and behavior
- * 3. Flexible requirements — AI's playground for tool-specific logic
- * 4. Type discriminator — system vs custom determines markdown validation
+ * 1. Minimal required — just id and title
+ * 2. Everything else optional — add as needed
+ * 3. Like HTML — required structure, optional elements
+ * 4. Tiers are guidelines — fullest/fuller/minimal based on usage
  */
 
-export const MetaSchema = z.object({
-  // Identity (required)
-  title: z.string(),                     // display name
-  id: z.string(),                        // identifier (kebab-case)
-  type: z.enum(["system", "custom"]),    // determines markdown validation strictness
-  // format: removed — system knows it's floatprompt
-  // version: removed — system/package.json owns versioning
+// Required fields (every FloatPrompt has these)
+export const RequiredSchema = z.object({
+  id: z.string(),                        // how code/AI references it
+  title: z.string(),                     // what humans read
 });
 
-export const HumanSchema = z.object({
-  // Ownership (required)
-  author: z.string(),                    // who owns this (from global config)
-  intent: z.string(),                    // why it exists (one line)
+// Optional: Focus breaking
+export const StopSchema = z.string();    // mode directive, AI sees first
 
-  // Optional depth
+// Optional: Type discriminator
+export const TypeSchema = z.enum(["system", "custom"]);
+
+// Optional: Attribution
+export const HumanSchema = z.object({
+  author: z.string(),                    // who owns this
+  intent: z.string(),                    // why it exists
   context: z.string().optional(),        // additional context
 });
 
+// Optional: Persona
 export const AISchema = z.object({
-  // Persona (required)
-  role: z.string(),                      // what AI is when using this tool
-  // behavior, tone, pacing, approach → all go in requirements
+  role: z.string(),                      // what AI is when using this
 });
 
-export const RequirementsSchema = z.record(z.unknown());
-// AI's playground — intentionally unstructured
-// Each tool defines what it needs: phases, rules, output formats, etc.
+// Optional: Tool routing
+export const ToolRoutingSchema = z.object({
+  triggers: z.array(z.string()),         // when to use this tool
+  checks: z.array(z.string()),           // what it verifies
+  outputs: z.array(z.string()),          // what it produces
+});
 
+// Optional: Complex behavior
+export const RequirementsSchema = z.record(z.unknown());
+
+// Full schema (all fields, most optional)
 export const FloatPromptJsonSchema = z.object({
-  STOP: z.string(),                      // mode directive — AI sees this first
-  meta: MetaSchema,                      // identity
-  human: HumanSchema,                    // ownership
-  ai: AISchema,                          // persona
-  requirements: RequirementsSchema,      // tool-specific behavior
+  // Required
+  id: z.string(),
+  title: z.string(),
+
+  // Optional
+  STOP: StopSchema.optional(),
+  type: TypeSchema.optional(),
+  human: HumanSchema.optional(),
+  ai: AISchema.optional(),
+  triggers: z.array(z.string()).optional(),
+  checks: z.array(z.string()).optional(),
+  outputs: z.array(z.string()).optional(),
+  requirements: RequirementsSchema.optional(),
 });
 
 // Type exports
 export type FloatPromptJson = z.infer<typeof FloatPromptJsonSchema>;
-export type Meta = z.infer<typeof MetaSchema>;
 export type Human = z.infer<typeof HumanSchema>;
 export type AI = z.infer<typeof AISchema>;
+export type ToolRouting = z.infer<typeof ToolRoutingSchema>;

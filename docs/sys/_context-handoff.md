@@ -58,32 +58,40 @@ The `.md` files are build artifacts. Users see markdown. We maintain TypeScript.
 
 ## Current State
 
-**Folder structure created:**
+**Folder structure:**
 ```
 src/
-├── schema/        # ✅ Zod schemas (FloatPrompt, FloatDoc) — DONE
-├── partials/      # ✅ Template literal functions — DONE
-│   ├── duality.ts, status.ts, footer.ts, examples.ts, buoys.ts
+├── schema/        # ✅ Zod schemas (minimal required + optional fields)
+├── partials/      # ✅ Template functions (footer for tools, rest for boot.md)
+│   ├── footer.ts     # Used by tools
+│   ├── duality.ts, status.ts, buoys.ts, examples.ts  # For boot.md
 │   └── index.ts
-├── tools/         # ✅ First tool config — DONE
-│   └── float-sync.ts
+├── tools/         # ✅ Minimal tool configs
+│   └── float-sync.ts  # ~70 lines, minimal structure
 ├── static/        # Files copied as-is (boot.md)
 └── cli/           # CLI code
 ```
 
-**Schemas locked (2026-01-01):**
-- `FloatPromptJsonSchema` — STOP, meta{title,id,type}, human{author,intent}, ai{role}, requirements
-- `FloatDocSchema` — 8 fields (4 terrain + 4 attribution)
+**Schema simplified (2026-01-01):**
+- Required: `id`, `title` only
+- Optional: `STOP`, `type`, `human`, `ai`, `triggers`, `checks`, `outputs`, `requirements`
+- Like HTML: required structure minimal, everything else optional elements
 
-**Partials created (2026-01-01):**
-- `duality` — JSON + Markdown for dual condition tables
-- `status` — JSON + Markdown for status output format
-- `buoys` — JSON + Markdown for buoy prompts
-- `examples` — Markdown only for usage examples
-- `footer` — Markdown only for standard tagline
+**Partials separated:**
+- `footer` — used by tools (branding)
+- `duality`, `status`, `buoys`, `examples` — for boot.md (patterns explained once)
 
-**First tool config (2026-01-01):**
-- `float-sync.ts` — demonstrates partial usage, exports `compile()` function
+**Minimal tool pattern:**
+```typescript
+export const json = {
+  id: "float-sync",
+  title: "/float sync",
+  triggers: [...],
+  checks: [...],
+  outputs: [...],
+};
+// + markdown with process steps
+```
 
 **Next step:** Build script to compile tools → markdown.
 
@@ -96,11 +104,10 @@ src/
 | boot.md | Renamed from system.md, THE instruction file |
 | TypeScript native | No Handlebars, no React |
 | Zod for schemas | Types + validation, Vercel AI SDK pattern |
-| Schema → Partials → Configs | Three-layer separation |
-| meta: title, id, type | format/version removed (system-level) |
-| ai: just role | behavior/tone/etc. go to requirements |
-| requirements: loose | AI's playground, `Record<string, unknown>` |
-| meta.type: system/custom | Determines markdown validation strictness |
+| Required structure | `id` + `title` only, everything else optional |
+| Three tiers | Fullest/Fuller/Minimal (guidelines, not requirements) |
+| STOP optional | For focus breaking; chained tools inherit from boot.md |
+| Partials separation | footer for tools, rest for boot.md |
 | FloatDoc: 8 fields | 4 terrain + 4 attribution, description is routing signal |
 
 ## Reading Order
@@ -138,6 +145,6 @@ npm float install → .float/ appears
 
 ---
 
-*Created 2026-01-01 — updated after schema session*
+*Created 2026-01-01 — updated after required structure decisions*
 </md>
 </fp>

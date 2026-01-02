@@ -4,22 +4,26 @@
  * Use: Single import point for all partials
  *
  * Design principles:
- * 1. Clean imports — import { dualityMd, statusMd } from "./partials"
- * 2. All exports — types and functions
- * 3. Organized — grouped by partial
- * 4. Future-proof — easy to add more partials
+ * 1. Clean imports — import { footer } from "./partials"
+ * 2. Separation — tools use footer, boot.md uses the rest
+ * 3. Organized — grouped by usage context
+ * 4. Future-proof — boot.md partials ready when needed
  */
 
-// Duality — binary condition/action table
+// === Used by tools ===
+
+// Footer — standard branding (used in all output)
+export { footer } from "./footer";
+
+// === Used by boot.md (not individual tools) ===
+
+// Duality — binary condition/action pattern
 export { dualityJson, dualityMd } from "./duality";
 export type { Duality } from "./duality";
 
 // Status — command output format
 export { statusJson, statusMd } from "./status";
 export type { StatusOutput } from "./status";
-
-// Footer — standard branding
-export { footer } from "./footer";
 
 // Examples — usage demonstrations
 export { examplesMd } from "./examples";
