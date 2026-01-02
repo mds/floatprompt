@@ -19,9 +19,9 @@ Cloud Agents (build/maintain)          Local Session (understand/help)
         │                                       │
         ▼                                       ▼
    Maintains:                              Helps human:
-   - nav/ files                            - Build features
-   - context/ files                        - Debug issues
-   - logs/                                 - Navigate codebase
+   - _/map.md (structure)                  - Build features
+   - _/context.md (understanding)          - Debug issues
+   - _/logs/ (history)                     - Navigate codebase
 ```
 
 **Agents build. Local understands. AI orchestrates both.**
@@ -32,15 +32,22 @@ Cloud Agents (build/maintain)          Local Session (understand/help)
 
 ```
 .float/
-├── boot.md           # Orients Claude Code to context
-├── project/
-│   ├── context/      # Deep understanding (agent-maintained)
-│   ├── logs/         # Session history
-│   └── nav/          # Folder maps (agent-maintained)
-└── .version          # Installed version
+├── boot.md               # Orients Claude Code to context
+├── project/              # Mirrors project structure
+│   ├── _/                # Root meta
+│   │   ├── map.md        # Project structure
+│   │   ├── context.md    # Project understanding
+│   │   └── logs/         # Project history
+│   ├── src/
+│   │   └── _/            # src/ meta (recursive)
+│   └── docs/
+│       └── _/            # docs/ meta (recursive)
+└── .version              # Installed version
 
-.claude/commands/     # Thin wrappers (may be deprecated)
+.claude/commands/         # Thin wrappers (may be deprecated)
 ```
+
+**The `_/` convention:** Each tracked folder gets `_/` containing map.md, context.md, logs/. Logs drive freshness — new entry triggers map/context review.
 
 ---
 

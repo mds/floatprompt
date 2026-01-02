@@ -76,11 +76,18 @@ AI orchestrates ────── .float/ ──── Claude Code reads
 .float/
 ├── boot.md              ← Orients AI on when to use TS/CLI/buoys/cognition
 │
-└── project/             ← Agent-maintained context
-    ├── nav/             ← Folder maps (agent-generated)
-    ├── context/         ← Deep understanding (agent-generated)
-    └── logs/            ← Paper trail
+└── project/             ← Mirrors project structure
+    ├── _/               ← Root meta (project itself)
+    │   ├── map.md       ← Structure
+    │   ├── context.md   ← Understanding
+    │   └── logs/        ← History (freshness signal)
+    ├── src/
+    │   └── _/           ← src/ meta (recursive)
+    └── docs/
+        └── _/           ← docs/ meta (recursive)
 ```
+
+**The `_/` convention:** Every tracked folder gets `_/` containing map.md, context.md, logs/. Self-similar at every level.
 
 **AI orchestrates.** Delegates to TS/CLI/buoys, does cognitive work.
 
