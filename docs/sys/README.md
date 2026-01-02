@@ -21,11 +21,8 @@
 
   "requirements": {
     "reading_order": [
-      "1. This file (orientation)",
-      "2. docs/sys/problem.md (why — the problem and mechanism)",
-      "3. docs/sys/overview.md (what — how it works)",
-      "4. docs/sys/decisions/index.md (current locked decisions)",
-      "5. Look at src/ folder structure"
+      "1. docs/sys/boot.md (THE context setter — everything you need)",
+      "2. Drill into problem.md, overview.md, decisions/ only if needed"
     ],
     "do_not_read_unless_needed": [
       "artifacts/2025-12-31-context-compiler/*.md (outdated breadcrumbs)"
