@@ -28,38 +28,32 @@ This keeps context across sessions. The next Claude (or human) needs to know wha
 
 ```
 src/
-├── schema/             # TypeScript interfaces
+├── schema/             # Zod schemas
 │   ├── floatprompt.ts  # <fp><json><md> tool format
 │   ├── floatdoc.ts     # YAML frontmatter doc format
 │   └── index.ts        # Export all
 │
-├── partials/           # Template literal functions
-│   ├── duality.ts
-│   ├── status.ts
-│   ├── buoys.ts
-│   ├── footer.ts
-│   └── index.ts
-│
-├── tools/              # Tool source configs
-│   ├── float.ts
-│   ├── float-sync.ts
-│   └── ...
+├── tools/              # TS functions AI can call (small, focused)
+│   ├── scan.ts         # Scan folders (mechanical)
+│   ├── parse.ts        # Parse frontmatter (mechanical)
+│   ├── compare.ts      # Diff nav vs reality (mechanical)
+│   └── write.ts        # Write files (mechanical)
 │
 ├── static/             # Copied as-is to dist/
 │   ├── boot.md         # AI boot instructions
 │   └── project/        # Scaffolded project structure
 │
-├── cli/                # CLI code
+├── cli/                # Entry points
 │   └── index.ts
 │
-└── build.ts            # Compile src/ → dist/
+└── output/             # Markdown generators
+    └── templates.ts    # Produces .md files
 
 dist/                   # Build output (never edit)
 ├── cli/                # Compiled CLI (JS)
 └── templates/
     └── .float/
         ├── boot.md         # ← copied from src/static/
-        ├── tools/*.md      # ← compiled from src/tools/
         └── project/        # ← copied from src/static/
 ```
 

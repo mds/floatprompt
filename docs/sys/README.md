@@ -88,14 +88,13 @@ src/
 │   ├── floatprompt.ts
 │   ├── floatdoc.ts
 │   └── index.ts
-├── tools/           # TS functions that DO things (not just configs)
-│   ├── sync.ts      # Scans folders, compares to nav, calls AI for judgment
-│   ├── fix.ts       # Detects drift, proposes fixes
-│   └── context.ts   # Generates terrain maps
-├── cli/             # Orchestrator
-│   └── index.ts     # float init, float sync, etc.
-├── ai/              # AI judgment layer
-│   └── judge.ts     # Wrapper for AI calls when needed
+├── tools/           # TS functions AI can call (small, focused)
+│   ├── scan.ts      # Scan folders (mechanical)
+│   ├── parse.ts     # Parse frontmatter (mechanical)
+│   ├── compare.ts   # Diff nav vs reality (mechanical)
+│   └── write.ts     # Write files (mechanical)
+├── cli/             # Entry points
+│   └── index.ts     # float init, float sync
 └── output/          # Markdown generators
     └── templates.ts # Produces .md files
 ```
@@ -130,9 +129,9 @@ src/
 ## What's Next
 
 1. Decide Vercel infrastructure (AI SDK, Sandbox)
-2. Build first TS tool (sync) — scan folders, compare, AI judges
+2. Build first TS functions (scan.ts, compare.ts) — mechanical work AI can call
 3. Define boot.md for local sessions
-4. Build CLI orchestrator + cloud deployment
+4. Build CLI entry points + cloud deployment
 
 ## What's Outdated
 
