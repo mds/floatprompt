@@ -116,7 +116,7 @@ src/
 | **AI orchestrates** | AI delegates to TS/CLI/buoys, does cognitive work (judgment, generation) |
 | **Buoy principle** | Never do alone what 3-4 buoys can do together — parallelize |
 | **Agents build, local understands** | Cloud agents maintain .float/, local Claude Code helps human build |
-| **Cloud-first design** | Think unlimited agents, deploy local as fallback |
+| **Nav structure** | Mirror project in `.float/project/`, `_/` contains map.md, context.md, logs/ |
 | Zod for schemas | Types + validation |
 | Required structure | `id` + `title` only, everything else optional |
 
@@ -138,6 +138,7 @@ src/
 - `artifacts/2025-12-31-context-compiler/` — Archived, breadcrumbs from early planning
 - Markdown-only tool execution model — superseded by TypeScript system
 - Partials architecture — superseded (tools are TS functions now)
+- Separate `nav/`, `context/`, `logs/` folders — superseded by `_/` convention
 
 ## The Big Picture
 
@@ -151,6 +152,6 @@ float sync      → AI orchestrates → spawns buoys → calls TS → writes .md
 
 ---
 
-*Updated 2026-01-02 — AI orchestrates decision locked*
+*Updated 2026-01-02 — Nav structure (`_/` convention) locked*
 </md>
 </fp>
