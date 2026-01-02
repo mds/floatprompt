@@ -701,36 +701,49 @@ await Promise.all(folders.map(f => sandbox.exec(() => scanFolder(f))));
 
 ## Open Questions
 
-### Archive folder structure
+### Archive folder structure (DECIDED)
 
-Should `.float/project/` consolidate to one archival folder?
+**Decision:** Use archival science hierarchy with flat files within month folders.
 
-**Current structure:**
+**Structure:**
 ```
-.float/project/
-├── nav/
-├── context/
-└── logs/
-```
-
-**Proposed structure:**
-```
-.float/project/
-├── nav/
-└── archive/
-    ├── index.md        # collection-level map
-    ├── decisions/      # series
-    │   └── index.md    # series map
-    └── sessions/       # series
-        └── index.md    # series map
+decisions/
+├── index.md                    # Current locked + map (Collection)
+└── 2026/                       # Series (year)
+    ├── index.md                # Annual summary
+    └── 01-jan/                 # File (month, sortable + readable)
+        ├── index.md            # Monthly summary
+        ├── 02-architecture.md  # Item (DD-topic.md)
+        ├── 02-token-economy.md
+        └── 02-archival-structure.md
 ```
 
-**The archival principle:** One folder with proper arrangement (Collection → Series → File → Item) instead of multiple folders (logs/, context/). Each level has an index.md for routing.
+**Naming conventions:**
+- Folders: `YYYY/`, `MM-mon/` (e.g., `01-jan/`)
+- Files: `DD-topic.md` (e.g., `02-architecture.md`)
+- Summaries: always `index.md` at each level
 
-**To decide:**
-- Does this simplify or complicate?
-- How do nav/ and archive/ relate?
-- When do items fold into files?
+**Archival hierarchy:**
+- Collection = `decisions/`
+- Series = year (`2026/`)
+- File = month (`01-jan/`)
+- Item = daily logs (`DD-topic.md`)
+
+**Folding pattern:**
+- `index.md` at each level summarizes contents below
+- Fresh session reads `decisions/index.md` (~500 tokens)
+- Drills down only when needed
+- Day folders created only if 10+ logs on one day
+
+**Why this works:**
+- Files sort naturally by date
+- Multiple logs per day share day number
+- Month folder stays flat until unwieldy
+- `index.md` stays lean at every level
+
+**First application:** Restructure current `decisions.md` into this format.
+
+**Do not revisit.** Apply to sessions, context, and other archives.
 
 ---
 
