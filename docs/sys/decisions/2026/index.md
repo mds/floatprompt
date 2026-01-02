@@ -1,19 +1,23 @@
 # 2026 Decisions
 
-Annual summary for 2026.
+Context-compiler development year.
 
 ---
 
-## Summary
+## Themes
 
-Context-compiler development year. Major architectural decisions established.
+- **AI orchestrates** — AI delegates to TS/CLI/buoys, does cognitive work
+- **Token economy** — Minimum tokens, maximum accuracy
+- **Archival structure** — Collection/Series/File/Item hierarchy
+
+---
 
 ## Months
 
-| Month | Decisions |
-|-------|-----------|
-| [01-jan](01-jan/) | Founding decisions, archival structure |
+| Month | Summary |
+|-------|---------|
+| [01-jan](01-jan/) | Founding architecture, execution model, archival structure |
 
 ---
 
-*Updated as months complete.*
+*Drill to month for detailed summary.*
