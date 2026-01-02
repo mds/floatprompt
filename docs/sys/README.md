@@ -22,9 +22,9 @@
   "requirements": {
     "reading_order": [
       "1. This file (orientation)",
-      "2. docs/sys/overview.md (how FloatPrompt works, buoys)",
-      "3. docs/sys/decisions.md (ALL architecture decisions)",
-      "4. docs/sys/problem.md (what we're solving)",
+      "2. docs/sys/problem.md (why — the problem and mechanism)",
+      "3. docs/sys/overview.md (what — how it works)",
+      "4. docs/sys/decisions.md (all architecture decisions)",
       "5. Look at src/ folder structure"
     ],
     "do_not_read_unless_needed": [

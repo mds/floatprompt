@@ -701,6 +701,39 @@ await Promise.all(folders.map(f => sandbox.exec(() => scanFolder(f))));
 
 ## Open Questions
 
+### Archive folder structure
+
+Should `.float/project/` consolidate to one archival folder?
+
+**Current structure:**
+```
+.float/project/
+├── nav/
+├── context/
+└── logs/
+```
+
+**Proposed structure:**
+```
+.float/project/
+├── nav/
+└── archive/
+    ├── index.md        # collection-level map
+    ├── decisions/      # series
+    │   └── index.md    # series map
+    └── sessions/       # series
+        └── index.md    # series map
+```
+
+**The archival principle:** One folder with proper arrangement (Collection → Series → File → Item) instead of multiple folders (logs/, context/). Each level has an index.md for routing.
+
+**To decide:**
+- Does this simplify or complicate?
+- How do nav/ and archive/ relate?
+- When do items fold into files?
+
+---
+
 ### boot.md content
 
 What does boot.md contain now that agents build and local understands?
