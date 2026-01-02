@@ -24,6 +24,39 @@ AI agents need to understand projects quickly and deeply. Currently:
 4. **Is writable** — AI can update context as it learns
 5. **Scales** — works for 10 files or 10,000 files
 
+## The Mechanism
+
+FloatPrompt is an information retrieval system optimized for AI token economy.
+
+**The principle:**
+```
+Goal: Minimum tokens → Maximum accuracy
+Method: Right information → Right time
+```
+
+**Archival science lens:**
+
+Borrowed from archival "arrangement and description":
+```
+Collection → Series → File → Item
+```
+
+Each level has:
+- **Compression** — Less detail than level below
+- **Pointers** — Can always drill down
+- **Description** — Routing signal ("do I need to go deeper?")
+
+**The token math:**
+
+| Approach | Tokens | Result |
+|----------|--------|--------|
+| Read everything | 10,000+ | Noise, confusion, context overflow |
+| Read with structure | ~200 | Precise, relevant, room to work |
+
+AI skims maps at each level, follows descriptions down, reads only what's needed.
+
+> Structure context. Route precisely. Minimum tokens, maximum understanding.
+
 ## The Architecture
 
 ```
