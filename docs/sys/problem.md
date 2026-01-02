@@ -30,18 +30,18 @@ AI agents need to understand projects quickly and deeply. Currently:
 Cloud Agents                              Local Session
      │                                         │
      ▼                                         ▼
-TypeScript tools ──── .float/ ──── Claude Code reads
-     │                   │                     │
-     ▼                   ▼                     ▼
-Maintain context    boot.md              Help human build
-(nav/, context/)    (orientation)        (with full context)
+AI orchestrates ────── .float/ ──── Claude Code reads
+├── TS functions            │                  │
+├── CLI commands            ▼                  ▼
+└── Buoys (parallel)    boot.md          Help human build
+                        (orientation)    (with full context)
 ```
 
-**Agents build. Local understands.**
+**Agents build. Local understands. AI orchestrates both.**
 
 ```
 .float/
-├── boot.md              ← Orients Claude Code to context
+├── boot.md              ← Orients AI on when to use TS/CLI/buoys/cognition
 │
 └── project/             ← Agent-maintained context
     ├── nav/             ← Folder maps (agent-generated)
@@ -49,7 +49,7 @@ Maintain context    boot.md              Help human build
     └── logs/            ← Paper trail
 ```
 
-**TypeScript maintains.** Agents run continuously, keep context fresh.
+**AI orchestrates.** Delegates to TS/CLI/buoys, does cognitive work.
 
 **Markdown is interface.** What humans and Claude Code read.
 
@@ -111,7 +111,7 @@ If yes to some → evaluate tradeoffs.
 - No one cares enough to adopt
 
 **The agent-based architecture directly addresses the biggest risk (maintenance burden):**
+- AI orchestrates, delegates to TS/CLI/buoys → efficient, parallel
 - Agents run continuously → context stays fresh
-- TypeScript does mechanical work → no session dependency
-- Cloud execution → scales infinitely
+- Cloud execution → scales infinitely (unlimited buoys)
 - Human only sees maintained context → zero maintenance burden on user

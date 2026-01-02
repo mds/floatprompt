@@ -142,16 +142,16 @@ src/
 
 ## The Big Picture
 
-**Code orchestrates. AI judges. .md is the interface.**
+**AI orchestrates. TS/CLI/Buoys execute. AI also thinks.**
 
 ```
 float init      → TypeScript scaffolds .float/
-float sync      → TypeScript scans → AI judges (if needed) → TypeScript writes .md
+float sync      → AI orchestrates → spawns buoys → calls TS → writes .md
 /float          → Claude Code reads boot.md → oriented for session
 ```
 
 ---
 
-*Updated 2026-01-02 — TypeScript system decision locked*
+*Updated 2026-01-02 — AI orchestrates decision locked*
 </md>
 </fp>
