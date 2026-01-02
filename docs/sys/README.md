@@ -45,32 +45,38 @@
 
 ## What We're Building
 
-FloatPrompt is a **TypeScript system that produces markdown**:
+FloatPrompt is an **AI-orchestrated context system**:
 
 ```
-TypeScript (execution) → Markdown (interface) → AI reads/writes
-                      ↘ AI (judgment layer) ↗
+AI (orchestrator)
+├── TypeScript functions — mechanical work (scan, parse, write)
+├── CLI commands — system operations (git, shell)
+├── Buoys (subagents) — parallel work
+└── Own cognition — judgment, generation, decisions
 ```
 
-- **TypeScript** does mechanical work (scanning, comparing, scaffolding)
+- **AI orchestrates** — decides what to do, delegates appropriately
+- **TypeScript** provides speed and reliability for mechanical work
+- **Buoys** enable parallelization — never do alone what 3-4 buoys can do together
 - **Markdown** is the interface (what AI and humans read/write)
-- **AI** is the judgment layer (called when decisions needed, not for execution)
 
-Users see `.float/` with markdown. Behind the scenes, TypeScript does the heavy lifting.
+Users see `.float/` with markdown. AI orchestrates everything behind the scenes.
 
 ## Current State vs Target
 
 | What | Current | Target |
 |------|---------|--------|
-| Tools | 17 markdown files in `.float/tools/` (4-12KB each, AI executes) | TypeScript functions in `src/tools/` |
-| Execution | AI reads markdown, runs shell commands | TypeScript executes, AI judges when needed |
-| Boot file | `.float/float.md` (v0.16.0, full protocol) | `boot.md` (orientation only) |
-| CLI | `bin/floatprompt.js` (scaffold only) | `src/cli/` (full orchestrator) |
+| Tools | 17 markdown files in `.float/tools/` (4-12KB each) | TS functions AI can call + buoys for parallel work |
+| Execution | AI does everything alone, serial | AI orchestrates TS/CLI/buoys, parallelizes |
+| Boot file | `.float/float.md` (v0.16.0, full protocol) | `boot.md` (teaches AI when to use TS/CLI/buoys/cognition) |
+| CLI | `bin/floatprompt.js` (scaffold only) | `src/cli/` (entry points) |
 
 **The transformation:**
 ```
-OLD: AI reads float-sync.md → AI runs `ls docs/` → AI compares → AI writes
-NEW: sync.ts scans folders → sync.ts compares → AI: "good description?" → sync.ts writes
+OLD: AI reads float-sync.md → AI does everything alone → slow, serial
+NEW: AI reads boot.md → spawns buoys for parallel checks
+                      → calls TS functions for mechanical work
+                      → does cognitive work (descriptions, judgment)
 ```
 
 ## Current State (2026-01-02)
@@ -99,15 +105,17 @@ src/
 - Optional: `STOP`, `type`, `human`, `ai`, `triggers`, `checks`, `outputs`, `requirements`
 
 **Execution model (locked):**
-- TypeScript does mechanical work (scanning, comparing, writing)
-- AI called only for judgment (is this description good? what should this folder be named?)
-- Markdown is the output interface
+- AI orchestrates — delegates to TS/CLI/buoys, does cognitive work
+- TypeScript for mechanical work (scanning, comparing, writing)
+- Buoys for parallel work — never do alone what buoys can do together
+- Markdown is the interface
 
 ## Key Decisions (docs/sys/decisions.md)
 
 | Decision | Summary |
 |----------|---------|
-| **TypeScript system** | TS does mechanical work, AI for judgment only, markdown is interface |
+| **AI orchestrates** | AI delegates to TS/CLI/buoys, does cognitive work (judgment, generation) |
+| **Buoy principle** | Never do alone what 3-4 buoys can do together — parallelize |
 | **Agents build, local understands** | Cloud agents maintain .float/, local Claude Code helps human build |
 | **Cloud-first design** | Think unlimited agents, deploy local as fallback |
 | Zod for schemas | Types + validation |

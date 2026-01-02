@@ -11,9 +11,10 @@ Cloud Agents (build/maintain)          Local Session (understand/help)
         │                                       │
         ▼                                       ▼
 ┌─────────────────┐                    ┌─────────────────┐
-│  TypeScript     │                    │  Claude Code    │
-│  tools in       │───── .float/ ─────│  reads boot.md  │
-│  Vercel Sandbox │                    │  has context    │
+│  AI orchestrates│                    │  Claude Code    │
+│  ├── TS funcs   │───── .float/ ─────│  reads boot.md  │
+│  ├── CLI cmds   │                    │  has context    │
+│  └── Buoys      │                    │  spawns buoys   │
 └─────────────────┘                    └─────────────────┘
         │                                       │
         ▼                                       ▼
@@ -23,7 +24,7 @@ Cloud Agents (build/maintain)          Local Session (understand/help)
    - logs/                                 - Navigate codebase
 ```
 
-**Agents build. Local understands.**
+**Agents build. Local understands. AI orchestrates both.**
 
 ---
 
@@ -45,13 +46,18 @@ Cloud Agents (build/maintain)          Local Session (understand/help)
 
 ## Execution Model
 
-| Layer | Role | Example |
-|-------|------|---------|
-| **TypeScript** | Mechanical work | Scan folders, compare files, generate nav |
-| **AI judgment** | Decisions when needed | "Is this description accurate?" |
-| **Markdown** | Interface | What humans and Claude Code read |
+AI orchestrates, delegating to 4 execution modes:
 
-**Code orchestrates. AI judges. .md is the interface.**
+| Mode | When to use | Example |
+|------|-------------|---------|
+| **TypeScript** | Mechanical, deterministic | Scan folders, parse frontmatter, write files |
+| **CLI** | System operations | `git status`, file operations |
+| **Buoys** | Parallel work | Check 10 nav files simultaneously |
+| **Cognition** | Judgment, creativity | Generate descriptions, decide naming |
+
+**AI orchestrates. TS/CLI/Buoys execute. AI also thinks.**
+
+> Never do alone what 3-4 buoys can do together.
 
 ---
 
@@ -61,13 +67,14 @@ Cloud Agents (build/maintain)          Local Session (understand/help)
 
 ```bash
 # Agents run continuously or on triggers
-float sync    # TypeScript scans → AI judges → TypeScript writes
+float sync    # AI orchestrates → spawns buoys → calls TS → writes
 float fix     # Detects drift → proposes fixes
 float context # Generates terrain maps
 ```
 
+- AI orchestrates, delegates to TS/CLI/buoys
 - Runs in Vercel Sandbox (isolated, scalable)
-- Unlimited parallel agents
+- Unlimited parallel buoys
 - Maintains .float/ automatically
 - Triggered by webhooks, cron, or manual
 
@@ -86,14 +93,16 @@ float context # Generates terrain maps
 
 ## Tool Design Principles
 
-Because agents are cheap (cloud, parallel), tools should be:
+Because buoys are cheap (cloud, parallel), design for parallelization:
 
 | Principle | Why |
 |-----------|-----|
 | Small, focused | One tool = one job |
-| Composable | Orchestrator combines tools |
-| Stateless | No shared context between agents |
+| Parallelizable | Spawn buoys, don't do alone |
+| Stateless | No shared context between buoys |
 | Structured output | JSON, not prose |
+
+> Never do alone what 3-4 buoys can do together.
 
 ---
 

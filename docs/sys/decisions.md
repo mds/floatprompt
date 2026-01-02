@@ -657,72 +657,72 @@ Content here.
 
 ## Execution Model
 
-### TypeScript system that produces markdown
+### AI orchestrates, code executes
 
-**Decision:** FloatPrompt is a TypeScript system that produces markdown, not a markdown system that AI maintains.
+**Decision:** AI (Claude Code) is the orchestrator. It delegates to TypeScript functions, CLI commands, and buoys (subagents) as needed. AI also does cognitive work (judgment, generation).
 
 **The architecture:**
 ```
-TypeScript (execution) → Markdown (interface) → AI reads/writes
-                      ↘ AI (judgment layer) ↗
+AI (orchestrator)
+├── TypeScript functions — speed, predictability, mechanical work
+├── CLI commands — system operations (git, shell)
+├── Buoys (subagents) — parallel work, spawned for tasks
+└── Own cognition — judgment, generation, decisions
 ```
 
-| Layer | Role |
-|-------|------|
-| **TypeScript** | Orchestration, mechanical work, scaffolding |
-| **Markdown** | Interface — what AI and humans read/write |
-| **AI calls** | Judgment — when decisions are needed, not execution |
+| Mode | When to use | Example |
+|------|-------------|---------|
+| **TypeScript** | Mechanical, deterministic | Scan folders, parse frontmatter, write files |
+| **CLI** | System operations | `git status`, file operations |
+| **Buoys** | Parallel work | Check 10 nav files simultaneously |
+| **Cognition** | Judgment, creativity | Generate descriptions, decide naming |
 
-**Before (markdown-centric):**
-```
-/float-sync → AI reads markdown → AI scans folders → AI compares → AI writes
-```
-- AI does mechanical work
-- Session-dependent
-- Maintenance burden on AI
-- Why solution is only "partially validated"
+**The buoy principle:**
+> Never do alone what 3-4 buoys can do together.
 
-**After (TypeScript-centric):**
+AI should parallelize whenever possible. Buoys are cheap — spawn many.
+
+**Before (markdown-only):**
 ```
-float sync → TS scans folders → TS compares → AI judges (if needed) → TS writes
+/float-sync → AI reads markdown → AI does everything alone → slow, serial
 ```
-- Code does mechanical work (fast, deterministic, testable)
-- AI only for judgment (focused, cheaper)
-- Not session-dependent
-- Structured outputs via Zod
+
+**After (AI orchestrates):**
+```
+/float-sync → AI reads boot.md → AI spawns buoys for parallel checks
+           → AI calls TS functions for mechanical work
+           → AI does cognitive work (descriptions, judgment)
+           → AI writes results
+```
 
 **What this means for src/:**
 ```
 src/
-├── schema/          # Zod schemas (exists)
-├── tools/           # Actual TS functions, not just configs
-│   ├── sync.ts      # Scans, compares, calls AI for judgment
-│   ├── fix.ts       # Detects drift, proposes fixes
-│   └── context.ts   # Generates terrain maps
-├── cli/             # Orchestrator
-│   └── index.ts     # float init, float sync, etc.
-├── ai/              # AI judgment layer
-│   └── judge.ts     # Wrapper for AI calls when needed
+├── schema/          # Zod schemas (validation)
+├── tools/           # TS functions AI can call
+│   ├── scan.ts      # Scan folders (mechanical)
+│   ├── parse.ts     # Parse frontmatter (mechanical)
+│   ├── compare.ts   # Diff nav vs reality (mechanical)
+│   └── write.ts     # Write files (mechanical)
+├── cli/             # Entry points
+│   └── index.ts     # float init, float sync
 └── output/          # Markdown generators
     └── templates.ts # Produces .md files
 ```
 
-**User experience stays the same:**
-```bash
-float init          # TypeScript scaffolds .float/
-float sync          # TypeScript scans, AI judges, TypeScript writes
-```
-
-**boot.md still exists** — it orients Claude Code sessions. But heavy lifting is TypeScript.
+**boot.md is the OS:**
+- Teaches AI how to operate in `.float/`
+- When to use TS vs CLI vs buoys vs cognition
+- The "instruction manual" for the invisible OS
 
 **Rationale:**
-- Maintenance burden was the biggest risk (validation assessment)
-- Mechanical work should be code, not AI
-- AI is expensive and session-dependent
-- TypeScript is testable, deterministic, persistent
-- Markdown remains the interface — invisible to users
+- AI understands context — knows when to use each tool
+- Buoys enable parallelization — massive speedup
+- TypeScript provides reliability — deterministic, testable
+- AI cognition provides quality — descriptions, decisions
+- Adaptability — AI can change approach mid-task
 
-**Do not revisit.** This is the core architectural direction.
+**Do not revisit.** AI orchestrates. Code/CLI/Buoys execute. AI also thinks.
 
 ---
 
