@@ -294,20 +294,32 @@ Inherited from float-os.md (v0.16.0 vision):
 
 ## Current State (2026-01-02)
 
+**Warning: Existing `.float/` is STALE.** The `.float/` folder in this repo uses the OLD structure (nav/, context/, logs/ as separate folders). Ignore it — it's from a previous iteration. The NEW structure (`_/` convention) is documented here but not yet implemented.
+
+**docs/sys/ is a manual prototype.** We're building philosophy and decisions that will become automated TypeScript + agents. This is the "field operation" — manually doing what agents will do automatically.
+
 **Folder structure:**
 ```
 src/
-├── schema/          # Zod schemas
+├── schema/          # Zod schemas (exists)
 │   ├── floatprompt.ts
 │   ├── floatdoc.ts
 │   └── index.ts
-├── tools/           # TS functions AI can call
+├── tools/           # TS functions AI can call (empty)
 ├── cli/             # Entry points
 └── output/          # Markdown generators
+
+docs/sys/            # Manual prototype (this folder)
+├── boot.md          # This file — dev context
+├── logs/            # Archive (floatprompt-governed)
+├── problem.md       # The "why"
+└── overview.md      # The "how"
 ```
 
-**What exists:** Schema definitions, folder structure
+**What exists:** Schema definitions, folder structure, manual archive prototype
 **What's next:** Build first TS functions (scan, compare), define production boot.md
+
+**Note:** This is `docs/sys/boot.md` — dev context for building FloatPrompt. Production `boot.md` (what users get in `.float/`) is an open question.
 
 ---
 
@@ -319,7 +331,13 @@ When making decisions:
 3. Update year's `index.md` if new theme emerges
 4. Update root `logs/index.md` only if new year
 
-This is the paper trail for cross-session consistency.
+After updating logs/, also verify:
+- This file's Key Decisions section (if decision is significant)
+- `problem.md` and `overview.md` if meaning changed
+- Any file that references changed content
+- Run "double check everything" before committing
+
+This is the paper trail for cross-session consistency. The manual process (~15 min) is what agents will automate.
 
 ---
 
@@ -329,6 +347,7 @@ Only read these if you need deeper context:
 
 | File | When to read |
 |------|--------------|
+| `logs/index.md` | **The floatprompt that governs archive protocol** |
 | `problem.md` | Understanding the "why" in depth |
 | `overview.md` | Understanding the "how" in depth |
 | `logs/2026/01-jan/index.md` | All locked decisions with full detail |
@@ -351,6 +370,6 @@ float sync      → AI orchestrates → spawns buoys → calls TS → writes .md
 
 ---
 
-*Created 2026-01-02 — Full context captured*
+*Created 2026-01-02 — Updated after session demonstrating manual recursive maintenance*
 </md>
 </fp>
