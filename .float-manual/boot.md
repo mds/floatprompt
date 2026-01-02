@@ -294,7 +294,7 @@ Inherited from float-os.md (v0.16.0 vision):
 
 ## Current State (2026-01-02)
 
-**Warning: Existing `.float/` is STALE.** The `.float/` folder in this repo uses the OLD structure (nav/, context/, logs/ as separate folders). Ignore it — it's from a previous iteration. The NEW structure (`_/` convention) is documented here but not yet implemented.
+**Warning: `.float-old/` is STALE.** The `.float-old/` folder (renamed from `.float/`) uses the OLD structure (nav/, context/, logs/ as separate folders). Ignore it — it's from a previous iteration. The NEW structure (`_/` convention) is documented here but not yet implemented.
 
 **.float-manual/ is a manual prototype.** We're building philosophy and decisions that will become automated TypeScript + agents. This is the "field operation" — manually doing what agents will do automatically.
 
@@ -352,7 +352,7 @@ Only read these if you need deeper context:
 | `overview.md` | Understanding the "how" in depth |
 | `logs/2026/01-jan/index.md` | All locked decisions with full detail |
 | `logs/2026/01-jan/2026-01-02-nav-structure.md` | Full nav structure rationale |
-| `.float/templates/float-os.md` | The v0.16.0 origin, Map/Decide/Structure methodology |
+| `.float-old/templates/float-os.md` | The v0.16.0 origin, Map/Decide/Structure methodology |
 
 ---
 

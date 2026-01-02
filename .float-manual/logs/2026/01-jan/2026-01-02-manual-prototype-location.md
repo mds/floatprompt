@@ -39,9 +39,20 @@ docs/sys/           →  .float-manual/
 - Move comments.md to `src/_/context.md`
 - Stabilize, then extract polished docs to `docs/sys/`
 
+## Stale References
+
+**Archive files in `artifacts/archive/2025/12-dec/2025-12-31-context-compiler/` contain ~20 references to `docs/sys/`.**
+
+These are intentionally left as-is:
+- Archives are frozen history — they reference where things *were*
+- Updating them would falsify the historical record
+- The move is documented here; that's the paper trail
+
+**For future AI sessions:** When you see `docs/sys/` in archive files, it now means `.float-manual/`. Do not "fix" archive references — document the mapping in logs instead.
+
 ## Related
 
-- Added `.float/README.md` warning about stale structure
+- Renamed `.float/` → `.float-old/` (stale structure from previous iteration)
 - Updated self-references in moved files
 
 ---
