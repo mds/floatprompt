@@ -1,5 +1,7 @@
 # The Problem We're Solving
 
+> **Note:** `.float/` in this doc refers to the TARGET structure we're building. The current `.float-old/` in this repo is stale (old structure).
+
 **The invisible OS for AI.**
 
 FloatPrompt is not a file format. Not a CLI tool. It's a **recursive context system** that installs into any project and evolves with it.

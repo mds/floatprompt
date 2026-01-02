@@ -1,5 +1,7 @@
 # How FloatPrompt Works
 
+> **Note:** `.float/` in this doc refers to the TARGET structure we're building. The current `.float-old/` in this repo is stale (old structure).
+
 Overview of the FloatPrompt system — architecture, execution model, and goals.
 
 ---
