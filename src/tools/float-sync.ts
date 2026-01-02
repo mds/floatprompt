@@ -11,7 +11,6 @@
  */
 
 import type { FloatPromptJson } from "../schema/floatprompt";
-import { footer } from "../partials";
 
 // Tool config (minimal)
 export const json: FloatPromptJson = {
@@ -53,8 +52,7 @@ Verify nav files match reality and fix discrepancies.
 ## Exclusions
 
 Never flagged: dotfiles, \`.float/\`, \`node_modules/\`, \`dist/\`, \`build/\`, \`.git/\`, lock files.
-
-${footer()}`;
+`;
 
 // Compile to FloatPrompt format
 export const compile = (): string => {

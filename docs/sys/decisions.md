@@ -565,9 +565,9 @@ The wrapper is the format. That's it.
 
 ---
 
-### Partials simplification (implication of mini FloatPrompts)
+### Tools are minimal, no partials needed
 
-**Decision:** Most partials move to boot.md. Tool configs become minimal.
+**Decision:** Tools are minimal configs. No partials required.
 
 **Before (each tool is self-contained):**
 ```typescript
@@ -579,30 +579,32 @@ const examples: Example[] = [ ... ]
 // Generates ~300 line .md file
 ```
 
-**After (tool inherits from boot.md):**
+**After (minimal tool):**
 ```typescript
-// src/tools/float-sync.ts - ~30 lines
-export const config = {
+// src/tools/float-sync.ts - ~60 lines
+export const json = {
   id: "float-sync",
   title: "/float sync",
-  triggers: ["nav out of sync", "after file changes"],
-  checks: ["nav coverage", "table accuracy"],
-  outputs: ["updated nav", "sync report"],
-}
-// + markdown with process steps
-// Generates ~30 line .md file
+  triggers: [...],
+  checks: [...],
+  outputs: [...],
+};
+
+export const markdown = `# /float sync
+...process steps...
+`;
 ```
 
-**What moves to boot.md:**
-- Duality pattern explanation (one example, AI recognizes pattern)
-- Buoy prompts (common patterns, not per-tool)
-- Examples (canonical examples, not per-tool)
-- Status output format (one format, all tools follow)
+**What goes in boot.md:**
+- Pattern explanations (duality, buoys, etc.)
+- Behavioral rules
+- Boot sequence
 
-**What stays in partials:**
-- `footer.ts` — consistent branding in all output
+**What goes in tools:**
+- Routing info (triggers, checks, outputs)
+- Process steps (markdown)
 
-**Rationale:** Tools inherit behavior from boot.md. They don't repeat it.
+**Rationale:** Schema + Tool Config is sufficient. Partials are ad-hoc when 3+ tools share identical content.
 
 ---
 
@@ -643,6 +645,32 @@ Content here.
 | `requirements` | Complex behavior |
 
 **Rationale:** Like HTML — required structure is minimal, optional elements added based on what you're building.
+
+---
+
+### Partials are ad-hoc, not core architecture
+
+**Decision:** No built-in partials. Add only when needed.
+
+**Rationale:**
+- Schema + Tool Config is sufficient
+- Most patterns aren't universal (duality, status, buoys are CLI-tool specific)
+- Other frameworks (Next.js, etc.) don't have speculative abstraction layers
+- YAGNI — build when needed, not speculatively
+
+**When to use partials:**
+- 3+ tools share **identical** content
+- Changing one should change all
+- Content is mechanical, not creative
+
+**When NOT to use:**
+- Speculatively ("we might need this")
+- For content that appears once
+
+**Implementation:**
+- `src/partials/` folder exists but is empty
+- `README.md` documents the decision
+- Add partials ad-hoc when repetition is found
 
 ---
 
