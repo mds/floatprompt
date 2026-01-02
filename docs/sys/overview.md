@@ -126,4 +126,4 @@ Then either:
 
 ---
 
-*Canonical overview for new sessions. See `README.md` for reading order.*
+*Canonical overview for new sessions. See `boot.md` for full context.*
