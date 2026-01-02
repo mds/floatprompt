@@ -1,0 +1,200 @@
+# Founding Decisions
+
+**Date:** 2026-01-02 (captured)
+**Status:** Locked
+
+Original architecture, technology, schema, and execution model decisions for context-compiler.
+
+---
+
+## Architecture
+
+### src/ → dist/ (conventional)
+
+**Decision:** All source lives in `src/`, all output goes to `dist/`.
+
+```
+src/
+├── schema/             # Zod schemas
+├── tools/              # TS functions AI can call
+├── static/             # Copied as-is to dist/
+├── cli/                # Entry points
+└── output/             # Markdown generators
+
+dist/                   # Build output (never edit)
+```
+
+**Rationale:** This is how Next.js, React, and every TypeScript npm package works.
+
+---
+
+### npm = install only, AI = orchestrator
+
+**Decision:** `float init` creates .float/. Everything else is AI-driven.
+
+**Flow:**
+```
+float init → .float/ appears
+/float → AI reads boot.md → AI orchestrates → code executes
+```
+
+---
+
+### boot.md (not system.md)
+
+**Decision:** Rename system.md to boot.md. It's THE instruction file for AI.
+
+**Contains:**
+- Orientation sequence
+- Deep dive triggers
+- Delegation rules
+- Buoy patterns
+
+---
+
+## Technology
+
+### TypeScript native
+
+**Decision:** Use TypeScript template literals for all templating. No Handlebars, no React.
+
+**Rationale:** Native, typed, IDE-supported, zero dependencies.
+
+---
+
+### Zod for schemas
+
+**Decision:** Use Zod for schema definitions.
+
+**Rationale:**
+- Industry standard for AI tooling
+- Runtime validation
+- Single source of truth (types + validation)
+- `z.infer<typeof Schema>` for TypeScript types
+
+---
+
+### Two formats: FloatPrompt + FloatDoc
+
+| Format | Structure | Use |
+|--------|-----------|-----|
+| FloatPrompt | `<fp><json><md></fp>` | Tools (behavior) |
+| FloatDoc | YAML frontmatter + markdown | Maps, context, docs |
+
+---
+
+## Schema
+
+### Required: id + title only
+
+**Decision:** Minimal required structure.
+
+```xml
+<fp>
+<json>{ "id": "thing-id", "title": "Thing Title" }</json>
+<md>Content here.</md>
+</fp>
+```
+
+Everything else optional: STOP, type, human, ai, triggers, checks, outputs, requirements.
+
+---
+
+### Meta fields: id required, format/version removed
+
+**Before:**
+```json
+"meta": { "title": "...", "id": "...", "format": "floatprompt", "version": "0.17.0" }
+```
+
+**After:**
+```json
+"meta": { "title": "...", "id": "..." }
+```
+
+**Rationale:** System-level concerns stay at system level. Files contain only what's unique.
+
+---
+
+### AI section: just role
+
+**Decision:** `ai` contains only `role`. Behavior goes in `requirements`.
+
+**Before:**
+```json
+"ai": { "role": "Navigator", "behavior": "...", "tone": "..." }
+```
+
+**After:**
+```json
+"ai": { "role": "Navigator" },
+"requirements": { "behavior": "...", "tone": "..." }
+```
+
+---
+
+### Requirements stays loose
+
+**Decision:** `requirements` is `Record<string, unknown>`.
+
+**Rationale:** AI's playground for emergent, tool-specific behavior.
+
+---
+
+### Meta type: system vs custom
+
+**Decision:** `meta.type` determines markdown validation strictness.
+
+- **system:** Required sections (Duality, Status Output, Examples)
+- **custom:** Flexible markdown
+
+---
+
+## Execution Model
+
+### AI orchestrates, code executes
+
+**Decision:** AI is the orchestrator. Delegates to TS/CLI/buoys/cognition.
+
+```
+AI (orchestrator)
+├── TypeScript functions — mechanical work
+├── CLI commands — system operations
+├── Buoys (subagents) — parallel work
+└── Own cognition — judgment, generation
+```
+
+**Buoy principle:** Never do alone what 3-4 buoys can do together.
+
+---
+
+### Agents build, local understands
+
+**Decision:** Cloud agents build/maintain. Local Claude Code helps human.
+
+| Mode | What |
+|------|------|
+| Cloud (agents) | Build and maintain .float/ |
+| Local (session) | Read context, help human build |
+
+---
+
+## Superseded Decisions
+
+The following were superseded by "AI orchestrates, code executes":
+
+- ~~Partials: Shared content blocks~~ — YAGNI
+- ~~Tools are mini FloatPrompts~~ — Tools are now TS functions
+- ~~Tools are minimal, no partials needed~~ — Tools are now TS functions
+
+---
+
+## Open Questions (as of capture)
+
+- boot.md content — What does it contain?
+- Vercel infrastructure — AI SDK, Sandbox, or provider-agnostic?
+- Trigger mechanism — Webhooks, cron, manual?
+
+---
+
+*Captured from decisions.md on 2026-01-02*

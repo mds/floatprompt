@@ -24,16 +24,16 @@
       "1. This file (orientation)",
       "2. docs/sys/problem.md (why — the problem and mechanism)",
       "3. docs/sys/overview.md (what — how it works)",
-      "4. docs/sys/decisions.md (all architecture decisions)",
+      "4. docs/sys/decisions/index.md (current locked decisions)",
       "5. Look at src/ folder structure"
     ],
     "do_not_read_unless_needed": [
       "artifacts/2025-12-31-context-compiler/*.md (outdated breadcrumbs)"
     ],
     "session_protocol": [
-      "Update docs/sys/decisions.md as you make decisions",
-      "This is the paper trail for cross-session consistency",
-      "See 'For Future AI Sessions' section in decisions.md for format"
+      "Add decisions to docs/sys/decisions/YYYY/MM-mon/DD-topic.md",
+      "Update docs/sys/decisions/index.md with summary + map entry",
+      "This is the paper trail for cross-session consistency"
     ]
   }
 }
@@ -109,7 +109,7 @@ src/
 - Buoys for parallel work — never do alone what buoys can do together
 - Markdown is the interface
 
-## Key Decisions (docs/sys/decisions.md)
+## Key Decisions (docs/sys/decisions/)
 
 | Decision | Summary |
 |----------|---------|
