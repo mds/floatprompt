@@ -1,5 +1,7 @@
 # Nav Structure Decision
 
+> **Note:** `.float/` in this doc refers to the TARGET structure we're building. The current `.float-old/` in this repo is stale (old structure).
+
 **Date:** 2026-01-02
 **Status:** Locked
 
