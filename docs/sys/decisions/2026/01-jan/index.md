@@ -32,6 +32,12 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Naming** — `YYYY/MM-mon/DD-topic.md`
 - **Summaries** — `index.md` at every level, richest at month level
 
+### Nav Structure
+- **Mirror project** — `.float/project/` mirrors project folder structure
+- **`_/` convention** — Each folder gets `_/` containing map.md, context.md, logs/
+- **Three files** — map (structure), context (understanding), logs (history/freshness)
+- **Emergent behavior** — Agents judge depth/granularity, logs drive freshness
+
 ---
 
 ## Files
@@ -41,6 +47,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [02-founding.md](02-founding.md) | Original architecture, technology, schema, execution decisions |
 | [02-archival-structure.md](02-archival-structure.md) | Archival folder hierarchy and naming |
 | [02-archive-unity.md](02-archive-unity.md) | ONE archive with Series inside, "logs" as umbrella term |
+| [02-nav-structure.md](02-nav-structure.md) | Mirror project structure, `_/` convention, three files |
 
 ---
 

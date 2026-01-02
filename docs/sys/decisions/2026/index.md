@@ -10,6 +10,7 @@ Context-compiler development year.
 - **Token economy** — Minimum tokens, maximum accuracy
 - **Archival structure** — Collection/Series/File/Item hierarchy
 - **Archive unity** — ONE archive with Series, "logs" as umbrella term
+- **Nav structure** — Mirror project, `_/` convention, map/context/logs
 
 ---
 
