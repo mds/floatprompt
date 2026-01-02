@@ -23,7 +23,7 @@ Not separate systems (`logs/` vs `decisions/` vs `sessions/`).
 
 ## Current State
 
-`docs/sys/` is a **field operation**:
+`.float-manual/` is a **field operation**:
 - Active work, not final architecture
 - Minimal viable structure for cross-session consistency
 - Will evolve as patterns emerge

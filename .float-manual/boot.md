@@ -296,7 +296,7 @@ Inherited from float-os.md (v0.16.0 vision):
 
 **Warning: Existing `.float/` is STALE.** The `.float/` folder in this repo uses the OLD structure (nav/, context/, logs/ as separate folders). Ignore it — it's from a previous iteration. The NEW structure (`_/` convention) is documented here but not yet implemented.
 
-**docs/sys/ is a manual prototype.** We're building philosophy and decisions that will become automated TypeScript + agents. This is the "field operation" — manually doing what agents will do automatically.
+**.float-manual/ is a manual prototype.** We're building philosophy and decisions that will become automated TypeScript + agents. This is the "field operation" — manually doing what agents will do automatically.
 
 **Folder structure:**
 ```
@@ -309,7 +309,7 @@ src/
 ├── cli/             # Entry points
 └── output/          # Markdown generators
 
-docs/sys/            # Manual prototype (this folder)
+.float-manual/       # Manual prototype (this folder)
 ├── boot.md          # This file — dev context
 ├── logs/            # Archive (floatprompt-governed)
 ├── problem.md       # The "why"
@@ -319,7 +319,7 @@ docs/sys/            # Manual prototype (this folder)
 **What exists:** Schema definitions, folder structure, manual archive prototype
 **What's next:** Build first TS functions (scan, compare), define production boot.md
 
-**Note:** This is `docs/sys/boot.md` — dev context for building FloatPrompt. Production `boot.md` (what users get in `.float/`) is an open question.
+**Note:** This is `.float-manual/boot.md` — dev context for building FloatPrompt. Production `boot.md` (what users get in `.float/`) is an open question.
 
 ---
 

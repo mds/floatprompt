@@ -54,6 +54,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-02-archive-unity.md](2026-01-02-archive-unity.md) | ONE archive with Series inside, "logs" as umbrella term |
 | [2026-01-02-nav-structure.md](2026-01-02-nav-structure.md) | Mirror project structure, `_/` convention, three files |
 | [2026-01-02-vercel-infrastructure.md](2026-01-02-vercel-infrastructure.md) | Vercel AI SDK + Sandbox, Anthropic provider |
+| [2026-01-02-manual-prototype-location.md](2026-01-02-manual-prototype-location.md) | Manual prototype at `.float-manual/`, not `docs/sys/` |
 
 ---
 
