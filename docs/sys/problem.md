@@ -57,6 +57,19 @@ AI skims maps at each level, follows descriptions down, reads only what's needed
 
 > Structure context. Route precisely. Minimum tokens, maximum understanding.
 
+## The Lived Problem
+
+A single session building FloatPrompt (2026-01-02):
+
+1. Made architecture decisions → logged to decisions/
+2. Decisions changed meaning → problem.md and overview.md needed updates
+3. Structure changed → README.md needed updates
+4. Human asked "double check everything"
+5. AI manually read all files, found gaps, fixed them
+6. Repeat
+
+This took ~20 minutes of manual cross-checking. With agents: instant, automatic, parallel.
+
 ## The Architecture
 
 ```
