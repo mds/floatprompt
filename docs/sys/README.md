@@ -58,6 +58,21 @@ TypeScript (execution) → Markdown (interface) → AI reads/writes
 
 Users see `.float/` with markdown. Behind the scenes, TypeScript does the heavy lifting.
 
+## Current State vs Target
+
+| What | Current | Target |
+|------|---------|--------|
+| Tools | 17 markdown files in `.float/tools/` (4-12KB each, AI executes) | TypeScript functions in `src/tools/` |
+| Execution | AI reads markdown, runs shell commands | TypeScript executes, AI judges when needed |
+| Boot file | `.float/float.md` (v0.16.0, full protocol) | `boot.md` (orientation only) |
+| CLI | `bin/floatprompt.js` (scaffold only) | `src/cli/` (full orchestrator) |
+
+**The transformation:**
+```
+OLD: AI reads float-sync.md → AI runs `ls docs/` → AI compares → AI writes
+NEW: sync.ts scans folders → sync.ts compares → AI: "good description?" → sync.ts writes
+```
+
 ## Current State (2026-01-02)
 
 **Folder structure:**
