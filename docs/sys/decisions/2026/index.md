@@ -9,6 +9,7 @@ Context-compiler development year.
 - **AI orchestrates** — AI delegates to TS/CLI/buoys, does cognitive work
 - **Token economy** — Minimum tokens, maximum accuracy
 - **Archival structure** — Collection/Series/File/Item hierarchy
+- **Archive unity** — ONE archive with Series, "logs" as umbrella term
 
 ---
 

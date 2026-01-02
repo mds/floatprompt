@@ -40,6 +40,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 |------|---------|
 | [02-founding.md](02-founding.md) | Original architecture, technology, schema, execution decisions |
 | [02-archival-structure.md](02-archival-structure.md) | Archival folder hierarchy and naming |
+| [02-archive-unity.md](02-archive-unity.md) | ONE archive with Series inside, "logs" as umbrella term |
 
 ---
 
