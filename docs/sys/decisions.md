@@ -726,31 +726,71 @@ float sync          # TypeScript scans, AI judges, TypeScript writes
 
 ---
 
+### Agents build, local understands
+
+**Decision:** Cloud agents build/maintain the system. Local Claude Code understands the system during human sessions.
+
+**The separation:**
+
+| Mode | Who | What |
+|------|-----|------|
+| **Cloud (agents)** | Automated agents in sandboxes | Build and maintain .float/ — sync, fix, context generation |
+| **Local (session)** | Claude Code + human | Read maintained context, help human build |
+
+**The invisible OS vision:**
+```
+Agents run continuously → .float/ stays fresh → context always current
+Human opens session → Claude Code reads boot.md → instant understanding
+Human builds → AI has full context → no re-explaining
+```
+
+**Tool design implications:**
+
+| Principle | Why |
+|-----------|-----|
+| Small, focused, single-purpose | Agents are cheap, spawn many |
+| Composable | Orchestrator combines granular tools |
+| Stateless | No shared context between agents |
+| Return structured data | Not prose — JSON for orchestration |
+
+**Think cloud (unlimited agents), deploy local (sequential fallback):**
+```typescript
+// Works both ways
+async function scanFolder(path: string): Promise<FolderScan> { ... }
+
+// Local: sequential
+for (const folder of folders) await scanFolder(folder);
+
+// Cloud: parallel
+await Promise.all(folders.map(f => sandbox.exec(() => scanFolder(f))));
+```
+
+**Do not revisit.** This shapes all tool design.
+
+---
+
 ## Open Questions
 
 ### boot.md content
 
-THE ultimate FloatPrompt that orients and directs Claude Code to fully understand the `.float/` system and create recursive contextual scaffolding. The existing `templates/.float/system.md` does well but is based on old markdown-only methodology.
+What does boot.md contain now that agents build and local understands?
 
-### Buoys (agents)
+- Orients Claude Code to read .float/ context
+- Explains what agents have built/maintained
+- Does NOT contain tool instructions (agents run tools, not Claude Code)
+- Focus: "here's the context, here's how to navigate it"
 
-**Definition:** Claude Code can spawn "Claude" agents. In FloatPrompt, these agents are called "Buoys."
+### Vercel infrastructure
 
-**Open:** How to define, where they live, prompts (boot.md patterns vs tool-specific).
+- Vercel AI SDK for structured AI calls?
+- Vercel Sandbox for agent execution?
+- Or provider-agnostic approach?
 
-### TypeScript tools
+### Trigger mechanism
 
-We've defined schema for the base format. All existing tools are markdown only. Some tools could be more powerful as actual TypeScript functions vs markdown instructions for AI.
+How do agents know when to run?
 
-**Open:** Which tools should be TS functions? What's the hybrid pattern?
-
-### AI execution model
-
-AI should realize it can use:
-- TypeScript functions
-- Command line functions
-- Spawn multiple buoys/agents
-
-> "It should never try to do alone, what 3-4 subagents/buoys can do together."
-
-**Open:** How does boot.md teach this? What's the delegation pattern?
+- Git webhooks (on push)?
+- Scheduled (cron)?
+- Manual (`float sync` CLI)?
+- All of the above?
