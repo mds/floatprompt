@@ -11,7 +11,7 @@
   "human": {
     "author": "@mds",
     "intent": "Enable new AI sessions to pick up context-compiler work",
-    "context": "Updated 2026-01-02 after partials decision"
+    "context": "Updated 2026-01-02 after agent architecture decisions"
   },
 
   "ai": {
@@ -93,24 +93,23 @@ src/
 | Decision | Summary |
 |----------|---------|
 | **TypeScript system** | TS does mechanical work, AI for judgment only, markdown is interface |
-| src/ → dist/ | Conventional pattern, templates/ becomes output |
-| boot.md | Renamed from system.md, THE instruction file |
-| TypeScript native | No Handlebars, no React |
+| **Agents build, local understands** | Cloud agents maintain .float/, local Claude Code helps human build |
+| **Cloud-first design** | Think unlimited agents, deploy local as fallback |
 | Zod for schemas | Types + validation |
 | Required structure | `id` + `title` only, everything else optional |
 
 ## Open Questions
 
-- **boot.md content** — THE ultimate FloatPrompt that orients Claude Code sessions
-- **Buoys** — Claude Code agents branded as "buoys". How do they fit in TS-centric model?
-- **AI SDK choice** — Vercel AI SDK? Anthropic SDK directly? Provider-agnostic wrapper?
+- **boot.md content** — Orientation for Claude Code (not tool instructions)
+- **Vercel infrastructure** — AI SDK, Sandbox, or provider-agnostic?
+- **Trigger mechanism** — Webhooks, cron, manual, all?
 
 ## What's Next
 
-1. Decide AI SDK choice (Vercel AI SDK, Anthropic SDK, or wrapper)
-2. Build first TS tool (float-sync) — scan folders, compare, AI judges
-3. Define boot.md for Claude Code sessions
-4. Build CLI orchestrator
+1. Decide Vercel infrastructure (AI SDK, Sandbox)
+2. Build first TS tool (sync) — scan folders, compare, AI judges
+3. Define boot.md for local sessions
+4. Build CLI orchestrator + cloud deployment
 
 ## What's Outdated
 
