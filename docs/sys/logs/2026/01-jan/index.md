@@ -34,7 +34,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 
 ### Archival Structure
 - **Hierarchy** — Collection/Series/File/Item → logs/year/month/entries
-- **Naming** — `YYYY/MM-mon/DD-topic.md`
+- **Naming** — `YYYY-MM-DD-topic.md` (full date, self-describing)
 - **Summaries** — `index.md` at every level, richest at month level
 
 ### Nav Structure
@@ -49,11 +49,11 @@ Foundational month for context-compiler. Established architecture, execution mod
 
 | File | Summary |
 |------|---------|
-| [02-founding.md](02-founding.md) | Original architecture, technology, schema, execution decisions |
-| [02-archival-structure.md](02-archival-structure.md) | Archival folder hierarchy and naming |
-| [02-archive-unity.md](02-archive-unity.md) | ONE archive with Series inside, "logs" as umbrella term |
-| [02-nav-structure.md](02-nav-structure.md) | Mirror project structure, `_/` convention, three files |
-| [02-vercel-infrastructure.md](02-vercel-infrastructure.md) | Vercel AI SDK + Sandbox, Anthropic provider |
+| [2026-01-02-founding.md](2026-01-02-founding.md) | Original architecture, technology, schema, execution decisions |
+| [2026-01-02-archival-structure.md](2026-01-02-archival-structure.md) | Archival folder hierarchy and naming |
+| [2026-01-02-archive-unity.md](2026-01-02-archive-unity.md) | ONE archive with Series inside, "logs" as umbrella term |
+| [2026-01-02-nav-structure.md](2026-01-02-nav-structure.md) | Mirror project structure, `_/` convention, three files |
+| [2026-01-02-vercel-infrastructure.md](2026-01-02-vercel-infrastructure.md) | Vercel AI SDK + Sandbox, Anthropic provider |
 
 ---
 

@@ -22,7 +22,7 @@
     "methodology": "Map → Decide → Structure",
     "execution_model": "AI orchestrates → TS/CLI/buoys execute → AI also thinks",
     "nav_structure": "_/ convention with map.md, context.md, logs/",
-    "paper_trail": "All decisions logged in logs/YYYY/MM-mon/DD-topic.md"
+    "paper_trail": "All decisions logged in logs/YYYY/MM-mon/YYYY-MM-DD-topic.md"
   }
 }
 </json>
@@ -271,7 +271,7 @@ Inherited from float-os.md (v0.16.0 vision):
 
 ### Archival Structure
 - **Hierarchy** — Collection/Series/File/Item
-- **Naming** — `YYYY/MM-mon/DD-topic.md`
+- **Naming** — `YYYY-MM-DD-topic.md` (full date, self-describing)
 - **Summaries** — `index.md` at every level, richest at month level
 - **ONE archive** — "logs" is umbrella term containing all Series
 
@@ -314,7 +314,7 @@ src/
 ## Session Protocol
 
 When making decisions:
-1. Create `DD-topic.md` in `logs/YYYY/MM-mon/`
+1. Create `YYYY-MM-DD-topic.md` in `logs/YYYY/MM-mon/`
 2. Update month's `index.md` with summary
 3. Update year's `index.md` if new theme emerges
 4. Update root `logs/index.md` only if new year
@@ -332,7 +332,7 @@ Only read these if you need deeper context:
 | `problem.md` | Understanding the "why" in depth |
 | `overview.md` | Understanding the "how" in depth |
 | `logs/2026/01-jan/index.md` | All locked decisions with full detail |
-| `logs/2026/01-jan/02-nav-structure.md` | Full nav structure rationale |
+| `logs/2026/01-jan/2026-01-02-nav-structure.md` | Full nav structure rationale |
 | `.float/templates/float-os.md` | The v0.16.0 origin, Map/Decide/Structure methodology |
 
 ---

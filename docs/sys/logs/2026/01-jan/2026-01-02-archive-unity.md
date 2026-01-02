@@ -35,7 +35,7 @@ Not separate systems (`logs/` vs `decisions/` vs `sessions/`).
 When building the full `.float/` archival system:
 - Single `logs/` folder
 - Series inside: `logs/decisions/`, `logs/sessions/`, etc.
-- Same `YYYY/MM-mon/DD-topic.md` pattern for all Series
+- Same `YYYY-MM-DD-topic.md` naming for all Series
 - Same `index.md` folding at every level
 
 ## Rationale

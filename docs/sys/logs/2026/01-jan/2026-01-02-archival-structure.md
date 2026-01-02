@@ -12,36 +12,36 @@ Use archival science hierarchy with flat files within month folders.
 ## Structure
 
 ```
-decisions/
-├── index.md                    # Current locked + map (Collection)
-└── 2026/                       # Series (year)
-    ├── index.md                # Annual summary
-    └── 01-jan/                 # File (month, sortable + readable)
-        ├── index.md            # Monthly summary
-        ├── 02-architecture.md  # Item (DD-topic.md)
-        ├── 02-token-economy.md
-        └── 02-archival-structure.md
+logs/
+├── index.md                           # Current locked + map (Collection)
+└── 2026/                              # Series (year)
+    ├── index.md                       # Annual summary
+    └── 01-jan/                        # File (month, sortable + readable)
+        ├── index.md                   # Monthly summary
+        ├── 2026-01-02-architecture.md # Item (YYYY-MM-DD-topic.md)
+        ├── 2026-01-02-token-economy.md
+        └── 2026-01-02-archival-structure.md
 ```
 
 ## Naming Conventions
 
 - Folders: `YYYY/`, `MM-mon/` (e.g., `01-jan/`)
-- Files: `DD-topic.md` (e.g., `02-architecture.md`)
+- Files: `YYYY-MM-DD-topic.md` (full date, self-describing out of context)
 - Summaries: always `index.md` at each level
 
 ## Archival Hierarchy
 
 | Level | Maps To |
 |-------|---------|
-| Collection | `decisions/` |
+| Collection | `logs/` |
 | Series | year (`2026/`) |
 | File | month (`01-jan/`) |
-| Item | daily logs (`DD-topic.md`) |
+| Item | entries (`YYYY-MM-DD-topic.md`) |
 
 ## Folding Pattern
 
 - `index.md` at each level summarizes contents below
-- Fresh session reads `decisions/index.md` (~500 tokens)
+- Fresh session reads `logs/index.md` (~500 tokens)
 - Drills down only when needed
 - Day folders created only if 10+ logs on one day
 
@@ -55,8 +55,8 @@ decisions/
 - Drill-down capability preserved
 
 **Why this structure:**
-- Files sort naturally by date
-- Multiple logs per day share day number
+- Files sort naturally by date (full YYYY-MM-DD prefix)
+- Files are self-describing out of context
 - Month folder stays flat until unwieldy
 - `index.md` stays lean at every level
 

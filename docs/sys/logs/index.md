@@ -18,12 +18,12 @@
         "collection": "logs/",
         "series": "YYYY/",
         "file": "MM-mon/",
-        "item": "DD-topic.md"
+        "item": "YYYY-MM-DD-topic.md"
       }
     },
     "protocol": {
       "add_decision": [
-        "Create DD-topic.md in current month",
+        "Create YYYY-MM-DD-topic.md in current month",
         "Update month index.md with summary",
         "Update year index.md if new theme",
         "Update this index only if new year"
@@ -67,7 +67,7 @@ Navigation map and open questions. Decisions, sessions, activity — all here.
 ## Protocol
 
 When adding decisions:
-1. Create `DD-topic.md` in current month folder
+1. Create `YYYY-MM-DD-topic.md` in current month folder
 2. Update month's `index.md` with summary
 3. Update year's `index.md` if new theme emerges
 4. Update this index only if new year
