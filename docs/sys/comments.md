@@ -153,36 +153,36 @@ export const MetaSchema = z.object({
 });
 ```
 
-### Tool Config File
+### Mechanical Function File
 
 ```typescript
 /**
- * Float Sync Tool
- * Format: Minimal FloatPrompt (tier 3 — chained tool)
- * Use: Compile to .float/tools/float-sync.md
+ * Folder Scanner
+ * Format: TypeScript function AI can call
+ * Use: Scan folders, return structured data for AI to process
  *
  * Design principles:
- * 1. Minimal JSON — just routing info (id, title, triggers, checks, outputs)
- * 2. Process in markdown — the one thing that needs prose
- * 3. Inherits from boot.md — patterns defined there
- * 4. No STOP — boot.md already set focus
+ * 1. Small, focused — one job (scan folders)
+ * 2. Mechanical — no judgment, just data gathering
+ * 3. Structured output — returns typed data, not prose
+ * 4. AI orchestrates — AI decides when to call this
  */
 
-import type { FloatPromptJson } from "../schema/floatprompt";
+import { z } from "zod";
 
-export const json: FloatPromptJson = {
-  id: "float-sync",
-  title: "/float sync",
-  triggers: [...],
-  checks: [...],
-  outputs: [...],
-};
+// Output schema
+export const FolderScanSchema = z.object({
+  path: z.string(),                    // folder path scanned
+  files: z.array(z.string()),          // files found
+  subfolders: z.array(z.string()),     // subfolders found
+});
 
-export const markdown = `# /float sync
-...process steps...
-`;
+export type FolderScan = z.infer<typeof FolderScanSchema>;
 
-export const compile = () => `<fp><json>...</json><md>...</md></fp>`;
+// The function AI calls
+export async function scanFolder(path: string): Promise<FolderScan> {
+  // ... mechanical scanning logic
+}
 ```
 
 ---
