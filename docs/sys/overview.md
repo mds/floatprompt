@@ -80,4 +80,4 @@ For now, we assume CLI tools — users are running Claude Code.
 
 ---
 
-*Canonical overview for new sessions. See `_context-handoff.md` for reading order.*
+*Canonical overview for new sessions. See `README.md` for reading order.*
