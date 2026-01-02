@@ -1,158 +1,97 @@
-<fp>
-  <json>
-  {
-    "STOP": "Context Compiler — WHAT it is and how it works",
+---
+title: Context Compiler — Context (Historical)
+type: context
+created: 2025-12-31
+updated: 2026-01-02
 
-    "meta": {
-      "title": "Context Compiler — Context",
-      "type": "context",
-      "id": "context-compiler-2025-12-31",
-      "status": "strategic exploration",
-      "created": "2025-12-31",
-      "related": ["artifacts/2025-12-31-modular-floatprompt.md"]
-    },
+human_author: @mds
+human_intent: Historical snapshot of context compiler concept
 
-    "human": {
-      "author": "@mds",
-      "intent": "Deep understanding of the context compiler concept",
-      "mindset": "Breadcrumbs and decision captures, not specs"
-    },
+ai_model: Claude Opus 4.5
+ai_notes: Historical breadcrumbs — see docs/sys/ for current state
+---
 
-    "ai": {
-      "role": "Deep WHAT for future implementation sessions",
-      "central_insight": "The build system is invisible. The schema is the product.",
-      "must_understand": [
-        "FloatPrompt compiles context, .md files are build artifacts not source",
-        "Users never see the build system — they see .md files",
-        "Schema and contracts are the real product",
-        "Stability enables verticals (legal, research, docs)",
-        "Technology choice is downstream of stability requirements"
-      ],
-      "trifecta_role": "This is the WHAT file. See map.md for WHERE, decisions.md for WHY."
-    }
-  }
-  </json>
-  <md>
+# Context Compiler — Context (Historical)
 
-# Context Compiler — Context
+**For current state, see `docs/sys/_context-handoff.md`.**
 
-**WHAT the context compiler is and how it works.**
-
-For navigation, see `map.md`. For rationale, see `decisions.md`.
+This file captures the original vision. The canonical source is now `docs/sys/`.
 
 ---
 
-## The Central Insight
+## Current Status (2026-01-02)
+
+**Implementation is underway.** This file is historical breadcrumbs.
+
+| Current Source | Purpose |
+|----------------|---------|
+| `docs/sys/_context-handoff.md` | Start here for new sessions |
+| `docs/sys/decisions.md` | ALL current architecture decisions |
+| `docs/sys/problem.md` | What we're solving |
+| `src/` | Implementation in progress |
+
+---
+
+## The Central Insight (Still Valid)
 
 FloatPrompt is not a file format. It's a **context compilation pipeline**.
 
 ```
-Config + Templates → Build → .md files → AI consumption
+src/ (TypeScript) → build → dist/templates/.float/ → npm float install → user project
 ```
 
 The `.md` files are build artifacts, not source files.
 
 ---
 
-## What It Is
+## What's Changed Since This Was Written
 
-A templating system that replaces static `.md` maintenance with compiled context generation.
-
-**Before (current):**
-- 16 tool files with copy-pasted patterns
-- Version bump = edit 16 files manually
-- Pattern fix = edit 16 files manually
-- Drift is inevitable
-
-**After (context compiler):**
-- Config files define tool properties
-- Templates define structure
-- Partials/functions handle shared patterns
-- Build produces `.md` files
-- One change propagates everywhere
+| Original Vision | Current Implementation |
+|-----------------|------------------------|
+| Config + Templates | TypeScript native (no Handlebars) |
+| Partials: duality, buoys, footer | Partials are ad-hoc, not core |
+| system.json config | TypeScript modules |
+| Future implementation | In progress now |
 
 ---
 
-## How It Works
+## What's Still Valid
 
-### Three Layers
+1. **Build system is invisible** — Users see `.md` files
+2. **Schema is the product** — Types + validation via Zod
+3. **Two execution contexts** — npm (headless) + /slash (interactive)
+4. **Stability enables verticals** — Still true
 
+---
+
+## Three Layers (Evolved)
+
+Original:
 ```
-┌─────────────────────────────────────┐
-│  Config Layer                       │
-│  system.json, *.tool.json           │
-│  Data: version, paths, tool props   │
-└─────────────────┬───────────────────┘
-                  │
-                  ▼
-┌─────────────────────────────────────┐
-│  Template Layer                     │
-│  *.ts (TypeScript functions)        │
-│  Partials: duality, buoys, footer   │
-└─────────────────┬───────────────────┘
-                  │
-                  ▼
-┌─────────────────────────────────────┐
-│  Output Layer                       │
-│  .float/**/*.md                     │
-│  Tools, nav files, context files    │
-└─────────────────────────────────────┘
+Config Layer (JSON) → Template Layer (Handlebars) → Output Layer (.md)
 ```
 
-### Two Execution Contexts
+Current:
+```
+Schema Layer (Zod) → Tool Layer (TypeScript) → Output Layer (.md)
+```
 
-| Context | Command | Use Case |
-|---------|---------|----------|
-| **npm** | `npm float build` | CI/CD, scripts, headless |
-| **/slash** | `/float-build` | Interactive, AI judgment |
-
-Same templates power both. Different interfaces.
+Same concept, different implementation.
 
 ---
 
-## What It Enables
+## Do Not Reference for Implementation
 
-1. **Version in one place** → flows to all tools
-2. **Path change** → one edit, rebuild
-3. **Pattern update** → one function, all tools updated
-4. **New tool** → config + template, done
-5. **Type errors** → caught at build time
+- Partials section (deleted in favor of ad-hoc approach)
+- Technology decisions (superseded by docs/sys/decisions.md)
+- `13-when.md` triggers (we're implementing now)
 
 ---
 
-## The Product Vision
+## For Current Implementation
 
-**The build system is invisible.**
-
-Users see `.md` files. They don't know or care how they're generated.
-
-The real product is:
-- The **schema** (what config shapes are valid)
-- The **contracts** (what templates produce)
-- The **stability** (what users can rely on)
-
-Technology (TypeScript, Handlebars, whatever) is implementation detail.
+**Go to `docs/sys/_context-handoff.md`** — that's the starting point for new sessions.
 
 ---
 
-## Breadcrumb Warning
-
-**These are breadcrumbs, not specs.**
-
-All documents in this artifact capture thinking at a point in time:
-- `03-technology.md` said Handlebars
-- `08-technology-reassessment.md` challenged that
-- `12-typescript-direction.md` leans TypeScript
-
-This evolution is intentional. Future implementation uses these as context, not contracts.
-
----
-
-## Status
-
-Decision captures complete. Ready for future implementation when the time comes.
-
-See `13-when.md` for implementation triggers.
-
-  </md>
-</fp>
+*Updated 2026-01-02 — marked as historical, pointed to docs/sys/*
