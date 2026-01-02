@@ -5,33 +5,29 @@
 
   "meta": {
     "title": "Context Handoff",
-    "id": "context-handoff",
-    "format": "floatprompt",
-    "version": "0.1.0"
+    "id": "context-handoff"
   },
 
   "human": {
     "author": "@mds",
     "intent": "Enable new AI sessions to pick up context-compiler work",
-    "context": "Created 2026-01-01 at end of deep planning session"
+    "context": "Updated 2026-01-02 after partials decision"
   },
 
   "ai": {
     "role": "Session bootstrapper",
-    "behavior": "Read files in order, understand architecture, continue implementation"
+    "behavior": "Read files in order, understand architecture, continue from where we left off"
   },
 
   "requirements": {
     "reading_order": [
       "1. This file (orientation)",
-      "2. docs/sys/decisions.md (current architecture)",
-      "3. artifacts/2025-12-31-context-compiler/map.md (strategic overview)",
-      "4. artifacts/2025-12-31-context-compiler/decisions.md (locked tech decisions)",
-      "5. Look at src/ folder structure (where we are)"
+      "2. docs/sys/decisions.md (ALL architecture decisions)",
+      "3. docs/sys/problem.md (what we're solving)",
+      "4. Look at src/ folder structure"
     ],
     "do_not_read_unless_needed": [
-      "artifacts/2025-12-31-context-compiler/20-implementation-plan.md (partially outdated)",
-      "artifacts/2025-12-31-context-compiler/*.md (breadcrumbs, not specs)"
+      "artifacts/2025-12-31-context-compiler/*.md (outdated breadcrumbs)"
     ],
     "session_protocol": [
       "Update docs/sys/decisions.md as you make decisions",
@@ -56,44 +52,52 @@ src/ (TypeScript) → build → dist/templates/.float/ → npm float install →
 
 The `.md` files are build artifacts. Users see markdown. We maintain TypeScript.
 
-## Current State
+## Current State (2026-01-02)
 
 **Folder structure:**
 ```
 src/
-├── schema/        # ✅ Zod schemas (minimal required + optional fields)
-├── partials/      # ✅ Template functions (footer for tools, rest for boot.md)
-│   ├── footer.ts     # Used by tools
-│   ├── duality.ts, status.ts, buoys.ts, examples.ts  # For boot.md
+├── schema/        # Zod schemas (minimal required + optional fields)
+│   ├── floatprompt.ts
+│   ├── floatdoc.ts
 │   └── index.ts
-├── tools/         # ✅ Minimal tool configs
-│   └── float-sync.ts  # ~70 lines, minimal structure
-├── static/        # Files copied as-is (boot.md)
-└── cli/           # CLI code
+├── partials/      # EMPTY — ad-hoc only, see README.md
+│   ├── README.md  # Documents when to use/not use
+│   └── index.ts   # Empty
+├── tools/         # Tool configs (one exists as example)
+│   └── float-sync.ts
+├── static/        # Files copied as-is (boot.md will go here)
+└── cli/           # CLI code (future)
 ```
 
-**Schema simplified (2026-01-01):**
+**Schema (locked):**
 - Required: `id`, `title` only
 - Optional: `STOP`, `type`, `human`, `ai`, `triggers`, `checks`, `outputs`, `requirements`
-- Like HTML: required structure minimal, everything else optional elements
+- Like HTML: required structure minimal, everything else optional
 
-**Partials separated:**
-- `footer` — used by tools (branding)
-- `duality`, `status`, `buoys`, `examples` — for boot.md (patterns explained once)
+**Partials (decision locked):**
+- Ad-hoc, not core architecture
+- Currently empty — Schema + Tool Config is sufficient
+- Add partials only when 3+ tools share identical content
 
-**Minimal tool pattern:**
+**Tool pattern:**
 ```typescript
-export const json = {
+import type { FloatPromptJson } from "../schema/floatprompt";
+
+export const json: FloatPromptJson = {
   id: "float-sync",
   title: "/float sync",
   triggers: [...],
   checks: [...],
   outputs: [...],
 };
-// + markdown with process steps
-```
 
-**Next step:** Build script to compile tools → markdown.
+export const markdown = `# /float sync
+...process steps...
+`;
+
+export const compile = () => `<fp><json>...</json><md>...</md></fp>`;
+```
 
 ## Key Decisions (docs/sys/decisions.md)
 
@@ -103,36 +107,28 @@ export const json = {
 | npm = install only | AI orchestrates everything else |
 | boot.md | Renamed from system.md, THE instruction file |
 | TypeScript native | No Handlebars, no React |
-| Zod for schemas | Types + validation, Vercel AI SDK pattern |
+| Zod for schemas | Types + validation |
 | Required structure | `id` + `title` only, everything else optional |
 | Three tiers | Fullest/Fuller/Minimal (guidelines, not requirements) |
 | STOP optional | For focus breaking; chained tools inherit from boot.md |
-| Partials separation | footer for tools, rest for boot.md |
-| FloatDoc: 8 fields | 4 terrain + 4 attribution, description is routing signal |
+| Partials ad-hoc | No built-in partials; add when 3+ tools share content |
 
-## Reading Order
+## Open Questions
 
-1. **docs/sys/decisions.md** — Current architecture (FRESHEST)
-2. **artifacts/2025-12-31-context-compiler/map.md** — Strategic orientation
-3. **artifacts/2025-12-31-context-compiler/decisions.md** — Locked tech decisions
-4. **docs/specs/floatprompt.md** — FloatPrompt format spec
-5. **docs/specs/float-doc.md** — FloatDoc format spec
+- boot.md content (the actual instructions)
+- Buoy/agent naming and location (boot.md vs tool-specific)
+
+## What's Next
+
+1. Decide boot.md content and structure
+2. Build script to compile tools → markdown
+3. Migrate remaining tools to src/tools/
+4. Create src/static/boot.md
 
 ## What's Outdated
 
-- `20-implementation-plan.md` — Uses old folder structure, pre-Zod decision
-- Numbered docs in context-compiler — Breadcrumbs, not specs
-
-## Next Actions
-
-1. ~~Create `src/schema/floatprompt.ts`~~ ✅ Done
-2. ~~Create `src/schema/floatdoc.ts`~~ ✅ Done
-3. ~~Look at real system tools (`.float/tools/*.md`) to extract partials~~ ✅ Done
-4. ~~Create partials: duality, status, examples, buoys, footer~~ ✅ Done
-5. ~~Create one tool config (`src/tools/float-sync.ts`) using partials~~ ✅ Done
-6. Build script to compile tools → markdown
-7. Migrate remaining tools to src/tools/
-8. Create src/static/boot.md (the AI instruction file)
+- `artifacts/2025-12-31-context-compiler/*.md` — Breadcrumbs from early planning
+- Any reference to partials like duality, status, buoys, examples, footer — deleted
 
 ## The Big Picture
 
@@ -145,6 +141,6 @@ npm float install → .float/ appears
 
 ---
 
-*Created 2026-01-01 — updated after required structure decisions*
+*Updated 2026-01-02 — after partials decision*
 </md>
 </fp>

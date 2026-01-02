@@ -153,29 +153,36 @@ export const MetaSchema = z.object({
 });
 ```
 
-### Partial File (future)
+### Tool Config File
 
 ```typescript
 /**
- * Duality Partial
- * Format: Markdown table
- * Use: System tools — shows two operational modes
+ * Float Sync Tool
+ * Format: Minimal FloatPrompt (tier 3 — chained tool)
+ * Use: Compile to .float/tools/float-sync.md
  *
  * Design principles:
- * 1. Binary states — issues found vs clean
- * 2. Action-oriented — what happens in each state
- * 3. Consistent structure — same table format across tools
- * 4. Quick scan — AI reads once, understands behavior
+ * 1. Minimal JSON — just routing info (id, title, triggers, checks, outputs)
+ * 2. Process in markdown — the one thing that needs prose
+ * 3. Inherits from boot.md — patterns defined there
+ * 4. No STOP — boot.md already set focus
  */
 
-export const duality = (issueAction: string, cleanAction: string): string => `
-## Duality
+import type { FloatPromptJson } from "../schema/floatprompt";
 
-| Condition | Action |
-|-----------|--------|
-| Issues found | ${issueAction} |
-| Clean | ${cleanAction} |
+export const json: FloatPromptJson = {
+  id: "float-sync",
+  title: "/float sync",
+  triggers: [...],
+  checks: [...],
+  outputs: [...],
+};
+
+export const markdown = `# /float sync
+...process steps...
 `;
+
+export const compile = () => `<fp><json>...</json><md>...</md></fp>`;
 ```
 
 ---
