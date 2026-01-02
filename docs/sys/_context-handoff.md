@@ -22,9 +22,10 @@
   "requirements": {
     "reading_order": [
       "1. This file (orientation)",
-      "2. docs/sys/decisions.md (ALL architecture decisions)",
-      "3. docs/sys/problem.md (what we're solving)",
-      "4. Look at src/ folder structure"
+      "2. docs/sys/overview.md (how FloatPrompt works, buoys)",
+      "3. docs/sys/decisions.md (ALL architecture decisions)",
+      "4. docs/sys/problem.md (what we're solving)",
+      "5. Look at src/ folder structure"
     ],
     "do_not_read_unless_needed": [
       "artifacts/2025-12-31-context-compiler/*.md (outdated breadcrumbs)"
@@ -115,8 +116,10 @@ export const compile = () => `<fp><json>...</json><md>...</md></fp>`;
 
 ## Open Questions
 
-- boot.md content (the actual instructions)
-- Buoy/agent naming and location (boot.md vs tool-specific)
+- **boot.md content** — THE ultimate FloatPrompt that orients AI to the .float/ system
+- **Buoys** — Claude Code agents branded as "buoys" in FloatPrompt. Not yet fully defined.
+- **TypeScript tools** — Which tools should be actual TS functions vs markdown instructions?
+- **AI execution model** — AI can use TS functions, CLI, AND spawn buoys. "Never do alone what 3-4 buoys can do together."
 
 ## What's Next
 

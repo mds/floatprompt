@@ -657,5 +657,29 @@ Content here.
 
 ## Open Questions
 
-- boot.md content (the actual instructions)
-- Buoy prompt location (boot.md patterns vs tool-specific)
+### boot.md content
+
+THE ultimate FloatPrompt that orients and directs Claude Code to fully understand the `.float/` system and create recursive contextual scaffolding. The existing `templates/.float/system.md` does well but is based on old markdown-only methodology.
+
+### Buoys (agents)
+
+**Definition:** Claude Code can spawn "Claude" agents. In FloatPrompt, these agents are called "Buoys."
+
+**Open:** How to define, where they live, prompts (boot.md patterns vs tool-specific).
+
+### TypeScript tools
+
+We've defined schema for the base format. All existing tools are markdown only. Some tools could be more powerful as actual TypeScript functions vs markdown instructions for AI.
+
+**Open:** Which tools should be TS functions? What's the hybrid pattern?
+
+### AI execution model
+
+AI should realize it can use:
+- TypeScript functions
+- Command line functions
+- Spawn multiple buoys/agents
+
+> "It should never try to do alone, what 3-4 subagents/buoys can do together."
+
+**Open:** How does boot.md teach this? What's the delegation pattern?
