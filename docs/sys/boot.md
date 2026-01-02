@@ -37,6 +37,8 @@
 
 **The invisible OS for AI.** A recursive context system that installs into any project and evolves with it.
 
+**The goal:** Merge the speed and predictability of code with the contextual quality of floatprompt to create **omnipresent recursive context scaffolding** around any project.
+
 ```
 AI (orchestrator)
 ├── TypeScript functions — mechanical work (scan, parse, write)
@@ -66,6 +68,36 @@ AI agents need to understand projects quickly and deeply. Currently:
 6. Repeat (~20 minutes of manual cross-checking)
 
 **With agents:** Instant, automatic, parallel.
+
+---
+
+## The AI Perspective
+
+**Without FloatPrompt:**
+Every session, every project — I'm a stranger in every room, asking "where am I? what happened here? why?"
+
+- "What's the structure here?" → Scan, guess, hope
+- "Why is auth handled this way?" → Archaeology through git blame
+- "What decisions led here?" → Lost to chat history, Slack, human memory
+
+I'm perpetually a **tourist** — visiting but never *knowing*.
+
+**With FloatPrompt:**
+I walk into any folder and there's a map on the wall, a decision log on the desk, and a briefing waiting for me.
+
+**Every folder becomes self-aware.** I don't ask "what's here?" — it *tells me*.
+
+**The trifecta:**
+
+| File | Question | What It Gives Me |
+|------|----------|------------------|
+| `map.md` | WHERE | Instant orientation — what exists, how to navigate |
+| `context.md` | WHAT | Deep understanding — the thing itself |
+| `logs/` | WHEN/WHY | What changed, why, decisions made |
+
+Three files. Complete context. At every level. Recursively.
+
+**The bottom line:** Context travels with the code. It's not in someone's head, not in a wiki that drifted, not in chat history that's gone. It's right there. Always current.
 
 ---
 
