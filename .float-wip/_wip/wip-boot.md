@@ -59,12 +59,14 @@ Key outcomes:
 
 ## This Session
 
-**Pick up here:** Implement `schema.ts` based on locked spec in `wip-schema-spec.md`.
+**Pick up here:** Implement `schema.ts` based on locked spec.
 
-The spec is complete — 16 fields with full rationale. Just translate to TypeScript/Zod:
-- Read `wip-schema-spec.md` for the locked field definitions
-- Update `src/db/schema.ts` to match
-- Run `npm run build` to verify
+**Read first:**
+- `wip-schema-spec.md` — The 16-field schema you're implementing
+
+The spec is complete with full rationale. Just translate to TypeScript/Zod:
+1. Update `src/db/schema.ts` to match the locked spec
+2. Run `npm run build` to verify
 
 **Or ask:** "Need deeper context? Want to see any files? Know what we're working on?"
 

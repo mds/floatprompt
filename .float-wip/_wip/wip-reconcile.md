@@ -21,10 +21,11 @@
     "trigger": "Human says 'reconcile', 'end session', 'wrap up', or similar",
     "phases": [
       "Phase 1: Inventory — list all wip-* files",
-      "Phase 2: Update wip-boot.md — capture session changes",
-      "Phase 3: Cross-reference — check consistency across wip-* files",
-      "Phase 4: Log decisions — create decision files, update summaries",
-      "Phase 5: Verify — double-check everything"
+      "Phase 2: Archive stale files — move superseded docs to logs/",
+      "Phase 3: Update wip-boot.md — capture session changes + reading list",
+      "Phase 4: Cross-reference — check consistency across wip-* files",
+      "Phase 5: Log decisions — create decision files, update summaries",
+      "Phase 6: Verify — double-check everything"
     ],
     "critical": "This is the manual process that agents will automate. Be exhaustive."
   }
@@ -78,9 +79,54 @@ ls .float-wip/_wip/wip-*.md
 
 ---
 
-## Phase 2: Update wip-boot.md
+## Phase 2: Archive Stale Files
 
-**Goal:** Next session starts with accurate context.
+**Goal:** Keep the wip-* folder clean. Only active documents live at root level.
+
+### When to Archive
+
+A wip-* file should be archived when:
+- Its work is **complete** (e.g., wip-phase3.md after Phase 3 is done)
+- It's been **superseded** by another document (e.g., wip-overview.md replaced by wip-vision.md)
+- The topic is **no longer active** and only has historical value
+
+### How to Archive
+
+1. **Move** the file to `wip-logs/YYYY/MM-mon/` with date prefix:
+   ```bash
+   git mv wip-phase3.md wip-logs/2026/01-jan/2026-01-03-wip-phase3-archived.md
+   ```
+
+2. **Create a log entry** documenting why it was archived:
+   ```markdown
+   # WIP Archival
+
+   **Date:** 2026-01-03
+   **Status:** Locked
+
+   ## Archived Files
+
+   | File | Reason |
+   |------|--------|
+   | wip-phase3.md | Phase 3 complete |
+   | wip-overview.md | Superseded by wip-vision.md |
+   ```
+
+3. **Update 01-jan.md** with an "Archived Reference Material" section
+
+### What to Keep Active
+
+- `wip-boot.md` — Always active (THE entry point)
+- `wip-reconcile.md` — Always active (this protocol)
+- `wip-vision.md` — Active until vision changes significantly
+- `wip-phase4-qa.md` — Active until all questions answered
+- Any file with **open work** or **pending decisions**
+
+---
+
+## Phase 3: Update wip-boot.md
+
+**Goal:** Next session starts with accurate context AND the right reading material.
 
 ### Update "Last Session"
 
@@ -94,14 +140,46 @@ Replace the content with a one-liner about THIS session:
 
 ### Update "This Session"
 
-Point to what's next:
+Point to what's next AND include relevant reading:
 
 ```markdown
 ## This Session
 
 **Pick up here:** What should the next AI do first?
 
+**Read first:** (only include if highly relevant to the task)
+- `wip-schema-spec.md` — The locked spec you're implementing
+- `wip-vision.md` — If you need architectural context
+
 **Or ask:** "Need deeper context? Want to see any files? Know what we're working on?"
+```
+
+### Reading List Guidelines
+
+The "Read first" section should:
+- **Only include files directly relevant to the next task** (not general context)
+- **Be minimal** — 1-3 files max, not a dump of everything
+- **Explain why** — A brief note on what the file provides
+
+Example good reading lists:
+```markdown
+**Read first:**
+- `wip-schema-spec.md` — The 16-field schema you're implementing
+```
+
+```markdown
+**Read first:**
+- `wip-phase4-qa.md` — Open questions that need answers
+- `artifacts/how-floatprompt-works.md` — The vision if you need grounding
+```
+
+Example bad reading list:
+```markdown
+**Read first:**
+- wip-boot.md (they're already reading this)
+- wip-vision.md (too general if task is specific)
+- wip-phase4-qa.md (not relevant if task is implementation)
+- every other file (information overload)
 ```
 
 ### Also check
@@ -111,7 +189,7 @@ Point to what's next:
 
 ---
 
-## Phase 3: Cross-reference wip-* Files
+## Phase 4: Cross-reference wip-* Files
 
 **Goal:** All files are consistent with each other.
 
@@ -134,7 +212,7 @@ Fix any inconsistencies found.
 
 ---
 
-## Phase 4: Log Decisions
+## Phase 5: Log Decisions
 
 **Goal:** All decisions have paper trail.
 
@@ -174,20 +252,22 @@ The buoy handles the full chain — item, month, year, root, SQLite update.
 
 ---
 
-## Phase 5: Verify
+## Phase 6: Verify
 
 **Goal:** Double-check everything before ending session.
 
 ### Final checklist
 
-- [ ] `wip-boot.md` "Last Session" updated with this session's summary
-- [ ] `wip-boot.md` "This Session" points to what's next
-- [ ] All wip-* files consistent with each other
-- [ ] No contradictions between files
-- [ ] Decision file created if decisions were made (Phase 4)
-- [ ] Month summary (`01-jan.md`) updated with new decision (Phase 4)
-- [ ] Year summary (`2026.md`) updated if new theme (Phase 4)
-- [ ] **This file (`wip-reconcile.md`)** — Does protocol need updating based on this session?
+- [ ] **Phase 2:** Stale files archived to `wip-logs/YYYY/MM-mon/`
+- [ ] **Phase 3:** `wip-boot.md` "Last Session" updated with this session's summary
+- [ ] **Phase 3:** `wip-boot.md` "This Session" points to what's next
+- [ ] **Phase 3:** `wip-boot.md` "Read first" includes relevant files for next task
+- [ ] **Phase 4:** All wip-* files consistent with each other
+- [ ] **Phase 4:** No contradictions between files
+- [ ] **Phase 5:** Decision file created if decisions were made
+- [ ] **Phase 5:** Month summary (`01-jan.md`) updated with new decision
+- [ ] **Phase 5:** Year summary (`2026.md`) updated if new theme
+- [ ] **Phase 6:** `wip-reconcile.md` updated if new patterns discovered
 
 ### Self-update check
 
@@ -215,8 +295,10 @@ This manual process (~15 min) is what agents will automate:
 | Manual | Agent |
 |--------|-------|
 | Read all wip-* files | `parity_checker` queries SQLite |
+| Archive stale files | `archiver` moves + logs via SQLite |
 | Find inconsistencies | `parity_checker` finds via JOINs |
-| Update wip-boot.md | `decision_logger` writes to SQLite |
+| Update wip-boot.md | `session_handoff` writes to SQLite |
+| Build reading list | `session_handoff` selects relevant docs |
 | Create decision files | `decision_logger` INSERTs `log_entries` rows |
 | Update summaries | `decision_logger` updates `folders.content_md` for log folders |
 | Cross-reference check | `parity_checker` via `references` table |
@@ -227,29 +309,38 @@ This manual process (~15 min) is what agents will automate:
 
 ## Example Session
 
-**Session:** Summaries decision (2026-01-03)
+**Session:** Schema spec locked (2026-01-03)
 
-**Phase 1 result:** 6 wip-* files found
+**Phase 1 result:** 7 wip-* files found
 
-**Phase 2 updates to wip-boot.md:**
+**Phase 2 archived:**
+- `wip-overview.md` → `2026-01-03-wip-overview-archived.md` (superseded by wip-vision.md)
+- `wip-problem.md` → `2026-01-03-wip-problem-archived.md` (superseded by wip-vision.md)
+- `wip-phase3.md` → `2026-01-03-wip-phase3-archived.md` (Phase 3 complete)
+- `wip-sqlite.md` → `2026-01-03-wip-sqlite-archived.md` (superseded by wip-vision.md)
+- Created `2026-01-03-wip-archival.md` log entry
+
+**Phase 3 updates to wip-boot.md:**
 - Updated "Last Session" with session summary
-- Updated "This Session" to point to Q2/Q3
-- Added "Data Model vs Files" section
-- Added entry to "Answered Questions"
+- Updated "This Session" to point to schema.ts implementation
+- Added "Read first: `wip-schema-spec.md`" for next session
+- Updated Next Steps to match locked spec
 
-**Phase 3 found:**
-- wip-phase4-qa.md Q1 still said "Open" — fixed to "Answered"
+**Phase 4 found:**
+- wip-schema-spec.md said "In Progress" — fixed to "Locked"
+- wip-phase4-qa.md Q2 still said "Open" — fixed to "Answered"
 
-**Phase 4 created:**
-- `2026-01-03-summaries-in-folders.md`
+**Phase 5 created:**
+- `2026-01-03-schema-spec-locked.md`
 - Updated `01-jan.md` with new entry
 
-**Phase 5 verified:**
+**Phase 6 verified:**
 - All files consistent
 - wip-boot.md ready for next session
+- Added Phase 2 (archival) and reading list to this protocol
 
 ---
 
-*Updated 2026-01-03 — Aligned with wip-boot.md "Last Session" / "This Session" structure.*
+*Updated 2026-01-03 — Added Phase 2 (archival) and reading list guidelines.*
 </md>
 </fp>
