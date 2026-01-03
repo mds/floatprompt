@@ -51,10 +51,15 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Phase 4 (eventually)** — Flat files optional (export only)
 
 ### SQLite Replaces
-- **floatdoc context files** — `folders` table with map_* and context_* columns
+- **floatdoc context files** — `folders` table with `description` + `content_md`
 - **logs/ folder hierarchy** — `log_entries` table with date fields + queries
-- **Index files** (01-jan.md, 2026.md) — Queries, not stored documents
+- **Summary files** (01-jan.md, 2026.md) — `folders` rows with `type = 'log_month'`, etc.
 - **Cross-reference tracking** — `references` table + JOINs
+
+### Data Model
+- **Folder structure is conceptual** — `artifacts/float-folder-structure.md` is data model, not literal files
+- **SQLite is source of truth** — Every folder = row, every folder's logs = `log_entries` WHERE `folder_path`
+- **Export is optional** — Markdown output for humans/GitHub, not the source
 
 ### What Remains
 - **boot.md** — THE system prompt for the project
@@ -89,6 +94,18 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-03-phase3-planning-complete.md](2026-01-03-phase3-planning-complete.md) | **Phase 3 planning complete** — Scanner planned, 15 questions answered, ready to build |
 | [2026-01-03-phase3-implementation-complete.md](2026-01-03-phase3-implementation-complete.md) | **Phase 3 implementation complete** — Scanner built, verified, 65 folders + 446 files |
 | [2026-01-03-schema-drift-fix.md](2026-01-03-schema-drift-fix.md) | **Schema drift fix** — mtime column missing from files table, fixed scan.ts |
+| [2026-01-03-wip-archival.md](2026-01-03-wip-archival.md) | **WIP archival** — Archived 4 stale wip files superseded by wip-vision.md |
+| [2026-01-03-summaries-in-folders.md](2026-01-03-summaries-in-folders.md) | **Summaries in folders** — Summary files are `folders` rows with `type`, no new table |
+| [2026-01-03-schema-spec-locked.md](2026-01-03-schema-spec-locked.md) | **Schema spec locked** — 16 fields via Q&A, AI civilization + token economy concepts |
+
+### Archived Reference Material
+
+| File | Summary |
+|------|---------|
+| [2026-01-03-wip-overview-archived.md](2026-01-03-wip-overview-archived.md) | "How it works" — superseded by wip-vision.md |
+| [2026-01-03-wip-problem-archived.md](2026-01-03-wip-problem-archived.md) | "The problem" — superseded by wip-vision.md |
+| [2026-01-03-wip-phase3-archived.md](2026-01-03-wip-phase3-archived.md) | Phase 3 scanner planning — COMPLETE |
+| [2026-01-03-wip-sqlite-archived.md](2026-01-03-wip-sqlite-archived.md) | SQLite architecture deep dive — superseded by wip-vision.md |
 
 ---
 

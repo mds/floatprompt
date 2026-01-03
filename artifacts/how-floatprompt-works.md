@@ -142,3 +142,46 @@ omnipresent recursive context scaffolding =
 
 Any size. Any depth. Any complexity.
 
+---
+
+## The AI Civilization (added 2026-01-03)
+
+The database isn't just storage. It's an **AI civilization** — a structured world where AI agents can operate with full understanding.
+
+**The elements:**
+
+- **Laws** — The schema defines what exists and how it's structured
+- **Governance** — `status` field tells AI what to trust (current, stale, pending)
+- **Provenance** — `ai_model` + `ai_updated` tell AI who wrote what, when
+- **Territories** — Scopes are autonomous worlds within worlds
+- **History** — `log_entries` are the paper trail of decisions
+- **Maps** — `description` is quick orientation for any folder
+- **Deep Context** — `content_md` is full understanding when needed
+
+**A cold AI session can land anywhere and instantly know:**
+
+1. Where am I? (`path`)
+2. Can I trust this context? (`status`)
+3. Who wrote it and when? (`ai_model`, `ai_updated`)
+4. What scope am I in? (`is_scope`, `parent_scope_path`)
+5. What decisions have been made here? (`log_entries`)
+
+---
+
+## The Token Economy (added 2026-01-03)
+
+This system operates in a **token economy** — but the goal isn't minimizing tokens, it's **maximizing value per token**.
+
+Every piece of context must pass the value test:
+
+> **"Does this help AI understand and operate better?"**
+
+**What makes context valuable:**
+
+- **Relevant** — Answers the question AI is actually asking
+- **Accurate** — Reflects current reality, not stale assumptions
+- **Rich** — Has depth when needed, not just surface
+- **Precise** — Says exactly what it means, no fluff
+
+Context that is so relevant, so accurate, so rich, and so precise — it's worth spending tokens on.
+

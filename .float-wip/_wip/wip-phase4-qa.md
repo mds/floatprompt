@@ -30,45 +30,49 @@
 
 ---
 
-## Open Decisions
+## Answered Decisions
 
-### 1. Summaries in Database
+### 1. Summaries in Database ✅
 
-**Status:** Open
+**Status:** Answered (2026-01-03)
 
 **Question:** Where should summary files (logs.md, 2026.md, 01-jan.md) live in the schema?
 
-**Context:**
-- Summaries contain narrative content, not just aggregations
-- They should be in the database (single source of truth)
-- Export should export them, not generate them
+**Decision:** Option C — Part of `folders` table.
 
-**Options:**
+**Rationale:**
+- Log folders (`/project-logs/2026/01-jan`) are just folders
+- They get a row in `folders` with:
+  - `type = 'log_month'` (or `log_year`, `log_root`)
+  - `description` — one-line routing signal
+  - `content_md` — the summary prose
+- No new table needed
+- The hierarchy is already there — SQLite queries replace manually-maintained index files
 
-| Option | Description | Pros | Cons |
-|--------|-------------|------|------|
-| A | New `summaries` table | Clean separation, clear purpose | Another table to manage |
-| B | `log_entries` with `type` field | Reuse existing table | Mixes different concepts |
-| C | Part of `folders` table | Summaries describe folder structure | Overloads folders concept |
+**Key insight:** The folder structure in `artifacts/float-folder-structure.md` is **data model**, not literal files. Everything lives in SQLite. Export to markdown is optional output for humans/GitHub.
 
-**Decision:** TBD
+See: `wip-logs/2026/01-jan/2026-01-03-summaries-in-folders.md`
 
 ---
 
-### 2. Autonomous Scopes in Schema
+### 2. Autonomous Scopes in Schema ✅
 
-**Status:** Open
+**Status:** Answered (2026-01-03)
 
 **Question:** When do we add `is_scope`, `parent_scope_path`, `scope_boot` to folders table?
 
-**Context:**
-- Vision doc (how-floatprompt-works.md) describes autonomous scopes
-- Schema currently missing these columns
-- Needed for hierarchical context (monorepo support)
+**Decision:** Now — included in the locked schema spec.
 
-**Decision:** TBD — likely Phase 5 (Layer 2 prep)
+**Rationale:**
+- Schema spec (`wip-schema-spec.md`) includes all 3 scope fields
+- They're part of the 16-field design
+- Will be implemented when schema.ts is updated
+
+See: `wip-schema-spec.md` and `2026-01-03-schema-spec-locked.md`
 
 ---
+
+## Open Decisions
 
 ### 3. Export Completeness
 
@@ -80,7 +84,7 @@
 
 **Expected:** Complete browsable structure including summaries
 
-**Depends on:** Decision #1 (summaries in DB)
+**Depends on:** Decision #1 (summaries in DB) — now answered
 
 ---
 
@@ -104,12 +108,13 @@
 
 ## Next Steps
 
-1. Decide on summaries storage (Decision #1)
-2. Update schema if needed
-3. Update import.ts if needed
-4. Update export.ts to be exhaustive
-5. Test roundtrip with summaries
-6. Then proceed to Layer 2 (AI generation)
+1. ~~Decide on summaries storage (Decision #1)~~ ✅ Answered
+2. ~~Update schema~~ ✅ Spec locked in `wip-schema-spec.md`, ready to implement
+3. **Implement schema.ts** — Translate locked spec to TypeScript/Zod
+4. Update import.ts if needed
+5. Update export.ts to output full folder structure as markdown
+6. Test roundtrip with summaries
+7. Then proceed to Layer 2 (AI generation)
 
 ---
 

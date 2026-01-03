@@ -63,7 +63,7 @@
 <md>
 # Logs
 
-> **Storage evolution:** This flat file structure is Phase 1 (prototyping). SQLite becomes the source of truth in Phase 2-3. The `log_entries` table replaces the folder hierarchy. See `wip-sqlite.md`.
+> **Storage evolution:** This flat file structure is Phase 1 (prototyping). SQLite is now the source of truth (Phase 2-3 complete). The `log_entries` table stores decisions; summaries are `folders` rows with `type = 'log_month'`, etc. See `wip-vision.md`.
 
 Navigation map and open questions. Decisions, sessions, activity — all here.
 
@@ -106,9 +106,9 @@ We're manually doing work that agents will eventually automate. Document which a
 | **decision_logger** | judgment, writing, SQL | Create log entries in SQLite |
 | **parity_checker** | SQL queries, pattern matching | Find stale references via JOIN queries |
 | **parity_fixer** | SQL updates, judgment | Update multiple records for consistency |
-| **summary_writer** | ~~compression, judgment~~ | **PARTIALLY OBSOLETE** — aggregation summaries become queries |
+| **summary_writer** | judgment, writing | Updates `folders.content_md` for log folders (`type = 'log_month'`, etc.) |
 
-**Note:** With SQLite, `summary_writer` for aggregation (01-jan.md, 2026.md) is eliminated — those become queries. Original summary generation (AI describing a folder) is still needed.
+**Note:** Summaries are stored in `folders` table as rows. AI writes them, SQLite stores them. They're not query-generated — they contain narrative content.
 
 **When logging decisions, include:**
 - `Files Changed` — What files were touched
@@ -121,5 +121,7 @@ This builds the spec for agent architecture by observing what we do manually.
 *Manual prototype of recursive archive. Eventually: TypeScript + agents.*
 
 *Renamed from decisions/ on 2026-01-02 — "logs" is the umbrella term.*
+
+*Updated 2026-01-03 — SQLite is now source of truth, summaries are folder rows.*
 </md>
 </fp>

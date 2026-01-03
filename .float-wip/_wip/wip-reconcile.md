@@ -80,29 +80,34 @@ ls .float-wip/_wip/wip-*.md
 
 ## Phase 2: Update wip-boot.md
 
-**Goal:** Session Handoff section reflects this session's work.
+**Goal:** Next session starts with accurate context.
 
-### Check
-1. Open `wip-boot.md`
-2. Find `## Session Handoff` section
-3. Is today's date listed?
-4. Are this session's changes documented?
+### Update "Last Session"
 
-### Update
-Add new section for today if needed:
+Replace the content with a one-liner about THIS session:
 
 ```markdown
-### YYYY-MM-DD (Summary)
+## Last Session
 
-N. **Change summary**
-   - Detail 1
-   - Detail 2
+**YYYY-MM-DD:** Brief summary of what happened this session.
+```
+
+### Update "This Session"
+
+Point to what's next:
+
+```markdown
+## This Session
+
+**Pick up here:** What should the next AI do first?
+
+**Or ask:** "Need deeper context? Want to see any files? Know what we're working on?"
 ```
 
 ### Also check
-- `## Drill-Down Files` table — any status changes?
+- `## Answered Questions` — any new resolved questions?
 - `## Open Questions` — any resolved or new?
-- `## Key Decisions` — any new locked decisions?
+- `## Drill-Down Files` table — any status changes?
 
 ---
 
@@ -137,15 +142,21 @@ Fix any inconsistencies found.
 1. Were any decisions made this session?
 2. Do they warrant a decision file?
 
-### If yes → delegate to wip-logs.md
+### If yes → Run the wip-logs.md protocol
 
-**Do not log here.** Hand off to the logging protocol:
+**This is a separate action.** Read `wip-logs/wip-logs.md` and follow its 4-level chain:
 
-```
-→ Read wip-logs/wip-logs.md
-→ Follow its protocol exactly (4-level chain)
-→ Re-import to SQLite when done
-```
+1. **Create decision file** — `YYYY-MM-DD-topic.md` in current month folder
+2. **Update month summary** — Add entry to `01-jan.md` (or current month)
+3. **Update year summary** — Add to `2026.md` if new theme emerges
+4. **Update root** — Add to `wip-logs.md` only if new year
+
+### After logging
+
+Check that all summary files are consistent:
+- Decision file exists and is complete
+- Month summary (`01-jan.md`) has the new entry
+- Year summary (`2026.md`) reflects any new themes
 
 **Future:** This becomes a `decision_logger` buoy call.
 
@@ -159,7 +170,7 @@ await spawnBuoy('decision_logger', {
 });
 ```
 
-The buoy handles the full chain — item, month, year, root, SQLite import.
+The buoy handles the full chain — item, month, year, root, SQLite update.
 
 ---
 
@@ -169,12 +180,13 @@ The buoy handles the full chain — item, month, year, root, SQLite import.
 
 ### Final checklist
 
-- [ ] `wip-boot.md` Session Handoff updated for today
+- [ ] `wip-boot.md` "Last Session" updated with this session's summary
+- [ ] `wip-boot.md` "This Session" points to what's next
 - [ ] All wip-* files consistent with each other
 - [ ] No contradictions between files
-- [ ] Decision file created if decisions were made
-- [ ] Month summary updated with new decision
-- [ ] "Next steps" in all files point to correct action
+- [ ] Decision file created if decisions were made (Phase 4)
+- [ ] Month summary (`01-jan.md`) updated with new decision (Phase 4)
+- [ ] Year summary (`2026.md`) updated if new theme (Phase 4)
 - [ ] **This file (`wip-reconcile.md`)** — Does protocol need updating based on this session?
 
 ### Self-update check
@@ -205,35 +217,39 @@ This manual process (~15 min) is what agents will automate:
 | Read all wip-* files | `parity_checker` queries SQLite |
 | Find inconsistencies | `parity_checker` finds via JOINs |
 | Update wip-boot.md | `decision_logger` writes to SQLite |
-| Create decision files | `decision_logger` INSERTs rows |
-| Update summaries | Eliminated — summaries become queries |
+| Create decision files | `decision_logger` INSERTs `log_entries` rows |
+| Update summaries | `decision_logger` updates `folders.content_md` for log folders |
 | Cross-reference check | `parity_checker` via `references` table |
+
+**Note:** Summaries are stored in `folders` table as rows with `type = 'log_month'`, etc. They're not query-generated — AI writes them, SQLite stores them.
 
 ---
 
 ## Example Session
 
-**Session:** Phase 2 planning (2026-01-03)
+**Session:** Summaries decision (2026-01-03)
 
-**Phase 1 result:** N wip-* files found (dynamic count)
+**Phase 1 result:** 6 wip-* files found
 
 **Phase 2 updates to wip-boot.md:**
-- Added "2026-01-03 (Phase 2 Planning Complete)" section
-- Updated Drill-Down Files table
+- Updated "Last Session" with session summary
+- Updated "This Session" to point to Q2/Q3
+- Added "Data Model vs Files" section
+- Added entry to "Answered Questions"
 
 **Phase 3 found:**
-- wip-sqlite.md said "NEXT" for answered questions — fixed
+- wip-phase4-qa.md Q1 still said "Open" — fixed to "Answered"
 
 **Phase 4 created:**
-- `2026-01-03-phase2-planning-complete.md`
+- `2026-01-03-summaries-in-folders.md`
 - Updated `01-jan.md` with new entry
 
 **Phase 5 verified:**
 - All files consistent
-- No stale "pending" references
+- wip-boot.md ready for next session
 
 ---
 
-*This floatprompt encodes the manual reconciliation process observed on 2026-01-03.*
+*Updated 2026-01-03 — Aligned with wip-boot.md "Last Session" / "This Session" structure.*
 </md>
 </fp>
