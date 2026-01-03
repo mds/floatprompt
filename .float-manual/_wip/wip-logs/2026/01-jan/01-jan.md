@@ -35,13 +35,36 @@ Foundational month for context-compiler. Established architecture, execution mod
 ### Archival Structure
 - **Hierarchy** — Collection/Series/File/Item → logs/year/month/entries
 - **Naming** — `YYYY-MM-DD-topic.md` (full date, self-describing)
-- **Summaries** — `index.md` at every level, richest at month level
+- **Summaries** — Self-describing filenames (`wip-logs.md`, `2026.md`, `01-jan.md`)
 
 ### Nav Structure
 - **Mirror project** — `.float/project/` mirrors project folder structure
-- **`_/` convention** — Each folder gets `_/` containing map.md, context.md, logs/
+- **`_project/` at root** — Root context in `_project/` folder (self-describing)
+- **Direct files elsewhere** — `src/src-map.md`, not `src/_/map.md`
 - **Three files** — map (structure), context (understanding), logs (history/freshness)
 - **Emergent behavior** — Agents judge depth/granularity, logs drive freshness
+
+### Storage Architecture
+- **Phase 1 (now)** — Flat files for prototyping
+- **Phase 2 (planning complete)** — Add SQLite index for speed ← READY TO BUILD
+- **Phase 3 (later)** — SQLite as source of truth
+- **Phase 4 (eventually)** — Flat files optional (export only)
+
+### SQLite Replaces
+- **floatdoc context files** — `folders` table with map_* and context_* columns
+- **logs/ folder hierarchy** — `log_entries` table with date fields + queries
+- **Index files** (01-jan.md, 2026.md) — Queries, not stored documents
+- **Cross-reference tracking** — `references` table + JOINs
+
+### What Remains
+- **boot.md** — THE system prompt for the project
+- **AI judgment** — AI still generates summaries, SQLite stores them
+- **Markdown export** — Optional, for GitHub/sharing
+
+### Methodology
+- **Map → Decide → Structure** — GATE, not suggestion
+- **No code without requirements** — Must be able to write complete spec first
+- **The question** — "Can I write a complete spec without gaps?" If NO → don't code yet
 
 ---
 
@@ -55,6 +78,13 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-02-nav-structure.md](2026-01-02-nav-structure.md) | Mirror project structure, `_/` convention, three files |
 | [2026-01-02-vercel-infrastructure.md](2026-01-02-vercel-infrastructure.md) | Vercel AI SDK + Sandbox, Anthropic provider |
 | [2026-01-02-manual-prototype-location.md](2026-01-02-manual-prototype-location.md) | Manual prototype at `.float-manual/`, not `docs/sys/` |
+| [2026-01-02-project-folder-naming.md](2026-01-02-project-folder-naming.md) | `_/` → `_project/` at root, direct files elsewhere |
+| [2026-01-02-self-describing-filenames.md](2026-01-02-self-describing-filenames.md) | `index.md` → self-describing names (`wip-logs.md`, `2026.md`, etc.) |
+| [2026-01-02-storage-architecture.md](2026-01-02-storage-architecture.md) | Flat files → SQLite evolution in 4 phases |
+| [2026-01-02-sqlite-understanding.md](2026-01-02-sqlite-understanding.md) | **Full SQLite understanding** — schema, what it replaces, boot.md = system prompt |
+| [2026-01-02-no-code-without-requirements.md](2026-01-02-no-code-without-requirements.md) | **Methodology enforcement** — Map → Decide → Structure is a GATE |
+| [2026-01-03-phase2-planning-complete.md](2026-01-03-phase2-planning-complete.md) | **Phase 2 planning complete** — 16 questions answered, stress tested, ready to build |
+| [2026-01-03-phase2-implementation-complete.md](2026-01-03-phase2-implementation-complete.md) | **Phase 2 implementation complete** — importer built, 12 entries imported, schema validated |
 
 ---
 

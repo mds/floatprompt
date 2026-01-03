@@ -68,4 +68,10 @@ Apply to sessions, context, and other archives.
 
 ---
 
+## Refined By
+
+- [2026-01-02-self-describing-filenames.md](2026-01-02-self-describing-filenames.md) — `index.md` → self-describing names
+
+---
+
 **Do not revisit.**

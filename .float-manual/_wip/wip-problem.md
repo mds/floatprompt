@@ -1,6 +1,8 @@
 # The Problem We're Solving
 
 > **Note:** `.float/` in this doc refers to the TARGET structure we're building. The current `.float-old/` in this repo is stale (old structure).
+>
+> **Storage evolution:** The flat file structure shown here is Phase 1 (prototyping). SQLite becomes the source of truth in Phase 2-3. See `wip-sqlite.md` for full architecture.
 
 **The invisible OS for AI.**
 
@@ -92,17 +94,24 @@ AI orchestrates ────── .float/ ──── Claude Code reads
 ├── boot.md              ← Orients AI on when to use TS/CLI/buoys/cognition
 │
 └── project/             ← Mirrors project structure
-    ├── _/               ← Root meta (project itself)
-    │   ├── map.md       ← Structure
-    │   ├── context.md   ← Understanding
-    │   └── logs/        ← History (freshness signal)
-    ├── src/
-    │   └── _/           ← src/ meta (recursive)
+    ├── _project/        ← Root meta (special folder)
+    │   ├── project-map.md
+    │   ├── project-context.md
+    │   └── project-logs/
+    │       └── project-logs.md
+    ├── src/             ← Files go directly here
+    │   ├── src-map.md
+    │   ├── src-context.md
+    │   └── src-logs/
+    │       └── src-logs.md
     └── docs/
-        └── _/           ← docs/ meta (recursive)
+        ├── docs-map.md
+        ├── docs-context.md
+        └── docs-logs/
+            └── docs-logs.md
 ```
 
-**The `_/` convention:** Every tracked folder gets `_/` containing map.md, context.md, logs/. Self-similar at every level.
+**The `_project/` convention:** Root needs special folder (no natural name). Other folders have files directly inside with self-describing prefixes.
 
 **AI orchestrates.** Delegates to TS/CLI/buoys, does cognitive work.
 
@@ -120,9 +129,9 @@ AI orchestrates ────── .float/ ──── Claude Code reads
 ## Constraints
 
 - Must be deletable (delete `.float/` = zero trace)
-- Must be human-readable (markdown, not binary)
+- Must be human-readable (exports to markdown for GitHub/sharing; SQLite is internal)
 - Must work locally (CLI fallback) AND cloud (agents at scale)
-- Must be agent-writable (TypeScript maintains nav, context, logs)
+- Must be agent-writable (TypeScript maintains context via SQLite)
 
 ## What This Is NOT
 

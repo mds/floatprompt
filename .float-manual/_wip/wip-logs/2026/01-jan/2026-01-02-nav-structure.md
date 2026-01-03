@@ -157,4 +157,11 @@ The pattern holds. Open questions (depth, granularity, cross-refs) are agent jud
 
 ---
 
+## Refined By
+
+- [2026-01-02-project-folder-naming.md](2026-01-02-project-folder-naming.md) — `_/` → `_project/` at root, direct files elsewhere
+- [2026-01-02-self-describing-filenames.md](2026-01-02-self-describing-filenames.md) — `index.md` → self-describing names
+
+---
+
 **Do not revisit.**

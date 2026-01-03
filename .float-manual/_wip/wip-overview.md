@@ -1,6 +1,8 @@
 # How FloatPrompt Works
 
 > **Note:** `.float/` in this doc refers to the TARGET structure we're building. The current `.float-old/` in this repo is stale (old structure).
+>
+> **Storage evolution:** The flat file structure shown here is Phase 1 (prototyping). SQLite becomes the source of truth in Phase 2-3. See `wip-sqlite.md` for full architecture.
 
 Overview of the FloatPrompt system — architecture, execution model, and goals.
 
@@ -20,10 +22,10 @@ Cloud Agents (build/maintain)          Local Session (understand/help)
 └─────────────────┘                    └─────────────────┘
         │                                       │
         ▼                                       ▼
-   Maintains:                              Helps human:
-   - _/map.md (structure)                  - Build features
-   - _/context.md (understanding)          - Debug issues
-   - _/logs/ (history)                     - Navigate codebase
+   Maintains (via SQLite):                 Helps human:
+   - folder context (structure)            - Build features
+   - folder context (understanding)        - Debug issues
+   - log entries (history)                 - Navigate codebase
 ```
 
 **Agents build. Local understands. AI orchestrates both.**
@@ -34,22 +36,21 @@ Cloud Agents (build/maintain)          Local Session (understand/help)
 
 ```
 .float/
-├── boot.md               # Orients Claude Code to context
-├── project/              # Mirrors project structure
-│   ├── _/                # Root meta
-│   │   ├── map.md        # Project structure
-│   │   ├── context.md    # Project understanding
-│   │   └── logs/         # Project history
-│   ├── src/
-│   │   └── _/            # src/ meta (recursive)
-│   └── docs/
-│       └── _/            # docs/ meta (recursive)
+├── boot.md               # THE system prompt — orients AI to project
+├── index.db              # SQLite database — source of truth for context
+├── project/              # Optional: exported markdown for humans (Phase 4)
 └── .version              # Installed version
 
 .claude/commands/         # Thin wrappers (may be deprecated)
 ```
 
-**The `_/` convention:** Each tracked folder gets `_/` containing map.md, context.md, logs/. Logs drive freshness — new entry triggers map/context review.
+**SQLite stores:**
+- `folders` table — map + context for each folder
+- `log_entries` table — decisions, changes, paper trail
+- `files` table — source files for change detection
+- `references` table — cross-links for staleness
+
+**boot.md is THE system prompt** — AI reads this first, then queries SQLite for context.
 
 ---
 

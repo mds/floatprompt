@@ -3,11 +3,7 @@ User installs floatprompt into any directory of their own knowledge (code/conten
 .float/ is installed at root level along with:
 - boot.md
 - project/
-  - context/
-  - logs/
-  - nav/
 - templates/
-  - legacy markdown docs
 - tools/
   - float*tools
 
@@ -31,10 +27,12 @@ Claude Code can spawn "Claude" agents to handle various tasks. These agents in t
 
 Moving forward beyond where we're at now, we need to decide the absolutely best:
 
-boot.md (aka system.md) floatprompt structure,and OS-level document—similar to templates/.float/templates/float-os.md that would ORIENT AND DIRECT CLAUDE CODE to fully understand the .float/ system and how it should operate to create recursive contextual scaffolding THIS IS THE ULTIMATE FLOATPROMPT to define the full system and how it operates. the existing file does pretty well, but it's all based on old markdown methodology
+boot.md (aka system.md) floatprompt structure and OS-level document—similar to templates/.float/templates/float-os.md that would ORIENT AND DIRECT CLAUDE CODE to fully understand the .float/ system and how it should operate to create recursive contextual scaffolding THIS IS THE ULTIMATE FLOATPROMPT to define the full system and how it operates. the existing file does pretty well, but it's all based on old markdown methodology
 
-we, also need to determine the best typescript setup for floatprompt tools (we've already defined schema for base format) all existing tools are markdown only, but they could probably be more powerful within .float/ if some of them were actual typescript functions vs markdown instruction for AI
+we, also need to determine the best typescript setup for floatprompt tools (we've already defined schema for base format) all existing tools are markdown only, but they could probably be more powerful within .float/ if some/most of them were actual typescript functions vs markdown instruction for AI
 
-AI needs to realize that it can use typescript functions, command line functions, AND the ability to SPAWN multiple buoys/agents to accomplish various tasks in this .float/ system. It should never try to do alone, what 3-4 subagents/buoys can do together.
+AI needs to realize that it can use typescript functions, command line functions, AND the ability to SPAWN multiple(hundreds/thousands?) buoys/agents to accomplish various tasks in this .float/ system. It should never try to do alone, what a fleet of subagents/buoys can do together.
+
+Pushing all of this floatprompt philosophy into typescript, sqlite, vercel sandbox, ai sdk, makes this a powerhouse of AI metadata wherever it's installed.
 
 

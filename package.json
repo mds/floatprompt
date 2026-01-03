@@ -6,8 +6,22 @@
     "float": "./bin/floatprompt.js"
   },
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
   "files": [
     "bin/",
+    "dist/",
     "templates/"
   ],
   "repository": {
@@ -25,6 +39,15 @@
   ],
   "author": "@mds",
   "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
+  },
   "engines": {
     "node": ">=18.0.0"
   },

@@ -1,2 +1,2 @@
-export * from "./floatprompt";
-export * from "./floatdoc";
+export * from "./floatprompt.js";
+export * from "./floatdoc.js";

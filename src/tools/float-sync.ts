@@ -10,7 +10,7 @@
  * 4. No STOP — boot.md already set focus
  */
 
-import type { FloatPromptJson } from "../schema/floatprompt";
+import type { FloatPromptJson } from "../schema/floatprompt.js";
 
 // Tool config (minimal)
 export const json: FloatPromptJson = {
