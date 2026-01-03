@@ -35,4 +35,110 @@ AI needs to realize that it can use typescript functions, command line functions
 
 Pushing all of this floatprompt philosophy into typescript, sqlite, vercel sandbox, ai sdk, makes this a powerhouse of AI metadata wherever it's installed.
 
+---
+
+## Autonomous Scopes (the recursive scaling model)
+
+Some folders are just folders. But some folders are complex enough to be their own "world" — their own mini FloatPrompt system within the larger system.
+
+Think monorepo:
+- /packages/web-app is a world
+- /packages/web-app/src/auth is a world within that world
+- /packages/mobile-app is a different world
+- /infrastructure is its own world
+
+These are "autonomous scopes" — they get their own boot context, their own patterns, their own buoy teams when needed. But they're still connected to the parent. Changes bubble up through the scope hierarchy.
+
+The database tracks this. No extra folders needed. Just a flag: is_scope = TRUE. And a pointer to the parent scope. The whole thing stays in one SQLite database, but the system knows which folders are "worlds" and treats them specially.
+
+---
+
+## The Three Layers
+
+Layer 1: Mechanical (code, instant)
+- Walk filesystem, detect structure
+- Hash files for change detection
+- Write to SQLite
+- Runs in milliseconds, no AI needed
+
+Layer 2: AI Generation (buoys, parallel)
+- For each folder/scope: generate map (what's here)
+- For each folder/scope: generate context (what it means)
+- Form hypothesis about relationships, patterns, architecture
+- Buoys work in parallel — one per scope if needed
+
+Layer 3: Ongoing (triggers, continuous)
+- File watcher, git hook, manual command
+- Detect changes, mark scopes as stale
+- Re-run AI for affected scopes only
+- Context stays fresh without human prompting
+
+The scanner we're building is Layer 1. It's the foundation everything else builds on.
+
+---
+
+## Why This Scales Infinitely
+
+Mechanical layer = O(1) hash comparisons, milliseconds
+- 10,000 folders? 10,000 rows. SQLite handles billions.
+
+Scopes = hierarchical, changes only affect ancestors
+- Change in /auth doesn't rescan /mobile-app
+- Staleness bubbles UP, not sideways
+
+Buoys = parallel, spawn as needed
+- 50 scopes changed? Spawn 50 buoys.
+- 1000 folders need context? Spawn 1000 buoys.
+- Cloud handles it. That's the point.
+
+The architecture doesn't care if it's a 10-folder project or a 10,000-folder monorepo. Same pattern. Same code. Different scale.
+
+---
+
+## Context Evolution
+
+Initial context is AI's hypothesis — generated from reading the files, best guess about what things mean.
+
+But as human and AI work together, insights emerge. The system can tell when something is novel because it can check against what exists. Novel insights get captured. Context evolves.
+
+- folders.context_* = current understanding (latest state)
+- log_entries = paper trail of how we got there
+
+The context isn't static. It's a living record that gets richer over time.
+
+---
+
+## The End State
+
+Human opens Claude Code anywhere in the project:
+
+AI reads (in order):
+1. boot.md (root system prompt)
+2. Scope chain up to current location
+3. Map + context for current folder
+
+AI now has:
+- Full project understanding (from root)
+- Domain understanding (from relevant scopes)
+- Local understanding (from current folder)
+- History of decisions (from log_entries)
+
+No more "what framework is this?"
+No more "can you explain the auth system?"
+No more repeating context every session.
+
+It's just... there. Always fresh. Always recursive. Always ready.
+
+---
+
+## The Formula
+
+omnipresent recursive context scaffolding =
+  mechanical speed (code) +
+  contextual quality (AI judgment) +
+  infinite parallelization (buoys) +
+  hierarchical scoping (autonomous scopes) +
+  persistent storage (SQLite)
+
+Any size. Any depth. Any complexity.
 

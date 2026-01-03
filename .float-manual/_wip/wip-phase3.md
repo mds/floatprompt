@@ -33,6 +33,39 @@
 
 ---
 
+## The Problem We're Solving
+
+Context loss.
+
+Mid-session, AI context compacts. Nuance from earlier discussion disappears. Human has to re-explain things. This happened during this very planning session — we lost details from Q1-Q6 discussion when context compacted.
+
+Without FloatPrompt:
+- Context lives in chat history → compaction loses it → human repeats themselves
+- Every new session starts from zero
+- AI asks "what framework is this?" for the 1000th time
+- Decisions made last week are forgotten
+
+With FloatPrompt:
+- Context lives in SQLite → persists across sessions → AI picks up where it left off
+- Every session has full project understanding from moment one
+- Decisions are logged, searchable, connected to the folders they affect
+- Context evolves and gets richer over time
+
+The scanner is the foundation. It creates the structure that everything else builds on.
+
+---
+
+## Required Reading
+
+Before building, understand the full vision:
+
+- **`artifacts/how-floatprompt-works.md`** — The complete vision document. Autonomous scopes, three layers, infinite scalability, the formula.
+- **`wip-logs/2026/01-jan/2026-01-02-sqlite-understanding.md`** — Why SQLite, what it replaces, what it doesn't replace.
+- **`wip-logs/2026/01-jan/2026-01-02-nav-structure.md`** — The mirror structure pattern (now in SQLite instead of folders).
+- **`src/db/schema.ts`** — The actual schema we're populating.
+
+---
+
 ## The /float Layered Architecture
 
 Understanding where the scanner fits in the bigger picture:
@@ -73,29 +106,137 @@ The map is a **lightweight TOC** — scannable documentation of terrain. It lets
 
 ---
 
+## Autonomous Scopes
+
+Some folders are just folders. But some folders are complex enough to be their own "world" — their own mini FloatPrompt system within the larger system.
+
+Think monorepo:
+```
+/big-company-monorepo          ← ROOT SCOPE (.float/ installed here)
+├── /packages
+│   ├── /web-app               ← AUTONOMOUS SCOPE (complex enough to be its own world)
+│   │   └── /src/auth          ← AUTONOMOUS SCOPE (security domain, deep complexity)
+│   └── /mobile-app            ← AUTONOMOUS SCOPE
+└── /infrastructure            ← AUTONOMOUS SCOPE (devops world)
+```
+
+**What makes a folder an autonomous scope?**
+- High friction (many files, deep nesting, complex domain)
+- AI judges this during Layer 2 generation
+- Gets its own boot context, patterns, buoy teams when needed
+- Changes bubble up through scope hierarchy
+
+**Database representation:**
+```sql
+-- Future schema additions (not yet in schema.ts)
+is_scope BOOLEAN DEFAULT FALSE,     -- TRUE = autonomous scope
+parent_scope_path TEXT,             -- nearest ancestor that is a scope
+scope_boot TEXT,                    -- like boot.md but for this scope
+```
+
+**Scanner's role:** Scanner (Layer 1) creates the folder rows. Layer 2 (AI) decides which folders become scopes based on friction assessment.
+
+---
+
+## Friction Scoring (Mental Model)
+
+From `float-os.md`, the friction scoring concept:
+
+| Friction Level | Signals | Treatment |
+|----------------|---------|-----------|
+| Low | 1-5 files, no subfolders, simple utilities | Brief context, list in parent's map |
+| Medium | 6-20 files, some nesting | Full context, own map |
+| High | 20+ files, deep nesting, complex domain | Autonomous scope, own boot context |
+
+This isn't a literal implementation — it's a mental model for how AI (Layer 2) decides depth and complexity. The scanner just creates the structure. AI judges what level of context each folder needs.
+
+**Signals AI might use:**
+- File count
+- Subfolder count / nesting depth
+- File complexity (lines of code, imports)
+- Cross-references (how many other folders reference this one)
+- Domain keywords (auth, payment, api = likely high friction)
+
+---
+
+## Context Evolution
+
+**Initial context = AI's hypothesis**
+- Generated from reading the files
+- Best guess about what things mean
+- Stored in `folders.context_*` fields
+
+**Evolved context = Human + AI insights**
+- As human and AI work together, insights emerge
+- System can tell when something is novel (check against what exists)
+- Novel insights get captured, context evolves
+
+**The database tracks both:**
+- `folders.context_*` = current understanding (latest state)
+- `log_entries` = paper trail of how we got there
+
+**Example flow:**
+1. Scanner creates `/src/auth` row (Layer 1)
+2. AI generates initial context: "Authentication layer using JWT" (Layer 2)
+3. Human and AI discuss, discover it's actually OAuth + JWT hybrid
+4. AI updates context, creates log_entry documenting the insight
+5. Future sessions have the evolved understanding
+
+---
+
 ## What Scanner Does
 
 From `wip-sqlite.md`:
 > Scanner walks project, creates rows in `folders` table with map_* and context_* columns
 
-From schema.ts `folders` table:
+**The Real Schema (from `src/db/schema.ts`):**
+
 ```sql
+-- folders table
 CREATE TABLE IF NOT EXISTS folders (
-  path TEXT PRIMARY KEY,
-  parent_path TEXT,
-  map_json TEXT,           -- AI-generated structure map
-  map_updated_at INTEGER,
-  context_summary TEXT,    -- AI-generated understanding
-  context_updated_at INTEGER,
-  open_questions TEXT,     -- JSON array
+  path TEXT PRIMARY KEY,        -- '/', '/src', '/src/auth'
+  parent_path TEXT,             -- For hierarchy queries
+  name TEXT NOT NULL,           -- 'src', 'auth'
+
+  -- Map (WHERE - structure) — AI-generated
+  map_summary TEXT,             -- "Contains React components for UI"
+  map_children TEXT,            -- JSON: [{name, type, description}]
+
+  -- Context (WHAT - understanding) — AI-generated
+  context_what TEXT,            -- "This is the authentication layer"
+  context_why TEXT,             -- "Separated for security isolation"
+  context_patterns TEXT,        -- JSON: ["repository pattern", "DI"]
+
+  -- Staleness detection
+  source_hash TEXT,             -- SHA-256 of folder contents
+  last_scanned_at INTEGER,      -- When scanner last ran
+
   created_at INTEGER NOT NULL,
   updated_at INTEGER NOT NULL
+);
+
+-- files table
+CREATE TABLE IF NOT EXISTS files (
+  path TEXT PRIMARY KEY,        -- '/src/auth/login.ts'
+  folder_path TEXT NOT NULL,    -- '/src/auth'
+  content_hash TEXT NOT NULL,   -- SHA-256 of file content
+  last_scanned_at INTEGER NOT NULL
 );
 ```
 
 **Scanner's job (Layer 1):**
-- Populate: path, parent_path, created_at, updated_at
-- Leave NULL: map_json, context_summary (Layer 2 fills these)
+- Populate in `folders`: path, parent_path, name, source_hash, last_scanned_at, created_at, updated_at
+- Populate in `files`: path, folder_path, content_hash, last_scanned_at
+- Leave NULL: map_summary, map_children, context_what, context_why, context_patterns (Layer 2 fills these)
+
+**Map fields (AI-generated in Layer 2):**
+- `map_summary`: One-sentence description ("React components for user interface")
+- `map_children`: JSON array of `{name, type, description}` for each child
+
+**Context fields (AI-generated in Layer 2):**
+- `context_what`: What this folder is ("The authentication layer")
+- `context_why`: Why it exists / why structured this way ("Separated for security isolation")
+- `context_patterns`: JSON array of patterns used (["OAuth", "middleware", "JWT"])
 
 ---
 
@@ -294,8 +435,65 @@ Scanner spec summary:
 
 ---
 
+## The Infinite Scalability Vision
+
+Why this architecture matters:
+
+**Mechanical layer = O(1) hash comparisons, milliseconds**
+- 10,000 folders? 10,000 rows. SQLite handles billions.
+- Scanner runs in milliseconds, no matter project size.
+
+**Scopes = hierarchical, changes only affect ancestors**
+- Change in /auth doesn't rescan /mobile-app
+- Staleness bubbles UP, not sideways
+- Each scope can have its own buoy team
+
+**Buoys = parallel, spawn as needed**
+- 50 scopes changed? Spawn 50 buoys.
+- 1000 folders need context? Spawn 1000 buoys.
+- Cloud handles it. That's the point.
+
+**The formula (from how-floatprompt-works.md):**
+
+```
+omnipresent recursive context scaffolding =
+  mechanical speed (code) +
+  contextual quality (AI judgment) +
+  infinite parallelization (buoys) +
+  hierarchical scoping (autonomous scopes) +
+  persistent storage (SQLite)
+```
+
+**Any size. Any depth. Any complexity.**
+
+The scanner is Layer 1. It's the foundation everything else builds on. Get this right, and the rest follows.
+
+---
+
+## The End State
+
+Human opens Claude Code anywhere in the project:
+
+1. AI reads boot.md (root system prompt)
+2. AI reads scope chain up to current location
+3. AI reads map + context for current folder
+
+AI now has:
+- Full project understanding (from root)
+- Domain understanding (from relevant scopes)
+- Local understanding (from current folder)
+- History of decisions (from log_entries)
+
+No more "what framework is this?"
+No more "can you explain the auth system?"
+No more repeating context every session.
+
+It's just... there. Always fresh. Always recursive. Always ready.
+
+---
+
 *Created 2026-01-03*
-*Updated with layered architecture context*
+*Updated with full vision context from planning session*
 *All questions answered — ready to build*
 </md>
 </fp>
