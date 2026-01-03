@@ -5,7 +5,7 @@ import { CREATE_TABLES_SQL } from "./schema.js";
  * Database client for FloatPrompt context database.
  *
  * Usage:
- *   const db = createDatabase('.float-manual/float.db');
+ *   const db = createDatabase('.float/float.db');
  *   // use db for queries
  *   db.close();
  */

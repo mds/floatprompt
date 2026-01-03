@@ -1,5 +1,4 @@
 import { z } from "zod";
-
 /**
  * SQLite Schema for FloatPrompt Context Database
  *
@@ -12,126 +11,92 @@ import { z } from "zod";
  * - tags: Categorization
  * - log_entry_tags: Many-to-many relationship
  */
-
 // Folders table — the things being described
 export const FolderSchema = z.object({
-  path: z.string(), // PRIMARY KEY: '/', '/src', '/src/auth'
-  parent_path: z.string().nullable(), // NULL for root
-  name: z.string(), // 'src', 'auth'
-
-  // Map (WHERE - structure) — AI-generated
-  map_summary: z.string().nullable(), // "Contains React components for UI"
-  map_children: z
-    .array(
-      z.object({
+    path: z.string(), // PRIMARY KEY: '/', '/src', '/src/auth'
+    parent_path: z.string().nullable(), // NULL for root
+    name: z.string(), // 'src', 'auth'
+    // Map (WHERE - structure) — AI-generated
+    map_summary: z.string().nullable(), // "Contains React components for UI"
+    map_children: z
+        .array(z.object({
         name: z.string(),
         type: z.enum(["file", "folder"]),
         description: z.string(),
-      })
-    )
-    .nullable(), // Stored as JSON
-
-  // Context (WHAT - understanding) — AI-generated
-  context_what: z.string().nullable(), // "This is the authentication layer"
-  context_why: z.string().nullable(), // "Separated for security isolation"
-  context_patterns: z.array(z.string()).nullable(), // ["repository pattern", "DI"]
-
-  // Staleness detection
-  // source_hash = SHA-256(sorted child paths + their content hashes)
-  // Not recursive — just immediate children. Staleness bubbles up naturally.
-  source_hash: z.string().nullable(),
-  last_scanned_at: z.number().nullable(), // Unix timestamp
-
-  created_at: z.number(), // Unix timestamp
-  updated_at: z.number(), // Unix timestamp
+    }))
+        .nullable(), // Stored as JSON
+    // Context (WHAT - understanding) — AI-generated
+    context_what: z.string().nullable(), // "This is the authentication layer"
+    context_why: z.string().nullable(), // "Separated for security isolation"
+    context_patterns: z.array(z.string()).nullable(), // ["repository pattern", "DI"]
+    // Staleness detection
+    // source_hash = SHA-256(sorted child paths + their content hashes)
+    // Not recursive — just immediate children. Staleness bubbles up naturally.
+    source_hash: z.string().nullable(),
+    last_scanned_at: z.number().nullable(), // Unix timestamp
+    created_at: z.number(), // Unix timestamp
+    updated_at: z.number(), // Unix timestamp
 });
-
-export type Folder = z.infer<typeof FolderSchema>;
-
 // Log entries table — the paper trail
 export const LogEntryStatusSchema = z.enum(["locked", "open", "superseded"]);
-
 export const LogEntrySchema = z.object({
-  id: z.number().optional(), // PRIMARY KEY, auto-increment
-  folder_path: z.string(), // Which folder (or '/' for system-wide)
-  date: z.string(), // '2026-01-02'
-  topic: z.string(), // 'nav-structure'
-  status: LogEntryStatusSchema,
-
-  // AI-generated content
-  title: z.string(),
-  decision: z.string().nullable(),
-  rationale: z.string().nullable(),
-  before_state: z.string().nullable(),
-  after_state: z.string().nullable(),
-
-  // Metadata
-  files_changed: z.array(z.string()).nullable(), // Stored as JSON
-  future_agent: z.string().nullable(), // Which agent type would do this
-
-  // Relations
-  supersedes: z.number().nullable(), // log_entry id
-  superseded_by: z.number().nullable(), // log_entry id
-
-  created_at: z.number(), // Unix timestamp
+    id: z.number().optional(), // PRIMARY KEY, auto-increment
+    folder_path: z.string(), // Which folder (or '/' for system-wide)
+    date: z.string(), // '2026-01-02'
+    topic: z.string(), // 'nav-structure'
+    status: LogEntryStatusSchema,
+    // AI-generated content
+    title: z.string(),
+    decision: z.string().nullable(),
+    rationale: z.string().nullable(),
+    before_state: z.string().nullable(),
+    after_state: z.string().nullable(),
+    // Metadata
+    files_changed: z.array(z.string()).nullable(), // Stored as JSON
+    future_agent: z.string().nullable(), // Which agent type would do this
+    // Relations
+    supersedes: z.number().nullable(), // log_entry id
+    superseded_by: z.number().nullable(), // log_entry id
+    created_at: z.number(), // Unix timestamp
 });
-
-export type LogEntry = z.infer<typeof LogEntrySchema>;
-
 // Files table — source files being tracked
 export const FileSchema = z.object({
-  path: z.string(), // PRIMARY KEY: '/src/auth/login.ts'
-  folder_path: z.string(), // '/src/auth'
-  content_hash: z.string(), // SHA-256 of file content
-  mtime: z.number(), // File modification time (for two-phase change detection)
-  last_scanned_at: z.number(), // Unix timestamp
+    path: z.string(), // PRIMARY KEY: '/src/auth/login.ts'
+    folder_path: z.string(), // '/src/auth'
+    content_hash: z.string(), // SHA-256 of file content
+    mtime: z.number(), // File modification time (for two-phase change detection)
+    last_scanned_at: z.number(), // Unix timestamp
 });
-
-export type File = z.infer<typeof FileSchema>;
-
 // References table — cross-links for staleness detection
 export const ReferenceSourceTypeSchema = z.enum(["folder", "log_entry"]);
-
 export const ReferenceSchema = z.object({
-  id: z.number().optional(), // PRIMARY KEY, auto-increment
-  source_type: ReferenceSourceTypeSchema,
-  source_id: z.string(), // path or id as string
-  target_type: ReferenceSourceTypeSchema,
-  target_id: z.string(), // path or id as string
-  context: z.string().nullable(), // The surrounding text
+    id: z.number().optional(), // PRIMARY KEY, auto-increment
+    source_type: ReferenceSourceTypeSchema,
+    source_id: z.string(), // path or id as string
+    target_type: ReferenceSourceTypeSchema,
+    target_id: z.string(), // path or id as string
+    context: z.string().nullable(), // The surrounding text
 });
-
-export type Reference = z.infer<typeof ReferenceSchema>;
-
 // Open questions table — unresolved items
 export const OpenQuestionSchema = z.object({
-  id: z.number().optional(), // PRIMARY KEY, auto-increment
-  question: z.string(),
-  context: z.string().nullable(),
-  folder_path: z.string().nullable(), // Related folder
-  resolved_by: z.number().nullable(), // log_entry_id that answered it
-  created_at: z.number(), // Unix timestamp
-  resolved_at: z.number().nullable(), // Unix timestamp
+    id: z.number().optional(), // PRIMARY KEY, auto-increment
+    question: z.string(),
+    context: z.string().nullable(),
+    folder_path: z.string().nullable(), // Related folder
+    resolved_by: z.number().nullable(), // log_entry_id that answered it
+    created_at: z.number(), // Unix timestamp
+    resolved_at: z.number().nullable(), // Unix timestamp
 });
-
-export type OpenQuestion = z.infer<typeof OpenQuestionSchema>;
-
 // Tags table — categorization
 export const TagSchema = z.object({
-  id: z.number().optional(), // PRIMARY KEY, auto-increment
-  name: z.string(), // UNIQUE: 'architecture', 'naming', 'storage'
+    id: z.number().optional(), // PRIMARY KEY, auto-increment
+    name: z.string(), // UNIQUE: 'architecture', 'naming', 'storage'
 });
-
-export type Tag = z.infer<typeof TagSchema>;
-
 // Log entry tags table — many-to-many relationship
 export const LogEntryTagSchema = z.object({
-  log_entry_id: z.number(),
-  tag_id: z.number(),
+    log_entry_id: z.number(),
+    tag_id: z.number(),
 });
-
-export type LogEntryTag = z.infer<typeof LogEntryTagSchema>;
-
 /**
  * SQL DDL for creating tables
  * Use this with better-sqlite3's exec()
@@ -240,3 +205,4 @@ CREATE INDEX IF NOT EXISTS idx_references_target ON "references"(target_type, ta
 CREATE INDEX IF NOT EXISTS idx_open_questions_folder ON open_questions(folder_path);
 CREATE INDEX IF NOT EXISTS idx_open_questions_resolved ON open_questions(resolved_at);
 `;
+//# sourceMappingURL=schema.js.map

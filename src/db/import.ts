@@ -6,15 +6,17 @@ import { createDatabase, insertLogEntry, countLogEntries, logEntryExists } from 
 /**
  * Parse a decision log file and extract fields for log_entries table.
  *
- * Expected format (from wip-logs.md spec):
- * - # Title
- * - **Date:** YYYY-MM-DD
- * - **Status:** Locked|Open|Superseded
- * - ## Decision (optional)
- * - ## Rationale (optional)
- * - ## Before/After (optional)
- * - ## Files Changed (optional)
- * - ## Future Agent (optional)
+ * Expected markdown format:
+ *   # Title
+ *   **Date:** YYYY-MM-DD
+ *   **Status:** Locked|Open|Superseded
+ *   ## Decision (optional)
+ *   ## Rationale (optional)
+ *   ## Before/After (optional)
+ *   ## Files Changed (optional)
+ *   ## Future Agent (optional)
+ *
+ * Filename must be: YYYY-MM-DD-topic.md
  */
 export function parseDecisionFile(
   filePath: string,
@@ -131,14 +133,14 @@ function parseFilesChangedTable(content: string): string[] {
  * Import all decision files from a directory into the database.
  *
  * @param db - Database instance
- * @param logDir - Directory containing decision files (e.g., .float-manual/_wip/wip-logs/2026/01-jan/)
+ * @param logDir - Directory containing decision files (e.g., .float/logs/2026/01-jan/)
  * @param options - Import options
  */
 export function importDecisionFiles(
   db: Database.Database,
   logDir: string,
   options: {
-    skipSummaries?: boolean; // Skip files like 01-jan.md, 2026.md, wip-logs.md
+    skipSummaries?: boolean; // Skip summary files (01-jan.md, 2026.md, index.md)
     verbose?: boolean;
   } = {}
 ): { imported: number; skipped: string[]; duplicates: string[]; errors: string[] } {
@@ -146,11 +148,12 @@ export function importDecisionFiles(
 
   const result = { imported: 0, skipped: [] as string[], duplicates: [] as string[], errors: [] as string[] };
 
-  // Summary files to skip (they become queries, not data)
+  // Summary files to skip (they're navigation, not data)
   const summaryPatterns = [
-    /^\d{2}-[a-z]{3}\.md$/, // 01-jan.md
-    /^\d{4}\.md$/, // 2026.md
-    /^wip-logs\.md$/, // wip-logs.md
+    /^\d{2}-[a-z]{3}\.md$/, // 01-jan.md (month summary)
+    /^\d{4}\.md$/, // 2026.md (year summary)
+    /^index\.md$/, // index.md (folder summary)
+    /^logs\.md$/, // logs.md (root summary)
   ];
 
   const files = fs.readdirSync(logDir).filter((f) => f.endsWith(".md"));
@@ -227,9 +230,8 @@ export function runImport(dbPath: string, logDir: string): void {
 // CLI execution (ESM compatible)
 const isMainModule = import.meta.url === `file://${process.argv[1]}`;
 if (isMainModule) {
-  const dbPath = process.argv[2] || ".float-manual/float.db";
-  const logDir =
-    process.argv[3] || ".float-manual/_wip/wip-logs/2026/01-jan";
+  const dbPath = process.argv[2] || ".float/float.db";
+  const logDir = process.argv[3] || ".float/logs";
 
   runImport(dbPath, logDir);
 }
