@@ -15,6 +15,26 @@
 
 ---
 
+## Key Insight
+
+**Shallow context is expected in single-chat mode.** This isn't a failure — it's proof the buoy architecture is necessary.
+
+Single chat limitations:
+- One AI processing 65 folders = spread thin
+- Can't read all files deeply (context window)
+- No parallelization
+- Infers from names because it CAN'T read everything
+
+Buoy architecture solves this:
+- Each buoy focuses on ONE folder
+- Fresh context window per buoy
+- Can read files deeply for its scope
+- 65 buoys run in parallel = 65x the attention
+
+**The shallow run proves the vision is correct.** Fleet mode isn't optional — it's the whole point.
+
+---
+
 ## Honest Assessment
 
 ### What Worked
