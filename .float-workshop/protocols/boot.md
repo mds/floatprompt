@@ -6,7 +6,8 @@
   "meta": {
     "title": "Context-Compiler Boot",
     "id": "context-compiler-boot",
-    "updated": "2026-01-03"
+    "updated": "2026-01-04",
+    "session": 10
   },
 
   "human": {
@@ -31,7 +32,7 @@
   "requirements": {
     "methodology": "Map → Decide → Structure (GATE, not suggestion)",
     "execution_model": "AI orchestrates → TS/CLI/buoys execute → AI also thinks",
-    "paper_trail": "All decisions logged in wip-logs/YYYY/MM-mon/YYYY-MM-DD-topic.md",
+    "paper_trail": "All decisions logged in logs/YYYY/MM-mon/YYYY-MM-DD-topic.md",
     "the_question": "Can I write a complete spec for this code without any gaps? If NO → don't code yet"
   }
 }
@@ -47,39 +48,34 @@
 
 ## Last Session
 
-**2026-01-04 (session 8):** Buoy architecture exploration. City metaphor. Worker catalog.
+**2026-01-04 (session 11):** Workshop restructure executed.
 
 Key outcomes:
-- Started with A1-A4 questions, realized wrong framing
-- Discovered the real question: "What does each buoy need?"
-- Created city metaphor: Mayor (boot.md), Workers (buoys), Work Sites (folders)
-- Cataloged 55+ workers across 14 categories
-- Defined buoy assembly architecture: Global + Archetype + Specialized + DB + Handoff
-- Captured Recon Buoy pattern: Query → Spawn → Aggregate
-- Realized domain-specific fleets (different cities = different workers)
-- Created `wip-buoys.md` as working document
-- Got `artifacts/2026-01-04-buoy-recon.md` from parallel session (exhaustive buoy research)
-- Decision: Rename `content_md` → `context` (not yet implemented)
+- Executed `.float-wip/` → `.float-workshop/` restructure
+- New structure: `protocols/` (boot, handoff, log) + `docs/` + `logs/`
+- Split `wip-logs.md` → `protocols/log.md` (protocol) + `logs/logs.md` (map)
+- Renamed `reconcile.md` → `handoff.md` (better describes the purpose)
+- Updated 100+ internal references across all files
+- Removed old `.float-wip/` folder
 
 ---
 
 ## This Session
 
-**Pick up here:** Prioritize workers for Layer 2 and map their context needs.
+**Pick up here:** Continue Layer 2 work.
 
 Options:
-1. **Prioritize workers** — Which workers are essential for Layer 2 (minimum viable)?
-2. **Map context needs** — What does each essential worker need (lean/full/none)?
-3. **Derive context structure** — From worker needs, define the context field structure
-4. **Rename content_md → context** — Schema update
+1. **Prioritize buoys** — Design/implement context generation workers
+2. **Implement first buoy** — Write Context Generator buoy-boot file
+3. **Test full loop** — Run AI generation on folders using float-db CLI
 
 **Read first:**
-- `wip-buoys.md` — Worker catalog, assembly architecture, parallel patterns
+- `docs/buoys.md` — LOCKED buoy schema (7 buckets, hub-and-spoke)
 
 **Try these prompts:**
-- "Which workers are essential for Layer 2?"
-- "Let's map what each Layer 2 worker needs"
-- "What should the context field structure be based on worker needs?"
+- "Let's prioritize buoys for Layer 2"
+- "Write a Context Generator buoy-boot file"
+- "Walk me through the buoy architecture"
 
 ---
 
@@ -183,7 +179,7 @@ Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, 
 
 - **65 folders** scanned from repo
 - **446 files** with content hashes + mtime
-- **12 log entries** imported from wip-logs/
+- **12 log entries** imported from logs/
 
 ### What SQLite Replaces
 
@@ -204,7 +200,7 @@ Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, 
 ### What Remains File-Based
 
 - `boot.md` — THE system prompt for the project (not in DB)
-- This `wip-boot.md` — development boot context
+- This `boot.md` — development boot context
 
 ---
 
@@ -213,22 +209,25 @@ Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, 
 ### What Exists
 
 ```
-.float-wip/
-├── _wip/
-│   ├── wip-boot.md        ← THIS FILE (session boot)
-│   ├── wip-vision.md      ← THE vision document (read for full context)
-│   ├── wip-reconcile.md   ← Session reconciliation protocol
-│   ├── wip-comments.md    ← TypeScript commenting standards
-│   ├── wip-phase4-qa.md   ← Open questions for Layer 2
-│   └── wip-logs/          ← Decision archive
-│       └── 2026/01-jan/   ← 22 decision files
-│
-└── project/               ← Target structure (not yet populated by AI)
+.float-workshop/
+├── protocols/
+│   ├── boot.md        ← THIS FILE (session boot)
+│   ├── handoff.md     ← Session handoff protocol
+│   └── log.md         ← Decision logging protocol
+├── docs/
+│   ├── buoys.md       ← LOCKED buoy schema
+│   ├── vision.md      ← THE vision document
+│   ├── generate-spec.md ← Layer 2 spec (reference)
+│   ├── comments.md    ← TypeScript commenting standards
+│   └── workshop.md    ← Workshop concept (parked)
+└── logs/
+    ├── logs.md        ← Map of all logs
+    └── 2026/01-jan/
 
 .float/
-└── float.db               ← THE database (Layer 1 complete)
+└── float.db           ← THE database (Layer 1 complete)
 
-src/db/                    ← TypeScript implementation (production-ready)
+src/db/                ← TypeScript implementation (production-ready)
 ```
 
 ### Stale (Ignore)
@@ -301,14 +300,14 @@ Read these only when you need deeper context:
 
 | File | When to read |
 |------|--------------|
-| `wip-generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
-| `wip-vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
-| `wip-buoys.md` | **Buoy architecture** — worker catalog, context depth, dispatch patterns (WORKING DOC) |
-| `wip-workshop.md` | Workshop concept — productizing the wip-boot pattern (future) |
-| `wip-reconcile.md` | Session reconciliation protocol |
-| `wip-comments.md` | TypeScript commenting standards |
-| `wip-logs/2026/01-jan/01-jan.md` | All locked decisions with summaries |
-| `wip-logs/wip-logs.md` | Archive protocol + future agent types |
+| `docs/generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
+| `docs/vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
+| `docs/buoys.md` | **Buoy architecture** — worker catalog, context depth, dispatch patterns (LOCKED) |
+| `docs/workshop.md` | Workshop concept — productizing the boot pattern (future) |
+| `protocols/handoff.md` | Session handoff protocol |
+| `docs/comments.md` | TypeScript commenting standards |
+| `logs/2026/01-jan/01-jan.md` | All locked decisions with summaries |
+| `protocols/log.md` | Archive protocol + future agent types |
 | `artifacts/how-floatprompt-works.md` | The original vision source |
 | `artifacts/float-folder-structure.md` | Folder structure as data model |
 
@@ -318,29 +317,29 @@ Superseded specs:
 
 | File | What it was |
 |------|-------------|
-| `wip-logs/.../2026-01-03-wip-schema-spec-archived.md` | 16-field schema spec (implemented) |
-| `wip-logs/.../2026-01-03-wip-layer2-spec-archived.md` | Layer 2 spec draft (superseded by generate-spec) |
-| `wip-logs/.../2026-01-03-wip-layer2-capabilities-archived.md` | Layer 2 capabilities (superseded by generate-spec) |
-| `wip-logs/.../2026-01-03-wip-phase4-qa-archived.md` | Phase 4 QA (schema implemented, decisions answered) |
-| `wip-logs/.../2026-01-03-wip-overview-archived.md` | "How it works" |
-| `wip-logs/.../2026-01-03-wip-problem-archived.md` | "The problem" |
-| `wip-logs/.../2026-01-03-wip-phase3-archived.md` | Phase 3 scanner planning |
-| `wip-logs/.../2026-01-03-wip-sqlite-archived.md` | SQLite architecture deep dive |
+| `logs/.../2026-01-03-wip-schema-spec-archived.md` | 16-field schema spec (implemented) |
+| `logs/.../2026-01-03-wip-layer2-spec-archived.md` | Layer 2 spec draft (superseded by generate-spec) |
+| `logs/.../2026-01-03-wip-layer2-capabilities-archived.md` | Layer 2 capabilities (superseded by generate-spec) |
+| `logs/.../2026-01-03-wip-phase4-qa-archived.md` | Phase 4 QA (schema implemented, decisions answered) |
+| `logs/.../2026-01-03-wip-overview-archived.md` | "How it works" |
+| `logs/.../2026-01-03-wip-problem-archived.md` | "The problem" |
+| `logs/.../2026-01-03-wip-phase3-archived.md` | Phase 3 scanner planning |
+| `logs/.../2026-01-03-wip-sqlite-archived.md` | SQLite architecture deep dive |
 
 ---
 
 ## Session Protocol
 
 **When making decisions:**
-1. Create `YYYY-MM-DD-topic.md` in `wip-logs/YYYY/MM-mon/`
+1. Create `YYYY-MM-DD-topic.md` in `logs/YYYY/MM-mon/`
 2. Update `01-jan.md` (or current month) with summary
 3. Update "Answered Questions" section if significant
 
 **When ending a session:**
-Run `wip-reconcile.md` protocol — it updates this file for the next session:
+Run `protocols/handoff.md` protocol — it updates this file for the next session:
 1. Updates "Last Session" with what happened
 2. Updates "This Session" with what's next
-3. Ensures all wip-* files are consistent
+3. Ensures all protocol and doc files are consistent
 4. Logs any decisions made
 5. Commits changes
 
@@ -371,6 +370,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-03 — Session 7: generate.ts + CLI implemented, Layer 2 infrastructure complete*
+*Updated 2026-01-04 — Session 11: Workshop restructure executed, .float-wip → .float-workshop*
 </md>
 </fp>

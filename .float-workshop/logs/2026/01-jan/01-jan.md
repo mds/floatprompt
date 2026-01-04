@@ -27,6 +27,9 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Buoy principle** — Never do alone what 3-4 buoys can do together
 - **Agents build, local understands** — Cloud maintains, local helps human
 
+### Naming
+- **Buoys, not agents** — Parallel task workers are called "buoys" (differentiation, less threatening, thematic coherence with Float)
+
 ### Infrastructure
 - **Vercel AI SDK** — Orchestration, streaming, tool calling
 - **Vercel Sandbox** — Isolated buoy execution, scalable
@@ -35,7 +38,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 ### Archival Structure
 - **Hierarchy** — Collection/Series/File/Item → logs/year/month/entries
 - **Naming** — `YYYY-MM-DD-topic.md` (full date, self-describing)
-- **Summaries** — Self-describing filenames (`wip-logs.md`, `2026.md`, `01-jan.md`)
+- **Summaries** — Self-describing filenames (`logs.md`, `2026.md`, `01-jan.md`)
 
 ### Nav Structure
 - **Mirror project** — `.float/project/` mirrors project folder structure
@@ -71,6 +74,14 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **No code without requirements** — Must be able to write complete spec first
 - **The question** — "Can I write a complete spec without gaps?" If NO → don't code yet
 
+### Buoy Architecture
+- **7 Buckets** — Generators, Validators, Fixers, Mappers, Integrators, Orchestrators, Recorders
+- **AI vs Code** — Buoys are for judgment, code is for mechanics
+- **Hub-and-Spoke** — Buoys never talk directly, all through orchestrator
+- **Nested Hierarchy** — Top Orchestrator → Coordinator → Worker
+- **Schema** — meta (identity), ai (role/archetype/autonomy), input (receives/defaults), output (produces)
+- **Philosophy** — Tight on identity/contracts, loose on format/judgment
+
 ---
 
 ## Files
@@ -101,8 +112,12 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-03-generate-spec-complete.md](2026-01-03-generate-spec-complete.md) | **Generate spec complete** — Layer 2 functions, single-pass algorithm, orchestration + AI instructions |
 | [2026-01-03-orchestration-decisions.md](2026-01-03-orchestration-decisions.md) | **Orchestration locked** — O1-O3: CLI interface, no MCP, DB is progress |
 | [2026-01-03-layer2-implementation.md](2026-01-03-layer2-implementation.md) | **Layer 2 implementation** — generate.ts (5 functions) + CLI wrapper (7 commands) |
-| [2026-01-03-context-architecture.md](2026-01-03-context-architecture.md) | **Context architecture** — City metaphor, buoy-boot templates, lean/full context depth (IN PROGRESS) |
+| [2026-01-03-context-architecture.md](2026-01-03-context-architecture.md) | **Context architecture** — City metaphor, buoy-boot templates, lean/full context depth (superseded by buoy-schema-locked) |
 | [2026-01-04-buoy-architecture.md](2026-01-04-buoy-architecture.md) | **Buoy architecture** — 55+ workers, assembly pattern, domain fleets, Recon Buoy pattern |
+| [2026-01-04-buoy-naming.md](2026-01-04-buoy-naming.md) | **Buoy naming** — Parallel workers are "buoys" not "agents" (differentiation, less threatening, thematic fit) |
+| [2026-01-04-buoy-schema-locked.md](2026-01-04-buoy-schema-locked.md) | **Buoy schema locked** — 7 buckets, hub-and-spoke, AI vs code separation, schema spec |
+| [2026-01-04-workshop-restructure-spec.md](2026-01-04-workshop-restructure-spec.md) | **Workshop restructure spec** — .float-wip → .float-workshop, protocols/ + docs/ + logs/, split wip-logs.md |
+| [2026-01-04-handoff-naming.md](2026-01-04-handoff-naming.md) | **Handoff naming** — reconcile.md → handoff.md (describes primary purpose better) |
 
 ### Archived Reference Material
 

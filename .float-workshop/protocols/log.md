@@ -1,10 +1,10 @@
 <fp>
 <json>
 {
-  "STOP": "Logs Archive. This governs how decisions/sessions/activity are logged. Read protocol before adding.",
+  "STOP": "Decision Logging Protocol. Read before adding decisions to logs/.",
 
-  "id": "logs-archive",
-  "title": "Logs Archive",
+  "id": "log-protocol",
+  "title": "Log Protocol",
 
   "human": {
     "author": "@mds",
@@ -26,7 +26,7 @@
         "Create YYYY-MM-DD-topic.md in current month",
         "Update month's MM-mon.md with summary",
         "Update year's YYYY.md if new theme",
-        "Update this file (wip-logs.md) only if new year"
+        "Update logs/logs.md only if new year"
       ],
       "decision_format": {
         "required": ["Date", "Status", "Decision"],
@@ -34,13 +34,13 @@
       }
     },
     "summaries": {
-      "root": "wip-logs.md — Map + open questions",
+      "root": "logs/logs.md — Map + open questions",
       "year": "YYYY.md — Themes + month links",
       "month": "MM-mon.md — Richest, all locked decisions listed"
     },
     "naming": {
       "convention": "File matches folder name (self-describing)",
-      "examples": ["wip-logs/wip-logs.md", "2026/2026.md", "01-jan/01-jan.md"],
+      "examples": ["logs/logs.md", "2026/2026.md", "01-jan/01-jan.md"],
       "rationale": "When file is open in tab, you know exactly where it is"
     },
     "future_agents": {
@@ -61,27 +61,9 @@
 }
 </json>
 <md>
-# Logs
+# Log Protocol
 
-> **Storage evolution:** This flat file structure is Phase 1 (prototyping). SQLite is now the source of truth (Phase 2-3 complete). The `log_entries` table stores decisions; summaries are `folders` rows with `type = 'log_month'`, etc. See `wip-vision.md`.
-
-Navigation map and open questions. Decisions, sessions, activity — all here.
-
----
-
-## Map
-
-| Year | Summary |
-|------|---------|
-| [2026](2026/) | Context-compiler development, foundational architecture |
-
----
-
-## Open Questions
-
-- **boot.md content** — What does production boot.md contain?
-- **Vercel infrastructure** — AI SDK + Sandbox (locked 2026-01-02)
-- **Trigger mechanism** — Webhooks, cron, manual, all?
+How to add decisions to logs/.
 
 ---
 
@@ -91,7 +73,7 @@ When adding decisions:
 1. Create `YYYY-MM-DD-topic.md` in current month folder
 2. Update month's `MM-mon.md` with summary (e.g., `01-jan.md`)
 3. Update year's `YYYY.md` if new theme emerges (e.g., `2026.md`)
-4. Update `wip-logs.md` only if new year
+4. Update `logs/logs.md` only if new year
 
 **Naming:** File matches folder name. Self-describing — you always know where you are.
 
@@ -119,9 +101,5 @@ This builds the spec for agent architecture by observing what we do manually.
 ---
 
 *Manual prototype of recursive archive. Eventually: TypeScript + agents.*
-
-*Renamed from decisions/ on 2026-01-02 — "logs" is the umbrella term.*
-
-*Updated 2026-01-03 — SQLite is now source of truth, summaries are folder rows.*
 </md>
 </fp>

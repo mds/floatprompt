@@ -42,7 +42,7 @@ We have a SQLite schema (src/db/schema.ts) but no way to test it with real data.
 
 Our test data exists in flat files:
 ```
-.float-wip/_wip/wip-logs/    # Decision history (our prototype)
+.float-wip/wip-logs/    # Decision history (our prototype)
 ```
 
 **We need to import this data into SQLite to validate:**
@@ -62,7 +62,7 @@ This is NOT about user experience yet. This is about proving the schema works.
 
 | Source | Location | Target Table |
 |--------|----------|--------------|
-| Decision logs | `.float-wip/_wip/wip-logs/2026/01-jan/2026-01-02-*.md` | `log_entries` |
+| Decision logs | `.float-wip/wip-logs/2026/01-jan/2026-01-02-*.md` | `log_entries` |
 
 **Note:** `.float-old/` is stale (old markdown-only approach). We're ignoring it entirely.
 
@@ -108,7 +108,7 @@ my-project/
 
 | # | Question | Answer | Status |
 |---|----------|--------|--------|
-| 1 | What's in `.float-wip/_wip/wip-logs/*.md`? Format? | Plain markdown: `# Title`, `**Date:**`, `**Status:**`, `## Decision`, etc. 11 decision files + 3 summary files | Locked |
+| 1 | What's in `.float-wip/wip-logs/*.md`? Format? | Plain markdown: `# Title`, `**Date:**`, `**Status:**`, `## Decision`, etc. 11 decision files + 3 summary files | Locked |
 | 2 | What's in `.float-old/project/nav/*.md`? Format? | N/A — ignoring .float-old (stale) | Locked |
 | 3 | What's in `.float-old/project/context/*.md`? Format? | N/A — ignoring .float-old (stale) | Locked |
 | 4 | What's in `.float-old/project/logs/*.md`? Format? | N/A — ignoring .float-old (stale) | Locked |
@@ -168,7 +168,7 @@ my-project/
 ### Files to Import (decision files only)
 
 ```
-.float-wip/_wip/wip-logs/2026/01-jan/
+.float-wip/wip-logs/2026/01-jan/
 ├── 2026-01-02-founding.md
 ├── 2026-01-02-archival-structure.md
 ├── 2026-01-02-archive-unity.md
@@ -251,7 +251,7 @@ src/
 
 .float-wip/
 ├── float.db           ← NEW (test database, git-ignored)
-└── _wip/
+└── 
     └── wip-logs/      ← Source data
 ```
 

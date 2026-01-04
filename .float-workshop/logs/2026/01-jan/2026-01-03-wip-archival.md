@@ -27,7 +27,7 @@ These files still have historical value as reference material, so they're archiv
 ## Before
 
 ```
-.float-wip/_wip/
+.float-wip/
 ├── wip-boot.md
 ├── wip-vision.md
 ├── wip-overview.md      ← stale
@@ -46,7 +46,7 @@ These files still have historical value as reference material, so they're archiv
 ## After
 
 ```
-.float-wip/_wip/
+.float-wip/
 ├── wip-boot.md          ← THE session boot file
 ├── wip-vision.md        ← THE vision document
 ├── wip-reconcile.md     ← still useful

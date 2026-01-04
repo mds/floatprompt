@@ -190,17 +190,20 @@ export function scan(options) {
         filesRemoved: 0,
     };
     // Prepare statements
+    // Scanner only writes mechanical fields. AI fields start NULL, status starts 'pending'.
     const insertFolder = db.prepare(`
-    INSERT INTO folders (path, parent_path, name, source_hash, last_scanned_at, created_at, updated_at)
-    VALUES (@path, @parent_path, @name, @source_hash, @last_scanned_at, @created_at, @updated_at)
+    INSERT INTO folders (path, parent_path, name, status, is_scope, source_hash, last_scanned_at, created_at, updated_at)
+    VALUES (@path, @parent_path, @name, 'pending', 0, @source_hash, @last_scanned_at, @created_at, @updated_at)
   `);
+    // When source changes: update mechanical fields, mark status as 'stale' if AI had written content
     const updateFolder = db.prepare(`
     UPDATE folders
     SET parent_path = @parent_path,
         name = @name,
         source_hash = @source_hash,
         last_scanned_at = @last_scanned_at,
-        updated_at = @updated_at
+        updated_at = @updated_at,
+        status = CASE WHEN ai_updated IS NOT NULL THEN 'stale' ELSE status END
     WHERE path = @path
   `);
     const getFolder = db.prepare(`SELECT path, source_hash FROM folders WHERE path = ?`);

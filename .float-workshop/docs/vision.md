@@ -5,7 +5,7 @@
 
   "meta": {
     "title": "The Vision: Recursive Context Scaffolding",
-    "id": "wip-vision"
+    "id": "vision"
   },
 
   "human": {
@@ -197,7 +197,7 @@ Log summaries (year/month) are just folders in the `folders` table with their ow
 
 ## The Schema (LOCKED 2026-01-03)
 
-> Full spec with rationale: archived in `wip-logs/.../2026-01-03-wip-schema-spec-archived.md`
+> Full spec with rationale: archived in `logs/.../2026-01-03-wip-schema-spec-archived.md`
 
 ### Folders table (16 fields)
 
@@ -284,7 +284,7 @@ files (
 - Tells AI how to traverse scopes
 - Tells AI how the whole system works
 
-Like `wip-boot.md` told this session how everything works.
+Like `protocols/boot.md` tells each session how everything works.
 
 Everything else lives in SQLite.
 

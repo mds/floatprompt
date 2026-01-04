@@ -7,11 +7,11 @@
 
 ## The Insight
 
-The wip-boot pattern works. It's working *right now* for FloatPrompt development:
+The boot pattern works. It's working *right now* for FloatPrompt development:
 
-- **Session handoff** — AI reads `wip-boot.md`, knows exactly where to pick up
-- **Paper trail** — Decisions logged in `wip-logs/`, not lost to conversation history
-- **Reconciliation** — Explicit process (`wip-reconcile.md`) to sync all files before handoff
+- **Session handoff** — AI reads `protocols/boot.md`, knows exactly where to pick up
+- **Paper trail** — Decisions logged in `logs/`, not lost to conversation history
+- **Handoff process** — Explicit protocol (`protocols/handoff.md`) to sync all files before handoff
 
 These aren't FloatPrompt-specific. **Any project building with AI benefits from this.**
 
@@ -19,7 +19,7 @@ These aren't FloatPrompt-specific. **Any project building with AI benefits from 
 
 ## The Concept
 
-A productized version of the wip-boot system that any project can use.
+A productized version of the boot system that any project can use.
 
 ```
 .float/
@@ -55,7 +55,7 @@ The workshop isn't separate from the project. It's **the process of building the
 | Folder/File | Purpose |
 |-------------|---------|
 | `boot-workshop.md` | Current session context (lives at `.float/` root, like system.md) |
-| `workshop/spec/` | Active specifications (like wip-generate-spec.md) |
+| `workshop/spec/` | Active specifications (like generate-spec.md) |
 | `workshop/draft/` | Work in progress before spec is ready |
 | `workshop/logs/{YYYY}/{MM-mon}/` | Decision archive (locked decisions) |
 
@@ -74,7 +74,7 @@ When `float sync` runs, workshop files get indexed like any other folder:
 
 ## What `boot-workshop.md` Contains
 
-Mirrors wip-boot.md structure:
+Mirrors boot.md structure:
 
 ```markdown
 ## Last Session
@@ -120,11 +120,11 @@ These parallel the existing log types (`log_root`, `log_year`, `log_month`).
 
 ## What This Replaces
 
-In FloatPrompt development, we currently have:
-- `.float-wip/_wip/wip-boot.md` — becomes `boot-workshop.md`
-- `.float-wip/_wip/wip-*.md` — becomes `workshop/spec/*.md` or `workshop/draft/*.md`
-- `.float-wip/_wip/wip-logs/` — becomes `workshop/logs/`
-- `.float-wip/_wip/wip-reconcile.md` — becomes a floatprompt tool or built-in process
+In FloatPrompt development, we currently have (after restructure):
+- `.float-workshop/protocols/boot.md` — becomes `boot-workshop.md`
+- `.float-workshop/docs/*.md` — becomes `workshop/spec/*.md` or `workshop/draft/*.md`
+- `.float-workshop/logs/` — becomes `workshop/logs/`
+- `.float-workshop/protocols/handoff.md` — becomes a floatprompt tool or built-in process
 
 ---
 

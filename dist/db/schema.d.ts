@@ -10,62 +10,61 @@ import { z } from "zod";
  * - open_questions: Unresolved items
  * - tags: Categorization
  * - log_entry_tags: Many-to-many relationship
+ *
+ * Schema spec locked 2026-01-03 via Q&A session.
+ * See wip-schema-spec.md for rationale on each field.
  */
+export declare const FolderTypeSchema: z.ZodEnum<["folder", "scope", "log_root", "log_year", "log_month"]>;
+export type FolderType = z.infer<typeof FolderTypeSchema>;
+export declare const FolderStatusSchema: z.ZodEnum<["pending", "current", "stale"]>;
+export type FolderStatus = z.infer<typeof FolderStatusSchema>;
 export declare const FolderSchema: z.ZodObject<{
     path: z.ZodString;
     parent_path: z.ZodNullable<z.ZodString>;
     name: z.ZodString;
-    map_summary: z.ZodNullable<z.ZodString>;
-    map_children: z.ZodNullable<z.ZodArray<z.ZodObject<{
-        name: z.ZodString;
-        type: z.ZodEnum<["file", "folder"]>;
-        description: z.ZodString;
-    }, "strip", z.ZodTypeAny, {
-        type: "file" | "folder";
-        description: string;
-        name: string;
-    }, {
-        type: "file" | "folder";
-        description: string;
-        name: string;
-    }>, "many">>;
-    context_what: z.ZodNullable<z.ZodString>;
-    context_why: z.ZodNullable<z.ZodString>;
-    context_patterns: z.ZodNullable<z.ZodArray<z.ZodString, "many">>;
+    type: z.ZodNullable<z.ZodEnum<["folder", "scope", "log_root", "log_year", "log_month"]>>;
+    status: z.ZodEnum<["pending", "current", "stale"]>;
+    description: z.ZodNullable<z.ZodString>;
+    content_md: z.ZodNullable<z.ZodString>;
+    is_scope: z.ZodBoolean;
+    parent_scope_path: z.ZodNullable<z.ZodString>;
+    scope_boot: z.ZodNullable<z.ZodString>;
     source_hash: z.ZodNullable<z.ZodString>;
     last_scanned_at: z.ZodNullable<z.ZodNumber>;
+    ai_model: z.ZodNullable<z.ZodString>;
+    ai_updated: z.ZodNullable<z.ZodNumber>;
     created_at: z.ZodNumber;
     updated_at: z.ZodNumber;
 }, "strip", z.ZodTypeAny, {
     path: string;
+    type: "folder" | "scope" | "log_root" | "log_year" | "log_month" | null;
+    status: "pending" | "current" | "stale";
+    description: string | null;
+    ai_model: string | null;
+    ai_updated: number | null;
     parent_path: string | null;
     name: string;
-    map_summary: string | null;
-    map_children: {
-        type: "file" | "folder";
-        description: string;
-        name: string;
-    }[] | null;
-    context_what: string | null;
-    context_why: string | null;
-    context_patterns: string[] | null;
+    content_md: string | null;
+    is_scope: boolean;
+    parent_scope_path: string | null;
+    scope_boot: string | null;
     source_hash: string | null;
     last_scanned_at: number | null;
     created_at: number;
     updated_at: number;
 }, {
     path: string;
+    type: "folder" | "scope" | "log_root" | "log_year" | "log_month" | null;
+    status: "pending" | "current" | "stale";
+    description: string | null;
+    ai_model: string | null;
+    ai_updated: number | null;
     parent_path: string | null;
     name: string;
-    map_summary: string | null;
-    map_children: {
-        type: "file" | "folder";
-        description: string;
-        name: string;
-    }[] | null;
-    context_what: string | null;
-    context_why: string | null;
-    context_patterns: string[] | null;
+    content_md: string | null;
+    is_scope: boolean;
+    parent_scope_path: string | null;
+    scope_boot: string | null;
     source_hash: string | null;
     last_scanned_at: number | null;
     created_at: number;
@@ -219,5 +218,5 @@ export type LogEntryTag = z.infer<typeof LogEntryTagSchema>;
  * SQL DDL for creating tables
  * Use this with better-sqlite3's exec()
  */
-export declare const CREATE_TABLES_SQL = "\n-- The things being described (folders in any project)\nCREATE TABLE IF NOT EXISTS folders (\n  path TEXT PRIMARY KEY,\n  parent_path TEXT,\n  name TEXT NOT NULL,\n\n  -- Map (WHERE - structure) \u2014 AI-generated\n  map_summary TEXT,\n  map_children TEXT,  -- JSON array\n\n  -- Context (WHAT - understanding) \u2014 AI-generated\n  context_what TEXT,\n  context_why TEXT,\n  context_patterns TEXT,  -- JSON array\n\n  -- Staleness detection\n  source_hash TEXT,\n  last_scanned_at INTEGER,\n\n  created_at INTEGER NOT NULL,\n  updated_at INTEGER NOT NULL\n);\n\n-- The paper trail (WHEN/WHY - history)\nCREATE TABLE IF NOT EXISTS log_entries (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  folder_path TEXT NOT NULL,\n  date TEXT NOT NULL,\n  topic TEXT NOT NULL,\n  status TEXT NOT NULL CHECK (status IN ('locked', 'open', 'superseded')),\n\n  -- AI-generated content\n  title TEXT NOT NULL,\n  decision TEXT,\n  rationale TEXT,\n  before_state TEXT,\n  after_state TEXT,\n\n  -- Metadata\n  files_changed TEXT,  -- JSON array\n  future_agent TEXT,\n\n  -- Relations\n  supersedes INTEGER REFERENCES log_entries(id),\n  superseded_by INTEGER REFERENCES log_entries(id),\n\n  created_at INTEGER NOT NULL\n);\n\n-- Source files being tracked (for change detection)\nCREATE TABLE IF NOT EXISTS files (\n  path TEXT PRIMARY KEY,\n  folder_path TEXT NOT NULL,\n  content_hash TEXT NOT NULL,\n  mtime INTEGER NOT NULL,\n  last_scanned_at INTEGER NOT NULL\n);\n\n-- Cross-references (for staleness detection)\nCREATE TABLE IF NOT EXISTS \"references\" (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  source_type TEXT NOT NULL CHECK (source_type IN ('folder', 'log_entry')),\n  source_id TEXT NOT NULL,\n  target_type TEXT NOT NULL CHECK (target_type IN ('folder', 'log_entry')),\n  target_id TEXT NOT NULL,\n  context TEXT\n);\n\n-- Open questions (unresolved items)\nCREATE TABLE IF NOT EXISTS open_questions (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  question TEXT NOT NULL,\n  context TEXT,\n  folder_path TEXT,\n  resolved_by INTEGER REFERENCES log_entries(id),\n  created_at INTEGER NOT NULL,\n  resolved_at INTEGER\n);\n\n-- Tags/themes (for categorization)\nCREATE TABLE IF NOT EXISTS tags (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  name TEXT NOT NULL UNIQUE\n);\n\n-- Log entry tags (many-to-many)\nCREATE TABLE IF NOT EXISTS log_entry_tags (\n  log_entry_id INTEGER NOT NULL REFERENCES log_entries(id),\n  tag_id INTEGER NOT NULL REFERENCES tags(id),\n  PRIMARY KEY (log_entry_id, tag_id)\n);\n\n-- Indexes for performance\nCREATE INDEX IF NOT EXISTS idx_folders_parent ON folders(parent_path);\nCREATE INDEX IF NOT EXISTS idx_log_entries_date ON log_entries(date);\nCREATE INDEX IF NOT EXISTS idx_log_entries_folder ON log_entries(folder_path);\nCREATE INDEX IF NOT EXISTS idx_log_entries_status ON log_entries(status);\nCREATE INDEX IF NOT EXISTS idx_files_folder ON files(folder_path);\nCREATE INDEX IF NOT EXISTS idx_references_source ON \"references\"(source_type, source_id);\nCREATE INDEX IF NOT EXISTS idx_references_target ON \"references\"(target_type, target_id);\nCREATE INDEX IF NOT EXISTS idx_open_questions_folder ON open_questions(folder_path);\nCREATE INDEX IF NOT EXISTS idx_open_questions_resolved ON open_questions(resolved_at);\n";
+export declare const CREATE_TABLES_SQL = "\n-- The things being described (folders in any project)\n-- Schema spec locked 2026-01-03 \u2014 16 fields organized by purpose\nCREATE TABLE IF NOT EXISTS folders (\n  -- Identity (3)\n  path TEXT PRIMARY KEY,\n  parent_path TEXT,\n  name TEXT NOT NULL,\n\n  -- Governance (2)\n  type TEXT CHECK (type IN ('folder', 'scope', 'log_root', 'log_year', 'log_month')),\n  status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'current', 'stale')),\n\n  -- AI Content (2)\n  description TEXT,\n  content_md TEXT,\n\n  -- Scope (3)\n  is_scope INTEGER NOT NULL DEFAULT 0,\n  parent_scope_path TEXT,\n  scope_boot TEXT,\n\n  -- Mechanical (2)\n  source_hash TEXT,\n  last_scanned_at INTEGER,\n\n  -- AI Attribution (2)\n  ai_model TEXT,\n  ai_updated INTEGER,\n\n  -- Timestamps (2)\n  created_at INTEGER NOT NULL,\n  updated_at INTEGER NOT NULL\n);\n\n-- The paper trail (WHEN/WHY - history)\nCREATE TABLE IF NOT EXISTS log_entries (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  folder_path TEXT NOT NULL,\n  date TEXT NOT NULL,\n  topic TEXT NOT NULL,\n  status TEXT NOT NULL CHECK (status IN ('locked', 'open', 'superseded')),\n\n  -- AI-generated content\n  title TEXT NOT NULL,\n  decision TEXT,\n  rationale TEXT,\n  before_state TEXT,\n  after_state TEXT,\n\n  -- Metadata\n  files_changed TEXT,  -- JSON array\n  future_agent TEXT,\n\n  -- Relations\n  supersedes INTEGER REFERENCES log_entries(id),\n  superseded_by INTEGER REFERENCES log_entries(id),\n\n  created_at INTEGER NOT NULL\n);\n\n-- Source files being tracked (for change detection)\nCREATE TABLE IF NOT EXISTS files (\n  path TEXT PRIMARY KEY,\n  folder_path TEXT NOT NULL,\n  content_hash TEXT NOT NULL,\n  mtime INTEGER NOT NULL,\n  last_scanned_at INTEGER NOT NULL\n);\n\n-- Cross-references (for staleness detection)\nCREATE TABLE IF NOT EXISTS \"references\" (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  source_type TEXT NOT NULL CHECK (source_type IN ('folder', 'log_entry')),\n  source_id TEXT NOT NULL,\n  target_type TEXT NOT NULL CHECK (target_type IN ('folder', 'log_entry')),\n  target_id TEXT NOT NULL,\n  context TEXT\n);\n\n-- Open questions (unresolved items)\nCREATE TABLE IF NOT EXISTS open_questions (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  question TEXT NOT NULL,\n  context TEXT,\n  folder_path TEXT,\n  resolved_by INTEGER REFERENCES log_entries(id),\n  created_at INTEGER NOT NULL,\n  resolved_at INTEGER\n);\n\n-- Tags/themes (for categorization)\nCREATE TABLE IF NOT EXISTS tags (\n  id INTEGER PRIMARY KEY AUTOINCREMENT,\n  name TEXT NOT NULL UNIQUE\n);\n\n-- Log entry tags (many-to-many)\nCREATE TABLE IF NOT EXISTS log_entry_tags (\n  log_entry_id INTEGER NOT NULL REFERENCES log_entries(id),\n  tag_id INTEGER NOT NULL REFERENCES tags(id),\n  PRIMARY KEY (log_entry_id, tag_id)\n);\n\n-- Indexes for performance\nCREATE INDEX IF NOT EXISTS idx_folders_parent ON folders(parent_path);\nCREATE INDEX IF NOT EXISTS idx_log_entries_date ON log_entries(date);\nCREATE INDEX IF NOT EXISTS idx_log_entries_folder ON log_entries(folder_path);\nCREATE INDEX IF NOT EXISTS idx_log_entries_status ON log_entries(status);\nCREATE INDEX IF NOT EXISTS idx_files_folder ON files(folder_path);\nCREATE INDEX IF NOT EXISTS idx_references_source ON \"references\"(source_type, source_id);\nCREATE INDEX IF NOT EXISTS idx_references_target ON \"references\"(target_type, target_id);\nCREATE INDEX IF NOT EXISTS idx_open_questions_folder ON open_questions(folder_path);\nCREATE INDEX IF NOT EXISTS idx_open_questions_resolved ON open_questions(resolved_at);\n";
 //# sourceMappingURL=schema.d.ts.map
