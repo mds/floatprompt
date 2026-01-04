@@ -100,6 +100,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-03-schema-implementation.md](2026-01-03-schema-implementation.md) | **Schema implementation** — TypeScript/Zod implementation of locked spec, rescan with new schema |
 | [2026-01-03-generate-spec-complete.md](2026-01-03-generate-spec-complete.md) | **Generate spec complete** — Layer 2 functions, single-pass algorithm, orchestration + AI instructions |
 | [2026-01-03-orchestration-decisions.md](2026-01-03-orchestration-decisions.md) | **Orchestration locked** — O1-O3: CLI interface, no MCP, DB is progress |
+| [2026-01-03-layer2-implementation.md](2026-01-03-layer2-implementation.md) | **Layer 2 implementation** — generate.ts (5 functions) + CLI wrapper (7 commands) |
 
 ### Archived Reference Material
 

@@ -47,37 +47,39 @@
 
 ## Last Session
 
-**2026-01-03 (session 6):** Locked orchestration decisions (O1-O3), updated spec architecture.
+**2026-01-03 (session 7):** Implemented generate.ts + CLI wrapper. Layer 2 infrastructure complete.
 
 Key outcomes:
-- Debated simple prompt vs TypeScript architecture
-- Concluded: generate.ts + CLI is correct (not MCP, not just prompts)
-- Locked O1: Functions in generate.ts, exposed via CLI wrapper
-- Locked O2: AI calls via Bash + CLI (no MCP overhead)
-- Locked O3: Database `status` field IS progress — no special mechanism
-- Added architecture diagram to spec
-- Added CLI interface spec (`float-db folders/details/update/max-depth/scope-chain`)
-- Discussed workshop as separate layer (doesn't change current DB structure)
-- Archived: `wip-layer2-capabilities.md`, `wip-phase4-qa.md`
+- Implemented all 5 spec functions in `src/db/generate.ts`:
+  - `getFoldersByDepth(db, depth, status?)` — level-order traversal
+  - `getMaxDepth(db, status?)` — find deepest level (7)
+  - `getFolderDetails(db, path, options)` — full folder info + heuristics
+  - `updateFolderContext(db, path, context, aiModel)` — write AI content
+  - `getScopeChain(db, path)` — scope chain for context inheritance
+- Added 2 convenience functions: `getFolderCountByStatus`, `getDepthDistribution`
+- Built CLI wrapper `src/cli/float-db.ts` with all commands
+- Fixed bug: file sizes now returned even without `--include-contents`
+- All edge cases tested (root folder, error handling, missing args)
+- Full parity with spec verified
 
 ---
 
 ## This Session
 
-**Pick up here:** Implement generate.ts + CLI wrapper.
+**Pick up here:** Test the full AI generation loop OR answer A1-A4.
 
 Options:
-1. **Implement generate.ts** — Build the 5 functions (spec is locked)
-2. **Build CLI wrapper** — `float-db` commands for AI to call
-3. **Answer A1-A4** — AI instruction details (can defer to implementation)
+1. **Test full loop** — Run AI generation on all 65 folders using float-db CLI
+2. **Answer A1-A4** — AI instruction details (content_md verbosity, file breakdown, etc.)
+3. **Build test coverage** — Unit tests for generate.ts
 
 **Read first:**
-- `wip-generate-spec.md` — THE spec (updated with CLI interface + architecture diagram)
+- `wip-generate-spec.md` — See "AI Instructions" section for A1-A4 questions
 
 **Try these prompts:**
-- "Read wip-generate-spec and implement generate.ts"
-- "Show me the architecture diagram first"
-- "What's the CLI interface?"
+- "Let's test the full generation loop on depth 0 and 1"
+- "Walk me through the A1-A4 questions"
+- "What would the AI prompt look like for generating folder context?"
 
 ---
 
@@ -164,8 +166,18 @@ src/db/
 ├── client.ts    # Database connection, log entry CRUD
 ├── import.ts    # Markdown → SQLite parser
 ├── export.ts    # SQLite → Markdown exporter (nice-to-have)
-└── scan.ts      # Filesystem scanner (Layer 1)
+├── scan.ts      # Filesystem scanner (Layer 1)
+└── generate.ts  # Layer 2 functions (5 core + 2 convenience)
 ```
+
+### src/cli/ (New)
+
+```
+src/cli/
+└── float-db.ts  # CLI wrapper for generate.ts (7 commands)
+```
+
+Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, `dist`
 
 ### Database (`.float/float.db`)
 
@@ -228,19 +240,24 @@ src/db/                    ← TypeScript implementation (production-ready)
 
 ## Next Steps
 
-### Completed: Schema Implementation ✓
+### Completed: Layer 2 Infrastructure ✓
 
 1. ~~**Implement schema.ts**~~ — Done (2026-01-03, session 4)
    - 16 fields in TypeScript/Zod matching `wip-schema-spec.md`
    - SQL DDL updated with CHECK constraints
    - `scan.ts` updated with status management
 
-### Next: Layer 2 Planning
+2. ~~**Implement generate.ts**~~ — Done (2026-01-03, session 7)
+   - 5 core functions + 2 convenience functions
+   - CLI wrapper with 7 commands
+   - Full parity with spec verified
 
-2. **Design boot.md** — What goes in the production system prompt?
-3. **Buoy architecture** — How do parallel AI agents populate context?
-4. **Scope detection** — How does system decide a folder is a scope?
-5. **Test with real folders** — Populate context for `src/`, `bin/`, etc.
+### Next: AI Generation Loop
+
+3. **Test full loop** — Run AI generation on folders using float-db CLI
+4. **Answer A1-A4** — AI instruction details (content_md length, scope confidence, etc.)
+5. **Design boot.md** — What goes in the production system prompt?
+6. **Buoy architecture** — How do parallel AI agents populate context?
 
 ### Answered Questions
 
@@ -353,6 +370,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-03 — Scope clarified (one repo), summaries question resolved, data model vs files clarified*
+*Updated 2026-01-03 — Session 7: generate.ts + CLI implemented, Layer 2 infrastructure complete*
 </md>
 </fp>

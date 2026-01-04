@@ -1,7 +1,7 @@
 # generate.ts Specification
 
 **Date:** 2026-01-03
-**Status:** Ready for implementation
+**Status:** Implemented (session 7)
 
 ---
 
@@ -625,11 +625,11 @@ Return valid JSON matching the UpdateContext interface.
 5. ~~Spec AI instructions~~ ✓ Input/output/prompt defined
 6. ~~Lock O1-O3~~ ✓ CLI interface, no MCP, DB is progress
 7. **Answer A1-A4** ← AI instruction details (or defer to implementation)
-8. **Implement generate.ts** ← 5 functions
-9. **Build CLI wrapper** ← float-db command
+8. ~~**Implement generate.ts**~~ ✓ Done (session 7) — 5 core + 2 convenience functions
+9. ~~**Build CLI wrapper**~~ ✓ Done (session 7) — `src/cli/float-db.ts` with 7 commands
 10. Build test coverage
 11. Create floatprompt tool for orchestration
 
 ---
 
-*Updated 2026-01-03 — O1-O3 locked: CLI interface, no MCP, database is progress tracker*
+*Updated 2026-01-03 — Session 7: generate.ts + CLI implemented*
