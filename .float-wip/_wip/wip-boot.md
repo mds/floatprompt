@@ -47,32 +47,34 @@
 
 ## Last Session
 
-**2026-01-03 (session 5):** Created `wip-generate-spec.md` — the complete spec for `generate.ts`.
+**2026-01-03 (session 6):** Locked orchestration decisions (O1-O3), updated spec architecture.
 
 Key outcomes:
-- Defined 5 functions: `getFoldersByDepth`, `getMaxDepth`, `getFolderDetails`, `updateFolderContext`, `getScopeChain`
-- Locked single-pass, level-order traversal algorithm
-- Verified all database assumptions (65 folders, depth 0-7, path structure)
-- Added Orchestration section (single chat + fleet modes)
-- Added AI Instructions section (input/output/prompt for folder context)
-- 7 open questions remain (O1-O3 orchestration, A1-A4 AI instructions)
-- Archived: `wip-schema-spec.md` (implemented), `wip-layer2-spec.md` (superseded)
+- Debated simple prompt vs TypeScript architecture
+- Concluded: generate.ts + CLI is correct (not MCP, not just prompts)
+- Locked O1: Functions in generate.ts, exposed via CLI wrapper
+- Locked O2: AI calls via Bash + CLI (no MCP overhead)
+- Locked O3: Database `status` field IS progress — no special mechanism
+- Added architecture diagram to spec
+- Added CLI interface spec (`float-db folders/details/update/max-depth/scope-chain`)
+- Discussed workshop as separate layer (doesn't change current DB structure)
+- Archived: `wip-layer2-capabilities.md`, `wip-phase4-qa.md`
 
 ---
 
 ## This Session
 
-**Pick up here:** Answer remaining questions OR implement generate.ts.
+**Pick up here:** Implement generate.ts + CLI wrapper.
 
 Options:
-1. **Answer O1-O3, A1-A4** — Lock the orchestration and AI instruction details
-2. **Implement generate.ts** — Build the 5 functions (spec is solid enough)
-3. **Design boot.md** — What should the production system prompt contain?
+1. **Implement generate.ts** — Build the 5 functions (spec is locked)
+2. **Build CLI wrapper** — `float-db` commands for AI to call
+3. **Answer A1-A4** — AI instruction details (can defer to implementation)
 
 **Read first:**
-- `wip-generate-spec.md` — THE spec for Layer 2 generation (functions + orchestration + AI instructions)
+- `wip-generate-spec.md` — THE spec (updated with CLI interface + architecture diagram)
 
-**Or ask:** "What questions are still open?" or "Walk me through the algorithm"
+**Or ask:** "Walk me through the architecture" or "What's the CLI interface?"
 
 ---
 
@@ -279,10 +281,9 @@ Read these only when you need deeper context:
 
 | File | When to read |
 |------|--------------|
-| `wip-generate-spec.md` | **THE spec** — Layer 2 functions, orchestration, AI instructions |
+| `wip-generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
 | `wip-vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
-| `wip-layer2-capabilities.md` | Layer 2 capabilities — what we need, cargo cult to avoid |
-| `wip-phase4-qa.md` | QA gaps — historical, mostly answered |
+| `wip-workshop.md` | Workshop concept — productizing the wip-boot pattern (future) |
 | `wip-reconcile.md` | Session reconciliation protocol |
 | `wip-comments.md` | TypeScript commenting standards |
 | `wip-logs/2026/01-jan/01-jan.md` | All locked decisions with summaries |
@@ -298,6 +299,8 @@ Superseded specs:
 |------|-------------|
 | `wip-logs/.../2026-01-03-wip-schema-spec-archived.md` | 16-field schema spec (implemented) |
 | `wip-logs/.../2026-01-03-wip-layer2-spec-archived.md` | Layer 2 spec draft (superseded by generate-spec) |
+| `wip-logs/.../2026-01-03-wip-layer2-capabilities-archived.md` | Layer 2 capabilities (superseded by generate-spec) |
+| `wip-logs/.../2026-01-03-wip-phase4-qa-archived.md` | Phase 4 QA (schema implemented, decisions answered) |
 | `wip-logs/.../2026-01-03-wip-overview-archived.md` | "How it works" |
 | `wip-logs/.../2026-01-03-wip-problem-archived.md` | "The problem" |
 | `wip-logs/.../2026-01-03-wip-phase3-archived.md` | Phase 3 scanner planning |

@@ -99,6 +99,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-03-schema-spec-locked.md](2026-01-03-schema-spec-locked.md) | **Schema spec locked** — 16 fields via Q&A, AI civilization + token economy concepts |
 | [2026-01-03-schema-implementation.md](2026-01-03-schema-implementation.md) | **Schema implementation** — TypeScript/Zod implementation of locked spec, rescan with new schema |
 | [2026-01-03-generate-spec-complete.md](2026-01-03-generate-spec-complete.md) | **Generate spec complete** — Layer 2 functions, single-pass algorithm, orchestration + AI instructions |
+| [2026-01-03-orchestration-decisions.md](2026-01-03-orchestration-decisions.md) | **Orchestration locked** — O1-O3: CLI interface, no MCP, DB is progress |
 
 ### Archived Reference Material
 
@@ -110,6 +111,8 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-03-wip-problem-archived.md](2026-01-03-wip-problem-archived.md) | "The problem" — superseded by wip-vision.md |
 | [2026-01-03-wip-phase3-archived.md](2026-01-03-wip-phase3-archived.md) | Phase 3 scanner planning — COMPLETE |
 | [2026-01-03-wip-sqlite-archived.md](2026-01-03-wip-sqlite-archived.md) | SQLite architecture deep dive — superseded by wip-vision.md |
+| [2026-01-03-wip-layer2-capabilities-archived.md](2026-01-03-wip-layer2-capabilities-archived.md) | Layer 2 capabilities — superseded by wip-generate-spec.md |
+| [2026-01-03-wip-phase4-qa-archived.md](2026-01-03-wip-phase4-qa-archived.md) | Phase 4 QA — schema implemented, decisions answered |
 
 ---
 

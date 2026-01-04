@@ -75,6 +75,35 @@ for (let depth = 0; depth <= maxDepth; depth++) {
 
 ---
 
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    generate.ts                          │
+│  getFoldersByDepth | getMaxDepth | getFolderDetails    │
+│  updateFolderContext | getScopeChain                   │
+└────────────────────────┬────────────────────────────────┘
+                         │
+                         ▼
+┌─────────────────────────────────────────────────────────┐
+│              CLI wrapper (bin/float-db.ts)              │
+│  Parses args → calls functions → outputs JSON           │
+└────────────────────────┬────────────────────────────────┘
+                         │
+          ┌──────────────┴──────────────┐
+          ▼                             ▼
+┌─────────────────────┐     ┌─────────────────────────────┐
+│   Single Chat Mode  │     │        Fleet Mode           │
+│   Claude calls via  │     │   TypeScript orchestrator   │
+│   Bash, orchestrates│     │   spawns buoys, each buoy   │
+│   the loop itself   │     │   calls CLI for its folder  │
+└─────────────────────┘     └─────────────────────────────┘
+```
+
+**Same functions. Same CLI. Different orchestrator.**
+
+---
+
 ## Functions Needed
 
 ### 1. `getFoldersByDepth(depth: number, status?: FolderStatus)`
@@ -436,13 +465,51 @@ for (let depth = 0; depth <= maxDepth; depth++) {
 
 **Who orchestrates:** TypeScript code. Buoys are AI agents with the floatprompt.
 
-### Questions
+### Orchestration Decisions (Locked)
 
-| Question | Options |
-|----------|---------|
-| Where do functions live? | A) Tools AI can call, B) Exported from generate.ts for both |
-| How does AI call them? | A) MCP tools, B) Bash + CLI, C) Direct function calls |
-| Progress reporting? | A) After each folder, B) After each level, C) Only at end |
+| # | Question | Answer | Rationale |
+|---|----------|--------|-----------|
+| O1 | Where do functions live? | **generate.ts + CLI wrapper** | Functions exported from generate.ts, thin CLI wraps them for Bash access |
+| O2 | How does AI call them? | **Bash + CLI** | No MCP overhead. CLI outputs JSON. Claude parses. Simple. |
+| O3 | Progress reporting? | **Database IS progress** | Query `status` field. No special mechanism needed. |
+
+### Why Not MCP?
+
+MCP requires:
+- Running MCP server process
+- Configuring Claude Code to connect
+- Another thing to debug
+
+CLI requires:
+- `npx float-db folders --depth 2 --status pending` → JSON
+- Claude calls via Bash
+- Done
+
+Same power, less infrastructure.
+
+### CLI Interface
+
+```bash
+# Get folders at depth
+float-db folders --depth 2 --status pending
+# → [{ "path": "/src/db", "name": "db", ... }, ...]
+
+# Get folder details
+float-db details /src/db --include-contents
+# → { "path": "/src/db", "files": [...], "heuristics": {...} }
+
+# Update folder context
+float-db update /src/db --json '{"description": "...", "content_md": "..."}'
+# → { "success": true, "path": "/src/db" }
+
+# Get max depth
+float-db max-depth --status pending
+# → { "maxDepth": 7 }
+
+# Get scope chain
+float-db scope-chain /src/db
+# → [{ "path": "/", "scope_boot": "..." }]
+```
 
 ---
 
@@ -554,13 +621,15 @@ Return valid JSON matching the UpdateContext interface.
 1. ~~Answer Q1-Q11~~ ✓ All answered
 2. ~~Lock algorithm~~ ✓ Single-pass, level-order
 3. ~~Verify assumptions~~ ✓ Database verified, concerns resolved
-4. ~~Spec orchestration~~ ✓ Single chat + fleet modes
+4. ~~Spec orchestration~~ ✓ Single chat + fleet modes defined
 5. ~~Spec AI instructions~~ ✓ Input/output/prompt defined
-6. **Answer remaining questions** ← HERE
-7. Implement generate.ts
-8. Build test coverage
-9. Create floatprompt file
+6. ~~Lock O1-O3~~ ✓ CLI interface, no MCP, DB is progress
+7. **Answer A1-A4** ← AI instruction details (or defer to implementation)
+8. **Implement generate.ts** ← 5 functions
+9. **Build CLI wrapper** ← float-db command
+10. Build test coverage
+11. Create floatprompt tool for orchestration
 
 ---
 
-*Updated 2026-01-03 — Orchestration and AI instructions spec'd*
+*Updated 2026-01-03 — O1-O3 locked: CLI interface, no MCP, database is progress tracker*
