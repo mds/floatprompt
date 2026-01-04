@@ -78,8 +78,10 @@ EXAMPLES:
   float-db scope-chain /src/db
   float-db status
   float-db buoy list
+  float-db buoy archetypes
   float-db buoy parse src/buoys/templates/context-generator.md
   float-db buoy prompt context-generator --data '{"folder_path": "/src"}'
+  float-db buoy prompt context-generator --data '{"folder_path": "/src"}' --composed
 `);
 }
 
@@ -287,7 +289,7 @@ function cmdBuoy(
   const subcommand = positional[0];
 
   if (!subcommand) {
-    printError("Buoy subcommand required: list, parse, or prompt");
+    printError("Buoy subcommand required: list, archetypes, parse, or prompt");
   }
 
   const templateDir =
@@ -310,6 +312,20 @@ function cmdBuoy(
           };
         }),
         loadErrors: result.errors,
+      });
+      break;
+    }
+
+    case "archetypes": {
+      const registry = createRegistry();
+      registry.load(templateDir);
+
+      printJson({
+        global: registry.getGlobal() !== null,
+        archetypes: registry.listArchetypes().map((a) => ({
+          archetype: a,
+          hasGuidance: registry.getArchetype(a) !== undefined,
+        })),
       });
       break;
     }
@@ -371,24 +387,52 @@ function cmdBuoy(
       const registry = createRegistry();
       registry.load(templateDir);
 
-      const template = registry.get(buoyId);
-      if (!template) {
-        printError(
-          `Buoy not found: ${buoyId}. Available: ${registry.list().join(", ")}`
-        );
-        return;
-      }
+      const useComposed = flags["composed"] === true;
 
-      try {
-        const prompt = buildBuoyPrompt({
-          template,
-          data,
-          message: (flags["message"] as string) || undefined,
-        });
-        printJson(prompt);
-      } catch (err) {
-        const message = err instanceof Error ? err.message : String(err);
-        printError(message);
+      if (useComposed) {
+        // Use composed buoy (global + archetype + specific)
+        const composed = registry.getComposed(buoyId);
+        if (!composed) {
+          printError(
+            `Buoy not found: ${buoyId}. Available: ${registry.list().join(", ")}`
+          );
+          return;
+        }
+
+        try {
+          const prompt = buildBuoyPrompt({
+            template: composed.template,
+            data,
+            globalGuidance: composed.globalGuidance ?? undefined,
+            archetypeGuidance: composed.archetypeGuidance ?? undefined,
+            message: (flags["message"] as string) || undefined,
+          });
+          printJson(prompt);
+        } catch (err) {
+          const message = err instanceof Error ? err.message : String(err);
+          printError(message);
+        }
+      } else {
+        // Use template only (backward compatible)
+        const template = registry.get(buoyId);
+        if (!template) {
+          printError(
+            `Buoy not found: ${buoyId}. Available: ${registry.list().join(", ")}`
+          );
+          return;
+        }
+
+        try {
+          const prompt = buildBuoyPrompt({
+            template,
+            data,
+            message: (flags["message"] as string) || undefined,
+          });
+          printJson(prompt);
+        } catch (err) {
+          const message = err instanceof Error ? err.message : String(err);
+          printError(message);
+        }
       }
       break;
     }

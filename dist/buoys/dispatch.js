@@ -21,15 +21,15 @@
  * @throws Error if required input fields are missing
  */
 export function buildBuoyPrompt(options) {
-    const { template, data, message } = options;
+    const { template, data, message, globalGuidance, archetypeGuidance } = options;
     const contextDepth = options.contextDepth ?? template.json.input.defaults.context_depth;
     // Validate data has required fields
     const missingFields = template.json.input.receives.filter((field) => !(field in data));
     if (missingFields.length > 0) {
         throw new Error(`Missing required fields for ${template.json.meta.id}: ${missingFields.join(", ")}`);
     }
-    // Build system prompt from template
-    const systemPrompt = buildSystemPrompt(template);
+    // Build system prompt from template (with optional global/archetype layers)
+    const systemPrompt = buildSystemPrompt(template, globalGuidance, archetypeGuidance);
     // Build user message with data
     const userMessage = buildUserMessage(template, data, contextDepth, message);
     return {
@@ -45,11 +45,11 @@ export function buildBuoyPrompt(options) {
 }
 /**
  * Build system prompt from buoy template.
- * Combines identity, role, and markdown instructions.
+ * Composes 3 layers: global → archetype → specific (general to specific, like CSS cascade).
  */
-function buildSystemPrompt(template) {
+function buildSystemPrompt(template, globalGuidance, archetypeGuidance) {
     const { json, markdown } = template;
-    return [
+    const parts = [
         `# ${json.meta.title}`,
         "",
         `**Role:** ${json.ai.role}`,
@@ -58,11 +58,18 @@ function buildSystemPrompt(template) {
         `**Autonomy:** ${json.ai.autonomy}`,
         "",
         "---",
-        "",
-        markdown,
-    ]
-        .filter(Boolean)
-        .join("\n");
+    ];
+    // Layer 1: Global guidance (if provided)
+    if (globalGuidance) {
+        parts.push("", "## System Guidance", "", globalGuidance.content, "", "---");
+    }
+    // Layer 2: Archetype guidance (if provided)
+    if (archetypeGuidance) {
+        parts.push("", "## Archetype Guidance", "", `*Shared patterns for all ${archetypeGuidance.archetype}s:*`, "", archetypeGuidance.content, "", "---");
+    }
+    // Layer 3: Specific buoy guidance
+    parts.push("", "## Specific Guidance", "", markdown);
+    return parts.filter(Boolean).join("\n");
 }
 /**
  * Build user message with data injection.

@@ -107,6 +107,26 @@ export interface BuoyTemplate {
   sourcePath: string;
 }
 
+// Global guidance (plain markdown, applies to ALL buoys)
+export interface GlobalGuidance {
+  content: string;
+  sourcePath: string;
+}
+
+// Archetype guidance (plain markdown, applies to all buoys of this archetype)
+export interface ArchetypeGuidance {
+  archetype: BuoyArchetype;
+  content: string;
+  sourcePath: string;
+}
+
+// Composed buoy (global + archetype + template combined)
+export interface ComposedBuoy {
+  template: BuoyTemplate;
+  globalGuidance: GlobalGuidance | null;
+  archetypeGuidance: ArchetypeGuidance | null;
+}
+
 // Result of parsing a buoy file
 export type ParseResult =
   | { success: true; template: BuoyTemplate }
@@ -118,6 +138,8 @@ export interface DispatchOptions {
   data: Record<string, unknown>;
   contextDepth?: ContextDepth;
   message?: string;
+  globalGuidance?: GlobalGuidance; // Optional global layer (all buoys)
+  archetypeGuidance?: ArchetypeGuidance; // Optional archetype layer (all of this type)
 }
 
 // Built prompt ready for AI consumption

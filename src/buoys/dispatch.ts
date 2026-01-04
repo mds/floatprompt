@@ -4,6 +4,8 @@ import {
   DispatchOptions,
   BuiltPrompt,
   OutputValidation,
+  GlobalGuidance,
+  ArchetypeGuidance,
 } from "./schema.js";
 
 /**
@@ -31,7 +33,8 @@ import {
  * @throws Error if required input fields are missing
  */
 export function buildBuoyPrompt(options: DispatchOptions): BuiltPrompt {
-  const { template, data, message } = options;
+  const { template, data, message, globalGuidance, archetypeGuidance } =
+    options;
   const contextDepth =
     options.contextDepth ?? template.json.input.defaults.context_depth;
 
@@ -45,8 +48,12 @@ export function buildBuoyPrompt(options: DispatchOptions): BuiltPrompt {
     );
   }
 
-  // Build system prompt from template
-  const systemPrompt = buildSystemPrompt(template);
+  // Build system prompt from template (with optional global/archetype layers)
+  const systemPrompt = buildSystemPrompt(
+    template,
+    globalGuidance,
+    archetypeGuidance
+  );
 
   // Build user message with data
   const userMessage = buildUserMessage(template, data, contextDepth, message);
@@ -65,12 +72,16 @@ export function buildBuoyPrompt(options: DispatchOptions): BuiltPrompt {
 
 /**
  * Build system prompt from buoy template.
- * Combines identity, role, and markdown instructions.
+ * Composes 3 layers: global → archetype → specific (general to specific, like CSS cascade).
  */
-function buildSystemPrompt(template: BuoyTemplate): string {
+function buildSystemPrompt(
+  template: BuoyTemplate,
+  globalGuidance?: GlobalGuidance,
+  archetypeGuidance?: ArchetypeGuidance
+): string {
   const { json, markdown } = template;
 
-  return [
+  const parts = [
     `# ${json.meta.title}`,
     "",
     `**Role:** ${json.ai.role}`,
@@ -79,11 +90,38 @@ function buildSystemPrompt(template: BuoyTemplate): string {
     `**Autonomy:** ${json.ai.autonomy}`,
     "",
     "---",
-    "",
-    markdown,
-  ]
-    .filter(Boolean)
-    .join("\n");
+  ];
+
+  // Layer 1: Global guidance (if provided)
+  if (globalGuidance) {
+    parts.push(
+      "",
+      "## System Guidance",
+      "",
+      globalGuidance.content,
+      "",
+      "---"
+    );
+  }
+
+  // Layer 2: Archetype guidance (if provided)
+  if (archetypeGuidance) {
+    parts.push(
+      "",
+      "## Archetype Guidance",
+      "",
+      `*Shared patterns for all ${archetypeGuidance.archetype}s:*`,
+      "",
+      archetypeGuidance.content,
+      "",
+      "---"
+    );
+  }
+
+  // Layer 3: Specific buoy guidance
+  parts.push("", "## Specific Guidance", "", markdown);
+
+  return parts.filter(Boolean).join("\n");
 }
 
 /**

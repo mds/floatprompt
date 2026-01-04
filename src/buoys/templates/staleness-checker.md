@@ -128,17 +128,6 @@ Return valid JSON:
 3. **Check relationships** — Are connections to other folders still valid?
 4. **Check purpose statement** — Does it still describe reality?
 
-### Confidence Assessment
-
-| Evidence | Confidence |
-|----------|------------|
-| Multiple files added/removed | High |
-| Key file (index, schema) modified | High |
-| Only test files changed | Medium |
-| Only config files changed | Medium |
-| Hash changed but same file list | Low |
-| Only mtime changed, same hash | Very Low |
-
 ## You Decide
 
 - What counts as "meaningful" change for this specific folder

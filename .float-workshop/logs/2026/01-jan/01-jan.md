@@ -81,6 +81,14 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Nested Hierarchy** — Top Orchestrator → Coordinator → Worker
 - **Schema** — meta (identity), ai (role/archetype/autonomy), input (receives/defaults), output (produces)
 - **Philosophy** — Tight on identity/contracts, loose on format/judgment
+- **3-Layer Composition** — Global → Archetype → Specific (scales to 55+ buoys)
+
+### Deep Context
+- **Topic-based** — `deep` table for concept primers (buoys, vision, fleet, brand)
+- **Not location-based** — Complements folders table, spans multiple locations
+- **Auto-detect watches** — Creation buoy determines staleness triggers
+- **Version history** — `deep_history` table for diffing and rollback
+- **Command** — `/float deep <slug>` to recall into session
 
 ---
 
@@ -123,6 +131,9 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-test1-agent-spawned-generation.md](2026-01-04-test1-agent-spawned-generation.md) | **Test 1 confirmed** — Agent-spawned generation produces 2x richer context than inline, fleet mode validated |
 | [2026-01-04-test2a-fresh-orientation.md](2026-01-04-test2a-fresh-orientation.md) | **Test 2A validated** — Fresh AI orients from ~500 tokens, 5/5 passed, independently articulated value prop: "compressing human judgment into injectable context" |
 | [2026-01-04-buoy-system-formalized.md](2026-01-04-buoy-system-formalized.md) | **Buoy system formalized** — TypeScript infrastructure in src/buoys/, CLI commands, staleness-checker template |
+| [2026-01-04-archetype-plan-ready.md](2026-01-04-archetype-plan-ready.md) | **Archetype plan ready** — 3-layer composition plan complete, 4 areas flagged for implementation attention |
+| [2026-01-04-archetype-externalization-complete.md](2026-01-04-archetype-externalization-complete.md) | **Archetype externalization complete** — 3-layer composition implemented (global + archetype + specific), 8 new files, CLI updated |
+| [2026-01-04-deep-context-spec.md](2026-01-04-deep-context-spec.md) | **Deep context spec** — Topic-based context via `deep` + `deep_history` tables, `/float deep <slug>` command, auto-detect watches |
 
 ### Archived Reference Material
 

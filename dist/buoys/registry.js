@@ -12,6 +12,8 @@ import { parseBuoyTemplate } from "./parser.js";
  */
 export function createRegistry() {
     const buoys = new Map();
+    const archetypes = new Map();
+    let global = null;
     return {
         buoys,
         load(dir) {
@@ -20,6 +22,7 @@ export function createRegistry() {
                 result.errors.push({ file: dir, error: "Directory not found" });
                 return result;
             }
+            // Load buoy templates
             const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
             for (const file of files) {
                 const filePath = path.join(dir, file);
@@ -32,6 +35,37 @@ export function createRegistry() {
                 }
                 else {
                     result.errors.push({ file, error: parseResult.error });
+                }
+            }
+            // Load global.md from parent directory (graceful if missing)
+            const globalPath = path.join(dir, "../global.md");
+            if (fs.existsSync(globalPath)) {
+                const content = fs.readFileSync(globalPath, "utf-8");
+                global = { content, sourcePath: globalPath };
+            }
+            // Load archetypes from sibling directory (graceful if missing)
+            const archetypesDir = path.join(dir, "../archetypes");
+            if (fs.existsSync(archetypesDir)) {
+                const archetypeNames = [
+                    "generator",
+                    "validator",
+                    "fixer",
+                    "mapper",
+                    "integrator",
+                    "orchestrator",
+                    "recorder",
+                ];
+                for (const name of archetypeNames) {
+                    const filePath = path.join(archetypesDir, `${name}.md`);
+                    if (fs.existsSync(filePath)) {
+                        const content = fs.readFileSync(filePath, "utf-8");
+                        archetypes.set(name, {
+                            archetype: name,
+                            content,
+                            sourcePath: filePath,
+                        });
+                    }
+                    // Missing archetype files are NOT errors (graceful degradation)
                 }
             }
             return result;
@@ -50,6 +84,25 @@ export function createRegistry() {
         },
         count() {
             return buoys.size;
+        },
+        getGlobal() {
+            return global;
+        },
+        getArchetype(archetype) {
+            return archetypes.get(archetype);
+        },
+        listArchetypes() {
+            return Array.from(archetypes.keys());
+        },
+        getComposed(id) {
+            const template = buoys.get(id);
+            if (!template)
+                return undefined;
+            return {
+                template,
+                globalGuidance: global,
+                archetypeGuidance: archetypes.get(template.json.ai.archetype) || null,
+            };
         },
     };
 }

@@ -1,6 +1,12 @@
 import * as fs from "fs";
 import * as path from "path";
-import { BuoyTemplate, BuoyArchetype } from "./schema.js";
+import {
+  BuoyTemplate,
+  BuoyArchetype,
+  GlobalGuidance,
+  ArchetypeGuidance,
+  ComposedBuoy,
+} from "./schema.js";
 import { parseBuoyTemplate } from "./parser.js";
 
 /**
@@ -23,7 +29,7 @@ export interface BuoyRegistry {
   /** Map of buoy id to template */
   buoys: Map<string, BuoyTemplate>;
 
-  /** Load all buoy templates from a directory */
+  /** Load all buoy templates from a directory (also loads global and archetypes) */
   load: (dir: string) => LoadResult;
 
   /** Get a buoy template by id */
@@ -40,6 +46,18 @@ export interface BuoyRegistry {
 
   /** Get count of registered buoys */
   count: () => number;
+
+  /** Get global guidance (if loaded) */
+  getGlobal: () => GlobalGuidance | null;
+
+  /** Get archetype guidance by archetype name */
+  getArchetype: (archetype: BuoyArchetype) => ArchetypeGuidance | undefined;
+
+  /** List all loaded archetypes */
+  listArchetypes: () => BuoyArchetype[];
+
+  /** Get composed buoy (template + global + archetype) */
+  getComposed: (id: string) => ComposedBuoy | undefined;
 }
 
 export interface LoadResult {
@@ -59,6 +77,8 @@ export interface LoadResult {
  */
 export function createRegistry(): BuoyRegistry {
   const buoys = new Map<string, BuoyTemplate>();
+  const archetypes = new Map<BuoyArchetype, ArchetypeGuidance>();
+  let global: GlobalGuidance | null = null;
 
   return {
     buoys,
@@ -71,6 +91,7 @@ export function createRegistry(): BuoyRegistry {
         return result;
       }
 
+      // Load buoy templates
       const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
 
       for (const file of files) {
@@ -84,6 +105,40 @@ export function createRegistry(): BuoyRegistry {
           result.loaded.push(id);
         } else {
           result.errors.push({ file, error: parseResult.error });
+        }
+      }
+
+      // Load global.md from parent directory (graceful if missing)
+      const globalPath = path.join(dir, "../global.md");
+      if (fs.existsSync(globalPath)) {
+        const content = fs.readFileSync(globalPath, "utf-8");
+        global = { content, sourcePath: globalPath };
+      }
+
+      // Load archetypes from sibling directory (graceful if missing)
+      const archetypesDir = path.join(dir, "../archetypes");
+      if (fs.existsSync(archetypesDir)) {
+        const archetypeNames: BuoyArchetype[] = [
+          "generator",
+          "validator",
+          "fixer",
+          "mapper",
+          "integrator",
+          "orchestrator",
+          "recorder",
+        ];
+
+        for (const name of archetypeNames) {
+          const filePath = path.join(archetypesDir, `${name}.md`);
+          if (fs.existsSync(filePath)) {
+            const content = fs.readFileSync(filePath, "utf-8");
+            archetypes.set(name, {
+              archetype: name,
+              content,
+              sourcePath: filePath,
+            });
+          }
+          // Missing archetype files are NOT errors (graceful degradation)
         }
       }
 
@@ -110,6 +165,29 @@ export function createRegistry(): BuoyRegistry {
 
     count(): number {
       return buoys.size;
+    },
+
+    getGlobal(): GlobalGuidance | null {
+      return global;
+    },
+
+    getArchetype(archetype: BuoyArchetype): ArchetypeGuidance | undefined {
+      return archetypes.get(archetype);
+    },
+
+    listArchetypes(): BuoyArchetype[] {
+      return Array.from(archetypes.keys());
+    },
+
+    getComposed(id: string): ComposedBuoy | undefined {
+      const template = buoys.get(id);
+      if (!template) return undefined;
+
+      return {
+        template,
+        globalGuidance: global,
+        archetypeGuidance: archetypes.get(template.json.ai.archetype) || null,
+      };
     },
   };
 }

@@ -1,4 +1,4 @@
-import { BuoyTemplate, BuoyArchetype } from "./schema.js";
+import { BuoyTemplate, BuoyArchetype, GlobalGuidance, ArchetypeGuidance, ComposedBuoy } from "./schema.js";
 /**
  * Buoy Registry for FloatPrompt
  *
@@ -13,7 +13,7 @@ import { BuoyTemplate, BuoyArchetype } from "./schema.js";
 export interface BuoyRegistry {
     /** Map of buoy id to template */
     buoys: Map<string, BuoyTemplate>;
-    /** Load all buoy templates from a directory */
+    /** Load all buoy templates from a directory (also loads global and archetypes) */
     load: (dir: string) => LoadResult;
     /** Get a buoy template by id */
     get: (id: string) => BuoyTemplate | undefined;
@@ -25,6 +25,14 @@ export interface BuoyRegistry {
     has: (id: string) => boolean;
     /** Get count of registered buoys */
     count: () => number;
+    /** Get global guidance (if loaded) */
+    getGlobal: () => GlobalGuidance | null;
+    /** Get archetype guidance by archetype name */
+    getArchetype: (archetype: BuoyArchetype) => ArchetypeGuidance | undefined;
+    /** List all loaded archetypes */
+    listArchetypes: () => BuoyArchetype[];
+    /** Get composed buoy (template + global + archetype) */
+    getComposed: (id: string) => ComposedBuoy | undefined;
 }
 export interface LoadResult {
     loaded: string[];

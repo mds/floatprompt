@@ -13,7 +13,7 @@
  *
  * See .float-workshop/docs/buoys.md for architecture documentation.
  */
-export { BuoyArchetypeSchema, ContextDepthSchema, BuoyTypeSchema, BuoyMetaSchema, BuoyAISchema, BuoyInputSchema, BuoyOutputSchema, BuoyJsonSchema, type BuoyArchetype, type ContextDepth, type BuoyType, type BuoyMeta, type BuoyAI, type BuoyInput, type BuoyOutput, type BuoyJson, type BuoyTemplate, type ParseResult, type DispatchOptions, type BuiltPrompt, type OutputValidation, } from "./schema.js";
+export { BuoyArchetypeSchema, ContextDepthSchema, BuoyTypeSchema, BuoyMetaSchema, BuoyAISchema, BuoyInputSchema, BuoyOutputSchema, BuoyJsonSchema, type BuoyArchetype, type ContextDepth, type BuoyType, type BuoyMeta, type BuoyAI, type BuoyInput, type BuoyOutput, type BuoyJson, type BuoyTemplate, type ParseResult, type DispatchOptions, type BuiltPrompt, type OutputValidation, type GlobalGuidance, type ArchetypeGuidance, type ComposedBuoy, } from "./schema.js";
 export { parseBuoyTemplate, isValidFloatPromptFormat, } from "./parser.js";
 export { createRegistry, loadBuoyFromFile, DEFAULT_TEMPLATE_DIR, type BuoyRegistry, type LoadResult, } from "./registry.js";
 export { buildBuoyPrompt, validateBuoyOutput, extractJsonFromResponse, } from "./dispatch.js";

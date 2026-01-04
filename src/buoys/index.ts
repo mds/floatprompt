@@ -41,6 +41,10 @@ export {
   type DispatchOptions,
   type BuiltPrompt,
   type OutputValidation,
+  // Composition types (3-layer: global → archetype → specific)
+  type GlobalGuidance,
+  type ArchetypeGuidance,
+  type ComposedBuoy,
 } from "./schema.js";
 
 // Parser

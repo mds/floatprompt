@@ -194,6 +194,20 @@ export interface BuoyTemplate {
     markdown: string;
     sourcePath: string;
 }
+export interface GlobalGuidance {
+    content: string;
+    sourcePath: string;
+}
+export interface ArchetypeGuidance {
+    archetype: BuoyArchetype;
+    content: string;
+    sourcePath: string;
+}
+export interface ComposedBuoy {
+    template: BuoyTemplate;
+    globalGuidance: GlobalGuidance | null;
+    archetypeGuidance: ArchetypeGuidance | null;
+}
 export type ParseResult = {
     success: true;
     template: BuoyTemplate;
@@ -206,6 +220,8 @@ export interface DispatchOptions {
     data: Record<string, unknown>;
     contextDepth?: ContextDepth;
     message?: string;
+    globalGuidance?: GlobalGuidance;
+    archetypeGuidance?: ArchetypeGuidance;
 }
 export interface BuiltPrompt {
     systemPrompt: string;

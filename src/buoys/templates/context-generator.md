@@ -120,23 +120,7 @@ Return valid JSON:
   - Key patterns/conventions
   - What AI should know entering this scope
 
-## Guidance
-
-### Reading Strategy
-
-1. **Scan file names first** — Often enough to understand purpose
-2. **Read key files** — package.json, README, index files, main entry points
-3. **Sample large folders** — Don't read every file, read representative ones
-4. **Infer from patterns** — File naming conventions reveal intent
-
-### Content Quality
-
-- Inherit tone from parent context
-- Be concrete, not vague ("handles user login" not "manages authentication")
-- Mention specific technologies/frameworks if evident
-- Flag anything that looks unusual or unclear
-
-### Scope Detection Heuristics
+## Scope Detection Heuristics
 
 | Signal | Confidence | Action |
 |--------|------------|--------|
