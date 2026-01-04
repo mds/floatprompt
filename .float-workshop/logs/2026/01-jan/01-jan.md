@@ -34,6 +34,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Vercel AI SDK** — Orchestration, streaming, tool calling
 - **Vercel Sandbox** — Isolated buoy execution, scalable
 - **Anthropic (Claude)** — Provider for context and reasoning
+- **AI SDK Migration** — 4-phase path from raw Anthropic API to SDK + Sandbox + MCP
 
 ### Archival Structure
 - **Hierarchy** — Collection/Series/File/Item → logs/year/month/entries
@@ -96,6 +97,18 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Version history** — `deep_history` table for diffing and rollback
 - **Command** — `/float deep <slug>` to recall into session
 
+### Layer 3: Ongoing System
+- **99% case optimization** — Repeat users are the target, not first-time setup
+- **Amortization principle** — Pay AI cost once, read artifacts forever
+- **Two boot modes** — `create-floatprompt` (first time) vs `snapshot boot` (repeat, <800 tokens)
+- **Background buoys** — pattern-detector, decision-logger, context-linker, next-steps run during sessions
+- **Continuous synthesis** — Handoff isn't discrete event, it's ongoing
+- **Workshop graduation** — Protocols become automated infrastructure, workshop becomes override layer
+- **Migration path** — Parallel → Assisted → Supervised → Fully Automatic
+
+### Non-Features
+- **No wikilinks** — `[[links]]` in markdown don't serve the vision. Relationships belong in `references` table, not prose. SQLite queries are AI navigation, wikilinks are human flatfile navigation.
+
 ---
 
 ## Files
@@ -141,6 +154,16 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-archetype-externalization-complete.md](2026-01-04-archetype-externalization-complete.md) | **Archetype externalization complete** — 3-layer composition implemented (global + archetype + specific), 8 new files, CLI updated |
 | [2026-01-04-deep-context-spec.md](2026-01-04-deep-context-spec.md) | **Deep context spec** — Topic-based context via `deep` + `deep_history` tables, `/float deep <slug>` command, auto-detect watches |
 | [2026-01-04-boot-draft-and-buoys.md](2026-01-04-boot-draft-and-buoys.md) | **Boot draft + buoys** — Production boot at `.float/boot-draft.md`, execution model (TS→Claude API), scope-detector + decision-logger buoys |
+| [2026-01-04-buoy-execution-test.md](2026-01-04-buoy-execution-test.md) | **Buoy execution test** — All 4 buoys validated with real API calls, CLI `buoy execute` command added |
+| [2026-01-04-cli-batch-command.md](2026-01-04-cli-batch-command.md) | **CLI batch command** — `buoy batch` for parallel execution with optional concurrency limiting |
+| [2026-01-04-deep-context-floatprompt-created.md](2026-01-04-deep-context-floatprompt-created.md) | **Deep context created** — First manual deep context document for system orientation, 5 design decisions answered |
+| [2026-01-04-layer3-vision-captured.md](2026-01-04-layer3-vision-captured.md) | **Layer 3 vision captured** — Ongoing system spec, background buoys, snapshot boots, workshop graduation, 6-angle problem framing |
+| [2026-01-04-deep-context-implementation.md](2026-01-04-deep-context-implementation.md) | **Deep context implementation** — `deep` + `deep_history` tables, CRUD functions, CLI commands, first deep context imported |
+| [2026-01-04-wikilinks-not-needed.md](2026-01-04-wikilinks-not-needed.md) | **Wikilinks not needed** — `[[links]]` don't serve vision, relationships belong in `references` table not markdown prose |
+| [2026-01-04-test2b-full-orientation.md](2026-01-04-test2b-full-orientation.md) | **Test 2B validated** — boot.md + DB context provides comprehensive orientation, 7/7 passed, "70-80% for productive work" |
+| [2026-01-04-vercel-infrastructure-evolution.md](2026-01-04-vercel-infrastructure-evolution.md) | **Vercel infrastructure evolution** — FdI + Self-Driving parallels to FloatPrompt's folder-defined context and background buoys |
+| [2026-01-04-vercel-sdk-integration-spec.md](2026-01-04-vercel-sdk-integration-spec.md) | **Vercel SDK integration spec** — AI SDK, Sandbox, MCP migration path with 4 phases |
+| [2026-01-04-float-build-spec-drafted.md](2026-01-04-float-build-spec-drafted.md) | **float build spec drafted** — Static context generation MVP, decisions locked (path encoding, location, tier), ready for lock |
 
 ### Archived Reference Material
 

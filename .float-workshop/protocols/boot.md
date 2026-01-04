@@ -7,7 +7,7 @@
     "title": "Context-Compiler Boot",
     "id": "context-compiler-boot",
     "updated": "2026-01-04",
-    "session": 17
+    "session": 22
   },
 
   "human": {
@@ -48,22 +48,15 @@
 
 ## Last Session
 
-**2026-01-04 (session 16):** Production boot draft + buoy execution model + 2 new buoys.
+**2026-01-04 (session 21):** Deep orientation + float build spec drafted.
 
 Key outcomes:
-- **Production boot created:** `.float/boot-draft.md` — entry point for user projects (not workshop)
-  - Documents buoy system, CLI commands, key fields, principles
-  - Self-update protocol hooks into handoff
-  - Will become `.float/boot.md` when stable
-- **Execution model locked:** TypeScript → Claude API (TS orchestrates, Claude thinks, SQLite stores)
-  - Created `src/buoys/execute.ts` — execution engine skeleton
-  - Supports vision.md parallelism ("50 scopes → 50 buoys")
-  - Needs: `npm install @anthropic-ai/sdk`
-- **2 new buoys:** scope-detector (generator) + decision-logger (recorder)
-  - Now 4 buoy templates total
-  - Tests different archetypes
+- **Deep context orientation** — Read `deep-context-floatprompt.md` for full system understanding
+- **17 Rules reviewed** — Unix philosophy applied to FloatPrompt, Rule 9 (Representation) = core thesis
+- **Layer 3 assessed** — Not ready (4 open questions), but CMS (Layer 2.5) is ready
+- **float build spec drafted** — `wip-float-build-spec.md` created with locked decisions
 
-**Key insight:** Boot and buoys co-evolve (Path B). Building them together reveals gaps in both.
+**Key insight:** CMS doc is a complete spec. `float snapshot` (Layer 3) is a special case of tiered context (Layer 2.5). Build CMS first, snapshot extends naturally.
 
 ---
 
@@ -71,29 +64,31 @@ Key outcomes:
 
 Based on recent decision logs, here are paths forward:
 
-### Ready to Test
+### Ready to Build
 
-1. **Test buoy execution** — Install SDK, test execute.ts with real buoys
-   - Run: `npm install @anthropic-ai/sdk`
-   - Set: `ANTHROPIC_API_KEY`
-   - Test scope-detector and decision-logger
-
-### Locked But Not Built
+1. **Build `float build`** — Static context generation (Layer 2.5)
+   - Spec: `.float-workshop/docs/wip-float-build-spec.md` (DRAFT — needs lock)
+   - Decisions locked: path encoding (`--`), location (`.float/context/`), tier (`standard`)
+   - MVP: single tier, no watch, no parallel
 
 2. **Implement deep context** — `deep` + `deep_history` tables, CRUD, CLI
    - Spec: `.float-workshop/docs/deep-context.md`
 
-### Pending Validation
+### Ready to Integrate
 
-3. **Run remaining tests** — Tests 3, 4, 5 still pending
-   - Test 3: Scope detection quality (scope-detector buoy ready)
-   - Test 4: Staleness detection (staleness-checker template ready)
-   - Test 5: Parallel buoy spawning
+3. **Wire buoys into float sync** — Connect execution to main workflow
+   - `float sync` → scan → spawn buoys → update SQLite
+
+4. **Migrate to AI SDK** — Phase 1 of Vercel integration (tool definitions)
+   - Spec: `.float-workshop/docs/vercel-sdk-integration-spec.md`
 
 ### Open Design Work
 
-4. **Design fleet mode** — TypeScript orchestrator for parallel buoy execution
-5. **Create first deep context** — Actually use the system
+5. **Layer 3: Background buoys** — 4 open questions need answers first
+   - See: `.float-workshop/docs/wip-layer-3-ongoing.md`
+   - Blocked on: conversation access, timing, triggers, storage
+
+6. **Design fleet mode** — TypeScript orchestrator for parallel buoy execution
 
 ### Test Status
 
@@ -101,14 +96,15 @@ Based on recent decision logs, here are paths forward:
 |------|--------|--------|
 | **Test 1: Agent-Spawned Generation** | ✅ Done | 2x richer context, fleet mode required |
 | **Test 2A: Fresh Orientation (DB-only)** | ✅ Done | ~500 tokens → full navigation, 5/5 passed |
-| **Test 2B: Fresh Orientation (full system)** | Pending | boot.md + float.db combined |
-| **Test 3: Scope Detection Quality** | Ready | scope-detector.md template created |
-| **Test 4: Staleness Detection** | Ready | staleness-checker.md template created |
-| **Test 5: Parallel Buoy Spawning** | Pending | Can 5 agents process concurrently? |
+| **Test 2B: Fresh Orientation (full system)** | ✅ Done | boot.md + float.db combined, 7/7 passed, "70-80% for productive work" |
+| **Test 3: Scope Detection Quality** | ✅ Done | scope-detector buoy validated (Session 17) |
+| **Test 4: Staleness Detection** | ✅ Done | staleness-checker buoy validated (Session 17) |
+| **Test 5: Parallel Buoy Spawning** | ✅ Partial | Mechanism validated (5.29x), API blocked by sandbox |
 
 **Read first:** (if relevant to chosen direction)
-- `.float/boot-draft.md` — Production boot (draft)
-- `logs/2026/01-jan/2026-01-04-boot-draft-and-buoys.md` — Session 16 decisions
+- `docs/wip-float-build-spec.md` — float build spec (DRAFT, review before building)
+- `docs/float-CMS-context-management-system.md` — Full CMS architecture context
+- `docs/deep-context.md` — Deep context spec (ready to implement)
 
 ---
 
@@ -242,7 +238,7 @@ src/cli/
 └── float-db.ts  # CLI wrapper (10 commands)
 ```
 
-Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, `dist`, `buoy list`, `buoy parse`, `buoy prompt`
+Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, `dist`, `buoy list`, `buoy parse`, `buoy prompt`, `buoy execute`, `buoy batch`
 
 ### Database (`.float/float.db`)
 
@@ -373,10 +369,15 @@ Read these only when you need deeper context:
 
 | File | When to read |
 |------|--------------|
+| `docs/deep-context-floatprompt.md` | **DEEP ORIENTATION** — Synthesized understanding of entire system (Session 19) |
+| `docs/wip-float-build-spec.md` | **float build spec** — Static context generation MVP (DRAFT, Session 21) |
+| `docs/float-CMS-context-management-system.md` | **CMS architecture** — static context build system (Layer 2.5) |
+| `docs/wip-layer-3-ongoing.md` | **Layer 3 vision** — background buoys, snapshot boots, continuous synthesis |
 | `docs/generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
 | `docs/vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
 | `docs/buoys.md` | **Buoy architecture** — worker catalog, context depth, dispatch patterns (LOCKED) |
-| `docs/deep-context.md` | **Deep context** — topic-based context, watches, version history (LOCKED) |
+| `docs/deep-context.md` | **Deep context spec** — topic-based context, watches, version history (LOCKED) |
+| `docs/vercel-sdk-integration-spec.md` | **Vercel integration** — AI SDK, Sandbox, MCP migration path (Session 20) |
 | `docs/workshop.md` | Workshop concept — productizing the boot pattern (future) |
 | `protocols/handoff.md` | Session handoff protocol |
 | `docs/comments.md` | TypeScript commenting standards |
@@ -444,6 +445,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-04 — Session 17: Production boot draft, buoy execution model, scope-detector + decision-logger buoys*
+*Updated 2026-01-04 — Session 21: Deep orientation + float build spec drafted*
 </md>
 </fp>
