@@ -118,6 +118,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-buoy-schema-locked.md](2026-01-04-buoy-schema-locked.md) | **Buoy schema locked** — 7 buckets, hub-and-spoke, AI vs code separation, schema spec |
 | [2026-01-04-workshop-restructure-spec.md](2026-01-04-workshop-restructure-spec.md) | **Workshop restructure spec** — .float-wip → .float-workshop, protocols/ + docs/ + logs/, split wip-logs.md |
 | [2026-01-04-handoff-naming.md](2026-01-04-handoff-naming.md) | **Handoff naming** — reconcile.md → handoff.md (describes primary purpose better) |
+| [2026-01-04-layer2-buoy-spec.md](2026-01-04-layer2-buoy-spec.md) | **Layer 2 buoy spec** — A1-A4 answered, Context Generator buoy created, full generation complete |
 
 ### Archived Reference Material
 

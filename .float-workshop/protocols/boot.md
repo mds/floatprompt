@@ -7,7 +7,7 @@
     "title": "Context-Compiler Boot",
     "id": "context-compiler-boot",
     "updated": "2026-01-04",
-    "session": 10
+    "session": 12
   },
 
   "human": {
@@ -48,34 +48,36 @@
 
 ## Last Session
 
-**2026-01-04 (session 11):** Workshop restructure executed.
+**2026-01-04 (session 12):** Layer 2 generation COMPLETE.
 
 Key outcomes:
-- Executed `.float-wip/` → `.float-workshop/` restructure
-- New structure: `protocols/` (boot, handoff, log) + `docs/` + `logs/`
-- Split `wip-logs.md` → `protocols/log.md` (protocol) + `logs/logs.md` (map)
-- Renamed `reconcile.md` → `handoff.md` (better describes the purpose)
-- Updated 100+ internal references across all files
-- Removed old `.float-wip/` folder
+- Answered A1-A4 (AI instruction details): adaptive content_md, key files only, binary scope detection, prose scope_boot
+- Created Context Generator buoy-boot: `.float-workshop/buoys/context-generator.md`
+- Ran full generation loop: 65 folders processed, all now have description + content_md
+- Verified: 0 pending, 65 current, 0 stale
+
+**Milestone:** Layer 2 is now COMPLETE. AI can generate context for all folders.
 
 ---
 
 ## This Session
 
-**Pick up here:** Continue Layer 2 work.
+**Pick up here:** Layer 3 or buoy expansion.
 
 Options:
-1. **Prioritize buoys** — Design/implement context generation workers
-2. **Implement first buoy** — Write Context Generator buoy-boot file
-3. **Test full loop** — Run AI generation on folders using float-db CLI
+1. **Start Layer 3** — Triggers, staleness detection, ongoing freshness
+2. **Add more buoys** — Staleness Checker, Scope Detector, Summarizer
+3. **Test production boot.md** — Design the boot.md that ships to users
+4. **Fleet mode** — TypeScript orchestrator for parallel buoy spawning
 
 **Read first:**
 - `docs/buoys.md` — LOCKED buoy schema (7 buckets, hub-and-spoke)
+- `buoys/context-generator.md` — First working buoy
 
 **Try these prompts:**
-- "Let's prioritize buoys for Layer 2"
-- "Write a Context Generator buoy-boot file"
-- "Walk me through the buoy architecture"
+- "Let's design the production boot.md"
+- "Walk me through Layer 3 triggers"
+- "Add a Staleness Checker buoy"
 
 ---
 
@@ -139,8 +141,8 @@ AI now has:
 | Layer | What | Status |
 |-------|------|--------|
 | **Layer 1: Mechanical** | Walk filesystem, hash files, write to SQLite | **DONE** |
-| **Layer 2: AI Generation** | For each folder/scope: generate map + context | **NEXT** |
-| **Layer 3: Ongoing** | Triggers, staleness detection, freshness | Future |
+| **Layer 2: AI Generation** | For each folder/scope: generate map + context | **DONE** |
+| **Layer 3: Ongoing** | Triggers, staleness detection, freshness | **NEXT** |
 
 ### Autonomous Scopes
 
@@ -370,6 +372,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-04 — Session 11: Workshop restructure executed, .float-wip → .float-workshop*
+*Updated 2026-01-04 — Session 12: Layer 2 generation COMPLETE, 65 folders with context*
 </md>
 </fp>
