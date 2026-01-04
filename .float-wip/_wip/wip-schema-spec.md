@@ -1,9 +1,11 @@
 # Schema Spec
 
 **Date:** 2026-01-03
-**Status:** Locked
+**Status:** Locked → Implemented (session 4)
 
 Schema for `folders` table — 16 fields defined via Q&A session.
+
+**Implementation:** `src/db/schema.ts` (Zod + SQL DDL), `src/db/scan.ts` (INSERT/UPDATE)
 
 ---
 

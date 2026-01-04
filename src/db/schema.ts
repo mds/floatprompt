@@ -11,37 +11,60 @@ import { z } from "zod";
  * - open_questions: Unresolved items
  * - tags: Categorization
  * - log_entry_tags: Many-to-many relationship
+ *
+ * Schema spec locked 2026-01-03 via Q&A session.
+ * See wip-schema-spec.md for rationale on each field.
  */
 
-// Folders table — the things being described
+// Folder type enum — what kind of folder this is
+export const FolderTypeSchema = z.enum([
+  "folder", // Regular project folder
+  "scope", // Autonomous scope (a "world")
+  "log_root", // Like project-logs/
+  "log_year", // Like 2026/
+  "log_month", // Like 01-jan/
+]);
+export type FolderType = z.infer<typeof FolderTypeSchema>;
+
+// Folder status enum — can AI trust this context?
+export const FolderStatusSchema = z.enum([
+  "pending", // No AI content yet (Layer 1 only, scanner created the row)
+  "current", // AI content is fresh (written after last source change)
+  "stale", // Source changed since AI last wrote (needs refresh)
+]);
+export type FolderStatus = z.infer<typeof FolderStatusSchema>;
+
+// Folders table — 16 fields organized by purpose
 export const FolderSchema = z.object({
+  // === Identity (3) ===
   path: z.string(), // PRIMARY KEY: '/', '/src', '/src/auth'
   parent_path: z.string().nullable(), // NULL for root
-  name: z.string(), // 'src', 'auth'
+  name: z.string(), // 'src', 'auth', '' for root
 
-  // Map (WHERE - structure) — AI-generated
-  map_summary: z.string().nullable(), // "Contains React components for UI"
-  map_children: z
-    .array(
-      z.object({
-        name: z.string(),
-        type: z.enum(["file", "folder"]),
-        description: z.string(),
-      })
-    )
-    .nullable(), // Stored as JSON
+  // === Governance (2) ===
+  type: FolderTypeSchema.nullable(), // AI-determined or heuristic
+  status: FolderStatusSchema, // Computed/updated by system
 
-  // Context (WHAT - understanding) — AI-generated
-  context_what: z.string().nullable(), // "This is the authentication layer"
-  context_why: z.string().nullable(), // "Separated for security isolation"
-  context_patterns: z.array(z.string()).nullable(), // ["repository pattern", "DI"]
+  // === AI Content (2) ===
+  description: z.string().nullable(), // Quick orientation — "what's here" (the "map")
+  content_md: z.string().nullable(), // Deeper understanding — "what it means" (the "context")
 
-  // Staleness detection
+  // === Scope (3) ===
+  is_scope: z.boolean(), // Is this folder an autonomous scope?
+  parent_scope_path: z.string().nullable(), // Pointer to parent scope (skips non-scopes)
+  scope_boot: z.string().nullable(), // Boot context for this scope (only if is_scope=true)
+
+  // === Mechanical (2) ===
   // source_hash = SHA-256(sorted child paths + their content hashes)
   // Not recursive — just immediate children. Staleness bubbles up naturally.
   source_hash: z.string().nullable(),
   last_scanned_at: z.number().nullable(), // Unix timestamp
 
+  // === AI Attribution (2) ===
+  ai_model: z.string().nullable(), // Which model wrote this (e.g., "claude-3-opus")
+  ai_updated: z.number().nullable(), // When AI last wrote to this row
+
+  // === Timestamps (2) ===
   created_at: z.number(), // Unix timestamp
   updated_at: z.number(), // Unix timestamp
 });
@@ -138,24 +161,35 @@ export type LogEntryTag = z.infer<typeof LogEntryTagSchema>;
  */
 export const CREATE_TABLES_SQL = `
 -- The things being described (folders in any project)
+-- Schema spec locked 2026-01-03 — 16 fields organized by purpose
 CREATE TABLE IF NOT EXISTS folders (
+  -- Identity (3)
   path TEXT PRIMARY KEY,
   parent_path TEXT,
   name TEXT NOT NULL,
 
-  -- Map (WHERE - structure) — AI-generated
-  map_summary TEXT,
-  map_children TEXT,  -- JSON array
+  -- Governance (2)
+  type TEXT CHECK (type IN ('folder', 'scope', 'log_root', 'log_year', 'log_month')),
+  status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'current', 'stale')),
 
-  -- Context (WHAT - understanding) — AI-generated
-  context_what TEXT,
-  context_why TEXT,
-  context_patterns TEXT,  -- JSON array
+  -- AI Content (2)
+  description TEXT,
+  content_md TEXT,
 
-  -- Staleness detection
+  -- Scope (3)
+  is_scope INTEGER NOT NULL DEFAULT 0,
+  parent_scope_path TEXT,
+  scope_boot TEXT,
+
+  -- Mechanical (2)
   source_hash TEXT,
   last_scanned_at INTEGER,
 
+  -- AI Attribution (2)
+  ai_model TEXT,
+  ai_updated INTEGER,
+
+  -- Timestamps (2)
   created_at INTEGER NOT NULL,
   updated_at INTEGER NOT NULL
 );

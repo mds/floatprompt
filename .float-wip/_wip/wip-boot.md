@@ -47,28 +47,29 @@
 
 ## Last Session
 
-**2026-01-03 (session 3):** Locked the folders table schema via Q&A. Created `wip-schema-spec.md` with 16 fields, all with rationale. Added "AI civilization" and "token economy" concepts to vision docs.
+**2026-01-03 (session 4):** Implemented the 16-field schema in TypeScript. Updated `schema.ts` (Zod + SQL DDL) and `scan.ts` (INSERT/UPDATE statements). Deleted old database, rescanned — 65 folders now have new schema with `status='pending'`.
 
 Key outcomes:
-- Schema spec locked: 16 fields organized by purpose
-- Removed 5 over-structured columns (`map_*`, `context_*`)
-- Added governance (`status`), attribution (`ai_model`, `ai_updated`)
-- Updated `how-floatprompt-works.md`, `float-folder-structure.md`, `wip-vision.md`
+- `schema.ts`: FolderSchema now has 16 fields (Identity, Governance, AI Content, Scope, Mechanical, Attribution, Timestamps)
+- `scan.ts`: Scanner sets `status='pending'`, `is_scope=0` on INSERT; marks `status='stale'` on UPDATE if AI had written
+- Database: 65 folders, 447 files scanned with new schema
+- Build passes: `npm run build` succeeds
 
 ---
 
 ## This Session
 
-**Pick up here:** Implement `schema.ts` based on locked spec.
+**Pick up here:** Design boot.md OR plan Layer 2 (AI generation).
+
+Options:
+1. **Design boot.md** — What should the production system prompt contain?
+2. **Plan Layer 2** — How do buoys populate `description`, `content_md`, scopes?
 
 **Read first:**
-- `wip-schema-spec.md` — The 16-field schema you're implementing
+- `wip-vision.md` — The three layers and autonomous scopes
+- `wip-phase4-qa.md` — Open questions for Layer 2
 
-The spec is complete with full rationale. Just translate to TypeScript/Zod:
-1. Update `src/db/schema.ts` to match the locked spec
-2. Run `npm run build` to verify
-
-**Or ask:** "Need deeper context? Want to see any files? Know what we're working on?"
+**Or ask:** "What does boot.md need to do?" or "How should scope detection work?"
 
 ---
 
@@ -219,20 +220,19 @@ src/db/                    ← TypeScript implementation (production-ready)
 
 ## Next Steps
 
-### Immediate: Schema Implementation
+### Completed: Schema Implementation ✓
 
-1. **Implement schema.ts** — Translate locked spec (`wip-schema-spec.md`) to TypeScript/Zod
-   - 16 fields organized by purpose (Identity, Governance, AI Content, Scope, Mechanical, Attribution, Timestamps)
-   - Remove old `map_*` and `context_*` columns
-   - Add `type`, `status`, `description`, `content_md`
-   - Add scope fields (`is_scope`, `parent_scope_path`, `scope_boot`)
+1. ~~**Implement schema.ts**~~ — Done (2026-01-03, session 4)
+   - 16 fields in TypeScript/Zod matching `wip-schema-spec.md`
+   - SQL DDL updated with CHECK constraints
+   - `scan.ts` updated with status management
+
+### Next: Layer 2 Planning
+
 2. **Design boot.md** — What goes in the production system prompt?
-
-### Then: Layer 2 Implementation
-
-4. **Buoy architecture** — How do parallel AI agents populate context?
-5. **Scope detection** — How does system decide a folder is a scope?
-6. **Test with real folders** — Populate context for `src/`, `bin/`, etc.
+3. **Buoy architecture** — How do parallel AI agents populate context?
+4. **Scope detection** — How does system decide a folder is a scope?
+5. **Test with real folders** — Populate context for `src/`, `bin/`, etc.
 
 ### Answered Questions
 

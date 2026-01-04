@@ -97,6 +97,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-03-wip-archival.md](2026-01-03-wip-archival.md) | **WIP archival** — Archived 4 stale wip files superseded by wip-vision.md |
 | [2026-01-03-summaries-in-folders.md](2026-01-03-summaries-in-folders.md) | **Summaries in folders** — Summary files are `folders` rows with `type`, no new table |
 | [2026-01-03-schema-spec-locked.md](2026-01-03-schema-spec-locked.md) | **Schema spec locked** — 16 fields via Q&A, AI civilization + token economy concepts |
+| [2026-01-03-schema-implementation.md](2026-01-03-schema-implementation.md) | **Schema implementation** — TypeScript/Zod implementation of locked spec, rescan with new schema |
 
 ### Archived Reference Material
 
