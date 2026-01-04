@@ -120,6 +120,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-handoff-naming.md](2026-01-04-handoff-naming.md) | **Handoff naming** — reconcile.md → handoff.md (describes primary purpose better) |
 | [2026-01-04-layer2-buoy-spec.md](2026-01-04-layer2-buoy-spec.md) | **Layer 2 buoy spec** — A1-A4 answered, Context Generator buoy created, full generation complete |
 | [2026-01-04-layer2-quality-reflection.md](2026-01-04-layer2-quality-reflection.md) | **Layer 2 quality reflection** — Honest assessment, 5 future tests, validation criteria |
+| [2026-01-04-test1-agent-spawned-generation.md](2026-01-04-test1-agent-spawned-generation.md) | **Test 1 confirmed** — Agent-spawned generation produces 2x richer context than inline, fleet mode validated |
 
 ### Archived Reference Material
 
