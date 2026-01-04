@@ -28,6 +28,12 @@ import {
   UpdateContext,
 } from "../db/generate.js";
 import { FolderStatus } from "../db/schema.js";
+import {
+  createRegistry,
+  parseBuoyTemplate,
+  buildBuoyPrompt,
+  DEFAULT_TEMPLATE_DIR,
+} from "../buoys/index.js";
 
 // ============================================================================
 // Helpers
@@ -57,6 +63,7 @@ COMMANDS:
   scope-chain Get the scope chain for a path
   status      Get folder counts by status
   dist        Get folder count distribution by depth
+  buoy        Buoy template management (list, parse, prompt)
 
 OPTIONS:
   --db PATH       Database path (default: .float/float.db)
@@ -70,6 +77,9 @@ EXAMPLES:
   float-db max-depth --status pending
   float-db scope-chain /src/db
   float-db status
+  float-db buoy list
+  float-db buoy parse src/buoys/templates/context-generator.md
+  float-db buoy prompt context-generator --data '{"folder_path": "/src"}'
 `);
 }
 
@@ -270,6 +280,124 @@ function cmdDist(
   }
 }
 
+function cmdBuoy(
+  positional: string[],
+  flags: Record<string, string | boolean>
+): void {
+  const subcommand = positional[0];
+
+  if (!subcommand) {
+    printError("Buoy subcommand required: list, parse, or prompt");
+  }
+
+  const templateDir =
+    (flags["templates"] as string) || DEFAULT_TEMPLATE_DIR;
+
+  switch (subcommand) {
+    case "list": {
+      const registry = createRegistry();
+      const result = registry.load(templateDir);
+
+      printJson({
+        buoys: registry.list().map((id) => {
+          const buoy = registry.get(id)!;
+          return {
+            id,
+            title: buoy.json.meta.title,
+            archetype: buoy.json.ai.archetype,
+            receives: buoy.json.input.receives,
+            produces: buoy.json.output.produces,
+          };
+        }),
+        loadErrors: result.errors,
+      });
+      break;
+    }
+
+    case "parse": {
+      const filePath = positional[1];
+      if (!filePath) {
+        printError("File path required for buoy parse");
+      }
+
+      if (!fs.existsSync(filePath)) {
+        printError(`File not found: ${filePath}`);
+      }
+
+      const content = fs.readFileSync(filePath, "utf-8");
+      const result = parseBuoyTemplate(content, filePath);
+
+      if (result.success) {
+        printJson({
+          valid: true,
+          buoy: {
+            id: result.template.json.meta.id,
+            title: result.template.json.meta.title,
+            version: result.template.json.meta.version,
+            archetype: result.template.json.ai.archetype,
+            receives: result.template.json.input.receives,
+            produces: result.template.json.output.produces,
+            markdownLength: result.template.markdown.length,
+          },
+        });
+      } else {
+        printJson({
+          valid: false,
+          error: result.error,
+        });
+      }
+      break;
+    }
+
+    case "prompt": {
+      const buoyId = positional[1];
+      if (!buoyId) {
+        printError("Buoy ID required for buoy prompt");
+      }
+
+      const dataStr = flags["data"];
+      if (!dataStr || dataStr === true) {
+        printError("--data is required for buoy prompt");
+      }
+
+      let data: Record<string, unknown>;
+      try {
+        data = JSON.parse(dataStr as string);
+      } catch {
+        printError("Invalid JSON in --data argument");
+        return;
+      }
+
+      const registry = createRegistry();
+      registry.load(templateDir);
+
+      const template = registry.get(buoyId);
+      if (!template) {
+        printError(
+          `Buoy not found: ${buoyId}. Available: ${registry.list().join(", ")}`
+        );
+        return;
+      }
+
+      try {
+        const prompt = buildBuoyPrompt({
+          template,
+          data,
+          message: (flags["message"] as string) || undefined,
+        });
+        printJson(prompt);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        printError(message);
+      }
+      break;
+    }
+
+    default:
+      printError(`Unknown buoy subcommand: ${subcommand}`);
+  }
+}
+
 // ============================================================================
 // Main
 // ============================================================================
@@ -288,8 +416,8 @@ function main(): void {
   const dbPath = (flags["db"] as string) || ".float/float.db";
   const projectRoot = (flags["root"] as string) || process.cwd();
 
-  // Verify database exists for read commands
-  if (command !== "help") {
+  // Verify database exists for read commands (not needed for buoy subcommands)
+  if (command !== "help" && command !== "buoy") {
     if (!fs.existsSync(dbPath)) {
       printError(`Database not found: ${dbPath}`);
     }
@@ -317,6 +445,9 @@ function main(): void {
         break;
       case "dist":
         cmdDist(dbPath, flags);
+        break;
+      case "buoy":
+        cmdBuoy(positional, flags);
         break;
       default:
         printError(`Unknown command: ${command}`);

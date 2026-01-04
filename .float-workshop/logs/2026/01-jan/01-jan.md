@@ -121,6 +121,8 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-layer2-buoy-spec.md](2026-01-04-layer2-buoy-spec.md) | **Layer 2 buoy spec** — A1-A4 answered, Context Generator buoy created, full generation complete |
 | [2026-01-04-layer2-quality-reflection.md](2026-01-04-layer2-quality-reflection.md) | **Layer 2 quality reflection** — Honest assessment, 5 future tests, validation criteria |
 | [2026-01-04-test1-agent-spawned-generation.md](2026-01-04-test1-agent-spawned-generation.md) | **Test 1 confirmed** — Agent-spawned generation produces 2x richer context than inline, fleet mode validated |
+| [2026-01-04-test2a-fresh-orientation.md](2026-01-04-test2a-fresh-orientation.md) | **Test 2A validated** — Fresh AI orients from ~500 tokens, 5/5 passed, independently articulated value prop: "compressing human judgment into injectable context" |
+| [2026-01-04-buoy-system-formalized.md](2026-01-04-buoy-system-formalized.md) | **Buoy system formalized** — TypeScript infrastructure in src/buoys/, CLI commands, staleness-checker template |
 
 ### Archived Reference Material
 

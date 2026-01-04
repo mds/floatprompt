@@ -7,7 +7,7 @@
     "title": "Context-Compiler Boot",
     "id": "context-compiler-boot",
     "updated": "2026-01-04",
-    "session": 13
+    "session": 14
   },
 
   "human": {
@@ -48,55 +48,67 @@
 
 ## Last Session
 
-**2026-01-04 (session 13):** Test 1 confirmed — fleet mode validated.
+**2026-01-04 (session 14):** Test 2A validated + buoy system formalized in TypeScript.
 
 Key outcomes:
-- Ran Test 1: Agent-spawned generation vs inline generation
-- Result: 2x richer context (280 words vs 120), specific tech details, architecture patterns
-- Confirmed: Fleet mode is required for quality, not optional
-- Logged decision: `2026-01-04-test1-agent-spawned-generation.md`
+- **Test 2A validated:** Fresh AI orients from ~500 tokens of DB context alone (5/5 questions passed)
+- Fresh AI independently articulated value prop: "compressing human judgment into injectable context"
+- **Buoy system formalized:** Created `src/buoys/` with TypeScript infrastructure
+- Created staleness-checker.md template for Test 4
+- Added CLI commands: `float-db buoy list/parse/prompt`
 
-**Key insight:** Dedicated buoy with fresh context window produces significantly better context than inline generation spread across 65 folders.
+**Key insight:** ~500 tokens of generated context enables full navigation capability. Context should enable targeting, not replace reading code.
 
 ---
 
 ## This Session
 
-**Pick up here:** Design fleet mode + run remaining tests.
+**Pick up here:** Run remaining tests (3, 4, 5) or design fleet mode orchestrator.
 
 ### Test Status
 
 | Test | Status | Result |
 |------|--------|--------|
-| **Test 1: Agent-Spawned Generation** | ✅ Done | Confirmed — 2x richer context |
-| **Test 2: Fresh Session Orientation** | Pending | Does context help fresh AI? |
+| **Test 1: Agent-Spawned Generation** | ✅ Done | 2x richer context, fleet mode required |
+| **Test 2A: Fresh Orientation (DB-only)** | ✅ Done | ~500 tokens → full navigation, 5/5 passed |
+| **Test 2B: Fresh Orientation (full system)** | Pending | boot.md + float.db combined |
 | **Test 3: Scope Detection Quality** | Pending | Are right folders marked as scopes? |
-| **Test 4: Staleness Detection** | Pending | Does file change → stale work? |
+| **Test 4: Staleness Detection** | Ready | staleness-checker.md template created |
 | **Test 5: Parallel Buoy Spawning** | Pending | Can 5 agents process concurrently? |
 
-### Priority: Fleet Mode Design
+### What's Built
 
-Test 1 proved fleet mode is required. Now design the orchestrator:
-- TypeScript or Task tool based?
-- How to spawn N buoys in parallel?
-- How to collect and write results to DB?
-- Error handling for individual buoy failures?
+Buoy system now formalized in TypeScript:
+
+```
+src/buoys/
+├── schema.ts      # Zod schemas for buoy JSON structure
+├── parser.ts      # FloatPrompt format parser
+├── registry.ts    # Buoy discovery and loading
+├── dispatch.ts    # Prompt building for buoy execution
+├── index.ts       # Public API
+└── templates/
+    ├── context-generator.md   # Generator buoy
+    └── staleness-checker.md   # Validator buoy (NEW)
+```
+
+CLI: `float-db buoy list`, `float-db buoy parse <file>`, `float-db buoy prompt <id> --data '{}'`
 
 ### Options
 
-1. **Design fleet mode** — TypeScript orchestrator for parallel buoy spawning
-2. **Run Test 5** — Prototype parallel spawning with Task tool
-3. **Run Test 2** — Fresh session orientation test
-4. **Run Test 3/4** — Scope detection or staleness tests
+1. **Run Test 4** — Use staleness-checker buoy (template ready)
+2. **Run Test 5** — Parallel buoy spawning with Task tool
+3. **Run Test 3** — Scope detection quality validation
+4. **Design fleet mode** — TypeScript orchestrator for parallel execution
 
 **Read first:**
-- `logs/2026/01-jan/2026-01-04-test1-agent-spawned-generation.md` — Test 1 results
-- `buoys/context-generator.md` — The buoy that will be parallelized
+- `logs/2026/01-jan/2026-01-04-test2a-fresh-orientation.md` — Test 2A results + key insights
+- `src/buoys/templates/staleness-checker.md` — Ready for Test 4
 
 **Try these prompts:**
-- "Design the fleet mode orchestrator"
+- "Run Test 4 with the staleness-checker buoy"
 - "Run Test 5 — parallel buoy spawning"
-- "Let's validate scope detection"
+- "Design the fleet mode orchestrator"
 
 ---
 
@@ -187,14 +199,28 @@ src/db/
 └── generate.ts  # Layer 2 functions (5 core + 2 convenience)
 ```
 
-### src/cli/ (New)
+### src/buoys/ (NEW — Session 14)
+
+```
+src/buoys/
+├── schema.ts    # Zod schemas for buoy JSON structure
+├── parser.ts    # FloatPrompt format parser (<fp><json>...<md>...</fp>)
+├── registry.ts  # Buoy discovery and loading
+├── dispatch.ts  # Prompt building for buoy execution
+├── index.ts     # Public API exports
+└── templates/
+    ├── context-generator.md   # Generator buoy (moved from .float-workshop/)
+    └── staleness-checker.md   # Validator buoy (NEW)
+```
+
+### src/cli/
 
 ```
 src/cli/
-└── float-db.ts  # CLI wrapper for generate.ts (7 commands)
+└── float-db.ts  # CLI wrapper (10 commands)
 ```
 
-Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, `dist`
+Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, `dist`, `buoy list`, `buoy parse`, `buoy prompt`
 
 ### Database (`.float/float.db`)
 
@@ -236,7 +262,7 @@ Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, 
 │   ├── handoff.md     ← Session handoff protocol
 │   └── log.md         ← Decision logging protocol
 ├── docs/
-│   ├── buoys.md       ← LOCKED buoy schema
+│   ├── buoys.md       ← LOCKED buoy schema (reference)
 │   ├── vision.md      ← THE vision document
 │   ├── generate-spec.md ← Layer 2 spec (reference)
 │   ├── comments.md    ← TypeScript commenting standards
@@ -248,7 +274,9 @@ Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, 
 .float/
 └── float.db           ← THE database (Layer 1 complete)
 
-src/db/                ← TypeScript implementation (production-ready)
+src/db/                ← Database layer (production-ready)
+src/buoys/             ← Buoy system (NEW — Session 14)
+src/cli/               ← CLI interface (10 commands)
 ```
 
 ### Stale (Ignore)
@@ -391,6 +419,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-04 — Session 13: Test 1 confirmed, fleet mode queued for design*
+*Updated 2026-01-04 — Session 14: Test 2A validated, buoy system formalized in TypeScript*
 </md>
 </fp>
