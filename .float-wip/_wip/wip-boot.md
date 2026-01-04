@@ -41,45 +41,45 @@
 
 **The ultimate context setter for FloatPrompt development.**
 
-**Last updated:** 2026-01-03
+**Last updated:** 2026-01-04
 
 ---
 
 ## Last Session
 
-**2026-01-03 (session 7):** Implemented generate.ts + CLI wrapper. Layer 2 infrastructure complete.
+**2026-01-04 (session 8):** Buoy architecture exploration. City metaphor. Worker catalog.
 
 Key outcomes:
-- Implemented all 5 spec functions in `src/db/generate.ts`:
-  - `getFoldersByDepth(db, depth, status?)` — level-order traversal
-  - `getMaxDepth(db, status?)` — find deepest level (7)
-  - `getFolderDetails(db, path, options)` — full folder info + heuristics
-  - `updateFolderContext(db, path, context, aiModel)` — write AI content
-  - `getScopeChain(db, path)` — scope chain for context inheritance
-- Added 2 convenience functions: `getFolderCountByStatus`, `getDepthDistribution`
-- Built CLI wrapper `src/cli/float-db.ts` with all commands
-- Fixed bug: file sizes now returned even without `--include-contents`
-- All edge cases tested (root folder, error handling, missing args)
-- Full parity with spec verified
+- Started with A1-A4 questions, realized wrong framing
+- Discovered the real question: "What does each buoy need?"
+- Created city metaphor: Mayor (boot.md), Workers (buoys), Work Sites (folders)
+- Cataloged 55+ workers across 14 categories
+- Defined buoy assembly architecture: Global + Archetype + Specialized + DB + Handoff
+- Captured Recon Buoy pattern: Query → Spawn → Aggregate
+- Realized domain-specific fleets (different cities = different workers)
+- Created `wip-buoys.md` as working document
+- Got `artifacts/2026-01-04-buoy-recon.md` from parallel session (exhaustive buoy research)
+- Decision: Rename `content_md` → `context` (not yet implemented)
 
 ---
 
 ## This Session
 
-**Pick up here:** Test the full AI generation loop OR answer A1-A4.
+**Pick up here:** Prioritize workers for Layer 2 and map their context needs.
 
 Options:
-1. **Test full loop** — Run AI generation on all 65 folders using float-db CLI
-2. **Answer A1-A4** — AI instruction details (content_md verbosity, file breakdown, etc.)
-3. **Build test coverage** — Unit tests for generate.ts
+1. **Prioritize workers** — Which workers are essential for Layer 2 (minimum viable)?
+2. **Map context needs** — What does each essential worker need (lean/full/none)?
+3. **Derive context structure** — From worker needs, define the context field structure
+4. **Rename content_md → context** — Schema update
 
 **Read first:**
-- `wip-generate-spec.md` — See "AI Instructions" section for A1-A4 questions
+- `wip-buoys.md` — Worker catalog, assembly architecture, parallel patterns
 
 **Try these prompts:**
-- "Let's test the full generation loop on depth 0 and 1"
-- "Walk me through the A1-A4 questions"
-- "What would the AI prompt look like for generating folder context?"
+- "Which workers are essential for Layer 2?"
+- "Let's map what each Layer 2 worker needs"
+- "What should the context field structure be based on worker needs?"
 
 ---
 
@@ -303,6 +303,7 @@ Read these only when you need deeper context:
 |------|--------------|
 | `wip-generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
 | `wip-vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
+| `wip-buoys.md` | **Buoy architecture** — worker catalog, context depth, dispatch patterns (WORKING DOC) |
 | `wip-workshop.md` | Workshop concept — productizing the wip-boot pattern (future) |
 | `wip-reconcile.md` | Session reconciliation protocol |
 | `wip-comments.md` | TypeScript commenting standards |
