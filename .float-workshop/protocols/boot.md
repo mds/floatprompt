@@ -48,51 +48,55 @@
 
 ## Last Session
 
-**2026-01-04 (session 13):** Quality reflection + test queue.
+**2026-01-04 (session 13):** Test 1 confirmed — fleet mode validated.
 
 Key outcomes:
-- Reviewed quality reflection from session 12
-- Acknowledged: shallow context proves buoy architecture is necessary
-- Queued 5 validation tests for future work (see below)
-- No new code — handoff session only
+- Ran Test 1: Agent-spawned generation vs inline generation
+- Result: 2x richer context (280 words vs 120), specific tech details, architecture patterns
+- Confirmed: Fleet mode is required for quality, not optional
+- Logged decision: `2026-01-04-test1-agent-spawned-generation.md`
 
-**Key insight:** Single-chat mode spread one AI across 65 folders. Context was inferred from folder names, not file contents. That's expected. Fleet mode (parallel buoys) isn't optional — it's the whole point.
+**Key insight:** Dedicated buoy with fresh context window produces significantly better context than inline generation spread across 65 folders.
 
 ---
 
 ## This Session
 
-**Pick up here:** Validate Layer 2 quality, then Layer 3.
+**Pick up here:** Design fleet mode + run remaining tests.
 
-### Queued Tests (from quality reflection)
+### Test Status
 
-Before starting Layer 3, run these validation tests:
+| Test | Status | Result |
+|------|--------|--------|
+| **Test 1: Agent-Spawned Generation** | ✅ Done | Confirmed — 2x richer context |
+| **Test 2: Fresh Session Orientation** | Pending | Does context help fresh AI? |
+| **Test 3: Scope Detection Quality** | Pending | Are right folders marked as scopes? |
+| **Test 4: Staleness Detection** | Pending | Does file change → stale work? |
+| **Test 5: Parallel Buoy Spawning** | Pending | Can 5 agents process concurrently? |
 
-| Test | Purpose |
-|------|---------|
-| **Test 1: Agent-Spawned Generation** | Does Task tool + buoy-boot produce better context than inline? |
-| **Test 2: Fresh Session Orientation** | Does generated context actually help a fresh AI? |
-| **Test 3: Scope Detection Quality** | Are the right folders marked as scopes? |
-| **Test 4: Staleness Detection** | Does file change → stale status work? |
-| **Test 5: Parallel Buoy Spawning** | Can 5 agents process siblings concurrently? |
+### Priority: Fleet Mode Design
 
-Test 1 is the priority — it proves the buoy architecture works.
+Test 1 proved fleet mode is required. Now design the orchestrator:
+- TypeScript or Task tool based?
+- How to spawn N buoys in parallel?
+- How to collect and write results to DB?
+- Error handling for individual buoy failures?
 
 ### Options
 
-1. **Run Test 1** — Spawn agent with buoy-boot, generate context for one folder, compare
-2. **Run Test 2** — Fresh session orientation test
-3. **Skip to Layer 3** — Triggers, staleness detection, ongoing freshness
-4. **Fleet mode** — TypeScript orchestrator for parallel buoy spawning
+1. **Design fleet mode** — TypeScript orchestrator for parallel buoy spawning
+2. **Run Test 5** — Prototype parallel spawning with Task tool
+3. **Run Test 2** — Fresh session orientation test
+4. **Run Test 3/4** — Scope detection or staleness tests
 
 **Read first:**
-- `logs/2026/01-jan/2026-01-04-layer2-quality-reflection.md` — Full test specs
-- `buoys/context-generator.md` — The buoy-boot to test
+- `logs/2026/01-jan/2026-01-04-test1-agent-spawned-generation.md` — Test 1 results
+- `buoys/context-generator.md` — The buoy that will be parallelized
 
 **Try these prompts:**
-- "Run Test 1 — spawn an agent with buoy-boot"
-- "Let's validate scope detection (Test 3)"
-- "Skip tests, start Layer 3"
+- "Design the fleet mode orchestrator"
+- "Run Test 5 — parallel buoy spawning"
+- "Let's validate scope detection"
 
 ---
 
@@ -387,6 +391,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-04 — Session 13: Quality reflection, 5 validation tests queued*
+*Updated 2026-01-04 — Session 13: Test 1 confirmed, fleet mode queued for design*
 </md>
 </fp>
