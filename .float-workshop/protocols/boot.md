@@ -7,7 +7,7 @@
     "title": "Context-Compiler Boot",
     "id": "context-compiler-boot",
     "updated": "2026-01-04",
-    "session": 12
+    "session": 13
   },
 
   "human": {
@@ -48,36 +48,51 @@
 
 ## Last Session
 
-**2026-01-04 (session 12):** Layer 2 generation COMPLETE.
+**2026-01-04 (session 13):** Quality reflection + test queue.
 
 Key outcomes:
-- Answered A1-A4 (AI instruction details): adaptive content_md, key files only, binary scope detection, prose scope_boot
-- Created Context Generator buoy-boot: `.float-workshop/buoys/context-generator.md`
-- Ran full generation loop: 65 folders processed, all now have description + content_md
-- Verified: 0 pending, 65 current, 0 stale
+- Reviewed quality reflection from session 12
+- Acknowledged: shallow context proves buoy architecture is necessary
+- Queued 5 validation tests for future work (see below)
+- No new code — handoff session only
 
-**Milestone:** Layer 2 is now COMPLETE. AI can generate context for all folders.
+**Key insight:** Single-chat mode spread one AI across 65 folders. Context was inferred from folder names, not file contents. That's expected. Fleet mode (parallel buoys) isn't optional — it's the whole point.
 
 ---
 
 ## This Session
 
-**Pick up here:** Layer 3 or buoy expansion.
+**Pick up here:** Validate Layer 2 quality, then Layer 3.
 
-Options:
-1. **Start Layer 3** — Triggers, staleness detection, ongoing freshness
-2. **Add more buoys** — Staleness Checker, Scope Detector, Summarizer
-3. **Test production boot.md** — Design the boot.md that ships to users
+### Queued Tests (from quality reflection)
+
+Before starting Layer 3, run these validation tests:
+
+| Test | Purpose |
+|------|---------|
+| **Test 1: Agent-Spawned Generation** | Does Task tool + buoy-boot produce better context than inline? |
+| **Test 2: Fresh Session Orientation** | Does generated context actually help a fresh AI? |
+| **Test 3: Scope Detection Quality** | Are the right folders marked as scopes? |
+| **Test 4: Staleness Detection** | Does file change → stale status work? |
+| **Test 5: Parallel Buoy Spawning** | Can 5 agents process siblings concurrently? |
+
+Test 1 is the priority — it proves the buoy architecture works.
+
+### Options
+
+1. **Run Test 1** — Spawn agent with buoy-boot, generate context for one folder, compare
+2. **Run Test 2** — Fresh session orientation test
+3. **Skip to Layer 3** — Triggers, staleness detection, ongoing freshness
 4. **Fleet mode** — TypeScript orchestrator for parallel buoy spawning
 
 **Read first:**
-- `docs/buoys.md` — LOCKED buoy schema (7 buckets, hub-and-spoke)
-- `buoys/context-generator.md` — First working buoy
+- `logs/2026/01-jan/2026-01-04-layer2-quality-reflection.md` — Full test specs
+- `buoys/context-generator.md` — The buoy-boot to test
 
 **Try these prompts:**
-- "Let's design the production boot.md"
-- "Walk me through Layer 3 triggers"
-- "Add a Staleness Checker buoy"
+- "Run Test 1 — spawn an agent with buoy-boot"
+- "Let's validate scope detection (Test 3)"
+- "Skip tests, start Layer 3"
 
 ---
 
@@ -372,6 +387,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-04 — Session 12: Layer 2 generation COMPLETE, 65 folders with context*
+*Updated 2026-01-04 — Session 13: Quality reflection, 5 validation tests queued*
 </md>
 </fp>
