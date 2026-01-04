@@ -7,7 +7,7 @@
     "title": "Context-Compiler Boot",
     "id": "context-compiler-boot",
     "updated": "2026-01-04",
-    "session": 14
+    "session": 17
   },
 
   "human": {
@@ -48,22 +48,52 @@
 
 ## Last Session
 
-**2026-01-04 (session 14):** Test 2A validated + buoy system formalized in TypeScript.
+**2026-01-04 (session 16):** Production boot draft + buoy execution model + 2 new buoys.
 
 Key outcomes:
-- **Test 2A validated:** Fresh AI orients from ~500 tokens of DB context alone (5/5 questions passed)
-- Fresh AI independently articulated value prop: "compressing human judgment into injectable context"
-- **Buoy system formalized:** Created `src/buoys/` with TypeScript infrastructure
-- Created staleness-checker.md template for Test 4
-- Added CLI commands: `float-db buoy list/parse/prompt`
+- **Production boot created:** `.float/boot-draft.md` — entry point for user projects (not workshop)
+  - Documents buoy system, CLI commands, key fields, principles
+  - Self-update protocol hooks into handoff
+  - Will become `.float/boot.md` when stable
+- **Execution model locked:** TypeScript → Claude API (TS orchestrates, Claude thinks, SQLite stores)
+  - Created `src/buoys/execute.ts` — execution engine skeleton
+  - Supports vision.md parallelism ("50 scopes → 50 buoys")
+  - Needs: `npm install @anthropic-ai/sdk`
+- **2 new buoys:** scope-detector (generator) + decision-logger (recorder)
+  - Now 4 buoy templates total
+  - Tests different archetypes
 
-**Key insight:** ~500 tokens of generated context enables full navigation capability. Context should enable targeting, not replace reading code.
+**Key insight:** Boot and buoys co-evolve (Path B). Building them together reveals gaps in both.
 
 ---
 
-## This Session
+## Possible Directions
 
-**Pick up here:** Run remaining tests (3, 4, 5) or design fleet mode orchestrator.
+Based on recent decision logs, here are paths forward:
+
+### Ready to Test
+
+1. **Test buoy execution** — Install SDK, test execute.ts with real buoys
+   - Run: `npm install @anthropic-ai/sdk`
+   - Set: `ANTHROPIC_API_KEY`
+   - Test scope-detector and decision-logger
+
+### Locked But Not Built
+
+2. **Implement deep context** — `deep` + `deep_history` tables, CRUD, CLI
+   - Spec: `.float-workshop/docs/deep-context.md`
+
+### Pending Validation
+
+3. **Run remaining tests** — Tests 3, 4, 5 still pending
+   - Test 3: Scope detection quality (scope-detector buoy ready)
+   - Test 4: Staleness detection (staleness-checker template ready)
+   - Test 5: Parallel buoy spawning
+
+### Open Design Work
+
+4. **Design fleet mode** — TypeScript orchestrator for parallel buoy execution
+5. **Create first deep context** — Actually use the system
 
 ### Test Status
 
@@ -72,43 +102,13 @@ Key outcomes:
 | **Test 1: Agent-Spawned Generation** | ✅ Done | 2x richer context, fleet mode required |
 | **Test 2A: Fresh Orientation (DB-only)** | ✅ Done | ~500 tokens → full navigation, 5/5 passed |
 | **Test 2B: Fresh Orientation (full system)** | Pending | boot.md + float.db combined |
-| **Test 3: Scope Detection Quality** | Pending | Are right folders marked as scopes? |
+| **Test 3: Scope Detection Quality** | Ready | scope-detector.md template created |
 | **Test 4: Staleness Detection** | Ready | staleness-checker.md template created |
 | **Test 5: Parallel Buoy Spawning** | Pending | Can 5 agents process concurrently? |
 
-### What's Built
-
-Buoy system now formalized in TypeScript:
-
-```
-src/buoys/
-├── schema.ts      # Zod schemas for buoy JSON structure
-├── parser.ts      # FloatPrompt format parser
-├── registry.ts    # Buoy discovery and loading
-├── dispatch.ts    # Prompt building for buoy execution
-├── index.ts       # Public API
-└── templates/
-    ├── context-generator.md   # Generator buoy
-    └── staleness-checker.md   # Validator buoy (NEW)
-```
-
-CLI: `float-db buoy list`, `float-db buoy parse <file>`, `float-db buoy prompt <id> --data '{}'`
-
-### Options
-
-1. **Run Test 4** — Use staleness-checker buoy (template ready)
-2. **Run Test 5** — Parallel buoy spawning with Task tool
-3. **Run Test 3** — Scope detection quality validation
-4. **Design fleet mode** — TypeScript orchestrator for parallel execution
-
-**Read first:**
-- `logs/2026/01-jan/2026-01-04-test2a-fresh-orientation.md` — Test 2A results + key insights
-- `src/buoys/templates/staleness-checker.md` — Ready for Test 4
-
-**Try these prompts:**
-- "Run Test 4 with the staleness-checker buoy"
-- "Run Test 5 — parallel buoy spawning"
-- "Design the fleet mode orchestrator"
+**Read first:** (if relevant to chosen direction)
+- `.float/boot-draft.md` — Production boot (draft)
+- `logs/2026/01-jan/2026-01-04-boot-draft-and-buoys.md` — Session 16 decisions
 
 ---
 
@@ -199,18 +199,40 @@ src/db/
 └── generate.ts  # Layer 2 functions (5 core + 2 convenience)
 ```
 
-### src/buoys/ (NEW — Session 14)
+### src/buoys/ (Session 14-16)
 
 ```
 src/buoys/
-├── schema.ts    # Zod schemas for buoy JSON structure
-├── parser.ts    # FloatPrompt format parser (<fp><json>...<md>...</fp>)
-├── registry.ts  # Buoy discovery and loading
-├── dispatch.ts  # Prompt building for buoy execution
-├── index.ts     # Public API exports
+├── schema.ts      # Zod schemas + GlobalGuidance, ArchetypeGuidance, ComposedBuoy
+├── parser.ts      # FloatPrompt format parser (<fp><json>...<md>...</fp>)
+├── registry.ts    # Buoy discovery + getGlobal(), getArchetype(), getComposed()
+├── dispatch.ts    # 3-layer composition in buildSystemPrompt()
+├── execute.ts     # Buoy execution engine (NEW — Session 16)
+├── index.ts       # Public API exports
+├── global.md      # What ALL buoys share
+├── archetypes/
+│   ├── generator.md    # Reading strategy, content quality, depth
+│   ├── validator.md    # Confidence framework, evidence, thresholds
+│   ├── fixer.md        # Repair philosophy, validation, conflicts
+│   ├── mapper.md       # Relationship types, strength, cascade
+│   ├── integrator.md   # External APIs, timeout/retry, security
+│   ├── orchestrator.md # Hub-and-spoke, nested hierarchy, AI vs code
+│   └── recorder.md     # Timestamps, format, retention, privacy
 └── templates/
-    ├── context-generator.md   # Generator buoy (moved from .float-workshop/)
-    └── staleness-checker.md   # Validator buoy (NEW)
+    ├── context-generator.md   # Generator buoy
+    ├── staleness-checker.md   # Validator buoy
+    ├── scope-detector.md      # Generator buoy (NEW — Session 16)
+    └── decision-logger.md     # Recorder buoy (NEW — Session 16)
+```
+
+CLI: `float-db buoy list`, `buoy archetypes`, `buoy prompt <id> --composed`
+
+### .float/ (Session 16)
+
+```
+.float/
+├── float.db       # THE database (Layer 1 complete)
+└── boot-draft.md  # Production boot (NEW — draft, will become boot.md)
 ```
 
 ### src/cli/
@@ -265,6 +287,7 @@ Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, 
 │   ├── buoys.md       ← LOCKED buoy schema (reference)
 │   ├── vision.md      ← THE vision document
 │   ├── generate-spec.md ← Layer 2 spec (reference)
+│   ├── deep-context.md ← LOCKED deep context spec (topic-based context)
 │   ├── comments.md    ← TypeScript commenting standards
 │   └── workshop.md    ← Workshop concept (parked)
 └── logs/
@@ -272,10 +295,11 @@ Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, 
     └── 2026/01-jan/
 
 .float/
-└── float.db           ← THE database (Layer 1 complete)
+├── float.db           ← THE database (Layer 1 complete)
+└── boot-draft.md      ← Production boot (NEW — Session 16)
 
 src/db/                ← Database layer (production-ready)
-src/buoys/             ← Buoy system (NEW — Session 14)
+src/buoys/             ← Buoy system (Session 14-16, 4 templates)
 src/cli/               ← CLI interface (10 commands)
 ```
 
@@ -352,6 +376,7 @@ Read these only when you need deeper context:
 | `docs/generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
 | `docs/vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
 | `docs/buoys.md` | **Buoy architecture** — worker catalog, context depth, dispatch patterns (LOCKED) |
+| `docs/deep-context.md` | **Deep context** — topic-based context, watches, version history (LOCKED) |
 | `docs/workshop.md` | Workshop concept — productizing the boot pattern (future) |
 | `protocols/handoff.md` | Session handoff protocol |
 | `docs/comments.md` | TypeScript commenting standards |
@@ -419,6 +444,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-04 — Session 14: Test 2A validated, buoy system formalized in TypeScript*
+*Updated 2026-01-04 — Session 17: Production boot draft, buoy execution model, scope-detector + decision-logger buoys*
 </md>
 </fp>

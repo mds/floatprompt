@@ -27,4 +27,6 @@ export { parseBuoyTemplate, isValidFloatPromptFormat, } from "./parser.js";
 export { createRegistry, loadBuoyFromFile, DEFAULT_TEMPLATE_DIR, } from "./registry.js";
 // Dispatch
 export { buildBuoyPrompt, validateBuoyOutput, extractJsonFromResponse, } from "./dispatch.js";
+// Execution
+export { executeBuoy, executeBuoyBatch, } from "./execute.js";
 //# sourceMappingURL=index.js.map

@@ -17,4 +17,5 @@ export { BuoyArchetypeSchema, ContextDepthSchema, BuoyTypeSchema, BuoyMetaSchema
 export { parseBuoyTemplate, isValidFloatPromptFormat, } from "./parser.js";
 export { createRegistry, loadBuoyFromFile, DEFAULT_TEMPLATE_DIR, type BuoyRegistry, type LoadResult, } from "./registry.js";
 export { buildBuoyPrompt, validateBuoyOutput, extractJsonFromResponse, } from "./dispatch.js";
+export { executeBuoy, executeBuoyBatch, type ExecuteOptions, type ExecutionResult, type ExecuteBuoyParams, } from "./execute.js";
 //# sourceMappingURL=index.d.ts.map

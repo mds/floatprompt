@@ -68,3 +68,12 @@ export {
   validateBuoyOutput,
   extractJsonFromResponse,
 } from "./dispatch.js";
+
+// Execution
+export {
+  executeBuoy,
+  executeBuoyBatch,
+  type ExecuteOptions,
+  type ExecutionResult,
+  type ExecuteBuoyParams,
+} from "./execute.js";

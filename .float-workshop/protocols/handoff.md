@@ -23,6 +23,7 @@
       "Phase 1: Inventory — list all protocol and doc files",
       "Phase 2: Archive stale files — move superseded docs to logs/",
       "Phase 3: Update boot.md — capture session changes + reading list",
+      "Phase 3.5: Update production boot — sync .float/boot-draft.md",
       "Phase 4: Cross-reference — check consistency across files",
       "Phase 5: Log decisions — create decision files, update summaries",
       "Phase 6: Verify — double-check everything"
@@ -124,7 +125,7 @@ A doc file should be archived when:
 
 ## Phase 3: Update boot.md
 
-**Goal:** Next session starts with accurate context AND the right reading material.
+**Goal:** Next session starts with accurate context AND a menu of options (not orders).
 
 ### Update "Last Session"
 
@@ -133,24 +134,41 @@ Replace the content with a one-liner about THIS session:
 ```markdown
 ## Last Session
 
-**YYYY-MM-DD:** Brief summary of what happened this session.
+**YYYY-MM-DD (session N):** Brief summary of what happened this session.
 ```
 
-### Update "This Session"
+### Update "Possible Directions"
 
-Point to what's next AND include relevant reading:
+**Key principle:** Present options, not orders. Human picks direction.
+
+Scan recent decision logs (`logs/YYYY/MM-mon/*.md`) to identify:
+- **Locked but not built** — specs ready to implement
+- **Pending validation** — tests or quality checks waiting
+- **Open design work** — future features, architecture questions
+- **Stale items** — things that need refresh or revisiting
+
+Generate options like:
 
 ```markdown
-## This Session
+## Possible Directions
 
-**Pick up here:** What should the next AI do first?
+Based on recent work, here are paths forward:
 
-**Read first:** (only include if highly relevant to the task)
-- `docs/schema-spec.md` — The locked spec you're implementing
-- `docs/vision.md` — If you need architectural context
+1. **[Implement X]** — Spec locked in `logs/.../YYYY-MM-DD-x-spec.md`
+2. **[Run tests Y]** — Validation pending from session N
+3. **[Design Z]** — Open question flagged in `logs/.../...`
+4. **[Something else]** — Human picks
 
-**Or ask:** "Need deeper context? Want to see any files? Know what we're working on?"
+**Read first:** (only if directly relevant)
+- `docs/foo.md` — Context for option 1
 ```
+
+### What NOT to do
+
+- Don't prescribe a sequence ("do this, then this")
+- Don't say "Pick up here" with a single directive
+- Don't make the AI decide priority — human decides
+- Don't list every possible thing — 3-5 meaningful options max
 
 ### Reading List Guidelines
 
@@ -216,6 +234,46 @@ Example for planning session:
 - `## Answered Questions` — any new resolved questions?
 - `## Open Questions` — any resolved or new?
 - `## Drill-Down Files` table — any status changes?
+
+---
+
+## Phase 3.5: Update Production Boot
+
+**Goal:** Keep the production boot file in sync with system state.
+
+The production boot (`.float/boot-draft.md`) documents the buoy system and available commands for users. It needs to stay current.
+
+### When to Update
+
+Update `.float/boot-draft.md` if this session:
+- Built a new buoy → Move from "designing" to "built" in catalog
+- Designed a new buoy → Add to "designing" in catalog
+- Added a CLI command → Add to commands section
+- Changed a field → Update key fields section
+- Changed a principle → Update principles section
+
+### How to Update
+
+1. **Check buoy catalog:**
+   ```bash
+   float-db buoy list
+   ```
+   Compare output to boot-draft.md's buoy catalog. Add any missing.
+
+2. **Update JSON metadata:**
+   - Increment `meta.version` if significant
+   - Update `meta.updated` date
+   - Update `buoys.catalog` arrays
+
+3. **Update markdown sections:**
+   - Add new buoys to "Current Buoys" table
+   - Add new commands to "Database Commands" section
+   - Update "What's Missing" section (cross off completed items)
+
+### Skip If
+
+- No buoys or commands changed this session
+- Only documentation/spec work (no implementation)
 
 ---
 
@@ -290,8 +348,9 @@ The buoy handles the full chain — item, month, year, root, SQLite update.
 
 - [ ] **Phase 2:** Stale files archived to `logs/YYYY/MM-mon/`
 - [ ] **Phase 3:** `boot.md` "Last Session" updated with this session's summary
-- [ ] **Phase 3:** `boot.md` "This Session" points to what's next
-- [ ] **Phase 3:** `boot.md` "Read first" includes relevant files for next task
+- [ ] **Phase 3.5:** `.float/boot-draft.md` updated if buoys/commands changed
+- [ ] **Phase 3:** `boot.md` "Possible Directions" presents options (not orders)
+- [ ] **Phase 3:** Options derived from recent decision logs
 - [ ] **Phase 4:** All protocol and doc files consistent with each other
 - [ ] **Phase 4:** No contradictions between files
 - [ ] **Phase 5:** Decision file created if decisions were made
@@ -373,6 +432,6 @@ This manual process (~15 min) is what agents will automate:
 
 ---
 
-*Updated 2026-01-04 — Restructured from wip-reconcile.md to handoff.md.*
+*Updated 2026-01-04 — Options not orders: "Possible Directions" replaces prescriptive "This Session".*
 </md>
 </fp>

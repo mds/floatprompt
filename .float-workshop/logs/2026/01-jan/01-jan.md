@@ -82,6 +82,12 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Schema** — meta (identity), ai (role/archetype/autonomy), input (receives/defaults), output (produces)
 - **Philosophy** — Tight on identity/contracts, loose on format/judgment
 - **3-Layer Composition** — Global → Archetype → Specific (scales to 55+ buoys)
+- **Execution Model** — TypeScript → Claude API (TS orchestrates, Claude thinks, SQLite stores)
+
+### Production Boot
+- **Location** — `.float/boot-draft.md` during development, renamed to `boot.md` when stable
+- **Purpose** — Entry point for AI sessions in user projects (not workshop)
+- **Co-evolution** — Boot and buoys built together, evolving as we learn
 
 ### Deep Context
 - **Topic-based** — `deep` table for concept primers (buoys, vision, fleet, brand)
@@ -134,6 +140,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-archetype-plan-ready.md](2026-01-04-archetype-plan-ready.md) | **Archetype plan ready** — 3-layer composition plan complete, 4 areas flagged for implementation attention |
 | [2026-01-04-archetype-externalization-complete.md](2026-01-04-archetype-externalization-complete.md) | **Archetype externalization complete** — 3-layer composition implemented (global + archetype + specific), 8 new files, CLI updated |
 | [2026-01-04-deep-context-spec.md](2026-01-04-deep-context-spec.md) | **Deep context spec** — Topic-based context via `deep` + `deep_history` tables, `/float deep <slug>` command, auto-detect watches |
+| [2026-01-04-boot-draft-and-buoys.md](2026-01-04-boot-draft-and-buoys.md) | **Boot draft + buoys** — Production boot at `.float/boot-draft.md`, execution model (TS→Claude API), scope-detector + decision-logger buoys |
 
 ### Archived Reference Material
 
