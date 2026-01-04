@@ -234,5 +234,34 @@ CREATE INDEX IF NOT EXISTS idx_references_source ON "references"(source_type, so
 CREATE INDEX IF NOT EXISTS idx_references_target ON "references"(target_type, target_id);
 CREATE INDEX IF NOT EXISTS idx_open_questions_folder ON open_questions(folder_path);
 CREATE INDEX IF NOT EXISTS idx_open_questions_resolved ON open_questions(resolved_at);
+
+-- Topic-based deep context (concept primers)
+-- Spec locked 2026-01-04 — see .float-workshop/docs/deep-context.md
+CREATE TABLE IF NOT EXISTS deep (
+  slug        TEXT PRIMARY KEY,
+  title       TEXT NOT NULL,
+  content_md  TEXT NOT NULL,
+  watches     TEXT,
+  status      TEXT NOT NULL DEFAULT 'current'
+              CHECK (status IN ('current', 'stale', 'generating')),
+  ai_model    TEXT,
+  created_at  TEXT NOT NULL,
+  updated_at  TEXT NOT NULL
+);
+
+-- Version history for deep contexts
+CREATE TABLE IF NOT EXISTS deep_history (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  slug        TEXT NOT NULL,
+  version     INTEGER NOT NULL,
+  title       TEXT NOT NULL,
+  content_md  TEXT NOT NULL,
+  watches     TEXT,
+  ai_model    TEXT,
+  created_at  TEXT NOT NULL,
+  FOREIGN KEY (slug) REFERENCES deep(slug) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_deep_history_slug ON deep_history(slug);
 `;
 //# sourceMappingURL=schema.js.map

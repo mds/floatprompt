@@ -67,7 +67,8 @@ Return valid JSON:
   "content_md": "## Purpose\n\nThis folder contains the persistence layer...",
   "is_scope": false,
   "type": "folder",
-  "parent_scope_path": "/"
+  "parent_scope_path": "/",
+  "scope_boot": null
 }
 ```
 
@@ -113,12 +114,13 @@ Return valid JSON:
 - Root "/" is always a scope
 - Example: If processing `/src/db` and root is only scope, return `"/"`
 
-**scope_boot** (only if is_scope = true)
+**scope_boot** (required if is_scope = true, null if false)
 - Boot context for this scope
 - 2-5 sentences describing:
   - What this world is
   - Key patterns/conventions
   - What AI should know entering this scope
+- NULL if is_scope = false
 
 ## Scope Detection Heuristics
 
@@ -149,7 +151,8 @@ For `/src/db`:
   "content_md": "## Purpose\n\nPersistence layer for the FloatPrompt context system. All data lives in `.float/float.db`.\n\n## Key Files\n\n- **schema.ts** — Zod schemas + SQL DDL for folders, files, log_entries tables\n- **client.ts** — Database connection, log entry CRUD\n- **scan.ts** — Layer 1 filesystem scanner\n- **generate.ts** — Layer 2 context generation functions\n\n## Patterns\n\n- All functions take `db: Database.Database` as first parameter\n- Paths are relative to project root (e.g., `/src/db` not full filesystem path)\n- Status field tracks context freshness: pending → current → stale\n\n## Relationships\n\n- Used by `src/cli/float-db.ts` for CLI access\n- Populates `.float/float.db` database\n- Parent `/src` contains all production code",
   "is_scope": false,
   "type": "folder",
-  "parent_scope_path": "/"
+  "parent_scope_path": "/",
+  "scope_boot": null
 }
 ```
 </md>

@@ -66,29 +66,29 @@ Based on recent decision logs, here are paths forward:
 
 ### Ready to Build
 
-1. **Build `float build`** — Static context generation (Layer 2.5)
+1. **Wire `float sync` end-to-end** — THE integration task
+   - `float sync` → scan → spawn buoys → update SQLite → done
+   - This is the core workflow that makes everything work together
+
+2. **Build `float build`** — Static context generation (Layer 2.5)
    - Spec: `.float-workshop/docs/wip-float-build-spec.md` (DRAFT — needs lock)
-   - Decisions locked: path encoding (`--`), location (`.float/context/`), tier (`standard`)
    - MVP: single tier, no watch, no parallel
 
-2. **Implement deep context** — `deep` + `deep_history` tables, CRUD, CLI
-   - Spec: `.float-workshop/docs/deep-context.md`
+3. **Migrate to AI SDK** — Phase 1 of Vercel integration (tool definitions)
+   - Spec: `.float-workshop/docs/vercel-sdk-integration-spec.md`
+   - Low risk: convert buoy templates to SDK `tool()` format
 
 ### Ready to Integrate
 
-3. **Wire buoys into float sync** — Connect execution to main workflow
-   - `float sync` → scan → spawn buoys → update SQLite
-
-4. **Migrate to AI SDK** — Phase 1 of Vercel integration (tool definitions)
-   - Spec: `.float-workshop/docs/vercel-sdk-integration-spec.md`
+4. **Test on fresh project** — Production testing outside FloatPrompt
+   - Run on a real user project (not this repo)
+   - Validate the full experience cold
 
 ### Open Design Work
 
-5. **Layer 3: Background buoys** — 4 open questions need answers first
-   - See: `.float-workshop/docs/wip-layer-3-ongoing.md`
-   - Blocked on: conversation access, timing, triggers, storage
-
-6. **Design fleet mode** — TypeScript orchestrator for parallel buoy execution
+5. **Design orchestrator buoy** — Coordination layer for fleet mode
+6. **Design trigger mechanism** — Git hooks, file watcher, or manual-only?
+7. **Layer 3: Background buoys** — 4 open questions in `docs/wip-layer-3-ongoing.md`
 
 ### Test Status
 
@@ -102,9 +102,9 @@ Based on recent decision logs, here are paths forward:
 | **Test 5: Parallel Buoy Spawning** | ✅ Partial | Mechanism validated (5.29x), API blocked by sandbox |
 
 **Read first:** (if relevant to chosen direction)
+- `docs/vercel-sdk-integration-spec.md` — AI SDK migration path + patterns
 - `docs/wip-float-build-spec.md` — float build spec (DRAFT, review before building)
 - `docs/float-CMS-context-management-system.md` — Full CMS architecture context
-- `docs/deep-context.md` — Deep context spec (ready to implement)
 
 ---
 
@@ -187,12 +187,13 @@ In the database: `is_scope = TRUE`, pointer to parent scope. One SQLite database
 
 ```
 src/db/
-├── schema.ts    # Zod schemas + SQL DDL for 7 tables
-├── client.ts    # Database connection, log entry CRUD
-├── import.ts    # Markdown → SQLite parser
-├── export.ts    # SQLite → Markdown exporter (nice-to-have)
-├── scan.ts      # Filesystem scanner (Layer 1)
-└── generate.ts  # Layer 2 functions (5 core + 2 convenience)
+├── schema.ts      # Zod schemas + SQL DDL for 7 tables
+├── deep-schema.ts # Deep context schemas + DDL (Session 20)
+├── client.ts      # Database connection, CRUD (log entries + deep context)
+├── import.ts      # Markdown → SQLite parser
+├── export.ts      # SQLite → Markdown exporter (nice-to-have)
+├── scan.ts        # Filesystem scanner (Layer 1)
+└── generate.ts    # Layer 2 functions (5 core + 2 convenience)
 ```
 
 ### src/buoys/ (Session 14-16)
@@ -235,16 +236,20 @@ CLI: `float-db buoy list`, `buoy archetypes`, `buoy prompt <id> --composed`
 
 ```
 src/cli/
-└── float-db.ts  # CLI wrapper (10 commands)
+└── float-db.ts  # CLI wrapper (18+ commands)
 ```
 
-Commands: `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, `dist`, `buoy list`, `buoy parse`, `buoy prompt`, `buoy execute`, `buoy batch`
+Commands:
+- **Folders:** `folders`, `details`, `update`, `max-depth`, `scope-chain`, `status`, `dist`
+- **Buoys:** `buoy list`, `buoy archetypes`, `buoy prompt`, `buoy execute`, `buoy batch`
+- **Deep context:** `deep list`, `deep show`, `deep create`, `deep update`, `deep stale`, `deep delete`, `deep history`, `deep version`
 
 ### Database (`.float/float.db`)
 
 - **65 folders** scanned from repo
 - **446 files** with content hashes + mtime
 - **12 log entries** imported from logs/
+- **1 deep context** imported (floatprompt system orientation)
 
 ### What SQLite Replaces
 

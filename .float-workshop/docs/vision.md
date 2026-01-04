@@ -31,6 +31,12 @@
 
 ---
 
+> **📎 Companion Document:** This is the **working spec** — schema details, component status, decision rationale.
+> For philosophical grounding (goal hierarchy, methodology, token economy), see [`docs/vision.md`](../../docs/vision.md).
+> Both documents describe the same system. This one tells you *what to build*. That one tells you *how to think*.
+
+---
+
 ## The Goal
 
 **Omnipresent recursive context scaffolding** around any user's project.

@@ -111,6 +111,9 @@ All commands output JSON. Use `.float/float.db` as the database.
 | `float-db buoy archetypes` | Available archetype guidance |
 | `float-db buoy prompt ID --data JSON` | Build prompt for buoy |
 | `float-db buoy prompt ID --data JSON --composed` | Build prompt with full 3-layer composition |
+| `float-db buoy execute ID --data JSON` | Execute buoy with Claude API |
+| `float-db buoy batch ID --data '[...]'` | Execute buoy on multiple inputs in parallel |
+| `float-db buoy batch ID --data '[...]' --concurrency N` | Parallel execution with rate limiting |
 
 ---
 
@@ -177,7 +180,10 @@ TypeScript → Claude API → SQLite
     │ (orchestrates)  (thinks)  (stores)
 ```
 
-**Not built yet.** Current buoys are templates only. The execution engine (`execute.ts`) is next.
+**Validated.** All 4 buoys pass real API tests (~4-6s each). Run with:
+```bash
+float-db buoy execute context-generator --data '{"folder_path": "...", ...}'
+```
 
 ---
 
@@ -255,9 +261,12 @@ See `.float-workshop/protocols/handoff.md` for full protocol.
 
 This is a draft. Known gaps:
 
-- [x] **Execution engine** — `execute.ts` created (needs Anthropic SDK: `npm install @anthropic-ai/sdk`)
-- [x] **scope-detector buoy** — Template built
-- [x] **decision-logger buoy** — Template built
+- [x] **Execution engine** — `execute.ts` validated (all 4 buoys pass)
+- [x] **scope-detector buoy** — Template built and validated
+- [x] **decision-logger buoy** — Template built and validated
+- [x] **context-generator buoy** — Template built and validated
+- [x] **staleness-checker buoy** — Template built and validated
+- [x] **Parallel execution** — `buoy batch` CLI validated (5.29x speedup)
 - [ ] **Orchestrator** — No coordination layer yet
 - [ ] **Triggers** — No automatic staleness detection
 - [ ] **Production testing** — Not tested on real user projects
@@ -266,6 +275,6 @@ The vision is complete context scaffolding. We're building toward it.
 
 ---
 
-*FloatPrompt Boot v0.1.0-draft — Updated 2026-01-04*
+*FloatPrompt Boot v0.1.0-draft — Updated 2026-01-04 (Session 18)*
 </md>
 </fp>

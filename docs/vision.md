@@ -9,9 +9,16 @@ human_intent: Comprehensive vision document for the evolved FloatPrompt system
 
 ai_model: Claude Opus 4.5
 ai_notes: Synthesized from wip-boot.md, how-floatprompt-works.md, float-folder-structure.md, ai-wants-this.md, and philosophy docs
+
+related:
+  workshop_spec: .float-workshop/docs/vision.md
 ---
 
 # FloatPrompt Vision
+
+> **📎 Companion Document:** This is the **comprehensive vision** — philosophy, methodology, competitive context.
+> For implementation details (SQL schema, component status, what was removed), see [`.float-workshop/docs/vision.md`](../.float-workshop/docs/vision.md).
+> Both documents describe the same system. This one tells you *how to think*. That one tells you *what to build*.
 
 > **Omnipresent recursive context scaffolding for any project.**
 

@@ -14,9 +14,9 @@
  * Errors output JSON with { "error": "message" } to stderr.
  */
 import * as fs from "fs";
-import { createDatabase } from "../db/client.js";
+import { createDatabase, insertDeep, getDeep, listDeep, updateDeep, markDeepStale, deleteDeep, getDeepHistory, getDeepVersion, } from "../db/client.js";
 import { getFoldersByDepth, getMaxDepth, getFolderDetails, updateFolderContext, getScopeChain, getFolderCountByStatus, getDepthDistribution, } from "../db/generate.js";
-import { createRegistry, parseBuoyTemplate, buildBuoyPrompt, DEFAULT_TEMPLATE_DIR, } from "../buoys/index.js";
+import { createRegistry, parseBuoyTemplate, buildBuoyPrompt, executeBuoy, executeBuoyBatch, DEFAULT_TEMPLATE_DIR, } from "../buoys/index.js";
 // ============================================================================
 // Helpers
 // ============================================================================
@@ -43,6 +43,7 @@ COMMANDS:
   status      Get folder counts by status
   dist        Get folder count distribution by depth
   buoy        Buoy template management (list, parse, prompt)
+  deep        Deep context management (topic-based context)
 
 OPTIONS:
   --db PATH       Database path (default: .float/float.db)
@@ -61,6 +62,19 @@ EXAMPLES:
   float-db buoy parse src/buoys/templates/context-generator.md
   float-db buoy prompt context-generator --data '{"folder_path": "/src"}'
   float-db buoy prompt context-generator --data '{"folder_path": "/src"}' --composed
+  float-db buoy execute scope-detector --data '{"folder_path": "/src", ...}'
+  float-db buoy batch scope-detector --data '[{...}, {...}]' --concurrency 5
+
+DEEP SUBCOMMANDS:
+  float-db deep list                          List all deep contexts
+  float-db deep show <slug>                   Show deep context content
+  float-db deep create <slug> --title "..." --content "..."   Create new
+  float-db deep create <slug> --title "..." --file content.md Create from file
+  float-db deep update <slug> --content "..." Update content (saves history)
+  float-db deep stale <slug>                  Mark as stale
+  float-db deep delete <slug>                 Delete (cascades to history)
+  float-db deep history <slug>                Show version history
+  float-db deep version <slug> <version>      Show specific version
 `);
 }
 function parseArgs(args) {
@@ -226,7 +240,7 @@ function cmdDist(dbPath, flags) {
 function cmdBuoy(positional, flags) {
     const subcommand = positional[0];
     if (!subcommand) {
-        printError("Buoy subcommand required: list, archetypes, parse, or prompt");
+        printError("Buoy subcommand required: list, archetypes, parse, prompt, execute, or batch");
     }
     const templateDir = flags["templates"] || DEFAULT_TEMPLATE_DIR;
     switch (subcommand) {
@@ -356,8 +370,359 @@ function cmdBuoy(positional, flags) {
             }
             break;
         }
+        case "execute": {
+            const buoyId = positional[1];
+            if (!buoyId) {
+                printError("Buoy ID required for buoy execute");
+            }
+            const dataStr = flags["data"];
+            if (!dataStr || dataStr === true) {
+                printError("--data is required for buoy execute");
+            }
+            let data;
+            try {
+                data = JSON.parse(dataStr);
+            }
+            catch {
+                printError("Invalid JSON in --data argument");
+                return;
+            }
+            const model = flags["model"] || undefined;
+            const maxTokens = flags["max-tokens"]
+                ? parseInt(flags["max-tokens"], 10)
+                : undefined;
+            // Execute async
+            (async () => {
+                try {
+                    const result = await executeBuoy({
+                        buoyId,
+                        input: data,
+                        options: {
+                            templateDir,
+                            model,
+                            maxTokens,
+                        },
+                    });
+                    printJson(result);
+                }
+                catch (err) {
+                    const message = err instanceof Error ? err.message : String(err);
+                    printError(message);
+                }
+            })();
+            break;
+        }
+        case "batch": {
+            const buoyId = positional[1];
+            if (!buoyId) {
+                printError("Buoy ID required for buoy batch");
+            }
+            const dataStr = flags["data"];
+            if (!dataStr || dataStr === true) {
+                printError("--data is required for buoy batch (JSON array)");
+            }
+            let inputs;
+            try {
+                const parsed = JSON.parse(dataStr);
+                if (!Array.isArray(parsed)) {
+                    printError("--data must be a JSON array for batch execution");
+                    return;
+                }
+                inputs = parsed;
+            }
+            catch {
+                printError("Invalid JSON in --data argument");
+                return;
+            }
+            if (inputs.length === 0) {
+                printError("--data array must contain at least one input");
+                return;
+            }
+            const model = flags["model"] || undefined;
+            const maxTokens = flags["max-tokens"]
+                ? parseInt(flags["max-tokens"], 10)
+                : undefined;
+            const concurrency = flags["concurrency"]
+                ? parseInt(flags["concurrency"], 10)
+                : undefined;
+            // Execute async with optional concurrency limiting
+            (async () => {
+                const startTime = Date.now();
+                try {
+                    let results;
+                    if (concurrency && concurrency > 0 && concurrency < inputs.length) {
+                        // Chunked execution for rate limiting
+                        results = [];
+                        for (let i = 0; i < inputs.length; i += concurrency) {
+                            const chunk = inputs.slice(i, i + concurrency);
+                            const chunkResults = await executeBuoyBatch(buoyId, chunk, {
+                                templateDir,
+                                model,
+                                maxTokens,
+                            });
+                            results.push(...chunkResults);
+                        }
+                    }
+                    else {
+                        // Full parallel execution
+                        results = await executeBuoyBatch(buoyId, inputs, {
+                            templateDir,
+                            model,
+                            maxTokens,
+                        });
+                    }
+                    const totalTime = Date.now() - startTime;
+                    const successCount = results.filter((r) => r.success).length;
+                    const failCount = results.filter((r) => !r.success).length;
+                    printJson({
+                        summary: {
+                            total: results.length,
+                            success: successCount,
+                            failed: failCount,
+                            totalTimeMs: totalTime,
+                            avgTimeMs: Math.round(totalTime / results.length),
+                            concurrency: concurrency || "unlimited",
+                        },
+                        results,
+                    });
+                }
+                catch (err) {
+                    const message = err instanceof Error ? err.message : String(err);
+                    printError(message);
+                }
+            })();
+            break;
+        }
         default:
             printError(`Unknown buoy subcommand: ${subcommand}`);
+    }
+}
+function cmdDeep(dbPath, positional, flags) {
+    const subcommand = positional[0];
+    if (!subcommand) {
+        printError("Deep subcommand required: list, show, create, update, stale, delete, history, version");
+    }
+    const db = createDatabase(dbPath);
+    try {
+        switch (subcommand) {
+            case "list": {
+                const contexts = listDeep(db);
+                printJson({
+                    count: contexts.length,
+                    contexts: contexts.map((c) => ({
+                        slug: c.slug,
+                        title: c.title,
+                        status: c.status,
+                        contentLength: c.content_md.length,
+                        watchCount: c.watches?.length || 0,
+                        updated_at: c.updated_at,
+                    })),
+                });
+                break;
+            }
+            case "show": {
+                const slug = positional[1];
+                if (!slug) {
+                    printError("Slug required for deep show");
+                }
+                const context = getDeep(db, slug);
+                if (!context) {
+                    printError(`Deep context not found: ${slug}`);
+                    return;
+                }
+                // If --json flag, output full JSON; otherwise just content
+                if (flags["json"] === true) {
+                    printJson(context);
+                }
+                else {
+                    console.log(context.content_md);
+                }
+                break;
+            }
+            case "create": {
+                const slug = positional[1];
+                if (!slug) {
+                    printError("Slug required for deep create");
+                }
+                const title = flags["title"];
+                if (!title || title === true) {
+                    printError("--title is required for deep create");
+                }
+                let content_md;
+                if (flags["file"] && flags["file"] !== true) {
+                    // Read from file
+                    const filePath = flags["file"];
+                    if (!fs.existsSync(filePath)) {
+                        printError(`File not found: ${filePath}`);
+                        return;
+                    }
+                    content_md = fs.readFileSync(filePath, "utf-8");
+                }
+                else if (flags["content"] && flags["content"] !== true) {
+                    content_md = flags["content"];
+                }
+                else {
+                    printError("--content or --file is required for deep create");
+                    return;
+                }
+                // Parse watches if provided
+                let watches = null;
+                if (flags["watches"] && flags["watches"] !== true) {
+                    try {
+                        watches = JSON.parse(flags["watches"]);
+                    }
+                    catch {
+                        printError("Invalid JSON in --watches");
+                        return;
+                    }
+                }
+                const ai_model = flags["model"] || null;
+                // Check if already exists
+                const existing = getDeep(db, slug);
+                if (existing) {
+                    printError(`Deep context already exists: ${slug}. Use 'update' to modify.`);
+                    return;
+                }
+                insertDeep(db, {
+                    slug,
+                    title: title,
+                    content_md,
+                    watches,
+                    ai_model,
+                });
+                printJson({ success: true, slug, title });
+                break;
+            }
+            case "update": {
+                const slug = positional[1];
+                if (!slug) {
+                    printError("Slug required for deep update");
+                }
+                const updates = {};
+                if (flags["title"] && flags["title"] !== true) {
+                    updates.title = flags["title"];
+                }
+                if (flags["file"] && flags["file"] !== true) {
+                    const filePath = flags["file"];
+                    if (!fs.existsSync(filePath)) {
+                        printError(`File not found: ${filePath}`);
+                        return;
+                    }
+                    updates.content_md = fs.readFileSync(filePath, "utf-8");
+                }
+                else if (flags["content"] && flags["content"] !== true) {
+                    updates.content_md = flags["content"];
+                }
+                if (flags["watches"] && flags["watches"] !== true) {
+                    try {
+                        updates.watches = JSON.parse(flags["watches"]);
+                    }
+                    catch {
+                        printError("Invalid JSON in --watches");
+                        return;
+                    }
+                }
+                if (flags["status"] && flags["status"] !== true) {
+                    const status = flags["status"];
+                    if (!["current", "stale", "generating"].includes(status)) {
+                        printError("--status must be: current, stale, or generating");
+                        return;
+                    }
+                    updates.status = status;
+                }
+                if (flags["model"] && flags["model"] !== true) {
+                    updates.ai_model = flags["model"];
+                }
+                if (Object.keys(updates).length === 0) {
+                    printError("No updates provided. Use --title, --content, --file, --watches, --status, or --model");
+                    return;
+                }
+                const success = updateDeep(db, slug, updates);
+                if (!success) {
+                    printError(`Deep context not found: ${slug}`);
+                    return;
+                }
+                printJson({ success: true, slug, updated: Object.keys(updates) });
+                break;
+            }
+            case "stale": {
+                const slug = positional[1];
+                if (!slug) {
+                    printError("Slug required for deep stale");
+                }
+                const success = markDeepStale(db, slug);
+                if (!success) {
+                    printError(`Deep context not found: ${slug}`);
+                    return;
+                }
+                printJson({ success: true, slug, status: "stale" });
+                break;
+            }
+            case "delete": {
+                const slug = positional[1];
+                if (!slug) {
+                    printError("Slug required for deep delete");
+                }
+                const success = deleteDeep(db, slug);
+                if (!success) {
+                    printError(`Deep context not found: ${slug}`);
+                    return;
+                }
+                printJson({ success: true, slug, deleted: true });
+                break;
+            }
+            case "history": {
+                const slug = positional[1];
+                if (!slug) {
+                    printError("Slug required for deep history");
+                }
+                const history = getDeepHistory(db, slug);
+                printJson({
+                    slug,
+                    versionCount: history.length,
+                    versions: history.map((v) => ({
+                        version: v.version,
+                        title: v.title,
+                        contentLength: v.content_md.length,
+                        ai_model: v.ai_model,
+                        created_at: v.created_at,
+                    })),
+                });
+                break;
+            }
+            case "version": {
+                const slug = positional[1];
+                const versionStr = positional[2];
+                if (!slug) {
+                    printError("Slug required for deep version");
+                }
+                if (!versionStr) {
+                    printError("Version number required for deep version");
+                }
+                const version = parseInt(versionStr, 10);
+                if (isNaN(version)) {
+                    printError("Version must be a number");
+                    return;
+                }
+                const historyEntry = getDeepVersion(db, slug, version);
+                if (!historyEntry) {
+                    printError(`Version ${version} not found for: ${slug}`);
+                    return;
+                }
+                if (flags["json"] === true) {
+                    printJson(historyEntry);
+                }
+                else {
+                    console.log(historyEntry.content_md);
+                }
+                break;
+            }
+            default:
+                printError(`Unknown deep subcommand: ${subcommand}`);
+        }
+    }
+    finally {
+        db.close();
     }
 }
 // ============================================================================
@@ -404,6 +769,9 @@ function main() {
                 break;
             case "buoy":
                 cmdBuoy(positional, flags);
+                break;
+            case "deep":
+                cmdDeep(dbPath, positional, flags);
                 break;
             default:
                 printError(`Unknown command: ${command}`);
