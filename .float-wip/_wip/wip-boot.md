@@ -74,7 +74,10 @@ Options:
 **Read first:**
 - `wip-generate-spec.md` — THE spec (updated with CLI interface + architecture diagram)
 
-**Or ask:** "Walk me through the architecture" or "What's the CLI interface?"
+**Try these prompts:**
+- "Read wip-generate-spec and implement generate.ts"
+- "Show me the architecture diagram first"
+- "What's the CLI interface?"
 
 ---
 

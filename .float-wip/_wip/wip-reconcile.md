@@ -182,6 +182,38 @@ Example bad reading list:
 - every other file (information overload)
 ```
 
+### Next Session Prompts
+
+Add copy-paste ready prompts for the next session:
+
+```markdown
+**Try these prompts:**
+- "Read wip-generate-spec and implement generate.ts"
+- "Walk me through the architecture first"
+- "What questions are still open?"
+```
+
+Guidelines:
+- **1-3 prompts** — not a menu, just the obvious paths
+- **Action-oriented** — start with a verb (read, build, walk me through)
+- **Match the options** — each prompt should map to one of the numbered options
+- **Include a "orient me" option** — for sessions that want context first
+
+Example for implementation session:
+```markdown
+**Try these prompts:**
+- "Read the spec and build generate.ts"
+- "Show me the architecture diagram first"
+```
+
+Example for planning session:
+```markdown
+**Try these prompts:**
+- "What decisions are still open?"
+- "Walk me through the current state"
+- "Let's lock the remaining questions"
+```
+
 ### Also check
 - `## Answered Questions` — any new resolved questions?
 - `## Open Questions` — any resolved or new?
