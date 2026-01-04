@@ -47,29 +47,32 @@
 
 ## Last Session
 
-**2026-01-03 (session 4):** Implemented the 16-field schema in TypeScript. Updated `schema.ts` (Zod + SQL DDL) and `scan.ts` (INSERT/UPDATE statements). Deleted old database, rescanned — 65 folders now have new schema with `status='pending'`.
+**2026-01-03 (session 5):** Created `wip-generate-spec.md` — the complete spec for `generate.ts`.
 
 Key outcomes:
-- `schema.ts`: FolderSchema now has 16 fields (Identity, Governance, AI Content, Scope, Mechanical, Attribution, Timestamps)
-- `scan.ts`: Scanner sets `status='pending'`, `is_scope=0` on INSERT; marks `status='stale'` on UPDATE if AI had written
-- Database: 65 folders, 447 files scanned with new schema
-- Build passes: `npm run build` succeeds
+- Defined 5 functions: `getFoldersByDepth`, `getMaxDepth`, `getFolderDetails`, `updateFolderContext`, `getScopeChain`
+- Locked single-pass, level-order traversal algorithm
+- Verified all database assumptions (65 folders, depth 0-7, path structure)
+- Added Orchestration section (single chat + fleet modes)
+- Added AI Instructions section (input/output/prompt for folder context)
+- 7 open questions remain (O1-O3 orchestration, A1-A4 AI instructions)
+- Archived: `wip-schema-spec.md` (implemented), `wip-layer2-spec.md` (superseded)
 
 ---
 
 ## This Session
 
-**Pick up here:** Design boot.md OR plan Layer 2 (AI generation).
+**Pick up here:** Answer remaining questions OR implement generate.ts.
 
 Options:
-1. **Design boot.md** — What should the production system prompt contain?
-2. **Plan Layer 2** — How do buoys populate `description`, `content_md`, scopes?
+1. **Answer O1-O3, A1-A4** — Lock the orchestration and AI instruction details
+2. **Implement generate.ts** — Build the 5 functions (spec is solid enough)
+3. **Design boot.md** — What should the production system prompt contain?
 
 **Read first:**
-- `wip-vision.md` — The three layers and autonomous scopes
-- `wip-phase4-qa.md` — Open questions for Layer 2
+- `wip-generate-spec.md` — THE spec for Layer 2 generation (functions + orchestration + AI instructions)
 
-**Or ask:** "What does boot.md need to do?" or "How should scope detection work?"
+**Or ask:** "What questions are still open?" or "Walk me through the algorithm"
 
 ---
 
@@ -276,8 +279,10 @@ Read these only when you need deeper context:
 
 | File | When to read |
 |------|--------------|
+| `wip-generate-spec.md` | **THE spec** — Layer 2 functions, orchestration, AI instructions |
 | `wip-vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
-| `wip-phase4-qa.md` | QA gaps — Q1 answered, Q2/Q3 open |
+| `wip-layer2-capabilities.md` | Layer 2 capabilities — what we need, cargo cult to avoid |
+| `wip-phase4-qa.md` | QA gaps — historical, mostly answered |
 | `wip-reconcile.md` | Session reconciliation protocol |
 | `wip-comments.md` | TypeScript commenting standards |
 | `wip-logs/2026/01-jan/01-jan.md` | All locked decisions with summaries |
@@ -287,10 +292,12 @@ Read these only when you need deeper context:
 
 ### Archived (Historical Reference)
 
-These were superseded by `wip-vision.md`:
+Superseded specs:
 
 | File | What it was |
 |------|-------------|
+| `wip-logs/.../2026-01-03-wip-schema-spec-archived.md` | 16-field schema spec (implemented) |
+| `wip-logs/.../2026-01-03-wip-layer2-spec-archived.md` | Layer 2 spec draft (superseded by generate-spec) |
 | `wip-logs/.../2026-01-03-wip-overview-archived.md` | "How it works" |
 | `wip-logs/.../2026-01-03-wip-problem-archived.md` | "The problem" |
 | `wip-logs/.../2026-01-03-wip-phase3-archived.md` | Phase 3 scanner planning |

@@ -64,11 +64,11 @@ See: `wip-logs/2026/01-jan/2026-01-03-summaries-in-folders.md`
 **Decision:** Now — included in the locked schema spec.
 
 **Rationale:**
-- Schema spec (`wip-schema-spec.md`) includes all 3 scope fields
+- Schema spec (archived: `wip-logs/.../2026-01-03-wip-schema-spec-archived.md`) includes all 3 scope fields
 - They're part of the 16-field design
 - Will be implemented when schema.ts is updated
 
-See: `wip-schema-spec.md` and `2026-01-03-schema-spec-locked.md`
+See: `2026-01-03-schema-spec-locked.md` (schema implemented)
 
 ---
 
@@ -109,7 +109,7 @@ See: `wip-schema-spec.md` and `2026-01-03-schema-spec-locked.md`
 ## Next Steps
 
 1. ~~Decide on summaries storage (Decision #1)~~ ✅ Answered
-2. ~~Update schema~~ ✅ Spec locked in `wip-schema-spec.md`, ready to implement
+2. ~~Update schema~~ ✅ Schema implemented in `src/db/schema.ts`
 3. **Implement schema.ts** — Translate locked spec to TypeScript/Zod
 4. Update import.ts if needed
 5. Update export.ts to output full folder structure as markdown

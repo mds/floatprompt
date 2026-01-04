@@ -98,11 +98,14 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-03-summaries-in-folders.md](2026-01-03-summaries-in-folders.md) | **Summaries in folders** — Summary files are `folders` rows with `type`, no new table |
 | [2026-01-03-schema-spec-locked.md](2026-01-03-schema-spec-locked.md) | **Schema spec locked** — 16 fields via Q&A, AI civilization + token economy concepts |
 | [2026-01-03-schema-implementation.md](2026-01-03-schema-implementation.md) | **Schema implementation** — TypeScript/Zod implementation of locked spec, rescan with new schema |
+| [2026-01-03-generate-spec-complete.md](2026-01-03-generate-spec-complete.md) | **Generate spec complete** — Layer 2 functions, single-pass algorithm, orchestration + AI instructions |
 
 ### Archived Reference Material
 
 | File | Summary |
 |------|---------|
+| [2026-01-03-wip-schema-spec-archived.md](2026-01-03-wip-schema-spec-archived.md) | 16-field schema spec — IMPLEMENTED |
+| [2026-01-03-wip-layer2-spec-archived.md](2026-01-03-wip-layer2-spec-archived.md) | Layer 2 spec draft — superseded by generate-spec |
 | [2026-01-03-wip-overview-archived.md](2026-01-03-wip-overview-archived.md) | "How it works" — superseded by wip-vision.md |
 | [2026-01-03-wip-problem-archived.md](2026-01-03-wip-problem-archived.md) | "The problem" — superseded by wip-vision.md |
 | [2026-01-03-wip-phase3-archived.md](2026-01-03-wip-phase3-archived.md) | Phase 3 scanner planning — COMPLETE |
