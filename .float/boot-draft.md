@@ -275,6 +275,6 @@ The vision is complete context scaffolding. We're building toward it.
 
 ---
 
-*FloatPrompt Boot v0.1.0-draft — Updated 2026-01-04 (Session 18)*
+*FloatPrompt Boot v0.1.0-draft — Updated 2026-01-04 (Session 22)*
 </md>
 </fp>

@@ -164,6 +164,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-vercel-infrastructure-evolution.md](2026-01-04-vercel-infrastructure-evolution.md) | **Vercel infrastructure evolution** — FdI + Self-Driving parallels to FloatPrompt's folder-defined context and background buoys |
 | [2026-01-04-vercel-sdk-integration-spec.md](2026-01-04-vercel-sdk-integration-spec.md) | **Vercel SDK integration spec** — AI SDK, Sandbox, MCP migration path with 4 phases |
 | [2026-01-04-float-build-spec-drafted.md](2026-01-04-float-build-spec-drafted.md) | **float build spec drafted** — Static context generation MVP, decisions locked (path encoding, location, tier), ready for lock |
+| [2026-01-04-priority-update.md](2026-01-04-priority-update.md) | **Priority update** — Reset to core vision: run buoys on 65 folders, fill SQLite, then vision works. Tabled `float build` and `float sync`. |
 
 ### Archived Reference Material
 

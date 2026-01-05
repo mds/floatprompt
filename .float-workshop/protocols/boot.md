@@ -7,7 +7,7 @@
     "title": "Context-Compiler Boot",
     "id": "context-compiler-boot",
     "updated": "2026-01-04",
-    "session": 22
+    "session": 23
   },
 
   "human": {
@@ -48,15 +48,17 @@
 
 ## Last Session
 
-**2026-01-04 (session 21):** Deep orientation + float build spec drafted.
+**2026-01-04 (session 22):** Priority reset — back to core vision.
 
 Key outcomes:
-- **Deep context orientation** — Read `deep-context-floatprompt.md` for full system understanding
-- **17 Rules reviewed** — Unix philosophy applied to FloatPrompt, Rule 9 (Representation) = core thesis
-- **Layer 3 assessed** — Not ready (4 open questions), but CMS (Layer 2.5) is ready
-- **float build spec drafted** — `wip-float-build-spec.md` created with locked decisions
+- **Read all logs** — Full review of 50+ decision logs to understand project state
+- **Priority clarified** — Project had drifted toward speculative features (`float build`, `float sync`)
+- **Core vision identified** — boot.md + SQLite queries = oriented AI. No static export needed.
+- **Gap found** — Buoy infrastructure is complete, but SQLite has empty `description` and `context` fields
 
-**Key insight:** CMS doc is a complete spec. `float snapshot` (Layer 3) is a special case of tiered context (Layer 2.5). Build CMS first, snapshot extends naturally.
+**Key insight:** The buoys work. The infrastructure works. But they haven't been run on all 65 folders yet. The database is a skeleton without context.
+
+**Tabled:** `float build` (export optimization), `float sync` (no spec), Layer 3 (4 open questions).
 
 ---
 
@@ -64,31 +66,36 @@ Key outcomes:
 
 Based on recent decision logs, here are paths forward:
 
-### Ready to Build
+### Priority: Fill the Database
 
-1. **Wire `float sync` end-to-end** — THE integration task
-   - `float sync` → scan → spawn buoys → update SQLite → done
-   - This is the core workflow that makes everything work together
+1. **Run buoys on all 65 folders** — THE next step
+   - Use `buoy execute context-generator` on each folder
+   - Populate `description` and `context` fields in SQLite
+   - This is what makes the vision work
 
-2. **Build `float build`** — Static context generation (Layer 2.5)
-   - Spec: `.float-workshop/docs/wip-float-build-spec.md` (DRAFT — needs lock)
-   - MVP: single tier, no watch, no parallel
+2. **Rename `content_md` → `context`** — Schema cleanup
+   - Decided in Session 12, not yet implemented
+   - Small change, clears technical debt
 
-3. **Migrate to AI SDK** — Phase 1 of Vercel integration (tool definitions)
+3. **Finalize boot.md** — Production ready
+   - `.float/boot-draft.md` → `.float/boot.md`
+   - The entry point for user projects
+
+### After Database is Populated
+
+4. **Test end-to-end** — Does the vision work?
+   - Fresh AI reads boot.md → queries SQLite → is oriented?
+   - Validate on this repo first, then fresh project
+
+5. **Migrate to AI SDK** — Phase 1 of Vercel integration
    - Spec: `.float-workshop/docs/vercel-sdk-integration-spec.md`
-   - Low risk: convert buoy templates to SDK `tool()` format
+   - Convert buoy templates to SDK `tool()` format
 
-### Ready to Integrate
+### Tabled (Not Ready)
 
-4. **Test on fresh project** — Production testing outside FloatPrompt
-   - Run on a real user project (not this repo)
-   - Validate the full experience cold
-
-### Open Design Work
-
-5. **Design orchestrator buoy** — Coordination layer for fleet mode
-6. **Design trigger mechanism** — Git hooks, file watcher, or manual-only?
-7. **Layer 3: Background buoys** — 4 open questions in `docs/wip-layer-3-ongoing.md`
+- **`float build`** — Static export, not in core vision
+- **`float sync`** — No spec exists, concept only
+- **Layer 3** — 4 open questions, design incomplete
 
 ### Test Status
 
@@ -102,9 +109,9 @@ Based on recent decision logs, here are paths forward:
 | **Test 5: Parallel Buoy Spawning** | ✅ Partial | Mechanism validated (5.29x), API blocked by sandbox |
 
 **Read first:** (if relevant to chosen direction)
-- `docs/vercel-sdk-integration-spec.md` — AI SDK migration path + patterns
-- `docs/wip-float-build-spec.md` — float build spec (DRAFT, review before building)
-- `docs/float-CMS-context-management-system.md` — Full CMS architecture context
+- `docs/vision.md` — THE vision document
+- `docs/buoys.md` — LOCKED buoy schema and architecture
+- `logs/2026/01-jan/2026-01-04-layer2-buoy-spec.md` — Buoy prioritization and next steps
 
 ---
 
@@ -168,8 +175,10 @@ AI now has:
 | Layer | What | Status |
 |-------|------|--------|
 | **Layer 1: Mechanical** | Walk filesystem, hash files, write to SQLite | **DONE** |
-| **Layer 2: AI Generation** | For each folder/scope: generate map + context | **DONE** |
-| **Layer 3: Ongoing** | Triggers, staleness detection, freshness | **NEXT** |
+| **Layer 2: AI Generation** | For each folder/scope: generate map + context | **INFRA DONE, RUN PENDING** |
+| **Layer 3: Ongoing** | Triggers, staleness detection, freshness | **TABLED** (4 open questions) |
+
+**Note:** Layer 2 infrastructure (buoys, execute.ts, CLI) is complete and validated. But buoys haven't been run on all 65 folders yet. The database has empty `description` and `context` fields.
 
 ### Autonomous Scopes
 
@@ -450,6 +459,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-04 — Session 21: Deep orientation + float build spec drafted*
+*Updated 2026-01-04 — Session 22: Priority reset — run buoys on 65 folders, fill SQLite, then vision works*
 </md>
 </fp>
