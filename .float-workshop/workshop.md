@@ -12,22 +12,22 @@ Session Start  →  boot.md
                   WORK
                     ↓
 Session End    →  handoff.md
-                    ├── log.md     (record session)
-                    ├── triage.md  (update indexes)
-                    └── next.md    (update state files)
+                    ├── update-logs.md   (record session)
+                    ├── update-files.md  (update indexes)
+                    └── update-123.md    (update state files)
 ```
 
 ---
 
 ## State Files
 
-Lightweight pointers with AI-friendly summaries. Updated by `next.md` protocol.
+Lightweight pointers with AI-friendly summaries. Updated by `update-123.md` protocol.
 
 | File | Purpose | Updated By |
 |------|---------|------------|
-| `_1_next.md` | Work queue — ordered, ready to pull | `next.md` |
-| `_2_focus.md` | Active this session — what we're working on | `next.md` |
-| `_3_review.md` | Needs validation — done but unconfirmed | `next.md` |
+| `_1_next.md` | Work queue — ordered, ready to pull | `update-123.md` |
+| `_2_focus.md` | Active this session — what we're working on | `update-123.md` |
+| `_3_review.md` | Needs validation — done but unconfirmed | `update-123.md` |
 
 ---
 
@@ -71,9 +71,9 @@ Lightweight pointers with AI-friendly summaries. Updated by `next.md` protocol.
 └── protocols/                  # Workflows
     ├── boot.md                 # Start session
     ├── handoff.md              # End session (orchestrator)
-    ├── log.md                  # Record session → logs/
-    ├── triage.md               # Update folder indexes
-    └── next.md                 # Update _#_ state files
+    ├── update-logs.md          # Record session → logs/
+    ├── update-files.md         # Update folder indexes
+    └── update-123.md           # Update _#_ state files
 ```
 
 ---
@@ -126,9 +126,9 @@ Parked work. Not active — may revisit later.
 
 | Protocol | Purpose | Outputs |
 |----------|---------|---------|
-| `log.md` | Record what happened | → `logs/YYYY/MM-mmm/YYYY-MM-DD-title.md` |
-| `triage.md` | Update folder indexes | → `docs/*/folder.md` files |
-| `next.md` | Update state files | → `_1_next.md`, `_2_focus.md`, `_3_review.md` |
+| `update-logs.md` | Record what happened | → `logs/YYYY/MM-mmm/YYYY-MM-DD-title.md` |
+| `update-files.md` | Update folder indexes | → `docs/*/folder.md` files |
+| `update-123.md` | Update state files | → `_1_next.md`, `_2_focus.md`, `_3_review.md` |
 
 ---
 

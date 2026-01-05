@@ -11,6 +11,7 @@
 | Doc | Summary |
 |-----|---------|
 | [vision.md](vision.md) | North star — "context-as-code", progressive disclosure |
+| [principles.md](principles.md) | Design principles — standalone+chainable, AI-native, simplicity |
 | [deep-context-floatprompt.md](deep-context-floatprompt.md) | System orientation for new sessions |
 
 ---

@@ -19,16 +19,14 @@
 
   "requirements": {
     "trigger": "Human says 'reconcile', 'end session', 'wrap up', or similar",
-    "phases": [
-      "Phase 1: Inventory — list all protocol and doc files",
-      "Phase 2: Archive stale files — move superseded docs to logs/",
-      "Phase 3: Update boot.md — capture session changes + reading list",
-      "Phase 3.5: Update production boot — sync .float/boot-draft.md",
-      "Phase 4: Cross-reference — check consistency across files",
-      "Phase 5: Log decisions — create decision files, update summaries",
-      "Phase 6: Verify — double-check everything"
+    "chain": [
+      "1. Run update-logs.md — record session decisions",
+      "2. Run update-123.md — update state files (_1, _2, _3)",
+      "3. Run update-files.md — sync folder indexes (if files moved)",
+      "4. Update boot.md — capture session changes",
+      "5. Verify — check consistency across files"
     ],
-    "critical": "This is the manual process that agents will automate. Be exhaustive."
+    "critical": "This orchestrates the update protocols. Each protocol handles its domain."
   }
 }
 </json>
@@ -51,85 +49,71 @@ This protocol ensures all session work is captured for future sessions. It's the
 
 ---
 
-## Phase 1: Inventory
+## The Handoff Chain
 
-**Goal:** Know what files exist and what each contains.
+**Goal:** Orchestrate end-of-session updates across specialized protocols.
 
-```bash
-# List all protocol and doc files
-ls .float-workshop/protocols/*.md .float-workshop/docs/*.md
+```
+handoff.md (you are here)
+  │
+  ├── 1. update-logs.md    → logs/YYYY/MM-mon/*.md
+  │
+  ├── 2. update-123.md     → _1_next.md, _2_focus.md, _3_review.md
+  │
+  ├── 3. update-files.md   → foundation.md, specs.md, backlog.md
+  │
+  └── 4. boot.md updates   → Last Session, Possible Directions
 ```
 
-**Action:** Read each file found. The list is dynamic — new files may be added as project evolves.
-
-### Known File Patterns
-
-| Pattern | Purpose |
-|---------|---------|
-| `protocols/boot.md` | THE entry point — session handoff context (always exists) |
-| `docs/*.md` | Topic-specific planning/architecture files |
-| `protocols/handoff.md` | This file |
-
-### Discovery Process
-
-1. Run `ls .float-workshop/protocols/*.md .float-workshop/docs/*.md`
-2. For each file found, note its purpose from the filename
-3. Read files you haven't seen before or that may have changed
-4. Build mental map of current state before proceeding
+Each protocol handles its own domain. This file orchestrates the sequence.
 
 ---
 
-## Phase 2: Archive Stale Files
+## Step 1: Run update-logs.md
 
-**Goal:** Keep docs/ clean. Only active documents live there.
+**Goal:** Record what happened this session.
 
-### When to Archive
+See `protocols/update-logs.md` for the full protocol.
 
-A doc file should be archived when:
-- Its work is **complete** (e.g., phase3.md after Phase 3 is done)
-- It's been **superseded** by another document (e.g., overview.md replaced by vision.md)
-- The topic is **no longer active** and only has historical value
+**Quick version:**
+1. Create `YYYY-MM-DD-topic.md` in current month folder
+2. Update month's `01-jan.md` (or current month)
+3. Update year's `2026.md` if new theme
 
-### How to Archive
-
-1. **Move** the file to `logs/YYYY/MM-mon/` with date prefix:
-   ```bash
-   git mv docs/phase3.md logs/2026/01-jan/2026-01-03-phase3-archived.md
-   ```
-
-2. **Create a log entry** documenting why it was archived:
-   ```markdown
-   # Doc Archival
-
-   **Date:** 2026-01-03
-   **Status:** Locked
-
-   ## Archived Files
-
-   | File | Reason |
-   |------|--------|
-   | phase3.md | Phase 3 complete |
-   | overview.md | Superseded by vision.md |
-   ```
-
-3. **Update 01-jan.md** with an "Archived Reference Material" section
-
-### What to Keep Active
-
-- `protocols/boot.md` — Always active (THE entry point)
-- `protocols/handoff.md` — Always active (this protocol)
-- `docs/vision.md` — Active until vision changes significantly
-- Any file with **open work** or **pending decisions**
+**Skip if:** No decisions were made this session.
 
 ---
 
-## Phase 3: Update boot.md
+## Step 2: Run update-123.md
 
-**Goal:** Next session starts with accurate context AND a menu of options (not orders).
+**Goal:** Update state files to reflect session outcome.
+
+See `protocols/update-123.md` for the full protocol.
+
+**Quick version:**
+- Focus item completed → move to `_3_review`
+- Focus item continuing → update summary in `_2_focus`
+- New work identified → add to `_1_next`
+
+---
+
+## Step 3: Run update-files.md (conditional)
+
+**Goal:** Sync folder indexes if files were moved.
+
+See `protocols/update-files.md` for the full protocol.
+
+**Skip if:** No docs changed folders this session.
+
+**Run if:** Moved docs between foundation/, specs/, backlog/.
+
+---
+
+## Step 4: Update boot.md
+
+**Goal:** Next session starts with accurate context.
 
 ### Update "Last Session"
-
-Replace the content with a one-liner about THIS session:
 
 ```markdown
 ## Last Session
@@ -141,222 +125,41 @@ Replace the content with a one-liner about THIS session:
 
 **Key principle:** Present options, not orders. Human picks direction.
 
-Scan recent decision logs (`logs/YYYY/MM-mon/*.md`) to identify:
+Scan `_1_next.md` and recent decision logs to identify options:
 - **Locked but not built** — specs ready to implement
 - **Pending validation** — tests or quality checks waiting
 - **Open design work** — future features, architecture questions
-- **Stale items** — things that need refresh or revisiting
 
-Generate options like:
-
-```markdown
-## Possible Directions
-
-Based on recent work, here are paths forward:
-
-1. **[Implement X]** — Spec locked in `logs/.../YYYY-MM-DD-x-spec.md`
-2. **[Run tests Y]** — Validation pending from session N
-3. **[Design Z]** — Open question flagged in `logs/.../...`
-4. **[Something else]** — Human picks
-
-**Read first:** (only if directly relevant)
-- `docs/foo.md` — Context for option 1
-```
-
-### What NOT to do
-
-- Don't prescribe a sequence ("do this, then this")
-- Don't say "Pick up here" with a single directive
-- Don't make the AI decide priority — human decides
-- Don't list every possible thing — 3-5 meaningful options max
-
-### Reading List Guidelines
-
-The "Read first" section should:
-- **Only include files directly relevant to the next task** (not general context)
-- **Be minimal** — 1-3 files max, not a dump of everything
-- **Explain why** — A brief note on what the file provides
-
-Example good reading lists:
-```markdown
-**Read first:**
-- `docs/schema-spec.md` — The 16-field schema you're implementing
-```
-
-```markdown
-**Read first:**
-- `docs/phase4-qa.md` — Open questions that need answers
-- `artifacts/how-floatprompt-works.md` — The vision if you need grounding
-```
-
-Example bad reading list:
-```markdown
-**Read first:**
-- boot.md (they're already reading this)
-- docs/vision.md (too general if task is specific)
-- docs/phase4-qa.md (not relevant if task is implementation)
-- every other file (information overload)
-```
-
-### Next Session Prompts
-
-Add copy-paste ready prompts for the next session:
-
-```markdown
-**Try these prompts:**
-- "Read docs/generate-spec and implement generate.ts"
-- "Walk me through the architecture first"
-- "What questions are still open?"
-```
-
-Guidelines:
-- **1-3 prompts** — not a menu, just the obvious paths
-- **Action-oriented** — start with a verb (read, build, walk me through)
-- **Match the options** — each prompt should map to one of the numbered options
-- **Include a "orient me" option** — for sessions that want context first
-
-Example for implementation session:
-```markdown
-**Try these prompts:**
-- "Read the spec and build generate.ts"
-- "Show me the architecture diagram first"
-```
-
-Example for planning session:
-```markdown
-**Try these prompts:**
-- "What decisions are still open?"
-- "Walk me through the current state"
-- "Let's lock the remaining questions"
-```
-
-### Also check
+### Also Check
 - `## Answered Questions` — any new resolved questions?
 - `## Open Questions` — any resolved or new?
 - `## Drill-Down Files` table — any status changes?
 
----
+### Update `.float/boot-draft.md` (if applicable)
 
-## Phase 3.5: Update Production Boot
+**Skip if:** No buoys or commands changed this session.
 
-**Goal:** Keep the production boot file in sync with system state.
-
-The production boot (`.float/boot-draft.md`) documents the buoy system and available commands for users. It needs to stay current.
-
-### When to Update
-
-Update `.float/boot-draft.md` if this session:
-- Built a new buoy → Move from "designing" to "built" in catalog
-- Designed a new buoy → Add to "designing" in catalog
-- Added a CLI command → Add to commands section
-- Changed a field → Update key fields section
-- Changed a principle → Update principles section
-
-### How to Update
-
-1. **Check buoy catalog:**
-   ```bash
-   float-db buoy list
-   ```
-   Compare output to boot-draft.md's buoy catalog. Add any missing.
-
-2. **Update JSON metadata:**
-   - Increment `meta.version` if significant
-   - Update `meta.updated` date
-   - Update `buoys.catalog` arrays
-
-3. **Update markdown sections:**
-   - Add new buoys to "Current Buoys" table
-   - Add new commands to "Database Commands" section
-   - Update "What's Missing" section (cross off completed items)
-
-### Skip If
-
-- No buoys or commands changed this session
-- Only documentation/spec work (no implementation)
+**Update if:**
+- Built a new buoy
+- Added a CLI command
+- Changed a field or principle
 
 ---
 
-## Phase 4: Cross-reference Files
-
-**Goal:** All files are consistent with each other.
-
-### Checklist
-
-| Check | How |
-|-------|-----|
-| Status consistency | If one file says "Phase 2 ready", all should agree |
-| Reference accuracy | Links between files still valid? |
-| Stale notes | "TARGET vs STALE" notes still accurate? |
-| Next steps | All files point to same "what's next"? |
-
-### Common issues
-- One file says "pending", another says "complete"
-- Outdated "See X for next steps"
-- Broken internal links
-
-### Action
-Fix any inconsistencies found.
-
----
-
-## Phase 5: Log Decisions
-
-**Goal:** All decisions have paper trail.
-
-### Questions
-1. Were any decisions made this session?
-2. Do they warrant a decision file?
-
-### If yes → Run the log.md protocol
-
-**This is a separate action.** Read `protocols/log.md` and follow its 4-level chain:
-
-1. **Create decision file** — `YYYY-MM-DD-topic.md` in current month folder
-2. **Update month summary** — Add entry to `01-jan.md` (or current month)
-3. **Update year summary** — Add to `2026.md` if new theme emerges
-4. **Update root** — Add to `logs/logs.md` only if new year
-
-### After logging
-
-Check that all summary files are consistent:
-- Decision file exists and is complete
-- Month summary (`01-jan.md`) has the new entry
-- Year summary (`2026.md`) reflects any new themes
-
-**Future:** This becomes a `decision_logger` buoy call.
-
-```typescript
-// What this will become:
-await spawnBuoy('decision_logger', {
-  topic: 'schema-drift-fix',
-  decision: '...',
-  rationale: '...',
-  filesChanged: ['src/db/scan.ts']
-});
-```
-
-The buoy handles the full chain — item, month, year, root, SQLite update.
-
----
-
-## Phase 6: Verify
+## Step 5: Verify
 
 **Goal:** Double-check everything before ending session.
 
 ### Final checklist
 
-- [ ] **Phase 2:** Stale files archived to `logs/YYYY/MM-mon/`
-- [ ] **Phase 3:** `boot.md` "Last Session" updated with this session's summary
-- [ ] **Phase 3.5:** `.float/boot-draft.md` updated if buoys/commands changed
-- [ ] **Phase 3:** `boot.md` "Possible Directions" presents options (not orders)
-- [ ] **Phase 3:** Options derived from recent decision logs
-- [ ] **Phase 4:** All protocol and doc files consistent with each other
-- [ ] **Phase 4:** No contradictions between files
-- [ ] **Phase 5:** Decision file created if decisions were made
-- [ ] **Phase 5:** Month summary (`01-jan.md`) updated with new decision
-- [ ] **Phase 5:** Year summary (`2026.md`) updated if new theme
-- [ ] **Phase 6:** `handoff.md` updated if new patterns discovered
+- [ ] **Step 1:** Decision file created if decisions were made (`update-logs.md`)
+- [ ] **Step 1:** Month summary (`01-jan.md`) updated
+- [ ] **Step 2:** State files reflect session outcome (`update-123.md`)
+- [ ] **Step 3:** Folder indexes synced if files moved (`update-files.md`)
+- [ ] **Step 4:** `boot.md` "Last Session" updated
+- [ ] **Step 4:** `.float/boot-draft.md` updated if buoys/commands changed
+- [ ] **Step 5:** All files consistent, no contradictions
+- [ ] **Step 5:** `handoff.md` updated if new patterns discovered
 
 ### Self-update check
 
@@ -398,40 +201,32 @@ This manual process (~15 min) is what agents will automate:
 
 ## Example Session
 
-> **Note:** This example is from before the workshop restructure (2026-01-03). File names have changed but the process is the same.
+**Session:** Workshop reorg (2026-01-05)
 
-**Session:** Schema spec locked (2026-01-03)
+**Step 1 (update-logs.md):**
+- Created `2026-01-05-workshop-reorg.md` log entry
+- Updated `01-jan.md` with summary
 
-**Phase 1 result:** 7 files found
+**Step 2 (update-123.md):**
+- Updated `_2_focus.md` → plugin-architecture active
+- Updated `_1_next.md` → rescan database, schema cleanup
 
-**Phase 2 archived:**
-- `overview.md` → `2026-01-03-overview-archived.md` (superseded by vision.md)
-- `problem.md` → `2026-01-03-problem-archived.md` (superseded by vision.md)
-- `phase3.md` → `2026-01-03-phase3-archived.md` (Phase 3 complete)
-- `sqlite.md` → `2026-01-03-sqlite-archived.md` (superseded by vision.md)
-- Created `2026-01-03-archival.md` log entry
+**Step 3 (update-files.md):**
+- Moved docs to foundation/, specs/, backlog/
+- Updated folder indexes
 
-**Phase 3 updates to boot.md:**
-- Updated "Last Session" with session summary
-- Updated "This Session" to point to schema.ts implementation
-- Added "Read first: `docs/schema-spec.md`" for next session
-- Updated Next Steps to match locked spec
+**Step 4 (boot.md):**
+- Updated "Last Session" with reorg summary
+- Updated "Current State" structure diagram
+- Updated all doc paths to new nested locations
 
-**Phase 4 found:**
-- schema-spec.md said "In Progress" — fixed to "Locked"
-- phase4-qa.md Q2 still said "Open" — fixed to "Answered"
-
-**Phase 5 created:**
-- `2026-01-03-schema-spec-locked.md`
-- Updated `01-jan.md` with new entry
-
-**Phase 6 verified:**
-- All files consistent
-- boot.md ready for next session
-- Added Phase 2 (archival) and reading list to this protocol
+**Step 5 (verify):**
+- All protocols reference new paths
+- State files populated with real content
+- No broken references
 
 ---
 
-*Updated 2026-01-04 — Options not orders: "Possible Directions" replaces prescriptive "This Session".*
+*Updated 2026-01-05 — Simplified to 5-step chain orchestrating update-* protocols.*
 </md>
 </fp>

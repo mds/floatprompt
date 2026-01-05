@@ -5,11 +5,13 @@
 
 ---
 
-## This Session
+## This Session — DONE
 
 - [x] Move files to foundation/, specs/, backlog/
 - [x] Update folder indexes (foundation.md, specs.md, backlog.md)
-- [ ] Commit: "reorg: move docs to foundation/specs/backlog"
+- [x] Commit: "reorg: move docs to foundation/specs/backlog" ✓ (958265a)
+- [x] Populate state files (_1_next, _2_focus, _3_review) with real content
+- [x] Create `foundation/principles.md` (standalone+chainable, AI-native, simplicity)
 
 ### File Moves
 
@@ -39,6 +41,8 @@ git mv docs/workshop.md docs/backlog/
 
 ## Next Session
 
+**Entry:** `claude -p "Read .float-workshop/_temp-work.md and continue workshop reorg"`
+
 ### Priority 1: Protocol Updates (HEAVY)
 
 Read `docs/backlog/workshop-reorg-plan.md` for full details.
@@ -63,11 +67,11 @@ Read `docs/backlog/workshop-reorg-plan.md` for full details.
    - Merge update-123.md + update-files.md
    - Add conditional: always do 123, optionally do files
 
-### Priority 2: Populate State Files
+### Priority 2: Populate State Files — DONE
 
-- Fill `_1_next.md` with real queue
-- Fill `_2_focus.md` with current work (plugin-architecture)
-- Fill `_3_review.md` with pending validation items
+- [x] `_1_next.md` — queue (re-scan DB, schema cleanup, Layer 3)
+- [x] `_2_focus.md` — current work (plugin-architecture)
+- [x] `_3_review.md` — pending validation (workshop reorg, buoy system)
 
 ### Priority 3: Verify
 

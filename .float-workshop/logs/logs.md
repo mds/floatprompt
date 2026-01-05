@@ -15,7 +15,7 @@
 <md>
 # Logs
 
-> **Storage evolution:** This flat file structure is Phase 1 (prototyping). SQLite is now the source of truth (Phase 2-3 complete). The `log_entries` table stores decisions; summaries are `folders` rows with `type = 'log_month'`, etc. See `docs/vision.md`.
+> **Storage evolution:** This flat file structure is Phase 1 (prototyping). SQLite is now the source of truth (Phase 2-3 complete). The `log_entries` table stores decisions; summaries are `folders` rows with `type = 'log_month'`, etc. See `docs/foundation/vision.md`.
 
 Navigation map and open questions. Decisions, sessions, activity — all here.
 

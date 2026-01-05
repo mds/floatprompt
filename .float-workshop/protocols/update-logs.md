@@ -3,8 +3,8 @@
 {
   "STOP": "Decision Logging Protocol. Read before adding decisions to logs/.",
 
-  "id": "log-protocol",
-  "title": "Log Protocol",
+  "id": "update-logs",
+  "title": "Update Logs",
 
   "human": {
     "author": "@mds",
@@ -61,7 +61,7 @@
 }
 </json>
 <md>
-# Log Protocol
+# Update Logs
 
 How to add decisions to logs/.
 

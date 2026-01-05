@@ -8,21 +8,21 @@
 
 ## Pending Validation
 
-### [Placeholder]
-**Doc:** [path/to/doc.md](path/to/doc.md)
-**Summary:** Brief description for AI context.
-**Validate:** What "done" means — criteria for completion.
+### Workshop Reorg
+**What:** Restructured `.float-workshop/` with kanban state files and nested docs.
+**Validate:**
+- [ ] `ls docs/` shows: `foundation/`, `specs/`, `backlog/`, `plugin-architecture.md`
+- [ ] All protocols reference new paths correctly
+- [ ] boot.md reads `_2_focus.md` correctly
+- [ ] No broken references in protocols
 
----
-
-## Format
-
-```markdown
-### Item Title
-**Doc:** [link](path)
-**Summary:** 1-3 sentences for AI context.
-**Validate:** Specific criteria — what confirms this is done.
-```
+### Buoy System (Layer 2 Infrastructure)
+**Doc:** [docs/specs/buoys.md](docs/specs/buoys.md)
+**Summary:** 4 buoy templates built, execution engine validated, CLI commands working.
+**Validate:**
+- [ ] `float-db buoy list` shows all 4 templates
+- [ ] `float-db buoy execute scope-detector` runs without error
+- [ ] Parallel spawning mechanism works (5.29x speedup validated)
 
 ---
 
@@ -32,7 +32,3 @@
 _3_review → specs/     (validated)
 _3_review → _1_next    (rejected, needs rework)
 ```
-
----
-
-*Placeholder — will be populated by update-123.md protocol*

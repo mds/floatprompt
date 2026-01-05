@@ -63,6 +63,14 @@ Key outcomes:
 
 ---
 
+## Current Focus
+
+See `_2_focus.md` for active work this session.
+
+## Work Queue
+
+See `_1_next.md` for prioritized next items.
+
 ## Possible Directions
 
 **Decision made Session 23:** Go plugin-first. Old `/float-*` commands already worked. TypeScript + SQLite is the speed layer. Plugin is distribution.
@@ -103,8 +111,8 @@ Key outcomes:
 | **Test 5: Parallel Buoy Spawning** | ✅ Partial | Mechanism validated (5.29x), API blocked by sandbox |
 
 **Read first:** (if relevant to chosen direction)
-- `docs/vision.md` — THE vision document
-- `docs/buoys.md` — LOCKED buoy schema and architecture
+- `docs/foundation/vision.md` — THE vision document
+- `docs/specs/buoys.md` — LOCKED buoy schema and architecture
 - `logs/2026/01-jan/2026-01-04-layer2-buoy-spec.md` — Buoy prioritization and next steps
 
 ---
@@ -283,28 +291,52 @@ Commands:
 
 ```
 .float-workshop/
+├── workshop.md            ← Root map of workshop
+├── _1_next.md             ← State: queued work
+├── _2_focus.md            ← State: active work
+├── _3_review.md           ← State: pending validation
+│
 ├── protocols/
-│   ├── boot.md        ← THIS FILE (session boot)
-│   ├── handoff.md     ← Session handoff protocol
-│   └── log.md         ← Decision logging protocol
+│   ├── boot.md            ← THIS FILE (session boot)
+│   ├── handoff.md         ← Session handoff protocol
+│   ├── update-logs.md     ← Decision logging protocol
+│   ├── update-123.md      ← State file updates
+│   └── update-files.md    ← Folder index updates
+│
 ├── docs/
-│   ├── buoys.md       ← LOCKED buoy schema (reference)
-│   ├── vision.md      ← THE vision document
-│   ├── generate-spec.md ← Layer 2 spec (reference)
-│   ├── deep-context.md ← LOCKED deep context spec (topic-based context)
-│   ├── comments.md    ← TypeScript commenting standards
-│   └── workshop.md    ← Workshop concept (parked)
+│   ├── plugin-architecture.md ← Active focus (at root)
+│   │
+│   ├── foundation/        ← "Why" — vision, orientation
+│   │   ├── foundation.md  ← Index
+│   │   ├── vision.md
+│   │   └── deep-context-floatprompt.md
+│   │
+│   ├── specs/             ← "How" — locked implementations
+│   │   ├── specs.md       ← Index
+│   │   ├── buoys.md
+│   │   ├── generate-spec.md
+│   │   ├── deep-context.md
+│   │   └── comments.md
+│   │
+│   └── backlog/           ← "Not now" — parked work
+│       ├── backlog.md     ← Index + blocked section
+│       ├── wip-float-build-spec.md
+│       ├── wip-layer-3-ongoing.md
+│       ├── vercel-sdk-integration-spec.md
+│       ├── float-CMS-context-management-system.md
+│       └── workshop.md
+│
 └── logs/
-    ├── logs.md        ← Map of all logs
+    ├── logs.md            ← Map of all logs
     └── 2026/01-jan/
 
 .float/
-├── float.db           ← THE database (Layer 1 complete)
-└── boot-draft.md      ← Production boot (NEW — Session 16)
+├── float.db               ← THE database (Layer 1 complete)
+└── boot-draft.md          ← Production boot (Session 16)
 
-src/db/                ← Database layer (production-ready)
-src/buoys/             ← Buoy system (Session 14-16, 4 templates)
-src/cli/               ← CLI interface (10 commands)
+src/db/                    ← Database layer (production-ready)
+src/buoys/                 ← Buoy system (Session 14-16, 4 templates)
+src/cli/                   ← CLI interface (10 commands)
 ```
 
 ### Stale (Ignore)
@@ -378,20 +410,20 @@ Read these only when you need deeper context:
 | File | When to read |
 |------|--------------|
 | `docs/plugin-architecture.md` | **Plugin exploration** — FloatPrompt as Claude Code plugin (Session 23, EXPLORING) |
-| `docs/deep-context-floatprompt.md` | **DEEP ORIENTATION** — Synthesized understanding of entire system (Session 19) |
-| `docs/wip-float-build-spec.md` | **float build spec** — Static context generation MVP (DRAFT, TABLED) |
-| `docs/float-CMS-context-management-system.md` | **CMS architecture** — static context build system (Layer 2.5) |
-| `docs/wip-layer-3-ongoing.md` | **Layer 3 vision** — background buoys, snapshot boots, continuous synthesis (TABLED) |
-| `docs/generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
-| `docs/vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
-| `docs/buoys.md` | **Buoy architecture** — worker catalog, context depth, dispatch patterns (LOCKED) |
-| `docs/deep-context.md` | **Deep context spec** — topic-based context, watches, version history (LOCKED) |
-| `docs/vercel-sdk-integration-spec.md` | **Vercel integration** — AI SDK, Sandbox, MCP migration path (TABLED - plugin-first may be faster) |
-| `docs/workshop.md` | Workshop concept — productizing the boot pattern (future) |
+| `docs/foundation/deep-context-floatprompt.md` | **DEEP ORIENTATION** — Synthesized understanding of entire system (Session 19) |
+| `docs/backlog/wip-float-build-spec.md` | **float build spec** — Static context generation MVP (DRAFT, TABLED) |
+| `docs/backlog/float-CMS-context-management-system.md` | **CMS architecture** — static context build system (Layer 2.5) |
+| `docs/backlog/wip-layer-3-ongoing.md` | **Layer 3 vision** — background buoys, snapshot boots, continuous synthesis (TABLED) |
+| `docs/specs/generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
+| `docs/foundation/vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
+| `docs/specs/buoys.md` | **Buoy architecture** — worker catalog, context depth, dispatch patterns (LOCKED) |
+| `docs/specs/deep-context.md` | **Deep context spec** — topic-based context, watches, version history (LOCKED) |
+| `docs/backlog/vercel-sdk-integration-spec.md` | **Vercel integration** — AI SDK, Sandbox, MCP migration path (TABLED - plugin-first may be faster) |
+| `docs/backlog/workshop.md` | Workshop concept — productizing the boot pattern (future) |
 | `protocols/handoff.md` | Session handoff protocol |
-| `docs/comments.md` | TypeScript commenting standards |
+| `docs/specs/comments.md` | TypeScript commenting standards |
 | `logs/2026/01-jan/01-jan.md` | All locked decisions with summaries |
-| `protocols/log.md` | Archive protocol + future agent types |
+| `protocols/update-logs.md` | Archive protocol + future agent types |
 | `artifacts/how-floatprompt-works.md` | The original vision source |
 | `artifacts/float-folder-structure.md` | Folder structure as data model |
 
@@ -420,12 +452,11 @@ Superseded specs:
 3. Update "Answered Questions" section if significant
 
 **When ending a session:**
-Run `protocols/handoff.md` protocol — it updates this file for the next session:
-1. Updates "Last Session" with what happened
-2. Updates "This Session" with what's next
-3. Ensures all protocol and doc files are consistent
-4. Logs any decisions made
-5. Commits changes
+Run `protocols/handoff.md` protocol — it orchestrates:
+1. `update-logs.md` — Record what happened
+2. `update-123.md` — Update state files (_1, _2, _3)
+3. `update-files.md` — Update folder indexes (if files moved)
+4. Updates "Last Session" + verifies consistency
 
 ---
 
