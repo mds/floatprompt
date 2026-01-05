@@ -44,29 +44,24 @@ docs/                           work/
 
 ---
 
-## File Moves
+## File Moves — DONE ✓
 
-```bash
-# 1. Rename docs → work
-git mv docs work
-
-# 2. Move foundation/* to reference/
-mkdir -p work/reference
-git mv work/foundation/vision.md work/reference/
-git mv work/foundation/deep-context-floatprompt.md work/reference/
-git mv work/foundation/principles.md work/reference/
-
-# 3. Move specs/* to reference/
-git mv work/specs/buoys.md work/reference/
-git mv work/specs/generate-spec.md work/reference/
-git mv work/specs/deep-context.md work/reference/
-git mv work/specs/comments.md work/reference/
-
-# 4. Remove empty folders + old indexes
-rm work/foundation/foundation.md
-rm work/specs/specs.md
-rmdir work/foundation work/specs
+Structure is already correct:
 ```
+work/
+├── plugin-architecture.md    ✓
+├── reference/                ✓ (7 files)
+│   ├── vision.md
+│   ├── buoys.md
+│   ├── generate-spec.md
+│   ├── deep-context.md
+│   ├── deep-context-floatprompt.md
+│   ├── comments.md
+│   └── principles.md
+└── backlog/                  ✓
+```
+
+**Remaining:** Path references + index creation
 
 ---
 
