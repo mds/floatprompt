@@ -74,8 +74,10 @@ Key outcomes:
 3. Test with `claude --plugin-dir ./floatprompt`
 4. Add more commands: `details.md`, `sync.md`, `generate.md`
 
+**Hybrid format (YAML + FloatPrompt):** Plugin files use YAML frontmatter for Claude Code metadata, but keep `<fp><json><md>` in the body for rich behavior encoding. YAML is for the system, `<fp>` is for the AI. See `docs/plugin-architecture.md` for details.
+
 **Read first:**
-- `docs/plugin-architecture.md` — Structure and mapping
+- `docs/plugin-architecture.md` — Structure, mapping, and hybrid format deviation
 - `artifacts/claude-code-plugins/create-plugins.md` — Official tutorial
 
 ### Also Needed
