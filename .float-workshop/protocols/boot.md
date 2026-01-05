@@ -6,8 +6,8 @@
   "meta": {
     "title": "Context-Compiler Boot",
     "id": "context-compiler-boot",
-    "updated": "2026-01-04",
-    "session": 23
+    "updated": "2026-01-05",
+    "session": 24
   },
 
   "human": {
@@ -42,60 +42,65 @@
 
 **The ultimate context setter for FloatPrompt development.**
 
-**Last updated:** 2026-01-04
+**Last updated:** 2026-01-05
 
 ---
 
 ## Last Session
 
-**2026-01-04 (session 22):** Priority reset — back to core vision.
+**2026-01-05 (session 23):** Deep orientation + plugin architecture exploration.
 
 Key outcomes:
-- **Read all logs** — Full review of 50+ decision logs to understand project state
-- **Priority clarified** — Project had drifted toward speculative features (`float build`, `float sync`)
-- **Core vision identified** — boot.md + SQLite queries = oriented AI. No static export needed.
-- **Gap found** — Buoy infrastructure is complete, but SQLite has empty `description` and `context` fields
+- **Database status clarified** — All 65 folders have `description` and `content_md` populated (ran on 2026-01-04). Boot.md was stale.
+- **Database gap found** — Scan from Jan 3rd is missing 39 folders (104 exist, 65 scanned). `src/buoys/`, `.float-workshop/` not indexed.
+- **Plugin research** — Studied 13 official Claude Code plugins. Ralph Wiggum (iteration loops), plugin-dev (7 skills), feature-dev (7-phase workflow).
+- **Architecture exploration** — Old `/float-*` commands map directly to plugin structure. FloatPrompt was built with Claude Code's command pattern in mind.
+- **New doc created** — `docs/plugin-architecture.md` — Exploring FloatPrompt as Claude Code plugin.
 
-**Key insight:** The buoys work. The infrastructure works. But they haven't been run on all 65 folders yet. The database is a skeleton without context.
+**Key insight:** FloatPrompt's architecture (slash commands, buoy teams, tool capability maps) maps naturally to Claude Code's plugin structure. Plugin-first could be fastest path to market.
 
-**Tabled:** `float build` (export optimization), `float sync` (no spec), Layer 3 (4 open questions).
+**Corrected:** Database is NOT empty — 65 folders have AI-generated context. The gap is the scan is outdated (missing src/buoys/, .float-workshop/).
 
 ---
 
 ## Possible Directions
 
-Based on recent decision logs, here are paths forward:
+Based on Session 23 findings, here are paths forward:
 
-### Priority: Fill the Database
+### Option 1: Re-scan Database
 
-1. **Run buoys on all 65 folders** — THE next step
-   - Use `buoy execute context-generator` on each folder
-   - Populate `description` and `context` fields in SQLite
-   - This is what makes the vision work
+The filesystem scan is from Jan 3rd. 39 folders are missing:
+- `src/buoys/` (archetypes, templates, execution engine)
+- `.float-workshop/` (protocols, docs, logs)
 
-2. **Rename `content_md` → `context`** — Schema cleanup
-   - Decided in Session 12, not yet implemented
-   - Small change, clears technical debt
+**Action:** Run `float-db scan` to update, then run context-generator on new folders.
 
-3. **Finalize boot.md** — Production ready
-   - `.float/boot-draft.md` → `.float/boot.md`
-   - The entry point for user projects
+### Option 2: Explore Plugin Architecture
 
-### After Database is Populated
+New doc: `docs/plugin-architecture.md` maps FloatPrompt → Claude Code plugin.
+- Study official plugins (install a few, understand DX)
+- Prototype one command (`/float status` as plugin command)
+- Test if buoy templates work as plugin agents
 
-4. **Test end-to-end** — Does the vision work?
-   - Fresh AI reads boot.md → queries SQLite → is oriented?
-   - Validate on this repo first, then fresh project
+**Read first:** `docs/plugin-architecture.md`
 
-5. **Migrate to AI SDK** — Phase 1 of Vercel integration
-   - Spec: `.float-workshop/docs/vercel-sdk-integration-spec.md`
-   - Convert buoy templates to SDK `tool()` format
+### Option 3: Schema Cleanup
+
+- Rename `content_md` → `context` (decided Session 12, not implemented)
+- Finalize `.float/boot-draft.md` → `.float/boot.md`
+
+### Option 4: Test End-to-End
+
+Database IS populated (65 folders have context). Test the vision:
+- Fresh AI reads boot.md → queries SQLite → is oriented?
+- Validate before adding more features
 
 ### Tabled (Not Ready)
 
 - **`float build`** — Static export, not in core vision
 - **`float sync`** — No spec exists, concept only
 - **Layer 3** — 4 open questions, design incomplete
+- **Vercel SDK migration** — Spec exists, but plugin-first may be faster path
 
 ### Test Status
 
@@ -175,10 +180,10 @@ AI now has:
 | Layer | What | Status |
 |-------|------|--------|
 | **Layer 1: Mechanical** | Walk filesystem, hash files, write to SQLite | **DONE** |
-| **Layer 2: AI Generation** | For each folder/scope: generate map + context | **INFRA DONE, RUN PENDING** |
+| **Layer 2: AI Generation** | For each folder/scope: generate map + context | **DONE for scanned folders, RESCAN NEEDED** |
 | **Layer 3: Ongoing** | Triggers, staleness detection, freshness | **TABLED** (4 open questions) |
 
-**Note:** Layer 2 infrastructure (buoys, execute.ts, CLI) is complete and validated. But buoys haven't been run on all 65 folders yet. The database has empty `description` and `context` fields.
+**Note:** Layer 2 infrastructure (buoys, execute.ts, CLI) is complete and validated. All 65 scanned folders have AI-generated `description` and `content_md`. However, the scan is outdated — 39 folders added since Jan 3rd (including `src/buoys/`, `.float-workshop/`) are not in the database.
 
 ### Autonomous Scopes
 
@@ -383,15 +388,16 @@ Read these only when you need deeper context:
 
 | File | When to read |
 |------|--------------|
+| `docs/plugin-architecture.md` | **Plugin exploration** — FloatPrompt as Claude Code plugin (Session 23, EXPLORING) |
 | `docs/deep-context-floatprompt.md` | **DEEP ORIENTATION** — Synthesized understanding of entire system (Session 19) |
-| `docs/wip-float-build-spec.md` | **float build spec** — Static context generation MVP (DRAFT, Session 21) |
+| `docs/wip-float-build-spec.md` | **float build spec** — Static context generation MVP (DRAFT, TABLED) |
 | `docs/float-CMS-context-management-system.md` | **CMS architecture** — static context build system (Layer 2.5) |
-| `docs/wip-layer-3-ongoing.md` | **Layer 3 vision** — background buoys, snapshot boots, continuous synthesis |
+| `docs/wip-layer-3-ongoing.md` | **Layer 3 vision** — background buoys, snapshot boots, continuous synthesis (TABLED) |
 | `docs/generate-spec.md` | **THE spec** — Layer 2 functions, CLI interface, architecture diagram |
 | `docs/vision.md` | **THE vision** — full architecture, three layers, autonomous scopes |
 | `docs/buoys.md` | **Buoy architecture** — worker catalog, context depth, dispatch patterns (LOCKED) |
 | `docs/deep-context.md` | **Deep context spec** — topic-based context, watches, version history (LOCKED) |
-| `docs/vercel-sdk-integration-spec.md` | **Vercel integration** — AI SDK, Sandbox, MCP migration path (Session 20) |
+| `docs/vercel-sdk-integration-spec.md` | **Vercel integration** — AI SDK, Sandbox, MCP migration path (TABLED - plugin-first may be faster) |
 | `docs/workshop.md` | Workshop concept — productizing the boot pattern (future) |
 | `protocols/handoff.md` | Session handoff protocol |
 | `docs/comments.md` | TypeScript commenting standards |
@@ -459,6 +465,6 @@ Any size. Any depth. Any complexity.
 
 ---
 
-*Updated 2026-01-04 — Session 22: Priority reset — run buoys on 65 folders, fill SQLite, then vision works*
+*Updated 2026-01-05 — Session 23: Deep orientation, plugin architecture exploration, database state corrected*
 </md>
 </fp>

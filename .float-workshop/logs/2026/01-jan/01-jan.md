@@ -165,6 +165,7 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-vercel-sdk-integration-spec.md](2026-01-04-vercel-sdk-integration-spec.md) | **Vercel SDK integration spec** — AI SDK, Sandbox, MCP migration path with 4 phases |
 | [2026-01-04-float-build-spec-drafted.md](2026-01-04-float-build-spec-drafted.md) | **float build spec drafted** — Static context generation MVP, decisions locked (path encoding, location, tier), ready for lock |
 | [2026-01-04-priority-update.md](2026-01-04-priority-update.md) | **Priority update** — Reset to core vision: run buoys on 65 folders, fill SQLite, then vision works. Tabled `float build` and `float sync`. |
+| [2026-01-05-plugin-architecture-exploration.md](2026-01-05-plugin-architecture-exploration.md) | **Plugin architecture exploration** — FloatPrompt as Claude Code plugin, mapped old commands to plugin structure, database state corrected (65 folders have context, 39 missing from scan). |
 
 ### Archived Reference Material
 
