@@ -79,6 +79,38 @@ FloatPrompt was built with Claude Code's command pattern in mind. The migration 
 
 ---
 
+## Decision: Hybrid Format (YAML + FloatPrompt)
+
+**Status:** Locked for testing
+
+Rather than abandon `<fp><json><md>` for YAML frontmatter, we combine them:
+
+```markdown
+---
+name: context-generator
+description: Generate folder context
+model: sonnet
+---
+
+<fp>
+<json>{ "STOP": "...", ... }</json>
+<md># Methodology...</md>
+</fp>
+```
+
+**Rationale:**
+- YAML is for the *system* (Claude Code plugin machinery)
+- `<fp>` is for the *AI* (rich behavior encoding)
+- Single file, two audiences
+- Preserves FloatPrompt's expressiveness (duality, STOP, requirements)
+- No duplication, no abstraction layers
+
+**Hypothesis:** FloatPrompt format provides better specificity than YAML-only for complex judgment tasks. Will test by building agents both ways.
+
+**This is a deviation from official Claude Code docs.** Experimental.
+
+---
+
 ## Files Changed
 
 - `.float-workshop/docs/plugin-architecture.md` — Created, then updated with official structure

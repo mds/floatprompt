@@ -122,6 +122,67 @@ floatprompt/
 - Test with: `claude --plugin-dir ./floatprompt`
 - Hooks in `hooks/hooks.json`, NOT in `.claude-plugin/`
 
+---
+
+## FloatPrompt Deviation: Hybrid Format
+
+**Status:** EXPERIMENTAL — Testing for better specificity
+
+Official Claude Code plugins use YAML frontmatter + markdown body. FloatPrompt uses `<fp><json><md>` for richer behavior encoding. Rather than abandon FloatPrompt format, we combine them:
+
+```markdown
+---
+name: context-generator
+description: Generate folder context using FloatPrompt buoy system
+model: sonnet
+---
+
+<fp>
+<json>
+{
+  "STOP": "Context Generator Buoy. Generate description and context for a folder.",
+  "meta": { "title": "Context Generator", "id": "context-generator" },
+  "human": { "author": "@mds", "intent": "..." },
+  "ai": { "role": "...", "behavior": "..." },
+  "requirements": { "duality": {...}, "buoys": {...} }
+}
+</json>
+<md>
+# Methodology
+
+Detailed methodology here...
+</md>
+</fp>
+```
+
+### Why This Works
+
+| Layer | Audience | Purpose |
+|-------|----------|---------|
+| YAML frontmatter | Claude Code (the system) | Plugin metadata, model selection |
+| `<fp><json>` | Claude (the model) | Rich behavior encoding, duality, requirements |
+| `<md>` | Claude (the model) | Detailed methodology |
+
+**The YAML is for the system. The `<fp>` is for the AI.**
+
+### What FloatPrompt Format Adds
+
+| Feature | YAML Can't Do | `<fp><json>` Does |
+|---------|---------------|-------------------|
+| `STOP` forcing function | ❌ | ✅ Forces Claude to pause and read |
+| Duality patterns | Awkward | First-class condition/action pairs |
+| Nested requirements | Verbose | Natural JSON structure |
+| Human/AI separation | No concept | Explicit intent vs behavior |
+| Tool capability maps | ❌ | ✅ Route findings to tools |
+
+### Hypothesis
+
+YAML frontmatter alone is *sufficient* for simple plugins. But for FloatPrompt's buoys — which encode complex judgment tasks, duality patterns, and orchestration logic — the `<fp>` format provides specificity that YAML lacks.
+
+**Testing:** Build agents both ways, compare output quality.
+
+---
+
 ### Component Mapping
 
 | Component | Purpose | Source |
