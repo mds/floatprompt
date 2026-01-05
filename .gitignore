@@ -9,3 +9,5 @@ Thumbs.db
 
 # Private protocol files (suppressed during alpha)
 # /private/ node_modules/
+
+node_modules/
