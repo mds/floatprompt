@@ -1,23 +1,13 @@
-<fp>
-<json>
-{
-  "STOP": "Logs Map. Navigate to decisions, sessions, activity.",
+---
+type: index
+folder: logs
+---
 
-  "id": "logs-map",
-  "title": "Logs",
-
-  "human": {
-    "author": "@mds",
-    "intent": "Central navigation for all logged decisions"
-  }
-}
-</json>
-<md>
 # Logs
 
-> **Storage evolution:** This flat file structure is Phase 1 (prototyping). SQLite is now the source of truth (Phase 2-3 complete). The `log_entries` table stores decisions; summaries are `folders` rows with `type = 'log_month'`, etc. See `docs/foundation/vision.md`.
+Navigation map for decisions, sessions, activity.
 
-Navigation map and open questions. Decisions, sessions, activity — all here.
+> **Storage evolution:** This flat file structure is Phase 1 (prototyping). SQLite is now the source of truth (Phase 2-3 complete). The `log_entries` table stores decisions; summaries are `folders` rows with `type = 'log_month'`, etc. See `ref/vision.md`.
 
 ---
 
@@ -40,5 +30,3 @@ Navigation map and open questions. Decisions, sessions, activity — all here.
 *Renamed from decisions/ on 2026-01-02 — "logs" is the umbrella term.*
 
 *Updated 2026-01-03 — SQLite is now source of truth, summaries are folder rows.*
-</md>
-</fp>

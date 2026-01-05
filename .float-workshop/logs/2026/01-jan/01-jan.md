@@ -106,6 +106,34 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Workshop graduation** — Protocols become automated infrastructure, workshop becomes override layer
 - **Migration path** — Parallel → Assisted → Supervised → Fully Automatic
 
+### Handoff Agents
+- **float-* naming** — All handoff agents use `float-` prefix (float-session-boot, float-session-handoff, float-update-logs, float-organize)
+- **Thin agent pattern** — Agents reference protocol files for logic, not inline
+- **2-agent handoff** — Consolidated from 4 to 2: update-logs (decisions) + organize (state/files/archive)
+- **Session-boot frozen** — ~150 lines of static content only (vision, methodology, layers, structure)
+- **Dynamic state** — AI reads ACTIVE/LATER/logs for current state, recommends next steps interactively
+
+### Protocol Migration (Session 26)
+- **Native Claude Code patterns** — Workshop protocols migrated to commands + agents
+- **Commands** — `/float-boot` and `/float-handoff` (self-contained, no protocol references)
+- **Agents** — `float-organize` and `float-update-logs` (self-contained)
+- **Protocols archived** — Original protocols moved to `done/protocol-*.md`
+- **Workshop vs Core** — Workshop layer uses Claude Code patterns, FloatPrompt core (buoys, SQLite) stays custom
+
+### Track 1 Workshop Plugin (Session 28)
+- **Priority 1** — Track 1 (workshop plugin with float.db) is now top priority
+- **Rationale** — Smaller scope, validates patterns, uses existing infrastructure
+- **Layer 2 only** — AI generation, no autonomous monitoring (Layer 3)
+- **Skills + Agents + Commands** — Native Claude Code patterns for implementation
+- **Skills** — floatdb-schema (teaches Claude the DB)
+- **Agents** — float-context-generator, float-scope-detector, float-staleness-checker
+- **Commands** — /float-generate, /float-status, /float-refresh
+- **Ralph Wiggum** — Optional periodic staleness checking (not continuous)
+
+### Templates
+- **Flat structure** — `templates/workshop/`, `templates/agents/` (not `templates/.float/workshop/`)
+- **Rationale** — `.float/` implies generated/ephemeral, but these are source templates
+
 ### Non-Features
 - **No wikilinks** — `[[links]]` in markdown don't serve the vision. Relationships belong in `references` table, not prose. SQLite queries are AI navigation, wikilinks are human flatfile navigation.
 
@@ -166,6 +194,10 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-04-float-build-spec-drafted.md](2026-01-04-float-build-spec-drafted.md) | **float build spec drafted** — Static context generation MVP, decisions locked (path encoding, location, tier), ready for lock |
 | [2026-01-04-priority-update.md](2026-01-04-priority-update.md) | **Priority update** — Reset to core vision: run buoys on 65 folders, fill SQLite, then vision works. Tabled `float build` and `float sync`. |
 | [2026-01-05-plugin-architecture-exploration.md](2026-01-05-plugin-architecture-exploration.md) | **Plugin architecture exploration** — FloatPrompt as Claude Code plugin, hybrid format decision (YAML + `<fp>`), database state corrected. |
+| [2026-01-05-handoff-agent-architecture.md](2026-01-05-handoff-agent-architecture.md) | **Handoff agent architecture** — 5 agents with float-* naming, `<fp><json><md>` format, thin agents referencing protocols, float-update-boot runs last. |
+| [2026-01-05-session-consolidation.md](2026-01-05-session-consolidation.md) | **Session consolidation** — 2-agent handoff (update-logs + organize), session-boot frozen (~150 lines static), templates naming flattened. |
+| [2026-01-05-protocol-to-native-migration.md](2026-01-05-protocol-to-native-migration.md) | **Protocol to native migration** — Workshop protocols → Claude Code commands/agents, protocols archived to done/. |
+| [2026-01-05-track1-workshop-plugin-decision.md](2026-01-05-track1-workshop-plugin-decision.md) | **Track 1 workshop plugin** — Priority 1, Claude Code native patterns (skills + agents + commands), Layer 2 only. |
 
 ### Archived Reference Material
 
