@@ -66,19 +66,24 @@ FloatPrompt was built with Claude Code's command pattern in mind. The migration 
 
 ---
 
-## Next Steps (Options)
+## Next Steps (Decided)
 
-1. Re-scan database to add missing 39 folders
-2. Prototype one plugin command (`/float status`)
-3. Study official plugins hands-on (install and use)
-4. Test end-to-end with current database
+**Go plugin-first.** User confirmed: old `/float-*` markdown commands already worked with Claude. TypeScript + SQLite migration was for speed/staleness/context limits. Plugin is distribution layer on top of working engine.
+
+**Immediate:**
+1. Create `.claude-plugin/plugin.json` manifest
+2. Create `commands/status.md` → calls `float-db status`
+3. Test with `claude --plugin-dir ./floatprompt`
+
+**Official docs pulled:** 14 markdown files in `artifacts/claude-code-plugins/` with full specs.
 
 ---
 
 ## Files Changed
 
-- `.float-workshop/docs/plugin-architecture.md` — Created
+- `.float-workshop/docs/plugin-architecture.md` — Created, then updated with official structure
 - `.float-workshop/protocols/boot.md` — Updated with corrected state
+- `artifacts/claude-code-plugins/` — 14 doc files pulled from official docs
 
 ---
 

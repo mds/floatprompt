@@ -65,42 +65,29 @@ Key outcomes:
 
 ## Possible Directions
 
-Based on Session 23 findings, here are paths forward:
+**Decision made Session 23:** Go plugin-first. Old `/float-*` commands already worked. TypeScript + SQLite is the speed layer. Plugin is distribution.
 
-### Option 1: Re-scan Database
+### Priority: Build Plugin
 
-The filesystem scan is from Jan 3rd. 39 folders are missing:
-- `src/buoys/` (archetypes, templates, execution engine)
-- `.float-workshop/` (protocols, docs, logs)
+1. Create `.claude-plugin/plugin.json` manifest
+2. Create `commands/status.md` → calls `float-db status`
+3. Test with `claude --plugin-dir ./floatprompt`
+4. Add more commands: `details.md`, `sync.md`, `generate.md`
 
-**Action:** Run `float-db scan` to update, then run context-generator on new folders.
+**Read first:**
+- `docs/plugin-architecture.md` — Structure and mapping
+- `artifacts/claude-code-plugins/create-plugins.md` — Official tutorial
 
-### Option 2: Explore Plugin Architecture
+### Also Needed
 
-New doc: `docs/plugin-architecture.md` maps FloatPrompt → Claude Code plugin.
-- Study official plugins (install a few, understand DX)
-- Prototype one command (`/float status` as plugin command)
-- Test if buoy templates work as plugin agents
+- **Re-scan database** — 39 folders missing (src/buoys/, .float-workshop/)
+- **Schema cleanup** — Rename `content_md` → `context` (decided Session 12)
 
-**Read first:** `docs/plugin-architecture.md`
+### Tabled
 
-### Option 3: Schema Cleanup
-
-- Rename `content_md` → `context` (decided Session 12, not implemented)
-- Finalize `.float/boot-draft.md` → `.float/boot.md`
-
-### Option 4: Test End-to-End
-
-Database IS populated (65 folders have context). Test the vision:
-- Fresh AI reads boot.md → queries SQLite → is oriented?
-- Validate before adding more features
-
-### Tabled (Not Ready)
-
-- **`float build`** — Static export, not in core vision
-- **`float sync`** — No spec exists, concept only
+- **`float build`** — Static export, not needed for plugin
 - **Layer 3** — 4 open questions, design incomplete
-- **Vercel SDK migration** — Spec exists, but plugin-first may be faster path
+- **Vercel SDK** — Plugin-first is faster path
 
 ### Test Status
 

@@ -90,35 +90,37 @@ The original vision was "portable across ChatGPT, Claude, Cursor." A plugin is C
 
 ## Plugin Structure
 
-What FloatPrompt-as-plugin would look like:
+Official Claude Code plugin structure (from docs):
 
 ```
 floatprompt/
 ├── .claude-plugin/
-│   └── plugin.json              # Manifest: name, version, description
-├── commands/
-│   ├── float.md                 # /float — boot and status
-│   ├── float-sync.md            # /float-sync — structure integrity
-│   ├── float-context.md         # /float-context — generate/load context
-│   ├── float-details.md         # /float-details <path> — folder info
-│   └── float-generate.md        # /float-generate — run buoys on folders
+│   └── plugin.json              # ONLY manifest here (name, version, description)
+├── commands/                    # At root, NOT inside .claude-plugin/
+│   ├── status.md                # /floatprompt:status → float-db status
+│   ├── details.md               # /floatprompt:details $ARGUMENTS → float-db details
+│   ├── sync.md                  # /floatprompt:sync → rescan + generate
+│   └── generate.md              # /floatprompt:generate → run buoys
 ├── agents/
-│   ├── context-generator.md     # Generator archetype
-│   ├── staleness-checker.md     # Validator archetype
-│   ├── scope-detector.md        # Generator archetype
-│   ├── decision-logger.md       # Recorder archetype
-│   └── float-orchestrator.md    # Orchestrator — coordinates buoy teams
+│   ├── context-generator.md     # Buoy as agent
+│   ├── staleness-checker.md     # Buoy as agent
+│   ├── scope-detector.md        # Buoy as agent
+│   └── decision-logger.md       # Buoy as agent
 ├── skills/
-│   ├── floatprompt-boot/
-│   │   ├── SKILL.md             # Boot context (reads boot.md, queries DB)
-│   │   └── references/          # Deep context documents
-│   └── floatprompt-methodology/
-│       └── SKILL.md             # Map → Decide → Structure
+│   └── floatprompt-context/
+│       └── SKILL.md             # Auto-invoked: loads project context
 ├── hooks/
-│   ├── hooks.json               # Hook configuration
-│   └── session-start.sh         # Auto-load context on session start
+│   └── hooks.json               # SessionStart → boot context
+├── .mcp.json                    # Optional: SQLite as MCP server
 └── README.md
 ```
+
+**Key rules from official docs:**
+- Commands namespaced: `/floatprompt:status` (plugin name becomes prefix)
+- Arguments: `$ARGUMENTS` for full input, `$1`, `$2` for positional
+- Skills auto-invoke based on context (Claude decides when to use)
+- Test with: `claude --plugin-dir ./floatprompt`
+- Hooks in `hooks/hooks.json`, NOT in `.claude-plugin/`
 
 ### Component Mapping
 
