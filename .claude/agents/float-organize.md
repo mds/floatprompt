@@ -85,6 +85,13 @@ Update each affected index file:
 | `stable-doc.md` | Brief description |
 ```
 
+**modes/MODES.md** (if new mode created):
+```markdown
+| Mode | Role | When to Activate |
+|------|------|------------------|
+| `new-mode.md` | Role description | When to use |
+```
+
 ---
 
 ## Step 4: Archive Check
@@ -107,6 +114,7 @@ Verify:
 - [ ] No orphan files (in folder but not in index)
 - [ ] No stale entries (in index but file moved/deleted)
 - [ ] Limits respected (active ≤ 3, later ≤ 10)
+- [ ] modes/MODES.md — "Available Modes" table matches files in modes/
 
 ---
 
@@ -118,6 +126,7 @@ Verify:
 | Locked | `ref/` |
 | Tabled/Blocked | `later/` |
 | Done | `done/` |
+| Mode (context loadout) | `modes/` |
 
 ---
 
