@@ -13,12 +13,14 @@ After deep work on a topic, run this to capture understanding before handoff. Ne
 
 ## What This Does
 
-1. **Gathers** your focus — what topic/work type?
-2. **Searches** decision logs and ref docs for relevant material
-3. **Asks** about gaps — prompts you for missing context
-4. **Drafts** a mode following the MODES.md framework
-5. **Verifies** with you before saving
-6. **Registers** in modes/MODES.md
+1. **Analyzes** the session — what have you been working on?
+2. **Hypothesizes** a mode — "Based on this session, I think you want..."
+3. **Confirms or redirects** — you approve, correct, or guide the focus
+4. **Searches** decision logs and ref docs for relevant material
+5. **Asks** about gaps — prompts you for missing context
+6. **Drafts** a mode following the MODES.md framework
+7. **Verifies** with you before saving
+8. **Registers** in modes/MODES.md
 
 ---
 
@@ -51,9 +53,18 @@ Then follow the prompts. The agent will:
 ```
 You: /float-mode
 
-Agent: What topic should this mode cover?
+Agent: Based on this session, you've been working on:
+- Track 1 plugin implementation
+- Claude Code native patterns (skills, agents, commands)
+- Mode system design
 
-You: Plugin implementation — Track 1 Claude Code patterns
+I think you want a mode for: **Plugin Implementation**
+This would capture the Track 1 approach, Claude Code patterns,
+and implementation-focused context.
+
+Is this right, or should I focus on something else?
+
+You: Yes, that's right.
 
 Agent: I found these relevant materials:
 - track1-workshop-plugin-spec.md

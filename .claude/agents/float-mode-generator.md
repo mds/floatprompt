@@ -23,13 +23,38 @@ tools: Read, Write, Edit, Glob, Grep, AskUserQuestion
 
 ---
 
-## Step 1: Gather Focus
+## Step 1: Analyze Session & Hypothesize
 
-Ask the user:
-- **Topic:** What is this mode for? (e.g., "plugin implementation", "database work", "strategic planning")
-- **Name:** Suggested mode name (e.g., `deep-plugin`, `deep-db`, `review-mode`)
+**Don't start blank.** Analyze what's been happening:
 
-If user is vague, suggest based on recent work in `active/` and recent logs.
+1. **Check active work:**
+   - Read `active/ACTIVE.md` — what's the current focus?
+   - What files have been discussed or modified this session?
+
+2. **Review recent context:**
+   - What topics came up in conversation?
+   - What docs were referenced?
+   - What decisions were made?
+
+3. **Form a hypothesis:**
+   ```
+   "Based on this session, you've been working on:
+   - [Topic 1]
+   - [Topic 2]
+   - [Topic 3]
+
+   I think you want a mode for: **[Hypothesized Mode]**
+   This would capture [what it would include].
+
+   Is this right, or should I focus on something else?"
+   ```
+
+4. **Allow correction:**
+   - User confirms → proceed with hypothesis
+   - User redirects → adjust focus accordingly
+   - User adds context → incorporate it
+
+**The hypothesis shows you've been paying attention.** Don't make the user re-explain what they've been doing.
 
 ---
 
@@ -172,11 +197,24 @@ Return:
 ## Example Flow
 
 ```
-User: "Create a mode for plugin implementation"
+User: /float-mode
+
+Agent analyzes session → hypothesizes:
+"Based on this session, you've been working on:
+- Mode system design (MODES.md, deep-strategy.md)
+- Mode generator agent
+- Workshop organization patterns
+
+I think you want a mode for: **Plugin Implementation**
+This would capture Track 1 patterns, Claude Code native approach,
+skill/agent/command structure.
+
+Is this right, or should I focus on something else?"
+
+User: "Yes, that's right."
 
 Agent searches → finds:
 - logs/2026-01-05-track1-plugin-spec-locked.md
-- logs/2026-01-05-plugin-architecture-exploration.md
 - active/track1-workshop-plugin-spec.md
 - ref/buoys.md
 
