@@ -34,6 +34,8 @@ float-handoff (you are here)
   └── 3. Recap + verify → "Here's what changed"
 ```
 
+> **Tip:** If you built deep context around a topic this session, run `/float-mode` before handoff to capture it as a reusable mode.
+
 ---
 
 ## Step 1: Review Session Work
@@ -44,6 +46,7 @@ Check what happened this session:
 - What decisions were made?
 - What's continuing to next session?
 - Did any files change status?
+- If significant context was built around a new topic → mention `/float-mode` option
 
 ---
 
