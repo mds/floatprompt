@@ -120,15 +120,19 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Protocols archived** — Original protocols moved to `done/protocol-*.md`
 - **Workshop vs Core** — Workshop layer uses Claude Code patterns, FloatPrompt core (buoys, SQLite) stays custom
 
-### Track 1 Workshop Plugin (Session 28)
+### Track 1 Workshop Plugin (Session 28-29)
 - **Priority 1** — Track 1 (workshop plugin with float.db) is now top priority
 - **Rationale** — Smaller scope, validates patterns, uses existing infrastructure
 - **Layer 2 only** — AI generation, no autonomous monitoring (Layer 3)
-- **Skills + Agents + Commands** — Native Claude Code patterns for implementation
-- **Skills** — floatdb-schema (teaches Claude the DB)
-- **Agents** — float-context-generator, float-scope-detector, float-staleness-checker
-- **Commands** — /float-generate, /float-status, /float-refresh
-- **Ralph Wiggum** — Optional periodic staleness checking (not continuous)
+- **Native Claude Code patterns** — Pure YAML + markdown format (not hybrid `<fp>`)
+
+**Components (locked Session 29):**
+- **Skill (1)** — `floatdb` (query float.db + notice enrichment opportunities)
+- **Agent (1)** — `float-context-generator` (generates context, includes scope detection)
+- **Commands (3)** — `/float` (boot), `/float-deepen` (enrich), `/float-handoff` (end session)
+- **CLI interface** — Agent uses `float-db` CLI via Bash (not raw sqlite3)
+
+**Lifecycle:** `/float` (boot) → work → `/float-deepen` (as needed) → `/float-handoff` (cleanup)
 
 ### Templates
 - **Flat structure** — `templates/workshop/`, `templates/agents/` (not `templates/.float/workshop/`)
@@ -136,6 +140,15 @@ Foundational month for context-compiler. Established architecture, execution mod
 
 ### Non-Features
 - **No wikilinks** — `[[links]]` in markdown don't serve the vision. Relationships belong in `references` table, not prose. SQLite queries are AI navigation, wikilinks are human flatfile navigation.
+
+### Context Philosophy (Session 30)
+- **Compressed human judgment** — Context is not just information, it's distilled judgment calls, rationale, and understanding
+- **CLAUDE.md extension** — Float.db extends CLAUDE.md for projects that outgrow one file
+- **Adoption criteria** — 50+ folders, dynamic context, long-term AI collaboration
+- **AI perspective** — "Every session starts cold, understanding dies with session" — float.db solves this
+- **Queryable vs navigable** — Flat files for humans (navigable), SQLite for AI (queryable) — same structure, different interface
+- **Plugin extension** — `/float init` extends `/init`, not replaces — FloatPrompt extends Claude Code
+- **PreCompact hook** — Claude Code's `PreCompact` hook (matcher `auto`) enables future auto-handoff when context fills; threshold warnings (80-90%) and real-time % are feature request territory
 
 ---
 
@@ -198,6 +211,8 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-05-session-consolidation.md](2026-01-05-session-consolidation.md) | **Session consolidation** — 2-agent handoff (update-logs + organize), session-boot frozen (~150 lines static), templates naming flattened. |
 | [2026-01-05-protocol-to-native-migration.md](2026-01-05-protocol-to-native-migration.md) | **Protocol to native migration** — Workshop protocols → Claude Code commands/agents, protocols archived to done/. |
 | [2026-01-05-track1-workshop-plugin-decision.md](2026-01-05-track1-workshop-plugin-decision.md) | **Track 1 workshop plugin** — Priority 1, Claude Code native patterns (skills + agents + commands), Layer 2 only. |
+| [2026-01-05-track1-plugin-spec-locked.md](2026-01-05-track1-plugin-spec-locked.md) | **Track 1 plugin spec locked** — 1 skill (floatdb), 3 commands (/float, /float-deepen, /float-handoff), 1 agent (float-context-generator). Pure YAML + markdown format. |
+| [2026-01-05-session30-context-philosophy.md](2026-01-05-session30-context-philosophy.md) | **Context philosophy locked** — Context is "compressed human judgment", AI perspective documented, queryable vs navigable distinction, plugin extension vision. |
 
 ### Archived Reference Material
 

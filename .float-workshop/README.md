@@ -32,8 +32,7 @@ Session End    →  /float-handoff
 │
 ├── active/                     # Current work (limit: 3)
 │   ├── ACTIVE.md               # Index
-│   ├── plugin-architecture.md  # Primary focus
-│   └── handoff-agents.md       # Secondary
+│   └── *.md                    # Active items
 │
 ├── later/                      # Parked work (limit: 10)
 │   ├── LATER.md                # Index
@@ -43,11 +42,13 @@ Session End    →  /float-handoff
 │   ├── DONE.md                 # Index
 │   └── *.md                    # Frozen job files
 │
-├── ref/                        # Stable docs
+├── ref/                        # Stable reference docs
 │   ├── REF.md                  # Index
-│   ├── vision.md
-│   ├── principles.md
 │   └── *.md                    # Reference documents
+│
+├── modes/                      # Context loadouts (opt-in deep context)
+│   ├── MODES.md                # Index of available modes
+│   └── deep-strategy.md        # Strategic planning mode
 │
 └── logs/                       # Session records
     ├── LOGS.md                 # Index: all sessions
@@ -69,7 +70,8 @@ later/ ──pull──▶ active/ ──finish──▶ done/
 | `active/` | What's in hands NOW | 3 items |
 | `later/` | Will do, not now | 10 items |
 | `done/` | Completed work | No limit |
-| `ref/` | Stable docs | No limit |
+| `ref/` | Stable reference docs | No limit |
+| `modes/` | Context loadouts (opt-in) | No limit |
 
 ---
 
@@ -103,6 +105,7 @@ Each folder has a self-describing index:
 | `later/LATER.md` | Parked work (limit: 10) |
 | `done/DONE.md` | Completed work |
 | `ref/REF.md` | Reference docs inventory |
+| `modes/MODES.md` | Available context loadouts |
 | `logs/LOGS.md` | Session log index |
 
 ---

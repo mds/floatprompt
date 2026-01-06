@@ -87,6 +87,22 @@ See `.float-workshop/README.md` for folder structure, work lifecycle, and conven
 
 ---
 
+## Modes (Deep Context)
+
+Boot stays lean. For deeper context, activate a mode.
+
+**Available modes:** See `.float-workshop/modes/MODES.md`
+
+| Mode | When to Activate |
+|------|------------------|
+| `modes/deep-strategy.md` | Architecture decisions, planning, big-picture discussions |
+
+**To activate:** "Load deep-strategy mode" or "Activate deep-strategy context"
+
+Modes are curated document loadouts — what to read, what concepts to hold. Add new modes as the project evolves.
+
+---
+
 ## Session Protocol
 
 **Now do this:**

@@ -16,7 +16,7 @@ Current focus items. **Limit: 3 items max.**
 
 | Item | Status | Summary |
 |------|--------|---------|
-| `track1-workshop-plugin-spec.md` | **Priority 1** | Layer 2 via Claude Code skills/agents/commands |
+| `track1-workshop-plugin-spec.md` | **Primary (S30)** | Plugin spec enhanced with Claude Code native migration |
 | `two-track-exploration.md` | Reference | Track 1 vs Track 2 decision context |
 | `plugin-architecture.md` | Reference | Plugin patterns, component mapping |
 
