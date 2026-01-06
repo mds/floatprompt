@@ -46,7 +46,7 @@ Check what happened this session:
 - What decisions were made?
 - What's continuing to next session?
 - Did any files change status?
-- If significant context was built around a new topic → mention `/float-mode` option
+- If significant context was built around a new topic (and `/float-mode` wasn't already run) → mention the option
 
 ---
 
