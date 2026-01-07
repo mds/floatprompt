@@ -109,6 +109,73 @@ export function logEntryExists(
   return result !== undefined;
 }
 
+/**
+ * Get log entries with optional filters.
+ */
+export function getLogEntries(
+  db: Database.Database,
+  filters?: {
+    folder_path?: string;
+    topic?: string;
+    status?: "locked" | "open" | "superseded";
+    limit?: number;
+  }
+): unknown[] {
+  let sql = `
+    SELECT id, folder_path, date, topic, status, title, decision, rationale,
+           before_state, after_state, files_changed, future_agent,
+           supersedes, superseded_by, created_at
+    FROM log_entries
+    WHERE 1=1
+  `;
+  const params: unknown[] = [];
+
+  if (filters?.folder_path) {
+    sql += " AND folder_path = ?";
+    params.push(filters.folder_path);
+  }
+  if (filters?.topic) {
+    sql += " AND topic = ?";
+    params.push(filters.topic);
+  }
+  if (filters?.status) {
+    sql += " AND status = ?";
+    params.push(filters.status);
+  }
+
+  sql += " ORDER BY created_at DESC";
+
+  if (filters?.limit) {
+    sql += " LIMIT ?";
+    params.push(filters.limit);
+  }
+
+  return db.prepare(sql).all(...params);
+}
+
+/**
+ * Get the latest log entry for a given topic.
+ * Useful for session continuity (topic = 'session-handoff').
+ */
+export function getLatestLogEntry(
+  db: Database.Database,
+  topic: string
+): unknown | undefined {
+  return db
+    .prepare(
+      `
+    SELECT id, folder_path, date, topic, status, title, decision, rationale,
+           before_state, after_state, files_changed, future_agent,
+           supersedes, superseded_by, created_at
+    FROM log_entries
+    WHERE topic = ?
+    ORDER BY created_at DESC
+    LIMIT 1
+  `
+    )
+    .get(topic);
+}
+
 // ============================================================================
 // Deep Context CRUD
 // ============================================================================

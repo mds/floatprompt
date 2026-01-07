@@ -14,7 +14,7 @@
  * Errors output JSON with { "error": "message" } to stderr.
  */
 import * as fs from "fs";
-import { createDatabase, insertDeep, getDeep, listDeep, updateDeep, markDeepStale, deleteDeep, getDeepHistory, getDeepVersion, } from "../db/client.js";
+import { createDatabase, insertDeep, getDeep, listDeep, updateDeep, markDeepStale, deleteDeep, getDeepHistory, getDeepVersion, insertLogEntry, getLogEntries, getLatestLogEntry, } from "../db/client.js";
 import { getFoldersByDepth, getMaxDepth, getFolderDetails, updateFolderContext, getScopeChain, getFolderCountByStatus, getDepthDistribution, } from "../db/generate.js";
 import { createRegistry, parseBuoyTemplate, buildBuoyPrompt, executeBuoy, executeBuoyBatch, DEFAULT_TEMPLATE_DIR, } from "../buoys/index.js";
 // ============================================================================
@@ -44,6 +44,7 @@ COMMANDS:
   dist        Get folder count distribution by depth
   buoy        Buoy template management (list, parse, prompt)
   deep        Deep context management (topic-based context)
+  log         Log entry management (decisions, session continuity)
 
 OPTIONS:
   --db PATH       Database path (default: .float/float.db)
@@ -75,6 +76,21 @@ DEEP SUBCOMMANDS:
   float-db deep delete <slug>                 Delete (cascades to history)
   float-db deep history <slug>                Show version history
   float-db deep version <slug> <version>      Show specific version
+
+LOG SUBCOMMANDS:
+  float-db log add --json '{...}'             Add a log entry (decision or session)
+  float-db log list [--folder F] [--topic T] [--status S] [--limit N]   List entries
+  float-db log latest --topic session-handoff Get latest entry for a topic
+
+LOG ADD JSON FIELDS:
+  folder_path   (required) "/" for project-wide, or specific folder path
+  date          (required) "YYYY-MM-DD" format
+  topic         (required) e.g., "auth-decision" or "session-handoff"
+  status        (required) "locked" (decision) | "open" (session) | "superseded"
+  title         (required) Brief title
+  decision      (optional) What was decided / what happened
+  rationale     (optional) Why / next steps
+  files_changed (optional) Array of file paths
 `);
 }
 function parseArgs(args) {
@@ -725,6 +741,107 @@ function cmdDeep(dbPath, positional, flags) {
         db.close();
     }
 }
+function cmdLog(dbPath, positional, flags) {
+    const subcommand = positional[0];
+    if (!subcommand) {
+        printError("Log subcommand required: add, list, latest");
+    }
+    const db = createDatabase(dbPath);
+    try {
+        switch (subcommand) {
+            case "add": {
+                const jsonStr = flags["json"];
+                if (!jsonStr || jsonStr === true) {
+                    printError("--json is required for log add");
+                }
+                let entry;
+                try {
+                    entry = JSON.parse(jsonStr);
+                }
+                catch {
+                    printError("Invalid JSON in --json argument");
+                    return;
+                }
+                // Validate required fields
+                if (!entry.folder_path)
+                    printError("folder_path is required");
+                if (!entry.date)
+                    printError("date is required");
+                if (!entry.topic)
+                    printError("topic is required");
+                if (!entry.status)
+                    printError("status is required");
+                if (!entry.title)
+                    printError("title is required");
+                if (!["locked", "open", "superseded"].includes(entry.status)) {
+                    printError("status must be: locked, open, or superseded");
+                }
+                const id = insertLogEntry(db, {
+                    folder_path: entry.folder_path,
+                    date: entry.date,
+                    topic: entry.topic,
+                    status: entry.status,
+                    title: entry.title,
+                    decision: entry.decision || null,
+                    rationale: entry.rationale || null,
+                    before_state: null,
+                    after_state: null,
+                    files_changed: entry.files_changed || null,
+                    future_agent: null,
+                    supersedes: null,
+                    superseded_by: null,
+                    created_at: Date.now(),
+                });
+                printJson({ success: true, id, topic: entry.topic });
+                break;
+            }
+            case "list": {
+                const filters = {};
+                if (flags["folder"] && flags["folder"] !== true) {
+                    filters.folder_path = flags["folder"];
+                }
+                if (flags["topic"] && flags["topic"] !== true) {
+                    filters.topic = flags["topic"];
+                }
+                if (flags["status"] && flags["status"] !== true) {
+                    const status = flags["status"];
+                    if (!["locked", "open", "superseded"].includes(status)) {
+                        printError("--status must be: locked, open, or superseded");
+                    }
+                    filters.status = status;
+                }
+                if (flags["limit"] && flags["limit"] !== true) {
+                    filters.limit = parseInt(flags["limit"], 10);
+                }
+                const entries = getLogEntries(db, filters);
+                printJson({
+                    count: entries.length,
+                    entries,
+                });
+                break;
+            }
+            case "latest": {
+                const topic = flags["topic"];
+                if (!topic || topic === true) {
+                    printError("--topic is required for log latest");
+                }
+                const entry = getLatestLogEntry(db, topic);
+                if (!entry) {
+                    printJson({ found: false, topic });
+                }
+                else {
+                    printJson({ found: true, entry });
+                }
+                break;
+            }
+            default:
+                printError(`Unknown log subcommand: ${subcommand}`);
+        }
+    }
+    finally {
+        db.close();
+    }
+}
 // ============================================================================
 // Main
 // ============================================================================
@@ -772,6 +889,9 @@ function main() {
                 break;
             case "deep":
                 cmdDeep(dbPath, positional, flags);
+                break;
+            case "log":
+                cmdLog(dbPath, positional, flags);
                 break;
             default:
                 printError(`Unknown command: ${command}`);

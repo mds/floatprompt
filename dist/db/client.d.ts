@@ -42,6 +42,20 @@ export declare function countLogEntries(db: Database.Database): number;
  */
 export declare function logEntryExists(db: Database.Database, date: string, topic: string): boolean;
 /**
+ * Get log entries with optional filters.
+ */
+export declare function getLogEntries(db: Database.Database, filters?: {
+    folder_path?: string;
+    topic?: string;
+    status?: "locked" | "open" | "superseded";
+    limit?: number;
+}): unknown[];
+/**
+ * Get the latest log entry for a given topic.
+ * Useful for session continuity (topic = 'session-handoff').
+ */
+export declare function getLatestLogEntry(db: Database.Database, topic: string): unknown | undefined;
+/**
  * Insert a new deep context.
  */
 export declare function insertDeep(db: Database.Database, deep: {

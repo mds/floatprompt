@@ -184,6 +184,23 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Track framing dropped** — No more "Track 1/Track 2" terminology, just "the plugin"
 - **Old spec archived** — `track1-workshop-plugin-spec.md` → `done/track1-workshop-plugin-spec-historical.md`
 
+### Plugin PRD Review (Session 37)
+- **Users (v1)** — Solo developers on personal/work projects; team collaboration out of scope
+- **Enrichment architecture** — Removed `float-enrich` skill; SessionEnd hook uses `git diff --name-only` to detect edited folders
+- **MCP vs bundled scripts** — Bundled scripts (`lib/float-db.js`), NOT MCP server; MCP tool descriptions add token overhead
+- **boot.md lifecycle** — Shipped with plugin as template, copied to `.float/boot.md` on first `/float` run
+- **Git integration** — Commit `.float/` directory (both float.db and boot.md); context compounds across team/machines
+- **Working directory** — `/float` uses current working directory, no root detection
+- **Schema rename (pending)** — `content_md` → `context` for semantic clarity; may be done in another session
+- **float-logger agent** — Generalized decision logging for ANY project with `.float/` (not just workshop); writes to `log_entries` table
+- **Design passes needed** — boot.md, float-enricher, and float-logger each need their own design pass before implementation
+
+### Session Continuity Pattern (Session 38)
+- **log_entries for continuity** — Use `log_entries` table with `topic='session-handoff'` and `status='open'` for session continuity
+- **float-logger dual purpose** — Writes decisions (locked, optional) AND session handoffs (open, mandatory); continuity always needed
+- **No folder structure** — Plugin uses only `.float/float.db` and `.float/boot.md`; no sessions/, active/, later/ folders
+- **boot.md comes last** — Design boot.md after agents and hooks are finalized; can't write manual until system exists
+
 ---
 
 ## Files
@@ -252,6 +269,8 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-06-track1-spec-revision.md](2026-01-06-track1-spec-revision.md) | **Track 1 spec revision** — `/float-boot` → `/float`, skill + agent replaces `/float-deepen`, mode crystallization vs folder enrichment clarified, context hygiene principle. |
 | [2026-01-06-track1-architecture.md](2026-01-06-track1-architecture.md) | **Track 1 architecture** — Four enrichment paths, component pattern (command + agent + skill), phased implementation, boot.md refined last. |
 | [2026-01-07-adoption-first-plugin.md](2026-01-07-adoption-first-plugin.md) | **Adoption-first plugin** — ONE command (`/float`), skills as automated protocols, hooks for lifecycle, track framing dropped. |
+| [2026-01-07-plugin-prd-review.md](2026-01-07-plugin-prd-review.md) | **Plugin PRD review** — Users (v1), enrichment via git diff, bundled scripts over MCP, boot.md lifecycle, git integration, float-logger agent. |
+| [2026-01-07-plugin-prd-session-continuity.md](2026-01-07-plugin-prd-session-continuity.md) | **Session continuity pattern** — log_entries for session handoffs, float-logger dual purpose, no folder structure in plugin, boot.md comes last. |
 
 ### Archived Reference Material
 
