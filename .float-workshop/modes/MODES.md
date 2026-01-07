@@ -59,6 +59,17 @@ What to deprioritize or avoid in this mode. Keeps focus sharp.
 
 - Thing to not worry about right now
 - Another thing that's out of scope for this mode
+
+---
+
+## Go Deeper
+
+Reference docs for adjacent exploration:
+
+| Direction | Document | Path |
+|-----------|----------|------|
+| Related mode | Other Mode | `modes/other-mode.md` |
+| Reference doc | Relevant Doc | `ref/relevant.md` |
 ```
 
 ---
@@ -73,6 +84,7 @@ What to deprioritize or avoid in this mode. Keeps focus sharp.
 | **Load** | Documents to read — the context payload | Yes |
 | **Hold** | Concepts to remember — mental anchors | Yes |
 | **Ignore** | What to deprioritize — sharpens focus | Optional |
+| **Go Deeper** | Adjacent references for exploration | Optional |
 
 ---
 
@@ -96,6 +108,11 @@ What to deprioritize or avoid in this mode. Keeps focus sharp.
 - Implementation mode ignores philosophical debates
 - Keeps the mode focused on its purpose
 
+**Go Deeper enables exploration.**
+- Links to adjacent modes for context switching
+- Links to reference docs for deeper dives
+- Escape hatch without leaving the mode system
+
 ---
 
 ## Available Modes
@@ -103,6 +120,7 @@ What to deprioritize or avoid in this mode. Keeps focus sharp.
 | Mode | Role | When to Activate |
 |------|------|------------------|
 | `deep-strategy.md` | Architect | Architecture decisions, planning, big-picture |
+| `deep-plugin.md` | Implementer | Building plugin components, Claude Code patterns, Track 1 |
 
 ---
 

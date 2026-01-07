@@ -150,6 +150,40 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **Plugin extension** — `/float init` extends `/init`, not replaces — FloatPrompt extends Claude Code
 - **PreCompact hook** — Claude Code's `PreCompact` hook (matcher `auto`) enables future auto-handoff when context fills; threshold warnings (80-90%) and real-time % are feature request territory
 
+### Modes System (Sessions 31-32)
+- **Modes as loadouts** — modes/ folder for context loadouts, "getting dressed for the work"
+- **Framework** — Role, Activate when, Exit when, Load, Hold, Ignore
+- **CLAUDE.md baseline** — Operational guidance every session needs; "note on the door" vs modes as "institutional knowledge"
+- **Mode generator** — /float-mode command with hypothesis-first approach (analyzes session, proposes mode)
+- **Organize integration** — float-organize agent registers new modes in MODES.md
+- **Activate/create duality** — /float-mode handles both activation and creation, with smart session state detection
+- **deep-plugin mode** — Implementer role for Track 1 work, spec as compass (not rigid map)
+- **Boot integration** — /float-boot step 5 offers mode activation after reading state
+
+### Track 1 Spec Revision (Session 34)
+- **Command rename** — `/float-boot` → `/float` (simpler, like `/init`)
+- **Skill + agent pattern** — `/float-deepen` replaced by `float-enrich` skill + `float-enricher` agent
+- **Two operations clarified** — Mode crystallization (cross-cutting topic, `/float-mode`) vs folder enrichment (specific folder, skill + agent)
+- **Enrichment paths** — Organic (skill notices gap during work) and batched (handoff offers at session end)
+- **Context-efficient deep knowledge** — float.db solves context bloat (50k tokens → 3-5k tokens via query-on-demand)
+- **Context hygiene principle** — All float components must REDUCE context, not add to it
+
+### Track 1 Architecture (Session 35)
+- **Four enrichment paths** — Manual (`/float-enrich`), Organic (skill notices), Batched (handoff), Emergency (PreCompact hook)
+- **Modes stay markdown** — Human-curated, not in float.db. Future: store in DB, export to markdown for editing
+- **Folder tracking** — AI memory at handoff, transcript parse for PreCompact
+- **Component pattern** — Command + Agent + Skill for each capability (trigger, work, awareness)
+- **Implementation phases** — Phase 1 (Core), Phase 2 (Integration), Phase 3 (Emergency), Phase 4 (Polish)
+- **Boot.md refined last** — Don't over-specify until components exist
+
+### Adoption-First Plugin (Session 36)
+- **One command interface** — `/float` is the entire user interface, no other commands for users
+- **Skills as automated protocols** — Skills notice opportunities, spawn agents automatically; "the skill IS the protocol, automated"
+- **Hooks for lifecycle** — Hooks trigger handoff at session end, users don't invoke manually
+- **Proactive mode suggestions** — System recommends modes based on detected patterns, not required
+- **Track framing dropped** — No more "Track 1/Track 2" terminology, just "the plugin"
+- **Old spec archived** — `track1-workshop-plugin-spec.md` → `done/track1-workshop-plugin-spec-historical.md`
+
 ---
 
 ## Files
@@ -213,6 +247,11 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-05-track1-workshop-plugin-decision.md](2026-01-05-track1-workshop-plugin-decision.md) | **Track 1 workshop plugin** — Priority 1, Claude Code native patterns (skills + agents + commands), Layer 2 only. |
 | [2026-01-05-track1-plugin-spec-locked.md](2026-01-05-track1-plugin-spec-locked.md) | **Track 1 plugin spec locked** — 1 skill (floatdb), 3 commands (/float, /float-deepen, /float-handoff), 1 agent (float-context-generator). Pure YAML + markdown format. |
 | [2026-01-05-session30-context-philosophy.md](2026-01-05-session30-context-philosophy.md) | **Context philosophy locked** — Context is "compressed human judgment", AI perspective documented, queryable vs navigable distinction, plugin extension vision. |
+| [2026-01-06-modes-system.md](2026-01-06-modes-system.md) | **Modes system locked** — Context loadouts via modes/ folder, CLAUDE.md baseline, /float-mode with activate/create duality, deep-plugin mode, compass framing. |
+| [2026-01-06-ai-native-context.md](2026-01-06-ai-native-context.md) | **AI-native context** — What AI needs (queryable, typed, hierarchical) vs human navigation patterns. Reference doc created. |
+| [2026-01-06-track1-spec-revision.md](2026-01-06-track1-spec-revision.md) | **Track 1 spec revision** — `/float-boot` → `/float`, skill + agent replaces `/float-deepen`, mode crystallization vs folder enrichment clarified, context hygiene principle. |
+| [2026-01-06-track1-architecture.md](2026-01-06-track1-architecture.md) | **Track 1 architecture** — Four enrichment paths, component pattern (command + agent + skill), phased implementation, boot.md refined last. |
+| [2026-01-07-adoption-first-plugin.md](2026-01-07-adoption-first-plugin.md) | **Adoption-first plugin** — ONE command (`/float`), skills as automated protocols, hooks for lifecycle, track framing dropped. |
 
 ### Archived Reference Material
 

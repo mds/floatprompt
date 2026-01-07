@@ -16,9 +16,7 @@ Current focus items. **Limit: 3 items max.**
 
 | Item | Status | Summary |
 |------|--------|---------|
-| `track1-workshop-plugin-spec.md` | **Primary (S30)** | Plugin spec enhanced with Claude Code native migration |
-| `two-track-exploration.md` | Reference | Track 1 vs Track 2 decision context |
-| `plugin-architecture.md` | Reference | Plugin patterns, component mapping |
+| `floatprompt-plugin-spec.md` | **Draft (S36)** | Adoption-first plugin spec — one command (`/float`), everything else automatic |
 
 ## Overflow Check
 

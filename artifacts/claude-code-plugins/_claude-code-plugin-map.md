@@ -30,7 +30,6 @@ This catalog maps all documentation files for Claude Code extensibility features
 | `agent-skills.md` | 23KB | Model-invoked skills, SKILL.md format, progressive disclosure, tool restrictions |
 | `subagents.md` | 23KB | Custom AI subagents, built-in agents (Explore, Plan, General-purpose), configuration |
 | `hooks-reference.md` | 36KB | Event hooks (PreToolUse, PostToolUse, etc.), JSON output, prompt-based hooks |
-| `hooks-guide.md` | 0B | *Empty file - placeholder* |
 
 ### Integration & Tools
 

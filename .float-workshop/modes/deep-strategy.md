@@ -21,6 +21,7 @@ Read these in order. Each builds on the previous.
 | Principles | `ref/principles.md` | Core design principles — Standalone + Chainable, AI-Native, Paper Trail |
 | Buoys | `ref/buoys.md` | Buoy architecture — 7 buckets, hub-and-spoke, judgment vs mechanics |
 | January Decisions | `logs/2026/01-jan/01-jan.md` | What's locked — comprehensive decision log |
+| AI-Native Context | `ref/ai-native-context.md` | Paradigm shift — AI as producer+consumer, human as auditor |
 
 ### If Working on Track 1 Plugin
 
@@ -142,6 +143,15 @@ If NO → don't write code yet. Map → Decide → Structure. Code is not a thin
 
 Flat files are navigable (for humans). SQLite is queryable (for AI reasoning). Same structure, different interface.
 
+### AI-Native Paradigm
+
+Float.db isn't "docs for AI to read" — it's "AI's own knowledge store that humans can audit."
+
+- AI is producer AND consumer (not just consumer)
+- Human role: auditor, not author
+- Markdown is a tax for internal storage (export when needed)
+- Binary/SQLite is correct — optimize for AI, not human readability
+
 ### Why Nothing Else Like This Exists
 
 - LangChain/LlamaIndex — orchestration, not context infrastructure
@@ -173,6 +183,19 @@ FloatPrompt is the layer between AI and codebase. Not a tool — infrastructure.
 - "Just ship it" pressure — strategy mode is for getting direction right
 - Track 1 limitations when discussing big vision
 - Big vision scope when implementing Track 1
+
+---
+
+## Go Deeper
+
+Reference docs for adjacent exploration:
+
+| Direction | Document | Path |
+|-----------|----------|------|
+| Implementation | Deep Plugin Mode | `modes/deep-plugin.md` |
+| Folder structure | Float Data Model | `ref/float-folder-structure.md` |
+| How it works | FloatPrompt Mechanics | `artifacts/how-floatprompt-works.md` |
+| Full vision doc | Comprehensive Vision | `docs/vision.md` |
 
 ---
 

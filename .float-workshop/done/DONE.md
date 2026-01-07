@@ -22,3 +22,4 @@ Completed work. Frozen job files for reference.
 | `protocol-update-logs.md` | 2026-01-05 | Archived: migrated to `float-update-logs` agent (Session 26) |
 | `protocol-migration-verification.md` | 2026-01-05 | Verified: protocol → command/agent migration complete |
 | `2026-01-05-deep-floatprompt-session18.md` | 2026-01-05 | Archived: superseded by updated deep context (Session 30) |
+| `track1-workshop-plugin-spec-historical.md` | 2026-01-07 | Archived: superseded by adoption-first `floatprompt-plugin-spec.md` (Session 36) |
