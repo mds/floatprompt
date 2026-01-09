@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# FloatPrompt Automatic Handoff
+# FloatPrompt Automatic Capture
 #
 # Fires on: PreCompact (context full) OR SessionEnd (user exits)
 # Whichever comes first. Self-deduplicating.
@@ -38,7 +38,7 @@ if [ ! -f "$FLOAT_DB" ]; then
 fi
 
 # -----------------------------------------------------------------------------
-# Early exit: Deduplication - skip if handoff already ran recently (5 min)
+# Early exit: Deduplication - skip if capture already ran recently (5 min)
 # -----------------------------------------------------------------------------
 # This prevents double-firing when PreCompact runs and then SessionEnd follows
 RECENT_HANDOFF=$(sqlite3 "$FLOAT_DB" "
@@ -125,64 +125,31 @@ SELECT last_insert_rowid();
 
 if [ "$HOOK_EVENT" = "PreCompact" ]; then
 
+  # Get plugin root directory (where agents/ lives)
+  SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+  PLUGIN_ROOT="$(dirname "$SCRIPT_DIR")"
+
   # ---------------------------------------------------------------------------
   # PHASE 2: AI synthesis via float-log agent
   # ---------------------------------------------------------------------------
   if command -v claude &> /dev/null; then
-    claude -p "You are the float-log agent. A session is about to compact.
+    # Export variables for agent to use
+    export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED TRANSCRIPT_PATH FLOAT_DB CURRENT_DATE
 
-Session info:
-- Entry ID to update: $ENTRY_ID
-- Files changed: $FILES_CHANGED_JSON
-- Folders edited: $FOLDERS_EDITED
-- Transcript: $TRANSCRIPT_PATH
-- Database: $FLOAT_DB
+    # Read agent file and inject context
+    AGENT_PROMPT=$(cat "$PLUGIN_ROOT/agents/float-log.md")
 
-## Your TWO jobs:
+    claude -p "$AGENT_PROMPT
 
-### Job 1: Update the session handoff (MANDATORY)
-Update the pending entry with a meaningful summary:
+---
+## Session Context (injected by hook)
 
-sqlite3 \"$FLOAT_DB\" \"UPDATE log_entries SET
-  title = 'Session [N]: [brief description]',
-  decision = '[What was accomplished - be specific]',
-  rationale = 'Next options: 1) [option], 2) [option], 3) [option]'
-WHERE id = $ENTRY_ID;\"
-
-### Job 2: Log folder-level decisions (IF ANY)
-For each folder where a SIGNIFICANT DECISION was made, create a locked entry:
-
-sqlite3 \"$FLOAT_DB\" \"INSERT INTO log_entries (
-  folder_path, date, topic, status, title, decision, rationale, files_changed, created_at
-) VALUES (
-  '/path/to/folder',
-  '$CURRENT_DATE',
-  'topic-slug',
-  'locked',
-  'Decision title',
-  'What was decided',
-  'Why this approach was chosen',
-  '[]',
-  unixepoch()
-);\"
-
-**What counts as a decision:**
-- Architectural choices (use X instead of Y)
-- Schema changes (added column, renamed field)
-- Pattern establishments (all hooks do X)
-- Trade-off resolutions (prioritize A over B)
-
-**What does NOT count:**
-- Routine implementation
-- Bug fixes without broader implications
-- Work in progress
-
-**Examples of good folder-level entries:**
-- folder_path='/src/db', topic='schema-rename', title='Renamed content_md to context'
-- folder_path='/plugins/floatprompt', topic='hook-architecture', title='PreCompact + SessionEnd dual trigger'
-- folder_path='/src/auth', topic='token-strategy', title='Bearer tokens over cookies'
-
-Read the transcript, then execute the SQL commands. Be selective - only log actual decisions.
+- ENTRY_ID: $ENTRY_ID
+- FILES_CHANGED_JSON: $FILES_CHANGED_JSON
+- FOLDERS_EDITED: $FOLDERS_EDITED
+- TRANSCRIPT_PATH: $TRANSCRIPT_PATH
+- FLOAT_DB: $FLOAT_DB
+- CURRENT_DATE: $CURRENT_DATE
 " --model haiku --allowedTools Bash,Read --max-turns 5 2>/dev/null || true
   fi
 
@@ -190,22 +157,19 @@ Read the transcript, then execute the SQL commands. Be selective - only log actu
   # PHASE 3: AI enrichment via float-enrich agent
   # ---------------------------------------------------------------------------
   if command -v claude &> /dev/null && [ "$FOLDERS_EDITED" != "[]" ]; then
-    claude -p "You are the float-enrich agent. A session is about to compact.
+    # Export variables for agent to use
+    export FOLDERS_EDITED FLOAT_DB
 
-Folders that were edited: $FOLDERS_EDITED
-Database: $FLOAT_DB
+    # Read agent file and inject context
+    AGENT_PROMPT=$(cat "$PLUGIN_ROOT/agents/float-enrich.md")
 
-Your task:
-1. For each folder in the list, check if it exists in float.db
-2. If it exists, read the folder contents and current context
-3. Decide if there's new understanding worth capturing
-4. If yes, update the folder's description and context
+    claude -p "$AGENT_PROMPT
 
-Use sqlite3 directly:
-- Query: sqlite3 $FLOAT_DB \"SELECT path, description, context FROM folders WHERE path = '...'\"
-- Update: sqlite3 $FLOAT_DB \"UPDATE folders SET description='...', context='...', status='current', ai_model='haiku', ai_updated=unixepoch() WHERE path='...'\"
+---
+## Session Context (injected by hook)
 
-Be selective. Only update if you have genuinely new understanding.
+- FOLDERS_EDITED: $FOLDERS_EDITED
+- FLOAT_DB: $FLOAT_DB
 " --model haiku --allowedTools Bash,Read,Glob --max-turns 5 2>/dev/null || true
   fi
 

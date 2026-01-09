@@ -1,6 +1,6 @@
 # FloatPrompt Plugin for Claude Code
 
-**Persistent context that survives sessions and compounds over time.**
+**The invisible OS for AI. Persistent context that survives sessions and compounds over time.**
 
 > One command. AI operates everything else.
 
@@ -14,10 +14,11 @@ plugins/floatprompt/
 │   └── plugin.json           # Plugin manifest (name, version, entry points)
 ├── agents/                   # (Reserved for future agent files)
 ├── commands/
-│   └── float.md              # /float command - boots FloatPrompt session
+│   ├── float.md              # /float command - boots FloatPrompt session
+│   └── float-capture.md      # /float-capture command - manual context capture
 ├── hooks/
 │   ├── hooks.json            # Hook configuration (PreCompact + SessionEnd)
-│   └── float-handoff.sh      # Main hook script (session capture + AI enrichment)
+│   └── float-capture.sh      # Main hook script (session capture + AI enrichment)
 ├── lib/
 │   ├── schema.sql            # SQLite schema for float.db (9 tables)
 │   └── scan.sh               # Layer 1 scanner (folders + files with hashes)
@@ -93,6 +94,31 @@ ORDER BY created_at DESC LIMIT 3;
 
 ---
 
+### `commands/float-capture.md`
+
+**Purpose:** Manual context capture mid-session. Use when you want to save significant work without ending.
+
+**Invocation:** `/float-capture` or `/floatprompt:float-capture`
+
+**When to Use:**
+
+| Automatic (hooks) | Manual (/float-capture) |
+|-------------------|-------------------------|
+| PreCompact — context filling up | Just completed significant work |
+| SessionEnd — leaving | Want to checkpoint mid-session |
+| You don't think about it | Intentional "save point" |
+
+**Behavior:**
+1. Check for `.float/float.db` (skip if not initialized)
+2. Check for recent capture (skip if captured in last 5 min)
+3. Phase 1: Mechanical sqlite3 INSERT
+4. Phase 2: float-log agent (session summary)
+5. Phase 3: float-enrich agent (folder context)
+
+**Note:** Manual capture behaves like PreCompact — full AI enrichment while session is alive.
+
+---
+
 ### `hooks/hooks.json`
 
 **Purpose:** Configures automatic lifecycle hooks for session capture.
@@ -116,7 +142,7 @@ Self-deduplicating: If PreCompact runs, SessionEnd skips (5-minute window).
 
 ---
 
-### `hooks/float-handoff.sh`
+### `hooks/float-capture.sh`
 
 **Purpose:** Main hook script that captures session state and enriches with AI.
 
@@ -329,7 +355,7 @@ AI boots with context ◄────────────── Query log_en
    [Work happens]
         │
         ▼
-PreCompact fires ────────────────────► hooks/float-handoff.sh
+PreCompact fires ────────────────────► hooks/float-capture.sh
 (or SessionEnd)                              │
         │                              ┌─────┴─────┐
         │                              │  Phase 1  │ sqlite3 INSERT (instant)
@@ -500,7 +526,7 @@ bash plugins/floatprompt/lib/scan.sh .
 | 2026-01-09 | 45 | Created README.md with full documentation |
 | 2026-01-09 | 45 | Enhanced scan.sh: files table with SHA-256 hashes |
 | 2026-01-09 | 45 | Fixed plugin.json schema validation (author, commands, hooks) |
-| 2026-01-09 | 45 | Enhanced float-handoff.sh: folder-level logging |
+| 2026-01-09 | 45 | Enhanced float-capture.sh: folder-level logging |
 | 2026-01-09 | 44 | Initial plugin structure: all core components |
 | 2026-01-09 | 43 | Schema created, float.db initialized |
 
