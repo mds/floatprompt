@@ -6,11 +6,48 @@
  * The complete extraction chain that transforms HTML into clean markdown.
  */
 
+import { parseHTML } from 'linkedom';
 import { sanitize } from './sanitize.js';
 import { extractContent, extractJsonLd, extractMetadata } from './extract.js';
 import { toMarkdown } from './convert.js';
 import { generateFrontmatter, withFrontmatter } from './frontmatter.js';
 import type { ExtractOptions, ExtractResult } from '../types.js';
+
+/**
+ * Pre-extract h1 and intro paragraph before Readability processing
+ *
+ * Readability often strips h1 elements that are inside <section> or <header>
+ * elements (common in hero/header components). This function extracts them
+ * before Readability runs so we can prepend them to the output.
+ */
+function preExtractHeroContent(html: string): { preExtractedH1: string | null; preExtractedIntro: string | null } {
+  try {
+    const dom = parseHTML(html);
+    const h1Element = dom.document.querySelector('h1');
+
+    if (!h1Element) {
+      return { preExtractedH1: null, preExtractedIntro: null };
+    }
+
+    const h1Text = h1Element.textContent?.trim() || null;
+
+    // Look for intro paragraph - first <p> that's a sibling or near-sibling of h1
+    let introText: string | null = null;
+    const h1Parent = h1Element.parentElement;
+
+    if (h1Parent) {
+      // Check for <p> sibling
+      const siblingP = h1Parent.querySelector('p');
+      if (siblingP) {
+        introText = siblingP.textContent?.trim() || null;
+      }
+    }
+
+    return { preExtractedH1: h1Text, preExtractedIntro: introText };
+  } catch {
+    return { preExtractedH1: null, preExtractedIntro: null };
+  }
+}
 
 /**
  * Process HTML through the complete pipeline
@@ -35,6 +72,10 @@ export function processPipeline(
   // 3. Sanitize HTML (remove XSS vectors, dangerous content)
   const sanitizedHtml = sanitize(html);
 
+  // 3.5. Pre-extract h1 and intro before Readability (which often strips them)
+  // Readability classifies <section> content as navigation/header, losing the h1
+  const { preExtractedH1, preExtractedIntro } = preExtractHeroContent(sanitizedHtml);
+
   // 4. Extract main content using Readability
   const fullUrl = baseUrl ? new URL(url, baseUrl).toString() : url;
   const extracted = extractContent(sanitizedHtml, fullUrl);
@@ -44,10 +85,17 @@ export function processPipeline(
   }
 
   // 5. Convert to Markdown
-  const markdownContent = toMarkdown(extracted.content);
+  let markdownContent = toMarkdown(extracted.content);
 
   if (!markdownContent || markdownContent.trim() === '') {
     return null;
+  }
+
+  // 5.5. Prepend pre-extracted h1 and intro if not already in content
+  // This recovers content that Readability stripped from <section> elements
+  if (preExtractedH1 && !markdownContent.trimStart().startsWith('# ')) {
+    const intro = preExtractedIntro ? `\n\n${preExtractedIntro}` : '';
+    markdownContent = `# ${preExtractedH1}${intro}\n\n${markdownContent}`;
   }
 
   // 6. Determine title (priority: provided > readability > og:title > <title>)
