@@ -1,13 +1,13 @@
 {
   "name": "floatprompt",
-  "version": "0.1.0",
-  "description": "Generate clean markdown files alongside HTML pages, making websites AI-readable",
+  "version": "1.0.1",
+  "description": "Floats your content for AI — and humans who use it",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "floatprompt": "./dist/cli/index.js"
+    "floatprompt": "dist/cli/index.js"
   },
   "exports": {
     ".": {
@@ -21,6 +21,18 @@
     "./astro": {
       "import": "./dist/integrations/astro.js",
       "types": "./dist/integrations/astro.d.ts"
+    },
+    "./next-dynamic": {
+      "import": "./dist/integrations/next-dynamic.js",
+      "types": "./dist/integrations/next-dynamic.d.ts"
+    },
+    "./widget": {
+      "import": "./dist/widget/index.js",
+      "types": "./dist/widget/index.d.ts"
+    },
+    "./react": {
+      "import": "./dist/widget/react.js",
+      "types": "./dist/widget/react.d.ts"
     }
   },
   "files": [
@@ -31,6 +43,7 @@
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run clean && npm run build",
+    "postinstall": "node dist/cli/postinstall.js || true",
     "test": "node --test test/*.test.js"
   },
   "keywords": [
@@ -66,6 +79,19 @@
     "@types/dompurify": "^3.0.5",
     "@types/turndown": "^5.0.5",
     "@types/node": "^22.0.0",
+    "@types/react": "^18.0.0",
     "typescript": "^5.7.0"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "next": ">=13.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "next": {
+      "optional": true
+    }
   }
 }
