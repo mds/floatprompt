@@ -26,6 +26,10 @@
       "import": "./dist/integrations/next-dynamic.js",
       "types": "./dist/integrations/next-dynamic.d.ts"
     },
+    "./core": {
+      "import": "./dist/core/pipeline.js",
+      "types": "./dist/core/pipeline.d.ts"
+    },
     "./widget": {
       "import": "./dist/widget/index.js",
       "types": "./dist/widget/index.d.ts"

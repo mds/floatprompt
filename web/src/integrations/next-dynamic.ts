@@ -18,7 +18,9 @@
  * ```
  */
 
-import { FloatPrompt } from '../index.js';
+// Import directly from pipeline to avoid Node.js imports in index.js
+// This keeps the module Edge runtime compatible
+import { processPipeline } from '../core/pipeline.js';
 
 // ---------------------------------------------------------------------------
 // Next.js Type Definitions
@@ -350,8 +352,8 @@ export function createFloatHandler(config: FloatDynamicConfig = {}) {
         });
       }
 
-      // Extract markdown using core FloatPrompt
-      const result = FloatPrompt.extract(html, {
+      // Extract markdown using core pipeline (Edge-compatible)
+      const result = processPipeline(html, {
         url: path,
         baseUrl: origin,
         includeSchema,
