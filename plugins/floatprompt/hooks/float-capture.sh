@@ -19,6 +19,9 @@ set -e
 # Read hook input from stdin
 INPUT=$(cat)
 
+# Debug: log the raw input to help diagnose hook issues
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Hook fired. Input: $INPUT" >> /tmp/float-capture-debug.log
+
 # Extract fields from JSON input
 SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
 TRANSCRIPT_PATH=$(echo "$INPUT" | jq -r '.transcript_path // empty')
@@ -136,12 +139,11 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
     # Export variables for agent to use
     export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED TRANSCRIPT_PATH FLOAT_DB CURRENT_DATE
 
-    # Read agent file and inject context
-    AGENT_PROMPT=$(cat "$PLUGIN_ROOT/agents/float-log.md")
+    # Read agent file, strip YAML frontmatter (starts with ---), inject context
+    AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-log.md")
 
     claude -p "$AGENT_PROMPT
 
----
 ## Session Context (injected by hook)
 
 - ENTRY_ID: $ENTRY_ID
@@ -160,12 +162,11 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
     # Export variables for agent to use
     export FOLDERS_EDITED FLOAT_DB
 
-    # Read agent file and inject context
-    AGENT_PROMPT=$(cat "$PLUGIN_ROOT/agents/float-enrich.md")
+    # Read agent file, strip YAML frontmatter (starts with ---), inject context
+    AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-enrich.md")
 
     claude -p "$AGENT_PROMPT
 
----
 ## Session Context (injected by hook)
 
 - FOLDERS_EDITED: $FOLDERS_EDITED
