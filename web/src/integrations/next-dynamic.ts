@@ -189,10 +189,11 @@ function mdPathToHtmlPath(pathname: string): string {
 }
 
 // ---------------------------------------------------------------------------
-// Internal Request Header
+// Internal Request Headers
 // ---------------------------------------------------------------------------
 
 const INTERNAL_HEADER = 'x-floatprompt-internal';
+const PATH_HEADER = 'x-floatprompt-path';
 
 // ---------------------------------------------------------------------------
 // Middleware
@@ -227,9 +228,15 @@ export function createFloatMiddleware(config: FloatDynamicConfig = {}) {
       // Rewrite to API route (configurable path)
       const url = request.nextUrl.clone();
       url.pathname = apiRoute;
-      url.searchParams.set('path', htmlPath);
+      // Note: Don't rely on searchParams for path - Next.js preserves original URL in rewrites
+      // Instead, pass path via header which survives the rewrite
+      url.searchParams.set('path', htmlPath); // Keep for backwards compat with direct API calls
 
-      return middlewareRewrite(url);
+      // Create rewrite response, then set path header
+      // Next.js forwards headers set on rewrite responses to the internal request
+      const response = middlewareRewrite(url);
+      response.headers.set(PATH_HEADER, htmlPath);
+      return response;
     }
 
     return middlewareNext();
@@ -326,7 +333,11 @@ export function createFloatHandler(config: FloatDynamicConfig = {}) {
   } = config;
 
   return async function floatHandler(request: NextRequest): Promise<Response> {
-    const path = request.nextUrl.searchParams.get('path');
+    // Read path from header (set by middleware rewrite) or query param (direct API call)
+    // Headers survive Next.js rewrites, query params on rewrite URL do not
+    const path = request.headers.get(PATH_HEADER)
+      ?? request.nextUrl?.searchParams.get('path')
+      ?? new URL(request.url).searchParams.get('path');
 
     if (!path) {
       return new Response('Missing path parameter', {
