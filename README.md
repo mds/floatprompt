@@ -1,57 +1,135 @@
 # FloatPrompt
 
-Portable AI tools. Text files that transform AI behavior.
+Make websites AI-readable. Generate clean markdown alongside HTML.
+
+> **Note:** This project is in active development. APIs may change.
 
 ---
 
-## The Tooling (Stable)
+## The Problem
 
-**[`templates/`](templates/)** — Production-ready floatprompt templates.
+40-70% of tokens are wasted when AI agents parse websites — navigation, ads, footers, scripts. Publishers have no "make my site AI-readable" button.
 
-| File | Size | Use |
-|------|------|-----|
-| [`floatprompt.md`](templates/floatprompt.md) | 3KB | Build floatprompts through conversation |
-| [`float-os.md`](templates/float-os.md) | 35KB | Guided tool creation with full methodology |
-| [`float-doc.md`](templates/float-doc.md) | 5KB | Add context frontmatter to any document |
+## The Solution
 
-**Quick start:** Upload any of these to ChatGPT, Claude, or Cursor. Jointly create the output.
+One command after your build:
 
 ```bash
-npm install -g floatprompt    # Install CLI
-float init                    # Create .float/ in any project
-float update                  # Update to latest templates
+npx floatprompt generate ./dist
+```
+
+Every page gets a `.md` sibling. Your site gets an `llms.txt` index. A `/float/` dashboard shows everything.
+
+---
+
+## What Gets Generated
+
+```
+dist/
+├── llms.txt           # Site index for AI
+├── llms-full.txt      # Complete content in one file
+├── index.html
+├── index.md           # ← NEW
+├── about.html
+├── about.md           # ← NEW
+├── docs/
+│   ├── api.html
+│   └── api.md         # ← NEW
+└── float/
+    └── index.html     # Human dashboard
+```
+
+**URL pattern:** Just add `.md` to any page URL.
+- `/about` → HTML for humans
+- `/about.md` → Markdown for AI
+
+---
+
+## Installation
+
+```bash
+npm install --save-dev floatprompt
+```
+
+### Usage
+
+**CLI (any static site):**
+```bash
+npx floatprompt generate ./dist
+```
+
+**Next.js:**
+```javascript
+// next.config.js
+const withFloatPrompt = require('floatprompt/next');
+
+module.exports = withFloatPrompt({
+  // your config
+});
+```
+
+**Astro:**
+```javascript
+// astro.config.mjs
+import floatprompt from 'floatprompt/astro';
+
+export default {
+  integrations: [floatprompt()]
+};
+```
+
+**Generic post-build:**
+```json
+{
+  "scripts": {
+    "build": "your-build && npx floatprompt generate ./dist"
+  }
+}
 ```
 
 ---
 
-## The Vision (In Development)
+## Configuration
 
-Everything else in this repo is building toward something larger.
+Zero config works for most sites. Optional `floatprompt.config.js`:
 
-Context that survives sessions. Understanding that compounds over time. AI that remembers what you were working on, what decisions you made, why things are structured the way they are. Not through conversation history, but through persistent, queryable knowledge that lives alongside your code.
-
-The invisible OS for AI.
-
-**Status:** Manual templates are being tested and used in Claude Code. The context infrastructure (`src/`, `.float-workshop/`, the SQLite layer) is active development — the architecture is semi-locked, implementation is ongoing.
-
----
-
-## Examples
-
-Real floatprompts in [`examples/`](examples/):
-
-- **AI Portfolio Coach** (729 lines) — Multi-phase guidance producing HTML artifacts
-- **Design Feedback Extractor** — Archaeological extraction preserving voice
-- **Shortform Script Writer** — Transforms extractions into shortform scripts
-+ a ton of others that I haven't added here
+```javascript
+export default {
+  input: './dist',
+  output: './dist',
+  exclude: ['/admin/**'],
+  baseUrl: 'https://example.com',
+  llmsTxt: true,
+  dashboard: true,
+};
+```
 
 ---
 
-## Documentation
+## How It Works
 
-- [FloatPrompt Format](docs/specs/floatprompt.md)
-- [MDS Methodology](docs/philosophy/mds-method.md) (Map → Decide → Structure)
+1. **DOMPurify** — Sanitizes HTML (security)
+2. **Readability.js** — Extracts main content (Mozilla's library)
+3. **Turndown** — Converts to markdown
+
+No AI calls. No API keys. Pure mechanical extraction.
 
 ---
 
-© 2025 [@MDS](https://mds.is) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+## Requirements
+
+- Node.js 18+
+- A website with a build step that outputs HTML
+
+Works with: Next.js, Gatsby, Astro, Hugo, Jekyll, Eleventy, or any SSG.
+
+---
+
+## Links
+
+- [llms.txt spec](https://llmstxt.org/)
+- [Readability.js](https://github.com/mozilla/readability)
+
+---
+
+© 2026 [@MDS](https://mds.is) | MIT License

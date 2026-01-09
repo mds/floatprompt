@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get started with FloatPrompt in under 5 minutes">
+  <title>Getting Started — Simple Site Docs</title>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/docs/getting-started.html">Docs</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <article>
+      <h1>Getting Started</h1>
+
+      <p>Get FloatPrompt running on your site in under 5 minutes.</p>
+
+      <h2>Prerequisites</h2>
+
+      <ul>
+        <li>Node.js 18 or higher</li>
+        <li>A website with a build step</li>
+      </ul>
+
+      <h2>Installation</h2>
+
+      <p>Install FloatPrompt as a dev dependency:</p>
+
+      <pre><code>npm install --save-dev floatprompt</code></pre>
+
+      <h2>Usage</h2>
+
+      <p>Add FloatPrompt to your build script:</p>
+
+      <pre><code>{
+  "scripts": {
+    "build": "your-build-command && npx floatprompt generate ./dist"
+  }
+}</code></pre>
+
+      <h2>Configuration</h2>
+
+      <p>Create <code>floatprompt.config.js</code> for custom settings:</p>
+
+      <pre><code>export default {
+  exclude: ['/admin/**'],
+  baseUrl: 'https://example.com',
+};</code></pre>
+
+      <h2>What Gets Generated</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>File</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>{page}.md</code></td>
+            <td>Markdown version of each page</td>
+          </tr>
+          <tr>
+            <td><code>llms.txt</code></td>
+            <td>Site index for AI</td>
+          </tr>
+          <tr>
+            <td><code>llms-full.txt</code></td>
+            <td>Complete site content</td>
+          </tr>
+          <tr>
+            <td><code>/float/</code></td>
+            <td>Human dashboard</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>That's it! Your site is now AI-readable.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Simple Site. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -119,8 +119,10 @@ Reference docs for adjacent exploration:
 
 | Mode | Role | When to Activate |
 |------|------|------------------|
-| `deep-strategy.md` | Architect | Architecture decisions, planning, big-picture |
-| `deep-plugin.md` | Implementer | Building plugin components, Claude Code patterns, Track 1 |
+| `deep-strategy.md` | Architect | Architecture decisions, planning, big-picture (covers all products) |
+| `deep-plugin.md` | Implementer | Building FloatPrompt for Repos (Claude Code plugin) |
+
+**Future consideration:** `deep-web.md` for FloatPrompt for Web implementation work (NPM package). Create when that track needs dedicated context.
 
 ---
 

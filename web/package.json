@@ -1,0 +1,71 @@
+{
+  "name": "floatprompt",
+  "version": "0.1.0",
+  "description": "Generate clean markdown files alongside HTML pages, making websites AI-readable",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "floatprompt": "./dist/cli/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./next": {
+      "import": "./dist/integrations/next.js",
+      "types": "./dist/integrations/next.d.ts"
+    },
+    "./astro": {
+      "import": "./dist/integrations/astro.js",
+      "types": "./dist/integrations/astro.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "markdown",
+    "html",
+    "ai",
+    "llm",
+    "llms.txt",
+    "seo",
+    "aeo",
+    "readability",
+    "content-extraction"
+  ],
+  "author": "MDS",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mds/floatprompt.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dompurify": "^3.2.4",
+    "@mozilla/readability": "^0.5.0",
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2",
+    "linkedom": "^0.18.9",
+    "glob": "^11.0.0",
+    "yaml": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.5",
+    "@types/turndown": "^5.0.5",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}

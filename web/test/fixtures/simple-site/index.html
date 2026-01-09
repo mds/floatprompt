@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple test site for FloatPrompt">
+  <title>Simple Site — Home</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Simple Site",
+    "description": "A test site for FloatPrompt"
+  }
+  </script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/docs/getting-started.html">Docs</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <article>
+      <h1>Welcome to Simple Site</h1>
+
+      <p>This is a test site for <strong>FloatPrompt</strong>. It demonstrates how FloatPrompt extracts content from HTML pages and converts them to clean markdown.</p>
+
+      <h2>Features</h2>
+
+      <ul>
+        <li>Clean extraction using Readability</li>
+        <li>Markdown conversion with Turndown</li>
+        <li>Automatic llms.txt generation</li>
+        <li>Human dashboard at /float/</li>
+      </ul>
+
+      <h2>Get Started</h2>
+
+      <p>Run the following command:</p>
+
+      <pre><code>npx floatprompt generate ./dist</code></pre>
+
+      <p>That's it! Your site is now AI-readable.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Simple Site. All rights reserved.</p>
+  </footer>
+</body>
+</html>

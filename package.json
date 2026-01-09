@@ -1,54 +1,54 @@
 {
   "name": "floatprompt",
-  "version": "0.17.0",
-  "description": "The invisible OS for AI",
-  "bin": {
-    "float": "./bin/floatprompt.js"
-  },
+  "version": "1.0.0",
+  "description": "Make websites AI-readable. Generate clean markdown alongside HTML.",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./web/dist/index.js",
+  "types": "./web/dist/index.d.ts",
+  "bin": {
+    "floatprompt": "./web/dist/cli/index.js"
+  },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./web/dist/index.d.ts",
+      "import": "./web/dist/index.js"
+    },
+    "./next": {
+      "types": "./web/dist/integrations/next.d.ts",
+      "import": "./web/dist/integrations/next.js"
+    },
+    "./astro": {
+      "types": "./web/dist/integrations/astro.d.ts",
+      "import": "./web/dist/integrations/astro.js"
     }
   },
+  "files": [
+    "web/dist"
+  ],
   "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf dist",
+    "build": "cd web && npm run build",
+    "clean": "cd web && npm run clean",
     "prepublishOnly": "npm run build"
   },
-  "files": [
-    "bin/",
-    "dist/",
-    "templates/"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mds/floatprompt.git"
+    "url": "git+https://github.com/mds/floatprompt.git"
   },
   "keywords": [
-    "ai",
-    "prompt",
-    "collaboration",
     "markdown",
-    "portable",
-    "claude",
-    "llm"
+    "html",
+    "ai",
+    "llm",
+    "llms.txt",
+    "seo",
+    "aeo",
+    "readability",
+    "content-extraction",
+    "next.js",
+    "astro"
   ],
   "author": "@mds",
   "license": "MIT",
-  "dependencies": {
-    "@anthropic-ai/sdk": "^0.71.2",
-    "better-sqlite3": "^11.10.0",
-    "zod": "^3.24.1"
-  },
-  "devDependencies": {
-    "@types/better-sqlite3": "^7.6.13",
-    "@types/node": "^22.10.5",
-    "typescript": "^5.7.2"
-  },
   "engines": {
     "node": ">=18.0.0"
   },

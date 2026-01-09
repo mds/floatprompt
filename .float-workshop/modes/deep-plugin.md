@@ -14,13 +14,14 @@ Read these. Plugin docs are the authority.
 
 | Document | Path | What It Provides |
 |----------|------|------------------|
-| Plugin Map | `artifacts/claude-code-plugins/_claude-code-plugin-map.md` | Navigation — which doc has what |
-| Plugins Reference | `artifacts/claude-code-plugins/plugins-reference.md` | Complete technical spec — manifest, components, debugging |
-| Create Plugins | `artifacts/claude-code-plugins/create-plugins.md` | Tutorial — quickstart, structure, testing |
-| Official Plugins | `artifacts/claude-code-plugins/claude-code-plugins-README.md` | Examples — real plugins as patterns |
+| Plugin Map | `artifacts/2026/01-jan/claude-code-plugins/_claude-code-plugin-map.md` | Navigation — which doc has what |
+| Plugins Reference | `artifacts/2026/01-jan/claude-code-plugins/plugins-reference.md` | Complete technical spec — manifest, components, debugging |
+| Create Plugins | `artifacts/2026/01-jan/claude-code-plugins/create-plugins.md` | Tutorial — quickstart, structure, testing |
+| Official Plugins | `artifacts/2026/01-jan/claude-code-plugins/claude-code-plugins-README.md` | Examples — real plugins as patterns |
 | Plugin Spec | `active/floatprompt-plugin-spec.md` | What we're building — adoption-first, one command, automatic everything |
+| Plugin PRD | `active/floatprompt-plugin-PRD.md` | Implementation details — agents, hooks, session continuity |
 | Current Commands | `.claude/commands/` | What exists — boot, handoff, mode |
-| Current Agents | `.claude/agents/` | What exists — organize, update-logs, mode-generator |
+| Current Agents | `.claude/agents/` | What exists — organize, update-logs, mode-generator, enricher, logger |
 
 ### Key Decision Logs
 
@@ -35,10 +36,10 @@ Read these. Plugin docs are the authority.
 
 | Document | Path | What It Provides |
 |----------|------|------------------|
-| Slash Commands | `artifacts/claude-code-plugins/slash-commands.md` | Commands in depth — arguments, frontmatter, bash |
-| Agent Skills | `artifacts/claude-code-plugins/agent-skills.md` | Skills in depth — SKILL.md, progressive disclosure |
-| Subagents | `artifacts/claude-code-plugins/subagents.md` | Agents in depth — custom agents, model selection |
-| Hooks Reference | `artifacts/claude-code-plugins/hooks-reference.md` | Hooks in depth — events, matchers, JSON output |
+| Slash Commands | `artifacts/2026/01-jan/claude-code-plugins/slash-commands.md` | Commands in depth — arguments, frontmatter, bash |
+| Agent Skills | `artifacts/2026/01-jan/claude-code-plugins/agent-skills.md` | Skills in depth — SKILL.md, progressive disclosure |
+| Subagents | `artifacts/2026/01-jan/claude-code-plugins/subagents.md` | Agents in depth — custom agents, model selection |
+| Hooks Reference | `artifacts/2026/01-jan/claude-code-plugins/hooks-reference.md` | Hooks in depth — events, matchers, JSON output |
 
 ---
 
@@ -225,20 +226,25 @@ That's it. Everything else is automatic:
 - `/float-mode` → keep for manual, add skill for proactive suggestion
 - `float-mode-generator` agent → exists, needs skill trigger
 
+**Drafted (Session 38):**
+- `float-enricher` agent → drafted, ready for testing
+- `float-logger` agent → drafted, ready for testing
+- CLI `log` command → implemented (add, list, latest)
+
 **Workshop only (not shipped to users):**
 - `/float-handoff` → workshop tool, convert to hook-triggered
 - `float-organize` agent → workshop only
 - `float-update-logs` agent → workshop only
 
-**Needs building (Phase 1):**
-- `float-enrich` skill — notices deep work, spawns enricher
-- `float-enricher` agent — generates/updates folder context
-- SessionEnd/PreCompact hooks — automatic handoff
+**Needs building (next):**
+- SessionEnd hook — git diff detection, spawn enricher + logger agents
+- `/float` command — rename from `/float-boot`, add float.db creation
+- boot.md — "the driver's manual" (< 800 tokens, save for last)
 
 **Needs building (Phase 2):**
 - `float-mode-suggest` skill — proactive mode offers
 
-> See `active/floatprompt-plugin-spec.md` for full implementation phases.
+> See `active/floatprompt-plugin-PRD.md` for full implementation details.
 
 ### The Enrichment Loop
 
@@ -272,6 +278,7 @@ The spec is locked. Now we build.
 - Parallel execution patterns
 - "Is this the right approach?" — strategy mode handles that
 - Adding more user commands — one command is the interface
+- **FloatPrompt for Web** — sibling product in `artifacts/2026/01-jan/float-web/`, separate codebase (NPM package for websites). Don't confuse with this plugin work.
 
 ---
 
@@ -284,7 +291,8 @@ Reference docs for adjacent exploration:
 | Architecture | Deep Strategy Mode | `modes/deep-strategy.md` |
 | AI-native paradigm | AI-Native Context | `ref/ai-native-context.md` |
 | AI perspective | Why AI Wants This | `ref/ai-wants-this.md` |
-| Full plugin docs | Plugins Reference | `artifacts/claude-code-plugins/plugins-reference.md` |
+| Full plugin docs | Plugins Reference | `artifacts/2026/01-jan/claude-code-plugins/plugins-reference.md` |
+| Sibling product | Float-Web PRD | `artifacts/2026/01-jan/float-web/prd.md` |
 
 ---
 

@@ -23,11 +23,20 @@ Read these in order. Each builds on the previous.
 | January Decisions | `logs/2026/01-jan/01-jan.md` | What's locked — comprehensive decision log |
 | AI-Native Context | `ref/ai-native-context.md` | Paradigm shift — AI as producer+consumer, human as auditor |
 
-### If Working on Track 1 Plugin
+### If Working on Plugin (Repos)
 
 | Document | Path | What It Provides |
 |----------|------|------------------|
-| Track 1 Spec | `active/track1-workshop-plugin-spec.md` | Component design, lifecycle, implementation order |
+| Plugin Spec | `active/floatprompt-plugin-spec.md` | Adoption-first spec — one command, automatic everything |
+| Plugin PRD | `active/floatprompt-plugin-PRD.md` | Implementation details — agents, hooks, session continuity |
+
+### If Working on Float-Web
+
+| Document | Path | What It Provides |
+|----------|------|------------------|
+| Web Vision | `artifacts/2026/01-jan/float-web/vision.md` | Why float-web exists — problem, opportunity, conviction |
+| Web PRD | `artifacts/2026/01-jan/float-web/prd.md` | Implementation details — pipeline, CLI, integrations |
+| Web Architecture | `artifacts/2026/01-jan/float-web/architecture.md` | Technical design — schema, deployment modes |
 
 ---
 
@@ -43,11 +52,16 @@ A floatprompt was a text file (JSON + markdown) you could upload to any AI platf
 
 Then the vision evolved: What if AI could have persistent, hierarchical, queryable context that survives sessions? Not just tools that transform behavior, but **infrastructure that compounds understanding**.
 
-**Two systems now exist:**
+**Three products now exist:**
 1. **FloatPrompt format** — Portable AI tools (the original vision, still valid)
-2. **FloatPrompt context system** — SQLite + buoys + CLI (the evolved vision)
+2. **FloatPrompt for Repos** — `.float/` in codebases, Claude Code plugin, SQLite + buoys + CLI
+3. **FloatPrompt for Web** — `/float/` on websites, NPM package, makes any site AI-readable
 
-Deep-strategy mode is about #2 — the context infrastructure. But knowing the origin matters: we're building ON a portable format philosophy, not abandoning it.
+Same philosophy, different substrates:
+- **Repos:** Hidden infrastructure (like `.git`), for AI development sessions
+- **Web:** Public endpoints (crawlable), for any agent consuming web content
+
+Deep-strategy mode covers all three. The unifying vision: **the world becomes a context mesh**.
 
 ### The Formula
 
@@ -161,17 +175,54 @@ Float.db isn't "docs for AI to read" — it's "AI's own knowledge store that hum
 
 FloatPrompt is the layer between AI and codebase. Not a tool — infrastructure.
 
-### Big Vision vs Track 1
+### The Product Family
 
-| Big Vision | Track 1 |
+| Product | Substrate | Distribution | Install |
+|---------|-----------|--------------|---------|
+| **FloatPrompt Format** | Any AI platform | Files/templates | Copy text file |
+| **FloatPrompt for Repos** | Codebases | Claude Marketplace | `/plugin install floatprompt@mds` |
+| **FloatPrompt for Web** | Websites | npm | `npx floatprompt generate ./dist` |
+
+**Same philosophy across all three:**
+- Mechanical speed (no AI for structure)
+- AI judgment (for enrichment/polish)
+- Persistent storage (SQLite or files)
+- Three layers (Mechanical → AI → Ongoing)
+
+**The context mesh vision:** Every codebase, every website becomes a context endpoint. AI can consume any of them instantly. Context flows freely.
+
+### Distribution Strategy
+
+**Two separate channels — no collision:**
+
+| Channel | Product | Package Name |
+|---------|---------|--------------|
+| **Claude Marketplace** | FloatPrompt for Repos | `floatprompt@mds` |
+| **npm** | FloatPrompt for Web | `floatprompt` |
+
+**Claude Marketplace model:**
+- Host `marketplace.json` in GitHub repo
+- Users: `/plugin marketplace add mds/floatprompt`
+- Then: `/plugin install floatprompt@mds`
+- Updates via: `/plugin marketplace update`
+
+**npm model:**
+- Standard npm package
+- Users: `npm install floatprompt` or `npx floatprompt generate ./dist`
+
+**Key insight:** Claude Code plugins are NOT distributed via npm. Marketplace is a separate system with its own discovery, versioning, and updates.
+
+### Big Vision vs Current Implementation
+
+| Big Vision | Current |
 |------------|---------|
-| 7 buoy archetypes | 1 agent |
-| Buoy execution engine | Claude Code native |
+| 7 buoy archetypes | 1-2 agents |
+| Buoy execution engine | Claude Code native / NPM CLI |
 | Parallel fleet mode | Sequential |
 | Vercel Sandbox | Local execution |
-| Autonomous Layer 3 | Manual commands |
+| Autonomous Layer 3 | Manual triggers / hooks |
 
-**Track 1 validates the concept.** The big vision comes later.
+**Current products validate the concept.** The full infrastructure (buoy engine, parallel fleets) comes later.
 
 ---
 
@@ -181,8 +232,9 @@ FloatPrompt is the layer between AI and codebase. Not a tool — infrastructure.
 - Syntax and language specifics
 - Minor optimizations
 - "Just ship it" pressure — strategy mode is for getting direction right
-- Track 1 limitations when discussing big vision
-- Big vision scope when implementing Track 1
+- Product-specific limitations when discussing big vision
+- Big vision scope when implementing current products
+- Cross-product implementation details (plugin vs web are separate codebases)
 
 ---
 
@@ -192,7 +244,8 @@ Reference docs for adjacent exploration:
 
 | Direction | Document | Path |
 |-----------|----------|------|
-| Implementation | Deep Plugin Mode | `modes/deep-plugin.md` |
+| Plugin implementation | Deep Plugin Mode | `modes/deep-plugin.md` |
+| Web implementation | Float-Web PRD | `artifacts/2026/01-jan/float-web/prd.md` |
 | Folder structure | Float Data Model | `ref/float-folder-structure.md` |
 | How it works | FloatPrompt Mechanics | `artifacts/how-floatprompt-works.md` |
 | Full vision doc | Comprehensive Vision | `docs/vision.md` |
