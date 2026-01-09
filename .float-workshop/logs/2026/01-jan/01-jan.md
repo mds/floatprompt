@@ -303,6 +303,8 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-09-session43-schema-restoration.md](2026-01-09-session43-schema-restoration.md) | **Schema restoration** — Restored src/ from git, content_md → context, added files_read, created plugin structure, fresh float.db verified. |
 | [2026-01-09-session43-src-cleanup.md](2026-01-09-session43-src-cleanup.md) | **src/ cleanup** — Core vs draft separation, 5 core files (schema, scan, client), 28 draft files excluded from build. |
 | [2026-01-09-session43-agent-updates.md](2026-01-09-session43-agent-updates.md) | **Agent updates** — float-enrich + float-log use sqlite3 directly, files_read tracking for mode inference. |
+| [2026-01-09-session44-plugin-v1-complete.md](2026-01-09-session44-plugin-v1-complete.md) | **Plugin v1 complete** — 7/8 tasks done, hook system (PreCompact + SessionEnd), Float.md created, plugin manifest. |
+| [2026-01-09-session45-plugin-validation-scan.md](2026-01-09-session45-plugin-validation-scan.md) | **Plugin validation & scan** — Fixed plugin.json schema, status constraint bug, enhanced folder-level logging, scan.sh now populates files table with SHA-256 hashes. |
 
 ### Archived Reference Material
 

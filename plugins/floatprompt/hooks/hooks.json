@@ -1,0 +1,28 @@
+{
+  "description": "FloatPrompt automatic handoff - fires on PreCompact or SessionEnd, whichever comes first",
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/float-handoff.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/float-handoff.sh",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}

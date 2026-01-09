@@ -746,50 +746,57 @@ VALUES (
 
 **Uses:** sqlite3 via Bash (no CLI)
 
-### SessionEnd Hook
+### Automatic Handoff Hook
 
-**Event:** `SessionEnd`
+**Triggers:** PreCompact (primary) OR SessionEnd (fallback)
+
+**Strategy:**
+| Trigger | sqlite3 | Agents | Why |
+|---------|---------|--------|-----|
+| **PreCompact** | Yes | Yes | Session alive, agents complete reliably |
+| **SessionEnd** | Yes | No | Terminal closing, agents might die |
 
 **What it does:**
-1. Detect edited folders via `git diff --name-only | xargs dirname | sort -u`
-2. Spawn `float-enricher` with folder list
-3. Spawn `float-logger` with session context
-4. **Workshop gate:** If `.float-workshop/` exists, also spawn `float-organize`
+1. Early exit if no `.float/float.db` (not initialized)
+2. Early exit if handoff ran in last 5 min (deduplication)
+3. Early exit if no `git diff` changes
+4. **Phase 1:** Mechanical sqlite3 INSERT (always, instant)
+5. **If PreCompact:** Spawn float-log, float-enrich, workshop agents
+6. **If SessionEnd:** Exit (mechanical capture is enough)
 
 **Hook configuration (hooks/hooks.json):**
 ```json
 {
-  "description": "FloatPrompt session end automation",
+  "description": "FloatPrompt automatic handoff - PreCompact or SessionEnd",
   "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [{
+          "type": "command",
+          "command": "${CLAUDE_PLUGIN_ROOT}/hooks/float-handoff.sh",
+          "timeout": 120
+        }]
+      }
+    ],
     "SessionEnd": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/session-end.sh"
-          }
-        ]
+        "hooks": [{
+          "type": "command",
+          "command": "${CLAUDE_PLUGIN_ROOT}/hooks/float-handoff.sh",
+          "timeout": 120
+        }]
       }
     ]
   }
 }
 ```
 
-**The session-end.sh script:**
-- Runs `git diff --name-only` to find changed files
-- Extracts unique folder paths
-- Outputs JSON for agent spawning
-- Checks for `.float-workshop/` existence
-
-### PreCompact Hook
-
-**Event:** `PreCompact`
-
-**Matchers:** `auto` (triggered by full context window)
-
-**What it does:** Emergency context preservation before autocompact fires.
-
-**Note:** May not have time to spawn full agents. Testing needed. Simpler approach might be direct sqlite3 insert of session state.
+**The float-handoff.sh script:**
+- Same script for both triggers, different behavior based on `HOOK_EVENT`
+- Deduplication via sqlite3 query (recent handoff check)
+- Hybrid approach: mechanical capture (floor) + AI enrichment (ceiling)
+- Workshop gate: only spawns workshop agents if `.float-workshop/` exists
 
 ---
 
@@ -1042,7 +1049,7 @@ Log the activity, infer the context. Don't create static artifacts that rot.
 
 ### Nice to Have (v1)
 
-- [ ] PreCompact hook preserves learnings
+- [x] PreCompact hook preserves learnings — **Done** (integrated with automatic handoff)
 - [ ] Staleness count shown at boot
 - [ ] Power user can manually trigger enrichment
 
@@ -1052,18 +1059,19 @@ Log the activity, infer the context. Don't create static artifacts that rot.
 
 | Component | Status | Location |
 |-----------|--------|----------|
-| Database schema | **Done** | `src/db/schema.ts` + `plugins/floatprompt/lib/schema.sql` |
-| float.db | **Done** | `.float/float.db` — fresh with `context` column, `files_read` |
+| Database schema | **Done** | `plugins/floatprompt/lib/schema.sql` |
+| float.db | **Done** | `.float/float.db` — 86 folders, 582 files, 3 log entries |
 | float-enrich agent | **Done** | `.claude/agents/draft/float-enrich.md` — sqlite3 direct |
-| float-log agent | **Done** | `.claude/agents/draft/float-log.md` — sqlite3 + files_read |
+| float-log agent | **Done** | `.claude/agents/draft/float-log.md` — folder-level logging |
 | float-organize agent | Exists | `.claude/agents/float-organize.md` — workshop only |
-| /float command | Exists as `/float-boot` | `.claude/commands/float-boot.md` — needs rename + update |
-| SessionEnd hook | **Not started** | **Next priority** |
-| PreCompact hook | Not started | Test timing first |
-| Float.md | Not started | Design last |
-| Layer 1 scan | Partial | Schema exists, scan script doesn't |
-| Plugin structure | Started | `plugins/floatprompt/lib/schema.sql` exists |
-| marketplace.json | Not started | Phase 6 |
+| /float command | **Done** | `plugins/floatprompt/commands/float.md` |
+| Automatic handoff hook | **Done** | `plugins/floatprompt/hooks/float-handoff.sh` — enhanced prompts |
+| Float.md | **Done** | `plugins/floatprompt/templates/Float.md` |
+| Layer 1 scan | **Done** | `plugins/floatprompt/lib/scan.sh` — folders + files with hashes |
+| Plugin manifest | **Done** | `plugins/floatprompt/.claude-plugin/plugin.json` — validated |
+| Plugin validation | **Done** | Session 45 — schema issues fixed |
+| End-to-end test | **In Progress** | Plugin loads, commands work |
+| marketplace.json | Not started | After testing |
 
 ---
 
@@ -1072,8 +1080,9 @@ Log the activity, infer the context. Don't create static artifacts that rot.
 1. **Float.md content** — Exact instructions (design last, after everything works)
 2. **Float.md naming** — Could be `boot.md`, `float.md`, or `FLOAT.MD`. The file will exist; name TBD.
 3. **PreCompact timing** — Is there enough time to spawn agents? Testing needed.
-4. **Scan approach** — Shell script vs AI does it via find+sqlite3. Defer until needed.
+4. ~~**Scan approach** — Shell script vs AI does it via find+sqlite3.~~ **DONE** (Session 45) — Shell script populates folders + files
 5. ~~**Schema rename** — `content_md` → `context`.~~ **DONE** (Session 43)
+6. ~~**Files table population** — Shell script needed to match TypeScript scanner.~~ **DONE** (Session 45)
 
 ---
 

@@ -1,0 +1,11 @@
+{
+  "name": "floatprompt",
+  "version": "1.0.0",
+  "description": "The invisible OS for AI-persistent context that survives sessions and compounds over time",
+  "author": {
+    "name": "@mds"
+  },
+  "commands": "./commands/",
+  "hooks": "./hooks/hooks.json",
+  "homepage": "https://github.com/mds/floatprompt"
+}
