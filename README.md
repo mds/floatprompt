@@ -1,135 +1,174 @@
-# FloatPrompt
+# floatprompt
 
-Make websites AI-readable. Generate clean markdown alongside HTML.
+**Floats your content for AI — and humans who use it.**
 
-> **Note:** This project is in active development. APIs may change.
+One install. Zero config. Every page becomes copyable markdown.
 
----
+- AI agents get clean `llms.txt` and `.md` files
+- Humans get `/float/` dashboard to browse and copy any page
+- No AI calls. No API keys. Just markdown.
 
-## The Problem
-
-40-70% of tokens are wasted when AI agents parse websites — navigation, ads, footers, scripts. Publishers have no "make my site AI-readable" button.
-
-## The Solution
-
-One command after your build:
+## Install
 
 ```bash
-npx floatprompt generate ./dist
+npm install floatprompt
 ```
 
-Every page gets a `.md` sibling. Your site gets an `llms.txt` index. A `/float/` dashboard shows everything.
+That's it. On install, FloatPrompt adds itself to your build. Every `npm run build` now generates markdown automatically.
 
----
+## Framework Support
 
-## What Gets Generated
+| Framework | Extra Steps | Notes |
+|-----------|-------------|-------|
+| **Next.js** | None | Works automatically |
+| **Astro** | None | Works automatically |
+| **Gatsby** | None | Works automatically |
+| **Eleventy** | None | Works automatically |
+| **Vite** | None | Works automatically |
+| **Hugo** | Add to build command | `hugo && floatprompt ./public` |
+| **Jekyll** | Add to build command | `jekyll build && floatprompt ./_site` |
+
+*Hugo and Jekyll don't use npm scripts, so add FloatPrompt to your build command manually.*
+
+## What You Get
+
+After each build:
 
 ```
-dist/
-├── llms.txt           # Site index for AI
-├── llms-full.txt      # Complete content in one file
+out/
 ├── index.html
-├── index.md           # ← NEW
+├── index.md            ← AI-readable
 ├── about.html
-├── about.md           # ← NEW
-├── docs/
-│   ├── api.html
-│   └── api.md         # ← NEW
+├── about.md            ← AI-readable
+├── llms.txt            ← Site index for LLMs
+├── llms-full.txt       ← Complete site content
 └── float/
-    └── index.html     # Human dashboard
+    └── index.html      ← Dashboard for browsing all pages
 ```
 
-**URL pattern:** Just add `.md` to any page URL.
-- `/about` → HTML for humans
-- `/about.md` → Markdown for AI
+## Embed Widget (Optional)
 
----
+Want a "Copy as Markdown" button on your live site? Add the widget so visitors can copy any page directly:
 
-## Installation
+### React Component
 
-```bash
-npm install --save-dev floatprompt
-```
+```jsx
+import { FloatButton } from 'floatprompt/react'
 
-### Usage
-
-**CLI (any static site):**
-```bash
-npx floatprompt generate ./dist
-```
-
-**Next.js:**
-```javascript
-// next.config.js
-const withFloatPrompt = require('floatprompt/next');
-
-module.exports = withFloatPrompt({
-  // your config
-});
-```
-
-**Astro:**
-```javascript
-// astro.config.mjs
-import floatprompt from 'floatprompt/astro';
-
-export default {
-  integrations: [floatprompt()]
-};
-```
-
-**Generic post-build:**
-```json
-{
-  "scripts": {
-    "build": "your-build && npx floatprompt generate ./dist"
-  }
+export default function Layout({ children }) {
+  return (
+    <>
+      {children}
+      <FloatButton position="bottom-right" />
+    </>
+  )
 }
 ```
 
----
+### Custom UI
 
-## Configuration
+Use the core functions with your own buttons:
 
-Zero config works for most sites. Optional `floatprompt.config.js`:
+```js
+import { copyPageMarkdown, getPageMarkdown } from 'floatprompt/widget'
 
-```javascript
-export default {
-  input: './dist',
-  output: './dist',
-  exclude: ['/admin/**'],
-  baseUrl: 'https://example.com',
-  llmsTxt: true,
-  dashboard: true,
-};
+// Copy current page to clipboard
+document.getElementById('my-copy-btn').onclick = async () => {
+  await copyPageMarkdown()
+}
+
+// Or get the markdown to do something else with it
+const markdown = await getPageMarkdown()
 ```
-
----
 
 ## How It Works
 
-1. **DOMPurify** — Sanitizes HTML (security)
-2. **Readability.js** — Extracts main content (Mozilla's library)
-3. **Turndown** — Converts to markdown
+FloatPrompt runs after your build and:
 
-No AI calls. No API keys. Pure mechanical extraction.
+1. Extracts main content from each HTML page (using [Mozilla Readability](https://github.com/mozilla/readability))
+2. Converts to clean Markdown (using [Turndown](https://github.com/mixmark-io/turndown))
+3. Generates `llms.txt` — a site index following the [llms.txt standard](https://llmstxt.org)
+4. Creates `/float/` — a dashboard for browsing and copying all pages
 
----
+No AI. No API keys. Pure mechanical extraction.
 
-## Requirements
+## Configuration (Optional)
 
-- Node.js 18+
-- A website with a build step that outputs HTML
+Create `floatprompt.config.js` for custom settings:
 
-Works with: Next.js, Gatsby, Astro, Hugo, Jekyll, Eleventy, or any SSG.
+```js
+export default {
+  exclude: ['/admin/**', '/api/**'],
+  baseUrl: 'https://example.com',
+  siteTitle: 'My Site',
+  siteDescription: 'A site that floats its content for AI',
+}
+```
 
----
+### All Options
 
-## Links
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `input` | string | auto-detected | Input directory |
+| `output` | string | same as input | Output directory |
+| `exclude` | string[] | `[]` | Glob patterns to exclude |
+| `baseUrl` | string | `''` | Base URL for the site |
+| `siteTitle` | string | from index.html | Site title |
+| `siteDescription` | string | — | Site description |
+| `llmsTxt` | boolean | `true` | Generate llms.txt |
+| `llmsFullTxt` | boolean | `true` | Generate llms-full.txt |
+| `dashboard` | boolean | `true` | Generate /float/ dashboard |
 
-- [llms.txt spec](https://llmstxt.org/)
-- [Readability.js](https://github.com/mozilla/readability)
+## Manual Usage
 
----
+If you'd rather run FloatPrompt yourself instead of using the automatic `postbuild` hook:
 
-© 2026 [@MDS](https://mds.is) | MIT License
+```bash
+floatprompt              # auto-detects output directory
+floatprompt ./out        # explicit path
+floatprompt ./out --exclude "/admin/**"
+```
+
+### CLI Options
+
+| Flag | Description |
+|------|-------------|
+| `--output <dir>` | Output directory (default: same as input) |
+| `--exclude <glob>` | Exclude pattern (can use multiple times) |
+| `--base-url <url>` | Base URL for the site |
+| `--site-title <title>` | Site title |
+| `--no-llms-txt` | Skip llms.txt and llms-full.txt |
+| `--no-dashboard` | Skip /float/ dashboard |
+| `--verbose` | Show detailed output |
+
+## Programmatic API
+
+```js
+import { FloatPrompt } from 'floatprompt'
+
+// Generate for a directory
+const result = await FloatPrompt.generate({
+  input: './out',
+  exclude: ['/admin/**'],
+})
+
+console.log(`Generated ${result.markdownFilesGenerated} files`)
+
+// Extract single page
+const markdown = FloatPrompt.extract(htmlString, {
+  url: '/about',
+  title: 'About Us',
+})
+```
+
+## Why FloatPrompt?
+
+**For AI agents:** HTML is full of navigation, footers, scripts, and styling. Markdown is just the content. Less noise, better results.
+
+**For humans:** Visitors can copy any page as markdown and paste directly into Claude, ChatGPT, or any AI tool.
+
+**For you:** One install. Works on every build. Nothing to maintain.
+
+## License
+
+MIT
