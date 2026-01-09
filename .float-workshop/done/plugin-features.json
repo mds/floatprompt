@@ -1,0 +1,295 @@
+{
+  "project": {
+    "name": "FloatPrompt Plugin",
+    "version": "1.0.0",
+    "generated_at": "2026-01-09",
+    "spec_path": "active/floatprompt-plugin.md"
+  },
+  "summary": {
+    "total": 28,
+    "passing": 3,
+    "failing": 0,
+    "in_progress": 2,
+    "untested": 23
+  },
+  "features": [
+    {
+      "id": "SCHEMA-001",
+      "area": "schema",
+      "feature": "Schema rename",
+      "behavior": "Rename content_md field to context in folders table",
+      "acceptance_criteria": "float-db queries use 'context' field, no references to content_md remain",
+      "priority": "must-have",
+      "status": "untested",
+      "notes": "Check if already done before implementing"
+    },
+    {
+      "id": "CMD-001",
+      "area": "command",
+      "feature": "/float creates float.db",
+      "behavior": "/float creates .float/float.db on first run via Layer 1 scan",
+      "acceptance_criteria": "Run /float in project without .float/ → .float/float.db created with folders indexed",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["CMD-002"]
+    },
+    {
+      "id": "CMD-002",
+      "area": "command",
+      "feature": "Rename /float-boot to /float",
+      "behavior": "/float-boot renamed to /float as single entry point",
+      "acceptance_criteria": "/float command exists, /float-boot removed or aliased",
+      "priority": "must-have",
+      "status": "untested"
+    },
+    {
+      "id": "CMD-003",
+      "area": "command",
+      "feature": "/float loads boot.md",
+      "behavior": "/float loads boot.md instructions on subsequent runs",
+      "acceptance_criteria": "Run /float with existing float.db → boot.md instructions loaded into context",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["DESIGN-001"]
+    },
+    {
+      "id": "CMD-004",
+      "area": "command",
+      "feature": "/float shows session continuity",
+      "behavior": "/float queries log_entries for latest session-handoff and displays it",
+      "acceptance_criteria": "Run /float after session with handoff entry → shows 'Last session: X. Options: Y'",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["AGENT-002", "CLI-001"]
+    },
+    {
+      "id": "CMD-005",
+      "area": "command",
+      "feature": "/float output polish",
+      "behavior": "Clean boot experience with clear feedback",
+      "acceptance_criteria": "First run shows 'FloatPrompt initialized. X folders indexed.' Subsequent shows context summary.",
+      "priority": "should-have",
+      "status": "untested",
+      "depends_on": ["CMD-001", "CMD-003", "CMD-004"]
+    },
+    {
+      "id": "DESIGN-001",
+      "area": "design",
+      "feature": "boot.md design",
+      "behavior": "Create boot.md that teaches AI how to use float.db",
+      "acceptance_criteria": "boot.md exists, < 800 tokens, covers: what is FloatPrompt, how to query, when to query, staleness detection",
+      "priority": "must-have",
+      "status": "untested",
+      "notes": "Save for last after agents finalized"
+    },
+    {
+      "id": "DESIGN-002",
+      "area": "design",
+      "feature": "float-enricher design",
+      "behavior": "Design effective prompts for folder context enrichment",
+      "acceptance_criteria": "Agent produces useful description + context, doesn't generate boilerplate",
+      "priority": "must-have",
+      "status": "passing",
+      "notes": "Drafted in .claude/agents/draft/float-enricher.md"
+    },
+    {
+      "id": "DESIGN-003",
+      "area": "design",
+      "feature": "float-logger design",
+      "behavior": "Design effective prompts for decision + session logging",
+      "acceptance_criteria": "Agent captures significant decisions, always writes session handoff",
+      "priority": "must-have",
+      "status": "passing",
+      "notes": "Drafted in .claude/agents/draft/float-logger.md"
+    },
+    {
+      "id": "AGENT-001",
+      "area": "agent",
+      "feature": "float-enricher agent",
+      "behavior": "Updates folder context in float.db after session work",
+      "acceptance_criteria": "Agent reads folder contents, reconciles with float.db, writes updated context via float-db update",
+      "priority": "must-have",
+      "status": "in_progress",
+      "notes": "Drafted, needs testing",
+      "depends_on": ["DESIGN-002", "CLI-002"]
+    },
+    {
+      "id": "AGENT-002",
+      "area": "agent",
+      "feature": "float-logger agent",
+      "behavior": "Captures decisions and session continuity to float.db log_entries",
+      "acceptance_criteria": "Agent writes decision entries (locked) and session-handoff entry (open) via float-db log add",
+      "priority": "must-have",
+      "status": "in_progress",
+      "notes": "Drafted, needs testing",
+      "depends_on": ["DESIGN-003", "CLI-001"]
+    },
+    {
+      "id": "AGENT-003",
+      "area": "agent",
+      "feature": "float-organize workshop gate",
+      "behavior": "float-organize only runs when .float-workshop/ exists",
+      "acceptance_criteria": "SessionEnd hook checks for .float-workshop/ before spawning float-organize",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["HOOK-001"]
+    },
+    {
+      "id": "HOOK-001",
+      "area": "hook",
+      "feature": "SessionEnd hook",
+      "behavior": "Detects edited folders via git diff, spawns enricher + logger agents",
+      "acceptance_criteria": "Hook fires at session end, runs git diff, spawns float-enricher with folder list, spawns float-logger",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["AGENT-001", "AGENT-002"]
+    },
+    {
+      "id": "HOOK-002",
+      "area": "hook",
+      "feature": "PreCompact hook",
+      "behavior": "Emergency context preservation before context window compacts",
+      "acceptance_criteria": "Hook fires before compact, preserves current work state",
+      "priority": "nice-to-have",
+      "status": "untested",
+      "notes": "Open question: Is there enough time to spawn agents?"
+    },
+    {
+      "id": "SKILL-001",
+      "area": "skill",
+      "feature": "float-mode-suggest skill",
+      "behavior": "Proactively offers to create mode when deep topic work detected",
+      "acceptance_criteria": "Skill notices deep topic work, offers mode creation with casual tone",
+      "priority": "should-have",
+      "status": "untested"
+    },
+    {
+      "id": "SKILL-002",
+      "area": "skill",
+      "feature": "Wire mode-generator to skill",
+      "behavior": "float-mode-suggest spawns float-mode-generator agent on acceptance",
+      "acceptance_criteria": "User accepts mode suggestion → mode-generator agent runs → mode file created",
+      "priority": "should-have",
+      "status": "untested",
+      "depends_on": ["SKILL-001"]
+    },
+    {
+      "id": "CLI-001",
+      "area": "cli",
+      "feature": "float-db log command",
+      "behavior": "CLI commands for log_entries: add, list, latest",
+      "acceptance_criteria": "float-db log add --json works, float-db log list filters work, float-db log latest --topic works",
+      "priority": "must-have",
+      "status": "passing",
+      "notes": "Implemented in src/cli/float-db.ts"
+    },
+    {
+      "id": "CLI-002",
+      "area": "cli",
+      "feature": "float-db details command",
+      "behavior": "CLI command to get folder details including contents",
+      "acceptance_criteria": "float-db details /path works, --include-contents flag works",
+      "priority": "must-have",
+      "status": "untested",
+      "notes": "Check if already implemented"
+    },
+    {
+      "id": "CLI-003",
+      "area": "cli",
+      "feature": "float-db update command",
+      "behavior": "CLI command to update folder context",
+      "acceptance_criteria": "float-db update /path --json '{...}' writes to folders table",
+      "priority": "must-have",
+      "status": "untested",
+      "notes": "Check if already implemented"
+    },
+    {
+      "id": "DIST-001",
+      "area": "distribution",
+      "feature": "marketplace.json",
+      "behavior": "Create marketplace.json at repo root .claude-plugin/",
+      "acceptance_criteria": "marketplace.json exists with correct schema, references plugins/floatprompt/",
+      "priority": "must-have",
+      "status": "untested"
+    },
+    {
+      "id": "DIST-002",
+      "area": "distribution",
+      "feature": "Plugin reorganization",
+      "behavior": "Move plugin components to plugins/floatprompt/ structure",
+      "acceptance_criteria": "plugins/floatprompt/ contains: .claude-plugin/plugin.json, commands/, agents/, hooks/, lib/",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["DIST-001"]
+    },
+    {
+      "id": "DIST-003",
+      "area": "distribution",
+      "feature": "Bundle float-db.js",
+      "behavior": "Compile and bundle float-db CLI into plugins/floatprompt/lib/",
+      "acceptance_criteria": "lib/float-db.js exists, is executable, all commands work",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["DIST-002"]
+    },
+    {
+      "id": "DIST-004",
+      "area": "distribution",
+      "feature": "Marketplace install test",
+      "behavior": "Test plugin install via /plugin marketplace add and /plugin install",
+      "acceptance_criteria": "/plugin marketplace add mds/floatprompt works, /plugin install floatprompt@mds works",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["DIST-001", "DIST-002", "DIST-003"]
+    },
+    {
+      "id": "UX-001",
+      "area": "ux",
+      "feature": "AI queries float.db on-demand",
+      "behavior": "AI can query float.db for context when working in folders",
+      "acceptance_criteria": "AI uses float-db details, scope-chain commands to get context as needed",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["DESIGN-001"]
+    },
+    {
+      "id": "UX-002",
+      "area": "ux",
+      "feature": "Context compounds across sessions",
+      "behavior": "Enrichment creates cumulative understanding over multiple sessions",
+      "acceptance_criteria": "After 3+ sessions with edits, float.db has richer context than initial scan",
+      "priority": "must-have",
+      "status": "untested",
+      "depends_on": ["AGENT-001", "HOOK-001"]
+    },
+    {
+      "id": "UX-003",
+      "area": "ux",
+      "feature": "Enrichment runs in background",
+      "behavior": "float-enricher agent doesn't block main conversation",
+      "acceptance_criteria": "SessionEnd spawns agent, user can continue working, agent runs in separate context",
+      "priority": "should-have",
+      "status": "untested",
+      "depends_on": ["HOOK-001"]
+    },
+    {
+      "id": "UX-004",
+      "area": "ux",
+      "feature": "Graceful error handling",
+      "behavior": "Error states never block user's work",
+      "acceptance_criteria": "float.db missing → /float creates it. Agent fails → logged, skipped. Scan fails → error message, retry.",
+      "priority": "should-have",
+      "status": "untested"
+    },
+    {
+      "id": "UX-005",
+      "area": "ux",
+      "feature": "Staleness count at boot",
+      "behavior": "/float shows count of stale folders",
+      "acceptance_criteria": "Run /float → shows 'X folders stale' if any have status='stale'",
+      "priority": "nice-to-have",
+      "status": "untested",
+      "depends_on": ["CMD-003"]
+    }
+  ]
+}

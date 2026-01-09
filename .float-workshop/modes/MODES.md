@@ -119,10 +119,13 @@ Reference docs for adjacent exploration:
 
 | Mode | Role | When to Activate |
 |------|------|------------------|
-| `deep-strategy.md` | Architect | Architecture decisions, planning, big-picture (covers all products) |
-| `deep-plugin.md` | Implementer | Building FloatPrompt for Repos (Claude Code plugin) |
+| `deep-strategy.md` | Architect | Architecture decisions, planning, big-picture (covers all touchpoints) |
+| `deep-plugin.md` | Implementer | Building the Claude Code plugin |
+| `web.md` | Web dev | Working on the npm package — testing, debugging, extending |
 
-**Future consideration:** `deep-web.md` for FloatPrompt for Web implementation work (NPM package). Create when that track needs dedicated context.
+**Mode weight:**
+- `deep-*` modes are heavy — load lots of context, adopt strong posture
+- `web.md` is lightweight — just points to docs, minimal overhead
 
 ---
 

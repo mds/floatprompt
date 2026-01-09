@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "features-schema.json",
+  "title": "Claude Code Features List",
+  "description": "Schema for tracking testable features extracted from a PRD. Used by Claude Code to track implementation progress.",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "object",
+      "description": "Project metadata",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Project name matching PRD title"
+        },
+        "version": {
+          "type": "string",
+          "description": "PRD version this features list was generated from"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When this features list was generated"
+        },
+        "prd_path": {
+          "type": "string",
+          "description": "Relative path to the source PRD"
+        }
+      },
+      "required": ["name", "version"]
+    },
+    "summary": {
+      "type": "object",
+      "description": "Quick stats for progress tracking",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Total number of features"
+        },
+        "passing": {
+          "type": "integer",
+          "description": "Number of features verified as working"
+        },
+        "failing": {
+          "type": "integer",
+          "description": "Number of features verified as not working"
+        },
+        "untested": {
+          "type": "integer",
+          "description": "Number of features not yet tested"
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "description": "All testable features extracted from the PRD",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique feature ID matching PRD (e.g., AUTH-001, NAV-003)",
+            "pattern": "^[A-Z]+-[0-9]+$"
+          },
+          "area": {
+            "type": "string",
+            "description": "Feature area/category from PRD (e.g., authentication, navigation, rendering)"
+          },
+          "feature": {
+            "type": "string",
+            "description": "Short feature name"
+          },
+          "behavior": {
+            "type": "string",
+            "description": "What this feature does (from PRD Behavior column)"
+          },
+          "acceptance_criteria": {
+            "type": "string",
+            "description": "How to verify this feature works (from PRD Acceptance Criteria)"
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["must-have", "should-have", "nice-to-have"],
+            "description": "Priority level from PRD Success Criteria"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["untested", "in_progress", "passing", "failing", "blocked", "skipped"],
+            "description": "Current verification status: untested (not started), in_progress (actively being implemented), passing (verified working), failing (verified broken), blocked (waiting on dependency), skipped (intentionally deferred)",
+            "default": "untested"
+          },
+          "verification_method": {
+            "type": "string",
+            "enum": ["manual", "automated", "visual", "curl", "browser"],
+            "description": "How this feature should be tested"
+          },
+          "verified_at": {
+            "type": ["string", "null"],
+            "format": "date-time",
+            "description": "When this feature was last verified"
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "Implementation notes, blockers, or test details"
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Feature IDs this feature depends on (for implementation order)"
+          }
+        },
+        "required": ["id", "area", "feature", "behavior", "acceptance_criteria", "status"]
+      }
+    }
+  },
+  "required": ["project", "features"]
+}

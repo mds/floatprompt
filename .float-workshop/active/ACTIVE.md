@@ -16,42 +16,37 @@ Current focus items. **Limit: 3 items max.**
 
 | Item | Status | Summary |
 |------|--------|---------|
-| `floatprompt-plugin-PRD.md` | **In Progress (S38)** | Agents drafted, CLI implemented. Next: SessionEnd hook, /float, boot.md |
-| `floatprompt-plugin-spec.md` | **Reference** | Vision/philosophy doc — why we're building this |
+| FloatPrompt Plugin | **Building (2/8)** | Agents updated, schema restored, progress tracked |
+| FloatPrompt for Web | **Ready** | NPM package needs testing, then publish |
 
-## Session 38 Progress
+**Session 43 outcomes:**
+- **Restored src/ from git** — schema.ts, client.ts, scan.ts back
+- **Updated float-enrich agent** — sqlite3 direct queries (was float-enricher)
+- **Updated float-log agent** — sqlite3 + files_read tracking (was float-logger)
+- **Created progress tracker** — `claude-floatprompt-plugin-progress.md`
 
-**Completed:**
-- Session continuity pattern designed (uses `log_entries` with `topic=session-handoff`)
-- `float-enricher` agent drafted (`.claude/agents/float-enricher.md`)
-- `float-logger` agent drafted (`.claude/agents/float-logger.md`)
-- CLI `log` command implemented (`add`, `list`, `latest` subcommands)
-- Workshop-to-float.db mapping clarified (folders become queries, no structure needed)
+**Active folder contains:**
+- `ACTIVE.md` — This index
+- `floatprompt-plugin.md` — THE authoritative spec
+- `claude-floatprompt-plugin-progress.md` — Build tracker (2/8 done)
+- `MDS-floatprompt-claude-code-plugin.md` — Workflow notes
 
-## Next Steps (from S38)
+## Next Steps
 
-**Remaining before implementation:**
+**FloatPrompt Plugin (In Progress — 2/8 done):**
 
-**1. SessionEnd hook**
-- Wire up git diff detection
-- Spawn enricher + logger agents
-- Gate workshop agent on `.float-workshop/` existence
+- [x] Update `float-enrich` agent → sqlite3
+- [x] Update `float-log` agent → sqlite3 + files_read
+- [ ] Build SessionEnd hook (spawns enrich + log)
+- [ ] Layer 1 scan script (`scan.sh`)
+- [ ] `/float` command (rename from float-boot)
+- [ ] Float.md (instruction file — design last)
+- [ ] Plugin manifest (`plugin.json`)
+- [ ] Test end-to-end
 
-**2. /float command updates**
-- Rename `/float-boot` to `/float`
-- Add float.db creation on first run
-- Show session continuity from `log_entries`
-
-**3. boot.md — "The Driver's Manual" (save for last)**
-- What instructions teach AI how to use float.db?
-- Target: < 800 tokens
-- Design after agents finalized
-
-**4. Then:** Implementation phases per PRD
-
-### After Design Passes
-
-Generate `feature_list.json` for testable verification (like shiftOS pattern)
+**FloatPrompt for Web:**
+- Test the NPM package
+- Publish to npm
 
 ## Overflow Check
 

@@ -201,6 +201,33 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **No folder structure** — Plugin uses only `.float/float.db` and `.float/boot.md`; no sessions/, active/, later/ folders
 - **boot.md comes last** — Design boot.md after agents and hooks are finalized; can't write manual until system exists
 
+### Plugin Consolidation (Session 42)
+- **Mode inference replaces static modes** — `float-mode-suggest` skill OUT of scope; static mode files replaced by inference from `files_read` and `files_changed` in log_entries
+- **Activity-based context** — Float.md teaches AI to query recent activity patterns and infer focus; "Log the activity, infer the context. Don't create static artifacts that rot."
+- **Single authoritative spec** — Created `floatprompt-plugin.md` (1,136 lines) as THE plugin specification
+- **Mass archival** — Superseded docs archived to done/: PRD, spec, architecture-gaps, architecture artifact, early notes, progress tracker, features.json
+- **Float.md naming TBD** — Could be `boot.md`, `float.md`, or `FLOAT.MD`; file lives in `.float/`, name decided later
+
+### Schema Restoration (Session 43)
+- **src/ restored** — Restored from git history (commit `5cfed34^`); TypeScript tooling needed for Layer 1 mechanical operations
+- **Schema column rename** — `content_md` → `context` in folders table (Zod + SQL)
+- **files_read added** — New column in log_entries for tracking files AI read (complements files_changed for mode inference)
+- **Plugin structure created** — `plugins/floatprompt/` with lib/schema.sql as first artifact
+- **Root config restored** — package.json (floatprompt-core) + tsconfig.json for TypeScript build
+- **Fresh float.db verified** — Created via `sqlite3 .float/float.db < schema.sql`, all 8 tables + indexes confirmed
+
+### src/ Cleanup (Session 43)
+- **Core vs draft separation** — Created `src/draft/` for future/unused code; excluded from TypeScript build
+- **Core files (5)** — index.ts, db/schema.ts, db/scan.ts, db/client.ts, db/deep-schema.ts
+- **Draft files (28)** — buoys/, cli/, db/{generate,import,export}.ts, partials/, schema/, tools/
+- **Rationale** — Plugin uses Claude Code agents, not custom buoys; AI uses sqlite3 directly, not CLI wrapper
+
+### Agent Updates (Session 43)
+- **Renamed agents** — `float-enricher` → `float-enrich`, `float-logger` → `float-log`
+- **sqlite3 direct access** — Agents use `sqlite3 .float/float.db "SQL..."` instead of CLI wrapper
+- **files_read tracking** — Both `files_read` and `files_changed` captured for mode inference
+- **Progress tracker** — Created `active/claude-floatprompt-plugin-progress.md` with 8-item build checklist
+
 ---
 
 ## Files
@@ -271,6 +298,11 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-07-adoption-first-plugin.md](2026-01-07-adoption-first-plugin.md) | **Adoption-first plugin** — ONE command (`/float`), skills as automated protocols, hooks for lifecycle, track framing dropped. |
 | [2026-01-07-plugin-prd-review.md](2026-01-07-plugin-prd-review.md) | **Plugin PRD review** — Users (v1), enrichment via git diff, bundled scripts over MCP, boot.md lifecycle, git integration, float-logger agent. |
 | [2026-01-07-plugin-prd-session-continuity.md](2026-01-07-plugin-prd-session-continuity.md) | **Session continuity pattern** — log_entries for session handoffs, float-logger dual purpose, no folder structure in plugin, boot.md comes last. |
+| [2026-01-09-plugin-consolidation.md](2026-01-09-plugin-consolidation.md) | **Plugin consolidation** — Mode inference replaces static modes, single authoritative spec (floatprompt-plugin.md), Float.md naming TBD. |
+| [2026-01-09-session42-consolidation.md](2026-01-09-session42-consolidation.md) | **Session 42 backfill** — Consolidated plugin docs, mode inference decision, files_read schema addition, archived superseded docs. |
+| [2026-01-09-session43-schema-restoration.md](2026-01-09-session43-schema-restoration.md) | **Schema restoration** — Restored src/ from git, content_md → context, added files_read, created plugin structure, fresh float.db verified. |
+| [2026-01-09-session43-src-cleanup.md](2026-01-09-session43-src-cleanup.md) | **src/ cleanup** — Core vs draft separation, 5 core files (schema, scan, client), 28 draft files excluded from build. |
+| [2026-01-09-session43-agent-updates.md](2026-01-09-session43-agent-updates.md) | **Agent updates** — float-enrich + float-log use sqlite3 directly, files_read tracking for mode inference. |
 
 ### Archived Reference Material
 

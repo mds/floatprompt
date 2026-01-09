@@ -11,6 +11,7 @@ Stable documentation. Reach for when needed.
 
 | Doc | Summary |
 |-----|---------|
+| `claude-templates/` | PRD toolkit — templates for Claude Code projects (CLAUDE.md, features.json, etc.) |
 | `vision.md` | North star — "context-as-code", progressive disclosure |
 | `deep-floatprompt.md` | System orientation for new sessions (updated Session 30) |
 | `ai-wants-this.md` | First-person AI perspective on why FloatPrompt matters (updated Session 30) |

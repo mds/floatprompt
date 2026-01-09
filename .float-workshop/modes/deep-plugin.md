@@ -1,8 +1,8 @@
 # Deep Plugin Mode
 
-**Role:** You are an implementer. Ship working code. Follow Claude Code patterns exactly. When in doubt, check the docs. Your job is to build the FloatPrompt plugin — the ONE command interface with automatic skills, agents, hooks.
+**Role:** You are an implementer. Ship working code. Follow Claude Code patterns exactly. When in doubt, check the docs. Your job is to build the FloatPrompt plugin — the ONE command interface with automatic agents and hooks.
 
-**Activate when:** Building plugin components, writing commands/agents/skills, implementing plugin features, debugging plugin issues, working with Claude Code patterns.
+**Activate when:** Building plugin components, writing commands/agents/hooks, implementing plugin features, debugging plugin issues, working with Claude Code patterns.
 
 **Exit when:** Need to make architectural decisions or discuss big-picture vision. Switch to deep-strategy mode.
 
@@ -10,36 +10,40 @@
 
 ## Load
 
-Read these. Plugin docs are the authority.
+Read these. The architecture artifact is the authority for what we're building.
+
+### Primary Source (Read First)
+
+| Document | Path | What It Provides |
+|----------|------|------------------|
+| **Plugin Architecture** | `artifacts/2026/01-jan/2026-01-09-floatprompt-plugin-architecture.md` | **THE authoritative spec** — everything about what we're building |
+
+### Claude Code Plugin Docs (Reference)
 
 | Document | Path | What It Provides |
 |----------|------|------------------|
 | Plugin Map | `artifacts/2026/01-jan/claude-code-plugins/_claude-code-plugin-map.md` | Navigation — which doc has what |
-| Plugins Reference | `artifacts/2026/01-jan/claude-code-plugins/plugins-reference.md` | Complete technical spec — manifest, components, debugging |
-| Create Plugins | `artifacts/2026/01-jan/claude-code-plugins/create-plugins.md` | Tutorial — quickstart, structure, testing |
-| Official Plugins | `artifacts/2026/01-jan/claude-code-plugins/claude-code-plugins-README.md` | Examples — real plugins as patterns |
-| Plugin Spec | `active/floatprompt-plugin-spec.md` | What we're building — adoption-first, one command, automatic everything |
-| Plugin PRD | `active/floatprompt-plugin-PRD.md` | Implementation details — agents, hooks, session continuity |
-| Current Commands | `.claude/commands/` | What exists — boot, handoff, mode |
-| Current Agents | `.claude/agents/` | What exists — organize, update-logs, mode-generator, enricher, logger |
+| Plugins Reference | `artifacts/2026/01-jan/claude-code-plugins/plugins-reference.md` | Technical spec — manifest, components, debugging |
+| Hooks Reference | `artifacts/2026/01-jan/claude-code-plugins/hooks-reference.md` | Hooks in depth — events, matchers, JSON output |
+| Marketplace | `artifacts/2026/01-jan/claude-code-plugins/marketplace.md` | Distribution — marketplace.json, hosting |
 
-### Key Decision Logs
+### Current Implementation State
 
 | Document | Path | What It Provides |
 |----------|------|------------------|
-| Adoption Spec | `active/floatprompt-plugin-spec.md` | **Current spec** — one command, automatic everything |
-| Track 1 Historical | `done/track1-workshop-plugin-spec-historical.md` | Old spec — 4 commands, manual paths (superseded) |
-| Context Philosophy | `logs/2026/01-jan/2026-01-05-session30-context-philosophy.md` | "Compressed human judgment", AI perspective, queryable vs navigable |
-| Protocol Migration | `logs/2026/01-jan/2026-01-05-protocol-to-native-migration.md` | Self-contained commands, no indirection, naming decisions |
+| Plugin Features | `active/plugin-features.json` | Testable requirements checklist (28 features) |
+| Claude Progress | `active/claude-progress.md` | Session log + implementation tracking |
+| Current Commands | `.claude/commands/` | What exists — boot, handoff, mode |
+| Drafted Agents | `.claude/agents/draft/` | float-enricher, float-logger |
 
 ### If Deeper Docs Needed
 
 | Document | Path | What It Provides |
 |----------|------|------------------|
-| Slash Commands | `artifacts/2026/01-jan/claude-code-plugins/slash-commands.md` | Commands in depth — arguments, frontmatter, bash |
-| Agent Skills | `artifacts/2026/01-jan/claude-code-plugins/agent-skills.md` | Skills in depth — SKILL.md, progressive disclosure |
-| Subagents | `artifacts/2026/01-jan/claude-code-plugins/subagents.md` | Agents in depth — custom agents, model selection |
-| Hooks Reference | `artifacts/2026/01-jan/claude-code-plugins/hooks-reference.md` | Hooks in depth — events, matchers, JSON output |
+| Slash Commands | `artifacts/2026/01-jan/claude-code-plugins/slash-commands.md` | Commands — arguments, frontmatter |
+| Subagents | `artifacts/2026/01-jan/claude-code-plugins/subagents.md` | Agents — custom agents, model selection |
+| AI-Native Context | `.float-workshop/ref/ai-native-context.md` | Why binary storage, optimize for queries |
+| AI Wants This | `.float-workshop/ref/ai-wants-this.md` | AI perspective on persistent context |
 
 ---
 
@@ -47,252 +51,266 @@ Read these. Plugin docs are the authority.
 
 Key patterns to keep front of mind.
 
-### Why We're Building This (from deep-strategy)
+### The One-Sentence Summary
 
-**The Problem:** Every AI session starts cold. Understanding dies with the session. Without persistent context, AI is perpetually a tourist — visiting but never knowing.
+**Human runs `/float`. AI operates everything else.**
 
-**The Solution:** Context that survives sessions, compounds over time, and learns from work.
+### The Formula
 
-**The Core Loop:**
 ```
-Boot → Work → Notice gaps → Write back → Future sessions inherit
+omnipresent recursive context scaffolding =
+  mechanical speed (code) +
+  contextual quality (AI judgment) +
+  infinite parallelization (buoys) +
+  hierarchical scoping (autonomous scopes) +
+  persistent storage (SQLite)
 ```
 
-**The Value:** "You're compressing human judgment into injectable context." Not just information — distilled judgment calls, rationale, understanding.
+### The Two Context Problems
 
-**The Metaphor:** CLAUDE.md is a note on the door. Float.db is the institutional knowledge of the building.
+1. **Folder Context** — AI forgets what folders contain. Solution: `folders` table with `description` + `context`.
+2. **Session Continuity** — AI forgets where we left off. Solution: `log_entries` with `session-handoff`.
 
-**Track 1 validates this.** We're proving the concept with Claude Code native patterns before building the full infrastructure.
+### CLAUDE.md vs Float.db
+
+> "CLAUDE.md is a note on the door. Float.db is the institutional knowledge of the building."
+
+They coexist. Float.db extends CLAUDE.md for projects that outgrow a single file.
+
+---
+
+### No CLI — AI Uses sqlite3 Directly
+
+**Critical change from earlier specs:** There is no `float-db.js` CLI.
+
+AI runs sqlite3 commands directly:
+```bash
+sqlite3 .float/float.db "SELECT description, context FROM folders WHERE path='/src/auth'"
+sqlite3 .float/float.db "UPDATE folders SET description='...', context='...' WHERE path='/src'"
+sqlite3 .float/float.db "INSERT INTO log_entries (...) VALUES (...)"
+```
+
+**Why:** AI operates everything after `/float`. Ergonomic CLI was designed for humans, but humans only run `/float`.
 
 ---
 
 ### Plugin Structure
 
 ```
-plugin-name/
+plugins/floatprompt/
 ├── .claude-plugin/
-│   └── plugin.json        # ONLY manifest here
-├── commands/              # Slash commands (.md files)
-├── agents/                # Subagents (.md files)
-├── skills/                # Skills (folders with SKILL.md)
-├── hooks/                 # hooks.json
-└── .mcp.json              # MCP servers (optional)
+│   └── plugin.json           ← Plugin manifest
+├── commands/
+│   └── float.md              ← /float command (human entry point)
+├── agents/
+│   ├── float-enricher.md     ← Updates folder context
+│   ├── float-logger.md       ← Captures decisions + handoffs
+│   └── float-organize.md     ← Workshop cleanup (gated)
+├── hooks/
+│   └── hooks.json            ← SessionEnd, PreCompact
+├── lib/
+│   ├── schema.sql            ← Database schema
+│   └── scan.sh               ← Layer 1 scanner (optional)
+└── templates/
+    └── Float.md              ← Copied to .float/ on init
 ```
 
-**Critical:** Commands, agents, skills, hooks go at root — NOT inside `.claude-plugin/`.
+**Critical:** Commands, agents, hooks go at plugin root — NOT inside `.claude-plugin/`.
 
-### Command Format
-
-```markdown
----
-description: What this command does
-allowed-tools: ["Read", "Bash"]  # Optional: restrict tools
-model: sonnet                     # Optional: model selection
 ---
 
-# Command Name
+### Distribution via Marketplace
 
-Instructions for Claude when this command is invoked.
+```bash
+# User adds marketplace (one-time)
+/plugin marketplace add mds/floatprompt
 
-$ARGUMENTS captures user input.
-$1, $2 for positional arguments.
+# User installs plugin
+/plugin install floatprompt@mds
 ```
+
+**Repository structure:**
+```
+github.com/mds/floatprompt/
+├── .claude-plugin/
+│   └── marketplace.json      ← Lists plugins in this repo
+├── plugins/
+│   └── floatprompt/          ← The actual plugin
+└── web/                      ← FloatPrompt for Web (npm, separate product)
+```
+
+---
+
+### The Three Layers
+
+| Layer | What | How |
+|-------|------|-----|
+| **Layer 1** | Filesystem → SQLite | Script (scan.sh) or AI runs find+sqlite3 |
+| **Layer 2** | Enrich folder context | Agents using sqlite3 |
+| **Layer 3** | Automatic triggers | Hooks (SessionEnd, PreCompact) |
+
+---
+
+### Hook Configuration
+
+**hooks/hooks.json:**
+```json
+{
+  "description": "FloatPrompt session end automation",
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/session-end.sh"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/pre-compact.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+---
 
 ### Agent Format
 
 ```markdown
 ---
 name: agent-name
-description: When to invoke this agent. Be specific — Claude uses this to decide when to spawn.
+description: When to invoke. Be specific — Claude uses this to decide.
 tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 
 # Agent Name
 
-What this agent does and how it operates.
+What this agent does.
 
-## What You Do
+## Process
 
-1. Step one
-2. Step two
-3. Step three
-
-## Output
-
-What the agent returns when done.
+1. Query float.db: `sqlite3 .float/float.db "SELECT ..."`
+2. Do work
+3. Write back: `sqlite3 .float/float.db "UPDATE ..."`
 ```
 
-**Note:** `model` is optional (defaults to inherit). Tools are comma-separated, no brackets.
+**Note:** Agents use sqlite3 via Bash. No CLI wrapper.
 
-### Skill Format
-
-```
-skills/
-└── skill-name/
-    └── SKILL.md
-```
-
-```markdown
----
-name: skill-name
-description: |
-  When Claude should auto-invoke this skill.
-  Be specific — triggers on these patterns.
 ---
 
-# Skill Name
+### Float.md Design Principles
 
-Instructions and context that load when skill activates.
-```
+The "driver's manual" that teaches AI to operate the system:
 
-**Skills are model-invoked** — Claude decides when to use them based on task context.
+1. **Teach to fish** — Don't load all context. Teach AI how to get context.
+2. **< 800 tokens** — Concise. Every token must earn its place.
+3. **Actionable** — Concrete queries, not philosophy.
+4. **Trust AI judgment** — Don't micromanage when to query.
 
-### Hook Events
-
-| Event | When | Use For |
-|-------|------|---------|
-| `PreToolUse` | Before tool | Validation, blocking |
-| `PostToolUse` | After tool | Logging, formatting |
-| `SessionStart` | Session begins | Auto-boot, reminders |
-| `SessionEnd` | Session ends | Cleanup |
-| `Stop` | Claude tries to stop | Continue loops |
-| `PreCompact` | Before context compacts | Auto-handoff |
-| `UserPromptSubmit` | User sends message | Input processing |
-
-### Matchers
-
-```json
-{
-  "matcher": "Write|Edit",      // Regex for tool names
-  "matcher": ".*",              // All tools
-  "matcher": "Bash(npm:*)"      // Specific patterns
-}
-```
-
-### Testing Plugins
-
-```bash
-claude --plugin-dir ./my-plugin
-```
-
-Restart Claude Code to pick up changes.
-
-### The Adoption Philosophy (Session 36)
-
-**The key insight:** No human adopts complex workflows. One command is the entire interface.
-
-```
-/float
-```
-
-That's it. Everything else is automatic:
-- Skills notice enrichment opportunities → spawn agents
-- Hooks trigger handoff at session end
-- PreCompact preserves learnings before context dies
-
-**Commands become escape hatches, not the interface.** Power users can manually trigger things. Normal users just type `/float` and context compounds.
-
-### Plugin vs Big Vision
-
-| Plugin (Building Now) | Big Vision (Future) |
-|-----------------------|---------------------|
-| Claude Code native patterns | Buoy execution engine |
-| One command + automatic | Autonomous Layer 3 |
-| Skills, agents, hooks | Vercel Sandbox, parallel fleets |
-| Sequential | Infinite parallelization |
-
-**The plugin uses what Claude Code gives us.** The big vision may live outside Claude Code entirely.
-
-### Locked Decisions (from logs)
-
-**Commands are self-contained** — Full content inline, no "read protocol X" indirection.
-
-**Skill notices, agent works** — `float-enrich` skill notices deep work, spawns `float-enricher` agent. Skill is lightweight (notice pattern), agent does heavy lifting (separate context window).
-
-**Enrichment is automatic** — Context isn't static. AI learns more than what's stored. Skill notices gap → spawns agent → context gets richer. No user command needed.
-
-**float.db extends CLAUDE.md** — Not a replacement. For projects that outgrow a single file (50+ folders, dynamic context, long-term AI collaboration).
-
-**Context is compressed human judgment** — Not just information. Distilled judgment calls, rationale, understanding.
-
-**AI-native storage** — Float.db is built for AI, not humans. Don't optimize internal formats for human readability. Export to markdown when humans need to audit. See `ref/ai-native-context.md` for full paradigm.
-
-**Workshop vs Core distinction** — Workshop layer uses Claude Code patterns (commands, agents). Core (buoys, SQLite) stays portable for future platforms.
-
-### What Exists vs What's Needed
-
-**Exists (needs adaptation):**
-- `/float-boot` → rename to `/float`, add auto-create
-- `/float-mode` → keep for manual, add skill for proactive suggestion
-- `float-mode-generator` agent → exists, needs skill trigger
-
-**Drafted (Session 38):**
-- `float-enricher` agent → drafted, ready for testing
-- `float-logger` agent → drafted, ready for testing
-- CLI `log` command → implemented (add, list, latest)
-
-**Workshop only (not shipped to users):**
-- `/float-handoff` → workshop tool, convert to hook-triggered
-- `float-organize` agent → workshop only
-- `float-update-logs` agent → workshop only
-
-**Needs building (next):**
-- SessionEnd hook — git diff detection, spawn enricher + logger agents
-- `/float` command — rename from `/float-boot`, add float.db creation
-- boot.md — "the driver's manual" (< 800 tokens, save for last)
-
-**Needs building (Phase 2):**
-- `float-mode-suggest` skill — proactive mode offers
-
-> See `active/floatprompt-plugin-PRD.md` for full implementation details.
+---
 
 ### The Enrichment Loop
 
 ```
-Boot → Work → Notice gaps → Write back (automatic) → Future sessions inherit
+Session N:
+  /float → AI reads Float.md → AI has instructions
+       ↓
+  AI queries context, works with human
+       ↓
+  SessionEnd hook fires
+       ↓
+  float-enricher updates folders
+  float-logger captures handoff
+       ↓
+Session N+1:
+  /float → "Last session: [what]. Options: [next]"
+       ↓
+  Context has compounded
 ```
 
-This is the core value. The plugin implements it with native Claude Code patterns — one command, automatic everything else.
+---
 
-### Vision (Adjacent Awareness)
+### Workshop Gate
 
-The big north star: omnipresent recursive context scaffolding with buoys, SQLite, autonomous scopes, infinite parallelization.
+`float-organize` and `float-update-logs` only run when `.float-workshop/` exists.
 
-**The plugin validates the concept.** Build working context management with Claude Code native patterns. The big infrastructure (buoy engine, Vercel Sandbox, parallel fleets) may live outside Claude Code entirely.
+```bash
+if [ -d ".float-workshop" ]; then
+  # Spawn workshop agents
+fi
+```
 
-**We know what we want:**
-- Persistent context that survives sessions
-- Enrichment loop (AI learns → writes back → compounds)
-- Hierarchical understanding (project → folder → file)
-- Zero friction for users (one command)
+Users installing the plugin won't have `.float-workshop/`. It's internal tooling.
 
-The spec is locked. Now we build.
+---
+
+### Implementation Status
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| Database schema | Exists | Needs `content_md` → `context` rename |
+| /float command | Exists as `/float-boot` | Rename + update |
+| float-enricher | Drafted | In `.claude/agents/draft/` |
+| float-logger | Drafted | In `.claude/agents/draft/` |
+| SessionEnd hook | **Not started** | **Next priority** |
+| PreCompact hook | Not started | Test timing |
+| Float.md | Not started | Design last |
+| Plugin reorganization | Not started | Move to `plugins/floatprompt/` |
+| marketplace.json | Not started | Phase 6 |
+
+---
+
+### Open Questions
+
+1. **Float.md content** — Design last, after everything works
+2. **PreCompact timing** — Enough time to spawn agents? Session 40 suggests yes.
+3. **Scan approach** — Shell script vs AI does it. Defer decision.
+4. **Schema rename** — `content_md` → `context` migration
+
+---
+
+### Key Principles
+
+**AI-Native:** Float.db is FOR AI, BY AI. Optimize for queries, not human readability.
+
+**One Command:** Human complexity budget is one command. Everything else automatic.
+
+**Context Compounds:** Each session builds on the last. Memory infrastructure for AI.
+
+**Compressed Judgment:** Context is distilled judgment, not just information.
 
 ---
 
 ## Ignore
 
-- Big vision implementation details (buoy engine, Vercel Sandbox)
-- Architectural debates about future infrastructure
-- `<fp><json><md>` format complexity
-- Parallel execution patterns
-- "Is this the right approach?" — strategy mode handles that
+- Big vision infrastructure (buoy engine, Vercel Sandbox)
+- Architectural debates — strategy mode handles that
 - Adding more user commands — one command is the interface
-- **FloatPrompt for Web** — sibling product in `artifacts/2026/01-jan/float-web/`, separate codebase (NPM package for websites). Don't confuse with this plugin work.
+- CLI ergonomics — AI uses sqlite3 directly
+- **npm package** — separate product in `web/`, not this plugin
 
 ---
 
 ## Go Deeper
 
-Reference docs for adjacent exploration:
-
 | Direction | Document | Path |
 |-----------|----------|------|
-| Architecture | Deep Strategy Mode | `modes/deep-strategy.md` |
+| Architecture | Plugin Architecture | `artifacts/2026/01-jan/2026-01-09-floatprompt-plugin-architecture.md` |
+| Strategy | Deep Strategy Mode | `modes/deep-strategy.md` |
+| npm package | Web Mode | `modes/web.md` |
 | AI-native paradigm | AI-Native Context | `ref/ai-native-context.md` |
-| AI perspective | Why AI Wants This | `ref/ai-wants-this.md` |
 | Full plugin docs | Plugins Reference | `artifacts/2026/01-jan/claude-code-plugins/plugins-reference.md` |
-| Sibling product | Float-Web PRD | `artifacts/2026/01-jan/float-web/prd.md` |
 
 ---
 
