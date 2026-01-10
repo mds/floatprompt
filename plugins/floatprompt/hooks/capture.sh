@@ -1,19 +1,20 @@
 #!/bin/bash
 #
-# 2026-01-10: Session continuity verified
+# capture.sh - FloatPrompt Session Capture
 #
-# FloatPrompt Automatic Capture
+# Two-tier capture system:
 #
-# Fires on: PreCompact (context full) OR SessionEnd (user exits)
-# Whichever comes first. Self-deduplicating.
+#   AUTO (PreCompact/SessionEnd) → Mechanical only: sqlite3 INSERT
+#     - Fires automatically, compaction doesn't wait for agents
+#     - Saves facts: files changed, folders edited, timestamp
+#     - Safety net: never lose data
 #
-# Strategy:
-#   PreCompact (PRIMARY)  → Full capture: sqlite3 + agents
-#                           Session alive, agents complete reliably
-#   SessionEnd (FALLBACK) → Mechanical only: sqlite3
-#                           Terminal closing, agents might get killed
+#   MANUAL (/float-capture)      → Full pipeline: sqlite3 + AI agents
+#     - User controls timing, agents complete reliably
+#     - Saves understanding: title, decision, rationale, handoff.md
+#     - Primary method for context transfer
 #
-# Safety net + value-add: never lose data, enhance when possible
+# Key message: "PreCompact saves facts. Manual capture saves understanding."
 #
 
 set -e
@@ -175,14 +176,27 @@ SELECT last_insert_rowid();
 ")
 
 # -----------------------------------------------------------------------------
-# PHASES 2-4: AI enrichment (PreCompact only)
+# PHASES 2-4: AI enrichment (manual capture only)
 # -----------------------------------------------------------------------------
-# Only run agents on PreCompact - session is alive, agents complete reliably
-# Skip on SessionEnd - terminal might be closing, agents could get killed
+# Auto-triggers (PreCompact/SessionEnd) = mechanical only
+#   - Compaction doesn't wait for agents to complete
+#   - Agents get orphaned, handoff.md not reliably written
+#   - But we ALWAYS get the mechanical log entry (facts saved)
 #
-# SessionEnd still gets mechanical capture (Phase 1) as fallback
+# Manual capture (/float-capture) = full pipeline
+#   - User controls timing, agents complete reliably
+#   - Full enrichment: title, decision, rationale, handoff.md
+#
+# Key message: "PreCompact saves facts. Manual capture saves understanding."
 
-if [ "$HOOK_EVENT" = "PreCompact" ]; then
+if [ "$REASON" != "manual" ]; then
+  # Auto-trigger: just log and exit after mechanical capture
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $HOOK_EVENT: mechanical capture entry $ENTRY_ID (agents skipped)" >> /tmp/float-capture-debug.log
+  exit 0
+fi
+
+# Manual capture: run full agent pipeline
+if [ "$REASON" = "manual" ]; then
 
   # Get plugin root directory (where agents/ lives)
   SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -434,6 +448,6 @@ Check existing logs for examples: $PROJECT_DIR/.float-workshop/logs/2026/01-jan/
   # Cleanup temp transcript
   rm -f "$TRANSCRIPT_TRUNCATED" 2>/dev/null || true
 
-fi  # End PreCompact-only section
+fi  # End manual capture section
 
 exit 0

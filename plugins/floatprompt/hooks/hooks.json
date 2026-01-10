@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/float-capture.sh",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/capture.sh",
             "timeout": 120
           }
         ]
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/float-capture.sh",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/capture.sh",
             "timeout": 120
           }
         ]

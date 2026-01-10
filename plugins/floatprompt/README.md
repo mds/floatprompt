@@ -25,7 +25,7 @@ plugins/floatprompt/
 │       └── SKILL.md
 ├── hooks/
 │   ├── hooks.json            # Hook configuration (PreCompact + SessionEnd)
-│   └── float-capture.sh      # Main hook script (session capture + AI enrichment)
+│   └── capture.sh            # Main capture script (auto=mechanical, manual=full)
 ├── lib/
 │   ├── boot.sh               # Boot query script (JSON output for /float)
 │   ├── schema.sql            # SQLite schema for float.db (9 tables)
@@ -151,14 +151,18 @@ ORDER BY created_at DESC LIMIT 3;
 
 | Event | When | Behavior |
 |-------|------|----------|
-| `PreCompact` | Context window ~80% full | Full capture: sqlite3 + AI agents |
-| `SessionEnd` | User exits session | Fallback capture: sqlite3 only |
+| `PreCompact` | Context window ~80% full | Mechanical capture only |
+| `SessionEnd` | User exits session | Mechanical capture only |
 
-**Why Two Hooks:**
-- **PreCompact (PRIMARY):** Session is alive, agents complete reliably
-- **SessionEnd (FALLBACK):** Terminal may be closing, agents might get killed
+**Why Mechanical Only:**
 
-Self-deduplicating: If PreCompact runs, SessionEnd skips (5-minute window).
+Auto-triggers (PreCompact/SessionEnd) run mechanical capture only because compaction doesn't wait for AI agents to complete. Agents would get orphaned.
+
+For full AI enrichment (title, decision, handoff.md), run `/float-capture` manually.
+
+> **"PreCompact saves facts. Manual capture saves understanding."**
+
+Self-deduplicating: 5-minute window prevents duplicate entries.
 
 **Reference:**
 - [Hooks Reference](../../../artifacts/2026/01-jan/claude-code-plugins/hooks-reference.md)
@@ -166,42 +170,39 @@ Self-deduplicating: If PreCompact runs, SessionEnd skips (5-minute window).
 
 ---
 
-### `hooks/float-capture.sh`
+### `hooks/capture.sh`
 
-**Purpose:** Main hook script that captures session state and enriches with AI.
+**Purpose:** Main capture script implementing two-tier capture system.
 
-**Input:** JSON from stdin with session context:
-```json
-{
-  "session_id": "...",
-  "transcript_path": "/path/to/transcript.jsonl",
-  "cwd": "/project/directory",
-  "reason": "compact",
-  "hook_event_name": "PreCompact"
-}
-```
+**Input:** JSON from stdin (hook) or `--manual` flag (command).
+
+**Two-Tier Design:**
+
+| Trigger | Behavior | What You Get |
+|---------|----------|--------------|
+| **Auto** (PreCompact/SessionEnd) | Mechanical only | Facts: files, folders, timestamp |
+| **Manual** (`/float-capture`) | Full pipeline | Understanding: title, decision, handoff.md |
+
+> **"PreCompact saves facts. Manual capture saves understanding."**
 
 **Execution Phases:**
 
-| Phase | Always | PreCompact Only | Purpose |
-|-------|--------|-----------------|---------|
-| **Early exits** | Yes | - | Skip if no .float/, recent handoff, or no changes |
-| **Phase 1** | Yes | - | Mechanical sqlite3 INSERT (instant, guaranteed) |
-| **Phase 2** | - | Yes | Parallel: float-log (handoff) + float-decisions (folder decisions) |
-| **Phase 3** | - | Yes | float-enrich agent: update folder contexts |
-| **Phase 4** | - | Yes | float-handoff agent: write `.float/handoff.md` |
-| **Phase 5** | - | Yes | Workshop agents (if .float-workshop/ exists) |
+| Phase | Auto | Manual | Purpose |
+|-------|------|--------|---------|
+| **Early exits** | Yes | Yes | Skip if no .float/, recent handoff, or no changes |
+| **Phase 1** | Yes | Yes | Mechanical sqlite3 INSERT (instant, guaranteed) |
+| **Phase 2** | - | Yes | Parallel: float-log + float-decisions |
+| **Phase 3** | - | Yes | Parallel: float-enrich + float-handoff |
+| **Phase 4** | - | Yes | Workshop agents (if .float-workshop/ exists) |
 
-**Key Design Decisions:**
-1. **Mechanical first** — sqlite3 INSERT is instant and guaranteed
-2. **AI enrichment second** — Agents run best-effort on PreCompact only
-3. **git diff for changes** — Detects what files were modified this session
-4. **Agent files** — Prompts live in `agents/*.md`, stripped of frontmatter before spawning
+**Why Auto = Mechanical Only:**
 
-**Agents Spawned (PreCompact only):**
-- `float-log` — Updates session handoff entry (parallel with float-decisions)
-- `float-decisions` — Creates folder-level decisions + open questions (parallel with float-log)
-- `float-enrich` — Updates folder description/context if new understanding
+Compaction doesn't wait for agents to complete. Agents spawned during PreCompact get orphaned. Mechanical capture is instant and guaranteed.
+
+**Agents Spawned (Manual only):**
+- `float-log` — Updates entry with title, decision, rationale
+- `float-decisions` — Creates open questions, resolves previous ones
+- `float-enrich` — Updates folder description/context
 - `float-handoff` — Writes `.float/handoff.md` (AI-to-AI session note)
 - `float-organize` — Workshop cleanup (if .float-workshop/ exists)
 - `float-update-logs` — Creates markdown decision logs (if .float-workshop/ exists)
@@ -418,19 +419,30 @@ AI boots with context ◄────────────── lib/boot.sh 
    [Work happens]
         │
         ▼
-PreCompact fires ────────────────────► hooks/float-capture.sh
+PreCompact fires ────────────────────► hooks/capture.sh
 (or SessionEnd)                              │
+        │                              Phase 1 only (mechanical)
+        │                              sqlite3 INSERT → exit
+        │                              (facts saved, no agents)
+        │
+        ▼
+Session compacts
+        │
+        │
+   [More work...]
+        │
+        ▼
+User runs /float-capture ────────────► hooks/capture.sh --manual
+        │                                    │
         │                              ┌─────┴─────┐
-        │                              │  Phase 1  │ sqlite3 INSERT (instant)
-        │                              │  Phase 2  │ float-log + float-decisions (parallel)
-        │                              │  Phase 3  │ float-enrich agent
-        │                              │  Phase 4  │ float-handoff agent
-        │                              │  Phase 5  │ workshop agents
+        │                              │  Phase 1  │ sqlite3 INSERT
+        │                              │  Phase 2  │ float-log + float-decisions
+        │                              │  Phase 3  │ float-enrich + float-handoff
+        │                              │  Phase 4  │ workshop agents
         │                              └─────┬─────┘
         │                                    │
         ▼                              ◄─────┘
-Session ends or compacts               log_entries updated
-                                       folders enriched
+Context saved                          log_entries enriched
                                        .float/handoff.md written
         │
         ▼
@@ -598,6 +610,7 @@ bash plugins/floatprompt/lib/scan.sh .
 
 | Date | Session | Changes |
 |------|---------|---------|
+| 2026-01-10 | 60 | **Two-tier capture system** — PreCompact/SessionEnd now mechanical-only (facts), manual `/float-capture` runs full agent pipeline (understanding). Renamed `float-capture.sh` → `capture.sh`. Key message: "PreCompact saves facts. Manual capture saves understanding." |
 | 2026-01-10 | 58 | **Session continuity fix** — Two-stage agent execution (entry writers → entry readers), observability logging to `/tmp/float-agents-*.log`, removed Write tool from float-handoff (uses Bash heredoc), added open questions resolution to float-decisions |
 | 2026-01-10 | 56 | **Phase 6: Distribution** — Added marketplace.json, restructured plugin.json to .claude-plugin/ |
 | 2026-01-10 | 56 | Rewrote float-log agent: UPDATE-first approach ensures enrichment completes |
@@ -630,5 +643,5 @@ bash plugins/floatprompt/lib/scan.sh .
 ---
 
 *Created: 2026-01-09 (Session 45)*
-*Last updated: 2026-01-10 (Session 58)*
+*Last updated: 2026-01-10 (Session 60)*
 *References verified: 34 files across docs/, artifacts/, .float-workshop/, src/*
