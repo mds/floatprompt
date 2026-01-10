@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(sqlite3:*)",
+      "Bash(/Users/mds/Documents/_Github/floatprompt/plugins/floatprompt/lib/boot.sh:*)",
+      "Bash(/Users/mds/Documents/_Github/floatprompt/plugins/floatprompt/lib/scan.sh:*)",
+      "Bash(/Users/mds/Documents/_Github/floatprompt/plugins/floatprompt/hooks/float-capture.sh:*)"
+    ]
+  }
+}

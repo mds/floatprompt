@@ -3,9 +3,9 @@
  * FloatPrompt CLI
  *
  * Usage:
- *   npx floatprompt generate ./dist
- *   npx floatprompt generate ./dist --output ./public
- *   npx floatprompt generate ./dist --exclude "/admin/**"
+ *   floatprompt              # auto-detects output directory
+ *   floatprompt ./out        # explicit path
+ *   floatprompt --exclude "/admin/**"
  */
 export {};
 //# sourceMappingURL=index.d.ts.map

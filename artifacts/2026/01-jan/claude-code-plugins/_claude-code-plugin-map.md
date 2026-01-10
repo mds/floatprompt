@@ -6,8 +6,8 @@ This catalog maps all documentation files for Claude Code extensibility features
 
 ## Directory Overview
 
-**Location**: `artifacts/claude-code-plugins/`
-**Files**: 14 markdown documents
+**Location**: `artifacts/2026/01-jan/claude-code-plugins/`
+**Files**: 15 markdown documents
 **Purpose**: Reference documentation for Claude Code's plugin system, hooks, MCP integration, and customization features
 
 ---
@@ -21,6 +21,7 @@ This catalog maps all documentation files for Claude Code extensibility features
 | `plugins-reference.md` | 30KB | Complete technical reference: manifest schema, component specs (commands, agents, skills, hooks, MCP, LSP), CLI commands, debugging |
 | `create-plugins.md` | 13KB | Tutorial for creating plugins with slash commands, agents, hooks, and MCP servers |
 | `discover-plugins.md` | 15KB | Installing plugins from marketplaces, managing scopes, official Anthropic marketplace |
+| `marketplace.md` | 12KB | Creating and hosting plugin marketplaces, marketplace.json schema, distribution |
 
 ### Extensibility Components
 
@@ -201,6 +202,16 @@ This catalog maps all documentation files for Claude Code extensibility features
 - Rewinding with Esc+Esc or `/rewind`
 - Restore options: conversation only, code only, both
 - Limitations: bash changes not tracked
+
+### marketplace.md
+**Topics covered:**
+- Creating marketplace.json with plugin listings
+- Marketplace schema: name, owner, plugins array
+- Plugin sources: relative paths, GitHub repos, Git URLs
+- Hosting on GitHub (recommended) or other git services
+- User installation: `/plugin marketplace add`, `/plugin install`
+- Team configuration via `.claude/settings.json`
+- Validation with `claude plugin validate`
 
 ---
 

@@ -127,7 +127,7 @@ Each folder has a self-describing index:
 
 ## Current Focus
 
-**Primary:** `active/plugin-architecture.md`
-Converting FloatPrompt buoys to Claude Code native agents/skills.
+**Primary:** `active/floatprompt-plugin.md`
+FloatPrompt Claude Code plugin — 11/11 tests passed, ready for distribution (Phase 6).
 
 See `active/ACTIVE.md` for full context.

@@ -1,7 +1,7 @@
 ---
 title: Simple Site — Home
 url: /
-generated: 2026-01-09T12:20:46.336Z
+generated: 2026-01-09T13:58:26.545Z
 description: A simple test site for FloatPrompt
 schema:
   "@type": WebSite

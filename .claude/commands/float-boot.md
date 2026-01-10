@@ -85,25 +85,6 @@ If NO → **don't write code yet**. Go back to Map or Decide.
 
 See `.float-workshop/README.md` for folder structure, work lifecycle, and conventions.
 
----
-
-## Modes (Deep Context)
-
-Boot stays lean. For deeper context, activate a mode.
-
-**Available modes:** See `.float-workshop/modes/MODES.md`
-
-| Mode | Role | When to Activate |
-|------|------|------------------|
-| `deep-strategy.md` | Architect | Architecture decisions, planning, big-picture |
-| `deep-plugin.md` | Implementer | Building plugin components, Claude Code patterns |
-
-**To activate:** Run `/float-mode` or say "activate [mode-name] mode"
-
-Modes are curated document loadouts — what to read, what concepts to hold. Add new modes as the project evolves.
-
----
-
 ## Session Protocol
 
 **Now do this:**
@@ -112,10 +93,6 @@ Modes are curated document loadouts — what to read, what concepts to hold. Add
 2. Read `later/LATER.md` (work queue)
 3. Check recent logs in `logs/YYYY/MM-mmm/`
 4. Recommend next steps based on current state
-5. **Offer mode activation** — After orienting, ask if user wants to activate a mode:
-   - Read `modes/MODES.md` for available modes
-   - Present options: "Would you like to activate a mode? Available: [list]. Or skip to continue without one."
-   - If user selects a mode, read and adopt it
 
 **At session end:**
 Run `/float-handoff` — orchestrates cleanup agents.

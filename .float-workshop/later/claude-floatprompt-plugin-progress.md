@@ -1,6 +1,6 @@
 # FloatPrompt Plugin Build Progress
 
-**Session:** 45
+**Session:** 49
 **Started:** 2026-01-09
 
 ---
@@ -182,15 +182,18 @@ plugins/floatprompt/
 ├── .claude-plugin/
 │   └── plugin.json           ← Manifest
 ├── commands/
-│   └── float.md              ← /float command
+│   ├── float.md              ← /float command
+│   └── float-capture.md      ← Manual capture command
 ├── hooks/
 │   ├── hooks.json            ← PreCompact + SessionEnd triggers
-│   └── float-handoff.sh      ← Main hook script
+│   └── float-capture.sh      ← Main hook script
+├── agents/
+│   ├── float-log.md          ← Session logging agent
+│   └── float-enrich.md       ← Folder enrichment agent
 ├── lib/
 │   ├── schema.sql            ← Database schema
 │   └── scan.sh               ← Layer 1 scanner
-└── templates/
-    └── Float.md              ← AI driver's manual
+└── Float.md                  ← AI driver's manual (consolidated)
 ```
 
 ---
@@ -252,14 +255,130 @@ log_entries: 3 rows
 
 ---
 
-## Next Steps
+## Session 46 Progress
 
-1. ~~Move agents from .claude/agents/draft/ to plugins/floatprompt/agents/~~
-2. Test PreCompact hook firing (need to fill context window)
-3. Test SessionEnd hook firing (exit session)
-4. Verify folder-level log_entries are created
-5. Create marketplace.json for distribution
+### Boot Architecture Complete
+
+**1. Agents moved to production location**
+- Created `plugins/floatprompt/agents/float-log.md`
+- Created `plugins/floatprompt/agents/float-enrich.md`
+
+**2. Commands updated**
+- Updated `plugins/floatprompt/commands/float.md` with locked decisions
+
+**3. Templates enhanced**
+- Created `plugins/floatprompt/templates/boot.md` with JSON anchors
+- Structured boot output for machine-parseable context
+
+**4. Schema enhanced**
+- Added `related_files` column for folder-to-folder links
 
 ---
 
-*Last updated: Session 45 — Plugin validation fixed, scan.sh enhanced with files table, folder-level logging enabled.*
+## Session 47 Progress
+
+### Testing Complete (10/11)
+
+Session 46-47 validated the full end-to-end loop:
+
+| Test | Result |
+|------|--------|
+| First run initialization | PASS |
+| Database structure | PASS |
+| Layer 2 timing understanding | PASS |
+| Manual enrichment | PASS |
+| Parallel agent spawning | PASS |
+| Batch enrichment capacity | PASS |
+| Parallel batch enrichment | PASS |
+| Database ready state | PASS |
+| SessionEnd hook firing | PASS |
+| Session continuity | PASS |
+| PreCompact hook firing | PENDING |
+
+### Implementation Complete
+
+**Rename locked and implemented:**
+- `hooks/float-handoff.sh` -> `hooks/float-capture.sh`
+- Created `commands/float-capture.md`
+- Updated `hooks/hooks.json` references
+
+**First-run UX locked:**
+- Offer enrichment after scan (not presume)
+- Educate about auto-capture + manual `/float-capture`
+- State value prop: "build, enrich, preserve context across sessions"
+
+**boot.md rewrite:**
+- JSON anchors for machine-parseable output
+- Structured boot context
+
+### Committed and Pushed
+
+All Session 47 changes committed to main branch.
+
+---
+
+## Session 48 Progress
+
+### Consolidation
+
+**1. Float.md consolidation**
+- Merged templates/Float.md and templates/boot.md into single Float.md
+- Removed templates/ folder
+- Simplified plugin structure
+
+**2. Plugin structure simplified**
+- templates/ folder removed
+- Float.md now at plugin root
+- All user-facing context in one file
+
+---
+
+## Session 49 Progress
+
+### Bug Fix: Agent Spawning
+
+**Issue:** Phases 2-3 (AI agents) weren't updating database entries during capture
+
+**Root cause:** YAML frontmatter (`---`) in agent files was interpreted as CLI options by `claude -p`
+
+**Fix in `float-capture.sh`:**
+```bash
+# Before (broken):
+AGENT_PROMPT=$(cat "$PLUGIN_ROOT/agents/float-log.md")
+claude -p "$AGENT_PROMPT
+---
+## Session Context...
+
+# After (fixed):
+AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-log.md")
+claude -p "$AGENT_PROMPT
+
+## Session Context...
+```
+
+**Verified:** Database successfully updated by agent after fix
+
+### PreCompact Confirmed
+
+Debug log shows PreCompact fired organically at 18:45:00:
+```
+{"session_id":"7ed4b55c...", "hook_event_name":"PreCompact", "trigger":"auto"}
+```
+
+### Test Status: 11/11 COMPLETE
+
+| Test | Result |
+|------|--------|
+| PreCompact hook firing | PASS (confirmed via debug log) |
+| Agent database updates | PASS (after frontmatter fix) |
+
+---
+
+## Next Steps
+
+1. ~~Test PreCompact hook firing~~ COMPLETE
+2. Phase 6: Distribution (marketplace.json, documentation)
+
+---
+
+*Last updated: Session 49 — Agent spawning bug fixed (YAML frontmatter), PreCompact confirmed, 11/11 tests COMPLETE*

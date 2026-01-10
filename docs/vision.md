@@ -44,14 +44,9 @@ Context lives in human memory, Slack threads, old PRs, chat history. None of it 
 
 FloatPrompt installs a `.float/` directory at your project root. Inside:
 
-- **boot.md** — The system prompt that orients AI to the project
-- **SQLite database** — Source of truth for all context
+- **float.md** — The system prompt that orients AI to the project
+- **SQLite database float.db** — Source of truth for all context
 - **Recursive folder context** — Every folder gets map, context, and decision history
-
-When AI opens any folder in your project, it reads:
-1. `boot.md` (project-level orientation)
-2. Scope chain up to current location
-3. Map + context for the current folder
 
 **No more re-explaining. Context is just there.**
 
@@ -86,7 +81,7 @@ Any size. Any depth. Any complexity.
 ### Layer 2: AI Generation (buoys, parallel)
 
 - For each folder: generate `description` (what's here)
-- For each folder: generate `content_md` (what it means)
+- For each folder: generate `context` (what it means)
 - Form hypotheses about relationships, patterns, architecture
 - Buoys work in parallel — hundreds if needed
 

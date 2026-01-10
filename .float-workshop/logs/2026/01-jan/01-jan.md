@@ -228,6 +228,59 @@ Foundational month for context-compiler. Established architecture, execution mod
 - **files_read tracking** — Both `files_read` and `files_changed` captured for mode inference
 - **Progress tracker** — Created `active/claude-floatprompt-plugin-progress.md` with 8-item build checklist
 
+### Boot Architecture (Session 46)
+- **Git root anchor** — float.db always at repo root via `git rev-parse --show-toplevel`
+- **Emergent orientation** — AI discovers and synthesizes, not rigid templates
+- **Agent separation** — Prompts in dedicated .md files, shell handles orchestration
+- **boot.md JSON anchors** — Rich `<fp><json><md>` behavioral specification
+- **related_files field** — Added to log_entries schema for boot context
+
+### Naming and Format (Session 47)
+- **"capture" over "handoff"** — User-facing clarity; "capture" describes the action (saving context), "handoff" was internal jargon
+- **YAML over JSON for boot.md** — Custom `<fp><json><md>` format overkill for single-platform file; YAML frontmatter is standard and cleaner
+- **Action-first boot.md structure** — Organized by what fresh AI needs: Now, Queries, When, Write, Trust, Capture
+
+### Float.md Consolidation (Session 48)
+- **Single file architecture** — Merged float.md (command procedure) + boot.md (AI driver's manual) into one comprehensive float.md
+- **FP format dropped** — `<fp><json><md>` was for cross-platform portability; Claude Code plugin only runs in Claude Code, so extra structure was overhead
+- **Enhanced content** — Added MDS methodology, role framing ("You have memory and judgment now"), enrichment loop responsibility, trust levels
+- **Simplified plugin structure** — Removed templates/ folder, deleted .float/boot.md copy mechanism
+- **Test status** — 10/11 passed, PreCompact pending (needs organic context growth)
+
+### Agent Spawning Fix (Session 49)
+- **YAML frontmatter stripping** — Agent files use YAML frontmatter for Claude Code metadata; `sed` filter strips before passing to `claude -p`
+- **Test status** — All 11 tests now PASS (agent database updates restored)
+
+### Runtime Behavior (Session 49)
+- **First-run permissions** — Accept one-time sqlite3 prompt, then AI offers to update settings.json for permanent auto-approval
+- **Proactive context querying** — AI queries float.db before working on unfamiliar code; surfaces locked decisions, staleness, scope chain
+- **float-context skill** — Explicit lookup for "What do we know about /path?"
+
+### Agent Architecture Finalization (Session 50)
+- **5-phase capture system** — Mechanical → Parallel agents → Enrichment → Handoff → Workshop
+- **Agent files over inline prompts** — Discoverable `agents/*.md` files with YAML frontmatter
+- **Parallel execution (Phase 2)** — float-log + float-decisions spawn together, no inter-dependency
+- **Hook deduplication** — 5-minute window prevents double-capture between PreCompact and SessionEnd
+- **Plugin.json updated** — Added `agents` and `skills` entry points for discovery
+
+### Rust Merkle Scanner (Session 52)
+- **Performance problem** — Current scan.sh takes 26 seconds for 605 files; Layer 1 promised "milliseconds"
+- **Root cause** — ~2,500 subprocess spawns (sqlite3, shasum, stat, file) with ~10ms overhead each
+- **Solution: Rust + napi-rs** — Native Node.js bindings, TypeScript imports Rust directly
+- **Merkle tree architecture** — O(log n) change detection; compare root hash first, traverse only changed branches
+- **Platform targets** — darwin-arm64, darwin-x64, linux-x64 (Mac primary, Linux for CI)
+- **Location** — `plugins/floatprompt/lib/scanner/` (Rust source + compiled .node binaries)
+- **Target performance** — 26s → <100ms (full scan), <10ms (no changes)
+- **Research source** — Cursor's indexing approach (Aman Sanger thread): Merkle + Rust + napi + tree-sitter
+
+**Open questions (Session 52):**
+- SQLite schema: recompute source_hash or new column?
+- .gitignore: use `ignore` crate or hardcoded excludes?
+- Concurrent access: WAL mode + rusqlite?
+- Error handling: throw exceptions or return errors?
+- Binary size: 15-30MB acceptable?
+- Build/CI: napi-rs cross-compilation patterns?
+
 ---
 
 ## Files
@@ -305,6 +358,12 @@ Foundational month for context-compiler. Established architecture, execution mod
 | [2026-01-09-session43-agent-updates.md](2026-01-09-session43-agent-updates.md) | **Agent updates** — float-enrich + float-log use sqlite3 directly, files_read tracking for mode inference. |
 | [2026-01-09-session44-plugin-v1-complete.md](2026-01-09-session44-plugin-v1-complete.md) | **Plugin v1 complete** — 7/8 tasks done, hook system (PreCompact + SessionEnd), Float.md created, plugin manifest. |
 | [2026-01-09-session45-plugin-validation-scan.md](2026-01-09-session45-plugin-validation-scan.md) | **Plugin validation & scan** — Fixed plugin.json schema, status constraint bug, enhanced folder-level logging, scan.sh now populates files table with SHA-256 hashes. |
+| [2026-01-09-session46-boot-architecture.md](2026-01-09-session46-boot-architecture.md) | **Boot architecture locked** — Git root anchor, emergent orientation, agent separation, boot.md JSON anchors, related_files field. |
+| [2026-01-09-session47-capture-rename-boot-rewrite.md](2026-01-09-session47-capture-rename-boot-rewrite.md) | **Naming and format** — "capture" over "handoff", YAML over JSON for boot.md, action-first structure. |
+| [2026-01-09-session48-float-consolidation.md](2026-01-09-session48-float-consolidation.md) | **Float.md consolidation** — Merged float.md + boot.md into single file, dropped FP format, simplified plugin structure. |
+| [2026-01-09-session49-agent-spawning-fix.md](2026-01-09-session49-agent-spawning-fix.md) | **Agent spawning fix** — YAML frontmatter stripping via `sed`, 11/11 tests pass. |
+| [2026-01-09-session49-permissions-and-context-querying.md](2026-01-09-session49-permissions-and-context-querying.md) | **Runtime behavior** — First-run permissions UX, proactive context querying, float-context skill, handoff.md unified architecture. |
+| [2026-01-10-rust-merkle-scanner.md](2026-01-10-rust-merkle-scanner.md) | **Rust merkle scanner** — Architecture locked: Rust + napi-rs, merkle tree for O(log n) change detection, 26s → <100ms target. |
 
 ### Archived Reference Material
 

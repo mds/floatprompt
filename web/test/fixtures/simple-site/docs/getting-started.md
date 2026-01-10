@@ -1,7 +1,7 @@
 ---
 title: Getting Started — Simple Site Docs
 url: /docs/getting-started
-generated: 2026-01-09T12:20:46.353Z
+generated: 2026-01-09T13:58:26.561Z
 description: Get started with FloatPrompt in under 5 minutes
 ---
 

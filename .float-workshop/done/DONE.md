@@ -30,3 +30,4 @@ Completed work. Frozen job files for reference.
 | `2026-01-09-floatprompt-plugin-architecture.md` | 2026-01-09 | Archived: architecture artifact superseded by consolidated spec (Session 42) |
 | `architecture-gaps.md` | 2026-01-09 | Archived: gaps addressed in consolidated spec (Session 42) |
 | `plugin-features.json` | 2026-01-09 | Archived: feature tracking superseded by consolidated spec (Session 42) |
+| `MDS-floatprompt-claude-code-plugin.md` | 2026-01-09 | Archived: early workflow notes superseded by implementation (Session 48) |

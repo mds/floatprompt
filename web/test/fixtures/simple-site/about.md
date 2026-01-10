@@ -1,7 +1,7 @@
 ---
 title: About Us
 url: /about
-generated: 2026-01-09T12:20:46.344Z
+generated: 2026-01-09T13:58:26.552Z
 description: Learn about our mission and team
 schema:
   "@type": AboutPage

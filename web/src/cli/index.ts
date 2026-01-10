@@ -3,9 +3,9 @@
  * FloatPrompt CLI
  *
  * Usage:
- *   npx floatprompt generate ./dist
- *   npx floatprompt generate ./dist --output ./public
- *   npx floatprompt generate ./dist --exclude "/admin/**"
+ *   floatprompt              # auto-detects output directory
+ *   floatprompt ./out        # explicit path
+ *   floatprompt --exclude "/admin/**"
  */
 
 import { resolve } from 'node:path';
@@ -15,6 +15,15 @@ import { loadConfig, mergeConfig, validateConfig } from './config.js';
 import type { GenerateOptions } from '../types.js';
 
 const VERSION = '0.1.0';
+
+/** Common output directories in priority order */
+const OUTPUT_DIR_CANDIDATES = [
+  './out',      // Next.js
+  './dist',     // Vite, Astro
+  './build',    // Create React App
+  './_site',    // Eleventy, Jekyll
+  './public',   // Hugo, Gatsby
+];
 
 interface CliFlags {
   output?: string;
@@ -30,10 +39,11 @@ interface CliFlags {
 
 function printHelp(): void {
   console.log(`
-floatprompt — Generate clean markdown files alongside HTML pages
+floatprompt — Floats your content for AI
 
 USAGE
-  floatprompt generate <dir>    Process HTML files in directory
+  floatprompt                   Auto-detect output directory and process
+  floatprompt <dir>             Process HTML files in directory
   floatprompt --help            Show this help
   floatprompt --version         Show version
 
@@ -47,27 +57,40 @@ OPTIONS
   --verbose            Show detailed output
 
 EXAMPLES
-  floatprompt generate ./dist
-  floatprompt generate ./dist --output ./public
-  floatprompt generate ./dist --exclude "/admin/**" --exclude "/api/**"
-  floatprompt generate ./dist --no-dashboard
+  floatprompt
+  floatprompt ./out
+  floatprompt ./dist --exclude "/admin/**" --exclude "/api/**"
+  floatprompt --no-dashboard
 
 CONFIG FILE
   Create floatprompt.config.js in your project root:
 
     export default {
-      input: './dist',
       exclude: ['/admin/**'],
       baseUrl: 'https://example.com',
     };
 `);
 }
 
-function parseArgs(args: string[]): { command?: string; inputDir?: string; flags: CliFlags } {
+/**
+ * Auto-detect output directory by checking common locations
+ */
+async function detectOutputDir(): Promise<string | null> {
+  for (const dir of OUTPUT_DIR_CANDIDATES) {
+    try {
+      await access(resolve(process.cwd(), dir));
+      return dir;
+    } catch {
+      // Directory doesn't exist, try next
+    }
+  }
+  return null;
+}
+
+function parseArgs(args: string[]): { inputDir?: string; flags: CliFlags } {
   const flags: CliFlags = {
     exclude: [],
   };
-  let command: string | undefined;
   let inputDir: string | undefined;
 
   for (let i = 0; i < args.length; i++) {
@@ -92,20 +115,20 @@ function parseArgs(args: string[]): { command?: string; inputDir?: string; flags
     } else if (arg === '--site-title') {
       flags.siteTitle = args[++i];
     } else if (!arg.startsWith('-')) {
-      if (!command) {
-        command = arg;
-      } else if (!inputDir) {
+      // First non-flag argument is the input directory
+      // Skip 'generate' for backwards compatibility
+      if (arg !== 'generate') {
         inputDir = arg;
       }
     }
   }
 
-  return { command, inputDir, flags };
+  return { inputDir, flags };
 }
 
 async function run(): Promise<void> {
   const args = process.argv.slice(2);
-  const { command, inputDir, flags } = parseArgs(args);
+  const { inputDir, flags } = parseArgs(args);
 
   // Handle --help
   if (flags.help) {
@@ -117,17 +140,6 @@ async function run(): Promise<void> {
   if (flags.version) {
     console.log(`floatprompt v${VERSION}`);
     process.exit(0);
-  }
-
-  // Require generate command
-  if (command !== 'generate') {
-    if (command) {
-      console.error(`Unknown command: ${command}`);
-    } else {
-      console.error('No command specified');
-    }
-    console.error('Run "floatprompt --help" for usage');
-    process.exit(1);
   }
 
   // Load config file
@@ -149,6 +161,7 @@ async function run(): Promise<void> {
     output: flags.output,
     exclude: flags.exclude?.length ? flags.exclude : undefined,
     llmsTxt: flags.noLlmsTxt ? false : undefined,
+    llmsFullTxt: flags.noLlmsTxt ? false : undefined, // --no-llms-txt disables both
     dashboard: flags.noDashboard ? false : undefined,
     baseUrl: flags.baseUrl,
     siteTitle: flags.siteTitle,
@@ -166,27 +179,42 @@ async function run(): Promise<void> {
     process.exit(1);
   }
 
-  // Require input directory
-  if (!config.input) {
-    console.error('No input directory specified');
-    console.error('Usage: floatprompt generate <dir>');
-    process.exit(1);
+  // Auto-detect input directory if not specified
+  let resolvedInputDir = config.input;
+  if (!resolvedInputDir) {
+    const detected = await detectOutputDir();
+    if (detected) {
+      resolvedInputDir = detected;
+      if (flags.verbose) {
+        console.log(`Auto-detected output directory: ${detected}`);
+      }
+    } else {
+      console.error('No output directory found.');
+      console.error(`Looked for: ${OUTPUT_DIR_CANDIDATES.join(', ')}`);
+      console.error('');
+      console.error('Either specify a directory:');
+      console.error('  floatprompt ./out');
+      console.error('');
+      console.error('Or run your build first:');
+      console.error('  npm run build');
+      process.exit(1);
+    }
   }
 
   // Resolve paths
-  const input = resolve(cwd, config.input);
+  const input = resolve(cwd, resolvedInputDir);
   const output = config.output ? resolve(cwd, config.output) : input;
 
   // Check input exists
   try {
     await access(input);
   } catch {
-    console.error(`Directory not found: ${config.input}`);
+    console.error(`Directory not found: ${resolvedInputDir}`);
     process.exit(1);
   }
 
   // Run generation
-  console.log(`Processing ${config.input}...`);
+  console.log(`Processing ${resolvedInputDir}...`);
 
   const startTime = Date.now();
 
