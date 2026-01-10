@@ -588,6 +588,7 @@ bash plugins/floatprompt/lib/scan.sh .
 
 | Date | Session | Changes |
 |------|---------|---------|
+| 2026-01-10 | 56 | Rewrote float-log agent: UPDATE-first approach ensures enrichment completes |
 | 2026-01-10 | 54 | Fixed claude CLI syntax in float-capture.sh (`-p` → positional arg + `--print`) |
 | 2026-01-10 | 53 | Added Rust merkle scanner (~230x faster than bash) |
 | 2026-01-10 | 53 | Bundled scanner in lib/scanner/ with platform detection |
@@ -617,5 +618,5 @@ bash plugins/floatprompt/lib/scan.sh .
 ---
 
 *Created: 2026-01-09 (Session 45)*
-*Last updated: 2026-01-10 (Session 54)*
+*Last updated: 2026-01-10 (Session 56)*
 *References verified: 34 files across docs/, artifacts/, .float-workshop/, src/*

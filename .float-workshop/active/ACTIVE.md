@@ -29,9 +29,15 @@ Current focus items. **Limit: 3 items max.**
 - `ACTIVE.md` — This index
 - `floatprompt-plugin.md` — THE authoritative spec
 
-**Parked (planning documents):**
-- `1-RUST-plan.md` → moved to later/ (Rust implementation planning)
-- `2-SKILLS-commands-refactor-plan.md` → moved to later/ (skills/commands refactor planning)
+**Session 54 Changes:**
+- `.float/float.db` — Database updates
+- `plugins/floatprompt/hooks/float-capture.sh` — Hook refinement
+- `scanner/Cargo.toml` — Rust scanner work (PRE-RUST checkpoint)
+
+**Session 55 Changes:**
+- `plugins/floatprompt/README.md` — Documentation updates
+- `.float/handoff.md` — Context updates
+- Workshop organization audit (active/later checks)
 
 ## Next Steps
 
@@ -60,3 +66,4 @@ Current focus items. **Limit: 3 items max.**
 
 ✓ Active limit maintained (1 core item + ACTIVE.md index)
 - Planning documents moved to later/ (Session 51)
+- Rust scanner work in progress (Session 54)

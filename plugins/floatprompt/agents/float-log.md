@@ -11,59 +11,86 @@ model: haiku
 
 **Called by:** float-capture.sh hook (Phase 2)
 
-> **One job:** Read transcript, update the handoff entry. That's it.
+> **Priority:** UPDATE first, enhance later. Never leave entry as "awaiting enrichment."
 
 ---
 
-## Inputs (provided via environment)
+## Inputs (in Session Context below)
 
-- `ENTRY_ID` — Log entry ID to update (already created by hook)
+Look for these values in the "Session Context" section at the end of this prompt:
+
+- `ENTRY_ID` — Log entry ID to update
 - `FILES_CHANGED_JSON` — JSON array of files modified
 - `FOLDERS_EDITED` — JSON array of folders with changes
-- `TRANSCRIPT_PATH` — Path to session transcript
+- `TRANSCRIPT_PATH` — Path to session transcript (optional reading)
 - `FLOAT_DB` — Path to .float/float.db
-- `CURRENT_DATE` — Today's date (YYYY-MM-DD)
+- `CURRENT_DATE` — Today's date
 
 ---
 
 ## Your Job
 
-### Step 1: Read Transcript
+### Step 1: UPDATE IMMEDIATELY (Required)
 
-Read `$TRANSCRIPT_PATH` to understand:
-- What was the session trying to accomplish?
-- What got done?
-- What decisions were made (and why)?
-- What's the logical next step?
+Look at FILES_CHANGED_JSON and FOLDERS_EDITED in Session Context.
+**Infer what happened from the file paths** and run the UPDATE right away.
 
-### Step 2: Update Session Handoff
-
-The hook already created a pending entry. Enrich it:
+Use the EXACT values from Session Context (not shell variables):
 
 ```bash
-sqlite3 "$FLOAT_DB" "UPDATE log_entries SET
-  title = 'Session [N]: [2-5 word description]',
-  decision = '[What was accomplished - be specific]',
-  rationale = '[What to do next: 1) option, 2) option]',
-  before_state = '[State before this session]',
-  after_state = '[State after this session]'
-WHERE id = $ENTRY_ID;"
+sqlite3 [FLOAT_DB value] "UPDATE log_entries SET
+  title = 'Session [N]: [2-5 words from folders/files]',
+  decision = '[What areas were touched - infer from paths]',
+  rationale = '[Reasonable next steps based on what changed]'
+WHERE id = [ENTRY_ID value];"
 ```
 
-### Field Guide
+**Example:** If FILES_CHANGED shows `plugins/floatprompt/hooks/float-capture.sh`:
+```bash
+sqlite3 /path/to/.float/float.db "UPDATE log_entries SET
+  title = 'Session 56: Capture hook updates',
+  decision = 'Modified float-capture.sh hook in floatprompt plugin',
+  rationale = 'Next: Test capture flow, verify agents complete'
+WHERE id = 23;"
+```
+
+### Step 2: Enhance with Transcript (Optional)
+
+**Only if you have turns remaining** after the UPDATE, read recent transcript:
+
+```bash
+tail -100 [TRANSCRIPT_PATH value]
+```
+
+If you learn something valuable (specific decisions, context), run another UPDATE to improve the entry.
+
+**Skip this step if:**
+- Transcript path is empty or "(No transcript available)"
+- You've already used 5+ turns
+- The UPDATE from Step 1 is good enough
+
+---
+
+## Priority Order
+
+1. **ALWAYS** complete the UPDATE (even with basic info from file paths)
+2. **IF TIME** enhance with transcript details
+3. **NEVER** leave entry as "awaiting enrichment"
+
+---
+
+## Field Guide
 
 | Field | What to Write | Example |
 |-------|---------------|---------|
 | **title** | Session N: Brief description | "Session 51: Boot procedure restructure" |
-| **decision** | What was accomplished | "Restructured boot into 4 explicit steps" |
-| **rationale** | Next session options | "Next: 1) Test in fresh session, 2) Phase 6" |
-| **before_state** | State before | "Permissions check was separate section" |
-| **after_state** | State after | "Permissions is now Step 3 of boot" |
+| **decision** | What was accomplished | "Updated capture hooks and agent flow" |
+| **rationale** | Next session guidance | "Next: 1) Test in fresh session, 2) Phase 6" |
 
 ---
 
 ## Done
 
-Once you've updated the entry, you're done. The float-decisions agent handles folder-level decisions and open questions separately.
+Once you've run the UPDATE, you're done. The float-decisions agent handles folder-level decisions separately.
 
-**Be specific. Be brief. Move on.**
+**Be fast. Be reliable. Always complete the UPDATE.**
