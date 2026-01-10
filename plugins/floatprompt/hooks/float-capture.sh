@@ -18,13 +18,30 @@ set -e
 
 # Check for --manual flag (used by /float-capture command)
 if [ "$1" = "--manual" ]; then
-  # Manual invocation: use defaults
-  SESSION_ID=""
-  TRANSCRIPT_PATH=""
-  CWD=""
+  # Manual invocation: try to find transcript
+  CWD="$(pwd)"
   REASON="manual"
-  HOOK_EVENT="PreCompact"
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Manual capture triggered" >> /tmp/float-capture-debug.log
+
+  # Try to find current transcript (most recent .jsonl in claude projects)
+  # Claude escapes paths: / → - and _ → -
+  ESCAPED_PATH=$(echo "$CWD" | sed 's|/|-|g; s|_|-|g')
+  CLAUDE_PROJECT_DIR="$HOME/.claude/projects/$ESCAPED_PATH"
+  if [ -d "$CLAUDE_PROJECT_DIR" ]; then
+    TRANSCRIPT_PATH=$(ls -t "$CLAUDE_PROJECT_DIR"/*.jsonl 2>/dev/null | head -1)
+  fi
+
+  if [ -n "$TRANSCRIPT_PATH" ] && [ -f "$TRANSCRIPT_PATH" ]; then
+    # Found transcript - run full capture with agents
+    SESSION_ID=$(basename "$TRANSCRIPT_PATH" .jsonl)
+    HOOK_EVENT="PreCompact"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Manual capture with transcript: $TRANSCRIPT_PATH" >> /tmp/float-capture-debug.log
+  else
+    # No transcript found - mechanical only
+    SESSION_ID=""
+    TRANSCRIPT_PATH=""
+    HOOK_EVENT="SessionEnd"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Manual capture (no transcript found)" >> /tmp/float-capture-debug.log
+  fi
 else
   # Hook invocation: read JSON from stdin
   INPUT=$(cat)
@@ -171,7 +188,7 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 
     # --- float-log agent (session handoff) ---
     AGENT_PROMPT_LOG=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-log.md")
-    claude -p "$AGENT_PROMPT_LOG
+    claude "$AGENT_PROMPT_LOG
 
 ## Session Context (injected by hook)
 
@@ -181,11 +198,11 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - TRANSCRIPT_PATH: $TRANSCRIPT_PATH
 - FLOAT_DB: $FLOAT_DB
 - CURRENT_DATE: $CURRENT_DATE
-" --model haiku --allowedTools Bash,Read --max-turns 5 2>/dev/null &
+" --print --model haiku --allowedTools Bash,Read --max-turns 8 2>/dev/null &
 
     # --- float-decisions agent (folder decisions + questions) ---
     AGENT_PROMPT_DECISIONS=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-decisions.md")
-    claude -p "$AGENT_PROMPT_DECISIONS
+    claude "$AGENT_PROMPT_DECISIONS
 
 ## Session Context (injected by hook)
 
@@ -194,14 +211,13 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - TRANSCRIPT_PATH: $TRANSCRIPT_PATH
 - FLOAT_DB: $FLOAT_DB
 - CURRENT_DATE: $CURRENT_DATE
-" --model haiku --allowedTools Bash,Read --max-turns 5 2>/dev/null &
+" --print --model haiku --allowedTools Bash,Read --max-turns 8 2>/dev/null &
 
-    # Wait for both to complete
-    wait
+    # Don't wait - let Phase 2 agents run in parallel with Phase 3+4
   fi
 
   # ---------------------------------------------------------------------------
-  # PHASE 3: AI enrichment via float-enrich agent
+  # PHASE 3: AI enrichment via float-enrich agent (parallel)
   # ---------------------------------------------------------------------------
   if command -v claude &> /dev/null && [ "$FOLDERS_EDITED" != "[]" ]; then
     # Export variables for agent to use
@@ -210,23 +226,23 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
     # Read agent file, strip YAML frontmatter (starts with ---), inject context
     AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-enrich.md")
 
-    claude -p "$AGENT_PROMPT
+    claude "$AGENT_PROMPT
 
 ## Session Context (injected by hook)
 
 - FOLDERS_EDITED: $FOLDERS_EDITED
 - FLOAT_DB: $FLOAT_DB
-" --model haiku --allowedTools Bash,Read,Glob --max-turns 10 2>/dev/null || true
+" --print --model haiku --allowedTools Bash,Read,Glob --max-turns 10 2>/dev/null &
   fi
 
   # ---------------------------------------------------------------------------
-  # PHASE 4: Write handoff.md via float-handoff agent
+  # PHASE 4: Write handoff.md via float-handoff agent (parallel)
   # ---------------------------------------------------------------------------
   if command -v claude &> /dev/null; then
     # Read agent file, strip YAML frontmatter, inject context
     AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-handoff.md")
 
-    claude -p "$AGENT_PROMPT
+    claude "$AGENT_PROMPT
 
 ## Session Context (injected by hook)
 
@@ -236,17 +252,17 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - ENTRY_ID: $ENTRY_ID
 - FILES_CHANGED_JSON: $FILES_CHANGED_JSON
 - FOLDERS_EDITED: $FOLDERS_EDITED
-" --model haiku --allowedTools Bash,Read,Write --max-turns 10 2>/dev/null || true
+" --print --model haiku --allowedTools Bash,Read,Write --max-turns 10 2>/dev/null &
   fi
 
   # ---------------------------------------------------------------------------
-  # PHASE 5: Workshop agents (only if .float-workshop/ exists)
+  # PHASE 5: Workshop agents (only if .float-workshop/ exists) - parallel
   # ---------------------------------------------------------------------------
   if [ -d "$PROJECT_DIR/.float-workshop" ]; then
 
     # Spawn float-organize agent (workshop cleanup)
     if command -v claude &> /dev/null; then
-      claude -p "You are the float-organize agent for the FloatPrompt workshop.
+      claude "You are the float-organize agent for the FloatPrompt workshop.
 
 Workshop directory: $PROJECT_DIR/.float-workshop
 Files changed this session: $FILES_CHANGED_JSON
@@ -257,12 +273,12 @@ Your task:
 3. Update ACTIVE.md with current status if needed
 
 Read the workshop README for conventions: $PROJECT_DIR/.float-workshop/README.md
-" --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 3 2>/dev/null || true
+" --print --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 3 2>/dev/null &
     fi
 
     # Spawn float-update-logs agent (workshop logging)
     if command -v claude &> /dev/null; then
-      claude -p "You are the float-update-logs agent for the FloatPrompt workshop.
+      claude "You are the float-update-logs agent for the FloatPrompt workshop.
 
 Workshop logs: $PROJECT_DIR/.float-workshop/logs/
 Transcript: $TRANSCRIPT_PATH
@@ -316,9 +332,12 @@ For each decision, create: logs/2026/01-jan/$CURRENT_DATE-topic-slug.md
 Add entries to the 'Current (Locked)' section in $PROJECT_DIR/.float-workshop/logs/2026/01-jan/01-jan.md
 
 Check existing logs for examples: $PROJECT_DIR/.float-workshop/logs/2026/01-jan/
-" --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 8 2>/dev/null || true
+" --print --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 8 2>/dev/null &
     fi
   fi
+
+  # Wait for all parallel agents to complete
+  wait
 
   # Cleanup temp transcript
   rm -f "$TRANSCRIPT_TRUNCATED" 2>/dev/null || true

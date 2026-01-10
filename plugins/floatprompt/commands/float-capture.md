@@ -27,16 +27,13 @@ float-capture (you are here)
   │
   ├── 1. Gather        → "What changed?"
   │
-  ├── 2. Capture       → "Write to float.db + handoff.md"
-  │   ├── Phase 1: Mechanical (sqlite3 INSERT)
-  │   ├── Phase 2: AI synthesis (parallel)
-  │   │   ├── float-log        → session handoff entry
-  │   │   └── float-decisions  → folder decisions + questions
-  │   ├── Phase 3: float-enrich → folder context
-  │   └── Phase 4: float-handoff → .float/handoff.md
+  ├── 2. Capture       → "Write to float.db"
+  │   └── Phase 1: Mechanical (sqlite3 INSERT) — instant
   │
   └── 3. Confirm       → "Here's what was saved"
 ```
+
+**Note:** Manual capture is mechanical only (Phase 1). AI agents (Phases 2-4) only run on PreCompact because they need the session transcript to work properly. Manual capture has no transcript access.
 
 ---
 
@@ -63,10 +60,9 @@ ${CLAUDE_PLUGIN_ROOT}/hooks/float-capture.sh --manual
 ```
 
 This runs:
-- **Phase 1:** Mechanical sqlite3 INSERT (guaranteed)
-- **Phase 2:** Parallel agents — float-log (session handoff) + float-decisions (folder decisions)
-- **Phase 3:** float-enrich agent updates folder context
-- **Phase 4:** float-handoff agent writes `.float/handoff.md`
+- **Phase 1:** Mechanical sqlite3 INSERT (instant, <1 second)
+
+AI agents (Phases 2-4) only run on automatic PreCompact capture when transcript is available.
 
 ---
 
