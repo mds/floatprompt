@@ -4,6 +4,22 @@
 
 All notable changes to the FloatPrompt plugin.
 
+## [1.2.0] - 2026-01-10
+
+### Session 61 — Git-Native Layer 1
+- **BREAKING: Removed Rust scanner** — Git is now the source of truth for file tracking
+- **Removed `files` table** — Use `git ls-files` instead of custom file tracking
+- **Removed `scanner/` directory** — ~2000 lines of Rust code eliminated
+- **Removed `lib/scanner/`** — Platform-specific binaries no longer needed
+- **Added git context to boot.sh** — Branch, commit, dirty files, changed since capture
+- **Added `git_commit`, `git_branch` to log_entries** — Captures pinned to git state
+- **Simplified scan.sh** — From ~150 lines to ~70 lines using `git ls-files`
+- **New staleness detection** — `git diff` between last capture commit and HEAD
+
+**Migration:** Existing `float.db` databases continue to work. The `files` table is simply ignored.
+
+**Rationale:** Git is always present in developer contexts. Building ON TOP of git (not parallel to it) removes redundancy and simplifies architecture. See `.float-workshop/active/2026-01-10-git-layer1-insight.md`.
+
 ## [1.1.1] - 2026-01-10
 
 ### Session 60

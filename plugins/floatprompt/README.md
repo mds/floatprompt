@@ -28,12 +28,8 @@ plugins/floatprompt/
 │   └── capture.sh            # Main capture script (auto=mechanical, manual=full)
 ├── lib/
 │   ├── boot.sh               # Boot query script (JSON output for /float)
-│   ├── schema.sql            # SQLite schema for float.db (9 tables)
-│   ├── scan.sh               # Layer 1 scanner (Rust-powered, bash fallback)
-│   └── scanner/              # Rust merkle scanner (~230x faster)
-│       ├── index.js          # napi-rs bindings
-│       ├── scan-cli.js       # Node.js CLI wrapper
-│       └── *.node            # Platform-specific binaries
+│   ├── schema.sql            # SQLite schema for float.db (8 tables)
+│   └── scan.sh               # Layer 1 scanner (git-native)
 ├── templates/
 │   └── handoff.md            # Template for .float/handoff.md structure
 └── README.md                 # This file
@@ -221,19 +217,20 @@ If no files changed (research/verification session), agents are skipped entirely
 
 **Purpose:** SQLite schema for `.float/float.db` — the persistent context database.
 
-**Tables (9 total):**
+**Tables (8 total):**
 
 | Table | Purpose | Key Fields |
 |-------|---------|------------|
-| `folders` | The things being described | path, description, context, status, source_hash |
-| `log_entries` | Decision paper trail | folder_path, topic, status, decision, rationale |
-| `files` | Source files tracked | path, content_hash, mtime |
+| `folders` | The things being described | path, description, context, status |
+| `log_entries` | Decision paper trail | folder_path, topic, status, decision, git_commit |
 | `references` | Cross-links for staleness | source_type, source_id, target_type, target_id |
 | `open_questions` | Unresolved items | question, resolved_by |
 | `tags` | Categorization | name |
 | `log_entry_tags` | Many-to-many | log_entry_id, tag_id |
 | `deep` | Topic-based context | slug, title, content_md, watches |
 | `deep_history` | Version history | slug, version, content_md |
+
+> **Note:** `files` table removed in v1.2.0 — git is now the source of truth for file tracking.
 
 **The `folders` Table (16 Fields):**
 
@@ -243,7 +240,7 @@ If no files changed (research/verification session), agents are skipped entirely
 | **Governance** | type, status (pending/current/stale) |
 | **AI Content** | description, context |
 | **Scope** | is_scope, parent_scope_path, scope_boot |
-| **Mechanical** | source_hash, last_scanned_at |
+| **Mechanical** | source_hash, last_scanned_at *(legacy, unused)* |
 | **Attribution** | ai_model, ai_updated |
 | **Timestamps** | created_at, updated_at |
 
@@ -255,72 +252,54 @@ If no files changed (research/verification session), agents are skipped entirely
 | `open` | Session handoff — can be updated by agents |
 | `superseded` | Replaced by newer entry |
 
+**Git Context (v1.2.0):** `git_commit` and `git_branch` fields pin each entry to a specific commit.
+
 **Reference:**
 - Schema spec: `.float-workshop/logs/2026/01-jan/2026-01-02-sqlite-understanding.md`
-- Schema locked: Session 43 (2026-01-09)
+- Schema updated: Session 61 (2026-01-10) - Git-native Layer 1
 - TypeScript schemas: `src/db/schema.ts`
 
 ---
 
 ### `lib/scan.sh`
 
-**Purpose:** Layer 1 mechanical scanner — populates folders AND files tables with merkle tree hashing.
+**Purpose:** Layer 1 scanner — populates folders table using git as source of truth.
 
 **Usage:**
 ```bash
 ./scan.sh [project_dir]
-# Defaults to current directory
+# Defaults to git root or current directory
 ```
 
-**Performance:**
+**Requires:** Git repository. Non-git folders will show an error prompting `git init`.
 
-| Scanner | Time | Notes |
-|---------|------|-------|
-| **Rust (cached)** | ~40ms | mtime cache hit, ~1 file hashed |
-| **Rust (fresh)** | ~150ms | All 600+ files hashed |
-| **Bash fallback** | ~35s | Used when Rust binary unavailable |
+**How It Works (v1.2.0 - Git-Native):**
 
-**~230x faster** than the original bash implementation via Rust + napi-rs.
+1. Detects git root via `git rev-parse --show-toplevel`
+2. Creates `.float/float.db` if needed
+3. Enumerates folders from `git ls-files`
+4. Inserts into `folders` table with `status='pending'`
+5. Outputs JSON stats
 
-**How It Works:**
-
-1. **Platform detection** — Checks for platform-specific `.node` binary
-2. **Rust scanner** (if available):
-   - Walks filesystem with `.gitignore` support (ignore crate)
-   - Compares mtime/size to skip unchanged files (git's insight)
-   - Hashes only changed files with SHA-256
-   - Builds merkle tree for folder hashes
-   - Updates database in single transaction (WAL mode)
-3. **Bash fallback** (if Rust unavailable):
-   - Uses `find` + `shasum` (slower but portable)
-   - Same database output format
-
-**Platform Support:**
-
-| Platform | Binary | Status |
-|----------|--------|--------|
-| macOS ARM (M1/M2) | `scanner.darwin-arm64.node` | Bundled |
-| macOS Intel | `scanner.darwin-x64.node` | CI build needed |
-| Linux x64 | `scanner.linux-x64-gnu.node` | CI build needed |
-
-**Excluded Patterns:**
-```
-node_modules, .git, .float, .claude, __pycache__, .pytest_cache,
-.next, .nuxt, dist, build, .venv, venv, .tox, coverage,
-.nyc_output, .cache, .turbo, target
+**Output:**
+```json
+{"folders": 493, "files": 642, "source": "git", "project_root": "/path"}
 ```
 
-**The Git Insight:**
+**What Changed in v1.2.0:**
 
-The key optimization is mtime caching (like git):
-- Store file mtime + size alongside content hash
-- On rescan, only hash files where mtime/size changed
-- Most scans process 0-5 files, not 600+
+| Before (Rust Scanner) | After (Git-Native) |
+|----------------------|-------------------|
+| ~150 lines + ~2000 lines Rust | ~70 lines bash |
+| Custom merkle tree hashing | Git is the merkle tree |
+| Platform-specific binaries | No binaries, just `git` |
+| `find` + `sha256` fallback | `git ls-files` only |
+
+> **Rationale:** Git is always present in developer contexts. The Rust scanner duplicated what git already provides. See `.float-workshop/active/2026-01-10-git-layer1-insight.md`.
 
 **Reference:**
-- Rust source: `scanner/src/` (lib.rs, walker.rs, hasher.rs, cache.rs, merkle.rs, db.rs)
-- TypeScript scanner: `src/db/scan.ts`
-- Progress tracking: `scanner/RUST-PROGRESS.md`
+- TypeScript scanner: `src/db/scan.ts` (legacy, for reference)
+- Git-native architecture: `.float-workshop/active/2026-01-10-git-native-architecture-plan.md`
 
 ---
 
@@ -345,16 +324,29 @@ The key optimization is mtime caching (like git):
   "open_questions": [...],
   "stale_folders": [...],
   "stats": {"folders": 86, "files": 587, "stale": 0, "pending": 0, "current": 86},
+  "git": {
+    "branch": "main",
+    "commit": "abc123f",
+    "dirty_files": 3,
+    "last_capture_commit": "def456a",
+    "changed_since_capture": ["/src/auth", "/src/api"]
+  },
   "permissions_set": true
 }
 ```
+
+**Git Context (v1.2.0):** The `git` section provides:
+- Current branch and commit
+- Dirty file count (uncommitted changes)
+- Last capture's commit (for staleness)
+- Folders changed since last capture (via `git diff`)
 
 **If `exists: false`:** float.db doesn't exist — run scan.sh first.
 
 **Key Design:**
 - One command, one permission prompt
 - Mechanical queries only — AI interprets results
-- Matches scan.sh pattern: scripts for mechanics, AI for judgment
+- Git integration for staleness detection (no custom hashing)
 
 ---
 
@@ -458,17 +450,17 @@ Next session: /float ────────────────► Picks u
 ## Data Flow
 
 ```
-LAYER 1: MECHANICAL (scan.sh)          LAYER 2: AI ENRICHMENT (agents)
+LAYER 1: GIT (scan.sh)                 LAYER 2: AI ENRICHMENT (agents)
 ──────────────────────────────────────────────────────────────────────
 
-Filesystem                             Session work
+Git repository                         Session work
     │                                      │
     ▼                                      ▼
-find + sha256 ──────────────────────► log_entries (decisions)
+git ls-files ──────────────────────► log_entries (decisions)
     │                                      │
     ▼                                      ▼
 folders table (paths)                  folders.description
-files table (hashes)                   folders.context
+                                       folders.context
     │                                      │
     └──────────────┬───────────────────────┘
                    │
@@ -477,6 +469,17 @@ files table (hashes)                   folders.context
                    │
                    ▼
             AI queries for context
+
+STALENESS DETECTION (v1.2.0)
+────────────────────────────
+Last capture: git_commit = "abc123"
+Current:      HEAD = "def456"
+              │
+              ▼
+git diff abc123..def456 --name-only
+              │
+              ▼
+Changed folders since capture
 ```
 
 ---
@@ -588,8 +591,8 @@ claude plugin validate .
 # Folder count
 sqlite3 .float/float.db "SELECT COUNT(*) FROM folders"
 
-# File count
-sqlite3 .float/float.db "SELECT COUNT(*) FROM files"
+# File count (via git, not database)
+git ls-files | wc -l
 
 # Recent decisions
 sqlite3 .float/float.db "SELECT folder_path, topic, title FROM log_entries WHERE status='locked' ORDER BY created_at DESC LIMIT 5"
@@ -597,8 +600,12 @@ sqlite3 .float/float.db "SELECT folder_path, topic, title FROM log_entries WHERE
 # Stale folders
 sqlite3 .float/float.db "SELECT path FROM folders WHERE status='stale'"
 
-# Session handoffs
-sqlite3 .float/float.db "SELECT id, title, date FROM log_entries WHERE topic='session-handoff' ORDER BY created_at DESC"
+# Session handoffs with git context
+sqlite3 .float/float.db "SELECT id, title, date, git_commit, git_branch FROM log_entries WHERE topic='session-handoff' ORDER BY created_at DESC"
+
+# What changed since last capture
+LAST_COMMIT=$(sqlite3 .float/float.db "SELECT git_commit FROM log_entries WHERE topic='session-handoff' AND git_commit IS NOT NULL ORDER BY created_at DESC LIMIT 1")
+git diff --name-only $LAST_COMMIT HEAD
 ```
 
 ### Rescan Project
@@ -614,9 +621,9 @@ bash plugins/floatprompt/lib/scan.sh .
 
 See [CHANGELOG.md](./CHANGELOG.md) for full version history.
 
-**Current version:** 1.1.1
+**Current version:** 1.2.0
 
 ---
 
 *Created: 2026-01-09 (Session 45)*
-*Last updated: 2026-01-10 (Session 60)*
+*Last updated: 2026-01-10 (Session 61) - Git-native Layer 1*

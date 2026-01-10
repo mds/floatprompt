@@ -146,6 +146,10 @@ else
   PLACEHOLDER_DECISION="Session ended. Files modified: ${FILES_CHANGED_JSON//\'/\'\'}"
 fi
 
+# Get git state for this capture (added Session 61 - git-native Layer 1)
+GIT_COMMIT=$(git rev-parse HEAD 2>/dev/null || echo "")
+GIT_BRANCH=$(git branch --show-current 2>/dev/null || echo "")
+
 ENTRY_ID=$(sqlite3 "$FLOAT_DB" "
 INSERT INTO log_entries (
   folder_path,
@@ -158,6 +162,8 @@ INSERT INTO log_entries (
   trigger,
   files_read,
   files_changed,
+  git_commit,
+  git_branch,
   created_at
 ) VALUES (
   '/',
@@ -170,6 +176,8 @@ INSERT INTO log_entries (
   '${HOOK_EVENT:-manual}',
   '[]',
   '${FILES_CHANGED_JSON//\'/\'\'}',
+  '$GIT_COMMIT',
+  '$GIT_BRANCH',
   unixepoch()
 );
 SELECT last_insert_rowid();

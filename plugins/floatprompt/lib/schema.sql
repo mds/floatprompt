@@ -1,6 +1,7 @@
 -- FloatPrompt Database Schema
 -- Creates .float/float.db for persistent context
--- Schema locked 2026-01-09 (Session 43)
+-- Schema updated 2026-01-10 (Session 61) - Git-native Layer 1
+-- Previous: 2026-01-09 (Session 43)
 
 -- The things being described (folders in any project)
 -- 16 fields organized by purpose
@@ -62,17 +63,16 @@ CREATE TABLE IF NOT EXISTS log_entries (
   supersedes INTEGER REFERENCES log_entries(id),
   superseded_by INTEGER REFERENCES log_entries(id),
 
+  -- Git context (added Session 61 - git-native Layer 1)
+  git_commit TEXT,
+  git_branch TEXT,
+
   created_at INTEGER NOT NULL
 );
 
--- Source files being tracked (for change detection)
-CREATE TABLE IF NOT EXISTS files (
-  path TEXT PRIMARY KEY,
-  folder_path TEXT NOT NULL,
-  content_hash TEXT NOT NULL,
-  mtime INTEGER NOT NULL,
-  last_scanned_at INTEGER NOT NULL
-);
+-- NOTE: files table removed in Session 61 (git-native Layer 1)
+-- Git is now the source of truth for file tracking.
+-- Use: git ls-files, git status, git diff
 
 -- Cross-references (for staleness detection)
 CREATE TABLE IF NOT EXISTS "references" (
@@ -142,7 +142,7 @@ CREATE INDEX IF NOT EXISTS idx_log_entries_date ON log_entries(date);
 CREATE INDEX IF NOT EXISTS idx_log_entries_folder ON log_entries(folder_path);
 CREATE INDEX IF NOT EXISTS idx_log_entries_topic ON log_entries(topic);
 CREATE INDEX IF NOT EXISTS idx_log_entries_status ON log_entries(status);
-CREATE INDEX IF NOT EXISTS idx_files_folder ON files(folder_path);
+-- NOTE: idx_files_folder removed (files table removed in Session 61)
 CREATE INDEX IF NOT EXISTS idx_references_source ON "references"(source_type, source_id);
 CREATE INDEX IF NOT EXISTS idx_references_target ON "references"(target_type, target_id);
 CREATE INDEX IF NOT EXISTS idx_open_questions_folder ON open_questions(folder_path);
