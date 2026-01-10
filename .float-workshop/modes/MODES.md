@@ -119,13 +119,18 @@ Reference docs for adjacent exploration:
 
 | Mode | Role | When to Activate |
 |------|------|------------------|
-| `deep-strategy.md` | Architect | Architecture decisions, planning, big-picture (covers all touchpoints) |
-| `deep-plugin.md` | Implementer | Building the Claude Code plugin |
-| `web.md` | Web dev | Working on the npm package — testing, debugging, extending |
+| `2026-01-10-deep-context-snapshot.md` | Strategic partner | Deep strategic discussions, philosophical questions, architecture decisions |
 
 **Mode weight:**
-- `deep-*` modes are heavy — load lots of context, adopt strong posture
-- `web.md` is lightweight — just points to docs, minimal overhead
+- Dated snapshot modes capture full context state at a point in time
+- Use when you need comprehensive understanding for strategic work
+
+### Archived Modes
+
+Previous modes moved to `done/` on 2026-01-10:
+- `deep-strategy.md` → Architecture decisions, planning
+- `deep-plugin.md` → Plugin implementation
+- `web.md` → npm package work
 
 ---
 
