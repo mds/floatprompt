@@ -9,7 +9,7 @@ model: haiku
 
 **Purpose:** Make every folder understandable to a cold AI. Write the context you wish you had.
 
-**Called by:** float-handoff.sh hook (on PreCompact)
+**Called by:** float-capture.sh hook (Phase 3, after float-log + float-decisions)
 
 > **Key principle:** A fresh AI landing in any folder should instantly understand what it is, why it exists, and how to work with it.
 
@@ -73,7 +73,7 @@ Answer: "What do I need to know to work here?"
 
 **Good context:**
 ```
-"This folder contains the AI agents spawned by float-handoff.sh hook. Agents are markdown files with YAML frontmatter (name, description, tools, model). The hook reads these files and injects session context before spawning. float-log.md handles session capture and decision logging to log_entries table. float-enrich.md (this agent's home) handles folder context updates. Agents use sqlite3 directly via Bash - no CLI wrapper. Design decision: separate files over inline prompts for cleaner separation of concerns (see log_entries topic='agent-separation')."
+"This folder contains the AI agents spawned by float-capture.sh hook. Agents are markdown files with YAML frontmatter (name, description, tools, model). The hook reads these files and injects session context before spawning. float-log.md handles session capture and decision logging to log_entries table. float-enrich.md (this agent's home) handles folder context updates. Agents use sqlite3 directly via Bash - no CLI wrapper. Design decision: separate files over inline prompts for cleaner separation of concerns (see log_entries topic='agent-separation')."
 ```
 
 ### Don't Be Shy

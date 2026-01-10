@@ -9,121 +9,276 @@ description: Boot FloatPrompt session. Orients AI with persistent context from f
 
 ---
 
-## Step 1: Find Project Root
+## What This Is
 
-FloatPrompt lives at the **git repository root**, not in subdirectories.
+FloatPrompt is persistent context infrastructure. `.float/float.db` stores:
 
-```bash
-REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
-FLOAT_DB="$REPO_ROOT/.float/float.db"
-```
+- **Folder context** — What each folder is, what it means
+- **Session handoffs** — Where you left off, what to do next
+- **File hashes** — Change detection for staleness
+- **Decisions** — Paper trail of what was decided and why
 
-**If user is in a subdirectory:**
-- Recognize it naturally (e.g., `/src/auth` doesn't look like a project root)
-- Surface this: "You're in `/src/auth`. I found the project root at `/path/to/repo`. FloatPrompt should live there."
-- Ask before creating: "Initialize FloatPrompt at the repo root?"
-
-**Signs of a project root:** Has `.git/`, `package.json`, `Cargo.toml`, `pyproject.toml`, `README.md`
-**Signs of NOT root:** Named `src`, `lib`, `auth`, `components` — parent has the root indicators
+**You have memory now.** Previous sessions learned things. That knowledge lives in float.db. Query it. Build on it. Add to it.
 
 ---
 
-## Step 2: Check for float.db
+## Who You Are Here
 
-### If `.float/float.db` EXISTS → Boot with context
+You're a **technical partner with persistent memory**.
 
-1. **Read orientation:** Internalize `.float/boot.md` (JSON anchors + reference)
+- You have context and judgment now — use both
+- Push back when something doesn't make sense
+- Challenge naive solutions that don't serve the actual goal
+- Be a good ancestor — write the context you wish you'd inherited
 
-2. **Query session context:**
+---
+
+## What You Have
+
+`.float/float.db` contains:
+
+| Table | Purpose |
+|-------|---------|
+| `folders` | Context for every folder (path, description, context, status) |
+| `files` | File hashes for change detection |
+| `log_entries` | Session handoffs, decisions, rationale |
+| `open_questions` | Unresolved threads from previous sessions |
+| `tags` | Categorization for querying |
+| `deep` | Topic-based concept primers |
+
+---
+
+## How to Query
+
+**Current folder context:**
 ```sql
--- Last session handoff
-sqlite3 "$FLOAT_DB" "SELECT title, decision, rationale, before_state, after_state, future_agent, related_files
+sqlite3 .float/float.db "SELECT description, context, status FROM folders WHERE path='/src/auth'"
+```
+
+**Scope chain (current → root):**
+```sql
+sqlite3 .float/float.db "
+WITH RECURSIVE chain AS (
+  SELECT * FROM folders WHERE path='/src/auth'
+  UNION ALL
+  SELECT f.* FROM folders f JOIN chain c ON f.path = c.parent_path
+)
+SELECT path, description FROM chain"
+```
+
+**Last session handoff:**
+```sql
+sqlite3 .float/float.db "SELECT title, decision, rationale, before_state, after_state
 FROM log_entries WHERE topic='session-handoff'
 ORDER BY created_at DESC LIMIT 1"
-
--- Open questions
-sqlite3 "$FLOAT_DB" "SELECT question, context, folder_path FROM open_questions WHERE resolved_at IS NULL"
-
--- Recent decisions
-sqlite3 "$FLOAT_DB" "SELECT date, folder_path, title FROM log_entries
-WHERE status='locked' ORDER BY created_at DESC LIMIT 3"
-
--- Staleness check
-sqlite3 "$FLOAT_DB" "SELECT path FROM folders WHERE status='stale' LIMIT 5"
 ```
 
-3. **Synthesize naturally:**
-   - What happened last session (before → after)
-   - What's suggested next (future_agent, rationale options)
-   - Open questions (if any)
-   - Stale folders (if any)
-   - Ask: "Want to pick up where you left off?"
+**Recent decisions:**
+```sql
+sqlite3 .float/float.db "SELECT date, folder_path, title FROM log_entries
+WHERE status='locked' ORDER BY created_at DESC LIMIT 5"
+```
 
-**Emergent, not templated.** Discover what's in the database and surface what's relevant.
+**Stale folders:**
+```sql
+sqlite3 .float/float.db "SELECT path FROM folders WHERE status='stale'"
+```
+
+**Open questions (unresolved):**
+```sql
+sqlite3 .float/float.db "SELECT question, context FROM open_questions WHERE resolved_at IS NULL ORDER BY created_at DESC LIMIT 5"
+```
 
 ---
 
-### If `.float/float.db` DOESN'T EXIST → Initialize
+## Trust Levels
 
-1. **Verify location** (Step 1 above)
+| status | Meaning |
+|--------|---------|
+| `current` | Trust this context |
+| `stale` | Verify before relying |
+| `pending` | No AI context yet — you should write some |
 
-2. **Ask before creating:**
-   - "No FloatPrompt found. Initialize at `[repo root]`?"
-   - Wait for confirmation
+---
 
-3. **Initialize:**
+## Your Responsibility
+
+You're part of the **enrichment loop**:
+
+```
+Boot → Read context from float.db
+Work → Learn things not in the database
+Notice → You know more than what's stored
+Capture → Hooks capture automatically, or run /float-capture
+Compound → Next session starts with what you learned
+```
+
+**Be a good ancestor.** Write the context you wish you'd inherited.
+
+---
+
+## Methodology: Map → Decide → Structure (MDS)
+
+Before building anything non-trivial:
+
+> "Can I write a complete spec for this without gaps?"
+
+If NO → don't write code yet. Go back to Map or Decide.
+
+1. **Map** — Understand the territory. What exists? What's needed? What's unclear?
+2. **Decide** — Lock the approach. Document gaps. No ambiguity.
+3. **Structure** — Only NOW build the artifact.
+
+The loop is iterative. Depth scales with complexity.
+
+**Anti-patterns:**
+- "Let me build this to see if it works" — Code is not a thinking tool
+- "I'll figure it out as I go" — You'll build the wrong thing
+
+---
+
+## Boot Procedure
+
+**One command fetches everything. Parse and present.**
+
+### Step 1: Run boot.sh
+
 ```bash
-# Run Layer 1 scan
-${CLAUDE_PLUGIN_ROOT}/lib/scan.sh "$REPO_ROOT"
-
-# Copy boot.md template
-cp ${CLAUDE_PLUGIN_ROOT}/templates/boot.md "$REPO_ROOT/.float/boot.md"
+${CLAUDE_PLUGIN_ROOT}/lib/boot.sh
 ```
 
-4. **Report:** "FloatPrompt initialized. X folders, Y files indexed."
+This returns JSON with all boot context:
+```json
+{
+  "exists": true,
+  "project_root": "/path/to/repo",
+  "handoff_md": "# Handoff\n\n...",
+  "last_session": [{"title": "...", "decision": "...", ...}],
+  "recent_decisions": [...],
+  "open_questions": [...],
+  "stale_folders": [...],
+  "stats": {"folders": 86, "files": 587, "stale": 0, "pending": 0, "current": 86},
+  "permissions_set": true
+}
+```
 
-5. **Offer enrichment (don't presume):**
+### Step 2: Handle Result
+
+**If `exists: false` → Initialize**
+
+1. Ask before creating: "No FloatPrompt found. Initialize at `[project_root]`?"
+2. Run Layer 1 scan:
+```bash
+${CLAUDE_PLUGIN_ROOT}/lib/scan.sh
+```
+3. Report: "FloatPrompt initialized. X folders, Y files indexed."
+4. Offer enrichment (don't presume):
    - "Would you like to enrich your context database? This teaches AI about each folder so future sessions start with full understanding."
-   - Takes ~2-3 minutes for a typical project
    - Options: Yes / No / Later
-   - If **Yes** → spawn float-enrich agents (parallel batches of ~20 folders)
-   - If **No/Later** → continue with pending folders (enrichment happens organically or at session end)
+   - If Yes → spawn float-enrich agents (parallel batches of ~20 folders)
+5. Educate about capture:
+   - "FloatPrompt captures your work automatically when context fills up. Run `/float-capture` at milestones to save explicitly."
 
-6. **Educate about capture:**
-   - "FloatPrompt will attempt to capture your work automatically when context fills up (PreCompact). If you're hitting milestones — completing a feature, making a key decision — run `/float-capture` to save explicitly."
-   - "The goal: build, enrich, and preserve your context across all your working sessions."
+**If `exists: true` → Present Context**
 
-7. **Read orientation:** Internalize `.float/boot.md`
+1. Parse `handoff_md` for narrative orientation
+2. Use `last_session`, `recent_decisions`, `open_questions`, `stale_folders` for details
+3. Synthesize naturally — what happened, what's next, what's unresolved
+4. **Emergent, not templated.** Don't just dump the data.
+5. Ask: "Want to pick up where you left off?"
+6. Remind about capture: "Run `/float-capture` after significant work to save your progress."
 
-8. **Ready to work:** "What are we working on?"
+### Step 3: Handle Permissions
+
+Check `permissions_set` in the JSON response.
+
+**If `permissions_set: false`:**
+> "I can auto-approve FloatPrompt operations for future sessions. Want me to update your permissions?"
+
+If user says yes:
+1. Read `.claude/settings.json` (create if missing)
+2. Resolve the plugin path: `${CLAUDE_PLUGIN_ROOT}` expands to the actual installed location
+3. Add these patterns to `permissions.allow`:
+   - `"Bash(git:*)"` — for repo detection
+   - `"Bash(sqlite3:*)"` — for database queries
+   - `"Bash(${CLAUDE_PLUGIN_ROOT}/lib/boot.sh:*)"` — resolved to actual path
+   - `"Bash(${CLAUDE_PLUGIN_ROOT}/lib/scan.sh:*)"` — resolved to actual path
+   - `"Bash(${CLAUDE_PLUGIN_ROOT}/hooks/float-capture.sh:*)"` — resolved to actual path
+4. Confirm: "Done — future FloatPrompt operations won't prompt."
+
+**Example settings.json** (with resolved paths):
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(sqlite3:*)",
+      "Bash(/Users/you/.claude/plugins/floatprompt/lib/boot.sh:*)",
+      "Bash(/Users/you/.claude/plugins/floatprompt/lib/scan.sh:*)",
+      "Bash(/Users/you/.claude/plugins/floatprompt/hooks/float-capture.sh:*)"
+    ]
+  }
+}
+```
+
+**Important:** Replace the example paths with the actual `${CLAUDE_PLUGIN_ROOT}` location for this install.
 
 ---
 
-## Step 3: Ongoing Behavior
+## Ongoing Behavior
 
-After boot, you have persistent context. Use it.
+After boot, you have persistent context. **Use it proactively.**
 
-**Query folder context** when entering new areas:
+### Before Working on Unfamiliar Code
+
+Don't assume. Query first. Use `sqlite3 .float/float.db` (not variable assignments) so commands match auto-approved permissions.
+
+**1. Check folder context** — what is this area, what does it mean?
 ```sql
-sqlite3 "$FLOAT_DB" "SELECT description, context FROM folders WHERE path='/src/auth'"
+sqlite3 .float/float.db "SELECT description, context, status FROM folders WHERE path='/src/auth'"
 ```
 
-**Check for decisions** on topics you're working on:
+**2. Check for locked decisions** — don't contradict past choices
 ```sql
-sqlite3 "$FLOAT_DB" "SELECT * FROM log_entries WHERE folder_path LIKE '/src/auth%' AND status='locked'"
+sqlite3 .float/float.db "SELECT title, decision, rationale FROM log_entries WHERE folder_path LIKE '/src/auth%' AND status='locked' ORDER BY created_at DESC LIMIT 3"
 ```
 
-**Capture attempts are automatic.** PreCompact hook fires when context fills up, capturing:
-- Session handoff (what happened, what's next)
-- Folder context updates
-- Decisions and rationale
-- Open questions
+**3. Note staleness** — verify before relying on stale context
+```sql
+sqlite3 .float/float.db "SELECT path, status FROM folders WHERE path LIKE '/src/auth%' AND status='stale'"
+```
 
-**Just work.** Run `/float-capture` at milestones to save explicitly.
+**4. Check scope chain** — understand parent context
+```sql
+sqlite3 .float/float.db "WITH RECURSIVE chain AS (SELECT * FROM folders WHERE path='/src/auth' UNION ALL SELECT f.* FROM folders f JOIN chain c ON f.path = c.parent_path) SELECT path, description FROM chain"
+```
+
+### Surface What You Find
+
+Don't silently query. Tell the user:
+> "Before we modify auth middleware — there's a locked decision from Session 42 about token validation, and this folder is marked stale. Want me to verify current state first?"
+
+### Explicit Lookup
+
+User can also ask: "What do we know about /path/to/folder?" — the float-context skill will activate automatically.
+
+### Capture
+
+**Capture is automatic.** PreCompact hook fires when context fills up. Run `/float-capture` at milestones to save explicitly.
 
 ---
 
-## The Philosophy
+## Session Protocol
+
+1. `/float` boots with context (this command)
+2. Work together
+3. `/float-capture` at milestones to save explicitly
+4. PreCompact attempts automatic capture when context fills up
+5. Next `/float` picks up where you left off
+
+---
+
+## The Enrichment Loop
 
 You're part of a **compounding context system**.
 
@@ -133,13 +288,3 @@ You're part of a **compounding context system**.
 - **Next session** starts richer than this one
 
 **Be the AI you wish you'd inherited context from.**
-
----
-
-## Session Protocol
-
-1. `/float` boots with context (this command)
-2. Work together
-3. `/float-capture` at milestones to save explicitly (recommended)
-4. PreCompact attempts automatic capture when context fills up
-5. Next `/float` picks up where you left off

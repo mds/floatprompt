@@ -10,20 +10,27 @@
 
 ```
 plugins/floatprompt/
-├── .claude-plugin/
-│   └── plugin.json           # Plugin manifest (name, version, entry points)
-├── agents/                   # (Reserved for future agent files)
+├── plugin.json               # Plugin manifest (name, version, entry points)
+├── agents/                   # AI agents spawned by hooks
+│   ├── float-log.md          # Session handoff entry (parallel)
+│   ├── float-decisions.md    # Folder decisions + questions (parallel)
+│   ├── float-enrich.md       # Folder context enrichment
+│   └── float-handoff.md      # Writes .float/handoff.md
 ├── commands/
-│   ├── float.md              # /float command - boots FloatPrompt session
+│   ├── float.md              # /float command - boot + operating manual
 │   └── float-capture.md      # /float-capture command - manual context capture
+├── skills/
+│   └── float-context/        # Context lookup skill
+│       └── SKILL.md
 ├── hooks/
 │   ├── hooks.json            # Hook configuration (PreCompact + SessionEnd)
 │   └── float-capture.sh      # Main hook script (session capture + AI enrichment)
 ├── lib/
+│   ├── boot.sh               # Boot query script (JSON output for /float)
 │   ├── schema.sql            # SQLite schema for float.db (9 tables)
 │   └── scan.sh               # Layer 1 scanner (folders + files with hashes)
 ├── templates/
-│   └── Float.md              # AI driver's manual (copied to .float/ on init)
+│   └── handoff.md            # Template for .float/handoff.md structure
 └── README.md                 # This file
 ```
 
@@ -40,9 +47,11 @@ plugins/floatprompt/
 {
   "name": "floatprompt",
   "version": "1.0.0",
-  "description": "Persistent context that survives sessions and compounds over time",
+  "description": "The invisible OS for AI-persistent context that survives sessions and compounds over time",
   "author": { "name": "@mds" },
   "commands": "./commands/",
+  "agents": "./agents/",
+  "skills": "./skills/",
   "hooks": "./hooks/hooks.json",
   "homepage": "https://github.com/mds/floatprompt"
 }
@@ -53,6 +62,8 @@ plugins/floatprompt/
 |-------|------|---------|
 | `name` | string | Plugin identifier, used for command namespacing (`/floatprompt:float`) |
 | `commands` | string | Path to commands directory (auto-discovers `.md` files) |
+| `agents` | string | Path to agents directory (spawned by hooks/code) |
+| `skills` | string | Path to skills directory (model-invocable capabilities) |
 | `hooks` | string | Path to hooks configuration file |
 | `author` | object | Must be `{"name": "..."}`, not a plain string |
 
@@ -64,16 +75,27 @@ plugins/floatprompt/
 
 ### `commands/float.md`
 
-**Purpose:** The ONE command users run. Boots FloatPrompt session with context continuity.
+**Purpose:** The ONE command users run. Comprehensive boot procedure + operating manual for AI.
 
 **Invocation:** `/float` or `/floatprompt:float`
+
+**What It Contains:**
+- **What This Is** — FloatPrompt as persistent context infrastructure
+- **Who You Are** — Technical partner with memory and judgment
+- **What You Have** — Database tables (folders, files, log_entries, etc.)
+- **How to Query** — Key SQL patterns for context, scope chain, decisions
+- **Trust Levels** — current/stale/pending status meanings
+- **Your Responsibility** — The enrichment loop, "be a good ancestor"
+- **Methodology** — Map → Decide → Structure (MDS) gate
+- **Boot Procedure** — First run vs subsequent runs
+- **Session Protocol** — Boot, work, capture, next
 
 **Behavior:**
 
 | Scenario | Actions |
 |----------|---------|
-| **First run** (no float.db) | 1. Run `lib/scan.sh` to create database<br>2. Copy `templates/Float.md` to `.float/`<br>3. Report folder count |
-| **Subsequent runs** | 1. Query latest session handoff<br>2. Infer focus from recent activity<br>3. Display context + options |
+| **First run** (no float.db) | 1. Run `lib/scan.sh` to create database<br>2. Offer enrichment<br>3. Educate about capture |
+| **Subsequent runs** | 1. Query session handoff, decisions, staleness<br>2. Synthesize naturally<br>3. Offer to continue |
 
 **Key SQL Queries:**
 ```sql
@@ -112,8 +134,9 @@ ORDER BY created_at DESC LIMIT 3;
 1. Check for `.float/float.db` (skip if not initialized)
 2. Check for recent capture (skip if captured in last 5 min)
 3. Phase 1: Mechanical sqlite3 INSERT
-4. Phase 2: float-log agent (session summary)
+4. Phase 2: Parallel agents (float-log + float-decisions)
 5. Phase 3: float-enrich agent (folder context)
+6. Phase 4: float-handoff agent (writes handoff.md)
 
 **Note:** Manual capture behaves like PreCompact — full AI enrichment while session is alive.
 
@@ -163,24 +186,27 @@ Self-deduplicating: If PreCompact runs, SessionEnd skips (5-minute window).
 |-------|--------|-----------------|---------|
 | **Early exits** | Yes | - | Skip if no .float/, recent handoff, or no changes |
 | **Phase 1** | Yes | - | Mechanical sqlite3 INSERT (instant, guaranteed) |
-| **Phase 2** | - | Yes | float-log agent: session summary + folder decisions |
+| **Phase 2** | - | Yes | Parallel: float-log (handoff) + float-decisions (folder decisions) |
 | **Phase 3** | - | Yes | float-enrich agent: update folder contexts |
-| **Phase 4** | - | Yes | Workshop agents (if .float-workshop/ exists) |
+| **Phase 4** | - | Yes | float-handoff agent: write `.float/handoff.md` |
+| **Phase 5** | - | Yes | Workshop agents (if .float-workshop/ exists) |
 
 **Key Design Decisions:**
 1. **Mechanical first** — sqlite3 INSERT is instant and guaranteed
 2. **AI enrichment second** — Agents run best-effort on PreCompact only
 3. **git diff for changes** — Detects what files were modified this session
-4. **Inline agent prompts** — Uses `claude -p "..."` instead of agent files
+4. **Agent files** — Prompts live in `agents/*.md`, stripped of frontmatter before spawning
 
 **Agents Spawned (PreCompact only):**
-- `float-log` — Updates session handoff, creates folder-level locked entries
+- `float-log` — Updates session handoff entry (parallel with float-decisions)
+- `float-decisions` — Creates folder-level decisions + open questions (parallel with float-log)
 - `float-enrich` — Updates folder description/context if new understanding
+- `float-handoff` — Writes `.float/handoff.md` (AI-to-AI session note)
 - `float-organize` — Workshop cleanup (if .float-workshop/ exists)
 - `float-update-logs` — Creates markdown decision logs (if .float-workshop/ exists)
 
 **Reference:**
-- Agent prompts are inline in the script (lines 132-289)
+- Agent prompts in `agents/` directory
 - Bash hook pattern: [Hooks Reference](../../../artifacts/2026/01-jan/claude-code-plugins/hooks-reference.md#command-hooks)
 
 ---
@@ -270,61 +296,76 @@ node_modules, .git, .float, .claude, __pycache__, .pytest_cache,
 
 ---
 
-### `templates/Float.md`
+### `lib/boot.sh`
 
-**Purpose:** AI driver's manual — teaches Claude how to use float.db.
+**Purpose:** Fetches all boot context in one command. Outputs JSON for AI to parse.
 
-Copied to `.float/Float.md` on first `/float` run.
-
-**Contents:**
-
-1. **Query Context** — SQL examples for folder context, scope chain, session handoff
-2. **When to Query** — Entering folders, checking staleness, finding decisions
-3. **Trust Levels** — `current` (trust), `stale` (verify), `pending` (no context yet)
-4. **What's Automatic** — Hooks handle session capture, no manual save needed
-5. **Update Context** — Optional SQL for writing new understanding
-
-**Key Queries:**
-```sql
--- Current folder context
-SELECT description, context, status FROM folders WHERE path='/src/auth'
-
--- Scope chain (current → root)
-WITH RECURSIVE chain AS (
-  SELECT * FROM folders WHERE path='/src/auth'
-  UNION ALL
-  SELECT f.* FROM folders f JOIN chain c ON f.path = c.parent_path
-)
-SELECT path, description FROM chain
-
--- Latest session handoff
-SELECT * FROM log_entries WHERE topic='session-handoff' ORDER BY created_at DESC LIMIT 1
+**Usage:**
+```bash
+./boot.sh [project_dir]
+# Defaults to git root or current directory
 ```
 
-**Design Philosophy:**
-- Target: <800 tokens
-- Teach to fish, not give fish
-- AI learns to query, not memorize
+**Output (JSON):**
+```json
+{
+  "exists": true,
+  "project_root": "/path/to/repo",
+  "handoff_md": "# Handoff\n\n...",
+  "last_session": [{"title": "...", "decision": "...", ...}],
+  "recent_decisions": [...],
+  "open_questions": [...],
+  "stale_folders": [...],
+  "stats": {"folders": 86, "files": 587, "stale": 0, "pending": 0, "current": 86},
+  "permissions_set": true
+}
+```
 
-**Reference:**
-- Context philosophy: `.float-workshop/logs/2026/01-jan/2026-01-05-session30-context-philosophy.md`
+**If `exists: false`:** float.db doesn't exist — run scan.sh first.
+
+**Key Design:**
+- One command, one permission prompt
+- Mechanical queries only — AI interprets results
+- Matches scan.sh pattern: scripts for mechanics, AI for judgment
 
 ---
 
-### `agents/` (Reserved)
+### `agents/`
 
-**Purpose:** Directory for agent files if needed in future.
+**Purpose:** AI agents spawned by hooks during capture.
 
-Currently empty — agents are spawned inline via `claude -p "..."` in the hook script.
-
-**Potential future agents:**
-- `float-enrich.md` — Folder context enrichment
-- `float-log.md` — Session logging and decisions
-- `float-deep.md` — Deep context generation
+| Agent | Purpose | Called By |
+|-------|---------|-----------|
+| `float-log.md` | Updates session handoff entry | Phase 2 (parallel) |
+| `float-decisions.md` | Creates folder decisions + open questions | Phase 2 (parallel) |
+| `float-enrich.md` | Updates folder description/context | Phase 3 |
+| `float-handoff.md` | Writes `.float/handoff.md` (AI-to-AI note) | Phase 4 |
 
 **Reference:**
-- Draft agents exist at: `.claude/agents/draft/`
 - Subagents guide: [Subagents Reference](../../../artifacts/2026/01-jan/claude-code-plugins/subagents.md)
+
+---
+
+### `templates/`
+
+**Purpose:** Template files defining output structures.
+
+| Template | Purpose |
+|----------|---------|
+| `handoff.md` | Structure for `.float/handoff.md` output |
+
+---
+
+### `skills/`
+
+**Purpose:** Skills that can be invoked during sessions.
+
+| Skill | Purpose |
+|-------|---------|
+| `float-context/` | Query float.db for full context on a file or folder |
+
+**Reference:**
+- Skills guide: [Skill Development](../../../artifacts/2026/01-jan/claude-code-plugins/slash-commands.md)
 
 ---
 
@@ -346,10 +387,9 @@ Human types /float ──────────────────► com
         │                              lib/scan.sh
         │                                    │
         │                              .float/float.db created
-        │                              .float/Float.md copied
         │                                    │
         ▼                              ◄─────┘
-AI boots with context ◄────────────── Query log_entries, folders
+AI boots with context ◄────────────── lib/boot.sh (JSON output)
         │
         │
    [Work happens]
@@ -359,14 +399,16 @@ PreCompact fires ────────────────────►
 (or SessionEnd)                              │
         │                              ┌─────┴─────┐
         │                              │  Phase 1  │ sqlite3 INSERT (instant)
-        │                              │  Phase 2  │ float-log agent
+        │                              │  Phase 2  │ float-log + float-decisions (parallel)
         │                              │  Phase 3  │ float-enrich agent
-        │                              │  Phase 4  │ workshop agents
+        │                              │  Phase 4  │ float-handoff agent
+        │                              │  Phase 5  │ workshop agents
         │                              └─────┬─────┘
         │                                    │
         ▼                              ◄─────┘
 Session ends or compacts               log_entries updated
                                        folders enriched
+                                       .float/handoff.md written
         │
         ▼
 Next session: /float ────────────────► Picks up where you left off
@@ -520,6 +562,18 @@ bash plugins/floatprompt/lib/scan.sh .
 
 | Date | Session | Changes |
 |------|---------|---------|
+| 2026-01-09 | 51 | Added boot.sh for single-command boot queries (JSON output) |
+| 2026-01-09 | 51 | Simplified float.md boot procedure to use boot.sh |
+| 2026-01-09 | 51 | Split float-log into float-log + float-decisions (parallel agents) |
+| 2026-01-09 | 51 | Restructured boot procedure into 4 explicit steps |
+| 2026-01-09 | 51 | Added transcript truncation (last 500 lines) for agent efficiency |
+| 2026-01-09 | 51 | Fleshed out float-context skill with proactive triggers |
+| 2026-01-09 | 49 | Added agents, skills to plugin.json; created templates/handoff.md |
+| 2026-01-09 | 49 | Created float-context skill for proactive context lookups |
+| 2026-01-09 | 49 | Added First-Run Permissions section to float.md |
+| 2026-01-09 | 49 | Fixed agent spawning (YAML frontmatter stripping in float-capture.sh) |
+| 2026-01-09 | 48 | Consolidated float.md + boot.md into single comprehensive command |
+| 2026-01-09 | 48 | Added MDS methodology, role framing, enrichment loop to float.md |
 | 2026-01-09 | 45 | Added Philosophy & Methodology section: goals, MDS method, workshop README |
 | 2026-01-09 | 45 | Added AI Wants This, Vision (Working Spec) to Core Concepts |
 | 2026-01-09 | 45 | Expanded Related Documentation: 34 verified references across 7 categories |
@@ -533,5 +587,5 @@ bash plugins/floatprompt/lib/scan.sh .
 ---
 
 *Created: 2026-01-09 (Session 45)*
-*Last updated: 2026-01-09 (Session 45)*
+*Last updated: 2026-01-09 (Session 51)*
 *References verified: 34 files across docs/, artifacts/, .float-workshop/, src/*

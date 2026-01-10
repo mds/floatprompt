@@ -5,104 +5,110 @@ description: Manually capture session context to float.db. Use mid-session to sa
 
 # /float-capture — Manual Context Capture
 
-**Capture context NOW, without ending the session.**
+**Save a checkpoint. Keep working.**
+
+Run mid-session when you've completed significant work and want to preserve context.
 
 ---
 
-## When to Use
+## When to Run
 
-| Automatic (hooks) | Manual (/float-capture) |
-|-------------------|-------------------------|
-| PreCompact — context filling up | Just completed significant work |
-| SessionEnd — leaving | Want to checkpoint mid-session |
-| You don't think about it | Intentional "save point" |
-
-**Use `/float-capture` when:**
-- You finished a significant feature or decision
-- You're about to switch to a different area of the codebase
-- You want to ensure context is preserved before a risky operation
+- Just finished a feature or decision
+- About to switch to a different area of the codebase
+- Want to ensure context is preserved before a risky operation
 - Session has 50%+ context left but you want to save now
 
 ---
 
-## What It Does
+## The Capture Sequence
 
-1. **Gathers session data:**
-   - Files changed (via `git diff`)
-   - Folders edited (derived from changed files)
-   - Current date
-
-2. **Phase 1: Mechanical capture** (always)
-   - Inserts session-handoff to `log_entries`
-   - Captures `files_changed` JSON array
-
-3. **Phase 2: AI synthesis** (spawns float-log agent)
-   - Enriches the session-handoff with:
-     - `files_read` (what you explored)
-     - `decision` (what was accomplished)
-     - `rationale` (next step options)
-
-4. **Phase 3: Folder enrichment** (spawns float-enrich agent)
-   - Updates `description` and `context` for edited folders
-   - Sets `status = 'current'`
+```
+float-capture (you are here)
+  │
+  ├── 1. Gather        → "What changed?"
+  │
+  ├── 2. Capture       → "Write to float.db + handoff.md"
+  │   ├── Phase 1: Mechanical (sqlite3 INSERT)
+  │   ├── Phase 2: AI synthesis (parallel)
+  │   │   ├── float-log        → session handoff entry
+  │   │   └── float-decisions  → folder decisions + questions
+  │   ├── Phase 3: float-enrich → folder context
+  │   └── Phase 4: float-handoff → .float/handoff.md
+  │
+  └── 3. Confirm       → "Here's what was saved"
+```
 
 ---
 
-## How to Run
+## Step 1: Gather Session Data
 
-Just invoke:
-```
-/float-capture
-```
-
-AI will:
-1. Check for `.float/float.db` (skip if not initialized)
-2. Check for recent capture (skip if captured in last 5 min)
-3. Run the capture phases
-4. Report what was captured
-
----
-
-## Implementation
-
-Run the capture script directly:
+Check what changed this session:
 
 ```bash
-REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
-FLOAT_DB="$REPO_ROOT/.float/float.db"
-
-# Check if initialized
-if [ ! -f "$FLOAT_DB" ]; then
-  echo "FloatPrompt not initialized. Run /float first."
-  exit 0
-fi
-
-# Run capture (same script as hooks, but forced)
-echo '{"hook_event_name": "PreCompact", "cwd": "'$REPO_ROOT'"}' | \
-  ${CLAUDE_PLUGIN_ROOT}/hooks/float-capture.sh
+git diff --name-only HEAD
 ```
 
-**Note:** We pass `PreCompact` as the event to get full AI enrichment (not just mechanical capture).
+Report:
+- Files changed: [count]
+- Folders affected: [list]
+
+---
+
+## Step 2: Run Capture
+
+The capture script auto-detects project root:
+
+```bash
+${CLAUDE_PLUGIN_ROOT}/hooks/float-capture.sh --manual
+```
+
+This runs:
+- **Phase 1:** Mechanical sqlite3 INSERT (guaranteed)
+- **Phase 2:** Parallel agents — float-log (session handoff) + float-decisions (folder decisions)
+- **Phase 3:** float-enrich agent updates folder context
+- **Phase 4:** float-handoff agent writes `.float/handoff.md`
+
+---
+
+## Step 3: Confirm What Was Saved
+
+Query the capture result:
+
+```bash
+sqlite3 .float/float.db "SELECT id, title, decision FROM log_entries ORDER BY id DESC LIMIT 1;"
+```
+
+Report to user:
+
+**Capture Summary:**
+- Entry ID: [N]
+- Title: [session title]
+- Files captured: [count]
+- Folders enriched: [list]
+
+---
+
+## End State
+
+When capture completes:
+
+| What | State |
+|------|-------|
+| `log_entries` | New session-handoff entry |
+| `folders` | Edited folders marked `current` |
+| `.float/handoff.md` | AI-to-AI note for next session |
+| Context | Preserved for next session |
+
+**Context saved. Continue working.**
 
 ---
 
 ## Relationship to Automatic Capture
 
-| Trigger | Phase 1 (sqlite3) | Phases 2-3 (agents) |
-|---------|-------------------|---------------------|
-| PreCompact (auto) | Yes | Yes |
-| SessionEnd (auto) | Yes | No (terminal closing) |
-| /float-capture (manual) | Yes | Yes |
+| Trigger | When | Phases |
+|---------|------|--------|
+| PreCompact (auto) | Context filling up | All (1-4) |
+| SessionEnd (auto) | User exits | Phase 1 only |
+| /float-capture (manual) | You decide | All (1-4) |
 
-Manual capture behaves like PreCompact — full enrichment while session is alive.
-
----
-
-## After Capture
-
-Continue working. The capture is a checkpoint, not an endpoint.
-
-Next time you run `/float`, you'll see:
-- "Last session: [what you captured]"
-- Folder context will be up-to-date
-- Decisions and rationale preserved
+Manual capture = full enrichment + handoff.md while session is alive.

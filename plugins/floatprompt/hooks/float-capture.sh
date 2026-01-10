@@ -16,18 +16,29 @@
 
 set -e
 
-# Read hook input from stdin
-INPUT=$(cat)
+# Check for --manual flag (used by /float-capture command)
+if [ "$1" = "--manual" ]; then
+  # Manual invocation: use defaults
+  SESSION_ID=""
+  TRANSCRIPT_PATH=""
+  CWD=""
+  REASON="manual"
+  HOOK_EVENT="PreCompact"
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Manual capture triggered" >> /tmp/float-capture-debug.log
+else
+  # Hook invocation: read JSON from stdin
+  INPUT=$(cat)
 
-# Debug: log the raw input to help diagnose hook issues
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Hook fired. Input: $INPUT" >> /tmp/float-capture-debug.log
+  # Debug: log the raw input to help diagnose hook issues
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Hook fired. Input: $INPUT" >> /tmp/float-capture-debug.log
 
-# Extract fields from JSON input
-SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
-TRANSCRIPT_PATH=$(echo "$INPUT" | jq -r '.transcript_path // empty')
-CWD=$(echo "$INPUT" | jq -r '.cwd // empty')
-REASON=$(echo "$INPUT" | jq -r '.reason // empty')
-HOOK_EVENT=$(echo "$INPUT" | jq -r '.hook_event_name // empty')
+  # Extract fields from JSON input
+  SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
+  TRANSCRIPT_PATH=$(echo "$INPUT" | jq -r '.transcript_path // empty')
+  CWD=$(echo "$INPUT" | jq -r '.cwd // empty')
+  REASON=$(echo "$INPUT" | jq -r '.reason // empty')
+  HOOK_EVENT=$(echo "$INPUT" | jq -r '.hook_event_name // empty')
+fi
 
 # Use CWD if available, otherwise current directory
 PROJECT_DIR="${CWD:-$(pwd)}"
@@ -135,16 +146,32 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
   PLUGIN_ROOT="$(dirname "$SCRIPT_DIR")"
 
   # ---------------------------------------------------------------------------
-  # PHASE 2: AI synthesis via float-log agent
+  # Pre-process: Truncate transcript to recent context only
   # ---------------------------------------------------------------------------
+  # Full transcripts can be huge. Agents only need recent context for handoffs.
+  # Extract last 500 lines — enough for context, not overwhelming.
+  TRANSCRIPT_TRUNCATED="/tmp/float-transcript-tail-$$.txt"
+  if [ -n "$TRANSCRIPT_PATH" ] && [ -f "$TRANSCRIPT_PATH" ]; then
+    tail -n 500 "$TRANSCRIPT_PATH" > "$TRANSCRIPT_TRUNCATED"
+  else
+    echo "(No transcript available)" > "$TRANSCRIPT_TRUNCATED"
+  fi
+
+  # ---------------------------------------------------------------------------
+  # PHASE 2: AI synthesis (parallel agents)
+  # ---------------------------------------------------------------------------
+  # float-log: Updates session handoff entry
+  # float-decisions: Logs folder decisions and open questions
+  # Both run in parallel for speed
+
   if command -v claude &> /dev/null; then
-    # Export variables for agent to use
-    export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED TRANSCRIPT_PATH FLOAT_DB CURRENT_DATE
+    # Export variables for agents to use (use truncated transcript)
+    export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED FLOAT_DB CURRENT_DATE
+    export TRANSCRIPT_PATH="$TRANSCRIPT_TRUNCATED"
 
-    # Read agent file, strip YAML frontmatter (starts with ---), inject context
-    AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-log.md")
-
-    claude -p "$AGENT_PROMPT
+    # --- float-log agent (session handoff) ---
+    AGENT_PROMPT_LOG=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-log.md")
+    claude -p "$AGENT_PROMPT_LOG
 
 ## Session Context (injected by hook)
 
@@ -154,7 +181,23 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - TRANSCRIPT_PATH: $TRANSCRIPT_PATH
 - FLOAT_DB: $FLOAT_DB
 - CURRENT_DATE: $CURRENT_DATE
-" --model haiku --allowedTools Bash,Read --max-turns 5 2>/dev/null || true
+" --model haiku --allowedTools Bash,Read --max-turns 5 2>/dev/null &
+
+    # --- float-decisions agent (folder decisions + questions) ---
+    AGENT_PROMPT_DECISIONS=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-decisions.md")
+    claude -p "$AGENT_PROMPT_DECISIONS
+
+## Session Context (injected by hook)
+
+- FILES_CHANGED_JSON: $FILES_CHANGED_JSON
+- FOLDERS_EDITED: $FOLDERS_EDITED
+- TRANSCRIPT_PATH: $TRANSCRIPT_PATH
+- FLOAT_DB: $FLOAT_DB
+- CURRENT_DATE: $CURRENT_DATE
+" --model haiku --allowedTools Bash,Read --max-turns 5 2>/dev/null &
+
+    # Wait for both to complete
+    wait
   fi
 
   # ---------------------------------------------------------------------------
@@ -173,7 +216,7 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 
 - FOLDERS_EDITED: $FOLDERS_EDITED
 - FLOAT_DB: $FLOAT_DB
-" --model haiku --allowedTools Bash,Read,Glob --max-turns 5 2>/dev/null || true
+" --model haiku --allowedTools Bash,Read,Glob --max-turns 10 2>/dev/null || true
   fi
 
   # ---------------------------------------------------------------------------
@@ -193,7 +236,7 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - ENTRY_ID: $ENTRY_ID
 - FILES_CHANGED_JSON: $FILES_CHANGED_JSON
 - FOLDERS_EDITED: $FOLDERS_EDITED
-" --model haiku --allowedTools Bash,Read,Write --max-turns 5 2>/dev/null || true
+" --model haiku --allowedTools Bash,Read,Write --max-turns 10 2>/dev/null || true
   fi
 
   # ---------------------------------------------------------------------------
@@ -276,6 +319,9 @@ Check existing logs for examples: $PROJECT_DIR/.float-workshop/logs/2026/01-jan/
 " --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 8 2>/dev/null || true
     fi
   fi
+
+  # Cleanup temp transcript
+  rm -f "$TRANSCRIPT_TRUNCATED" 2>/dev/null || true
 
 fi  # End PreCompact-only section
 
