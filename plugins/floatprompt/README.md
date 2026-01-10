@@ -598,6 +598,7 @@ bash plugins/floatprompt/lib/scan.sh .
 
 | Date | Session | Changes |
 |------|---------|---------|
+| 2026-01-10 | 58 | **Session continuity fix** — Two-stage agent execution (entry writers → entry readers), observability logging to `/tmp/float-agents-*.log`, removed Write tool from float-handoff (uses Bash heredoc), added open questions resolution to float-decisions |
 | 2026-01-10 | 56 | **Phase 6: Distribution** — Added marketplace.json, restructured plugin.json to .claude-plugin/ |
 | 2026-01-10 | 56 | Rewrote float-log agent: UPDATE-first approach ensures enrichment completes |
 | 2026-01-10 | 54 | Fixed claude CLI syntax in float-capture.sh (`-p` → positional arg + `--print`) |
@@ -629,5 +630,5 @@ bash plugins/floatprompt/lib/scan.sh .
 ---
 
 *Created: 2026-01-09 (Session 45)*
-*Last updated: 2026-01-10 (Session 56)*
+*Last updated: 2026-01-10 (Session 58)*
 *References verified: 34 files across docs/, artifacts/, .float-workshop/, src/*
