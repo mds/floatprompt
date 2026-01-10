@@ -166,17 +166,35 @@ This returns JSON with all boot context:
 
 **If `exists: false` → Initialize**
 
-1. Ask before creating: "No FloatPrompt found. Initialize at `[project_root]`?"
-2. Run Layer 1 scan:
+1. **Ask before creating** using AskUserQuestion:
+   - Question: "No FloatPrompt database found. Initialize at `[project_root]`?"
+   - Options:
+     - **Yes, initialize** — Create .float/float.db and index the repository
+     - **No, skip** — Continue without FloatPrompt
+
+2. If user chose "Yes, initialize", run Layer 1 scan:
 ```bash
 ${CLAUDE_PLUGIN_ROOT}/lib/scan.sh
 ```
+
 3. Report: "FloatPrompt initialized. X folders, Y files indexed."
-4. Offer enrichment (don't presume):
-   - "Would you like to enrich your context database? This teaches AI about each folder so future sessions start with full understanding."
-   - Options: Yes / No / Later
-   - If Yes → spawn float-enrich agents (parallel batches of ~20 folders)
-5. Educate about capture:
+
+4. **Offer enrichment** using AskUserQuestion:
+   - Question: "Enrich your context database? This teaches AI about each folder so future sessions start with full understanding."
+   - Options:
+     - **Yes, enrich now** — Analyze folders and write context descriptions
+     - **Later** — Skip for now, run `/float-enrich` anytime
+     - **No thanks** — Use basic file indexing only
+   - If Yes → spawn float-enrich agent
+
+5. **Offer permissions** using AskUserQuestion:
+   - Question: "Auto-approve FloatPrompt operations? This prevents prompts for routine database queries and captures."
+   - Options:
+     - **Yes, update permissions** — Add FloatPrompt scripts to allow list
+     - **No, ask each time** — Keep manual approval for each operation
+   - If Yes → update `.claude/settings.json`
+
+6. Educate about capture:
    - "FloatPrompt captures your work automatically when context fills up. Run `/float-capture` at milestones to save explicitly."
 
 **If `exists: true` → Present Context**
@@ -192,10 +210,13 @@ ${CLAUDE_PLUGIN_ROOT}/lib/scan.sh
 
 Check `permissions_set` in the JSON response.
 
-**If `permissions_set: false`:**
-> "I can auto-approve FloatPrompt operations for future sessions. Want me to update your permissions?"
+**If `permissions_set: false`:** Use AskUserQuestion:
+- Question: "Auto-approve FloatPrompt operations for future sessions?"
+- Options:
+  - **Yes, update permissions** — Won't prompt for routine database queries and captures
+  - **No, ask each time** — Keep manual approval
 
-If user says yes:
+If user chose "Yes, update permissions":
 1. Read `.claude/settings.json` (create if missing)
 2. Resolve the plugin path: `${CLAUDE_PLUGIN_ROOT}` expands to the actual installed location
 3. Add these patterns to `permissions.allow`:
