@@ -612,41 +612,11 @@ bash plugins/floatprompt/lib/scan.sh .
 
 ## Changelog
 
-| Date | Session | Changes |
-|------|---------|---------|
-| 2026-01-10 | 60 | **Research session skip** — Skip agents entirely when no files changed, saves ~$0.34/capture. README parity audit: fixed version (1.1.1), updated float-capture.md section, fixed agent stage numbers. |
-| 2026-01-10 | 60 | **Two-tier capture system** — PreCompact/SessionEnd now mechanical-only (facts), manual `/float-capture` runs full agent pipeline (understanding). Renamed `float-capture.sh` → `capture.sh`. Key message: "PreCompact saves facts. Manual capture saves understanding." |
-| 2026-01-10 | 58 | **Session continuity fix** — Two-stage agent execution (entry writers → entry readers), observability logging to `/tmp/float-agents-*.log`, removed Write tool from float-handoff (uses Bash heredoc), added open questions resolution to float-decisions |
-| 2026-01-10 | 56 | **Phase 6: Distribution** — Added marketplace.json, restructured plugin.json to .claude-plugin/ |
-| 2026-01-10 | 56 | Rewrote float-log agent: UPDATE-first approach ensures enrichment completes |
-| 2026-01-10 | 54 | Fixed claude CLI syntax in float-capture.sh (`-p` → positional arg + `--print`) |
-| 2026-01-10 | 53 | Added Rust merkle scanner (~230x faster than bash) |
-| 2026-01-10 | 53 | Bundled scanner in lib/scanner/ with platform detection |
-| 2026-01-10 | 53 | Updated scan.sh to use Rust scanner with bash fallback |
-| 2026-01-09 | 51 | Added boot.sh for single-command boot queries (JSON output) |
-| 2026-01-09 | 51 | Simplified float.md boot procedure to use boot.sh |
-| 2026-01-09 | 51 | Split float-log into float-log + float-decisions (parallel agents) |
-| 2026-01-09 | 51 | Restructured boot procedure into 4 explicit steps |
-| 2026-01-09 | 51 | Added transcript truncation (last 500 lines) for agent efficiency |
-| 2026-01-09 | 51 | Fleshed out float-context skill with proactive triggers |
-| 2026-01-09 | 49 | Added agents, skills to plugin.json; created templates/handoff.md |
-| 2026-01-09 | 49 | Created float-context skill for proactive context lookups |
-| 2026-01-09 | 49 | Added First-Run Permissions section to float.md |
-| 2026-01-09 | 49 | Fixed agent spawning (YAML frontmatter stripping in float-capture.sh) |
-| 2026-01-09 | 48 | Consolidated float.md + boot.md into single comprehensive command |
-| 2026-01-09 | 48 | Added MDS methodology, role framing, enrichment loop to float.md |
-| 2026-01-09 | 45 | Added Philosophy & Methodology section: goals, MDS method, workshop README |
-| 2026-01-09 | 45 | Added AI Wants This, Vision (Working Spec) to Core Concepts |
-| 2026-01-09 | 45 | Expanded Related Documentation: 34 verified references across 7 categories |
-| 2026-01-09 | 45 | Created README.md with full documentation |
-| 2026-01-09 | 45 | Enhanced scan.sh: files table with SHA-256 hashes |
-| 2026-01-09 | 45 | Fixed plugin.json schema validation (author, commands, hooks) |
-| 2026-01-09 | 45 | Enhanced float-capture.sh: folder-level logging |
-| 2026-01-09 | 44 | Initial plugin structure: all core components |
-| 2026-01-09 | 43 | Schema created, float.db initialized |
+See [CHANGELOG.md](./CHANGELOG.md) for full version history.
+
+**Current version:** 1.1.1
 
 ---
 
 *Created: 2026-01-09 (Session 45)*
 *Last updated: 2026-01-10 (Session 60)*
-*References verified: 34 files across docs/, artifacts/, .float-workshop/, src/*
