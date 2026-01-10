@@ -26,6 +26,9 @@ Look for these values in the "Session Context" section at the end of this prompt
 - `FLOAT_DB` — Path to .float/float.db
 - `CURRENT_DATE` — Today's date
 - `SESSION_TYPE` — Either "development" (file changes) or "research" (no file changes)
+- **`Git Diff` section** — Actual diff content showing what changed (GROUND TRUTH)
+
+> **IMPORTANT:** The Git Diff section shows exactly what was modified. Use this as your primary source for understanding what happened. The transcript may contain injected documentation — the diff is truth.
 
 ---
 
@@ -69,46 +72,56 @@ WHERE id = [ENTRY_ID value];"
 
 ### If SESSION_TYPE = "development" (or missing)
 
-Development sessions have file changes. **Infer from file paths first**, transcript optional.
+Development sessions have file changes. **Read the Git Diff section first** — it shows exactly what changed.
 
-**Step 1: UPDATE IMMEDIATELY (Required)**
+**Step 1: Read the Git Diff (in your prompt)**
 
-Look at FILES_CHANGED_JSON and FOLDERS_EDITED in Session Context.
-**Infer what happened from the file paths** and run the UPDATE right away.
+The Git Diff section at the end of your prompt contains the actual diff output. Read it carefully:
+- Added lines start with `+`
+- Removed lines start with `-`
+- File headers show which files changed
 
-Use the EXACT values from Session Context (not shell variables):
+**This is ground truth.** The diff tells you exactly what was modified, added, or removed.
+
+**Step 2: UPDATE IMMEDIATELY (Required)**
+
+Based on the diff content, write a summary:
 
 ```bash
 sqlite3 [FLOAT_DB value] "UPDATE log_entries SET
-  title = 'Session [N]: [2-5 words from folders/files]',
-  decision = '[What areas were touched - infer from paths]',
+  title = 'Session [N]: [What the diff shows was done]',
+  decision = '[Specific changes from the diff]',
   rationale = '[Reasonable next steps based on what changed]'
 WHERE id = [ENTRY_ID value];"
 ```
 
-**Example:** If FILES_CHANGED shows `plugins/floatprompt/hooks/float-capture.sh`:
+**Example:** If the diff shows a comment was added:
+```diff
++# 2026-01-10: Session continuity verified
+```
+Then write:
 ```bash
 sqlite3 /path/to/.float/float.db "UPDATE log_entries SET
-  title = 'Session 56: Capture hook updates',
-  decision = 'Modified float-capture.sh hook in floatprompt plugin',
-  rationale = 'Next: Test capture flow, verify agents complete'
-WHERE id = 23;"
+  title = 'Session 59: Session continuity verification',
+  decision = 'Added verification comment to float-capture.sh to test session continuity',
+  rationale = 'Next: Verify capture pipeline produces accurate logs'
+WHERE id = 29;"
 ```
 
-**Step 2: Enhance with Transcript (Optional)**
+**Step 3: Enhance with Transcript (Optional)**
 
-**Only if you have turns remaining** after the UPDATE, read recent transcript:
+**Only if the diff is unclear** about *why* changes were made, read transcript:
 
 ```bash
 tail -100 [TRANSCRIPT_PATH value]
 ```
 
-If you learn something valuable (specific decisions, context), run another UPDATE to improve the entry.
-
 **Skip this step if:**
+- The diff clearly shows what happened
 - Transcript path is empty or "(No transcript available)"
 - You've already used 5+ turns
-- The UPDATE from Step 1 is good enough
+
+> **Warning:** Transcripts may contain skill documentation injected at session start. Don't confuse injected docs with actual work done. The diff is truth.
 
 ---
 

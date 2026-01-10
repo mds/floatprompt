@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+# 2026-01-10: Session continuity verified
+#
 # FloatPrompt Automatic Capture
 #
 # Fires on: PreCompact (context full) OR SessionEnd (user exits)
@@ -117,6 +119,13 @@ FILES_CHANGED_JSON=$(echo "$CHANGED_FILES" | jq -R -s -c 'split("\n") | map(sele
 # Extract unique folders from changed files
 FOLDERS_EDITED=$(echo "$CHANGED_FILES" | xargs -I{} dirname {} | sort -u | jq -R -s -c 'split("\n") | map(select(length > 0))')
 
+# Capture actual diff content (ground truth for what changed)
+# Truncate to 300 lines to avoid context overload while preserving signal
+DIFF_CONTENT=$(git diff HEAD 2>/dev/null | head -300)
+if [ -z "$DIFF_CONTENT" ]; then
+  DIFF_CONTENT="(no diff available)"
+fi
+
 # Get current date
 CURRENT_DATE=$(date +%Y-%m-%d)
 
@@ -189,6 +198,7 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
   echo "SESSION_TYPE: $SESSION_TYPE" >> "$AGENT_LOG"
   echo "FILES_CHANGED: $FILES_CHANGED_JSON" >> "$AGENT_LOG"
   echo "FOLDERS_EDITED: $FOLDERS_EDITED" >> "$AGENT_LOG"
+  echo "DIFF_LINES: $(echo "$DIFF_CONTENT" | wc -l | tr -d ' ')" >> "$AGENT_LOG"
   echo "" >> "$AGENT_LOG"
 
   # ---------------------------------------------------------------------------
@@ -215,7 +225,7 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 
   if command -v claude &> /dev/null; then
     # Export variables for agents to use (use truncated transcript)
-    export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED FLOAT_DB CURRENT_DATE SESSION_TYPE
+    export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED FLOAT_DB CURRENT_DATE SESSION_TYPE DIFF_CONTENT
     export TRANSCRIPT_PATH="$TRANSCRIPT_TRUNCATED"
 
     echo "--- STAGE 1: Entry writers ---" >> "$AGENT_LOG"
@@ -234,6 +244,12 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - FLOAT_DB: $FLOAT_DB
 - CURRENT_DATE: $CURRENT_DATE
 - SESSION_TYPE: $SESSION_TYPE
+
+## Git Diff (ground truth - what actually changed)
+
+\`\`\`diff
+$DIFF_CONTENT
+\`\`\`
 " --print --model haiku --allowedTools Bash,Read --max-turns 8 2>>"$AGENT_LOG" &
     FLOAT_LOG_PID=$!
 
