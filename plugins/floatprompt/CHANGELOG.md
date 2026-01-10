@@ -1,5 +1,7 @@
 # Changelog
 
+> **Note:** This file is temporary development logging and will be deleted before release. The real changelog lives in `log_entries` (float.db) and git commits. This exists only to track rapid iteration during initial development.
+
 All notable changes to the FloatPrompt plugin.
 
 ## [1.1.1] - 2026-01-10
