@@ -25,12 +25,53 @@ Look for these values in the "Session Context" section at the end of this prompt
 - `TRANSCRIPT_PATH` — Path to session transcript (optional reading)
 - `FLOAT_DB` — Path to .float/float.db
 - `CURRENT_DATE` — Today's date
+- `SESSION_TYPE` — Either "development" (file changes) or "research" (no file changes)
 
 ---
 
 ## Your Job
 
-### Step 1: UPDATE IMMEDIATELY (Required)
+**Check SESSION_TYPE first.** The approach differs:
+
+---
+
+### If SESSION_TYPE = "research"
+
+Research sessions have no file changes. **Read transcript first** to understand what happened.
+
+**Step 1: Read Transcript**
+```bash
+tail -200 [TRANSCRIPT_PATH value]
+```
+
+Look for:
+- What was explored or researched
+- What was verified or validated
+- What documentation was read
+- What decisions were discussed
+- What was learned
+
+**Step 2: UPDATE with Summary**
+```bash
+sqlite3 [FLOAT_DB value] "UPDATE log_entries SET
+  title = 'Session [N]: [What was explored/verified]',
+  decision = '[Summary of research/verification work]',
+  rationale = '[Key learnings or confirmations]'
+WHERE id = [ENTRY_ID value];"
+```
+
+**Examples of good research session titles:**
+- "Session 57: Phase 6 verification against official docs"
+- "Session 42: Explored authentication approaches"
+- "Session 38: Verified database schema migration"
+
+---
+
+### If SESSION_TYPE = "development" (or missing)
+
+Development sessions have file changes. **Infer from file paths first**, transcript optional.
+
+**Step 1: UPDATE IMMEDIATELY (Required)**
 
 Look at FILES_CHANGED_JSON and FOLDERS_EDITED in Session Context.
 **Infer what happened from the file paths** and run the UPDATE right away.
@@ -54,7 +95,7 @@ sqlite3 /path/to/.float/float.db "UPDATE log_entries SET
 WHERE id = 23;"
 ```
 
-### Step 2: Enhance with Transcript (Optional)
+**Step 2: Enhance with Transcript (Optional)**
 
 **Only if you have turns remaining** after the UPDATE, read recent transcript:
 

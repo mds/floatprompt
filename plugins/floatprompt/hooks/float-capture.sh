@@ -85,7 +85,7 @@ if [ -n "$RECENT_HANDOFF" ]; then
 fi
 
 # -----------------------------------------------------------------------------
-# Early exit: Skip if no changes
+# Check for changes
 # -----------------------------------------------------------------------------
 cd "$PROJECT_DIR"
 # Include both staged and unstaged changes
@@ -94,9 +94,17 @@ STAGED_FILES=$(git diff --cached --name-only 2>/dev/null || echo "")
 # Combine and dedupe
 CHANGED_FILES=$(echo -e "$CHANGED_FILES\n$STAGED_FILES" | sort -u | grep -v '^$' || echo "")
 
+# Determine session type
 if [ -z "$CHANGED_FILES" ]; then
-  # No changes, nothing to capture
-  exit 0
+  if [ "$REASON" = "manual" ]; then
+    # Manual capture with no file changes = research session
+    SESSION_TYPE="research"
+  else
+    # Automatic capture with no changes = nothing to capture
+    exit 0
+  fi
+else
+  SESSION_TYPE="development"
 fi
 
 # -----------------------------------------------------------------------------
@@ -119,6 +127,15 @@ CURRENT_DATE=$(date +%Y-%m-%d)
 # This ensures we ALWAYS have something, even if AI enrichment fails
 # Status is 'open' (can be updated by agents) - schema allows: locked, open, superseded
 
+# Set appropriate placeholder based on session type
+if [ "$SESSION_TYPE" = "research" ]; then
+  PLACEHOLDER_TITLE="Research session (awaiting enrichment)"
+  PLACEHOLDER_DECISION="Research/verification session. No files modified."
+else
+  PLACEHOLDER_TITLE="Session end (awaiting enrichment)"
+  PLACEHOLDER_DECISION="Session ended. Files modified: ${FILES_CHANGED_JSON//\'/\'\'}"
+fi
+
 ENTRY_ID=$(sqlite3 "$FLOAT_DB" "
 INSERT INTO log_entries (
   folder_path,
@@ -137,8 +154,8 @@ INSERT INTO log_entries (
   '$CURRENT_DATE',
   'session-handoff',
   'open',
-  'Session end (awaiting enrichment)',
-  'Session ended. Files modified: ${FILES_CHANGED_JSON//\'/\'\'}',
+  '$PLACEHOLDER_TITLE',
+  '$PLACEHOLDER_DECISION',
   'Pending AI enrichment.',
   '${HOOK_EVENT:-manual}',
   '[]',
@@ -183,7 +200,7 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 
   if command -v claude &> /dev/null; then
     # Export variables for agents to use (use truncated transcript)
-    export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED FLOAT_DB CURRENT_DATE
+    export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED FLOAT_DB CURRENT_DATE SESSION_TYPE
     export TRANSCRIPT_PATH="$TRANSCRIPT_TRUNCATED"
 
     # --- float-log agent (session handoff) ---
@@ -198,6 +215,7 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - TRANSCRIPT_PATH: $TRANSCRIPT_PATH
 - FLOAT_DB: $FLOAT_DB
 - CURRENT_DATE: $CURRENT_DATE
+- SESSION_TYPE: $SESSION_TYPE
 " --print --model haiku --allowedTools Bash,Read --max-turns 8 2>/dev/null &
 
     # --- float-decisions agent (folder decisions + questions) ---
