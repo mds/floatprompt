@@ -1,0 +1,8 @@
+# Build artifacts
+target/
+
+# Node modules
+node_modules/
+
+# Native binaries (built by CI)
+*.node

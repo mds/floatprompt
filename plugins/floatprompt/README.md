@@ -28,7 +28,11 @@ plugins/floatprompt/
 ├── lib/
 │   ├── boot.sh               # Boot query script (JSON output for /float)
 │   ├── schema.sql            # SQLite schema for float.db (9 tables)
-│   └── scan.sh               # Layer 1 scanner (folders + files with hashes)
+│   ├── scan.sh               # Layer 1 scanner (Rust-powered, bash fallback)
+│   └── scanner/              # Rust merkle scanner (~230x faster)
+│       ├── index.js          # napi-rs bindings
+│       ├── scan-cli.js       # Node.js CLI wrapper
+│       └── *.node            # Platform-specific binaries
 ├── templates/
 │   └── handoff.md            # Template for .float/handoff.md structure
 └── README.md                 # This file
@@ -258,7 +262,7 @@ Self-deduplicating: If PreCompact runs, SessionEnd skips (5-minute window).
 
 ### `lib/scan.sh`
 
-**Purpose:** Layer 1 mechanical scanner — populates folders AND files tables.
+**Purpose:** Layer 1 mechanical scanner — populates folders AND files tables with merkle tree hashing.
 
 **Usage:**
 ```bash
@@ -266,33 +270,55 @@ Self-deduplicating: If PreCompact runs, SessionEnd skips (5-minute window).
 # Defaults to current directory
 ```
 
-**What It Does:**
+**Performance:**
 
-| Step | Action |
-|------|--------|
-| 1 | Create `.float/` directory if needed |
-| 2 | Initialize database from `schema.sql` if needed |
-| 3 | Walk filesystem with `find`, exclude noise patterns |
-| 4 | Insert/update `folders` table (path, parent_path, name) |
-| 5 | Insert/update `files` table with SHA-256 content hashes |
-| 6 | Compute `source_hash` for each folder (concatenation of child hashes) |
-| 7 | Report: "X folders, Y files indexed" |
+| Scanner | Time | Notes |
+|---------|------|-------|
+| **Rust (cached)** | ~40ms | mtime cache hit, ~1 file hashed |
+| **Rust (fresh)** | ~150ms | All 600+ files hashed |
+| **Bash fallback** | ~35s | Used when Rust binary unavailable |
+
+**~230x faster** than the original bash implementation via Rust + napi-rs.
+
+**How It Works:**
+
+1. **Platform detection** — Checks for platform-specific `.node` binary
+2. **Rust scanner** (if available):
+   - Walks filesystem with `.gitignore` support (ignore crate)
+   - Compares mtime/size to skip unchanged files (git's insight)
+   - Hashes only changed files with SHA-256
+   - Builds merkle tree for folder hashes
+   - Updates database in single transaction (WAL mode)
+3. **Bash fallback** (if Rust unavailable):
+   - Uses `find` + `shasum` (slower but portable)
+   - Same database output format
+
+**Platform Support:**
+
+| Platform | Binary | Status |
+|----------|--------|--------|
+| macOS ARM (M1/M2) | `scanner.darwin-arm64.node` | Bundled |
+| macOS Intel | `scanner.darwin-x64.node` | CI build needed |
+| Linux x64 | `scanner.linux-x64-gnu.node` | CI build needed |
 
 **Excluded Patterns:**
 ```
 node_modules, .git, .float, .claude, __pycache__, .pytest_cache,
 .next, .nuxt, dist, build, .venv, venv, .tox, coverage,
-.nyc_output, .cache, .turbo
+.nyc_output, .cache, .turbo, target
 ```
 
-**File Filtering:**
-- Text files only (skips binaries)
-- Files < 1MB only (skips large files)
-- Uses `file` command to detect type
+**The Git Insight:**
+
+The key optimization is mtime caching (like git):
+- Store file mtime + size alongside content hash
+- On rescan, only hash files where mtime/size changed
+- Most scans process 0-5 files, not 600+
 
 **Reference:**
-- TypeScript scanner (more complete): `src/db/scan.ts`
-- Scanner design: "Mechanical speed first, AI judgment second"
+- Rust source: `scanner/src/` (lib.rs, walker.rs, hasher.rs, cache.rs, merkle.rs, db.rs)
+- TypeScript scanner: `src/db/scan.ts`
+- Progress tracking: `scanner/RUST-PROGRESS.md`
 
 ---
 
@@ -562,6 +588,10 @@ bash plugins/floatprompt/lib/scan.sh .
 
 | Date | Session | Changes |
 |------|---------|---------|
+| 2026-01-10 | 54 | Fixed claude CLI syntax in float-capture.sh (`-p` → positional arg + `--print`) |
+| 2026-01-10 | 53 | Added Rust merkle scanner (~230x faster than bash) |
+| 2026-01-10 | 53 | Bundled scanner in lib/scanner/ with platform detection |
+| 2026-01-10 | 53 | Updated scan.sh to use Rust scanner with bash fallback |
 | 2026-01-09 | 51 | Added boot.sh for single-command boot queries (JSON output) |
 | 2026-01-09 | 51 | Simplified float.md boot procedure to use boot.sh |
 | 2026-01-09 | 51 | Split float-log into float-log + float-decisions (parallel agents) |
@@ -587,5 +617,5 @@ bash plugins/floatprompt/lib/scan.sh .
 ---
 
 *Created: 2026-01-09 (Session 45)*
-*Last updated: 2026-01-09 (Session 51)*
+*Last updated: 2026-01-10 (Session 54)*
 *References verified: 34 files across docs/, artifacts/, .float-workshop/, src/*

@@ -21,6 +21,9 @@ hex = "0.4"
 [build-dependencies]
 napi-build = "2"
 
+[dev-dependencies]
+tempfile = "3"
+
 [profile.release]
 lto = true
 opt-level = 3

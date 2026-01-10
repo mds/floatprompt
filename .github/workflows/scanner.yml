@@ -1,0 +1,137 @@
+name: Build Scanner
+
+on:
+  push:
+    paths:
+      - 'scanner/**'
+      - '.github/workflows/scanner.yml'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'scanner/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: aarch64-apple-darwin
+            os: macos-latest
+            name: darwin-arm64
+          - target: x86_64-apple-darwin
+            os: macos-latest
+            name: darwin-x64
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-latest
+            name: linux-x64
+
+    name: Build - ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Install dependencies
+        working-directory: scanner
+        run: npm install
+
+      - name: Build native module
+        working-directory: scanner
+        run: |
+          npm run build -- --target ${{ matrix.target }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scanner-${{ matrix.name }}
+          path: scanner/*.node
+          if-no-files-found: error
+
+  bundle:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Bundle into plugin
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Copy binaries to plugin
+        run: |
+          mkdir -p plugins/floatprompt/lib/scanner
+          cp scanner/index.js plugins/floatprompt/lib/scanner/
+          cp scanner/index.d.ts plugins/floatprompt/lib/scanner/
+          cp scanner/scan-cli.js plugins/floatprompt/lib/scanner/
+          cp scanner/package.json plugins/floatprompt/lib/scanner/
+          cp artifacts/scanner-darwin-arm64/*.node plugins/floatprompt/lib/scanner/
+          cp artifacts/scanner-darwin-x64/*.node plugins/floatprompt/lib/scanner/
+          cp artifacts/scanner-linux-x64/*.node plugins/floatprompt/lib/scanner/
+          ls -la plugins/floatprompt/lib/scanner/
+
+      - name: Upload bundled plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: floatprompt-plugin
+          path: plugins/floatprompt/
+          if-no-files-found: error
+
+  test:
+    needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: macos-latest
+            artifact: scanner-darwin-arm64
+          - os: ubuntu-latest
+            artifact: scanner-linux-x64
+
+    name: Test - ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: scanner
+
+      - name: Test scanner
+        working-directory: scanner
+        run: |
+          node -e "
+            const { scan } = require('./index.js');
+            const result = scan({
+              projectDir: process.cwd(),
+              dbPath: '/tmp/test-float.db',
+              excludePatterns: []
+            });
+            console.log('Scan result:', result.stats);
+            if (result.stats.filesWalked === 0) {
+              throw new Error('No files walked');
+            }
+            console.log('Test passed!');
+          "
