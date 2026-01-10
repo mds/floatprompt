@@ -195,7 +195,14 @@ if [ "$REASON" != "manual" ]; then
   exit 0
 fi
 
-# Manual capture: run full agent pipeline
+# Skip agents for research sessions (no file changes = nothing to enrich)
+# Saves ~$0.34 per capture by not sending 260k tokens to 5 agents
+if [ "$SESSION_TYPE" = "research" ]; then
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Research session: mechanical only (no files changed, agents skipped)" >> /tmp/float-capture-debug.log
+  exit 0
+fi
+
+# Manual capture with file changes: run full agent pipeline
 if [ "$REASON" = "manual" ]; then
 
   # Get plugin root directory (where agents/ lives)
