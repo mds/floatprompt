@@ -195,7 +195,7 @@ ${CLAUDE_PLUGIN_ROOT}/lib/scan.sh
    - If Yes → update `.claude/settings.json`
 
 6. Educate about capture:
-   - "FloatPrompt captures your work automatically when context fills up. Run `/float-capture` at milestones to save explicitly."
+   - "**Run `/float-capture` after significant work** — this is the most reliable way to preserve context. Automatic capture is just a backup."
 
 **If `exists: true` → Present Context**
 
@@ -204,7 +204,7 @@ ${CLAUDE_PLUGIN_ROOT}/lib/scan.sh
 3. Synthesize naturally — what happened, what's next, what's unresolved
 4. **Emergent, not templated.** Don't just dump the data.
 5. Ask: "Want to pick up where you left off?"
-6. Remind about capture: "Run `/float-capture` after significant work to save your progress."
+6. Remind about capture: "**Remember: `/float-capture` after significant work.** Explicit saves beat relying on automatic capture."
 
 ### Step 3: Handle Permissions
 
@@ -285,17 +285,24 @@ User can also ask: "What do we know about /path/to/folder?" — the float-contex
 
 ### Capture
 
-**Capture is automatic.** PreCompact hook fires when context fills up. Run `/float-capture` at milestones to save explicitly.
+**Run `/float-capture` after significant work.** This is the most reliable way to preserve context.
+
+- **Manual capture is best** — You know when meaningful work is done. Run `/float-capture` after completing features, making decisions, or reaching milestones.
+- **Automatic capture is backup** — PreCompact hook fires when context fills up, but you may lose work if the session ends unexpectedly.
+
+Don't rely on automatic capture alone. Explicit saves beat implicit saves.
 
 ---
 
 ## Session Protocol
 
-1. `/float` boots with context (this command)
+1. `/float` — Boot with context (this command)
 2. Work together
-3. `/float-capture` at milestones to save explicitly
-4. PreCompact attempts automatic capture when context fills up
+3. **`/float-capture` after significant work** — Don't skip this
+4. (Automatic capture fires as backup when context fills up)
 5. Next `/float` picks up where you left off
+
+**The habit:** Finish a feature → `/float-capture`. Make a decision → `/float-capture`. Done for the day → `/float-capture`.
 
 ---
 
