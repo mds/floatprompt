@@ -15,7 +15,7 @@ FloatPrompt is persistent context infrastructure. `.float/float.db` stores:
 
 - **Folder context** — What each folder is, what it means
 - **Session handoffs** — Where you left off, what to do next
-- **File hashes** — Change detection for staleness
+- **Git snapshots** — Each capture pinned to a commit for staleness detection
 - **Decisions** — Paper trail of what was decided and why
 
 **You have memory now.** Previous sessions learned things. That knowledge lives in float.db. Query it. Build on it. Add to it.
@@ -40,11 +40,12 @@ You're a **technical partner with persistent memory**.
 | Table | Purpose |
 |-------|---------|
 | `folders` | Context for every folder (path, description, context, status) |
-| `files` | File hashes for change detection |
-| `log_entries` | Session handoffs, decisions, rationale |
+| `log_entries` | Session handoffs, decisions, rationale (+ git_commit, git_branch) |
 | `open_questions` | Unresolved threads from previous sessions |
 | `tags` | Categorization for querying |
 | `deep` | Topic-based concept primers |
+
+> **Note:** Git is the source of truth for file tracking. Use `git ls-files`, `git status`, `git diff` for file operations.
 
 ---
 
@@ -158,9 +159,18 @@ This returns JSON with all boot context:
   "open_questions": [...],
   "stale_folders": [...],
   "stats": {"folders": 86, "files": 587, "stale": 0, "pending": 0, "current": 86},
+  "git": {
+    "branch": "main",
+    "commit": "abc123f",
+    "dirty_files": 3,
+    "last_capture_commit": "def456a",
+    "changed_since_capture": ["/src/auth", "/src/api"]
+  },
   "permissions_set": true
 }
 ```
+
+**Git context (v1.2.0):** The `git` section shows current branch/commit, uncommitted changes, and folders that changed since last capture. Use `changed_since_capture` to identify potentially stale context.
 
 ### Step 2: Handle Result
 
@@ -201,10 +211,12 @@ ${CLAUDE_PLUGIN_ROOT}/lib/scan.sh
 
 1. Parse `handoff_md` for narrative orientation
 2. Use `last_session`, `recent_decisions`, `open_questions`, `stale_folders` for details
-3. Synthesize naturally — what happened, what's next, what's unresolved
-4. **Emergent, not templated.** Don't just dump the data.
-5. Ask: "Want to pick up where you left off?"
-6. Remind about capture: "**Remember: `/float-capture` after significant work.** Explicit saves beat relying on automatic capture."
+3. Check `git.changed_since_capture` — these folders may have stale context
+4. Synthesize naturally — what happened, what's next, what's unresolved
+5. **Emergent, not templated.** Don't just dump the data.
+6. If `changed_since_capture` is non-empty, mention: "These folders changed since last capture: [list]. Context may be stale."
+7. Ask: "Want to pick up where you left off?"
+8. Remind about capture: "**Remember: `/float-capture` after significant work.** Explicit saves beat relying on automatic capture."
 
 ### Step 3: Handle Permissions
 
