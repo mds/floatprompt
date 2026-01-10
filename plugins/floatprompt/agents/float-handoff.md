@@ -1,7 +1,7 @@
 ---
 name: float-handoff
 description: Writes .float/handoff.md - the AI-to-AI session note passed between sessions
-tools: Bash, Read, Write
+tools: Bash, Read
 model: haiku
 ---
 
@@ -96,14 +96,22 @@ Write to `$PROJECT_DIR/.float/handoff.md` with this structure:
 
 ## Output
 
-Write the file:
+**Write the file using Bash cat heredoc:**
+
 ```bash
-cat > "$PROJECT_DIR/.float/handoff.md" << 'EOF'
-[your handoff content]
-EOF
+cat > "$PROJECT_DIR/.float/handoff.md" << 'HANDOFF_EOF'
+# Handoff
+
+**Session N** → **Session N+1**
+
+[your handoff content here]
+HANDOFF_EOF
 ```
 
-Or use the Write tool to create `.float/handoff.md`.
+**Important:**
+- Use single-quoted delimiter (`'HANDOFF_EOF'`) to prevent variable expansion
+- Replace `$PROJECT_DIR` with the actual path from Session Context
+- This is the ONLY method to write the file (no Write tool available)
 
 ---
 

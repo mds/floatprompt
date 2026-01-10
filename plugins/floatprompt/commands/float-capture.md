@@ -33,7 +33,7 @@ float-capture (you are here)
   └── 3. Confirm       → "Here's what was saved"
 ```
 
-**Note:** Manual capture is mechanical only (Phase 1). AI agents (Phases 2-4) only run on PreCompact because they need the session transcript to work properly. Manual capture has no transcript access.
+**Note:** Manual capture attempts to find the current session transcript. If found, all phases run with full AI enrichment. If no transcript is available, only Phase 1 (mechanical) runs.
 
 ---
 
@@ -105,6 +105,6 @@ When capture completes:
 |---------|------|--------|
 | PreCompact (auto) | Context filling up | All (1-4) |
 | SessionEnd (auto) | User exits | Phase 1 only |
-| /float-capture (manual) | You decide | All (1-4) |
+| /float-capture (manual) | You decide | All (1-4) if transcript found, else Phase 1 |
 
-Manual capture = full enrichment + handoff.md while session is alive.
+Manual capture with transcript = full enrichment + handoff.md while session is alive.

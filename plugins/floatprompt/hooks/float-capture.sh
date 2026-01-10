@@ -180,6 +180,18 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
   PLUGIN_ROOT="$(dirname "$SCRIPT_DIR")"
 
   # ---------------------------------------------------------------------------
+  # OBSERVABILITY: Agent execution logging
+  # ---------------------------------------------------------------------------
+  AGENT_LOG="/tmp/float-agents-$(date +%Y%m%d-%H%M%S).log"
+  echo "=== FloatPrompt Capture Started ===" >> "$AGENT_LOG"
+  echo "Timestamp: $(date '+%Y-%m-%d %H:%M:%S')" >> "$AGENT_LOG"
+  echo "ENTRY_ID: $ENTRY_ID" >> "$AGENT_LOG"
+  echo "SESSION_TYPE: $SESSION_TYPE" >> "$AGENT_LOG"
+  echo "FILES_CHANGED: $FILES_CHANGED_JSON" >> "$AGENT_LOG"
+  echo "FOLDERS_EDITED: $FOLDERS_EDITED" >> "$AGENT_LOG"
+  echo "" >> "$AGENT_LOG"
+
+  # ---------------------------------------------------------------------------
   # Pre-process: Truncate transcript to recent context only
   # ---------------------------------------------------------------------------
   # Full transcripts can be huge. Agents only need recent context for handoffs.
@@ -187,23 +199,29 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
   TRANSCRIPT_TRUNCATED="/tmp/float-transcript-tail-$$.txt"
   if [ -n "$TRANSCRIPT_PATH" ] && [ -f "$TRANSCRIPT_PATH" ]; then
     tail -n 500 "$TRANSCRIPT_PATH" > "$TRANSCRIPT_TRUNCATED"
+    echo "Transcript: $TRANSCRIPT_PATH (truncated to 500 lines)" >> "$AGENT_LOG"
   else
     echo "(No transcript available)" > "$TRANSCRIPT_TRUNCATED"
+    echo "Transcript: (none available)" >> "$AGENT_LOG"
   fi
+  echo "" >> "$AGENT_LOG"
 
   # ---------------------------------------------------------------------------
-  # PHASE 2: AI synthesis (parallel agents)
+  # STAGE 1: Entry writers (must complete before Stage 2)
   # ---------------------------------------------------------------------------
-  # float-log: Updates session handoff entry
-  # float-decisions: Logs folder decisions and open questions
-  # Both run in parallel for speed
+  # float-log: Updates entry with title/decision/rationale
+  # float-decisions: Creates decision entries + open questions
+  # Stage 2 agents read the entry, so Stage 1 must complete first.
 
   if command -v claude &> /dev/null; then
     # Export variables for agents to use (use truncated transcript)
     export ENTRY_ID FILES_CHANGED_JSON FOLDERS_EDITED FLOAT_DB CURRENT_DATE SESSION_TYPE
     export TRANSCRIPT_PATH="$TRANSCRIPT_TRUNCATED"
 
+    echo "--- STAGE 1: Entry writers ---" >> "$AGENT_LOG"
+
     # --- float-log agent (session handoff) ---
+    echo "[$(date '+%H:%M:%S')] Spawning float-log" >> "$AGENT_LOG"
     AGENT_PROMPT_LOG=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-log.md")
     claude "$AGENT_PROMPT_LOG
 
@@ -216,9 +234,11 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - FLOAT_DB: $FLOAT_DB
 - CURRENT_DATE: $CURRENT_DATE
 - SESSION_TYPE: $SESSION_TYPE
-" --print --model haiku --allowedTools Bash,Read --max-turns 8 2>/dev/null &
+" --print --model haiku --allowedTools Bash,Read --max-turns 8 2>>"$AGENT_LOG" &
+    FLOAT_LOG_PID=$!
 
     # --- float-decisions agent (folder decisions + questions) ---
+    echo "[$(date '+%H:%M:%S')] Spawning float-decisions" >> "$AGENT_LOG"
     AGENT_PROMPT_DECISIONS=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-decisions.md")
     claude "$AGENT_PROMPT_DECISIONS
 
@@ -229,37 +249,45 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - TRANSCRIPT_PATH: $TRANSCRIPT_PATH
 - FLOAT_DB: $FLOAT_DB
 - CURRENT_DATE: $CURRENT_DATE
-" --print --model haiku --allowedTools Bash,Read --max-turns 8 2>/dev/null &
+" --print --model haiku --allowedTools Bash,Read --max-turns 8 2>>"$AGENT_LOG" &
+    FLOAT_DECISIONS_PID=$!
 
-    # Don't wait - let Phase 2 agents run in parallel with Phase 3+4
+    # Wait for Stage 1 to complete (entry now has real content)
+    wait $FLOAT_LOG_PID
+    echo "[$(date '+%H:%M:%S')] float-log completed (exit: $?)" >> "$AGENT_LOG"
+    wait $FLOAT_DECISIONS_PID
+    echo "[$(date '+%H:%M:%S')] float-decisions completed (exit: $?)" >> "$AGENT_LOG"
+    echo "" >> "$AGENT_LOG"
   fi
 
   # ---------------------------------------------------------------------------
-  # PHASE 3: AI enrichment via float-enrich agent (parallel)
+  # STAGE 2: Entry readers (entry now populated by Stage 1)
   # ---------------------------------------------------------------------------
-  if command -v claude &> /dev/null && [ "$FOLDERS_EDITED" != "[]" ]; then
-    # Export variables for agent to use
-    export FOLDERS_EDITED FLOAT_DB
+  # float-enrich: Updates folder context
+  # float-handoff: Reads entry, writes handoff.md
+  # These agents can now read the real entry content.
 
-    # Read agent file, strip YAML frontmatter (starts with ---), inject context
-    AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-enrich.md")
+  if command -v claude &> /dev/null; then
+    echo "--- STAGE 2: Entry readers ---" >> "$AGENT_LOG"
 
-    claude "$AGENT_PROMPT
+    # --- float-enrich agent (folder context) ---
+    if [ "$FOLDERS_EDITED" != "[]" ]; then
+      echo "[$(date '+%H:%M:%S')] Spawning float-enrich" >> "$AGENT_LOG"
+      AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-enrich.md")
+      claude "$AGENT_PROMPT
 
 ## Session Context (injected by hook)
 
 - FOLDERS_EDITED: $FOLDERS_EDITED
 - FLOAT_DB: $FLOAT_DB
-" --print --model haiku --allowedTools Bash,Read,Glob --max-turns 10 2>/dev/null &
-  fi
+" --print --model haiku --allowedTools Bash,Read,Glob --max-turns 10 2>>"$AGENT_LOG" &
+      FLOAT_ENRICH_PID=$!
+    fi
 
-  # ---------------------------------------------------------------------------
-  # PHASE 4: Write handoff.md via float-handoff agent (parallel)
-  # ---------------------------------------------------------------------------
-  if command -v claude &> /dev/null; then
-    # Read agent file, strip YAML frontmatter, inject context
+    # --- float-handoff agent (writes handoff.md) ---
+    # NOTE: Using Bash,Read only (no Write) - agent uses cat heredoc to write
+    echo "[$(date '+%H:%M:%S')] Spawning float-handoff" >> "$AGENT_LOG"
     AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-handoff.md")
-
     claude "$AGENT_PROMPT
 
 ## Session Context (injected by hook)
@@ -270,16 +298,28 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
 - ENTRY_ID: $ENTRY_ID
 - FILES_CHANGED_JSON: $FILES_CHANGED_JSON
 - FOLDERS_EDITED: $FOLDERS_EDITED
-" --print --model haiku --allowedTools Bash,Read,Write --max-turns 10 2>/dev/null &
+" --print --model haiku --allowedTools Bash,Read --max-turns 10 2>>"$AGENT_LOG" &
+    FLOAT_HANDOFF_PID=$!
+
+    # Wait for Stage 2
+    if [ -n "$FLOAT_ENRICH_PID" ]; then
+      wait $FLOAT_ENRICH_PID
+      echo "[$(date '+%H:%M:%S')] float-enrich completed (exit: $?)" >> "$AGENT_LOG"
+    fi
+    wait $FLOAT_HANDOFF_PID
+    echo "[$(date '+%H:%M:%S')] float-handoff completed (exit: $?)" >> "$AGENT_LOG"
+    echo "" >> "$AGENT_LOG"
   fi
 
   # ---------------------------------------------------------------------------
-  # PHASE 5: Workshop agents (only if .float-workshop/ exists) - parallel
+  # STAGE 3: Workshop agents (only if .float-workshop/ exists)
   # ---------------------------------------------------------------------------
   if [ -d "$PROJECT_DIR/.float-workshop" ]; then
+    echo "--- STAGE 3: Workshop agents ---" >> "$AGENT_LOG"
 
     # Spawn float-organize agent (workshop cleanup)
     if command -v claude &> /dev/null; then
+      echo "[$(date '+%H:%M:%S')] Spawning float-organize" >> "$AGENT_LOG"
       claude "You are the float-organize agent for the FloatPrompt workshop.
 
 Workshop directory: $PROJECT_DIR/.float-workshop
@@ -291,11 +331,13 @@ Your task:
 3. Update ACTIVE.md with current status if needed
 
 Read the workshop README for conventions: $PROJECT_DIR/.float-workshop/README.md
-" --print --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 3 2>/dev/null &
+" --print --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 3 2>>"$AGENT_LOG" &
+      FLOAT_ORGANIZE_PID=$!
     fi
 
     # Spawn float-update-logs agent (workshop logging)
     if command -v claude &> /dev/null; then
+      echo "[$(date '+%H:%M:%S')] Spawning float-update-logs" >> "$AGENT_LOG"
       claude "You are the float-update-logs agent for the FloatPrompt workshop.
 
 Workshop logs: $PROJECT_DIR/.float-workshop/logs/
@@ -350,12 +392,28 @@ For each decision, create: logs/2026/01-jan/$CURRENT_DATE-topic-slug.md
 Add entries to the 'Current (Locked)' section in $PROJECT_DIR/.float-workshop/logs/2026/01-jan/01-jan.md
 
 Check existing logs for examples: $PROJECT_DIR/.float-workshop/logs/2026/01-jan/
-" --print --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 8 2>/dev/null &
+" --print --model haiku --allowedTools Bash,Read,Write,Glob --max-turns 8 2>>"$AGENT_LOG" &
+      FLOAT_UPDATE_LOGS_PID=$!
     fi
+
+    # Wait for workshop agents
+    if [ -n "$FLOAT_ORGANIZE_PID" ]; then
+      wait $FLOAT_ORGANIZE_PID
+      echo "[$(date '+%H:%M:%S')] float-organize completed (exit: $?)" >> "$AGENT_LOG"
+    fi
+    if [ -n "$FLOAT_UPDATE_LOGS_PID" ]; then
+      wait $FLOAT_UPDATE_LOGS_PID
+      echo "[$(date '+%H:%M:%S')] float-update-logs completed (exit: $?)" >> "$AGENT_LOG"
+    fi
+    echo "" >> "$AGENT_LOG"
   fi
 
-  # Wait for all parallel agents to complete
-  wait
+  # ---------------------------------------------------------------------------
+  # Cleanup and final logging
+  # ---------------------------------------------------------------------------
+  echo "=== FloatPrompt Capture Completed ===" >> "$AGENT_LOG"
+  echo "Finished: $(date '+%Y-%m-%d %H:%M:%S')" >> "$AGENT_LOG"
+  echo "Log file: $AGENT_LOG" >> "$AGENT_LOG"
 
   # Cleanup temp transcript
   rm -f "$TRANSCRIPT_TRUNCATED" 2>/dev/null || true

@@ -103,11 +103,41 @@ Before creating entries, ask:
 
 ---
 
+## Step 4: Resolve Previous Questions (if any)
+
+Check if any unresolved questions were answered by this session's work:
+
+```bash
+sqlite3 "$FLOAT_DB" "SELECT id, question, context FROM open_questions WHERE resolved_at IS NULL"
+```
+
+For each question that THIS SESSION's work addressed:
+
+```bash
+sqlite3 "$FLOAT_DB" "UPDATE open_questions SET
+  resolved_at = unixepoch(),
+  resolved_by = 'Session work: [Brief explanation of how resolved]'
+WHERE id = [QUESTION_ID];"
+```
+
+**Examples of resolved:**
+- Question about schema design → Session implemented the schema
+- Question about library choice → Session chose and integrated library
+- Question about architecture → Session locked the approach
+
+**Skip if:**
+- No unresolved questions exist
+- Session work doesn't relate to existing questions
+- Questions are still open/undecided
+
+---
+
 ## Done
 
 Report what you logged:
 - Decisions created (count + titles)
 - Questions captured (count)
+- Questions resolved (count)
 - Or "No significant decisions this session"
 
 **Be selective. Be brief. Move on.**
