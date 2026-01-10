@@ -226,11 +226,11 @@ if [ "$REASON" = "manual" ]; then
   # Pre-process: Truncate transcript to recent context only
   # ---------------------------------------------------------------------------
   # Full transcripts can be huge. Agents only need recent context for handoffs.
-  # Extract last 500 lines — enough for context, not overwhelming.
+  # Extract last 200 lines — balances context vs token cost (~150k vs ~370k tokens).
   TRANSCRIPT_TRUNCATED="/tmp/float-transcript-tail-$$.txt"
   if [ -n "$TRANSCRIPT_PATH" ] && [ -f "$TRANSCRIPT_PATH" ]; then
-    tail -n 500 "$TRANSCRIPT_PATH" > "$TRANSCRIPT_TRUNCATED"
-    echo "Transcript: $TRANSCRIPT_PATH (truncated to 500 lines)" >> "$AGENT_LOG"
+    tail -n 200 "$TRANSCRIPT_PATH" > "$TRANSCRIPT_TRUNCATED"
+    echo "Transcript: $TRANSCRIPT_PATH (truncated to 200 lines)" >> "$AGENT_LOG"
   else
     echo "(No transcript available)" > "$TRANSCRIPT_TRUNCATED"
     echo "Transcript: (none available)" >> "$AGENT_LOG"
