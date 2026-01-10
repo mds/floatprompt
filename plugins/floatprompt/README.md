@@ -51,7 +51,7 @@ plugins/floatprompt/
 ```json
 {
   "name": "floatprompt",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "The invisible OS for AI-persistent context that survives sessions and compounds over time",
   "author": { "name": "@mds" },
   "homepage": "https://github.com/mds/floatprompt"
@@ -119,27 +119,27 @@ ORDER BY created_at DESC LIMIT 3;
 
 ### `commands/float-capture.md`
 
-**Purpose:** Manual context capture mid-session. Use when you want to save significant work without ending.
+**Purpose:** The primary way to save session context. Run when you've done significant work.
 
 **Invocation:** `/float-capture` or `/floatprompt:float-capture`
 
-**When to Use:**
+**Two-Tier System:**
 
-| Automatic (hooks) | Manual (/float-capture) |
-|-------------------|-------------------------|
-| PreCompact — context filling up | Just completed significant work |
-| SessionEnd — leaving | Want to checkpoint mid-session |
-| You don't think about it | Intentional "save point" |
+| Trigger | What Runs | What You Get |
+|---------|-----------|--------------|
+| **Manual** (`/float-capture`) | Full pipeline | Facts + understanding + handoff.md |
+| Auto (PreCompact/SessionEnd) | Mechanical only | Facts only (files, folders, timestamp) |
 
-**Behavior:**
-1. Check for `.float/float.db` (skip if not initialized)
-2. Check for recent capture (skip if captured in last 5 min)
-3. Phase 1: Mechanical sqlite3 INSERT
-4. Phase 2: Parallel agents (float-log + float-decisions)
-5. Phase 3: float-enrich agent (folder context)
-6. Phase 4: float-handoff agent (writes handoff.md)
+> **"PreCompact saves facts. Manual capture saves understanding."**
 
-**Note:** Manual capture behaves like PreCompact — full AI enrichment while session is alive.
+**When to Run:**
+- Just finished a feature or significant fix
+- Made an important decision
+- Before ending a long session
+- Anytime context matters
+
+**Skips For:**
+- Research sessions (no file changes) — mechanical only, saves ~$0.34
 
 ---
 
@@ -198,6 +198,10 @@ Self-deduplicating: 5-minute window prevents duplicate entries.
 **Why Auto = Mechanical Only:**
 
 Compaction doesn't wait for agents to complete. Agents spawned during PreCompact get orphaned. Mechanical capture is instant and guaranteed.
+
+**Research Session Skip:**
+
+If no files changed (research/verification session), agents are skipped entirely even for manual capture. Saves ~$0.34 per capture by not spawning 5 agents to analyze an empty diff.
 
 **Agents Spawned (Manual only):**
 - `float-log` — Updates entry with title, decision, rationale
@@ -358,12 +362,12 @@ The key optimization is mtime caching (like git):
 
 **Purpose:** AI agents spawned by hooks during capture.
 
-| Agent | Purpose | Called By |
-|-------|---------|-----------|
-| `float-log.md` | Updates session handoff entry | Phase 2 (parallel) |
-| `float-decisions.md` | Creates folder decisions + open questions | Phase 2 (parallel) |
-| `float-enrich.md` | Updates folder description/context | Phase 3 |
-| `float-handoff.md` | Writes `.float/handoff.md` (AI-to-AI note) | Phase 4 |
+| Agent | Purpose | Phase |
+|-------|---------|-------|
+| `float-log.md` | Updates entry with title, decision, rationale | Phase 2 (parallel) |
+| `float-decisions.md` | Creates/resolves open questions | Phase 2 (parallel) |
+| `float-enrich.md` | Updates folder description/context | Phase 3 (parallel) |
+| `float-handoff.md` | Writes `.float/handoff.md` (AI-to-AI note) | Phase 3 (parallel) |
 
 **Reference:**
 - Subagents guide: [Subagents Reference](../../../artifacts/2026/01-jan/claude-code-plugins/subagents.md)
@@ -610,6 +614,7 @@ bash plugins/floatprompt/lib/scan.sh .
 
 | Date | Session | Changes |
 |------|---------|---------|
+| 2026-01-10 | 60 | **Research session skip** — Skip agents entirely when no files changed, saves ~$0.34/capture. README parity audit: fixed version (1.1.1), updated float-capture.md section, fixed agent stage numbers. |
 | 2026-01-10 | 60 | **Two-tier capture system** — PreCompact/SessionEnd now mechanical-only (facts), manual `/float-capture` runs full agent pipeline (understanding). Renamed `float-capture.sh` → `capture.sh`. Key message: "PreCompact saves facts. Manual capture saves understanding." |
 | 2026-01-10 | 58 | **Session continuity fix** — Two-stage agent execution (entry writers → entry readers), observability logging to `/tmp/float-agents-*.log`, removed Write tool from float-handoff (uses Bash heredoc), added open questions resolution to float-decisions |
 | 2026-01-10 | 56 | **Phase 6: Distribution** — Added marketplace.json, restructured plugin.json to .claude-plugin/ |
