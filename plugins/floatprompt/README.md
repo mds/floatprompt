@@ -10,7 +10,8 @@
 
 ```
 plugins/floatprompt/
-├── plugin.json               # Plugin manifest (name, version, entry points)
+├── .claude-plugin/
+│   └── plugin.json           # Plugin manifest (name, version, author)
 ├── agents/                   # AI agents spawned by hooks
 │   ├── float-log.md          # Session handoff entry (parallel)
 │   ├── float-decisions.md    # Folder decisions + questions (parallel)
@@ -53,10 +54,6 @@ plugins/floatprompt/
   "version": "1.0.0",
   "description": "The invisible OS for AI-persistent context that survives sessions and compounds over time",
   "author": { "name": "@mds" },
-  "commands": "./commands/",
-  "agents": "./agents/",
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json",
   "homepage": "https://github.com/mds/floatprompt"
 }
 ```
@@ -65,11 +62,11 @@ plugins/floatprompt/
 | Field | Type | Purpose |
 |-------|------|---------|
 | `name` | string | Plugin identifier, used for command namespacing (`/floatprompt:float`) |
-| `commands` | string | Path to commands directory (auto-discovers `.md` files) |
-| `agents` | string | Path to agents directory (spawned by hooks/code) |
-| `skills` | string | Path to skills directory (model-invocable capabilities) |
-| `hooks` | string | Path to hooks configuration file |
+| `version` | string | Semantic version |
+| `description` | string | Brief description shown in plugin listings |
 | `author` | object | Must be `{"name": "..."}`, not a plain string |
+
+**Auto-discovery:** Commands, agents, skills, and hooks are auto-discovered from standard directory names (`commands/`, `agents/`, `skills/`, `hooks/hooks.json`).
 
 **Reference:**
 - [Claude Code Plugin Structure](../../../artifacts/2026/01-jan/claude-code-plugins/plugins-reference.md)
@@ -546,14 +543,27 @@ files table (hashes)                   folders.context
 
 ## Quick Reference
 
-### Installation (Development)
+### Installation
 
 ```bash
-# Test plugin locally
-claude --plugin-dir ./plugins/floatprompt
+# Add the FloatPrompt marketplace
+/plugin marketplace add mds/floatprompt
 
+# Install the plugin
+/plugin install floatprompt@floatprompt-marketplace
+
+# Or test locally during development
+claude --plugin-dir ./plugins/floatprompt
+```
+
+### Validation
+
+```bash
 # Validate plugin
 claude plugin validate ./plugins/floatprompt
+
+# Validate marketplace
+claude plugin validate .
 ```
 
 ### Common Queries
@@ -588,6 +598,7 @@ bash plugins/floatprompt/lib/scan.sh .
 
 | Date | Session | Changes |
 |------|---------|---------|
+| 2026-01-10 | 56 | **Phase 6: Distribution** — Added marketplace.json, restructured plugin.json to .claude-plugin/ |
 | 2026-01-10 | 56 | Rewrote float-log agent: UPDATE-first approach ensures enrichment completes |
 | 2026-01-10 | 54 | Fixed claude CLI syntax in float-capture.sh (`-p` → positional arg + `--print`) |
 | 2026-01-10 | 53 | Added Rust merkle scanner (~230x faster than bash) |

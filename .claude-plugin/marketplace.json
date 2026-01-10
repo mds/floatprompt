@@ -1,0 +1,34 @@
+{
+  "name": "floatprompt-marketplace",
+  "owner": {
+    "name": "@mds"
+  },
+  "metadata": {
+    "description": "FloatPrompt: The invisible OS for AI. Persistent context that survives sessions and compounds over time.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "floatprompt",
+      "source": "./plugins/floatprompt",
+      "description": "Persistent context infrastructure for Claude Code. One command (/float) boots with full session history, decisions, and folder context. Automatic capture preserves your work.",
+      "version": "1.0.0",
+      "author": {
+        "name": "@mds"
+      },
+      "homepage": "https://github.com/mds/floatprompt",
+      "repository": "https://github.com/mds/floatprompt",
+      "license": "MIT",
+      "keywords": [
+        "context",
+        "memory",
+        "persistence",
+        "session",
+        "handoff",
+        "sqlite",
+        "workflow"
+      ],
+      "category": "productivity"
+    }
+  ]
+}

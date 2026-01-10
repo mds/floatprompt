@@ -5,9 +5,5 @@
   "author": {
     "name": "@mds"
   },
-  "commands": "./commands/",
-  "agents": "./agents/",
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json",
   "homepage": "https://github.com/mds/floatprompt"
 }
