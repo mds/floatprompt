@@ -100,6 +100,7 @@ INSERT INTO log_entries (
   title,
   decision,
   rationale,
+  trigger,
   files_read,
   files_changed,
   created_at
@@ -111,6 +112,7 @@ INSERT INTO log_entries (
   'Session end (awaiting enrichment)',
   'Session ended. Files modified: ${FILES_CHANGED_JSON//\'/\'\'}',
   'Pending AI enrichment.',
+  '${HOOK_EVENT:-manual}',
   '[]',
   '${FILES_CHANGED_JSON//\'/\'\'}',
   unixepoch()
@@ -175,7 +177,27 @@ if [ "$HOOK_EVENT" = "PreCompact" ]; then
   fi
 
   # ---------------------------------------------------------------------------
-  # PHASE 4: Workshop agents (only if .float-workshop/ exists)
+  # PHASE 4: Write handoff.md via float-handoff agent
+  # ---------------------------------------------------------------------------
+  if command -v claude &> /dev/null; then
+    # Read agent file, strip YAML frontmatter, inject context
+    AGENT_PROMPT=$(sed '/^---$/,/^---$/d' "$PLUGIN_ROOT/agents/float-handoff.md")
+
+    claude -p "$AGENT_PROMPT
+
+## Session Context (injected by hook)
+
+- TRANSCRIPT_PATH: $TRANSCRIPT_PATH
+- FLOAT_DB: $FLOAT_DB
+- PROJECT_DIR: $PROJECT_DIR
+- ENTRY_ID: $ENTRY_ID
+- FILES_CHANGED_JSON: $FILES_CHANGED_JSON
+- FOLDERS_EDITED: $FOLDERS_EDITED
+" --model haiku --allowedTools Bash,Read,Write --max-turns 5 2>/dev/null || true
+  fi
+
+  # ---------------------------------------------------------------------------
+  # PHASE 5: Workshop agents (only if .float-workshop/ exists)
   # ---------------------------------------------------------------------------
   if [ -d "$PROJECT_DIR/.float-workshop" ]; then
 

@@ -52,8 +52,10 @@ CREATE TABLE IF NOT EXISTS log_entries (
   after_state TEXT,
 
   -- Metadata
+  trigger TEXT,        -- Hook that created this entry: PreCompact, SessionEnd, manual
   files_read TEXT,     -- JSON array: files AI read for understanding
   files_changed TEXT,  -- JSON array: files AI modified
+  related_files TEXT,  -- JSON array: files conceptually relevant to this work
   future_agent TEXT,
 
   -- Relations
