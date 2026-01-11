@@ -12,58 +12,58 @@ Current focus items. **Limit: 3 items max.**
 
 | Item | Status | Summary |
 |------|--------|---------|
-| FloatPrompt Plugin | **Ready for Distribution** | 10/11 tests passed, permission handling locked |
+| Capture Pipeline Redesign | **Decision Pending** | 4 agents → 2, hook fate, graph vs log |
+| FloatPrompt Plugin | **Ready for Distribution** | Phase 6: marketplace.json, publish |
 | FloatPrompt for Web | **Ready** | NPM package needs testing, then publish |
 
-**Session 49 outcomes:**
-- **10/11 tests passing** — PreCompact test pending (added for future validation)
-- **Permission handling locked** — Documented approach in float.md
-- **float-context skill created** — For proactive context querying
-- **Ongoing behavior guidance** — Strengthened throughout float.md
+## Session 63 Context
 
-**Previous (Session 48):**
-- float.md consolidation — Merged templates into single Float.md
-- templates/ removed — Simplified plugin structure
+**Git-native v1.2.0 shipped.** All git-native planning docs moved to `done/`.
 
-**Active folder contains:**
-- `ACTIVE.md` — This index
-- `floatprompt-plugin.md` — THE authoritative spec
+**Spawning bug fixed (Session 62).** Capture now detects commits since last capture, not just uncommitted changes.
 
-**Session 54 Changes:**
-- `.float/float.db` — Database updates
-- `plugins/floatprompt/hooks/float-capture.sh` — Hook refinement
-- `scanner/Cargo.toml` — Rust scanner work (PRE-RUST checkpoint)
+**Active decisions needed:**
+1. Hook fate: Delete entirely or minimal breadcrumb?
+2. Agent count: 2 (log + handoff) or 3 (keep enrich)?
+3. Graph vs log: Keep flat logging or evolve to graph construction?
 
-**Session 55 Changes:**
-- `plugins/floatprompt/README.md` — Documentation updates
-- `.float/handoff.md` — Context updates
-- Workshop organization audit (active/later checks)
+## Active Files
+
+| File | Purpose |
+|------|---------|
+| `ACTIVE.md` | This index |
+| `2026-01-10-capture-pipeline-redesign.md` | 3 decision questions |
+| `CAPTURE-FIX-PLAN.md` | Graph construction proposal (Priority 0 done) |
+| `floatprompt-plugin.md` | Authoritative spec until Phase 6 ships |
+
+## Moved This Session
+
+**To done/:**
+- `2026-01-10-git-layer1-insight.md` — Insight acted on
+- `2026-01-10-git-native-architecture-plan.md` — All phases complete
+- `claude-git-conversion-progress.md` — Marked COMPLETE
+
+**To later/:**
+- `2026-01-10-agentic-backend-insight.md` — Future possibility
+
+**To ref/:**
+- `CONTEXT-GRAPH-improvements.md` — Strategic analysis
 
 ## Next Steps
 
-**FloatPrompt Plugin (11/11 tests passed — Ready for Distribution):**
+**Option A — Consolidate (Recommended):**
+1. Validate capture spawning fix works in organic session
+2. Create `marketplace.json` for plugin distribution
+3. Test and publish FloatPrompt for Web NPM package
+4. Decide on capture questions after validation
 
-- [x] All build tasks complete (10/10)
-- [x] SessionEnd hook firing — PASSED
-- [x] Session continuity — PASSED
-- [x] Rename locked — handoff -> capture
-- [x] First-run UX locked
-- [x] float.md consolidation (Session 48)
-- [x] templates/ removed (Session 48)
-- [x] PreCompact hook firing — PASSED (Session 49)
-- [x] Agent spawning fix — YAML frontmatter (Session 49)
-
-**Next: Phase 6 Distribution**
-- [ ] Create `marketplace.json` for plugin directory
-- [ ] Final documentation pass
-- [ ] Publish/distribute
-
-**FloatPrompt for Web:**
-- Test the NPM package
-- Publish to npm
+**Option B — Decide Capture Architecture:**
+1. Lock decisions on hook/agents/graph
+2. Implement chosen approach
+3. Then distribute
 
 ## Overflow Check
 
-✓ Active limit maintained (1 core item + ACTIVE.md index)
-- Planning documents moved to later/ (Session 51)
-- Rust scanner work in progress (Session 54)
+✓ Active limit maintained (3 focus items)
+✓ Git-native work archived to done/
+✓ Future work moved to later/

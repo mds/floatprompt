@@ -4,7 +4,18 @@
 
 All notable changes to the FloatPrompt plugin.
 
-## [1.2.0] - 2026-01-10
+## [0.0.19] - 2026-01-11
+
+### Session 63 — Capture Spawning Fix
+- **Fixed capture change detection** — Now detects commits since last capture, not just uncommitted changes
+- Previously: `git diff --name-only HEAD` missed all committed work
+- Now: Queries `last_capture_commit` from log_entries, diffs against that
+- Agents now spawn reliably even when work is fully committed and pushed
+- Workshop cleanup: moved completed git-native docs to done/
+
+**The bug:** After committing and pushing, `/float-capture` would detect no changes and skip agent enrichment. The fix compares against the last capture's git commit instead of just HEAD.
+
+## [0.0.18] - 2026-01-10
 
 ### Session 61 — Git-Native Layer 1
 - **BREAKING: Removed Rust scanner** — Git is now the source of truth for file tracking
@@ -20,7 +31,7 @@ All notable changes to the FloatPrompt plugin.
 
 **Rationale:** Git is always present in developer contexts. Building ON TOP of git (not parallel to it) removes redundancy and simplifies architecture. See `.float-workshop/active/2026-01-10-git-layer1-insight.md`.
 
-## [1.1.1] - 2026-01-10
+## [0.0.17] - 2026-01-10
 
 ### Session 60
 - **Research session skip** — Skip agents entirely when no files changed, saves ~$0.34/capture
@@ -35,7 +46,7 @@ All notable changes to the FloatPrompt plugin.
 - Removed Write tool from float-handoff (uses Bash heredoc)
 - Added open questions resolution to float-decisions
 
-## [1.1.0] - 2026-01-10
+## [0.0.16] - 2026-01-10
 
 ### Session 56
 - **Phase 6: Distribution** — Added marketplace.json, restructured plugin.json to .claude-plugin/
@@ -49,7 +60,7 @@ All notable changes to the FloatPrompt plugin.
 - Bundled scanner in lib/scanner/ with platform detection
 - Updated scan.sh to use Rust scanner with bash fallback
 
-## [1.0.0] - 2026-01-09
+## [0.0.15] - 2026-01-09
 
 ### Session 51
 - Added boot.sh for single-command boot queries (JSON output)
