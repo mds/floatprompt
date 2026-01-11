@@ -88,14 +88,31 @@ if [ -n "$RECENT_HANDOFF" ]; then
 fi
 
 # -----------------------------------------------------------------------------
-# Check for changes
+# Check for changes (committed + uncommitted since last capture)
 # -----------------------------------------------------------------------------
 cd "$PROJECT_DIR"
-# Include both staged and unstaged changes
-CHANGED_FILES=$(git diff --name-only HEAD 2>/dev/null || echo "")
+
+# Get last capture's git commit (to detect committed work since then)
+# This fixes the bug where "git diff HEAD" misses work that was committed
+LAST_CAPTURE_COMMIT=$(sqlite3 "$FLOAT_DB" "
+  SELECT git_commit FROM log_entries
+  WHERE topic = 'session-handoff' AND git_commit IS NOT NULL AND git_commit != ''
+  ORDER BY created_at DESC LIMIT 1;
+" 2>/dev/null || echo "")
+
+# Files changed since last capture (committed work)
+if [ -n "$LAST_CAPTURE_COMMIT" ]; then
+  COMMITTED_CHANGES=$(git diff --name-only "$LAST_CAPTURE_COMMIT"..HEAD 2>/dev/null || echo "")
+else
+  COMMITTED_CHANGES=""
+fi
+
+# Uncommitted changes (staged + unstaged)
+UNCOMMITTED_CHANGES=$(git diff --name-only HEAD 2>/dev/null || echo "")
 STAGED_FILES=$(git diff --cached --name-only 2>/dev/null || echo "")
-# Combine and dedupe
-CHANGED_FILES=$(echo -e "$CHANGED_FILES\n$STAGED_FILES" | sort -u | grep -v '^$' || echo "")
+
+# Combine all: committed + uncommitted + staged, dedupe
+CHANGED_FILES=$(echo -e "$COMMITTED_CHANGES\n$UNCOMMITTED_CHANGES\n$STAGED_FILES" | sort -u | grep -v '^$' || echo "")
 
 # Determine session type
 if [ -z "$CHANGED_FILES" ]; then
