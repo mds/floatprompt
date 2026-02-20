@@ -1,112 +1,106 @@
 # FloatPrompt
 
-> **The invisible AI operating system in a text file**
+> **The invisible OS for AI**
 
-**FloatPrompt** is a portable AI instruction protocol. Upload a single `.fp` file to any AI system and instantly upgrade its collaboration, context, and precision.
-
----
-
-## 🚀 Quick Start
-
-1. **Get the latest template:**
-   - Use the file in `dist/floatprompt@latest.fp` after building from source.
-   - Or ask a project maintainer for the latest `.fp` file.
-
-2. **Upload to any AI system and use:**
-   ```
-   Natural language: "Run floatprompt on [my content]"
-   CLI shortcuts:    float map content
-                     float extract --mode=voice  
-                     float build my-tool
-   ```
-
-3. **Get better, more precise AI collaboration.**
-
-4. **Organize your work** using the [workspace structure](./workspace/) with examples and best practices.
+FloatPrompt is a portable protocol for human-AI collaboration. It preserves your voice, your context, and your thinking — across any AI platform.
 
 ---
 
-## 🛠️ Build From Source
+## Quick Start
 
-```bash
-npm install
-npm run build
+1. **Upload a template** from `templates/` to any AI system
+2. **Say** `"run floatprompt on [my content]"` or use triggers like `float map`, `float extract`, `float build`
+3. **Get better AI collaboration** — your voice preserved, your context intact
+
+### Templates
+
+| File | Purpose |
+|------|---------|
+| [`floatprompt.md`](templates/floatprompt.md) | Core `<fp>` format — behavioral tool template |
+| [`float-doc.md`](templates/float-doc.md) | Lightweight context frontmatter for any document |
+| [`float-doc-robust.md`](templates/float-doc-robust.md) | Full-featured document frontmatter |
+| [`float-os.md`](templates/float-os.md) | Complete OS template (modes, methodology, voice) |
+
+---
+
+## Format
+
+FloatPrompt uses `<fp><json><md></fp>` — a dual-audience format:
+
+- **`<json>`** — structured metadata for AI behavioral context (STOP directive, human intent, AI role, requirements)
+- **`<md>`** — readable content for humans
+
+```
+<fp>
+<json>
+{
+  "STOP": "Mode directive — forces AI to pause and read",
+  "meta": { "title": "...", "id": "...", "format": "floatprompt" },
+  "human": { "author": "...", "intent": "...", "context": "..." },
+  "ai": { "role": "...", "behavior": "..." },
+  "requirements": { ... }
+}
+</json>
+<md>
+# Human-readable content here
+</md>
+</fp>
 ```
 
-**Build Features:**
-- **Shared Component Architecture**: `src/shared/` components used across multiple FloatPrompts
-- **YAML Injection System**: Eliminates duplication using shared components as single source of truth
-- **Template Variable Processing**: Dynamic values like `{{VERSION}}` and `{{BUILD_DATE}}`
-- **Synchronized Versioning**: Both core system and applications use same version metadata
-- **Automatic Archiving**: Previous versions stored in `dist/archive/`
-- **Compliance Validation**: Ensures 100% header.yaml (52 fields) and config.yaml (51 fields) specification compliance
-
-**Output**: `dist/floatprompt-@latest.fp` and `dist/voice-guide-creator.fp`
+Five universal fields: **STOP**, **meta**, **human**, **ai**, **requirements**. Everything else nests inside `requirements`.
 
 ---
 
-## 📦 What's in a FloatPrompt?
+## Documentation
 
-- `.fp` files = complete, executable FloatPrompt documents (for AI upload)
-  - Must include a `<floatprompt>...</floatprompt>` wrapper and YAML frontmatter
-  - Ready for direct AI upload and execution
-- `.md` files = building blocks, templates, and documentation (for editing and assembly)
+### Philosophy
+- **[Manifesto](docs/manifesto.md)** — Vision: "Start where you left off"
+- **[Goals](docs/goals.md)** — Three-tier hierarchy: voice preservation > AI precision > task completion
+- **[Principles](docs/principles.md)** — Core system principles
+- **[Voice](docs/voice.md)** — Voice preservation methodology
+- **[Safety](docs/safety.md)** — Safety systems and human authority
+- **[Value](docs/value.md)** — What FloatPrompt provides
 
-_For advanced details on the `.fp` file format, see `docs/fp.md`._
-
----
-
-## 📚 Documentation
-
-### Core Documentation
-- **[Goals](docs/goals.md)** - Primary objectives and decision hierarchy
-- **[Voice Guide](docs/voice.md)** - Surgical precision writing methodology
-- **[Manifesto](docs/manifesto.md)** - Vision and philosophy
-- **[Safety](docs/safety.md)** - Built-in safety systems and friction management
-
-### Technical Documentation
-- **[FloatPrompt Format](docs/fp.md)** - File format specification
-- **[Principles](docs/principles.md)** - Core system principles
-- **[Naming](docs/naming.md)** - Naming conventions
-- **[Discovery](docs/discovery.md)** - Research findings and cognitive efficiency analysis
-
-### Development Workflow
-- **[Workspace Usage](workspace/_USAGE.md)** - Workspace structure and usage guide
-- **[Build System](scripts/build.mjs)** - Modular build system with shared components
+### Method & Format
+- **[MDS Method](docs/mds-method.md)** — Map / Decide / Structure
+- **[FP Format](docs/fp.md)** — Format specification
+- **[Naming](docs/naming.md)** — Naming conventions
+- **[Orientation](docs/orientation.md)** — How to get started
+- **[Discovery](docs/discovery.md)** — Research and cognitive efficiency
+- **[Use](docs/use.md)** — Usage patterns
+- **[Context](docs/context.md)** — Context architecture
 
 ---
 
-## 🧠 How It Works
+## Modular System
 
-- **Upload the `.fp` file** to any AI system that supports file input.
-- **Give your instructions**—the AI will follow your intent, structure, and voice with zero drift.
-- **Build your own**: Edit the modular components in `src/sys/` and shared components in `src/shared/`, then run the build script.
+The `src/` directory contains the modular template system:
+
+```
+src/sys/           15 markdown modules (boot, modes, chaining, enforcement, etc.)
+src/sys/shared/    17 YAML behavioral components (voice-preservation, certification, etc.)
+src/lib/voice/     Voice guide components
+src/shared/        Shared footer
+scripts/build.mjs  Build system — assembles modules into complete templates
+```
+
+Build with `npm run build` to compile modules into a single output file.
 
 ---
 
-## ⚠️ Alpha Notice
+## Core Ideas
 
-FloatPrompt is in active development.  
-Features, file structure, and instructions may change frequently.
+- **Voice preservation** — "First, do not rewrite." Your phrasing, rhythm, tone stay intact.
+- **Archaeological extraction** — Structure what exists. Never generate what doesn't.
+- **Recognition before action** — AI reflects your intent back before acting.
+- **Cross-platform freedom** — Plain text files that work everywhere, outlast any platform.
+- **Human authority** — You keep complete control. AI executes, doesn't decide.
 
 ---
 
-## 📄 License
+## License
 
 [Creative Commons Attribution 4.0](LICENSE)
 
 ---
-
-## Key Features
-
-- **Zero-drift AI collaboration** through structured behavioral preservation
-- **Voice preservation** that maintains your exact thinking patterns
-- **Portable intelligence** that works across any AI platform
-- **Archaeological extraction** that preserves rather than paraphrases
-- **Complete voice foundation system** through enhanced voice-guide-creator with synthesis capabilities
-- **Modular voice architecture** enabling infinite specialized tool development
-- **Built-in safety system** through automatic friction classification and response selection
-- **Intuitive metaphor guidance** using building/hallway/small room spatial concepts for friction-appropriate responses
-
----
-© 2025 [MDS](https://mds.is) | CC BY 4.0
+(c) 2025 [MDS](https://mds.is) | CC BY 4.0
