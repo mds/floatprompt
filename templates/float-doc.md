@@ -81,7 +81,7 @@ ai_notes: 5 action items to extract
 | Component | Purpose | Format |
 |-----------|---------|--------|
 | **FloatPrompt System** | Project awareness | `.float/` folders |
-| **FloatPrompt** | Tools (modify behavior) | `<fp>` tags in `.md` |
+| **FloatPrompt** | Tools (modify behavior) | frontmatter behavioral config in `.md` |
 | **floatprompt doc** | Context (mutual understanding) | YAML frontmatter |
 
 **FloatPrompt** = "Do this"

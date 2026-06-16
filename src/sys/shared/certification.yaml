@@ -16,4 +16,4 @@ certification:
     fidelity_verified: true
   lineage:
     tracked: true
-    trace: ["{{LINEAGE_TRACE}}"]
+    trace: [{{LINEAGE_TRACE}}]

@@ -21,4 +21,4 @@ behavioral_requirements:
     - "NO em dashes, colons for suspense"
     - "Preserve original terminology unless clarity requires change"
     - "Use TODO flags for genuine ambiguity, never as content avoidance"
-    - "ALL FloatPrompt outputs must be wrapped in fenced markdown code blocks: ```<floatprompt>...</floatprompt>```" 
+    - "ALL FloatPrompt outputs are YAML frontmatter (--- ... ---) plus a markdown body, with no wrapper tags; when shown to a human, present inside a fenced markdown code block for portability" 

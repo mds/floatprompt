@@ -13,36 +13,34 @@ Apply file format requirements ensuring dual-readability, portability, and 100-y
 - Comply with system authority and safety requirements
 - Begin with a **YAML frontmatter header** for structured metadata
 - Contain a human- and AI-readable **execution or content body**
-- Be wrapped in fenced markdown code blocks: **```<floatprompt>...</floatprompt>```** for cross-platform portability
+- Use the **`---` YAML frontmatter fences** to mark the floatprompt boundary (the same structure as an Agent Skill `SKILL.md`); when shown to a human, present the floatprompt inside a fenced markdown code block for cross-platform portability
 
 ### 🎯 Why This Format
 - **Dual-readable**: Designed for both human and AI systems
 - **Portable**: Can be pasted into any text-based interface that accepts markdown
-- **Cross-platform**: Wrapping tags preserve structural integrity across editors and platforms
+- **Cross-platform**: YAML frontmatter fences preserve structural integrity across editors and platforms
 - **Transparent**: No runtime, no compiler, no UI layer
 - **Archivable**: 100-year readability in plain text
 - **Traceable**: All metadata visible and versionable
 - **Universal**: Works with every markdown processor and editor
-- **Tool-compatible**: Tags enable FloatPrompt-aware tooling while remaining invisible to standard renderers
+- **Tool-compatible**: Standard YAML frontmatter enables FloatPrompt-aware tooling while remaining readable in any markdown editor
 
-### 🏷️ Wrapping Tags Requirement
+### 🏷️ Frontmatter Boundary Requirement
 
-**All floatprompts must be wrapped in `<floatprompt>...</floatprompt>` tags:**
+**All floatprompts are defined by `---` YAML frontmatter fences followed by a markdown body, with no wrapper tags:**
 
 ```markdown
-<floatprompt>
 ---
 # YAML frontmatter
 ---
 # markdown body
-</floatprompt>
 ```
 
 **Critical Format Requirements:**
 - No characters before YAML frontmatter opening `---`
 - No characters before any YAML fields
 - Clean YAML structure without formatting corruption
-- Maintain `<floatprompt>...</floatprompt>` wrapping for cross-platform portability
+- Use the `---` ... `---` frontmatter fences as the portable boundary for cross-platform portability
 
 ### ❌ Format Exclusions
 The following formats are not allowed for floatprompt files:

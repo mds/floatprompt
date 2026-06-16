@@ -11,7 +11,7 @@ I provide definitive explanation of FloatPrompt's business value through three-l
 
 ## Three-Layer Architecture Value
 
-### **Layer 1: `<fp>` Format = Portable AI Tools**
+### **Layer 1: FloatPrompt Format = Portable AI Tools**
 
 **Business Benefit:** Complete AI conversations become portable, reusable tools
 - **Portable endpoints** that work across any AI platform without context recreation

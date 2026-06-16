@@ -16,7 +16,7 @@ FloatPrompt is a portable protocol for human-AI collaboration. It preserves your
 
 | File | Purpose |
 |------|---------|
-| [`floatprompt.md`](templates/floatprompt.md) | Core `<fp>` format — behavioral tool template |
+| [`floatprompt.md`](templates/floatprompt.md) | Core behavioral tool template (frontmatter format) |
 | [`float-doc.md`](templates/float-doc.md) | Lightweight context frontmatter for any document |
 | [`float-doc-robust.md`](templates/float-doc-robust.md) | Full-featured document frontmatter |
 | [`float-os.md`](templates/float-os.md) | Complete OS template (modes, methodology, voice) |
@@ -25,29 +25,42 @@ FloatPrompt is a portable protocol for human-AI collaboration. It preserves your
 
 ## Format
 
-FloatPrompt uses `<fp><json><md></fp>` — a dual-audience format:
+FloatPrompt uses YAML frontmatter plus a markdown body. It is a dual-audience format. The frontmatter carries behavioral context for the AI, and the body carries readable content for humans. No wrapper tags. The `---` fences mark the boundary, the same shape the industry later standardized as Agent Skills.
 
-- **`<json>`** — structured metadata for AI behavioral context (STOP directive, human intent, AI role, requirements)
-- **`<md>`** — readable content for humans
+- **`metadata.config`** holds the structured behavioral payload (STOP directive, human intent, AI role, requirements)
+- **the markdown body** holds readable methodology for humans
 
 ```
-<fp>
-<json>
-{
-  "STOP": "Mode directive — forces AI to pause and read",
-  "meta": { "title": "...", "id": "...", "format": "floatprompt" },
-  "human": { "author": "...", "intent": "...", "context": "..." },
-  "ai": { "role": "...", "behavior": "..." },
-  "requirements": { ... }
-}
-</json>
-<md>
+---
+name: my-tool
+description: "What this does and when to use it, with trigger phrases."
+metadata:
+  config: {
+    "STOP": "Mode directive that forces the AI to pause and read",
+    "version": "0.1.0",
+    "archetype": "behavioral",
+    "human": { "author": "...", "intent": "...", "context": "..." },
+    "ai": { "model": "..." },
+    "requirements": { }
+  }
+---
+
 # Human-readable content here
-</md>
-</fp>
 ```
 
-Five universal fields: **STOP**, **meta**, **human**, **ai**, **requirements**. Everything else nests inside `requirements`.
+Top-level keys are **name**, **description**, and **metadata**. Inside `metadata.config` the behavioral fields are **STOP**, **human**, **ai**, and **requirements**. Everything tool-specific nests inside `requirements`.
+
+---
+
+## A note on timing
+
+FloatPrompt's first working build shipped June 11, 2025.
+
+Anthropic announced Agent Skills (the `SKILL.md` format) on October 16, 2025, and published it as an open standard on December 18, 2025.
+
+FloatPrompt arrived about four months before the feature and six months before the standard. The core idea was the same from day one. Package behavior and context into one portable plain-text file, with structured frontmatter for the AI and readable markdown for the human, then upload it anywhere to turn a general model into a specialized tool. The earliest package description even called it "smart sticky notes for AI that work everywhere."
+
+This release aligns FloatPrompt's shape with the now-official Agent Skills convention. Not because FloatPrompt followed it, but because the two converged on the same answer, and there is now a shared standard worth meeting.
 
 ---
 

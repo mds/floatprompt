@@ -5,7 +5,7 @@ output:
   format: "floatprompt"
   joint_execution_required: true
 execution:
-  triggers: ["{{EXECUTION_TRIGGERS}}"]
+  triggers: [{{EXECUTION_TRIGGERS}}]
   fallback: "{{EXECUTION_FALLBACK}}"
   source: "{{EXECUTION_SOURCE}}"
   voice_guide: "{{VOICE_GUIDE}}"

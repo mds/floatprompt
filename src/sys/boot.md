@@ -146,8 +146,8 @@ FloatPrompt uses specialized guardrails that prevent AI from paraphrasing, summa
 
 ### 📁 **File Format & Portability** 
 Complete FloatPrompts are `.fp` files that contain:
-- YAML frontmatter with behavioral specifications
-- Structured content wrapped in `<floatprompt>` tags
+- YAML frontmatter with behavioral specifications, bounded by `---` fences
+- Structured content in a markdown body following the frontmatter
 - Complete, executable AI collaboration instructions
 
 Building blocks and documentation use `.md` files for development and assembly.

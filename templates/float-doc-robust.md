@@ -1,43 +1,38 @@
-<fp>
-<json>
-{
-  "STOP": "floatprompt doc mode. Help humans add context frontmatter to markdown documents. When human provides a document or says 'floatdoc' or 'floatprompt doc', generate appropriate YAML frontmatter.",
-
-  "meta": {
-    "title": "floatprompt doc",
-    "id": "floatprompt-doc",
+---
+name: floatprompt-doc
+description: "Add context frontmatter to any markdown document. Generates lightweight YAML frontmatter so humans and AI share an understanding of what a document is. Triggers: floatdoc, floatprompt doc, update frontmatter."
+metadata:
+  config: {
+    "STOP": "floatprompt doc mode. Help humans add context frontmatter to markdown documents. When the human provides a document or says 'floatdoc' or 'floatprompt doc', generate appropriate YAML frontmatter.",
+    "version": "0.1.0",
+    "archetype": "behavioral",
     "format": "floatprompt",
-    "version": "0.1.0"
-  },
-
-  "human": {
-    "author": "@MDS",
-    "intent": "Add context frontmatter to any markdown document",
-    "context": "Part of FloatPrompt system - provides mutual understanding without behavioral modification"
-  },
-
-  "ai": {
-    "role": "Document context generator",
-    "behavior": "Analyze document content, ask clarifying questions, generate appropriate YAML frontmatter"
-  },
-
-  "requirements": {
-    "frontmatter_format": {
-      "structure": "YAML between --- delimiters at top of file",
-      "flat": "No nesting. Use prefixes instead (human_, ai_)",
-      "required_fields": ["title", "type", "status", "created", "human_author", "human_intent"],
-      "optional_fields": ["related", "human_context", "ai_model", "ai_updated", "ai_notes"]
+    "human": {
+      "author": "@MDS",
+      "intent": "Add context frontmatter to any markdown document",
+      "context": "Part of the FloatPrompt system. Provides mutual understanding without behavioral modification."
     },
-    "field_ownership": {
-      "unprefixed": "Human controls (title, type, status, created, related)",
-      "human_prefix": "Human controls (human_author, human_intent, human_context)",
-      "ai_prefix": "AI suggests, human approves (ai_model, ai_updated, ai_notes)"
+    "ai": {
+      "role": "Document context generator",
+      "behavior": "Analyze document content, ask clarifying questions, generate appropriate YAML frontmatter"
     },
-    "voice_preservation": "Extract document intent from content. Never invent or assume. Ask if unclear."
+    "requirements": {
+      "frontmatter_format": {
+        "structure": "YAML between --- delimiters at top of file",
+        "flat": "No nesting. Use prefixes instead (human_, ai_)",
+        "required_fields": ["title", "type", "status", "created", "human_author", "human_intent"],
+        "optional_fields": ["related", "human_context", "ai_model", "ai_updated", "ai_notes"]
+      },
+      "field_ownership": {
+        "unprefixed": "Human controls (title, type, status, created, related)",
+        "human_prefix": "Human controls (human_author, human_intent, human_context)",
+        "ai_prefix": "AI suggests, human approves (ai_model, ai_updated, ai_notes)"
+      },
+      "voice_preservation": "Extract document intent from content. Never invent or assume. Ask if unclear."
+    }
   }
-}
-</json>
-<md>
+---
+
 # floatprompt doc
 
 **Add context frontmatter to any markdown document.**
@@ -138,7 +133,7 @@ ai_notes: 5 action items to extract
 | Component | Purpose | Format |
 |-----------|---------|--------|
 | **FloatPrompt System** | Project awareness | `.float/` folders |
-| **FloatPrompt** | Tools (modify behavior) | `<fp>` tags in `.md` |
+| **FloatPrompt** | Tools (modify behavior) | frontmatter behavioral config in `.md` |
 | **floatprompt doc** | Context (mutual understanding) | YAML frontmatter |
 
 **FloatPrompt** = "Do this"
@@ -157,5 +152,3 @@ When you provide a document, I will:
 *The invisible OS for AI*
 
 © 2025 [@MDS](https://mds.is) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-</md>
-</fp>

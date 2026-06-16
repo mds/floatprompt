@@ -3,8 +3,6 @@
 # Source: atomic component extracted from header.yaml
 
 STOP: "{{STOP_DIRECTIVE}}"
-title: "{{TITLE}}"
-id: "{{ID}}"
 version: "{{VERSION}}"
 created: "{{BUILD_DATE}}"
 modified: "{{BUILD_DATE}}"
@@ -12,4 +10,4 @@ author: "{{AUTHOR}}"
 format: "floatprompt"
 type: "{{TYPE}}"
 system_version: "floatprompt v{{VERSION}}"
-contributors: ["{{CONTRIBUTORS}}"] 
+contributors: [{{CONTRIBUTORS}}]

@@ -6,14 +6,13 @@
 **Use this file's organizational pattern as your template for creating new FloatPrompts:**
 
 ### Required Components
-- **YAML Frontmatter**: Complete behavioral specifications and metadata
-- **FloatPrompt Wrapper**: `<floatprompt>content</floatprompt>` tags for portability
+- **YAML Frontmatter**: Complete behavioral specifications and metadata, bounded by `---` fences
+- **Markdown Body**: Human- and AI-readable content following the closing frontmatter fence
 - **System Authority**: Clear operational principles and hierarchy
 - **Validation Criteria**: Implementation verification requirements
 
 ### Template Assembly Pattern
 ```
-<floatprompt>
 ---
 [Complete YAML frontmatter with behavioral specs]
 ---
@@ -24,8 +23,6 @@
 
 ## Validation Criteria
 [Implementation verification]
-
-</floatprompt>
 ```
 
 ### Content Organization

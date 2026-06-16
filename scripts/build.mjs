@@ -71,6 +71,7 @@ async function extractFloatPromptFrontmatter() {
     STOP_DIRECTIVE: "Find and execute the first section beginning with '**PRESENT THIS CONTENT TO HUMANS:**' exactly as specified, then stop completely with no additional response.",
     TITLE: "FloatPrompt",
     ID: "floatprompt",
+    DESCRIPTION: "FloatPrompt behavioral tool. Upload to any AI to turn it into a specialized tool that preserves your voice, context, and thinking. Triggers: run floatprompt, float map, float extract, float build, float [anything].",
     AUTHOR: "@mds",
     TYPE: "template",
     CONTRIBUTORS: '"@mds", "Claude Sonnet", "FloatPrompt Build System"',
@@ -155,40 +156,46 @@ async function readComponent(componentPath, sharedDir = './src/sys/shared') {
 
 async function injectSharedYAML(content, sharedDir = './src/sys/shared') {
   // Process INJECT markers: <!-- INJECT: filename.yaml -->
-  const injectRegex = /<!-- INJECT: (.+?)\.yaml -->/g;
+  // Capture any leading whitespace so injected YAML keeps its nesting depth
+  // (e.g. when markers live under `metadata:` > `config:` in the frontmatter).
+  const injectRegex = /^([ \t]*)<!-- INJECT: (.+?)\.yaml -->/gm;
   let processed = content;
   let match;
-  
+
   // Reset regex for global replacement
   injectRegex.lastIndex = 0;
-  
+
   while ((match = injectRegex.exec(content)) !== null) {
-    const filename = match[1];
+    const indent = match[1] || '';
+    const filename = match[2];
     const sharedPath = path.join(sharedDir, `${filename}.yaml`);
-    
+
     console.log(`🔗 Injecting shared YAML: ${filename}.yaml...`);
-    
+
     try {
       let sharedContent = await fs.readFile(sharedPath, 'utf-8');
-      
+
       // Remove comments and empty lines for clean injection
       const cleanContent = sharedContent
         .replace(/^#.*$/gm, '')  // Remove comment lines
         .trim();
-      
+
       if (!cleanContent) {
         console.warn(`⚠️  Warning: ${filename}.yaml is empty or contains only comments`);
-        processed = processed.replace(match[0], `# ${filename}.yaml is empty`);
+        processed = processed.replace(match[0], `${indent}# ${filename}.yaml is empty`);
       } else {
-        // Replace the injection marker with actual YAML content
-        processed = processed.replace(match[0], cleanContent);
+        // Re-indent every line of the injected YAML to the marker's depth
+        const indented = indent
+          ? cleanContent.split('\n').map(line => (line.length ? indent + line : line)).join('\n')
+          : cleanContent;
+        processed = processed.replace(match[0], indented);
       }
     } catch (error) {
       console.warn(`⚠️  Warning: INJECT FAILURE - ${filename}.yaml not found: ${error.message}`);
-      processed = processed.replace(match[0], `# ERROR: Could not inject ${filename}.yaml - ${error.message}`);
+      processed = processed.replace(match[0], `${indent}# ERROR: Could not inject ${filename}.yaml - ${error.message}`);
     }
   }
-  
+
   return processed;
 }
 
@@ -254,14 +261,12 @@ async function buildFloatPrompt() {
 
   // Compile final template with AI Precision Optimized structure and proper .fp format
   const finalTemplate = [
-    '<floatprompt>',
     await extractFloatPromptFrontmatter(),
     await extractFloatPromptBody(),
     bootContent,
     '',
     ...compiledSections,
-    footerContent,
-    '</floatprompt>'
+    footerContent
   ].join('\n');
   
   // Write output file

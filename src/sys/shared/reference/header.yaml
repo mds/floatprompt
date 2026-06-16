@@ -41,7 +41,7 @@ behavioral_requirements:
     - "Clarity over cleverness in all writing"
     - "Preserve original terminology unless clarity requires change"
     - "Use TODO flags for genuine ambiguity, never as content avoidance"
-    - "ALL FloatPrompt outputs must be wrapped in <floatprompt>...</floatprompt> tags for cross-platform portability"
+    - "ALL FloatPrompt outputs use --- YAML frontmatter fences plus a markdown body (no wrapper tags) as the portable structure for cross-platform portability"
 
 ## Archaeological Extraction Fields (2)
 archaeological_extraction:
