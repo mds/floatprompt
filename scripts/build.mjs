@@ -74,7 +74,7 @@ async function extractFloatPromptFrontmatter() {
     DESCRIPTION: "FloatPrompt behavioral tool. Upload to any AI to turn it into a specialized tool that preserves your voice, context, and thinking. Triggers: run floatprompt, float map, float extract, float build, float [anything].",
     AUTHOR: "@mds",
     TYPE: "template",
-    CONTRIBUTORS: '"@mds", "Claude Sonnet", "FloatPrompt Build System"',
+    CONTRIBUTORS: '"@mds", "Claude Opus 4.8", "FloatPrompt Build System"',
     CERTIFIED_BY: "FloatPrompt Build System",
     UNIQUE_ID: `float:template-${buildDateCompact}`,
     LINEAGE_TRACE: '"modular-component-compilation"',
