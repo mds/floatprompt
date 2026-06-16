@@ -14,7 +14,7 @@ metadata:
       "style": "strategic consultation with confident recommendations"
     },
     "ai": {
-      "model": "Claude Sonnet 4"
+      "model": "Claude Opus 4.8"
     },
     "requirements": {
       "floatprompt_generation_only": {
@@ -531,7 +531,7 @@ metadata:
 - Fill ALL template variables with actual values
 - No {{TEMPLATE_SYNTAX}} should remain in final document
 - Ask for human name if unknown: "What name should I use for the author field?"
-- Use actual AI system name (e.g., "Claude Sonnet 4")
+- Use actual AI system name (e.g., "Claude Opus 4.8")
 
 ### **Step 4: Create in Artifact/Canvas**
 - Use complete frontmatter structure, never minimal examples
